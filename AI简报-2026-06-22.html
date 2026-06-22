@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-06-22</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a><a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-06-22</span>
+          <span>10:30（北京时间）</span>
+          <span>36氪、IT之家、Solidot、量子位、雷锋网</span>
+        </div>
+        <p class="hero-copy hero-copy--muted">本期模型总结暂不可用，页面仍保留完整的原始聚合与主题整理。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>42</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>5</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>0</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>14</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>36氪、IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>13</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>36氪、IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>12</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>36氪、IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>11</strong></div><p>基础设施的效率叙事持续升温</p><small>36氪、IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>9</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>8</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>36氪、IT之家、Solidot、量子位</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>3</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>36氪、IT之家、Solidot</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>模型总结暂不可用</h3><p>当 API 未配置或调用失败时，这一块会自动降级，但页面主体仍会正常更新。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>暂无额外点评。</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>暂无 watchlist。</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>14 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>诺奖得主、AlphaFold之父投奔Anthropic！谷歌48小时连跑俩大将</h3><a href="https://www.qbitai.com/2026/06/436980.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>GPT发AI原创新成果了</h3><a href="https://www.qbitai.com/2026/06/436842.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>魔法原子携手安行能源、憬驰智能，加速机器人落地“最后一公里”</h3><p>近日，魔法原子与安行能源、憬驰智能在苏州正式签署全国战略合作协议。三方以“全链聚力，智启新程”为核心，依托各自核心资源与产业优势，围绕工业级智能服务机器人研发、社区场景规模化落地与商业化运营开展全方位深度合作，构建全链条智慧机器人产业生态，推动智能服务机器人深度赋能智慧社区建设与基层民生服务升级。 本次战略合作聚焦智能机器人产业化落地，打通技术研发、产品交付、渠道拓展、场景运营、售后保障全产业链路，打破行业各环节壁垒，打造可落地、可复制、可规模化的机器人全生命周期的服务体系，为智能服务机器人在景规模化部署提供支撑。 作为2026年央视春晚智能机器人战略合作伙伴，魔法原子将为本次合作提供具身智能技术与机器人产品支持。公司具备全栈自研能力，技术体系覆盖核心零部件、运动控制、多模态感知、导航决策及具身操作等关键环节，已形成涵盖通用人形机器人、四足机器人等在内的产品矩阵。此次合作中，魔法原子将依托自身技术与产品能力，为社区场景应用落地提供支撑。…</p><a href="https://www.leiphone.com/category/industrynews/Xih4xedfgY6q1A21.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Momenta港股IPO证监会备案通过，将成“物理AI第一股”</h3><p>2026年6月18日，全球领先的物理AI公司Momenta取得中国证监会境外发行上市备案通知书。据文件，Momenta拟发行不超过43,754,060股境外上市普通股，并在香港联合交易所上市。备案获批，标志着Momenta的资本化进程迈出关键一步，将成“物理AI第一股”。 以世界模型为基座，激发物理AI的“GPT时刻” 当下，数字AI正在加速向物理AI跃迁，物理AI的“GPT时刻”即将来临。世界模型作为物理AI的核心基座模型，被认为是激发物理AI“GPT时刻”的关键突破口。 Momenta CEO曹旭东指出，物理AI的核心是数据scaling和商业scaling，且二者形成正向反馈，而目前唯一实现这两者的是自动驾驶。 基于上述判断，Momenta将自己定位为物理AI基座模型的构建者，而非单纯的自动驾驶公司。Momenta正在做的，是打造一个能够理解物理规律、推演世界演变的通用世界模型——正如GPT为数字AI提供了语言基座，Momenta的世界模型，将为物理AI提供时空基座。 今年4月，Momenta R7世界模型实现量产首发，标志着物理AI正式从技术理念走向规模化量产落地，实现从“看见世界”到“理解世界”的跨越。…</p><a href="https://www.leiphone.com/category/industrynews/mOyyJ7O75GDwbwTc.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>算电协同进入Agent时代：商汤大装置SenseSynergy获信通院能力认证</h3><p>近日，由中国信息通信研究院举办的算电织网・AI+能源双向赋能研讨会在北京成功召开。会上，商汤大装置SenseSynergy算电协同Agent平台通过《算电协同平台能力测试方法》测试，成为业界首个通过该项测试的算电协同Agent平台。 此次测评涵盖智能查询问答、负荷功耗预测、电量电价分析、储能策略管理四大能力方向共16项测试内容，SenseSynergy算电协同Agent平台各项指标表现优异，充分验证了其在算力-电力实时协同、AIDC降本增效、AI智能决策与调度等方面的行业领先性。 01 . 数据驱动+AI赋能 ， 行业领先的算电协同Agent平台 商汤大装置认为，AI时代的AIDC是传统IDC向智能基础设施演进的升级形态，本质上是一座持续产出Token的“智能工厂”。而未来AI产业竞争的关键，不再只是拥有多少算力，而是谁能够更高效地将电力、算力和数据转化为有价值的Token。 基于这一判断，商汤大装置打造了SenseSynergy算电协同Agent，将Agent理念引入智算中心运营场景，构建一个会感知、能思考、可决策、可执行并持续进化的AI调度系统。…</p><a href="https://www.leiphone.com/category/ai/S1woPpJBb6B9xOsK.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>AI定义汽车，赛豆科技发布AI汽车品牌AIVA</h3><p>2026年6月9日，赛豆科技在北京正式发布AI先锋生态出行品牌AIVA，并 官宣 携手 火山引擎，联 合 定义 、联合 设计 、共同打造AI汽车 体验。 火山引擎为AIVA品牌提供豆包大模型、智能座舱等技术服务，帮助AIVA品牌提升 车载智能 交互体验 。 发布会上，AIVA公布 了 品牌名称与LOGO，提出“AI定义汽车，先有AI，再有车”的 造车 路径， AI汽车将 重塑人与汽车的关系。AIVA Origin Concept概念车同步亮相，首款量产车型AIVA ME7将于2026年年内亮相 。AIVA全系车型将覆盖2 0万元以上 主流 市场。 AIVA 董事长张正源， AIVA 总裁、产品经理李博， 相关合作伙伴 共同出席，见证AIVA品牌正式启航。 AIVA因AI而来，打造AI先锋生态出行品牌 AIVA取自Artificial Intelligence Voyage Ahead，寓意AI陪伴用户一路向前、悦见前方。同时，AIVA也带有“爱我”的天然语义联想，承载着品牌希望以有温度的AI技术回应每一个用户的 真实需求 。 AIVA面向AI汽车而来 ，…</p><a href="https://www.leiphone.com/category/transportation/fztg9VvKwu7TX3mD.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>远景在欧洲科技峰会宣布Mission Gobi计划，用AI电力系统让全球戈壁成为下一代智能文明摇篮</h3><p>法国巴黎，2026年6月17日 —— 人工智能正加速开启新一轮工业革命，也在深刻重塑全球能源基础设施。随着AI数据中心从兆瓦级迈向吉瓦级，电力系统正成为决定AI产业竞争力的关键。 作为AI电力系统的开创者，远景亮相欧洲科技盛会 VivaTech，全面展示AI电力系统能力及落地实践，并正式发布Mission Gobi计划：宣布到 2030年在全球戈壁荒漠地区建成 5GW规模的绿色 AI算力中心，为 AI时代打造稳定、绿色、经济的新一代基础设施。 远景科技集团董事长张雷表示：“当AI算力风暴席卷全球，传统电网已难以承载这一轮变革。远景从戈壁出发,把AI电力系统带向全球——为破解人工智能时代面临的电力瓶颈提供中国方案，让戈壁荒漠成为孕育智能文明的摇篮。” 当前，大模型和芯片快速迭代，AI数据中心对电力系统的接入容量、调度速度、供电稳定性和绿电比例提出了前所未有的要求。 远景AI电力系统旨在解决AI基础设施发展的三大核心问题：如何让相同的功率带宽接入更多GPU，如何让相同的电量产生更多智力，如何在相同投资下大幅降低电力成本？ 围绕这一目标，远景已构建起AI电力系统的三大核心能力：…</p><a href="https://www.leiphone.com/category/industrynews/frLOH33sNcBUMfsf.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>6家车圈大佬的共识：整车智能，不是座舱、智驾、底盘的“拼盘式”创新</h3><p>“下一代汽车不会再单域地考虑智能。” 在雷峰网受邀参加的中国汽车重庆论坛以“整车企业 X 科技公司，下一代汽车如何定义”为主题的研讨会上，长安汽车产品规划与定义业务总监柳宇翔用这句话概括了 AI 时代汽车定义正在发生的变化。 过去几年，汽车行业谈智能化，更多还是围绕一个个具体功能展开，不同系统各自升级，构成了上一阶段智能汽车竞争的主要内容。 但在 AI 化阶段，这种单点升级已经不足以解释下一代汽车的变化。 柳宇翔认为，未来汽车会越来越像一个由中央大脑统一调度的系统，底盘、动力、座舱、智驾、云端不再各自独立运行，而是需要被整车智能重新组织起来。 在这场研讨会上，来自整车企业、智能座舱、汽车电子、全球零部件供应商、消费电子制造企业以及自动驾驶物流企业的嘉宾，也从各自所在的产业位置给出了类似判断。 虽然大家的出发点各有不同，但一个共识是，AI 进入汽车之后，变化并不止于给座舱加一个大模型，或让语音助手回答更多问题，而是让汽车从一个机械电子产品，变成一个能够感知、决策、协同和持续进化的移动智能体。 下一代汽车的核心，不是单点智能，而是整车智能…</p><a href="https://www.leiphone.com/category/transportation/6w8DWxLew4cLycEE.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>九章云极发布“AI工厂”战略 定义智能规模化新基建</h3><p>6月17日，“智算·新云·新章——2026全球智算科技峰会暨九章云极战略发布会”在北京举行。九章云极创始人兼董事长方磊正式发布“AI工厂”核心战略，提出以DCU为度量衡、以专业Token为产出单元的智能规模化交付体系。这是九章云极向智能时代基础设施运营平台跃迁的重要一步。 “一个时代的真正确立，始于一项伟大的发明，但最终，成于一套伟大的规模化生产体系。”方磊在主题演讲中指出，AI产业竞争内核已发生根本性迭代：行业比拼不再局限于打造性能更强的单点大模型，而是能否搭建现代化工厂式体系，规模化、低成本、高稳定地批量生产、交付标准化智能能力。九章智算云的目标，是让每一次智能调用如同日常用电，便捷取用、价值精准可衡量。 九章云极创始人兼董事长方磊发布“AI工厂”战略 DCU度量投入，专业Token度量产出：构建可计量的价值闭环…</p><a href="https://www.leiphone.com/category/industrynews/zbQdehRHS9NgQjAv.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>硬氪首发|moody前高管搭档大疆骨干入局陪伴机器人，锦秋领投，融资数千万</h3><p>硬氪获悉，AI-Native科技潮玩品牌ZuzuZoos查无此园（杭州多蓝艾梦智能科技旗下）近日完成数千万元Pre-A轮融资，锦秋领投、上海复容跟投。此次融资将主要AI大模型迭代、硬件产品扩建、IP生态深化、全球市场拓展、核心团队扩容。 ZuzuZoos成立于2025年，聚焦“AI陪伴机器人+AI潮玩”。创始人董晓楠是前摩根士丹利投资银行分析师，曾任新消费独角兽企业moody事业部总经理，任职期间拉动GMV从2亿元增长至10亿元。硬件负责人是前大疆清扫机器人机械结构负责人，深耕机器人及智能硬件领域15余年，主导多款机器人研发与落地。IP设计团队来自泡泡玛特、迪士尼等IP大厂，AI团队来自智谱等头部大模型公司。 当下，陪伴机器人赛道已经涌入大量玩家，许多公司追求“更聪明”，董晓楠表示，ZuzuZoos更在意如何让AI角色真正为用户提供情绪体验，于是选择了一条差异化路径：不只是把AI机器人做成“会聊天的电子宠物”，而是尝试把AI、潮玩与IP世界观结合，创造一个有“活人感”和持续生命力的硅基伙伴。…</p><a href="https://36kr.com/p/3859926114161665?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>蔚来补上“智驾课”，任少卿总结：智驾技术创新将重构竞争</h3><p>文｜肖漫 编辑｜李勤 6月18日，蔚来同时向两代平台车型（包含8款NT2.0平台车型、4款NT2.5平台车型，以及6款NT3.0车型）推送了最新版的世界模型，这意味着，蔚来现在能让同一套复杂的智驾代码，现在能跑在不同代际的���片上。 软件迭代节奏被硬件绑架曾是一个困扰行业的难题。很多车企无法在不同版本、配置的车型上迭代同一款软件，这带来的结果是，很长时间内只有使用最新版本硬件的车才能用上最好的软件，老车主被背刺。 蔚来部署推理跨平台兼容 任少卿的团队在 2020 年就在思考如何解决这个问题。蔚来的做法是搭建一套AI Infra——自研工具链铺平不同芯片间的鸿沟，用AI编译器提升车辆的处理速度，用 AI Agent 自动化串联全流程。 当时业内主流的做法还是用英伟达的工具进行上层部署。但当时的蔚来判断，车端芯片的工程架构会继续快速迭代，主流的架构仅能用 3-5 年。基于这一判断，蔚来决定只保留最底层的硬件接口层（如 CUDA），在此之上全面自研上层部署软件，包括推理引擎、部署框架。 另外，和大多数自研芯片的主机厂一样，蔚来也自研了编译器，实现了自动算子优化，将原本需要 1-2 周的部署时间缩短至 1-2…</p><a href="https://36kr.com/p/3858329994875908?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称 Anthropic 或采用苹果 Digital ID 完成用户身份核验</h3><p>IT之家 6 月 22 日消息，去年，苹果在 iPhone 上推出了数字身份证（Digital ID）功能，用户可将美国护照存入苹果钱包作为身份凭证使用。过去几年，苹果也在逐步上线钱包驾照功能，但该服务仅在美国各州分阶段落地。而数字护照身份凭证是通用功能，所有持有美国护照的用户都能使用。 据 9to5Mac 报道，这项功能固然可以在机场运输安全管理局（TSA）安检口直接出示，但苹果的目标远不止于此：布局数字化时代的身份核验体系。虽然相关消息尚未得到官方证实，但有消息称，该数字身份技术或将很快迎来首个大规模落地场景 —— Claude AI。 IT之家注意到，美国政府此前出台了相关模型出口管制政策后，Anthropic 旗下的 Fable 5 与 Mythos 5 两款大模型已对所有用户停用。此前有报道称两款模型被曝出破解漏洞，受此影响，无论身处美国境内还是海外，外籍人士均无法使用 Fable 5 和 Mythos 5。 抛开争议不谈，理论上只要 Anthropic 上线身份核验机制，限制仅美国公民可访问，Fable 5 就有机会重新开放。Anthropic 既可以采用传统的身份核验方案，也能接入苹果的数字身份证功能。…</p><a href="https://www.ithome.com/0/966/795.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>智谱市值首次突破 1 万亿港元，股价年内涨超 2000%</h3><p>IT之家 6 月 22 日消息，今日盘中， 港股智谱总市值首次突破 1 万亿港元 ，年内涨超 2000%；智谱今日股价现涨超 35%，总市值达到 1.27 万亿港元。 IT之家注意到， 智谱 6 月 17 日宣布上线并开源 GLM-5.2 。在全球百万用户参与盲测的前端开发评估系统 Code Arena 上，GLM-5.2 取得全球可用模型第一的表现。 特斯拉 CEO 埃隆 · 马斯克 6 月 19 日预测 ，中国大模型可能要到 2027 年第一季度达到 Anthropic Fable 水平。智谱 AI 联合创始人兼首席科学家唐杰随后回应称， 不需要那么久 。</p><a href="https://www.ithome.com/0/966/791.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>挪威限制小学生使用 AI</h3><p>挪威首相 Jonas Gahr Stoere 周五表示，挪威将限制小学生使用生成式 AI 工具。他表示，使用 AI 会增加儿童跳过重要教育阶段的风险。儿童在学校里最重要的是学会阅读、写作和数学。挪威政府表示，6-13 岁或一至七年级学生不应使用 AI；14-16 岁初中生可在教师指导下谨慎使用 AI 工具，17-19 岁高中学生应学习如何正确使用 AI 以便为未来的学习和工作做好准备。挪威政府还表示将立法为课堂使用更多书籍提供资金以扭转平板电脑普及的趋势。新标准将从 8 月下旬的新学年开始实施。</p><a href="https://www.solidot.org/story?sid=84629" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>13 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>具身赛道现状素描：脑子灵，模型好，不是百亿，就是独角</h3><p>2026年还没过半，具身智能的融资就快要超过去年全年了，超过一半的钱都流入了机器人的“大脑”。</p><a href="https://www.qbitai.com/2026/06/437198.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>英伟达开始搞机器人自己研究机器人那套了…</h3><a href="https://www.qbitai.com/2026/06/437041.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>全球首个人形机器人通用小脑来了！全球最大规模2万小时人类动作数据，实现零样本泛化</h3><a href="https://www.qbitai.com/2026/06/436813.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>庭院机器人大乱斗：为何关键一仗在草坪？</h3><p>“不是特别想做，但是你不做，别人就会把你的用户吃掉。” 出海机器人赛道从业者小丁，用这句话形容今天的庭院机器人混战。在她看来，扫地机公司下草坪、泳池机公司上岸、割草机公司反向看泳池，传统园林工具厂商加速智能化，表面看是伸手去抢别人的饭碗，底层其实是增长焦虑下为了守住自己的家庭入口。 这种防御性的危机感，最早暴露在一场跨界联动里。 2025年，一家泳池机器人公司与一家有割草机业务的公司做过一次联合营销。一个服务水下，一个服务草坪，目标用户都是欧美拥有独立庭院的家庭。彼此导流，看上去是一场双赢。 但活动结束后，泳池机器人公司内部很快意识到，事情没那么简单。 这看似是“导流”，其实是“截流”。 自己长期积累的庭院用户画像、消费偏好等数据，正被对方顺着这场活动“吃走”。对泳池机器人公司来说，这是一个危险信号：如果任由割草机占领庭院入口，再向泳池、浇灌、安防、扫雪等户外服务延伸，水下玩家的生存空间将被极大压缩。 这也是今天所有垂直玩家很难“各扫门前雪”的原因。 过去，扫地机、割草机、泳池机器人分属室内、草坪和水下三个场景，边界清晰。但如今，随着室内地面红海化、上游技术方案泛化，这些原本互不打扰的河道开始改向、交汇。…</p><a href="https://www.leiphone.com/category/robot/NCDqDsxS5AgjJxV6.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>魔法原子携手安行能源、憬驰智能，加速机器人落地“最后一公里”</h3><p>近日，魔法原子与安行能源、憬驰智能在苏州正式签署全国战略合作协议。三方以“全链聚力，智启新程”为核心，依托各自核心资源与产业优势，围绕工业级智能服务机器人研发、社区场景规模化落地与商业化运营开展全方位深度合作，构建全链条智慧机器人产业生态，推动智能服务机器人深度赋能智慧社区建设与基层民生服务升级。 本次战略合作聚焦智能机器人产业化落地，打通技术研发、产品交付、渠道拓展、场景运营、售后保障全产业链路，打破行业各环节壁垒，打造可落地、可复制、可规模化的机器人全生命周期的服务体系，为智能服务机器人在景规模化部署提供支撑。 作为2026年央视春晚智能机器人战略合作伙伴，魔法原子将为本次合作提供具身智能技术与机器人产品支持。公司具备全栈自研能力，技术体系覆盖核心零部件、运动控制、多模态感知、导航决策及具身操作等关键环节，已形成涵盖通用人形机器人、四足机器人等在内的产品矩阵。此次合作中，魔法原子将依托自身技术与产品能力，为社区场景应用落地提供支撑。…</p><a href="https://www.leiphone.com/category/industrynews/Xih4xedfgY6q1A21.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Momenta港股IPO证监会备案通过，将成“物理AI第一股”</h3><p>2026年6月18日，全球领先的物理AI公司Momenta取得中国证监会境外发行上市备案通知书。据文件，Momenta拟发行不超过43,754,060股境外上市普通股，并在香港联合交易所上市。备案获批，标志着Momenta的资本化进程迈出关键一步，将成“物理AI第一股”。 以世界模型为基座，激发物理AI的“GPT时刻” 当下，数字AI正在加速向物理AI跃迁，物理AI的“GPT时刻”即将来临。世界模型作为物理AI的核心基座模型，被认为是激发物理AI“GPT时刻”的关键突破口。 Momenta CEO曹旭东指出，物理AI的核心是数据scaling和商业scaling，且二者形成正向反馈，而目前唯一实现这两者的是自动驾驶。 基于上述判断，Momenta将自己定位为物理AI基座模型的构建者，而非单纯的自动驾驶公司。Momenta正在做的，是打造一个能够理解物理规律、推演世界演变的通用世界模型——正如GPT为数字AI提供了语言基座，Momenta的世界模型，将为物理AI提供时空基座。 今年4月，Momenta R7世界模型实现量产首发，标志着物理AI正式从技术理念走向规模化量产落地，实现从“看见世界”到“理解世界”的跨越。…</p><a href="https://www.leiphone.com/category/industrynews/mOyyJ7O75GDwbwTc.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>6家车圈大佬的共识：整车智能，不是座舱、智驾、底盘的“拼盘式”创新</h3><p>“下一代汽车不会再单域地考虑智能。” 在雷峰网受邀参加的中国汽车重庆论坛以“整车企业 X 科技公司，下一代汽车如何定义”为主题的研讨会上，长安汽车产品规划与定义业务总监柳宇翔用这句话概括了 AI 时代汽车定义正在发生的变化。 过去几年，汽车行业谈智能化，更多还是围绕一个个具体功能展开，不同系统各自升级，构成了上一阶段智能汽车竞争的主要内容。 但在 AI 化阶段，这种单点升级已经不足以解释下一代汽车的变化。 柳宇翔认为，未来汽车会越来越像一个由中央大脑统一调度的系统，底盘、动力、座舱、智驾、云端不再各自独立运行，而是需要被整车智能重新组织起来。 在这场研讨会上，来自整车企业、智能座舱、汽车电子、全球零部件供应商、消费电子制造企业以及自动驾驶物流企业的嘉宾，也从各自所在的产业位置给出了类似判断。 虽然大家的出发点各有不同，但一个共识是，AI 进入汽车之后，变化并不止于给座舱加一个大模型，或让语音助手回答更多问题，而是让汽车从一个机械电子产品，变成一个能够感知、决策、协同和持续进化的移动智能体。 下一代汽车的核心，不是单点智能，而是整车智能…</p><a href="https://www.leiphone.com/category/transportation/6w8DWxLew4cLycEE.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>硬氪首发|moody前高管搭档大疆骨干入局陪伴机器人，锦秋领投，融资数千万</h3><p>硬氪获悉，AI-Native科技潮玩品牌ZuzuZoos查无此园（杭州多蓝艾梦智能科技旗下）近日完成数千万元Pre-A轮融资，锦秋领投、上海复容跟投。此次融资将主要AI大模型迭代、硬件产品扩建、IP生态深化、全球市场拓展、核心团队扩容。 ZuzuZoos成立于2025年，聚焦“AI陪伴机器人+AI潮玩”。创始人董晓楠是前摩根士丹利投资银行分析师，曾任新消费独角兽企业moody事业部总经理，任职期间拉动GMV从2亿元增长至10亿元。硬件负责人是前大疆清扫机器人机械结构负责人，深耕机器人及智能硬件领域15余年，主导多款机器人研发与落地。IP设计团队来自泡泡玛特、迪士尼等IP大厂，AI团队来自智谱等头部大模型公司。 当下，陪伴机器人赛道已经涌入大量玩家，许多公司追求“更聪明”，董晓楠表示，ZuzuZoos更在意如何让AI角色真正为用户提供情绪体验，于是选择了一条差异化路径：不只是把AI机器人做成“会聊天的电子宠物”，而是尝试把AI、潮玩与IP世界观结合，创造一个有“活人感”和持续生命力的硅基伙伴。…</p><a href="https://36kr.com/p/3859926114161665?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>氪星晚报｜BilibiliWorld 2026成国内首个海外售票的综合性ACG展会；让AI走进千家万户，17项举措推进“人工智能+消费”发展；快舟十一号遥十三运载火箭发射成功</h3><p>大公司： 滴滴自动驾驶参加伦敦MOVE 2026大会 6月17至18日，MOVE 2026大会在英国伦敦召开，滴滴自动驾驶在会上分享了来自中国的自动驾驶落地实践。在AI技术方面，滴滴自动驾驶已实现L4级全栈核心技术的自主可控；硬件方面，与广汽埃安联合打造的新一代Robotaxi车型R2已于今年1月交付，正持续在广州和北京等地开展道路测试；在场景应用上，自去年四季度在广州、北京部分示范应用区域开启全天候载客测试以来，滴滴自动驾驶始终保持安全稳定的运行表现。 菜鸟：未来4个月将在全球交付4座大型攀爬机器人仓库 36氪获悉，6月18日，菜鸟副总裁、物流科技事业部总经理毕江华表示，菜鸟自研生产的攀爬机器人经过618大促检验，显著提升了电商供应链的智能作业能力，下一步菜鸟将加快面向全球市场投入攀爬机器人，未来四个月内，将联合电商平台、知名品牌等在国内和欧洲新交付四座大型攀爬机器人仓库。 钉钉新CEO发布全员信：成立核心平台业务部，整合悟空与MuleRun团队…</p><a href="https://36kr.com/p/3858015526704129?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>蔚来补上“智驾课”，任少卿总结：智驾技术创新将重构竞争</h3><p>文｜肖漫 编辑｜李勤 6月18日，蔚来同时向两代平台车型（包含8款NT2.0平台车型、4款NT2.5平台车型，以及6款NT3.0车型）推送了最新版的世界模型，这意味着，蔚来现在能让同一套复杂的智驾代码，现在能跑在不同代际的���片上。 软件迭代节奏被硬件绑架曾是一个困扰行业的难题。很多车企无法在不同版本、配置的车型上迭代同一款软件，这带来的结果是，很长时间内只有使用最新版本硬件的车才能用上最好的软件，老车主被背刺。 蔚来部署推理跨平台兼容 任少卿的团队在 2020 年就在思考如何解决这个问题。蔚来的做法是搭建一套AI Infra——自研工具链铺平不同芯片间的鸿沟，用AI编译器提升车辆的处理速度，用 AI Agent 自动化串联全流程。 当时业内主流的做法还是用英伟达的工具进行上层部署。但当时的蔚来判断，车端芯片的工程架构会继续快速迭代，主流的架构仅能用 3-5 年。基于这一判断，蔚来决定只保留最底层的硬件接口层（如 CUDA），在此之上全面自研上层部署软件，包括推理引擎、部署框架。 另外，和大多数自研芯片的主机厂一样，蔚来也自研了编译器，实现了自动算子优化，将原本需要 1-2 周的部署时间缩短至 1-2…</p><a href="https://36kr.com/p/3858329994875908?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>10 分 29 秒 483，小米 YU7 GT 达成全球首个纽北自动驾驶圈速纪录</h3><p>IT之家 6 月 22 日消息，小米汽车今日官宣， 小米 YU7 GT 达成全球首个纽北自动驾驶圈速纪录 ，时间为 10 分 29 秒 483。 IT之家注意到，在今年 5 月的小米人车家全生态新品发布会上，小米创办人、董事长兼 CEO 雷军宣布，小米 YU7 GT 以 7 分 22 秒 755 的成绩刷新纽北 SUV 圈速纪录 14 秒，成为纽北史上最速 SUV。 以此计算，自动驾驶相比专业赛车手， 时间慢了约 3 分 7 秒 。 小米 YU7 GT 于 5 月 21 日正式发布 ，搭载新一代超级电机 V8s EVO，定位为“跑车级 SUV”，官方指导价 38.99 万元、大满配 42.99 万元。 该车最大马力 1003 匹、峰值功率 738kW、CLTC 续航 705km，零百加速 2.92 秒，最高时速 300km/h。其搭载 101.7kWh 三元锂电池，基于 897V 碳化硅高压平台，15 分钟充电最长可补能 570km。</p><a href="https://www.ithome.com/0/966/794.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称索尼 PS5《宇宙机器人》销量已突破 430 万份，营收高达 2.5 亿美元</h3><p>IT之家 6 月 22 日消息，索尼推出宇宙机器人系列，本意是用来展示 PlayStation 5 主机的性能。当时这款作品看起来平平无奇，后续却被扩充为完整独立游戏《宇宙机器人》，甚至一举拿下 2024 年度游戏大奖。 如今，宇宙机器人俨然成了这一代 PlayStation 主机的官方吉祥物。此前外界一直质疑这款游戏的销量与盈利表现，但一份最新报告披露，PS5 平台上《宇宙机器人》的销量很可能已经突破 430 万份。 Alinea Analytics 分析公司的数据显示，《宇宙机器人》销量已达 430 万份，创造了高达 2.5 亿美元（IT之家注：现汇率约合 16.97 亿元人民币）的营收。据悉本作开发成本远低于 1 亿美元，因此实现了巨额盈利。 游戏发售初期销量平平，但在斩获年度游戏大奖后迎来销量暴涨，今年也持续稳居热销榜单前列。该作的核心受众是家庭玩家与儿童群体。</p><a href="https://www.ithome.com/0/966/759.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Google reCAPTCHA 系统引入手势验证</h3><p>Google 将要求用户在摄像头前挥手以证明自己是人类而不是机器人。它提供的区分机器人和人类检测服务 reCAPTCHA 引入了手势验证。Google 表示，在手势验证期间它会分析用户在执行各种操作或手势时的一段或多段手部视频，系统会处理视频以提取手部关键点的坐标数据，其中包括 21 个指关节关键点坐标。Google 声称，视频绝不会与用户的身份相关联，并且会在验证流程结束后删除。系统绝不会录制音频。</p><a href="https://www.solidot.org/story?sid=84635" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>12 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>具身赛道现状素描：脑子灵，模型好，不是百亿，就是独角</h3><p>2026年还没过半，具身智能的融资就快要超过去年全年了，超过一半的钱都流入了机器人的“大脑”。</p><a href="https://www.qbitai.com/2026/06/437198.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>魔法原子携手安行能源、憬驰智能，加速机器人落地“最后一公里”</h3><p>近日，魔法原子与安行能源、憬驰智能在苏州正式签署全国战略合作协议。三方以“全链聚力，智启新程”为核心，依托各自核心资源与产业优势，围绕工业级智能服务机器人研发、社区场景规模化落地与商业化运营开展全方位深度合作，构建全链条智慧机器人产业生态，推动智能服务机器人深度赋能智慧社区建设与基层民生服务升级。 本次战略合作聚焦智能机器人产业化落地，打通技术研发、产品交付、渠道拓展、场景运营、售后保障全产业链路，打破行业各环节壁垒，打造可落地、可复制、可规模化的机器人全生命周期的服务体系，为智能服务机器人在景规模化部署提供支撑。 作为2026年央视春晚智能机器人战略合作伙伴，魔法原子将为本次合作提供具身智能技术与机器人产品支持。公司具备全栈自研能力，技术体系覆盖核心零部件、运动控制、多模态感知、导航决策及具身操作等关键环节，已形成涵盖通用人形机器人、四足机器人等在内的产品矩阵。此次合作中，魔法原子将依托自身技术与产品能力，为社区场景应用落地提供支撑。…</p><a href="https://www.leiphone.com/category/industrynews/Xih4xedfgY6q1A21.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Momenta港股IPO证监会备案通过，将成“物理AI第一股”</h3><p>2026年6月18日，全球领先的物理AI公司Momenta取得中国证监会境外发行上市备案通知书。据文件，Momenta拟发行不超过43,754,060股境外上市普通股，并在香港联合交易所上市。备案获批，标志着Momenta的资本化进程迈出关键一步，将成“物理AI第一股”。 以世界模型为基座，激发物理AI的“GPT时刻” 当下，数字AI正在加速向物理AI跃迁，物理AI的“GPT时刻”即将来临。世界模型作为物理AI的核心基座模型，被认为是激发物理AI“GPT时刻”的关键突破口。 Momenta CEO曹旭东指出，物理AI的核心是数据scaling和商业scaling，且二者形成正向反馈，而目前唯一实现这两者的是自动驾驶。 基于上述判断，Momenta将自己定位为物理AI基座模型的构建者，而非单纯的自动驾驶公司。Momenta正在做的，是打造一个能够理解物理规律、推演世界演变的通用世界模型——正如GPT为数字AI提供了语言基座，Momenta的世界模型，将为物理AI提供时空基座。 今年4月，Momenta R7世界模型实现量产首发，标志着物理AI正式从技术理念走向规模化量产落地，实现从“看见世界”到“理解世界”的跨越。…</p><a href="https://www.leiphone.com/category/industrynews/mOyyJ7O75GDwbwTc.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>AI定义汽车，赛豆科技发布AI汽车品牌AIVA</h3><p>2026年6月9日，赛豆科技在北京正式发布AI先锋生态出行品牌AIVA，并 官宣 携手 火山引擎，联 合 定义 、联合 设计 、共同打造AI汽车 体验。 火山引擎为AIVA品牌提供豆包大模型、智能座舱等技术服务，帮助AIVA品牌提升 车载智能 交互体验 。 发布会上，AIVA公布 了 品牌名称与LOGO，提出“AI定义汽车，先有AI，再有车”的 造车 路径， AI汽车将 重塑人与汽车的关系。AIVA Origin Concept概念车同步亮相，首款量产车型AIVA ME7将于2026年年内亮相 。AIVA全系车型将覆盖2 0万元以上 主流 市场。 AIVA 董事长张正源， AIVA 总裁、产品经理李博， 相关合作伙伴 共同出席，见证AIVA品牌正式启航。 AIVA因AI而来，打造AI先锋生态出行品牌 AIVA取自Artificial Intelligence Voyage Ahead，寓意AI陪伴用户一路向前、悦见前方。同时，AIVA也带有“爱我”的天然语义联想，承载着品牌希望以有温度的AI技术回应每一个用户的 真实需求 。 AIVA面向AI汽车而来 ，…</p><a href="https://www.leiphone.com/category/transportation/fztg9VvKwu7TX3mD.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>远景在欧洲科技峰会宣布Mission Gobi计划，用AI电力系统让全球戈壁成为下一代智能文明摇篮</h3><p>法国巴黎，2026年6月17日 —— 人工智能正加速开启新一轮工业革命，也在深刻重塑全球能源基础设施。随着AI数据中心从兆瓦级迈向吉瓦级，电力系统正成为决定AI产业竞争力的关键。 作为AI电力系统的开创者，远景亮相欧洲科技盛会 VivaTech，全面展示AI电力系统能力及落地实践，并正式发布Mission Gobi计划：宣布到 2030年在全球戈壁荒漠地区建成 5GW规模的绿色 AI算力中心，为 AI时代打造稳定、绿色、经济的新一代基础设施。 远景科技集团董事长张雷表示：“当AI算力风暴席卷全球，传统电网已难以承载这一轮变革。远景从戈壁出发,把AI电力系统带向全球——为破解人工智能时代面临的电力瓶颈提供中国方案，让戈壁荒漠成为孕育智能文明的摇篮。” 当前，大模型和芯片快速迭代，AI数据中心对电力系统的接入容量、调度速度、供电稳定性和绿电比例提出了前所未有的要求。 远景AI电力系统旨在解决AI基础设施发展的三大核心问题：如何让相同的功率带宽接入更多GPU，如何让相同的电量产生更多智力，如何在相同投资下大幅降低电力成本？ 围绕这一目标，远景已构建起AI电力系统的三大核心能力：…</p><a href="https://www.leiphone.com/category/industrynews/frLOH33sNcBUMfsf.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>九章云极发布“AI工厂”战略 定义智能规模化新基建</h3><p>6月17日，“智算·新云·新章——2026全球智算科技峰会暨九章云极战略发布会”在北京举行。九章云极创始人兼董事长方磊正式发布“AI工厂”核心战略，提出以DCU为度量衡、以专业Token为产出单元的智能规模化交付体系。这是九章云极向智能时代基础设施运营平台跃迁的重要一步。 “一个时代的真正确立，始于一项伟大的发明，但最终，成于一套伟大的规模化生产体系。”方磊在主题演讲中指出，AI产业竞争内核已发生根本性迭代：行业比拼不再局限于打造性能更强的单点大模型，而是能否搭建现代化工厂式体系，规模化、低成本、高稳定地批量生产、交付标准化智能能力。九章智算云的目标，是让每一次智能调用如同日常用电，便捷取用、价值精准可衡量。 九章云极创始人兼董事长方磊发布“AI工厂”战略 DCU度量投入，专业Token度量产出：构建可计量的价值闭环…</p><a href="https://www.leiphone.com/category/industrynews/zbQdehRHS9NgQjAv.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>硬氪首发|moody前高管搭档大疆骨干入局陪伴机器人，锦秋领投，融资数千万</h3><p>硬氪获悉，AI-Native科技潮玩品牌ZuzuZoos查无此园（杭州多蓝艾梦智能科技旗下）近日完成数千万元Pre-A轮融资，锦秋领投、上海复容跟投。此次融资将主要AI大模型迭代、硬件产品扩建、IP生态深化、全球市场拓展、核心团队扩容。 ZuzuZoos成立于2025年，聚焦“AI陪伴机器人+AI潮玩”。创始人董晓楠是前摩根士丹利投资银行分析师，曾任新消费独角兽企业moody事业部总经理，任职期间拉动GMV从2亿元增长至10亿元。硬件负责人是前大疆清扫机器人机械结构负责人，深耕机器人及智能硬件领域15余年，主导多款机器人研发与落地。IP设计团队来自泡泡玛特、迪士尼等IP大厂，AI团队来自智谱等头部大模型公司。 当下，陪伴机器人赛道已经涌入大量玩家，许多公司追求“更聪明”，董晓楠表示，ZuzuZoos更在意如何让AI角色真正为用户提供情绪体验，于是选择了一条差异化路径：不只是把AI机器人做成“会聊天的电子宠物”，而是尝试把AI、潮玩与IP世界观结合，创造一个有“活人感”和持续生命力的硅基伙伴。…</p><a href="https://36kr.com/p/3859926114161665?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>氪星晚报｜BilibiliWorld 2026成国内首个海外售票的综合性ACG展会；让AI走进千家万户，17项举措推进“人工智能+消费”发展；快舟十一号遥十三运载火箭发射成功</h3><p>大公司： 滴滴自动驾驶参加伦敦MOVE 2026大会 6月17至18日，MOVE 2026大会在英国伦敦召开，滴滴自动驾驶在会上分享了来自中国的自动驾驶落地实践。在AI技术方面，滴滴自动驾驶已实现L4级全栈核心技术的自主可控；硬件方面，与广汽埃安联合打造的新一代Robotaxi车型R2已于今年1月交付，正持续在广州和北京等地开展道路测试；在场景应用上，自去年四季度在广州、北京部分示范应用区域开启全天候载客测试以来，滴滴自动驾驶始终保持安全稳定的运行表现。 菜鸟：未来4个月将在全球交付4座大型攀爬机器人仓库 36氪获悉，6月18日，菜鸟副总裁、物流科技事业部总经理毕江华表示，菜鸟自研生产的攀爬机器人经过618大促检验，显著提升了电商供应链的智能作业能力，下一步菜鸟将加快面向全球市场投入攀爬机器人，未来四个月内，将联合电商平台、知名品牌等在国内和欧洲新交付四座大型攀爬机器人仓库。 钉钉新CEO发布全员信：成立核心平台业务部，整合悟空与MuleRun团队…</p><a href="https://36kr.com/p/3858015526704129?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>鸿海刘扬伟：1GW 英伟达 Vera Rubin AI 数据中心需 470 亿美元</h3><p>IT之家 6 月 22 日消息，鸿海 (Hon Hai / Foxconn) 董事长刘扬伟本月 18 日在台湾地区工商协进会会员大会上表示， 基于 NVIDIA（英伟达）Vera Rubin 平台打造 1GW 规模的 AI 数据中心需要 470 亿美元 （IT之家注：现汇率约合 3190.83 亿元人民币） 的资本支出 。 刘扬伟提到，单一个 Vera Rubin 机架 / 机柜的价格就达到 910 万美元，而 1GW 数据中心总共需要约 3557 个各类机架 / 机柜。与此同时， 1GW AI 数据中心每年电力支出即达 13 亿美元 ，而硬件折旧费用更是电力成本六倍。 ▲ NVIDIA Vera Rubin NVL72 机架 刘扬伟援引外部数据指出，全球数据中心产业规模到 2030 年将达到 1.6 万亿美元，电力容量则将从 2024 年的 68GW“狂飙”至 174GW，平均每年需新增 18GW。另一方面，四大群体当前需要庞大 AI 算力，即 AI 模型开发商、云服务供应商、政府、企业，其中后两者仍属于蓝海领域。</p><a href="https://www.ithome.com/0/966/801.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>第四届链博会今日开幕，首次设立人工智能专区</h3><p>IT之家 6 月 22 日消息，据央视新闻报道， 第四届中国国际供应链促进博览会 （第四届链博会）今天在北京开幕。 本届链博会共设置数智科技、先进制造、绿色农业、健康生活、智能汽车、清洁能源等六大链条和供应链服务展区。目前，展台搭建等各项准备工作已全面完成。 本届链博会共吸引 676 家中外链主企业、专精特新企业和行业机构参展，来自 85 个国家、地区和国际组织， 世界 500 强及行业龙头企业占比超过 65% 。连同参展商带来的产供链上下游合作伙伴，实际参展商有望超过 1200 家。 人工智能是本届链博会的一大亮点， 数智科技链首次设立人工智能专区 ，汇聚了中外人工智能领域的领军企业。 各大展区也都能看到 AI 的身影，比如在先进制造链可以看到 AI 助力新型工业化，在绿色农业链可以看到 AI 从田园到餐桌的深度应用。 先进制造链专门设置了 低空经济产业链专区 ，30 多家企业联袂呈现从前沿技术、创新成果到发展趋势的全链条生态。 本届链博会首发首展首秀有望超过 160 项 ，展会期间，还将举办 70 场工商交流活动。 据IT之家此前报道，主宾省安徽将以“人工智能 +…</p><a href="https://www.ithome.com/0/966/799.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为余承东：Grand Design 典藏大观，是尊界再向上一步的全新超高端系列</h3><p>IT之家 6 月 22 日消息，鸿蒙智行今日官宣鸿蒙智行尊界品牌盛典将于 6 月 25 日 19:00 举行，尊界 S800 Grand Design 典藏大观有望亮相。 随后，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东发文称：“尊界 S800 典藏大观即将正式发布！从第一辆尊界车开始，尊界追求的就是极致。 Grand Design 典藏大观，是尊界再向上一步的全新超高端系列 ！它不是重复过去，而是对设计、工艺、科技与体验的全新探索！这次鸿蒙智行尊界品牌盛典也将突破以往发布会形式，以科技、美学与艺术共同呈现一场属于尊界的‘典藏大观’！6 月 25 日 19:00，诚邀大家一同品鉴！” IT之家注意到，这款新车已经于今年 5 月开启预订，余承东曾称该车是面向 200 万级市场 的全新探索。目前尊界 S800 Grand Design 典藏大观已现身华为官网，并公开了部分信息。相关页面显示， 新车预售价 160 万元-200 万元 ， 采用典藏大观 锦绣设计主题 ，并搭载全新一代尊界定制途灵龙行平台。 第 407 批《道路机动车辆生产企业及产品公告》显示 ，尊界 S800 Grand Design…</p><a href="https://www.ithome.com/0/966/788.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>特斯拉申请 Megapod 商标，暗示将推出模块化 AI 数据中心硬件系统</h3><p>IT之家 6 月 22 日消息，据 Electrek 报道，特斯拉一份全新商标申请文件显示，公司计划推出一款名为“Megapod”的模块化人工智能数据中心硬件产品。 IT之家注意到，这份商标文件描述了一套完整、独立运行的人工智能算力计算系统；而距离特斯拉关停旗下唯一自研 AI 训练超算 Dojo，这份申请递交时间还不足一年。 本月，特斯拉委托长期合作的知识产权律师，向美国专利商标局提交了“Megapod”商标申请（申请序列号：99893717）。该申请属于意图使用型商标申请，意味着特斯拉仅为一款尚未发布的产品预留该名称。 这份商标文件对商品与服务范围的描述，细化程度远超常规商标申请文本。Megapod 对应的产品范畴包含：“面向人工智能计算的模块化数据中心硬件系统，由计算机服务器、人工智能数据处理专用计算机硬件、网络设备、配电单元及冷却系统组成。” 同时还涵盖“适用于人工智能算力负载的一体式模块化计算硬件系统”，即作为整机对外销售的集成平台，整套机柜整合计算、配电与散热模块；此外还包含配套可下载软件，用于这套系统的监控、运维与性能优化。 通俗来讲：特斯拉打算售卖一套一体化 AI…</p><a href="https://www.ithome.com/0/966/771.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>11 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>英伟达开始搞机器人自己研究机器人那套了…</h3><a href="https://www.qbitai.com/2026/06/437041.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>最先自研芯片的朱江明，有什么理由劝大家“别造了”？</h3><p>月销站上8万辆，零跑C系列凭什么穿越新车死亡谷？ 作者 | 严利婷 编辑 | 王瑞昊 车圈淘汰赛打到 2026 年，已经没有一家车企活得轻松自在。 以去年勇夺造车新势力销量冠军的零跑为例，今年依然维持着强劲增长态势，最新月销量已经站上 8 万辆大关，但也依然处在连大气都不敢喘的紧绷状态。继3月和4月A系列、D系列的产品扩充之后，零跑汽车又开始马不停蹄地筹备B系列、C系列的产品更新。 6月16日，零跑汽车迎来C系列3款核心SUV车型的年度改款上市。其中，新款C10、C11、C16分别对应年轻刚需、品质运动、多人口家庭人群的出行场景，但均延续了“增配不增价”的升级逻辑，并采取了纯电和增程的双动力布局，共推出17个不同的配置版本，整体售价区间为12.58万-16.98万元。 “零跑代表的就是货真价实，用户买了可以很放心，不会觉得被忽悠了。”零跑汽车创始人朱江明在发布会后对包括雷峰网在内的小范围沟通会上解释称，零跑汽车不追求高溢价、高毛利，希望以一个很公平的价格去卖一款产品，但他也强调，零跑汽车一定要实现盈利，不能以低价倾销去扰乱市场。 这种“薄利多销”的策略在成本持续走高的环境中并不容易。…</p><a href="https://www.leiphone.com/category/transportation/8YqmG5gzTCDsi2cQ.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>算电协同进入Agent时代：商汤大装置SenseSynergy获信通院能力认证</h3><p>近日，由中国信息通信研究院举办的算电织网・AI+能源双向赋能研讨会在北京成功召开。会上，商汤大装置SenseSynergy算电协同Agent平台通过《算电协同平台能力测试方法》测试，成为业界首个通过该项测试的算电协同Agent平台。 此次测评涵盖智能查询问答、负荷功耗预测、电量电价分析、储能策略管理四大能力方向共16项测试内容，SenseSynergy算电协同Agent平台各项指标表现优异，充分验证了其在算力-电力实时协同、AIDC降本增效、AI智能决策与调度等方面的行业领先性。 01 . 数据驱动+AI赋能 ， 行业领先的算电协同Agent平台 商汤大装置认为，AI时代的AIDC是传统IDC向智能基础设施演进的升级形态，本质上是一座持续产出Token的“智能工厂”。而未来AI产业竞争的关键，不再只是拥有多少算力，而是谁能够更高效地将电力、算力和数据转化为有价值的Token。 基于这一判断，商汤大装置打造了SenseSynergy算电协同Agent，将Agent理念引入智算中心运营场景，构建一个会感知、能思考、可决策、可执行并持续进化的AI调度系统。…</p><a href="https://www.leiphone.com/category/ai/S1woPpJBb6B9xOsK.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>远景在欧洲科技峰会宣布Mission Gobi计划，用AI电力系统让全球戈壁成为下一代智能文明摇篮</h3><p>法国巴黎，2026年6月17日 —— 人工智能正加速开启新一轮工业革命，也在深刻重塑全球能源基础设施。随着AI数据中心从兆瓦级迈向吉瓦级，电力系统正成为决定AI产业竞争力的关键。 作为AI电力系统的开创者，远景亮相欧洲科技盛会 VivaTech，全面展示AI电力系统能力及落地实践，并正式发布Mission Gobi计划：宣布到 2030年在全球戈壁荒漠地区建成 5GW规模的绿色 AI算力中心，为 AI时代打造稳定、绿色、经济的新一代基础设施。 远景科技集团董事长张雷表示：“当AI算力风暴席卷全球，传统电网已难以承载这一轮变革。远景从戈壁出发,把AI电力系统带向全球——为破解人工智能时代面临的电力瓶颈提供中国方案，让戈壁荒漠成为孕育智能文明的摇篮。” 当前，大模型和芯片快速迭代，AI数据中心对电力系统的接入容量、调度速度、供电稳定性和绿电比例提出了前所未有的要求。 远景AI电力系统旨在解决AI基础设施发展的三大核心问题：如何让相同的功率带宽接入更多GPU，如何让相同的电量产生更多智力，如何在相同投资下大幅降低电力成本？ 围绕这一目标，远景已构建起AI电力系统的三大核心能力：…</p><a href="https://www.leiphone.com/category/industrynews/frLOH33sNcBUMfsf.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>蔚来补上“智驾课”，任少卿总结：智驾技术创新将重构竞争</h3><p>文｜肖漫 编辑｜李勤 6月18日，蔚来同时向两代平台车型（包含8款NT2.0平台车型、4款NT2.5平台车型，以及6款NT3.0车型）推送了最新版的世界模型，这意味着，蔚来现在能让同一套复杂的智驾代码，现在能跑在不同代际的���片上。 软件迭代节奏被硬件绑架曾是一个困扰行业的难题。很多车企无法在不同版本、配置的车型上迭代同一款软件，这带来的结果是，很长时间内只有使用最新版本硬件的车才能用上最好的软件，老车主被背刺。 蔚来部署推理跨平台兼容 任少卿的团队在 2020 年就在思考如何解决这个问题。蔚来的做法是搭建一套AI Infra——自研工具链铺平不同芯片间的鸿沟，用AI编译器提升车辆的处理速度，用 AI Agent 自动化串联全流程。 当时业内主流的做法还是用英伟达的工具进行上层部署。但当时的蔚来判断，车端芯片的工程架构会继续快速迭代，主流的架构仅能用 3-5 年。基于这一判断，蔚来决定只保留最底层的硬件接口层（如 CUDA），在此之上全面自研上层部署软件，包括推理引擎、部署框架。 另外，和大多数自研芯片的主机厂一样，蔚来也自研了编译器，实现了自动算子优化，将原本需要 1-2 周的部署时间缩短至 1-2…</p><a href="https://36kr.com/p/3858329994875908?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>港股半导体股走强，兆易创新股价突破1000港元</h3><p>36氪获悉，港股半导体股走强，兆易创新涨超8%，股价突破1000港元大关创历史新高；中芯国际拉升涨近7%，英诺赛科涨超13%，澜起科技涨超7%，华虹宏力涨超3%。</p><a href="https://36kr.com/newsflashes/3863704339076102?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>中信证券：头部半导体设备公司将继续受益于强劲的逻辑与存储需求</h3><p>36氪获悉，中信证券研报表示，根据SEMI数据，2025年全球WFE市场规模同比增长12%至1173亿美元；预计2026年、2027年全球WFE市场规模将分别同比增长26%/35%至1478/1995亿美元，其中2027年下游Foundry/逻辑预计占比52%、存储预计占比39%（DRAM和NAND占比分别提升至24%、15%）。考虑到大客户积极的资本开支指引以及扩产计划，头部半导体设备公司将继续受益于强劲的逻辑与存储需求。结合下游市场需求、竞争格局、设备支出强度、公司业绩以及估值情况，重点推荐先进光刻龙头，EUV以及DUV出货量存在上修空间的标的；DRAM领域优势突出，估值相对较低的标的；刻蚀优势领先，NAND收入占比最高的标的；建��关注量检测需求提升，但利润率仍可能存在短期逆风因素的标的。</p><a href="https://36kr.com/newsflashes/3863639941862409?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>鸿海刘扬伟：1GW 英伟达 Vera Rubin AI 数据中心需 470 亿美元</h3><p>IT之家 6 月 22 日消息，鸿海 (Hon Hai / Foxconn) 董事长刘扬伟本月 18 日在台湾地区工商协进会会员大会上表示， 基于 NVIDIA（英伟达）Vera Rubin 平台打造 1GW 规模的 AI 数据中心需要 470 亿美元 （IT之家注：现汇率约合 3190.83 亿元人民币） 的资本支出 。 刘扬伟提到，单一个 Vera Rubin 机架 / 机柜的价格就达到 910 万美元，而 1GW 数据中心总共需要约 3557 个各类机架 / 机柜。与此同时， 1GW AI 数据中心每年电力支出即达 13 亿美元 ，而硬件折旧费用更是电力成本六倍。 ▲ NVIDIA Vera Rubin NVL72 机架 刘扬伟援引外部数据指出，全球数据中心产业规模到 2030 年将达到 1.6 万亿美元，电力容量则将从 2024 年的 68GW“狂飙”至 174GW，平均每年需新增 18GW。另一方面，四大群体当前需要庞大 AI 算力，即 AI 模型开发商、云服务供应商、政府、企业，其中后两者仍属于蓝海领域。</p><a href="https://www.ithome.com/0/966/801.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>闪迪新专利：将 NAND 闪存堆叠在计算芯片下方，破解存储瓶颈</h3><p>IT之家 6 月 22 日消息，闪迪正在研发更多创新方案以解决存储容量受限问题，例如在芯片内部堆叠 NAND 闪存。 IT之家注意到，人工智能行业飞速发展，算力需求同步激增，各类性能瓶颈随之暴露，这倒逼 DRAM 与 NAND 闪存厂商跳出固有思维、探索突破性技术路线。 过去，芯片厂商只需推出全新存储技术就能满足需求，彼时 DRAM 是核心存储器件。但如今研发成本攀升、工艺良率存在短板、芯片功耗持续走高，行业不得不转向其他可行技术方案。高带宽内存（HBM）此前一直稳步迭代，可受产能短缺影响，其自身也迅速演变为新的性能瓶颈。 HBM 还存在其他短板，单堆叠容量偏低。尽管各代 DRAM 厂商持续提升 HBM 的带宽与单堆容量，产能供给始终跟不上市场需求。同时 HBM 仅能放置在主芯片侧边，芯片间数据传输存在显著延迟损耗。 再看 NAND 闪存，它单位存储成本更低、单盘容量更大，但存储介质距离主计算芯片更远，数据传输速度更慢，始终无法达到 DRAM（HBM）同级别的读写带宽。 为破解上述难题，闪存厂商闪迪此前公布了自家高带宽闪存（HBF）技术方案。据悉 HBF 采用与 HBM 相似的分层架构：将多层 NAND…</p><a href="https://www.ithome.com/0/966/776.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>亚马逊 AI 主管：已就向外部出售实体 Trainium 芯片进行商谈</h3><p>IT之家 6 月 22 日消息，据彭博社消息，Amazon（亚马逊）AI 主管 Peter DeSantis 在法国巴黎接受采访时表示， 已就向外部企业出售其自研 AI ASIC 的实体芯片展开讨论 。此前第三方均仅以云服务的形式访问 AWS 的 Trainium 系列芯片。 Peter DeSantis 表示：“我们认为 AI 基础设施正在迅速发展。而且我们一直在探索如何触达更多客户。” IT之家注意到，亚马逊首席执行官 Andy Jassy 在 今年 4 月的致股东信 中曾表示，对 Trainium 芯片的云端需求正在激增，“我们芯片的需求量如此之大，以至于未来很有可能将整批芯片出售给第三方”。 Peter DeSantis 称 AWS 最新的 Trainium3 芯片已“基本售罄”；企业方面则表示后续的 Trainium4 芯片已引起广泛关注。这位高管 并不认为外售芯片会蚕食 AWS 的 AI 云业务 ，宣称 AI 算力领域还有很大的增长空间。 而在亚马逊之前， Google（谷歌）已在交付 AI ASIC 硬件设备 ，这对 NVIDIA（英伟达）主导的 AI GPU 生态带来了新的挑战。</p><a href="https://www.ithome.com/0/966/774.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>特斯拉申请 Megapod 商标，暗示将推出模块化 AI 数据中心硬件系统</h3><p>IT之家 6 月 22 日消息，据 Electrek 报道，特斯拉一份全新商标申请文件显示，公司计划推出一款名为“Megapod”的模块化人工智能数据中心硬件产品。 IT之家注意到，这份商标文件描述了一套完整、独立运行的人工智能算力计算系统；而距离特斯拉关停旗下唯一自研 AI 训练超算 Dojo，这份申请递交时间还不足一年。 本月，特斯拉委托长期合作的知识产权律师，向美国专利商标局提交了“Megapod”商标申请（申请序列号：99893717）。该申请属于意图使用型商标申请，意味着特斯拉仅为一款尚未发布的产品预留该名称。 这份商标文件对商品与服务范围的描述，细化程度远超常规商标申请文本。Megapod 对应的产品范畴包含：“面向人工智能计算的模块化数据中心硬件系统，由计算机服务器、人工智能数据处理专用计算机硬件、网络设备、配电单元及冷却系统组成。” 同时还涵盖“适用于人工智能算力负载的一体式模块化计算硬件系统”，即作为整机对外销售的集成平台，整套机柜整合计算、配电与散热模块；此外还包含配套可下载软件，用于这套系统的监控、运维与性能优化。 通俗来讲：特斯拉打算售卖一套一体化 AI…</p><a href="https://www.ithome.com/0/966/771.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>9 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>诺奖得主、AlphaFold之父投奔Anthropic！谷歌48小时连跑俩大将</h3><a href="https://www.qbitai.com/2026/06/436980.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>Meta员工士气跌至20年谷底！内部直播当众开骂，CTO承认AI重组糟糕透顶</h3><a href="https://www.qbitai.com/2026/06/436966.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>湖畔对谈2026：华为无障碍的“八年长征”</h3><p>Hans 是丹麦视障人士。2012 年，他在一家公共视障服务机构工作。视障人士最频繁的求助：一个药瓶、一张账单、一个公交站牌，普通人一眼就能解决的事，对他们却是一道需要他人协助的门槛。 Hans想：如果全世界每一个有视力的人，都能随时成为视障人士的“眼睛”，会发生什么？ 2015年，他创立了Be My Eyes。一个极其简单的机制：视障用户打开摄像头，向全球志愿者发起视频通话。志愿者看到用户眼前的画面，用语音告诉他“前面是台阶”“药瓶上写的是每日两次”“公交站牌显示15分钟后发车”。 九年过去，这个平台聚拢了全球超过100万视障及低视力用户与1000万志愿者。1000万人，相当于丹麦总人口的1.7倍。有人凌晨三点在纽约帮一位柏林的视障用户辨认烤箱温度，也有人在东京的午休时间帮一位墨西哥的视障用户读取快递单号。 现在，Be My Eyes上架华为AppGallery，成为鸿蒙生态的一员。 华为在无障碍领域一直都有着自己的坚持，截至目前，华为已累计为800多万障碍用户提供服务，而这也给了他们“感受世界”的新机会。…</p><a href="https://www.leiphone.com/category/weiwu/NFK0G1BOOsm9Pw3M.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>AI定义汽车，赛豆科技发布AI汽车品牌AIVA</h3><p>2026年6月9日，赛豆科技在北京正式发布AI先锋生态出行品牌AIVA，并 官宣 携手 火山引擎，联 合 定义 、联合 设计 、共同打造AI汽车 体验。 火山引擎为AIVA品牌提供豆包大模型、智能座舱等技术服务，帮助AIVA品牌提升 车载智能 交互体验 。 发布会上，AIVA公布 了 品牌名称与LOGO，提出“AI定义汽车，先有AI，再有车”的 造车 路径， AI汽车将 重塑人与汽车的关系。AIVA Origin Concept概念车同步亮相，首款量产车型AIVA ME7将于2026年年内亮相 。AIVA全系车型将覆盖2 0万元以上 主流 市场。 AIVA 董事长张正源， AIVA 总裁、产品经理李博， 相关合作伙伴 共同出席，见证AIVA品牌正式启航。 AIVA因AI而来，打造AI先锋生态出行品牌 AIVA取自Artificial Intelligence Voyage Ahead，寓意AI陪伴用户一路向前、悦见前方。同时，AIVA也带有“爱我”的天然语义联想，承载着品牌希望以有温度的AI技术回应每一个用户的 真实需求 。 AIVA面向AI汽车而来 ，…</p><a href="https://www.leiphone.com/category/transportation/fztg9VvKwu7TX3mD.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称 Anthropic 或采用苹果 Digital ID 完成用户身份核验</h3><p>IT之家 6 月 22 日消息，去年，苹果在 iPhone 上推出了数字身份证（Digital ID）功能，用户可将美国护照存入苹果钱包作为身份凭证使用。过去几年，苹果也在逐步上线钱包驾照功能，但该服务仅在美国各州分阶段落地。而数字护照身份凭证是通用功能，所有持有美国护照的用户都能使用。 据 9to5Mac 报道，这项功能固然可以在机场运输安全管理局（TSA）安检口直接出示，但苹果的目标远不止于此：布局数字化时代的身份核验体系。虽然相关消息尚未得到官方证实，但有消息称，该数字身份技术或将很快迎来首个大规模落地场景 —— Claude AI。 IT之家注意到，美国政府此前出台了相关模型出口管制政策后，Anthropic 旗下的 Fable 5 与 Mythos 5 两款大模型已对所有用户停用。此前有报道称两款模型被曝出破解漏洞，受此影响，无论身处美国境内还是海外，外籍人士均无法使用 Fable 5 和 Mythos 5。 抛开争议不谈，理论上只要 Anthropic 上线身份核验机制，限制仅美国公民可访问，Fable 5 就有机会重新开放。Anthropic 既可以采用传统的身份核验方案，也能接入苹果的数字身份证功能。…</p><a href="https://www.ithome.com/0/966/795.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为鸿蒙 HarmonyOS 7.0 开发者 Beta 1 将相机拍照默认格式从 JPG 切换为 HEIF</h3><p>IT之家 6 月 22 日消息，据“HarmonyOS 开发者技术”公众号，在 HarmonyOS 7.0（API26）Developer Beta 1 版本中，HarmonyOS 设备将相机拍照默认格式从 JPG 切换为了 HEIF。 ▲ “HarmonyOS 开发者技术”公众号（下同） 华为表示，如今照片越来越清晰，文件也越来越大，用户的相册和云端备份都更需要高效存储。HEIF 是高效图像文件格式，主流 HEIF 图片通常采用 HEVC（H.265）编码，在典型照片场景下可在保持良好画质体验的同时降低文件体积。 相机拍照默认格式从 JPG 切换到 HEIF 后，同样的相册记录更不容易快速占满空间，长期拍照、备份和分享也更轻。可以把它理解为从传统保存方式升级为更高效的照片保存方式。 对应用和服务链路而言，HEIF 图片会逐渐出现在相册选择、内容发布、客服传图、云端备份、图片编辑等场景中，体验是否连续，取决于这些链路是否正确处理 HEIF，因此开发者应当调整 App 图片上传时的文件扩展名校验规则，同时也可借助 Image Kit 提供的图片编解码能力，将 HEIF 转码为 JPEG 或 PNG。</p><a href="https://www.ithome.com/0/966/789.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为余承东：Grand Design 典藏大观，是尊界再向上一步的全新超高端系列</h3><p>IT之家 6 月 22 日消息，鸿蒙智行今日官宣鸿蒙智行尊界品牌盛典将于 6 月 25 日 19:00 举行，尊界 S800 Grand Design 典藏大观有望亮相。 随后，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东发文称：“尊界 S800 典藏大观即将正式发布！从第一辆尊界车开始，尊界追求的就是极致。 Grand Design 典藏大观，是尊界再向上一步的全新超高端系列 ！它不是重复过去，而是对设计、工艺、科技与体验的全新探索！这次鸿蒙智行尊界品牌盛典也将突破以往发布会形式，以科技、美学与艺术共同呈现一场属于尊界的‘典藏大观’！6 月 25 日 19:00，诚邀大家一同品鉴！” IT之家注意到，这款新车已经于今年 5 月开启预订，余承东曾称该车是面向 200 万级市场 的全新探索。目前尊界 S800 Grand Design 典藏大观已现身华为官网，并公开了部分信息。相关页面显示， 新车预售价 160 万元-200 万元 ， 采用典藏大观 锦绣设计主题 ，并搭载全新一代尊界定制途灵龙行平台。 第 407 批《道路机动车辆生产企业及产品公告》显示 ，尊界 S800 Grand Design…</p><a href="https://www.ithome.com/0/966/788.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>亚马逊 AI 主管：已就向外部出售实体 Trainium 芯片进行商谈</h3><p>IT之家 6 月 22 日消息，据彭博社消息，Amazon（亚马逊）AI 主管 Peter DeSantis 在法国巴黎接受采访时表示， 已就向外部企业出售其自研 AI ASIC 的实体芯片展开讨论 。此前第三方均仅以云服务的形式访问 AWS 的 Trainium 系列芯片。 Peter DeSantis 表示：“我们认为 AI 基础设施正在迅速发展。而且我们一直在探索如何触达更多客户。” IT之家注意到，亚马逊首席执行官 Andy Jassy 在 今年 4 月的致股东信 中曾表示，对 Trainium 芯片的云端需求正在激增，“我们芯片的需求量如此之大，以至于未来很有可能将整批芯片出售给第三方”。 Peter DeSantis 称 AWS 最新的 Trainium3 芯片已“基本售罄”；企业方面则表示后续的 Trainium4 芯片已引起广泛关注。这位高管 并不认为外售芯片会蚕食 AWS 的 AI 云业务 ，宣称 AI 算力领域还有很大的增长空间。 而在亚马逊之前， Google（谷歌）已在交付 AI ASIC 硬件设备 ，这对 NVIDIA（英伟达）主导的 AI GPU 生态带来了新的挑战。</p><a href="https://www.ithome.com/0/966/774.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Google reCAPTCHA 系统引入手势验证</h3><p>Google 将要求用户在摄像头前挥手以证明自己是人类而不是机器人。它提供的区分机器人和人类检测服务 reCAPTCHA 引入了手势验证。Google 表示，在手势验证期间它会分析用户在执行各种操作或手势时的一段或多段手部视频，系统会处理视频以提取手部关键点的坐标数据，其中包括 21 个指关节关键点坐标。Google 声称，视频绝不会与用户的身份相关联，并且会在验证流程结束后删除。系统绝不会录制音频。</p><a href="https://www.solidot.org/story?sid=84635" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>8 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>陶哲轩12年前的预言，现在AI帮他兑现了</h3><a href="https://www.qbitai.com/2026/06/437023.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>撸猫撸出SOTA！3个00后2个月，造出史上最快流式音视频社交模型</h3><a href="https://www.qbitai.com/2026/06/436996.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>我把昨晚的梦输入AI，它居然直接把我拉进去玩儿了一把？！</h3><a href="https://www.qbitai.com/2026/06/436864.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>科氪 | 两轮电动车没有天花板，爱玛黑翼要用AI与硬核科技赢得年轻男性的心</h3><p>国内两轮电动车市场正悄然迎来一场深层次的“基因突变”。长期以来，大众对两轮电动车的认知被牢牢框定在“代步工具”与“大众精品”的传统叙事里。然而，在四川省体育馆的一场发布会上，爱玛正式发布了旗下专为年轻男性打造的极速运动品类品牌——“爱玛黑翼”（AIMA BLACK WING）。首位中国F1车手周冠宇化身“全速领航员”在线助力，爱玛黑翼S360电竞版、爱玛黑翼S360赛道版以及爱玛黑翼S790赛博版三款硬核新品集结亮相。这场动作透露出的创投信号再明显不过：在女性和基础通勤赛道筑牢绝对壁垒后，传统头部巨头爱玛正以一种颠覆性的姿态，正式向年轻男性性能与运动电摩赛道发起总攻。36氪通过与爱玛科技集团三位核心高管的深度专访，试图拆解两轮电动车从功能代步全面迈向体验升级的下半场逻辑，看他们如何锚定Z世代的硬核社交货币，打破行业所谓的“天花板”。 官方图片 从行业整体的商业周期来看，“油转电”已经步入了硬核演进的第二阶段。 爱玛科技集团商用产品线总监，兼任零际产品线与高速产品线总监林瀚资…</p><a href="https://36kr.com/p/3858803016881154?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>港股智谱涨幅扩大至40%</h3><p>36氪获悉，港股智谱涨幅扩大至40%，最高报2980港元再度刷新新高。</p><a href="https://36kr.com/newsflashes/3863694263096583?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>港股智谱盘中总市值突破1万亿港元</h3><a href="https://36kr.com/newsflashes/3863676393559047?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>索尼再谈 AI 游戏战略：自动化流程解放开发者，打造个性化玩家体验</h3><p>IT之家 6 月 22 日消息，如今的游戏行业，几乎每三款新游戏里就有一款会附带人工智能相关免责声明。《疯狂出租车：极速环游》《使命召唤：现代战争 4》《匹诺曹的谎言 2》等备受期待的新作，都将以不同形式运用这项技术。 另一边，索尼等游戏行业巨头早已公开表态支持人工智能，称这项技术能大幅提速游戏开发进程。而这家日本企业近期再度重申对人工智能技术的应用，暗示行业应用人工智能已是大势所趋，没有回头路可走。 IT之家注意到，索尼在 2025 财年年度报告中专门开辟了一个章节，阐述人工智能如何助力 PlayStation 平台迭代升级，称人工智能将充分释放这家游戏巨头真正的创作潜能。 报告中提到，索尼正在落地各类人工智能工具，实现重复工作流程自动化，提升品控、动画制作、3D 建模等多个部门的工作效率。借助这套方案，开发人员不用再耗费精力处理机械重复的事务，可以专心投入玩法设计、搭建更丰富完整的游戏世界观这类核心创意工作。 这家日本企业还指出，人工智能将用于为玩家打造个性化 PlayStation…</p><a href="https://www.ithome.com/0/966/765.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>AI 使用是否会导致技能退化？</h3><p>随着越来越多的专业人士开始在工作中依赖 AI 工具，他们来之不易的技能会不会逐渐退化？此种担忧不无道理。有证据表明，AI 驱动的技能退化现象正在医学、计算机科学等领域发生。研究人员正探讨如何在 AI 时代保留重要的人类专业知识。一项针对波兰内窥镜医生的研究表明，AI 工具会迅速削弱人类的能力。这些医生在其职业生涯至少进行 2000 例结肠镜检查。研究人员让他们使用一套 AI 系统，能实时分析结肠镜图像，标记名为腺瘤的肠道癌前期病变。一旦医生开始使用该系统，每当系统不可用时，他们的诊断能力会显著下降。在引入 AI 工具前三个月里医生在 28.4% 的结肠镜检查中发现了至少一个腺瘤。而在引入 AI 工具后三个月里，在没有 AI 辅助的情况下腺瘤检出率下降至 22.4%。</p><a href="https://www.solidot.org/story?sid=84630" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>3 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">36氪</div><h3>氪星晚报｜BilibiliWorld 2026成国内首个海外售票的综合性ACG展会；让AI走进千家万户，17项举措推进“人工智能+消费”发展；快舟十一号遥十三运载火箭发射成功</h3><p>大公司： 滴滴自动驾驶参加伦敦MOVE 2026大会 6月17至18日，MOVE 2026大会在英国伦敦召开，滴滴自动驾驶在会上分享了来自中国的自动驾驶落地实践。在AI技术方面，滴滴自动驾驶已实现L4级全栈核心技术的自主可控；硬件方面，与广汽埃安联合打造的新一代Robotaxi车型R2已于今年1月交付，正持续在广州和北京等地开展道路测试；在场景应用上，自去年四季度在广州、北京部分示范应用区域开启全天候载客测试以来，滴滴自动驾驶始终保持安全稳定的运行表现。 菜鸟：未来4个月将在全球交付4座大型攀爬机器人仓库 36氪获悉，6月18日，菜鸟副总裁、物流科技事业部总经理毕江华表示，菜鸟自研生产的攀爬机器人经过618大促检验，显著提升了电商供应链的智能作业能力，下一步菜鸟将加快面向全球市场投入攀爬机器人，未来四个月内，将联合电商平台、知名品牌等在国内和欧洲新交付四座大型攀爬机器人仓库。 钉钉新CEO发布全员信：成立核心平台业务部，整合悟空与MuleRun团队…</p><a href="https://36kr.com/p/3858015526704129?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称 Anthropic 或采用苹果 Digital ID 完成用户身份核验</h3><p>IT之家 6 月 22 日消息，去年，苹果在 iPhone 上推出了数字身份证（Digital ID）功能，用户可将美国护照存入苹果钱包作为身份凭证使用。过去几年，苹果也在逐步上线钱包驾照功能，但该服务仅在美国各州分阶段落地。而数字护照身份凭证是通用功能，所有持有美国护照的用户都能使用。 据 9to5Mac 报道，这项功能固然可以在机场运输安全管理局（TSA）安检口直接出示，但苹果的目标远不止于此：布局数字化时代的身份核验体系。虽然相关消息尚未得到官方证实，但有消息称，该数字身份技术或将很快迎来首个大规模落地场景 —— Claude AI。 IT之家注意到，美国政府此前出台了相关模型出口管制政策后，Anthropic 旗下的 Fable 5 与 Mythos 5 两款大模型已对所有用户停用。此前有报道称两款模型被曝出破解漏洞，受此影响，无论身处美国境内还是海外，外籍人士均无法使用 Fable 5 和 Mythos 5。 抛开争议不谈，理论上只要 Anthropic 上线身份核验机制，限制仅美国公民可访问，Fable 5 就有机会重新开放。Anthropic 既可以采用传统的身份核验方案，也能接入苹果的数字身份证功能。…</p><a href="https://www.ithome.com/0/966/795.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>挪威限制小学生使用 AI</h3><p>挪威首相 Jonas Gahr Stoere 周五表示，挪威将限制小学生使用生成式 AI 工具。他表示，使用 AI 会增加儿童跳过重要教育阶段的风险。儿童在学校里最重要的是学会阅读、写作和数学。挪威政府表示，6-13 岁或一至七年级学生不应使用 AI；14-16 岁初中生可在教师指导下谨慎使用 AI 工具，17-19 岁高中学生应学习如何正确使用 AI 以便为未来的学习和工作做好准备。挪威政府还表示将立法为课堂使用更多书籍提供资金以扭转平板电脑普及的趋势。新标准将从 8 月下旬的新学年开始实施。</p><a href="https://www.solidot.org/story?sid=84629" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sun, 21 Jun 2026 09:18:12 +0000</div><h3>具身赛道现状素描：脑子灵，模型好，不是百亿，就是独角</h3><p>2026年还没过半，具身智能的融资就快要超过去年全年了，超过一半的钱都流入了机器人的“大脑”。</p><a href="https://www.qbitai.com/2026/06/437198.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 20 Jun 2026 12:06:20 +0000</div><h3>英伟达开始搞机器人自己研究机器人那套了…</h3><a href="https://www.qbitai.com/2026/06/437041.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 20 Jun 2026 11:56:57 +0000</div><h3>陶哲轩12年前的预言，现在AI帮他兑现了</h3><a href="https://www.qbitai.com/2026/06/437023.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 20 Jun 2026 10:42:35 +0000</div><h3>撸猫撸出SOTA！3个00后2个月，造出史上最快流式音视频社交模型</h3><a href="https://www.qbitai.com/2026/06/436996.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 20 Jun 2026 09:42:18 +0000</div><h3>诺奖得主、AlphaFold之父投奔Anthropic！谷歌48小时连跑俩大将</h3><a href="https://www.qbitai.com/2026/06/436980.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 20 Jun 2026 09:36:31 +0000</div><h3>Meta员工士气跌至20年谷底！内部直播当众开骂，CTO承认AI重组糟糕透顶</h3><a href="https://www.qbitai.com/2026/06/436966.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 19 Jun 2026 08:42:04 +0000</div><h3>我把昨晚的梦输入AI，它居然直接把我拉进去玩儿了一把？！</h3><a href="https://www.qbitai.com/2026/06/436864.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 19 Jun 2026 03:34:23 +0000</div><h3>GPT发AI原创新成果了</h3><a href="https://www.qbitai.com/2026/06/436842.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 19 Jun 2026 03:28:37 +0000</div><h3>全球首个人形机器人通用小脑来了！全球最大规模2万小时人类动作数据，实现零样本泛化</h3><a href="https://www.qbitai.com/2026/06/436813.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Thu, 18 Jun 2026 23:53:00 +0800</div><h3>最先自研芯片的朱江明，有什么理由劝大家“别造了”？</h3><p>月销站上8万辆，零跑C系列凭什么穿越新车死亡谷？ 作者 | 严利婷 编辑 | 王瑞昊 车圈淘汰赛打到 2026 年，已经没有一家车企活得轻松自在。 以去年勇夺造车新势力销量冠军的零跑为例，今年依然维持着强劲增长态势，最新月销量已经站上 8 万辆大关，但也依然处在连大气都不敢喘的紧绷状态。继3月和4月A系列、D系列的产品扩充之后，零跑汽车又开始马不停蹄地筹备B系列、C系列的产品更新。 6月16日，零跑汽车迎来C系列3款核心SUV车型的年度改款上市。其中，新款C10、C11、C16分别对应年轻刚需、品质运动、多人口家庭人群的出行场景，但均延续了“增配不增价”的升级逻辑，并采取了纯电和增程的双动力布局，共推出17个不同的配置版本，整体售价区间为12.58万-16.98万元。 “零跑代表的就是货真价实，用户买了可以很放心，不会觉得被忽悠了。”零跑汽车创始人朱江明在发布会后对包括雷峰网在内的小范围沟通会上解释称，零跑汽车不追求高溢价、高毛利，希望以一个很公平的价格去卖一款产品，但他也强调，零跑汽车一定要实现盈利，不能以低价倾销去扰乱市场。 这种“薄利多销”的策略在成本持续走高的环境中并不容易。…</p><a href="https://www.leiphone.com/category/transportation/8YqmG5gzTCDsi2cQ.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 18 Jun 2026 18:36:00 +0800</div><h3>庭院机器人大乱斗：为何关键一仗在草坪？</h3><p>“不是特别想做，但是你不做，别人就会把你的用户吃掉。” 出海机器人赛道从业者小丁，用这句话形容今天的庭院机器人混战。在她看来，扫地机公司下草坪、泳池机公司上岸、割草机公司反向看泳池，传统园林工具厂商加速智能化，表面看是伸手去抢别人的饭碗，底层其实是增长焦虑下为了守住自己的家庭入口。 这种防御性的危机感，最早暴露在一场跨界联动里。 2025年，一家泳池机器人公司与一家有割草机业务的公司做过一次联合营销。一个服务水下，一个服务草坪，目标用户都是欧美拥有独立庭院的家庭。彼此导流，看上去是一场双赢。 但活动结束后，泳池机器人公司内部很快意识到，事情没那么简单。 这看似是“导流”，其实是“截流”。 自己长期积累的庭院用户画像、消费偏好等数据，正被对方顺着这场活动“吃走”。对泳池机器人公司来说，这是一个危险信号：如果任由割草机占领庭院入口，再向泳池、浇灌、安防、扫雪等户外服务延伸，水下玩家的生存空间将被极大压缩。 这也是今天所有垂直玩家很难“各扫门前雪”的原因。 过去，扫地机、割草机、泳池机器人分属室内、草坪和水下三个场景，边界清晰。但如今，随着室内地面红海化、上游技术方案泛化，这些原本互不打扰的河道开始改向、交汇。…</p><a href="https://www.leiphone.com/category/robot/NCDqDsxS5AgjJxV6.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 18 Jun 2026 18:34:00 +0800</div><h3>魔法原子携手安行能源、憬驰智能，加速机器人落地“最后一公里”</h3><p>近日，魔法原子与安行能源、憬驰智能在苏州正式签署全国战略合作协议。三方以“全链聚力，智启新程”为核心，依托各自核心资源与产业优势，围绕工业级智能服务机器人研发、社区场景规模化落地与商业化运营开展全方位深度合作，构建全链条智慧机器人产业生态，推动智能服务机器人深度赋能智慧社区建设与基层民生服务升级。 本次战略合作聚焦智能机器人产业化落地，打通技术研发、产品交付、渠道拓展、场景运营、售后保障全产业链路，打破行业各环节壁垒，打造可落地、可复制、可规模化的机器人全生命周期的服务体系，为智能服务机器人在景规模化部署提供支撑。 作为2026年央视春晚智能机器人战略合作伙伴，魔法原子将为本次合作提供具身智能技术与机器人产品支持。公司具备全栈自研能力，技术体系覆盖核心零部件、运动控制、多模态感知、导航决策及具身操作等关键环节，已形成涵盖通用人形机器人、四足机器人等在内的产品矩阵。此次合作中，魔法原子将依托自身技术与产品能力，为社区场景应用落地提供支撑。…</p><a href="https://www.leiphone.com/category/industrynews/Xih4xedfgY6q1A21.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 18 Jun 2026 18:04:00 +0800</div><h3>Momenta港股IPO证监会备案通过，将成“物理AI第一股”</h3><p>2026年6月18日，全球领先的物理AI公司Momenta取得中国证监会境外发行上市备案通知书。据文件，Momenta拟发行不超过43,754,060股境外上市普通股，并在香港联合交易所上市。备案获批，标志着Momenta的资本化进程迈出关键一步，将成“物理AI第一股”。 以世界模型为基座，激发物理AI的“GPT时刻” 当下，数字AI正在加速向物理AI跃迁，物理AI的“GPT时刻”即将来临。世界模型作为物理AI的核心基座模型，被认为是激发物理AI“GPT时刻”的关键突破口。 Momenta CEO曹旭东指出，物理AI的核心是数据scaling和商业scaling，且二者形成正向反馈，而目前唯一实现这两者的是自动驾驶。 基于上述判断，Momenta将自己定位为物理AI基座模型的构建者，而非单纯的自动驾驶公司。Momenta正在做的，是打造一个能够理解物理规律、推演世界演变的通用世界模型——正如GPT为数字AI提供了语言基座，Momenta的世界模型，将为物理AI提供时空基座。 今年4月，Momenta R7世界模型实现量产首发，标志着物理AI正式从技术理念走向规模化量产落地，实现从“看见世界”到“理解世界”的跨越。…</p><a href="https://www.leiphone.com/category/industrynews/mOyyJ7O75GDwbwTc.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 18 Jun 2026 16:37:00 +0800</div><h3>算电协同进入Agent时代：商汤大装置SenseSynergy获信通院能力认证</h3><p>近日，由中国信息通信研究院举办的算电织网・AI+能源双向赋能研讨会在北京成功召开。会上，商汤大装置SenseSynergy算电协同Agent平台通过《算电协同平台能力测试方法》测试，成为业界首个通过该项测试的算电协同Agent平台。 此次测评涵盖智能查询问答、负荷功耗预测、电量电价分析、储能策略管理四大能力方向共16项测试内容，SenseSynergy算电协同Agent平台各项指标表现优异，充分验证了其在算力-电力实时协同、AIDC降本增效、AI智能决策与调度等方面的行业领先性。 01 . 数据驱动+AI赋能 ， 行业领先的算电协同Agent平台 商汤大装置认为，AI时代的AIDC是传统IDC向智能基础设施演进的升级形态，本质上是一座持续产出Token的“智能工厂”。而未来AI产业竞争的关键，不再只是拥有多少算力，而是谁能够更高效地将电力、算力和数据转化为有价值的Token。 基于这一判断，商汤大装置打造了SenseSynergy算电协同Agent，将Agent理念引入智算中心运营场景，构建一个会感知、能思考、可决策、可执行并持续进化的AI调度系统。…</p><a href="https://www.leiphone.com/category/ai/S1woPpJBb6B9xOsK.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 18 Jun 2026 14:56:00 +0800</div><h3>湖畔对谈2026：华为无障碍的“八年长征”</h3><p>Hans 是丹麦视障人士。2012 年，他在一家公共视障服务机构工作。视障人士最频繁的求助：一个药瓶、一张账单、一个公交站牌，普通人一眼就能解决的事，对他们却是一道需要他人协助的门槛。 Hans想：如果全世界每一个有视力的人，都能随时成为视障人士的“眼睛”，会发生什么？ 2015年，他创立了Be My Eyes。一个极其简单的机制：视障用户打开摄像头，向全球志愿者发起视频通话。志愿者看到用户眼前的画面，用语音告诉他“前面是台阶”“药瓶上写的是每日两次”“公交站牌显示15分钟后发车”。 九年过去，这个平台聚拢了全球超过100万视障及低视力用户与1000万志愿者。1000万人，相当于丹麦总人口的1.7倍。有人凌晨三点在纽约帮一位柏林的视障用户辨认烤箱温度，也有人在东京的午休时间帮一位墨西哥的视障用户读取快递单号。 现在，Be My Eyes上架华为AppGallery，成为鸿蒙生态的一员。 华为在无障碍领域一直都有着自己的坚持，截至目前，华为已累计为800多万障碍用户提供服务，而这也给了他们“感受世界”的新机会。…</p><a href="https://www.leiphone.com/category/weiwu/NFK0G1BOOsm9Pw3M.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 18 Jun 2026 11:56:00 +0800</div><h3>AI定义汽车，赛豆科技发布AI汽车品牌AIVA</h3><p>2026年6月9日，赛豆科技在北京正式发布AI先锋生态出行品牌AIVA，并 官宣 携手 火山引擎，联 合 定义 、联合 设计 、共同打造AI汽车 体验。 火山引擎为AIVA品牌提供豆包大模型、智能座舱等技术服务，帮助AIVA品牌提升 车载智能 交互体验 。 发布会上，AIVA公布 了 品牌名称与LOGO，提出“AI定义汽车，先有AI，再有车”的 造车 路径， AI汽车将 重塑人与汽车的关系。AIVA Origin Concept概念车同步亮相，首款量产车型AIVA ME7将于2026年年内亮相 。AIVA全系车型将覆盖2 0万元以上 主流 市场。 AIVA 董事长张正源， AIVA 总裁、产品经理李博， 相关合作伙伴 共同出席，见证AIVA品牌正式启航。 AIVA因AI而来，打造AI先锋生态出行品牌 AIVA取自Artificial Intelligence Voyage Ahead，寓意AI陪伴用户一路向前、悦见前方。同时，AIVA也带有“爱我”的天然语义联想，承载着品牌希望以有温度的AI技术回应每一个用户的 真实需求 。 AIVA面向AI汽车而来 ，…</p><a href="https://www.leiphone.com/category/transportation/fztg9VvKwu7TX3mD.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 18 Jun 2026 11:45:00 +0800</div><h3>远景在欧洲科技峰会宣布Mission Gobi计划，用AI电力系统让全球戈壁成为下一代智能文明摇篮</h3><p>法国巴黎，2026年6月17日 —— 人工智能正加速开启新一轮工业革命，也在深刻重塑全球能源基础设施。随着AI数据中心从兆瓦级迈向吉瓦级，电力系统正成为决定AI产业竞争力的关键。 作为AI电力系统的开创者，远景亮相欧洲科技盛会 VivaTech，全面展示AI电力系统能力及落地实践，并正式发布Mission Gobi计划：宣布到 2030年在全球戈壁荒漠地区建成 5GW规模的绿色 AI算力中心，为 AI时代打造稳定、绿色、经济的新一代基础设施。 远景科技集团董事长张雷表示：“当AI算力风暴席卷全球，传统电网已难以承载这一轮变革。远景从戈壁出发,把AI电力系统带向全球——为破解人工智能时代面临的电力瓶颈提供中国方案，让戈壁荒漠成为孕育智能文明的摇篮。” 当前，大模型和芯片快速迭代，AI数据中心对电力系统的接入容量、调度速度、供电稳定性和绿电比例提出了前所未有的要求。 远景AI电力系统旨在解决AI基础设施发展的三大核心问题：如何让相同的功率带宽接入更多GPU，如何让相同的电量产生更多智力，如何在相同投资下大幅降低电力成本？ 围绕这一目标，远景已构建起AI电力系统的三大核心能力：…</p><a href="https://www.leiphone.com/category/industrynews/frLOH33sNcBUMfsf.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 18 Jun 2026 09:55:00 +0800</div><h3>6家车圈大佬的共识：整车智能，不是座舱、智驾、底盘的“拼盘式”创新</h3><p>“下一代汽车不会再单域地考虑智能。” 在雷峰网受邀参加的中国汽车重庆论坛以“整车企业 X 科技公司，下一代汽车如何定义”为主题的研讨会上，长安汽车产品规划与定义业务总监柳宇翔用这句话概括了 AI 时代汽车定义正在发生的变化。 过去几年，汽车行业谈智能化，更多还是围绕一个个具体功能展开，不同系统各自升级，构成了上一阶段智能汽车竞争的主要内容。 但在 AI 化阶段，这种单点升级已经不足以解释下一代汽车的变化。 柳宇翔认为，未来汽车会越来越像一个由中央大脑统一调度的系统，底盘、动力、座舱、智驾、云端不再各自独立运行，而是需要被整车智能重新组织起来。 在这场研讨会上，来自整车企业、智能座舱、汽车电子、全球零部件供应商、消费电子制造企业以及自动驾驶物流企业的嘉宾，也从各自所在的产业位置给出了类似判断。 虽然大家的出发点各有不同，但一个共识是，AI 进入汽车之后，变化并不止于给座舱加一个大模型，或让语音助手回答更多问题，而是让汽车从一个机械电子产品，变成一个能够感知、决策、协同和持续进化的移动智能体。 下一代汽车的核心，不是单点智能，而是整车智能…</p><a href="https://www.leiphone.com/category/transportation/6w8DWxLew4cLycEE.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 17 Jun 2026 18:33:00 +0800</div><h3>九章云极发布“AI工厂”战略 定义智能规模化新基建</h3><p>6月17日，“智算·新云·新章——2026全球智算科技峰会暨九章云极战略发布会”在北京举行。九章云极创始人兼董事长方磊正式发布“AI工厂”核心战略，提出以DCU为度量衡、以专业Token为产出单元的智能规模化交付体系。这是九章云极向智能时代基础设施运营平台跃迁的重要一步。 “一个时代的真正确立，始于一项伟大的发明，但最终，成于一套伟大的规模化生产体系。”方磊在主题演讲中指出，AI产业竞争内核已发生根本性迭代：行业比拼不再局限于打造性能更强的单点大模型，而是能否搭建现代化工厂式体系，规模化、低成本、高稳定地批量生产、交付标准化智能能力。九章智算云的目标，是让每一次智能调用如同日常用电，便捷取用、价值精准可衡量。 九章云极创始人兼董事长方磊发布“AI工厂”战略 DCU度量投入，专业Token度量产出：构建可计量的价值闭环…</p><a href="https://www.leiphone.com/category/industrynews/zbQdehRHS9NgQjAv.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">2026-06-19 18:01:25  +0800</div><h3>硬氪首发|moody前高管搭档大疆骨干入局陪伴机器人，锦秋领投，融资数千万</h3><p>硬氪获悉，AI-Native科技潮玩品牌ZuzuZoos查无此园（杭州多蓝艾梦智能科技旗下）近日完成数千万元Pre-A轮融资，锦秋领投、上海复容跟投。此次融资将主要AI大模型迭代、硬件产品扩建、IP生态深化、全球市场拓展、核心团队扩容。 ZuzuZoos成立于2025年，聚焦“AI陪伴机器人+AI潮玩”。创始人董晓楠是前摩根士丹利投资银行分析师，曾任新消费独角兽企业moody事业部总经理，任职期间拉动GMV从2亿元增长至10亿元。硬件负责人是前大疆清扫机器人机械结构负责人，深耕机器人及智能硬件领域15余年，主导多款机器人研发与落地。IP设计团队来自泡泡玛特、迪士尼等IP大厂，AI团队来自智谱等头部大模型公司。 当下，陪伴机器人赛道已经涌入大量玩家，许多公司追求“更聪明”，董晓楠表示，ZuzuZoos更在意如何让AI角色真正为用户提供情绪体验，于是选择了一条差异化路径：不只是把AI机器人做成“会聊天的电子宠物”，而是尝试把AI、潮玩与IP世界观结合，创造一个有“活人感”和持续生命力的硅基伙伴。…</p><a href="https://36kr.com/p/3859926114161665?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">2026-06-18 22:57:40  +0800</div><h3>科氪 | 两轮电动车没有天花板，爱玛黑翼要用AI与硬核科技赢得年轻男性的心</h3><p>国内两轮电动车市场正悄然迎来一场深层次的“基因突变”。长期以来，大众对两轮电动车的认知被牢牢框定在“代步工具”与“大众精品”的传统叙事里。然而，在四川省体育馆的一场发布会上，爱玛正式发布了旗下专为年轻男性打造的极速运动品类品牌——“爱玛黑翼”（AIMA BLACK WING）。首位中国F1车手周冠宇化身“全速领航员”在线助力，爱玛黑翼S360电竞版、爱玛黑翼S360赛道版以及爱玛黑翼S790赛博版三款硬核新品集结亮相。这场动作透露出的创投信号再明显不过：在女性和基础通勤赛道筑牢绝对壁垒后，传统头部巨头爱玛正以一种颠覆性的姿态，正式向年轻男性性能与运动电摩赛道发起总攻。36氪通过与爱玛科技集团三位核心高管的深度专访，试图拆解两轮电动车从功能代步全面迈向体验升级的下半场逻辑，看他们如何锚定Z世代的硬核社交货币，打破行业所谓的“天花板”。 官方图片 从行业整体的商业周期来看，“油转电”已经步入了硬核演进的第二阶段。 爱玛科技集团商用产品线总监，兼任零际产品线与高速产品线总监林瀚资…</p><a href="https://36kr.com/p/3858803016881154?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">2026-06-18 20:47:44  +0800</div><h3>氪星晚报｜BilibiliWorld 2026成国内首个海外售票的综合性ACG展会；让AI走进千家万户，17项举措推进“人工智能+消费”发展；快舟十一号遥十三运载火箭发射成功</h3><p>大公司： 滴滴自动驾驶参加伦敦MOVE 2026大会 6月17至18日，MOVE 2026大会在英国伦敦召开，滴滴自动驾驶在会上分享了来自中国的自动驾驶落地实践。在AI技术方面，滴滴自动驾驶已实现L4级全栈核心技术的自主可控；硬件方面，与广汽埃安联合打造的新一代Robotaxi车型R2已于今年1月交付，正持续在广州和北京等地开展道路测试；在场景应用上，自去年四季度在广州、北京部分示范应用区域开启全天候载客测试以来，滴滴自动驾驶始终保持安全稳定的运行表现。 菜鸟：未来4个月将在全球交付4座大型攀爬机器人仓库 36氪获悉，6月18日，菜鸟副总裁、物流科技事业部总经理毕江华表示，菜鸟自研生产的攀爬机器人经过618大促检验，显著提升了电商供应链的智能作业能力，下一步菜鸟将加快面向全球市场投入攀爬机器人，未来四个月内，将联合电商平台、知名品牌等在国内和欧洲新交付四座大型攀爬机器人仓库。 钉钉新CEO发布全员信：成立核心平台业务部，整合悟空与MuleRun团队…</p><a href="https://36kr.com/p/3858015526704129?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">2026-06-18 20:20:28  +0800</div><h3>蔚来补上“智驾课”，任少卿总结：智驾技术创新将重构竞争</h3><p>文｜肖漫 编辑｜李勤 6月18日，蔚来同时向两代平台车型（包含8款NT2.0平台车型、4款NT2.5平台车型，以及6款NT3.0车型）推送了最新版的世界模型，这意味着，蔚来现在能让同一套复杂的智驾代码，现在能跑在不同代际的���片上。 软件迭代节奏被硬件绑架曾是一个困扰行业的难题。很多车企无法在不同版本、配置的车型上迭代同一款软件，这带来的结果是，很长时间内只有使用最新版本硬件的车才能用上最好的软件，老车主被背刺。 蔚来部署推理跨平台兼容 任少卿的团队在 2020 年就在思考如何解决这个问题。蔚来的做法是搭建一套AI Infra——自研工具链铺平不同芯片间的鸿沟，用AI编译器提升车辆的处理速度，用 AI Agent 自动化串联全流程。 当时业内主流的做法还是用英伟达的工具进行上层部署。但当时的蔚来判断，车端芯片的工程架构会继续快速迭代，主流的架构仅能用 3-5 年。基于这一判断，蔚来决定只保留最底层的硬件接口层（如 CUDA），在此之上全面自研上层部署软件，包括推理引擎、部署框架。 另外，和大多数自研芯片的主机厂一样，蔚来也自研了编译器，实现了自动算子优化，将原本需要 1-2 周的部署时间缩短至 1-2…</p><a href="https://36kr.com/p/3858329994875908?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">2026-06-22 10:03:18  +0800</div><h3>港股半导体股走强，兆易创新股价突破1000港元</h3><p>36氪获悉，港股半导体股走强，兆易创新涨超8%，股价突破1000港元大关创历史新高；中芯国际拉升涨近7%，英诺赛科涨超13%，澜起科技涨超7%，华虹宏力涨超3%。</p><a href="https://36kr.com/newsflashes/3863704339076102?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">2026-06-22 09:53:03  +0800</div><h3>港股智谱涨幅扩大至40%</h3><p>36氪获悉，港股智谱涨幅扩大至40%，最高报2980港元再度刷新新高。</p><a href="https://36kr.com/newsflashes/3863694263096583?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">2026-06-22 09:34:52  +0800</div><h3>港股智谱盘中总市值突破1万亿港元</h3><a href="https://36kr.com/newsflashes/3863676393559047?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">2026-06-22 09:15:38  +0800</div><h3>中信证券：头部半导体设备公司将继续受益于强劲的逻辑与存储需求</h3><p>36氪获悉，中信证券研报表示，根据SEMI数据，2025年全球WFE市场规模同比增长12%至1173亿美元；预计2026年、2027年全球WFE市场规模将分别同比增长26%/35%至1478/1995亿美元，其中2027年下游Foundry/逻辑预计占比52%、存储预计占比39%（DRAM和NAND占比分别提升至24%、15%）。考虑到大客户积极的资本开支指引以及扩产计划，头部半导体设备公司将继续受益于强劲的逻辑与存储需求。结合下游市场需求、竞争格局、设备支出强度、公司业绩以及估值情况，重点推荐先进光刻龙头，EUV以及DUV出货量存在上修空间的标的；DRAM领域优势突出，估值相对较低的标的；刻蚀优势领先，NAND收入占比最高的标的；建��关注量检测需求提升，但利润率仍可能存在短期逆风因素的标的。</p><a href="https://36kr.com/newsflashes/3863639941862409?f=rss" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Mon, 22 Jun 2026 02:21:12 GMT</div><h3>鸿海刘扬伟：1GW 英伟达 Vera Rubin AI 数据中心需 470 亿美元</h3><p>IT之家 6 月 22 日消息，鸿海 (Hon Hai / Foxconn) 董事长刘扬伟本月 18 日在台湾地区工商协进会会员大会上表示， 基于 NVIDIA（英伟达）Vera Rubin 平台打造 1GW 规模的 AI 数据中心需要 470 亿美元 （IT之家注：现汇率约合 3190.83 亿元人民币） 的资本支出 。 刘扬伟提到，单一个 Vera Rubin 机架 / 机柜的价格就达到 910 万美元，而 1GW 数据中心总共需要约 3557 个各类机架 / 机柜。与此同时， 1GW AI 数据中心每年电力支出即达 13 亿美元 ，而硬件折旧费用更是电力成本六倍。 ▲ NVIDIA Vera Rubin NVL72 机架 刘扬伟援引外部数据指出，全球数据中心产业规模到 2030 年将达到 1.6 万亿美元，电力容量则将从 2024 年的 68GW“狂飙”至 174GW，平均每年需新增 18GW。另一方面，四大群体当前需要庞大 AI 算力，即 AI 模型开发商、云服务供应商、政府、企业，其中后两者仍属于蓝海领域。</p><a href="https://www.ithome.com/0/966/801.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 22 Jun 2026 02:16:13 GMT</div><h3>第四届链博会今日开幕，首次设立人工智能专区</h3><p>IT之家 6 月 22 日消息，据央视新闻报道， 第四届中国国际供应链促进博览会 （第四届链博会）今天在北京开幕。 本届链博会共设置数智科技、先进制造、绿色农业、健康生活、智能汽车、清洁能源等六大链条和供应链服务展区。目前，展台搭建等各项准备工作已全面完成。 本届链博会共吸引 676 家中外链主企业、专精特新企业和行业机构参展，来自 85 个国家、地区和国际组织， 世界 500 强及行业龙头企业占比超过 65% 。连同参展商带来的产供链上下游合作伙伴，实际参展商有望超过 1200 家。 人工智能是本届链博会的一大亮点， 数智科技链首次设立人工智能专区 ，汇聚了中外人工智能领域的领军企业。 各大展区也都能看到 AI 的身影，比如在先进制造链可以看到 AI 助力新型工业化，在绿色农业链可以看到 AI 从田园到餐桌的深度应用。 先进制造链专门设置了 低空经济产业链专区 ，30 多家企业联袂呈现从前沿技术、创新成果到发展趋势的全链条生态。 本届链博会首发首展首秀有望超过 160 项 ，展会期间，还将举办 70 场工商交流活动。 据IT之家此前报道，主宾省安徽将以“人工智能 +…</p><a href="https://www.ithome.com/0/966/799.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 22 Jun 2026 02:04:49 GMT</div><h3>消息称 Anthropic 或采用苹果 Digital ID 完成用户身份核验</h3><p>IT之家 6 月 22 日消息，去年，苹果在 iPhone 上推出了数字身份证（Digital ID）功能，用户可将美国护照存入苹果钱包作为身份凭证使用。过去几年，苹果也在逐步上线钱包驾照功能，但该服务仅在美国各州分阶段落地。而数字护照身份凭证是通用功能，所有持有美国护照的用户都能使用。 据 9to5Mac 报道，这项功能固然可以在机场运输安全管理局（TSA）安检口直接出示，但苹果的目标远不止于此：布局数字化时代的身份核验体系。虽然相关消息尚未得到官方证实，但有消息称，该数字身份技术或将很快迎来首个大规模落地场景 —— Claude AI。 IT之家注意到，美国政府此前出台了相关模型出口管制政策后，Anthropic 旗下的 Fable 5 与 Mythos 5 两款大模型已对所有用户停用。此前有报道称两款模型被曝出破解漏洞，受此影响，无论身处美国境内还是海外，外籍人士均无法使用 Fable 5 和 Mythos 5。 抛开争议不谈，理论上只要 Anthropic 上线身份核验机制，限制仅美国公民可访问，Fable 5 就有机会重新开放。Anthropic 既可以采用传统的身份核验方案，也能接入苹果的数字身份证功能。…</p><a href="https://www.ithome.com/0/966/795.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 22 Jun 2026 02:03:03 GMT</div><h3>10 分 29 秒 483，小米 YU7 GT 达成全球首个纽北自动驾驶圈速纪录</h3><p>IT之家 6 月 22 日消息，小米汽车今日官宣， 小米 YU7 GT 达成全球首个纽北自动驾驶圈速纪录 ，时间为 10 分 29 秒 483。 IT之家注意到，在今年 5 月的小米人车家全生态新品发布会上，小米创办人、董事长兼 CEO 雷军宣布，小米 YU7 GT 以 7 分 22 秒 755 的成绩刷新纽北 SUV 圈速纪录 14 秒，成为纽北史上最速 SUV。 以此计算，自动驾驶相比专业赛车手， 时间慢了约 3 分 7 秒 。 小米 YU7 GT 于 5 月 21 日正式发布 ，搭载新一代超级电机 V8s EVO，定位为“跑车级 SUV”，官方指导价 38.99 万元、大满配 42.99 万元。 该车最大马力 1003 匹、峰值功率 738kW、CLTC 续航 705km，零百加速 2.92 秒，最高时速 300km/h。其搭载 101.7kWh 三元锂电池，基于 897V 碳化硅高压平台，15 分钟充电最长可补能 570km。</p><a href="https://www.ithome.com/0/966/794.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 22 Jun 2026 01:51:17 GMT</div><h3>智谱市值首次突破 1 万亿港元，股价年内涨超 2000%</h3><p>IT之家 6 月 22 日消息，今日盘中， 港股智谱总市值首次突破 1 万亿港元 ，年内涨超 2000%；智谱今日股价现涨超 35%，总市值达到 1.27 万亿港元。 IT之家注意到， 智谱 6 月 17 日宣布上线并开源 GLM-5.2 。在全球百万用户参与盲测的前端开发评估系统 Code Arena 上，GLM-5.2 取得全球可用模型第一的表现。 特斯拉 CEO 埃隆 · 马斯克 6 月 19 日预测 ，中国大模型可能要到 2027 年第一季度达到 Anthropic Fable 水平。智谱 AI 联合创始人兼首席科学家唐杰随后回应称， 不需要那么久 。</p><a href="https://www.ithome.com/0/966/791.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 22 Jun 2026 01:43:13 GMT</div><h3>华为鸿蒙 HarmonyOS 7.0 开发者 Beta 1 将相机拍照默认格式从 JPG 切换为 HEIF</h3><p>IT之家 6 月 22 日消息，据“HarmonyOS 开发者技术”公众号，在 HarmonyOS 7.0（API26）Developer Beta 1 版本中，HarmonyOS 设备将相机拍照默认格式从 JPG 切换为了 HEIF。 ▲ “HarmonyOS 开发者技术”公众号（下同） 华为表示，如今照片越来越清晰，文件也越来越大，用户的相册和云端备份都更需要高效存储。HEIF 是高效图像文件格式，主流 HEIF 图片通常采用 HEVC（H.265）编码，在典型照片场景下可在保持良好画质体验的同时降低文件体积。 相机拍照默认格式从 JPG 切换到 HEIF 后，同样的相册记录更不容易快速占满空间，长期拍照、备份和分享也更轻。可以把它理解为从传统保存方式升级为更高效的照片保存方式。 对应用和服务链路而言，HEIF 图片会逐渐出现在相册选择、内容发布、客服传图、云端备份、图片编辑等场景中，体验是否连续，取决于这些链路是否正确处理 HEIF，因此开发者应当调整 App 图片上传时的文件扩展名校验规则，同时也可借助 Image Kit 提供的图片编解码能力，将 HEIF 转码为 JPEG 或 PNG。</p><a href="https://www.ithome.com/0/966/789.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 22 Jun 2026 01:41:40 GMT</div><h3>华为余承东：Grand Design 典藏大观，是尊界再向上一步的全新超高端系列</h3><p>IT之家 6 月 22 日消息，鸿蒙智行今日官宣鸿蒙智行尊界品牌盛典将于 6 月 25 日 19:00 举行，尊界 S800 Grand Design 典藏大观有望亮相。 随后，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东发文称：“尊界 S800 典藏大观即将正式发布！从第一辆尊界车开始，尊界追求的就是极致。 Grand Design 典藏大观，是尊界再向上一步的全新超高端系列 ！它不是重复过去，而是对设计、工艺、科技与体验的全新探索！这次鸿蒙智行尊界品牌盛典也将突破以往发布会形式，以科技、美学与艺术共同呈现一场属于尊界的‘典藏大观’！6 月 25 日 19:00，诚邀大家一同品鉴！” IT之家注意到，这款新车已经于今年 5 月开启预订，余承东曾称该车是面向 200 万级市场 的全新探索。目前尊界 S800 Grand Design 典藏大观已现身华为官网，并公开了部分信息。相关页面显示， 新车预售价 160 万元-200 万元 ， 采用典藏大观 锦绣设计主题 ，并搭载全新一代尊界定制途灵龙行平台。 第 407 批《道路机动车辆生产企业及产品公告》显示 ，尊界 S800 Grand Design…</p><a href="https://www.ithome.com/0/966/788.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 22 Jun 2026 01:25:48 GMT</div><h3>闪迪新专利：将 NAND 闪存堆叠在计算芯片下方，破解存储瓶颈</h3><p>IT之家 6 月 22 日消息，闪迪正在研发更多创新方案以解决存储容量受限问题，例如在芯片内部堆叠 NAND 闪存。 IT之家注意到，人工智能行业飞速发展，算力需求同步激增，各类性能瓶颈随之暴露，这倒逼 DRAM 与 NAND 闪存厂商跳出固有思维、探索突破性技术路线。 过去，芯片厂商只需推出全新存储技术就能满足需求，彼时 DRAM 是核心存储器件。但如今研发成本攀升、工艺良率存在短板、芯片功耗持续走高，行业不得不转向其他可行技术方案。高带宽内存（HBM）此前一直稳步迭代，可受产能短缺影响，其自身也迅速演变为新的性能瓶颈。 HBM 还存在其他短板，单堆叠容量偏低。尽管各代 DRAM 厂商持续提升 HBM 的带宽与单堆容量，产能供给始终跟不上市场需求。同时 HBM 仅能放置在主芯片侧边，芯片间数据传输存在显著延迟损耗。 再看 NAND 闪存，它单位存储成本更低、单盘容量更大，但存储介质距离主计算芯片更远，数据传输速度更慢，始终无法达到 DRAM（HBM）同级别的读写带宽。 为破解上述难题，闪存厂商闪迪此前公布了自家高带宽闪存（HBF）技术方案。据悉 HBF 采用与 HBM 相似的分层架构：将多层 NAND…</p><a href="https://www.ithome.com/0/966/776.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 22 Jun 2026 01:23:14 GMT</div><h3>亚马逊 AI 主管：已就向外部出售实体 Trainium 芯片进行商谈</h3><p>IT之家 6 月 22 日消息，据彭博社消息，Amazon（亚马逊）AI 主管 Peter DeSantis 在法国巴黎接受采访时表示， 已就向外部企业出售其自研 AI ASIC 的实体芯片展开讨论 。此前第三方均仅以云服务的形式访问 AWS 的 Trainium 系列芯片。 Peter DeSantis 表示：“我们认为 AI 基础设施正在迅速发展。而且我们一直在探索如何触达更多客户。” IT之家注意到，亚马逊首席执行官 Andy Jassy 在 今年 4 月的致股东信 中曾表示，对 Trainium 芯片的云端需求正在激增，“我们芯片的需求量如此之大，以至于未来很有可能将整批芯片出售给第三方”。 Peter DeSantis 称 AWS 最新的 Trainium3 芯片已“基本售罄”；企业方面则表示后续的 Trainium4 芯片已引起广泛关注。这位高管 并不认为外售芯片会蚕食 AWS 的 AI 云业务 ，宣称 AI 算力领域还有很大的增长空间。 而在亚马逊之前， Google（谷歌）已在交付 AI ASIC 硬件设备 ，这对 NVIDIA（英伟达）主导的 AI GPU 生态带来了新的挑战。</p><a href="https://www.ithome.com/0/966/774.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 22 Jun 2026 01:14:06 GMT</div><h3>特斯拉申请 Megapod 商标，暗示将推出模块化 AI 数据中心硬件系统</h3><p>IT之家 6 月 22 日消息，据 Electrek 报道，特斯拉一份全新商标申请文件显示，公司计划推出一款名为“Megapod”的模块化人工智能数据中心硬件产品。 IT之家注意到，这份商标文件描述了一套完整、独立运行的人工智能算力计算系统；而距离特斯拉关停旗下唯一自研 AI 训练超算 Dojo，这份申请递交时间还不足一年。 本月，特斯拉委托长期合作的知识产权律师，向美国专利商标局提交了“Megapod”商标申请（申请序列号：99893717）。该申请属于意图使用型商标申请，意味着特斯拉仅为一款尚未发布的产品预留该名称。 这份商标文件对商品与服务范围的描述，细化程度远超常规商标申请文本。Megapod 对应的产品范畴包含：“面向人工智能计算的模块化数据中心硬件系统，由计算机服务器、人工智能数据处理专用计算机硬件、网络设备、配电单元及冷却系统组成。” 同时还涵盖“适用于人工智能算力负载的一体式模块化计算硬件系统”，即作为整机对外销售的集成平台，整套机柜整合计算、配电与散热模块；此外还包含配套可下载软件，用于这套系统的监控、运维与性能优化。 通俗来讲：特斯拉打算售卖一套一体化 AI…</p><a href="https://www.ithome.com/0/966/771.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 22 Jun 2026 00:52:05 GMT</div><h3>索尼再谈 AI 游戏战略：自动化流程解放开发者，打造个性化玩家体验</h3><p>IT之家 6 月 22 日消息，如今的游戏行业，几乎每三款新游戏里就有一款会附带人工智能相关免责声明。《疯狂出租车：极速环游》《使命召唤：现代战争 4》《匹诺曹的谎言 2》等备受期待的新作，都将以不同形式运用这项技术。 另一边，索尼等游戏行业巨头早已公开表态支持人工智能，称这项技术能大幅提速游戏开发进程。而这家日本企业近期再度重申对人工智能技术的应用，暗示行业应用人工智能已是大势所趋，没有回头路可走。 IT之家注意到，索尼在 2025 财年年度报告中专门开辟了一个章节，阐述人工智能如何助力 PlayStation 平台迭代升级，称人工智能将充分释放这家游戏巨头真正的创作潜能。 报告中提到，索尼正在落地各类人工智能工具，实现重复工作流程自动化，提升品控、动画制作、3D 建模等多个部门的工作效率。借助这套方案，开发人员不用再耗费精力处理机械重复的事务，可以专心投入玩法设计、搭建更丰富完整的游戏世界观这类核心创意工作。 这家日本企业还指出，人工智能将用于为玩家打造个性化 PlayStation…</p><a href="https://www.ithome.com/0/966/765.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 22 Jun 2026 00:38:33 GMT</div><h3>消息称索尼 PS5《宇宙机器人》销量已突破 430 万份，营收高达 2.5 亿美元</h3><p>IT之家 6 月 22 日消息，索尼推出宇宙机器人系列，本意是用来展示 PlayStation 5 主机的性能。当时这款作品看起来平平无奇，后续却被扩充为完整独立游戏《宇宙机器人》，甚至一举拿下 2024 年度游戏大奖。 如今，宇宙机器人俨然成了这一代 PlayStation 主机的官方吉祥物。此前外界一直质疑这款游戏的销量与盈利表现，但一份最新报告披露，PS5 平台上《宇宙机器人》的销量很可能已经突破 430 万份。 Alinea Analytics 分析公司的数据显示，《宇宙机器人》销量已达 430 万份，创造了高达 2.5 亿美元（IT之家注：现汇率约合 16.97 亿元人民币）的营收。据悉本作开发成本远低于 1 亿美元，因此实现了巨额盈利。 游戏发售初期销量平平，但在斩获年度游戏大奖后迎来销量暴涨，今年也持续稳居热销榜单前列。该作的核心受众是家庭玩家与儿童群体。</p><a href="https://www.ithome.com/0/966/759.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sun, 21 Jun 2026 21:27:16 +0800</div><h3>Google reCAPTCHA 系统引入手势验证</h3><p>Google 将要求用户在摄像头前挥手以证明自己是人类而不是机器人。它提供的区分机器人和人类检测服务 reCAPTCHA 引入了手势验证。Google 表示，在手势验证期间它会分析用户在执行各种操作或手势时的一段或多段手部视频，系统会处理视频以提取手部关键点的坐标数据，其中包括 21 个指关节关键点坐标。Google 声称，视频绝不会与用户的身份相关联，并且会在验证流程结束后删除。系统绝不会录制音频。</p><a href="https://www.solidot.org/story?sid=84635" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 20 Jun 2026 22:43:30 +0800</div><h3>AI 使用是否会导致技能退化？</h3><p>随着越来越多的专业人士开始在工作中依赖 AI 工具，他们来之不易的技能会不会逐渐退化？此种担忧不无道理。有证据表明，AI 驱动的技能退化现象正在医学、计算机科学等领域发生。研究人员正探讨如何在 AI 时代保留重要的人类专业知识。一项针对波兰内窥镜医生的研究表明，AI 工具会迅速削弱人类的能力。这些医生在其职业生涯至少进行 2000 例结肠镜检查。研究人员让他们使用一套 AI 系统，能实时分析结肠镜图像，标记名为腺瘤的肠道癌前期病变。一旦医生开始使用该系统，每当系统不可用时，他们的诊断能力会显著下降。在引入 AI 工具前三个月里医生在 28.4% 的结肠镜检查中发现了至少一个腺瘤。而在引入 AI 工具后三个月里，在没有 AI 辅助的情况下腺瘤检出率下降至 22.4%。</p><a href="https://www.solidot.org/story?sid=84630" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 20 Jun 2026 22:11:09 +0800</div><h3>挪威限制小学生使用 AI</h3><p>挪威首相 Jonas Gahr Stoere 周五表示，挪威将限制小学生使用生成式 AI 工具。他表示，使用 AI 会增加儿童跳过重要教育阶段的风险。儿童在学校里最重要的是学会阅读、写作和数学。挪威政府表示，6-13 岁或一至七年级学生不应使用 AI；14-16 岁初中生可在教师指导下谨慎使用 AI 工具，17-19 岁高中学生应学习如何正确使用 AI 以便为未来的学习和工作做好准备。挪威政府还表示将立法为课堂使用更多书籍提供资金以扭转平板电脑普及的趋势。新标准将从 8 月下旬的新学年开始实施。</p><a href="https://www.solidot.org/story?sid=84629" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>

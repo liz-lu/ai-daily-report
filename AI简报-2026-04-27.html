@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-04-27</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f7f6f2;
+      --paper: #fffdfa;
+      --text: #1f2622;
+      --muted: #6d746e;
+      --line: rgba(31, 38, 34, 0.12);
+      --soft-line: rgba(31, 38, 34, 0.07);
+      --accent: #2f6e4f;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .page {
+      width: min(980px, calc(100vw - 28px));
+      margin: 0 auto;
+      padding: 18px 0 48px;
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0 14px;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.93rem;
+    }
+    .topbar__brand {
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    .topbar__nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--muted);
+    }
+    .topbar__nav span { color: #9aa19b; }
+    .masthead {
+      padding: 28px 0 26px;
+      border-bottom: 1px solid var(--line);
+    }
+    .masthead__eyebrow {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .masthead h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 6vw, 4.1rem);
+      letter-spacing: -0.05em;
+      line-height: 1.02;
+    }
+    .masthead__sub {
+      margin: 14px 0 0;
+      max-width: 780px;
+      font-size: 1.05rem;
+    }
+    .masthead__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .lead-summary {
+      margin: 18px 0 0;
+      max-width: 820px;
+      font-size: 1.08rem;
+    }
+    .lead-summary--muted { color: var(--muted); }
+    .quote-line {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-style: italic;
+    }
+    .section {
+      padding: 26px 0;
+      border-bottom: 1px solid var(--soft-line);
+    }
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 1.55rem;
+      letter-spacing: -0.03em;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+    .issue-list {
+      display: grid;
+      gap: 18px;
+    }
+    .issue-entry {
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--soft-line);
+    }
+    .issue-entry:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+    .issue-entry__header {
+      display: grid;
+      grid-template-columns: 90px minmax(0, 1fr);
+      gap: 12px;
+      align-items: baseline;
+    }
+    .issue-entry__date {
+      color: var(--muted);
+      font-size: 0.94rem;
+      white-space: nowrap;
+    }
+    .issue-entry__header h3 {
+      margin: 0;
+      font-size: 1.28rem;
+      line-height: 1.32;
+      letter-spacing: -0.02em;
+    }
+    .issue-entry__kicker {
+      margin: 6px 0 0 102px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .issue-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0 0 102px;
+    }
+    .issue-tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 3px 10px;
+      background: #eef3ef;
+      border: 1px solid rgba(47, 110, 79, 0.16);
+      color: #496054;
+      font-size: 0.82rem;
+    }
+    .issue-entry__summary {
+      margin: 12px 0 0 102px;
+      font-size: 1rem;
+      color: #2d3530;
+    }
+    .issue-entry__details {
+      margin: 12px 0 0 102px;
+    }
+    .issue-entry__details summary {
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .detail-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .detail-item,
+    .note-item,
+    .timeline-item,
+    .ledger-card,
+    .source-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px 16px;
+    }
+    .detail-item__meta,
+    .timeline-item__date,
+    .timeline-item__source,
+    .ledger-card__meta,
+    .source-card__meta {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+    .detail-item h4,
+    .note-item h3,
+    .timeline-item h3,
+    .ledger-card h3,
+    .source-card h4 {
+      margin: 6px 0 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .detail-item p,
+    .note-item p,
+    .timeline-item p,
+    .source-card p {
+      margin: 8px 0 0;
+      color: #404944;
+    }
+    .detail-item a,
+    .timeline-item a,
+    .source-card a {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 16px;
+    }
+    .note-list,
+    .side-notes {
+      display: grid;
+      gap: 12px;
+    }
+    .side-notes ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+    .side-notes li + li {
+      margin-top: 8px;
+    }
+    .timeline-list {
+      display: grid;
+      gap: 12px;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+    }
+    .ledger-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .ledger-card__links {
+      display: grid;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .source-groups {
+      display: grid;
+      gap: 12px;
+    }
+    .source-group {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px 16px;
+    }
+    .source-group summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .source-group summary span {
+      color: var(--muted);
+      font-weight: 400;
+      margin-left: 8px;
+      font-size: 0.9rem;
+    }
+    .source-group__body {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 12px 14px;
+      background: #fff;
+      border: 1px solid rgba(154, 89, 72, 0.2);
+      border-radius: 14px;
+    }
+    .error-item strong { color: #965b49; }
+    .footer {
+      padding-top: 22px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    @media (max-width: 860px) {
+      .issue-entry__header,
+      .timeline-item,
+      .summary-grid,
+      .ledger-grid {
+        grid-template-columns: 1fr;
+      }
+      .issue-entry__kicker,
+      .issue-tags,
+      .issue-entry__summary,
+      .issue-entry__details {
+        margin-left: 0;
+      }
+      .page {
+        width: calc(100vw - 20px);
+      }
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="topbar__brand">AINews CN</div>
+      <nav class="topbar__nav">
+        <a href="#issues">issues</a><span>/</span>
+        <a href="#summary">summary</a><span>/</span>
+        <a href="#timeline">timeline</a><span>/</span>
+        <a href="#sources">sources</a><span>/</span>
+        <a href="index.html">archive</a>
+      </nav>
+    </header>
+
+    <section class="masthead" id="hero">
+      <p class="masthead__eyebrow">by kanyun workflow · inspired by news.smol.ai</p>
+      <h1>中文 AI 每日资讯</h1>
+      <p class="masthead__sub">用更接近 newsletter issue 的方式整理每日 AI 进展：先扫主线，再看 tags、Show details、时间线与资料来源台账。</p>
+      <div class="masthead__meta">
+        <span>2026-04-27</span>
+        <span>18:21（北京时间）</span>
+        <span>34 条资讯</span>
+        <span>5 个来源</span>
+        <span>7 条主线</span>
+      </div>
+      <p class="lead-summary lead-summary--muted">本期模型总结暂不可用，但原始来源、主线摘要、时间线与资料台账仍会完整保留。</p>
+      <div class="quote-line">“先给可扫读主线，再给出处和原文入口。” 这版页面优先服务 3 分钟快速浏览，再支持深挖。</div>
+    </section>
+
+    <section class="section" id="issues">
+      <h2>Today’s issue</h2>
+      <p class="section-note">对齐参考页的核心阅读节奏：日期 + 标题 + tags + 一段粗摘要 + `Show details`。</p>
+      <div class="issue-list"><article class="issue-entry"><div class="issue-entry__header"><span class="issue-entry__date">Apr 27</span><h3>芒果传媒与爱诗科技达成战略合作，全栈AI视频能力接入芒果内容生态</h3></div><div class="issue-entry__kicker">12 条线索 · 首发来源 量子位</div><div class="issue-tags"><span class="issue-tag">产业 / 投融资 / 活动</span><span class="issue-tag">36氪</span><span class="issue-tag">IT之家</span><span class="issue-tag">量子位</span><span class="issue-tag">雷锋网</span></div><p class="issue-entry__summary"><strong>产业 / 投融资 / 活动</strong> 资本、合作与大会正在放大行业方向感</p><details class="issue-entry__details"><summary>Show details</summary><div class="detail-list"><article class="detail-item"><div class="detail-item__meta">量子位</div><h4>芒果传媒与爱诗科技达成战略合作，全栈AI视频能力接入芒果内容生态</h4><a href="https://www.qbitai.com/2026/04/408390.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">雷锋网</div><h4>推理卡毛利率下滑超7%，天数智芯「降价换量」的买卖值不值？</h4><p>2个多月前在港股上市的天数智芯，近期发布了2025年财报。公布当天，股价下跌了10个点。在此之前，天数股价已从342港元的高位大幅回调。 财报显示，天数全年营收10.34亿元，同比增长91.6%。一级市场投资人林云直言，这个表现没有达到大家的心理预期。对比其他几家国产公司这两年来的增长速度，市场给天数的营收底线预期是：12亿元。…</p><a href="https://www.leiphone.com/category/chips/bwKuuKUGYn8a3IbY.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">雷锋网</div><h4>明日新程完成连续两轮融资，领跑Harness群体多智能体赛道</h4><p>日前，由微软小冰原班人马成立的新公司“明日新程”宣布已连续完成两轮融资，重仓布局Harness群体多智能体赛道。 其中，天使轮融资由创新工场和Atypical Ventures联合领投，奇绩创坛继续跟投，其余参投方包括原微软全球副总裁David Ku等个人投资者、公司独家财务顾问安可资本等。…</p><a href="https://www.leiphone.com/category/industrynews/aiDP2A7dwvwQL6Ue.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">雷锋网</div><h4>自动驾驶只是起点：易航智能陈禹行谈物理AI时代的“水到渠成”</h4><p>“我们终将演进成AI机器人公司。”站在2026年车展回看2024年接受媒体采访时表达的期望，易航智能创始人、CEO陈禹行博士的团队于物理AI落地元年等到了最理想的东风，易航智能正朝目标一步一步逼近。 今年北京车展的热闹程度更胜以往，作为车展的绿叶，智驾供应商们动作不断。历时数年的角逐终于接近尾声，进入决赛圈的选手们新产品、新业务、新合作接连发布，开始全力冲刺。…</p><a href="https://www.leiphone.com/category/industrynews/6JGAxPmtizSGPayh.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">雷锋网</div><h4>李力耘加入众擎，全栈智驾大脑与顶级人形本体的双向奔赴</h4><p>“上个月融2亿美金我都没有这么开心。” “千军易得，一将难求！” “得一悍将！！晚上喝酒庆祝！” 众擎创始人赵同阳，最近发了一条数百字的朋友圈，字里行间难掩喜悦的心情，透露着一种具身行业里少见的“活人感”。 但就在这条朋友圈发布前的一段时间，赵同阳吐露经常辗转反侧，为公司的发展速度感到焦虑。 促成这种转变的，正是他口中的“悍将”李力耘。…</p><a href="https://www.leiphone.com/category/robot/EbmFRcvpt7TBjb3P.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">36氪</div><h4>「破壳机器人」许华哲：两年内，中国将出现可用的家庭机器人</h4><p>文｜邱晓芬 编辑｜苏建勋 2026年，全球的具身智能机器人创业者不约而同将目光方向调转向深水区：家庭。 点燃这份热情的，是近期行业里闪烁着的一丝丝Scaling Law苗头—— 先是硅谷具身智能公司Generalist AI在GEN-1模型上验证了确定性，当他们给机器人喂进海量数据后，精细操作任务成功率竟从64%提升到了惊人的99%；…</p><a href="https://36kr.com/p/3784365164322055?f=rss" target="_blank" rel="noreferrer">原文</a></article></div></details></article><article class="issue-entry"><div class="issue-entry__header"><span class="issue-entry__date">Apr 27</span><h3>自主AI汽车芯片「一姐」出手，机器人终于有了专属「小脑」</h3></div><div class="issue-entry__kicker">10 条线索 · 首发来源 量子位</div><div class="issue-tags"><span class="issue-tag">芯片 / 算力 / 推理</span><span class="issue-tag">36氪</span><span class="issue-tag">IT之家</span><span class="issue-tag">量子位</span><span class="issue-tag">雷锋网</span></div><p class="issue-entry__summary"><strong>芯片 / 算力 / 推理</strong> 基础设施的效率叙事持续升温</p><details class="issue-entry__details"><summary>Show details</summary><div class="detail-list"><article class="detail-item"><div class="detail-item__meta">量子位</div><h4>自主AI汽车芯片「一姐」出手，机器人终于有了专属「小脑」</h4><a href="https://www.qbitai.com/2026/04/407975.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">雷锋网</div><h4>别克×火山引擎：至境E7行业首发搭载豆包大模型最新版</h4><p>当豆包大模型进入汽车座舱，人车交互不再是你问我答的“客服”，而是能像人一样思考、交流、成长的“数字家人”。 别克高端新能源子品牌“至境”旗下首款SUV——别克至境E7正式发布，汽车行业首发搭载豆包大模型最新版，打造集陪伴、娱乐、用车、出行、车控五大核心功能的车载智能体，让车机具备真人一般的思考和交流能力，真正实现“听得懂、做得到”。 从“懂人心”到“能办事”，真正实现…</p><a href="https://www.leiphone.com/category/industrynews/c8rGA0s3Z9EolPet.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">雷锋网</div><h4>推理卡毛利率下滑超7%，天数智芯「降价换量」的买卖值不值？</h4><p>2个多月前在港股上市的天数智芯，近期发布了2025年财报。公布当天，股价下跌了10个点。在此之前，天数股价已从342港元的高位大幅回调。 财报显示，天数全年营收10.34亿元，同比增长91.6%。一级市场投资人林云直言，这个表现没有达到大家的心理预期。对比其他几家国产公司这两年来的增长速度，市场给天数的营收底线预期是：12亿元。…</p><a href="https://www.leiphone.com/category/chips/bwKuuKUGYn8a3IbY.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">雷锋网</div><h4>自动驾驶只是起点：易航智能陈禹行谈物理AI时代的“水到渠成”</h4><p>“我们终将演进成AI机器人公司。”站在2026年车展回看2024年接受媒体采访时表达的期望，易航智能创始人、CEO陈禹行博士的团队于物理AI落地元年等到了最理想的东风，易航智能正朝目标一步一步逼近。 今年北京车展的热闹程度更胜以往，作为车展的绿叶，智驾供应商们动作不断。历时数年的角逐终于接近尾声，进入决赛圈的选手们新产品、新业务、新合作接连发布，开始全力冲刺。…</p><a href="https://www.leiphone.com/category/industrynews/6JGAxPmtizSGPayh.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">雷锋网</div><h4>李力耘加入众擎，全栈智驾大脑与顶级人形本体的双向奔赴</h4><p>“上个月融2亿美金我都没有这么开心。” “千军易得，一将难求！” “得一悍将！！晚上喝酒庆祝！” 众擎创始人赵同阳，最近发了一条数百字的朋友圈，字里行间难掩喜悦的心情，透露着一种具身行业里少见的“活人感”。 但就在这条朋友圈发布前的一段时间，赵同阳吐露经常辗转反侧，为公司的发展速度感到焦虑。 促成这种转变的，正是他口中的“悍将”李力耘。…</p><a href="https://www.leiphone.com/category/robot/EbmFRcvpt7TBjb3P.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">36氪</div><h4>润芯微“国产软硬一体AI智能基座”发布，破解行业稀缺难题带动多端智能变革</h4><p>4月25日，以“芯视野·新格局”为主题的润芯微战略与产品发布会在北京车展期间举行。作为行业稀缺的“芯片+操作系统+AI”全栈解决方案提供商，润芯微首次完整展示已打造的可应用于多端场景的“国产软硬一体AI智能基座”。本次发布会通过战略、技术、产品、生态的完整呈现，全面展现润芯微在多端智能领域的进展情况。从百万量产上车到openvela通过兼容性认证，从车载座舱到两轮车智能终端、…</p><a href="https://36kr.com/p/3782901034785801?f=rss" target="_blank" rel="noreferrer">原文</a></article></div></details></article><article class="issue-entry"><div class="issue-entry__header"><span class="issue-entry__date">Apr 27</span><h3>别克×火山引擎：至境E7行业首发搭载豆包大模型最新版</h3></div><div class="issue-entry__kicker">9 条线索 · 首发来源 雷锋网</div><div class="issue-tags"><span class="issue-tag">云 / 大厂 / 生态</span><span class="issue-tag">36氪</span><span class="issue-tag">IT之家</span><span class="issue-tag">雷锋网</span></div><p class="issue-entry__summary"><strong>云 / 大厂 / 生态</strong> 当豆包大模型进入汽车座舱，人车交互不再是你问我答的“客服”，而是能像人一样思考、交流、成长的“数字家人”。 别克高端新能源子品牌“至境”旗下首款SUV——别克至境E7正式发布，汽车行业首发搭载豆包大模型最新版，打造集陪伴、娱乐、用车、出行、车控五大核心功能的车载智能体，让车机具备真人一般的思考和交流能力，真正实现“听得懂、做得到”。 从“懂人心”到“能办事”，真正实现 “越用越懂你” 别克至境E7首发搭载的豆包大模型最新版，拥有强大的思考能力：不仅能精准理解用户的复杂意图并快速规划任务，更能打通整车功能，实现系统级协同调度，一站式完成复杂任务。 它还能结合历史对话与车辆实时状态，展开上下文推理，并深度融合专业用车知识，让响应更贴合实际用车场景，真正做到 “听得懂、做得到”。搭载豆包大模型的座舱助手还能够像人一样自我成长。依托端云协同技术架构，实现云端模型实时更新、常用常新，真正做到 “越用越懂你”。…</p><details class="issue-entry__details"><summary>Show details</summary><div class="detail-list"><article class="detail-item"><div class="detail-item__meta">雷锋网</div><h4>别克×火山引擎：至境E7行业首发搭载豆包大模型最新版</h4><p>当豆包大模型进入汽车座舱，人车交互不再是你问我答的“客服”，而是能像人一样思考、交流、成长的“数字家人”。 别克高端新能源子品牌“至境”旗下首款SUV——别克至境E7正式发布，汽车行业首发搭载豆包大模型最新版，打造集陪伴、娱乐、用车、出行、车控五大核心功能的车载智能体，让车机具备真人一般的思考和交流能力，真正实现“听得懂、做得到”。 从“懂人心”到“能办事”，真正实现…</p><a href="https://www.leiphone.com/category/industrynews/c8rGA0s3Z9EolPet.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">雷锋网</div><h4>强强联手，追觅牵手阿里速卖通，将在海外加大投入</h4><p>雷峰网获悉，速卖通正在筹备4月中旬于深圳的一场“品牌出海顶级闭门会”，该活动仅对头部品牌高管实行严格定向邀请，不接受公开报名。根据网上流传的受邀名单，除小米外，全球高端科技品牌（Dreame）也在本次邀请名单中。…</p><a href="https://www.leiphone.com/category/industrynews/hEpG4zt1yAPvy6tJ.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">雷锋网</div><h4>推理卡毛利率下滑超7%，天数智芯「降价换量」的买卖值不值？</h4><p>2个多月前在港股上市的天数智芯，近期发布了2025年财报。公布当天，股价下跌了10个点。在此之前，天数股价已从342港元的高位大幅回调。 财报显示，天数全年营收10.34亿元，同比增长91.6%。一级市场投资人林云直言，这个表现没有达到大家的心理预期。对比其他几家国产公司这两年来的增长速度，市场给天数的营收底线预期是：12亿元。…</p><a href="https://www.leiphone.com/category/chips/bwKuuKUGYn8a3IbY.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">雷锋网</div><h4>明日新程完成连续两轮融资，领跑Harness群体多智能体赛道</h4><p>日前，由微软小冰原班人马成立的新公司“明日新程”宣布已连续完成两轮融资，重仓布局Harness群体多智能体赛道。 其中，天使轮融资由创新工场和Atypical Ventures联合领投，奇绩创坛继续跟投，其余参投方包括原微软全球副总裁David Ku等个人投资者、公司独家财务顾问安可资本等。…</p><a href="https://www.leiphone.com/category/industrynews/aiDP2A7dwvwQL6Ue.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">36氪</div><h4>Meta联手Overview Energy：1GW太空太阳能为数据中心供电 2030年投运</h4><p>Meta宣布与Overview Energy建立合作伙伴关系，将太空太阳能引入数据中心。该协议使公司能够优先获得Overview太空太阳能系统高达1GW的电力容量。2028年进行初始轨道演示，2030年实现商业电力输送。（财联社）</p><a href="https://36kr.com/newsflashes/3784905126157571?f=rss" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">36氪</div><h4>绿色动力：与阿里云签订深化合作框架协议</h4><p>36氪获悉，绿色动力公告，公司于4月27日与阿里云飞天(杭州)云计算技术有限公司签订《深化合作框架协议》及其补充协议。双方将在固废行业数字化与智能化领域建立合作伙伴关系。双方同意就智慧电厂等创新合作方向相关的项目进行合作。基于前期标杆项目实践，双方拟进一步深化扩大合作，为公司旗下其他电厂提供智能化服务，并联合开发垃圾吊、飞灰、渗沥液智能化处理及多元固废智能检测等前沿技术。双方…</p><a href="https://36kr.com/newsflashes/3784896601447680?f=rss" target="_blank" rel="noreferrer">原文</a></article></div></details></article><article class="issue-entry"><div class="issue-entry__header"><span class="issue-entry__date">Apr 27</span><h3>自主AI汽车芯片「一姐」出手，机器人终于有了专属「小脑」</h3></div><div class="issue-entry__kicker">8 条线索 · 首发来源 量子位</div><div class="issue-tags"><span class="issue-tag">具身 / 机器人 / 智驾</span><span class="issue-tag">36氪</span><span class="issue-tag">IT之家</span><span class="issue-tag">量子位</span><span class="issue-tag">雷锋网</span></div><p class="issue-entry__summary"><strong>具身 / 机器人 / 智驾</strong> 物理世界里的 AI 仍在拼落地速度</p><details class="issue-entry__details"><summary>Show details</summary><div class="detail-list"><article class="detail-item"><div class="detail-item__meta">量子位</div><h4>自主AI汽车芯片「一姐」出手，机器人终于有了专属「小脑」</h4><a href="https://www.qbitai.com/2026/04/407975.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">雷锋网</div><h4>限时29.98万起！ID. ERA 9X正式上市，全球首搭Momenta R7世界模型</h4><p>2026北京车展现场，上汽大众ID. ERA 9X正式公布了售价。 全系四驱共推出Pro、Max、Ultra三款车型，官方指导价30.98万元至35.98万元，限时权益价29.98万元至34.98万元。这一价格有效期从4月25日持续到5月31日，同时官方还配套推出了覆盖购车、用车、换购的全周期权益礼包。 雷峰网获悉，与很多车型“低配拉低门槛”的做法不同，ID. ERA…</p><a href="https://www.leiphone.com/category/transportation/1NFNsDdjf88BSww3.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">雷锋网</div><h4>自动驾驶只是起点：易航智能陈禹行谈物理AI时代的“水到渠成”</h4><p>“我们终将演进成AI机器人公司。”站在2026年车展回看2024年接受媒体采访时表达的期望，易航智能创始人、CEO陈禹行博士的团队于物理AI落地元年等到了最理想的东风，易航智能正朝目标一步一步逼近。 今年北京车展的热闹程度更胜以往，作为车展的绿叶，智驾供应商们动作不断。历时数年的角逐终于接近尾声，进入决赛圈的选手们新产品、新业务、新合作接连发布，开始全力冲刺。…</p><a href="https://www.leiphone.com/category/industrynews/6JGAxPmtizSGPayh.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">雷锋网</div><h4>李力耘加入众擎，全栈智驾大脑与顶级人形本体的双向奔赴</h4><p>“上个月融2亿美金我都没有这么开心。” “千军易得，一将难求！” “得一悍将！！晚上喝酒庆祝！” 众擎创始人赵同阳，最近发了一条数百字的朋友圈，字里行间难掩喜悦的心情，透露着一种具身行业里少见的“活人感”。 但就在这条朋友圈发布前的一段时间，赵同阳吐露经常辗转反侧，为公司的发展速度感到焦虑。 促成这种转变的，正是他口中的“悍将”李力耘。…</p><a href="https://www.leiphone.com/category/robot/EbmFRcvpt7TBjb3P.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">36氪</div><h4>早期项目 | 前地平线产品负责人死磕“拿放”动作，轮式机器人今年锁定百台出货</h4><p>作者丨欧雪 编辑丨袁斯来 在具身智能行业普遍沉迷双足人形和仿真训练的当下，有一家公司选择了一条不太一样的路径：聚焦仓储物流场景，用“轮式底盘+双臂”死磕占人力成本60%的“拿放”动作。这是一家由中科南京软件技术研究院孵化出来的具身智能企业——智往未来。…</p><a href="https://36kr.com/p/3783824870317312?f=rss" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">36氪</div><h4>「破壳机器人」许华哲：两年内，中国将出现可用的家庭机器人</h4><p>文｜邱晓芬 编辑｜苏建勋 2026年，全球的具身智能机器人创业者不约而同将目光方向调转向深水区：家庭。 点燃这份热情的，是近期行业里闪烁着的一丝丝Scaling Law苗头—— 先是硅谷具身智能公司Generalist AI在GEN-1模型上验证了确定性，当他们给机器人喂进海量数据后，精细操作任务成功率竟从64%提升到了惊人的99%；…</p><a href="https://36kr.com/p/3784365164322055?f=rss" target="_blank" rel="noreferrer">原文</a></article></div></details></article><article class="issue-entry"><div class="issue-entry__header"><span class="issue-entry__date">Apr 27</span><h3>别克×火山引擎：至境E7行业首发搭载豆包大模型最新版</h3></div><div class="issue-entry__kicker">7 条线索 · 首发来源 雷锋网</div><div class="issue-tags"><span class="issue-tag">大模型 / 应用 / 智能体</span><span class="issue-tag">36氪</span><span class="issue-tag">IT之家</span><span class="issue-tag">Solidot</span><span class="issue-tag">雷锋网</span></div><p class="issue-entry__summary"><strong>大模型 / 应用 / 智能体</strong> 当豆包大模型进入汽车座舱，人车交互不再是你问我答的“客服”，而是能像人一样思考、交流、成长的“数字家人”。 别克高端新能源子品牌“至境”旗下首款SUV——别克至境E7正式发布，汽车行业首发搭载豆包大模型最新版，打造集陪伴、娱乐、用车、出行、车控五大核心功能的车载智能体，让车机具备真人一般的思考和交流能力，真正实现“听得懂、做得到”。 从“懂人心”到“能办事”，真正实现 “越用越懂你” 别克至境E7首发搭载的豆包大模型最新版，拥有强大的思考能力：不仅能精准理解用户的复杂意图并快速规划任务，更能打通整车功能，实现系统级协同调度，一站式完成复杂任务。 它还能结合历史对话与车辆实时状态，展开上下文推理，并深度融合专业用车知识，让响应更贴合实际用车场景，真正做到 “听得懂、做得到”。搭载豆包大模型的座舱助手还能够像人一样自我成长。依托端云协同技术架构，实现云端模型实时更新、常用常新，真正做到 “越用越懂你”。…</p><details class="issue-entry__details"><summary>Show details</summary><div class="detail-list"><article class="detail-item"><div class="detail-item__meta">雷锋网</div><h4>别克×火山引擎：至境E7行业首发搭载豆包大模型最新版</h4><p>当豆包大模型进入汽车座舱，人车交互不再是你问我答的“客服”，而是能像人一样思考、交流、成长的“数字家人”。 别克高端新能源子品牌“至境”旗下首款SUV——别克至境E7正式发布，汽车行业首发搭载豆包大模型最新版，打造集陪伴、娱乐、用车、出行、车控五大核心功能的车载智能体，让车机具备真人一般的思考和交流能力，真正实现“听得懂、做得到”。 从“懂人心”到“能办事”，真正实现…</p><a href="https://www.leiphone.com/category/industrynews/c8rGA0s3Z9EolPet.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">雷锋网</div><h4>明日新程完成连续两轮融资，领跑Harness群体多智能体赛道</h4><p>日前，由微软小冰原班人马成立的新公司“明日新程”宣布已连续完成两轮融资，重仓布局Harness群体多智能体赛道。 其中，天使轮融资由创新工场和Atypical Ventures联合领投，奇绩创坛继续跟投，其余参投方包括原微软全球副总裁David Ku等个人投资者、公司独家财务顾问安可资本等。…</p><a href="https://www.leiphone.com/category/industrynews/aiDP2A7dwvwQL6Ue.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">雷锋网</div><h4>自动驾驶只是起点：易航智能陈禹行谈物理AI时代的“水到渠成”</h4><p>“我们终将演进成AI机器人公司。”站在2026年车展回看2024年接受媒体采访时表达的期望，易航智能创始人、CEO陈禹行博士的团队于物理AI落地元年等到了最理想的东风，易航智能正朝目标一步一步逼近。 今年北京车展的热闹程度更胜以往，作为车展的绿叶，智驾供应商们动作不断。历时数年的角逐终于接近尾声，进入决赛圈的选手们新产品、新业务、新合作接连发布，开始全力冲刺。…</p><a href="https://www.leiphone.com/category/industrynews/6JGAxPmtizSGPayh.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">36氪</div><h4>京东全新升级AI黑科技功能，深度融合生成式AI与3D渲染能力</h4><p>36氪获悉，近日，京东全新升级AI黑科技功能。该功能深度融合生成式AI与3D渲染能力，集成一秒识万物、即刻上脸、虚拟试戴及360°3D产品模型三大核心功能。据了解，2026年京东将持续加码AI设备和智能眼镜品类建设，同时将在数百家线下门店设立AI智能专区。</p><a href="https://36kr.com/newsflashes/3784919071104004?f=rss" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">IT之家</div><h4>脉脉 CEO 林凡谈 ChatGPT Images2.0：感觉整个互联网内容信任崩塌了，但实名社交迎来黎明</h4><p>IT之家 4 月 27 日消息，脉脉 CEO 林凡前天在自家平台发文，就 ChatGPT Images2.0 生图工具发表个人见解。 林凡表示： 我感觉整个互联网的信任崩塌了， 但实名社交的黎明来了 据IT之家此前报道 ，ChatGPT Images 2.0 生图工具发布于上周（4 月 21 日）， 基于 GPT Image 2 模型打造 ，核心升级在于引入“思考能力”。…</p><a href="https://www.ithome.com/0/944/112.htm" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">IT之家</div><h4>Ubuntu 未来一年将逐渐“AI 化”：从增强现有功能开始，不会变成 AI 产品</h4><p>IT之家 4 月 27 日消息，Ubuntu 26.04 LTS 发布后，Canonical 披露了 Ubuntu 接下来的重点开发方向：AI 功能将明显增多。 Canonical 工程副总裁 Jon Seager 今天在 Ubuntu Discourse 发文，介绍了 Ubuntu 未来引入 AI 的思路，“AI 化”先从增强现有系统功能开始：让 AI…</p><a href="https://www.ithome.com/0/944/111.htm" target="_blank" rel="noreferrer">原文</a></article></div></details></article><article class="issue-entry"><div class="issue-entry__header"><span class="issue-entry__date">Apr 27</span><h3>让孩子画作活起来，用放大镜识万物，给台灯装灵魂……京东JoyInside打造AI硬件时代“超级基础设施”</h3></div><div class="issue-entry__kicker">5 条线索 · 首发来源 量子位</div><div class="issue-tags"><span class="issue-tag">其他 AI 科技动态</span><span class="issue-tag">36氪</span><span class="issue-tag">IT之家</span><span class="issue-tag">Solidot</span><span class="issue-tag">量子位</span></div><p class="issue-entry__summary"><strong>其他 AI 科技动态</strong> 零散动态中仍有值得继续跟踪的信号</p><details class="issue-entry__details"><summary>Show details</summary><div class="detail-list"><article class="detail-item"><div class="detail-item__meta">量子位</div><h4>让孩子画作活起来，用放大镜识万物，给台灯装灵魂……京东JoyInside打造AI硬件时代“超级基础设施”</h4><a href="https://www.qbitai.com/2026/04/408394.html" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">36氪</div><h4>美团“小团”AI入口升级</h4><p>36氪获悉，近日，美团宣布旗下本地吃喝玩乐AI管家“小团”完成入口升级。新入口迁移至美团App首页核心位置并全量上线。据美团方面介绍，随着五一出游高峰来临，异地旅游、家庭聚餐等复合型场景增多，近期用户向“小团”输入完整生活场景求攻略的需求增长迅猛。</p><a href="https://36kr.com/newsflashes/3784855122844931?f=rss" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">IT之家</div><h4>小米米家中央空调 Pro 双风轮系列 OTA 2.48.42 推送：新增强劲模式，升级超低频 4Hz 算法</h4><p>IT之家 4 月 27 日消息，小米智能生态今日宣布，米家中央空调 Pro 双风轮系列全链路 OTA 正式推送，版本号为 Mijia Central Air Conditioner OTA 2.48.42。 IT之家附具体内容如下： 超低频 4Hz 算法升级…</p><a href="https://www.ithome.com/0/944/088.htm" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">IT之家</div><h4>华硕 ROG 魔盒 Air Wi-Fi 7 路由器新增黑色版本发售：5GHz 5T5R 天线设计，1399 元</h4><p>IT之家 4 月 27 日消息，华硕旗下 ROG 魔盒 Air Wi-Fi 7 路由器新增的黑色版本将于今晚 8 点在京东发售， 定价为 1399 元 ，部分地区国补后 1204 元，新客首单补贴后到手价低至 1115 元。 京东 华硕 ROG 魔盒 Air Wi-Fi 7 路由器黑色版本 1399 元 直达链接 该路由器整体尺寸为 182.3 x 80 x…</p><a href="https://www.ithome.com/0/944/044.htm" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">Solidot</div><h4>AI 成本可能高于人工成本</h4><p>多家企业在 AI 上的支出已经超过了员工薪资，IT 预算严重超支。Uber CTO 的 2026 年 AI 预算因 token 费用超支。根据 Gartner 预测，2026 年全球 IT 支出预计将达到 6.31 万亿美元，比 2025 年增长 13.5%。这一增长是由 AI 基础设施、软件和云服务的“持续发展势头”推动的。即使是 IT 预算最充足的公司也需要证明 AI…</p><a href="https://www.solidot.org/story?sid=84159" target="_blank" rel="noreferrer">原文</a></article></div></details></article><article class="issue-entry"><div class="issue-entry__header"><span class="issue-entry__date">Apr 27</span><h3>英国大型企业普遍不清楚自身数据在海外被人工智能如何使用</h3></div><div class="issue-entry__kicker">3 条线索 · 首发来源 36氪</div><div class="issue-tags"><span class="issue-tag">数据 / 安全 / 合规 / 社会议题</span><span class="issue-tag">36氪</span><span class="issue-tag">IT之家</span><span class="issue-tag">Solidot</span></div><p class="issue-entry__summary"><strong>数据 / 安全 / 合规 / 社会议题</strong> 研究机构Harbr Data的调查显示，英国多数大型企业并不清楚自身敏感数据在海外被人工智能系统处理时的具体用途，凸显出这一快速发展技术带来的风险。该研究针对英国营收超1亿英镑企业的高级技术与数据负责人展开调查，结果显示61%的受访者无法全面掌握数据在海外的处理方式，报告指出这一问题主要困扰企业董事会。（新浪财经）</p><details class="issue-entry__details"><summary>Show details</summary><div class="detail-list"><article class="detail-item"><div class="detail-item__meta">36氪</div><h4>英国大型企业普遍不清楚自身数据在海外被人工智能如何使用</h4><p>研究机构Harbr Data的调查显示，英国多数大型企业并不清楚自身敏感数据在海外被人工智能系统处理时的具体用途，凸显出这一快速发展技术带来的风险。该研究针对英国营收超1亿英镑企业的高级技术与数据负责人展开调查，结果显示61%的受访者无法全面掌握数据在海外的处理方式，报告指出这一问题主要困扰企业董事会。（新浪财经）</p><a href="https://36kr.com/newsflashes/3784861077986306?f=rss" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">IT之家</div><h4>网友用 AI 生成《GTA 6》假图，收到 Take-Two 律师函后被迫公开致歉</h4><p>IT之家 4 月 27 日消息，一个《GTA 6》粉丝账号因发布利用 Rockstar Games 版权素材生成的 AI 图片，收到发行商 Take-Two Interactive 的停止侵权律师函后，被迫公开致歉。 这些 AI…</p><a href="https://www.ithome.com/0/944/000.htm" target="_blank" rel="noreferrer">原文</a></article><article class="detail-item"><div class="detail-item__meta">Solidot</div><h4>韩国逮捕一名发布逃跑公狼 AI 照片的男子</h4><p>韩国大田市 O-World 动物园一只 2 岁公狼于 4 月 8 日从围栏跳出，当地警方和消防部门随后连夜搜寻。直至 4 月 17 日这只叫 Neukgu 的公狼被安全捕获并送回园内。韩国警方本周逮捕了一名 40 岁的男子，他被控发布了一张逃跑公狼在路口出没的 AI 照片误导了搜索人员干扰了搜索工作。这张 AI…</p><a href="https://www.solidot.org/story?sid=84147" target="_blank" rel="noreferrer">原文</a></article></div></details></article></div>
+    </section>
+
+    <section class="section" id="summary">
+      <h2>Summary notes</h2>
+      <p class="section-note">模型导读保留为独立摘要区，不替代原始来源，只帮助你更快形成今天的判断框架。</p>
+      <div class="summary-grid">
+        <div class="note-list"><article class="note-item"><h3>模型总结暂不可用</h3><p>当 API 未配置或调用失败时，这一块会自动降级，但 issue 主线和原始资料仍会正常更新。</p></article></div>
+        <div class="side-notes">
+          <article class="note-item">
+            <h3>Impact notes</h3>
+            <ul><li>暂无额外观察。</li></ul>
+          </article>
+          <article class="note-item">
+            <h3>Watchlist</h3>
+            <ul><li>暂无额外 watchlist。</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="timeline">
+      <h2>Timeline</h2>
+      <p class="section-note">按发布时间串起当天信息流。时间无法解析时，保留 RSS 原始时间字符串。</p>
+      <div class="timeline-list"><article class="timeline-item"><div class="timeline-item__date">Mon, 27 Apr 2026 10:14:02 GMT</div><div class="timeline-item__content"><div class="timeline-item__source">IT之家</div><h3>脉脉 CEO 林凡谈 ChatGPT Images2.0：感觉整个互联网内容信任崩塌了，但实名社交迎来黎明</h3><p>IT之家 4 月 27 日消息，脉脉 CEO 林凡前天在自家平台发文，就 ChatGPT Images2.0 生图工具发表个人见解。 林凡表示： 我感觉整个互联网的信任崩塌了， 但实名社交的黎明来了 据IT之家此前报道 ，ChatGPT Images 2.0 生图工具发布于上周（4 月 21 日）， 基于 GPT Image 2 模型打造 ，核心升级在于引入“思考能力”。 该模型发布后随即引发网友热议，…</p><a href="https://www.ithome.com/0/944/112.htm" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 27 Apr 2026 10:13:33 GMT</div><div class="timeline-item__content"><div class="timeline-item__source">IT之家</div><h3>Ubuntu 未来一年将逐渐“AI 化”：从增强现有功能开始，不会变成 AI 产品</h3><p>IT之家 4 月 27 日消息，Ubuntu 26.04 LTS 发布后，Canonical 披露了 Ubuntu 接下来的重点开发方向：AI 功能将明显增多。 Canonical 工程副总裁 Jon Seager 今天在 Ubuntu Discourse 发文，介绍了 Ubuntu 未来引入 AI 的思路，“AI 化”先从增强现有系统功能开始：让 AI 模型在后台运行，辅助操作系统完成更多任务。再往后，Ubuntu…</p><a href="https://www.ithome.com/0/944/111.htm" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 27 Apr 2026 09:47:02 +0000</div><div class="timeline-item__content"><div class="timeline-item__source">量子位</div><h3>让孩子画作活起来，用放大镜识万物，给台灯装灵魂……京东JoyInside打造AI硬件时代“超级基础设施”</h3><a href="https://www.qbitai.com/2026/04/408394.html" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 27 Apr 2026 17:29:16 +0800</div><div class="timeline-item__content"><div class="timeline-item__source">Solidot</div><h3>AI 成本可能高于人工成本</h3><p>多家企业在 AI 上的支出已经超过了员工薪资，IT 预算严重超支。Uber CTO 的 2026 年 AI 预算因 token 费用超支。根据 Gartner 预测，2026 年全球 IT 支出预计将达到 6.31 万亿美元，比 2025 年增长 13.5%。这一增长是由 AI 基础设施、软件和云服务的“持续发展势头”推动的。即使是 IT 预算最充足的公司也需要证明 AI 投入的长期回报。当 AI 实验室提高价格时，对 AI…</p><a href="https://www.solidot.org/story?sid=84159" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 27 Apr 2026 09:28:36 +0000</div><div class="timeline-item__content"><div class="timeline-item__source">量子位</div><h3>芒果传媒与爱诗科技达成战略合作，全栈AI视频能力接入芒果内容生态</h3><a href="https://www.qbitai.com/2026/04/408390.html" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 27 Apr 2026 09:12:53 GMT</div><div class="timeline-item__content"><div class="timeline-item__source">IT之家</div><h3>小米米家中央空调 Pro 双风轮系列 OTA 2.48.42 推送：新增强劲模式，升级超低频 4Hz 算法</h3><p>IT之家 4 月 27 日消息，小米智能生态今日宣布，米家中央空调 Pro 双风轮系列全链路 OTA 正式推送，版本号为 Mijia Central Air Conditioner OTA 2.48.42。 IT之家附具体内容如下： 超低频 4Hz 算法升级…</p><a href="https://www.ithome.com/0/944/088.htm" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 27 Apr 2026 09:07:25 GMT</div><div class="timeline-item__content"><div class="timeline-item__source">IT之家</div><h3>韩国政府与谷歌 DeepMind 达成合作，5 月启动国家科学 AI 研究中心</h3><p>IT之家 4 月 27 日消息，据韩联社今天报道，韩国政府与谷歌旗下 AI 企业 DeepMind 签署谅解备忘录，携手构建合作体系。 据报道，韩国科技部（科技技术信息通信部）与 DeepMind 签署的合作协议涵盖 AI 联合研究、AI 人才培养及负责任使用 AI。双方将围绕技术、基础设施、研究人员交流等领域展开实质性合作 ，保障创新项目“K-Moonshot”顺利实施 。…</p><a href="https://www.ithome.com/0/944/086.htm" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 27 Apr 2026 08:50:04 GMT</div><div class="timeline-item__content"><div class="timeline-item__source">IT之家</div><h3>一千公里不间断：华为兆瓦超充解决方案首次在业界实现可以服务干线物流</h3><p>IT之家 4 月 27 日消息，华为数字能源官方今日发布视频，分享了华为数字能源副总裁何波的讲话。 据何波介绍，华为的兆瓦超充解决方案首次在业界实现了可以服务干线物流。何波表示，在大功率充电方面，物流领域非常重要。他提到，华为的客户算过账，如果在干线物流上，仅仅是快递行业实现电动化的话，一年油改电能省 150 多个亿。 但遗憾的是，从 2018 年探索到现在，8…</p><a href="https://www.ithome.com/0/944/053.htm" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 27 Apr 2026 08:43:38 GMT</div><div class="timeline-item__content"><div class="timeline-item__source">IT之家</div><h3>华硕 ROG 魔盒 Air Wi-Fi 7 路由器新增黑色版本发售：5GHz 5T5R 天线设计，1399 元</h3><p>IT之家 4 月 27 日消息，华硕旗下 ROG 魔盒 Air Wi-Fi 7 路由器新增的黑色版本将于今晚 8 点在京东发售， 定价为 1399 元 ，部分地区国补后 1204 元，新客首单补贴后到手价低至 1115 元。 京东 华硕 ROG 魔盒 Air Wi-Fi 7 路由器黑色版本 1399 元 直达链接 该路由器整体尺寸为 182.3 x 80 x 207mm，采用黑色外观，机身侧面带有 RGB 灯。路由器使用 5GHz…</p><a href="https://www.ithome.com/0/944/044.htm" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 27 Apr 2026 08:40:13 GMT</div><div class="timeline-item__content"><div class="timeline-item__source">IT之家</div><h3>山灵 UA1 II 便携解码耳放 5 月发售：双 CS43131 芯片，368 元</h3><p>IT之家 4 月 27 日消息，山灵官方今天宣布，UA1 II 便携解码耳放将在 5 月发售， 零售价 368 元 。 IT之家从官方微博获悉，这款耳放原本计划一月上市， 但后来在各种因素下改为五月上市 。 规格方面， 这款耳放搭载 2 个 Cirrus Logic CS43131 DAC 芯片 ，支持 768kHz/32bit、DSD 512 硬解。具备 3.5mm 单端 +4.4mm 平衡双接口，采用屏幕按键一体化设计，推力可达…</p><a href="https://www.ithome.com/0/944/040.htm" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 27 Apr 2026 08:34:59 GMT</div><div class="timeline-item__content"><div class="timeline-item__source">IT之家</div><h3>当贝超级盒子 H5 机顶盒 64GB 存储空间版本发售：搭全志 H618 芯片，528 元</h3><p>IT之家 4 月 27 日消息，当贝超级盒子 H5 机顶盒 64GB 存储空间版本目前已在京东发售， 定价为 528 元 ，部分地区国补后低至 449 元。 京东 当贝电视盒子 H5 64GB 版本 528 元 直达链接 该机采用纯白色简约机身，搭配有幻彩呼吸灯。搭载基于安卓 12 定制的当贝 OS，内置的当贝播放器支持网盘资源直达、蓝光原盘硬解码与 NAS 直连秒播。 规格方面，该机搭载全志 H618 芯片，匹配 2GB DDR4…</p><a href="https://www.ithome.com/0/944/029.htm" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 27 Apr 2026 08:27:11 GMT</div><div class="timeline-item__content"><div class="timeline-item__source">IT之家</div><h3>辅助驾驶≠自动驾驶！司机弯腰捡饮料瓶酿成致命车祸</h3><p>IT之家 4 月 27 日消息，据央视新闻报道，上海浦东检察机关此前公布了一起案例：驾驶员在开启辅助驾驶功能后， 盲目依赖辅助驾驶，超速行驶中弯腰捡拾饮料瓶，因未能及时接管车辆，最终酿成严重交通事故 。 据回顾，2025 年 4 月 13 日上午 10 时多，上海浦东新区龙东大道东向西方向的一处路段上，发生了一起交通事故。肇事车辆是一辆黑色 SUV，行车记录仪视频可以看到，…</p><a href="https://www.ithome.com/0/944/011.htm" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 27 Apr 2026 08:16:19 GMT</div><div class="timeline-item__content"><div class="timeline-item__source">IT之家</div><h3>网友用 AI 生成《GTA 6》假图，收到 Take-Two 律师函后被迫公开致歉</h3><p>IT之家 4 月 27 日消息，一个《GTA 6》粉丝账号因发布利用 Rockstar Games 版权素材生成的 AI 图片，收到发行商 Take-Two Interactive 的停止侵权律师函后，被迫公开致歉。 这些 AI 生成图片仿真度极高，酷似真实爆料内容，在官方警示消息公开前就已大范围传播，也抛出了多数内容创作者从未深思过的问题：在网上发布这类图片究竟存在多大法律风险？ IT之家注意到，涉事社交媒体账号为 X 平台的…</p><a href="https://www.ithome.com/0/944/000.htm" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 27 Apr 2026 08:12:59 GMT</div><div class="timeline-item__content"><div class="timeline-item__source">IT之家</div><h3>影石联合字节跳动推出 Mic Air TRAE 麦克风联名套装：适用 AI 氛围编程场合、附带 SOLO 内测资格，限时 319 元</h3><p>IT之家 4 月 27 日消息，影石 Insta360 与字节跳动旗下 AI 编程产品 TRAE（The Real AI Engineer）达成合作，联合发布 Vibe Coding 专用麦克风 Mic Air 套装，主要包含 Mic Air 麦克风本体与 TRAE SOLO 内测资格，用户可体验最新的“More than coding AI”功能， 套装售价 399 元，即日起至 5 月 6 日限时促销价 319 元 。 京东…</p><a href="https://www.ithome.com/0/943/998.htm" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 27 Apr 2026 08:07:07 GMT</div><div class="timeline-item__content"><div class="timeline-item__source">IT之家</div><h3>消息称韩政府计划斥资 5000 亿韩元支持本国化合物功率半导体产业</h3><p>IT之家 4 月 27 日消息，根据韩媒 ETNEWS 当地时间今日报道，韩国政府计划斥资 5000 亿韩元（IT之家注：现汇率约合 23.09 亿元人民币）支持本国化合物功率半导体产业发展， 改变当前 90~95% 功率半导体需求依赖进口的局面 。 根据韩国政府规划的路线图，该国将在今年启动 8 英寸 (200mm) 化合物功率半导体晶圆厂基础设施的建设，2027 年开始量产 1200V SiC MOSFET 等关键功率器件，…</p><a href="https://www.ithome.com/0/943/993.htm" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 27 Apr 2026 06:46:41 +0000</div><div class="timeline-item__content"><div class="timeline-item__source">量子位</div><h3>自主AI汽车芯片「一姐」出手，机器人终于有了专属「小脑」</h3><a href="https://www.qbitai.com/2026/04/407975.html" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 27 Apr 2026 11:53:00 +0800</div><div class="timeline-item__content"><div class="timeline-item__source">雷锋网</div><h3>限时29.98万起！ID. ERA 9X正式上市，全球首搭Momenta R7世界模型</h3><p>2026北京车展现场，上汽大众ID. ERA 9X正式公布了售价。 全系四驱共推出Pro、Max、Ultra三款车型，官方指导价30.98万元至35.98万元，限时权益价29.98万元至34.98万元。这一价格有效期从4月25日持续到5月31日，同时官方还配套推出了覆盖购车、用车、换购的全周期权益礼包。 雷峰网获悉，与很多车型“低配拉低门槛”的做法不同，ID. ERA…</p><a href="https://www.leiphone.com/category/transportation/1NFNsDdjf88BSww3.html" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 27 Apr 2026 10:28:00 +0800</div><div class="timeline-item__content"><div class="timeline-item__source">雷锋网</div><h3>自动驾驶只是起点：易航智能陈禹行谈物理AI时代的“水到渠成”</h3><p>“我们终将演进成AI机器人公司。”站在2026年车展回看2024年接受媒体采访时表达的期望，易航智能创始人、CEO陈禹行博士的团队于物理AI落地元年等到了最理想的东风，易航智能正朝目标一步一步逼近。 今年北京车展的热闹程度更胜以往，作为车展的绿叶，智驾供应商们动作不断。历时数年的角逐终于接近尾声，进入决赛圈的选手们新产品、新业务、新合作接连发布，开始全力冲刺。 要说今年北京车展跟以往有哪些不同，一个最大的特征就是AI味儿相当浓郁。…</p><a href="https://www.leiphone.com/category/industrynews/6JGAxPmtizSGPayh.html" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Sun, 26 Apr 2026 22:05:57 +0800</div><div class="timeline-item__content"><div class="timeline-item__source">Solidot</div><h3>AI 是一种压迫性技术</h3><p>Ali Alkhatib 认为 AI 是一个政治项目，其意图是将权力和能动性从个人和组织转移至中心化的权力结构。这些权力结构目前主要集中在少数科技巨头以及它们投入巨资的 AI 实验室手中。现代 AI 系统脱胎于暴力也是基于暴力：其第一种暴力形式是数据获取的暴力，AI 公司的爬虫无视任何规则抓取数据；第二种暴力形式发生在数据标注和清洗过程中；第三种暴力形式则是其数据集带有殖民主义的西方视角；第四种是利用 AI…</p><a href="https://www.solidot.org/story?sid=84151" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Sun, 26 Apr 2026 21:15:00 +0800</div><div class="timeline-item__content"><div class="timeline-item__source">雷锋网</div><h3>李力耘加入众擎，全栈智驾大脑与顶级人形本体的双向奔赴</h3><p>“上个月融2亿美金我都没有这么开心。” “千军易得，一将难求！” “得一悍将！！晚上喝酒庆祝！” 众擎创始人赵同阳，最近发了一条数百字的朋友圈，字里行间难掩喜悦的心情，透露着一种具身行业里少见的“活人感”。 但就在这条朋友圈发布前的一段时间，赵同阳吐露经常辗转反侧，为公司的发展速度感到焦虑。 促成这种转变的，正是他口中的“悍将”李力耘。…</p><a href="https://www.leiphone.com/category/robot/EbmFRcvpt7TBjb3P.html" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Sat, 25 Apr 2026 18:30:28 +0800</div><div class="timeline-item__content"><div class="timeline-item__source">Solidot</div><h3>韩国逮捕一名发布逃跑公狼 AI 照片的男子</h3><p>韩国大田市 O-World 动物园一只 2 岁公狼于 4 月 8 日从围栏跳出，当地警方和消防部门随后连夜搜寻。直至 4 月 17 日这只叫 Neukgu 的公狼被安全捕获并送回园内。韩国警方本周逮捕了一名 40 岁的男子，他被控发布了一张逃跑公狼在路口出没的 AI 照片误导了搜索人员干扰了搜索工作。这张 AI…</p><a href="https://www.solidot.org/story?sid=84147" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 13 Apr 2026 16:24:00 +0800</div><div class="timeline-item__content"><div class="timeline-item__source">雷锋网</div><h3>别克×火山引擎：至境E7行业首发搭载豆包大模型最新版</h3><p>当豆包大模型进入汽车座舱，人车交互不再是你问我答的“客服”，而是能像人一样思考、交流、成长的“数字家人”。 别克高端新能源子品牌“至境”旗下首款SUV——别克至境E7正式发布，汽车行业首发搭载豆包大模型最新版，打造集陪伴、娱乐、用车、出行、车控五大核心功能的车载智能体，让车机具备真人一般的思考和交流能力，真正实现“听得懂、做得到”。 从“懂人心”到“能办事”，真正实现 “越用越懂你”…</p><a href="https://www.leiphone.com/category/industrynews/c8rGA0s3Z9EolPet.html" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 13 Apr 2026 15:08:00 +0800</div><div class="timeline-item__content"><div class="timeline-item__source">雷锋网</div><h3>强强联手，追觅牵手阿里速卖通，将在海外加大投入</h3><p>雷峰网获悉，速卖通正在筹备4月中旬于深圳的一场“品牌出海顶级闭门会”，该活动仅对头部品牌高管实行严格定向邀请，不接受公开报名。根据网上流传的受邀名单，除小米外，全球高端科技品牌（Dreame）也在本次邀请名单中。 雷峰网了解到，本次品牌闭门会，除了速卖通品牌战略分享以及一众海外嘉宾的出海干货分享之外，还有一个特别的签约环节，追觅就是签约品牌之一。签约内容大概率与“超级品牌出海计划”、也就是Brand+有关。…</p><a href="https://www.leiphone.com/category/industrynews/hEpG4zt1yAPvy6tJ.html" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 13 Apr 2026 12:56:00 +0800</div><div class="timeline-item__content"><div class="timeline-item__source">雷锋网</div><h3>推理卡毛利率下滑超7%，天数智芯「降价换量」的买卖值不值？</h3><p>2个多月前在港股上市的天数智芯，近期发布了2025年财报。公布当天，股价下跌了10个点。在此之前，天数股价已从342港元的高位大幅回调。 财报显示，天数全年营收10.34亿元，同比增长91.6%。一级市场投资人林云直言，这个表现没有达到大家的心理预期。对比其他几家国产公司这两年来的增长速度，市场给天数的营收底线预期是：12亿元。…</p><a href="https://www.leiphone.com/category/chips/bwKuuKUGYn8a3IbY.html" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">Mon, 13 Apr 2026 12:12:00 +0800</div><div class="timeline-item__content"><div class="timeline-item__source">雷锋网</div><h3>明日新程完成连续两轮融资，领跑Harness群体多智能体赛道</h3><p>日前，由微软小冰原班人马成立的新公司“明日新程”宣布已连续完成两轮融资，重仓布局Harness群体多智能体赛道。 其中，天使轮融资由创新工场和Atypical Ventures联合领投，奇绩创坛继续跟投，其余参投方包括原微软全球副总裁David Ku等个人投资者、公司独家财务顾问安可资本等。 目前，公司已募得供未来三到五年持续创新的所需资金。明日新程（英文名：Nextie）是一家由微软小冰创始团队成立的人工智能公司。…</p><a href="https://www.leiphone.com/category/industrynews/aiDP2A7dwvwQL6Ue.html" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">2026-04-27 09:10:00  +0800</div><div class="timeline-item__content"><div class="timeline-item__source">36氪</div><h3>早期项目 | 前地平线产品负责人死磕“拿放”动作，轮式机器人今年锁定百台出货</h3><p>作者丨欧雪 编辑丨袁斯来 在具身智能行业普遍沉迷双足人形和仿真训练的当下，有一家公司选择了一条不太一样的路径：聚焦仓储物流场景，用“轮式底盘+双臂”死磕占人力成本60%的“拿放”动作。这是一家由中科南京软件技术研究院孵化出来的具身智能企业——智往未来。…</p><a href="https://36kr.com/p/3783824870317312?f=rss" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">2026-04-27 09:00:00  +0800</div><div class="timeline-item__content"><div class="timeline-item__source">36氪</div><h3>「破壳机器人」许华哲：两年内，中国将出现可用的家庭机器人</h3><p>文｜邱晓芬 编辑｜苏建勋 2026年，全球的具身智能机器人创业者不约而同将目光方向调转向深水区：家庭。 点燃这份热情的，是近期行业里闪烁着的一丝丝Scaling Law苗头—— 先是硅谷具身智能公司Generalist AI在GEN-1模型上验证了确定性，当他们给机器人喂进海量数据后，精细操作任务成功率竟从64%提升到了惊人的99%； 随后，硅谷当红的具身智能独角兽公司Sunday…</p><a href="https://36kr.com/p/3784365164322055?f=rss" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">2026-04-26 14:00:34  +0800</div><div class="timeline-item__content"><div class="timeline-item__source">36氪</div><h3>欧莱雅BRANDSTORM 2026中国总决赛落幕，AI成美妆创新核心议题｜最前线</h3><p>欧莱雅全球青年创新策划大赛BRANDSTORM 2026中国总决赛于4月24日在上海收官。本届赛事聚焦奢华香氛领域，中国赛区吸引超72000人报名，经多轮选拔后六支队伍进入总决赛。最终，UNIBLOCK、SOS和Move with Scent三支队伍分获冠亚季军，将代表中国赛区赴巴黎参加全球总决赛。…</p><a href="https://36kr.com/p/3783249100397570?f=rss" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">2026-04-26 08:08:39  +0800</div><div class="timeline-item__content"><div class="timeline-item__source">36氪</div><h3>润芯微“国产软硬一体AI智能基座”发布，破解行业稀缺难题带动多端智能变革</h3><p>4月25日，以“芯视野·新格局”为主题的润芯微战略与产品发布会在北京车展期间举行。作为行业稀缺的“芯片+操作系统+AI”全栈解决方案提供商，润芯微首次完整展示已打造的可应用于多端场景的“国产软硬一体AI智能基座”。本次发布会通过战略、技术、产品、生态的完整呈现，全面展现润芯微在多端智能领域的进展情况。从百万量产上车到openvela通过兼容性认证，从车载座舱到两轮车智能终端、机器人算力平台，体现润芯微“国产软硬一体AI智能基座”产品及…</p><a href="https://36kr.com/p/3782901034785801?f=rss" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">2026-04-27 18:18:46  +0800</div><div class="timeline-item__content"><div class="timeline-item__source">36氪</div><h3>京东全新升级AI黑科技功能，深度融合生成式AI与3D渲染能力</h3><p>36氪获悉，近日，京东全新升级AI黑科技功能。该功能深度融合生成式AI与3D渲染能力，集成一秒识万物、即刻上脸、虚拟试戴及360°3D产品模型三大核心功能。据了解，2026年京东将持续加码AI设备和智能眼镜品类建设，同时将在数百家线下门店设立AI智能专区。</p><a href="https://36kr.com/newsflashes/3784919071104004?f=rss" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">2026-04-27 18:12:40  +0800</div><div class="timeline-item__content"><div class="timeline-item__source">36氪</div><h3>Meta联手Overview Energy：1GW太空太阳能为数据中心供电 2030年投运</h3><p>Meta宣布与Overview Energy建立合作伙伴关系，将太空太阳能引入数据中心。该协议使公司能够优先获得Overview太空太阳能系统高达1GW的电力容量。2028年进行初始轨道演示，2030年实现商业电力输送。（财联社）</p><a href="https://36kr.com/newsflashes/3784905126157571?f=rss" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">2026-04-27 18:03:46  +0800</div><div class="timeline-item__content"><div class="timeline-item__source">36氪</div><h3>绿色动力：与阿里云签订深化合作框架协议</h3><p>36氪获悉，绿色动力公告，公司于4月27日与阿里云飞天(杭州)云计算技术有限公司签订《深化合作框架协议》及其补充协议。双方将在固废行业数字化与智能化领域建立合作伙伴关系。双方同意就智慧电厂等创新合作方向相关的项目进行合作。基于前期标杆项目实践，双方拟进一步深化扩大合作，为公司旗下其他电厂提供智能化服务，并联合开发垃圾吊、飞灰、渗沥液智能化处理及多元固废智能检测等前沿技术。双方合作将有利于提升公司垃圾焚烧发电项目运营智能化水平，有助于公…</p><a href="https://36kr.com/newsflashes/3784896601447680?f=rss" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">2026-04-27 17:31:42  +0800</div><div class="timeline-item__content"><div class="timeline-item__source">36氪</div><h3>英国大型企业普遍不清楚自身数据在海外被人工智能如何使用</h3><p>研究机构Harbr Data的调查显示，英国多数大型企业并不清楚自身敏感数据在海外被人工智能系统处理时的具体用途，凸显出这一快速发展技术带来的风险。该研究针对英国营收超1亿英镑企业的高级技术与数据负责人展开调查，结果显示61%的受访者无法全面掌握数据在海外的处理方式，报告指出这一问题主要困扰企业董事会。（新浪财经）</p><a href="https://36kr.com/newsflashes/3784861077986306?f=rss" target="_blank" rel="noreferrer">原文</a></div></article><article class="timeline-item"><div class="timeline-item__date">2026-04-27 17:13:43  +0800</div><div class="timeline-item__content"><div class="timeline-item__source">36氪</div><h3>美团“小团”AI入口升级</h3><p>36氪获悉，近日，美团宣布旗下本地吃喝玩乐AI管家“小团”完成入口升级。新入口迁移至美团App首页核心位置并全量上线。据美团方面介绍，随着五一出游高峰来临，异地旅游、家庭聚餐等复合型场景增多，近期用户向“小团”输入完整生活场景求攻略的需求增长迅猛。</p><a href="https://36kr.com/newsflashes/3784855122844931?f=rss" target="_blank" rel="noreferrer">原文</a></div></article></div>
+    </section>
+
+    <section class="section" id="sources">
+      <h2>Source ledger</h2>
+      <p class="section-note">先看来源密度与代表链接，再按来源展开查看完整原文索引。</p>
+      <div class="ledger-grid"><article class="ledger-card"><h3>IT之家</h3><div class="ledger-card__meta">12 条 · 最近 Mon, 27 Apr 2026 10:14:02 GMT</div><div class="ledger-card__links"><a href="https://www.ithome.com/0/944/112.htm" target="_blank" rel="noreferrer">脉脉 CEO 林凡谈 ChatGPT Images2.0：感觉整个互联网内容信任崩塌了，但实名社交迎来黎明</a><a href="https://www.ithome.com/0/944/111.htm" target="_blank" rel="noreferrer">Ubuntu 未来一年将逐渐“AI 化”：从增强现有功能开始，不会变成 AI 产品</a><a href="https://www.ithome.com/0/944/088.htm" target="_blank" rel="noreferrer">小米米家中央空调 Pro 双风轮系列 OTA 2.48.42 推送：新增强劲模式，升级超低频 4Hz 算法</a></div></article><article class="ledger-card"><h3>36氪</h3><div class="ledger-card__meta">9 条 · 最近 2026-04-27 09:10:00  +0800</div><div class="ledger-card__links"><a href="https://36kr.com/p/3783824870317312?f=rss" target="_blank" rel="noreferrer">早期项目 | 前地平线产品负责人死磕“拿放”动作，轮式机器人今年锁定百台出货</a><a href="https://36kr.com/p/3784365164322055?f=rss" target="_blank" rel="noreferrer">「破壳机器人」许华哲：两年内，中国将出现可用的家庭机器人</a><a href="https://36kr.com/p/3783249100397570?f=rss" target="_blank" rel="noreferrer">欧莱雅BRANDSTORM 2026中国总决赛落幕，AI成美妆创新核心议题｜最前线</a></div></article><article class="ledger-card"><h3>雷锋网</h3><div class="ledger-card__meta">7 条 · 最近 Mon, 13 Apr 2026 16:24:00 +0800</div><div class="ledger-card__links"><a href="https://www.leiphone.com/category/industrynews/c8rGA0s3Z9EolPet.html" target="_blank" rel="noreferrer">别克×火山引擎：至境E7行业首发搭载豆包大模型最新版</a><a href="https://www.leiphone.com/category/industrynews/hEpG4zt1yAPvy6tJ.html" target="_blank" rel="noreferrer">强强联手，追觅牵手阿里速卖通，将在海外加大投入</a><a href="https://www.leiphone.com/category/chips/bwKuuKUGYn8a3IbY.html" target="_blank" rel="noreferrer">推理卡毛利率下滑超7%，天数智芯「降价换量」的买卖值不值？</a></div></article><article class="ledger-card"><h3>Solidot</h3><div class="ledger-card__meta">3 条 · 最近 Mon, 27 Apr 2026 17:29:16 +0800</div><div class="ledger-card__links"><a href="https://www.solidot.org/story?sid=84159" target="_blank" rel="noreferrer">AI 成本可能高于人工成本</a><a href="https://www.solidot.org/story?sid=84151" target="_blank" rel="noreferrer">AI 是一种压迫性技术</a><a href="https://www.solidot.org/story?sid=84147" target="_blank" rel="noreferrer">韩国逮捕一名发布逃跑公狼 AI 照片的男子</a></div></article><article class="ledger-card"><h3>量子位</h3><div class="ledger-card__meta">3 条 · 最近 Mon, 27 Apr 2026 09:47:02 +0000</div><div class="ledger-card__links"><a href="https://www.qbitai.com/2026/04/408394.html" target="_blank" rel="noreferrer">让孩子画作活起来，用放大镜识万物，给台灯装灵魂……京东JoyInside打造AI硬件时代“超级基础设施”</a><a href="https://www.qbitai.com/2026/04/408390.html" target="_blank" rel="noreferrer">芒果传媒与爱诗科技达成战略合作，全栈AI视频能力接入芒果内容生态</a><a href="https://www.qbitai.com/2026/04/407975.html" target="_blank" rel="noreferrer">自主AI汽车芯片「一姐」出手，机器人终于有了专属「小脑」</a></div></article></div>
+      <div class="source-groups"><details class="source-group"><summary>量子位 <span>3 entries</span></summary><div class="source-group__body"><article class="source-card"><div class="source-card__meta">Mon, 27 Apr 2026 09:47:02 +0000</div><h4>让孩子画作活起来，用放大镜识万物，给台灯装灵魂……京东JoyInside打造AI硬件时代“超级基础设施”</h4><a href="https://www.qbitai.com/2026/04/408394.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Mon, 27 Apr 2026 09:28:36 +0000</div><h4>芒果传媒与爱诗科技达成战略合作，全栈AI视频能力接入芒果内容生态</h4><a href="https://www.qbitai.com/2026/04/408390.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Mon, 27 Apr 2026 06:46:41 +0000</div><h4>自主AI汽车芯片「一姐」出手，机器人终于有了专属「小脑」</h4><a href="https://www.qbitai.com/2026/04/407975.html" target="_blank" rel="noreferrer">原文链接</a></article></div></details><details class="source-group"><summary>雷锋网 <span>7 entries</span></summary><div class="source-group__body"><article class="source-card"><div class="source-card__meta">Mon, 13 Apr 2026 16:24:00 +0800</div><h4>别克×火山引擎：至境E7行业首发搭载豆包大模型最新版</h4><p>当豆包大模型进入汽车座舱，人车交互不再是你问我答的“客服”，而是能像人一样思考、交流、成长的“数字家人”。 别克高端新能源子品牌“至境”旗下首款SUV——别克至境E7正式发布，汽车行业首发搭载豆包大模型最新版，打造集陪伴、娱乐、用车、出行、车控五大核心功能的车载智能体，让车机具备真人一般的思考和交流能力，真正实现“听得懂、做得到”。…</p><a href="https://www.leiphone.com/category/industrynews/c8rGA0s3Z9EolPet.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Mon, 13 Apr 2026 15:08:00 +0800</div><h4>强强联手，追觅牵手阿里速卖通，将在海外加大投入</h4><p>雷峰网获悉，速卖通正在筹备4月中旬于深圳的一场“品牌出海顶级闭门会”，该活动仅对头部品牌高管实行严格定向邀请，不接受公开报名。根据网上流传的受邀名单，除小米外，全球高端科技品牌（Dreame）也在本次邀请名单中。…</p><a href="https://www.leiphone.com/category/industrynews/hEpG4zt1yAPvy6tJ.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Mon, 13 Apr 2026 12:56:00 +0800</div><h4>推理卡毛利率下滑超7%，天数智芯「降价换量」的买卖值不值？</h4><p>2个多月前在港股上市的天数智芯，近期发布了2025年财报。公布当天，股价下跌了10个点。在此之前，天数股价已从342港元的高位大幅回调。 财报显示，天数全年营收10.34亿元，同比增长91.6%。一级市场投资人林云直言，这个表现没有达到大家的心理预期。对比其他几家国产公司这两年来的增长速度，市场给天数的营收底线预期是：12亿元。…</p><a href="https://www.leiphone.com/category/chips/bwKuuKUGYn8a3IbY.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Mon, 13 Apr 2026 12:12:00 +0800</div><h4>明日新程完成连续两轮融资，领跑Harness群体多智能体赛道</h4><p>日前，由微软小冰原班人马成立的新公司“明日新程”宣布已连续完成两轮融资，重仓布局Harness群体多智能体赛道。 其中，天使轮融资由创新工场和Atypical Ventures联合领投，奇绩创坛继续跟投，其余参投方包括原微软全球副总裁David Ku等个人投资者、公司独家财务顾问安可资本等。…</p><a href="https://www.leiphone.com/category/industrynews/aiDP2A7dwvwQL6Ue.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Mon, 27 Apr 2026 11:53:00 +0800</div><h4>限时29.98万起！ID. ERA 9X正式上市，全球首搭Momenta R7世界模型</h4><p>2026北京车展现场，上汽大众ID. ERA 9X正式公布了售价。 全系四驱共推出Pro、Max、Ultra三款车型，官方指导价30.98万元至35.98万元，限时权益价29.98万元至34.98万元。这一价格有效期从4月25日持续到5月31日，同时官方还配套推出了覆盖购车、用车、换购的全周期权益礼包。…</p><a href="https://www.leiphone.com/category/transportation/1NFNsDdjf88BSww3.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Mon, 27 Apr 2026 10:28:00 +0800</div><h4>自动驾驶只是起点：易航智能陈禹行谈物理AI时代的“水到渠成”</h4><p>“我们终将演进成AI机器人公司。”站在2026年车展回看2024年接受媒体采访时表达的期望，易航智能创始人、CEO陈禹行博士的团队于物理AI落地元年等到了最理想的东风，易航智能正朝目标一步一步逼近。…</p><a href="https://www.leiphone.com/category/industrynews/6JGAxPmtizSGPayh.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Sun, 26 Apr 2026 21:15:00 +0800</div><h4>李力耘加入众擎，全栈智驾大脑与顶级人形本体的双向奔赴</h4><p>“上个月融2亿美金我都没有这么开心。” “千军易得，一将难求！” “得一悍将！！晚上喝酒庆祝！” 众擎创始人赵同阳，最近发了一条数百字的朋友圈，字里行间难掩喜悦的心情，透露着一种具身行业里少见的“活人感”。 但就在这条朋友圈发布前的一段时间，赵同阳吐露经常辗转反侧，为公司的发展速度感到焦虑。 促成这种转变的，正是他口中的“悍将”李力耘。…</p><a href="https://www.leiphone.com/category/robot/EbmFRcvpt7TBjb3P.html" target="_blank" rel="noreferrer">原文链接</a></article></div></details><details class="source-group"><summary>36氪 <span>9 entries</span></summary><div class="source-group__body"><article class="source-card"><div class="source-card__meta">2026-04-27 09:10:00  +0800</div><h4>早期项目 | 前地平线产品负责人死磕“拿放”动作，轮式机器人今年锁定百台出货</h4><p>作者丨欧雪 编辑丨袁斯来 在具身智能行业普遍沉迷双足人形和仿真训练的当下，有一家公司选择了一条不太一样的路径：聚焦仓储物流场景，用“轮式底盘+双臂”死磕占人力成本60%的“拿放”动作。这是一家由中科南京软件技术研究院孵化出来的具身智能企业——智往未来。…</p><a href="https://36kr.com/p/3783824870317312?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">2026-04-27 09:00:00  +0800</div><h4>「破壳机器人」许华哲：两年内，中国将出现可用的家庭机器人</h4><p>文｜邱晓芬 编辑｜苏建勋 2026年，全球的具身智能机器人创业者不约而同将目光方向调转向深水区：家庭。 点燃这份热情的，是近期行业里闪烁着的一丝丝Scaling Law苗头—— 先是硅谷具身智能公司Generalist AI在GEN-1模型上验证了确定性，当他们给机器人喂进海量数据后，精细操作任务成功率竟从64%提升到了惊人的99%；…</p><a href="https://36kr.com/p/3784365164322055?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">2026-04-26 14:00:34  +0800</div><h4>欧莱雅BRANDSTORM 2026中国总决赛落幕，AI成美妆创新核心议题｜最前线</h4><p>欧莱雅全球青年创新策划大赛BRANDSTORM 2026中国总决赛于4月24日在上海收官。本届赛事聚焦奢华香氛领域，中国赛区吸引超72000人报名，经多轮选拔后六支队伍进入总决赛。最终，UNIBLOCK、SOS和Move with Scent三支队伍分获冠亚季军，将代表中国赛区赴巴黎参加全球总决赛。…</p><a href="https://36kr.com/p/3783249100397570?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">2026-04-26 08:08:39  +0800</div><h4>润芯微“国产软硬一体AI智能基座”发布，破解行业稀缺难题带动多端智能变革</h4><p>4月25日，以“芯视野·新格局”为主题的润芯微战略与产品发布会在北京车展期间举行。作为行业稀缺的“芯片+操作系统+AI”全栈解决方案提供商，润芯微首次完整展示已打造的可应用于多端场景的“国产软硬一体AI智能基座”。本次发布会通过战略、技术、产品、生态的完整呈现，全面展现润芯微在多端智能领域的进展情况。从百万量产上车到openvela通过兼容性认证，从车载座…</p><a href="https://36kr.com/p/3782901034785801?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">2026-04-27 18:18:46  +0800</div><h4>京东全新升级AI黑科技功能，深度融合生成式AI与3D渲染能力</h4><p>36氪获悉，近日，京东全新升级AI黑科技功能。该功能深度融合生成式AI与3D渲染能力，集成一秒识万物、即刻上脸、虚拟试戴及360°3D产品模型三大核心功能。据了解，2026年京东将持续加码AI设备和智能眼镜品类建设，同时将在数百家线下门店设立AI智能专区。</p><a href="https://36kr.com/newsflashes/3784919071104004?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">2026-04-27 18:12:40  +0800</div><h4>Meta联手Overview Energy：1GW太空太阳能为数据中心供电 2030年投运</h4><p>Meta宣布与Overview Energy建立合作伙伴关系，将太空太阳能引入数据中心。该协议使公司能够优先获得Overview太空太阳能系统高达1GW的电力容量。2028年进行初始轨道演示，2030年实现商业电力输送。（财联社）</p><a href="https://36kr.com/newsflashes/3784905126157571?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">2026-04-27 18:03:46  +0800</div><h4>绿色动力：与阿里云签订深化合作框架协议</h4><p>36氪获悉，绿色动力公告，公司于4月27日与阿里云飞天(杭州)云计算技术有限公司签订《深化合作框架协议》及其补充协议。双方将在固废行业数字化与智能化领域建立合作伙伴关系。双方同意就智慧电厂等创新合作方向相关的项目进行合作。基于前期标杆项目实践，双方拟进一步深化扩大合作，为公司旗下其他电厂提供智能化服务，并联合开发垃圾吊、飞灰、渗沥液智能化处理及多元固废智能…</p><a href="https://36kr.com/newsflashes/3784896601447680?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">2026-04-27 17:31:42  +0800</div><h4>英国大型企业普遍不清楚自身数据在海外被人工智能如何使用</h4><p>研究机构Harbr Data的调查显示，英国多数大型企业并不清楚自身敏感数据在海外被人工智能系统处理时的具体用途，凸显出这一快速发展技术带来的风险。该研究针对英国营收超1亿英镑企业的高级技术与数据负责人展开调查，结果显示61%的受访者无法全面掌握数据在海外的处理方式，报告指出这一问题主要困扰企业董事会。（新浪财经）</p><a href="https://36kr.com/newsflashes/3784861077986306?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">2026-04-27 17:13:43  +0800</div><h4>美团“小团”AI入口升级</h4><p>36氪获悉，近日，美团宣布旗下本地吃喝玩乐AI管家“小团”完成入口升级。新入口迁移至美团App首页核心位置并全量上线。据美团方面介绍，随着五一出游高峰来临，异地旅游、家庭聚餐等复合型场景增多，近期用户向“小团”输入完整生活场景求攻略的需求增长迅猛。</p><a href="https://36kr.com/newsflashes/3784855122844931?f=rss" target="_blank" rel="noreferrer">原文链接</a></article></div></details><details class="source-group"><summary>IT之家 <span>12 entries</span></summary><div class="source-group__body"><article class="source-card"><div class="source-card__meta">Mon, 27 Apr 2026 10:14:02 GMT</div><h4>脉脉 CEO 林凡谈 ChatGPT Images2.0：感觉整个互联网内容信任崩塌了，但实名社交迎来黎明</h4><p>IT之家 4 月 27 日消息，脉脉 CEO 林凡前天在自家平台发文，就 ChatGPT Images2.0 生图工具发表个人见解。 林凡表示： 我感觉整个互联网的信任崩塌了， 但实名社交的黎明来了 据IT之家此前报道 ，ChatGPT Images 2.0 生图工具发布于上周（4 月 21 日）， 基于 GPT Image 2 模型打造…</p><a href="https://www.ithome.com/0/944/112.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Mon, 27 Apr 2026 10:13:33 GMT</div><h4>Ubuntu 未来一年将逐渐“AI 化”：从增强现有功能开始，不会变成 AI 产品</h4><p>IT之家 4 月 27 日消息，Ubuntu 26.04 LTS 发布后，Canonical 披露了 Ubuntu 接下来的重点开发方向：AI 功能将明显增多。 Canonical 工程副总裁 Jon Seager 今天在 Ubuntu Discourse 发文，介绍了 Ubuntu 未来引入 AI 的思路，“AI 化”先从增强现有系统功能开始：让 AI…</p><a href="https://www.ithome.com/0/944/111.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Mon, 27 Apr 2026 09:12:53 GMT</div><h4>小米米家中央空调 Pro 双风轮系列 OTA 2.48.42 推送：新增强劲模式，升级超低频 4Hz 算法</h4><p>IT之家 4 月 27 日消息，小米智能生态今日宣布，米家中央空调 Pro 双风轮系列全链路 OTA 正式推送，版本号为 Mijia Central Air Conditioner OTA 2.48.42。 IT之家附具体内容如下： 超低频 4Hz 算法升级…</p><a href="https://www.ithome.com/0/944/088.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Mon, 27 Apr 2026 09:07:25 GMT</div><h4>韩国政府与谷歌 DeepMind 达成合作，5 月启动国家科学 AI 研究中心</h4><p>IT之家 4 月 27 日消息，据韩联社今天报道，韩国政府与谷歌旗下 AI 企业 DeepMind 签署谅解备忘录，携手构建合作体系。 据报道，韩国科技部（科技技术信息通信部）与 DeepMind 签署的合作协议涵盖 AI 联合研究、AI 人才培养及负责任使用 AI。双方将围绕技术、基础设施、研究人员交流等领域展开实质性合作…</p><a href="https://www.ithome.com/0/944/086.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Mon, 27 Apr 2026 08:50:04 GMT</div><h4>一千公里不间断：华为兆瓦超充解决方案首次在业界实现可以服务干线物流</h4><p>IT之家 4 月 27 日消息，华为数字能源官方今日发布视频，分享了华为数字能源副总裁何波的讲话。 据何波介绍，华为的兆瓦超充解决方案首次在业界实现了可以服务干线物流。何波表示，在大功率充电方面，物流领域非常重要。他提到，华为的客户算过账，如果在干线物流上，仅仅是快递行业实现电动化的话，一年油改电能省 150 多个亿。 但遗憾的是，从 2018…</p><a href="https://www.ithome.com/0/944/053.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Mon, 27 Apr 2026 08:43:38 GMT</div><h4>华硕 ROG 魔盒 Air Wi-Fi 7 路由器新增黑色版本发售：5GHz 5T5R 天线设计，1399 元</h4><p>IT之家 4 月 27 日消息，华硕旗下 ROG 魔盒 Air Wi-Fi 7 路由器新增的黑色版本将于今晚 8 点在京东发售， 定价为 1399 元 ，部分地区国补后 1204 元，新客首单补贴后到手价低至 1115 元。 京东 华硕 ROG 魔盒 Air Wi-Fi 7 路由器黑色版本 1399 元 直达链接 该路由器整体尺寸为 182.3 x 80…</p><a href="https://www.ithome.com/0/944/044.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Mon, 27 Apr 2026 08:40:13 GMT</div><h4>山灵 UA1 II 便携解码耳放 5 月发售：双 CS43131 芯片，368 元</h4><p>IT之家 4 月 27 日消息，山灵官方今天宣布，UA1 II 便携解码耳放将在 5 月发售， 零售价 368 元 。 IT之家从官方微博获悉，这款耳放原本计划一月上市， 但后来在各种因素下改为五月上市 。 规格方面， 这款耳放搭载 2 个 Cirrus Logic CS43131 DAC 芯片 ，支持 768kHz/32bit、DSD 512…</p><a href="https://www.ithome.com/0/944/040.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Mon, 27 Apr 2026 08:34:59 GMT</div><h4>当贝超级盒子 H5 机顶盒 64GB 存储空间版本发售：搭全志 H618 芯片，528 元</h4><p>IT之家 4 月 27 日消息，当贝超级盒子 H5 机顶盒 64GB 存储空间版本目前已在京东发售， 定价为 528 元 ，部分地区国补后低至 449 元。 京东 当贝电视盒子 H5 64GB 版本 528 元 直达链接 该机采用纯白色简约机身，搭配有幻彩呼吸灯。搭载基于安卓 12 定制的当贝 OS，内置的当贝播放器支持网盘资源直达、蓝光原盘硬解码与…</p><a href="https://www.ithome.com/0/944/029.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Mon, 27 Apr 2026 08:27:11 GMT</div><h4>辅助驾驶≠自动驾驶！司机弯腰捡饮料瓶酿成致命车祸</h4><p>IT之家 4 月 27 日消息，据央视新闻报道，上海浦东检察机关此前公布了一起案例：驾驶员在开启辅助驾驶功能后， 盲目依赖辅助驾驶，超速行驶中弯腰捡拾饮料瓶，因未能及时接管车辆，最终酿成严重交通事故 。 据回顾，2025 年 4 月 13 日上午 10 时多，上海浦东新区龙东大道东向西方向的一处路段上，发生了一起交通事故。肇事车辆是一辆黑色…</p><a href="https://www.ithome.com/0/944/011.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Mon, 27 Apr 2026 08:16:19 GMT</div><h4>网友用 AI 生成《GTA 6》假图，收到 Take-Two 律师函后被迫公开致歉</h4><p>IT之家 4 月 27 日消息，一个《GTA 6》粉丝账号因发布利用 Rockstar Games 版权素材生成的 AI 图片，收到发行商 Take-Two Interactive 的停止侵权律师函后，被迫公开致歉。 这些 AI…</p><a href="https://www.ithome.com/0/944/000.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Mon, 27 Apr 2026 08:12:59 GMT</div><h4>影石联合字节跳动推出 Mic Air TRAE 麦克风联名套装：适用 AI 氛围编程场合、附带 SOLO 内测资格，限时 319 元</h4><p>IT之家 4 月 27 日消息，影石 Insta360 与字节跳动旗下 AI 编程产品 TRAE（The Real AI Engineer）达成合作，联合发布 Vibe Coding 专用麦克风 Mic Air 套装，主要包含 Mic Air 麦克风本体与 TRAE SOLO 内测资格，用户可体验最新的“More than coding AI”功能，…</p><a href="https://www.ithome.com/0/943/998.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Mon, 27 Apr 2026 08:07:07 GMT</div><h4>消息称韩政府计划斥资 5000 亿韩元支持本国化合物功率半导体产业</h4><p>IT之家 4 月 27 日消息，根据韩媒 ETNEWS 当地时间今日报道，韩国政府计划斥资 5000 亿韩元（IT之家注：现汇率约合 23.09 亿元人民币）支持本国化合物功率半导体产业发展， 改变当前 90~95% 功率半导体需求依赖进口的局面 。 根据韩国政府规划的路线图，该国将在今年启动 8 英寸 (200mm)…</p><a href="https://www.ithome.com/0/943/993.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></details><details class="source-group"><summary>Solidot <span>3 entries</span></summary><div class="source-group__body"><article class="source-card"><div class="source-card__meta">Mon, 27 Apr 2026 17:29:16 +0800</div><h4>AI 成本可能高于人工成本</h4><p>多家企业在 AI 上的支出已经超过了员工薪资，IT 预算严重超支。Uber CTO 的 2026 年 AI 预算因 token 费用超支。根据 Gartner 预测，2026 年全球 IT 支出预计将达到 6.31 万亿美元，比 2025 年增长 13.5%。这一增长是由 AI 基础设施、软件和云服务的“持续发展势头”推动的。即使是 IT…</p><a href="https://www.solidot.org/story?sid=84159" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Sun, 26 Apr 2026 22:05:57 +0800</div><h4>AI 是一种压迫性技术</h4><p>Ali Alkhatib 认为 AI 是一个政治项目，其意图是将权力和能动性从个人和组织转移至中心化的权力结构。这些权力结构目前主要集中在少数科技巨头以及它们投入巨资的 AI 实验室手中。现代 AI 系统脱胎于暴力也是基于暴力：其第一种暴力形式是数据获取的暴力，AI…</p><a href="https://www.solidot.org/story?sid=84151" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-card"><div class="source-card__meta">Sat, 25 Apr 2026 18:30:28 +0800</div><h4>韩国逮捕一名发布逃跑公狼 AI 照片的男子</h4><p>韩国大田市 O-World 动物园一只 2 岁公狼于 4 月 8 日从围栏跳出，当地警方和消防部门随后连夜搜寻。直至 4 月 17 日这只叫 Neukgu 的公狼被安全捕获并送回园内。韩国警方本周逮捕了一名 40 岁的男子，他被控发布了一张逃跑公狼在路口出没的 AI 照片误导了搜索人员干扰了搜索工作。这张 AI…</p><a href="https://www.solidot.org/story?sid=84147" target="_blank" rel="noreferrer">原文链接</a></article></div></details></div>
+    </section>
+
+    
+
+    <footer class="footer">
+      本页由本地脚本自动生成；与 `TXT` / `JSON` 归档并行留存，可配合定时任务自动更新。
+    </footer>
+  </div>
+</body>
+</html>
