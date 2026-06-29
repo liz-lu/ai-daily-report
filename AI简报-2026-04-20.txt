@@ -1,0 +1,102 @@
+中文 AI 资讯简报 · 2026-04-20 10:30（北京时间）
+============================================================
+说明：条目以中文科技媒体 RSS 为主，仅作标题与链接索引，请以原文为准。
+
+
+## 量子位
+----------------------------------------
+- 横扫全球15项SOTA！高德首个面向AGI的全栈具身技术体系大公开  (Sun, 19 Apr 2026 10:13:54 +0000)
+  https://www.qbitai.com/2026/04/403226.html
+- 大模型架构的下半场  (Sun, 19 Apr 2026 10:12:10 +0000)
+  https://www.qbitai.com/2026/04/403515.html
+- 高德发布全球首个面向AGI的全栈具身技术体系“ABot”：15项SOTA，构建持续进化的具身智能闭环  (Sun, 19 Apr 2026 07:50:32 +0000)
+  https://www.qbitai.com/2026/04/403505.html
+- 教龙虾玩手机！打通GUI智能体训练-评测-部署全流程，训练、真机、评测一站解决  (Sun, 19 Apr 2026 04:25:19 +0000)
+  https://www.qbitai.com/2026/04/403214.html
+- 黄仁勋都被问毛了：顶级AI厂商在去CUDA？“你的前提就是错的”  (Sun, 19 Apr 2026 04:14:11 +0000)
+  https://www.qbitai.com/2026/04/403210.html
+- AI开始接管实验室了！玻尔·跃迁实验室：试剂、设备、数据一个入口搞定，1800+设备即插即用  (Sat, 18 Apr 2026 15:58:07 +0000)
+  https://www.qbitai.com/2026/04/402988.html
+
+## 雷锋网
+----------------------------------------
+- 别克×火山引擎：至境E7行业首发搭载豆包大模型最新版  (Mon, 13 Apr 2026 16:24:00 +0800)
+  https://www.leiphone.com/category/industrynews/c8rGA0s3Z9EolPet.html
+- 强强联手，追觅牵手阿里速卖通，将在海外加大投入  (Mon, 13 Apr 2026 15:08:00 +0800)
+  https://www.leiphone.com/category/industrynews/hEpG4zt1yAPvy6tJ.html
+- 推理卡毛利率下滑超7%，天数智芯「降价换量」的买卖值不值？  (Mon, 13 Apr 2026 12:56:00 +0800)
+  https://www.leiphone.com/category/chips/bwKuuKUGYn8a3IbY.html
+- 明日新程完成连续两轮融资，领跑Harness群体多智能体赛道  (Mon, 13 Apr 2026 12:12:00 +0800)
+  https://www.leiphone.com/category/industrynews/aiDP2A7dwvwQL6Ue.html
+- 智元 ×Hitch Open｜深耕具身智能，共建全球物理智能学术生态  (Sun, 19 Apr 2026 21:32:00 +0800)
+  https://www.leiphone.com/category/industrynews/DNm9uCEqB79qKm8k.html
+- 物理AI时代，为什么需要一颗“舱驾融合”芯片？  (Fri, 17 Apr 2026 18:08:00 +0800)
+  https://www.leiphone.com/category/transportation/RCJOIk9kvsXhxVvd.html
+- 逐际动力开源 FluxVLA Engine：专为具身智能打造的标准化VLA工程底座  (Fri, 17 Apr 2026 15:52:00 +0800)
+  https://www.leiphone.com/category/robot/PJ2nHfNQ6K5Tz5yt.html
+- 全球首款！进迭时空 RISC-V AI CPU K3 成功适配 OpenHarmony 6.1  (Fri, 17 Apr 2026 11:07:00 +0800)
+  https://www.leiphone.com/category/chips/2VeR9uuIHQOur2mT.html
+
+## 36氪
+----------------------------------------
+- 自变量机器人完成近20亿元B轮融资，小米战投、红杉中国领投丨智能涌现独家  (2026-04-20 09:42:44  +0800)
+  https://36kr.com/p/3774502008963841?f=rss
+- 科氪 | 荣耀齐天大圣队机器人“闪电”夺冠 领跑2026亦庄人形机器人马拉松赛场  (2026-04-19 16:35:02  +0800)
+  https://36kr.com/p/3773492357169920?f=rss
+- 36氪首发 | 前华为工程师创业，实现临时键合载板存量循环，龙头客户已验证  (2026-04-19 09:46:49  +0800)
+  https://36kr.com/p/3773090942321155?f=rss
+- 智元机器人，要做AI大模型平台和开放生态  (2026-04-18 10:00:00  +0800)
+  https://36kr.com/p/3770721219035649?f=rss
+- 专访荣耀AI专家李向东：端侧AI方向还没收敛，但AI手机是最好的载体  (2026-04-17 19:17:58  +0800)
+  https://36kr.com/p/3770819743728131?f=rss
+- 特斯拉：目前并无在上海超级工厂量产机器人的具体计划  (2026-04-20 10:24:34  +0800)
+  https://36kr.com/newsflashes/3774543868838407?f=rss
+- 科大讯飞全资子公司入股星链人工智能科技公司  (2026-04-20 10:09:34  +0800)
+  https://36kr.com/newsflashes/3774529115489029?f=rss
+- 机器人ToB规模化提速，数据短板仍是核心卡点  (2026-04-20 08:58:32  +0800)
+  https://36kr.com/newsflashes/3774441465709064?f=rss
+
+## IT之家
+----------------------------------------
+- 阿里巴巴官宣 4 月 22 日见：Hello World  (Mon, 20 Apr 2026 02:14:07 GMT)
+  https://www.ithome.com/0/941/015.htm
+- 华为 Sound X 5 音箱今日开启预售，全新升级 AI 大模型  (Mon, 20 Apr 2026 02:12:21 GMT)
+  https://www.ithome.com/0/941/011.htm
+- 华为全新鸿蒙电脑今日正式发布  (Mon, 20 Apr 2026 01:30:24 GMT)
+  https://www.ithome.com/0/940/999.htm
+- 消息称自变量机器人完成近 20 亿元 B 轮融资，小米战投、红杉中国领投  (Mon, 20 Apr 2026 01:23:16 GMT)
+  https://www.ithome.com/0/940/997.htm
+- 面向下一代 AI 服务器，SK 海力士正式量产 192GB 容量 SOCAMM2  (Mon, 20 Apr 2026 00:07:57 GMT)
+  https://www.ithome.com/0/940/976.htm
+- 微软：正为 Win11 开始菜单开发更多自定义功能  (Sun, 19 Apr 2026 23:49:25 GMT)
+  https://www.ithome.com/0/940/973.htm
+- 荣耀“闪电”机器人破人类半马纪录夺冠，研发工程师姚彬称仅研发半年  (Sun, 19 Apr 2026 23:42:09 GMT)
+  https://www.ithome.com/0/940/972.htm
+- 主流网页部署平台 Vercel 遭黑客入侵，第三方 AI 工具成攻击突破口  (Sun, 19 Apr 2026 23:36:55 GMT)
+  https://www.ithome.com/0/940/971.htm
+- IT早报 0420：2026 北京亦庄机器人半马开跑；曝苹果 WWDC 26 海报暗示全新 Siri 界面；微信朋友圈初代界面曝光；长城魏建军痛批魏牌团队不会营销...  (Sun, 19 Apr 2026 23:26:39 GMT)
+  https://www.ithome.com/0/940/969.htm
+- 消息称谷歌正与 Marvell 洽谈合作开发两款 AI 芯片，挑战英伟达霸主地位  (Sun, 19 Apr 2026 23:16:27 GMT)
+  https://www.ithome.com/0/940/965.htm
+- 华为乾崑智驾 ADS Pro 增强版推送城区 NCA 功能，主动安全与泊车体验同步升级  (Sun, 19 Apr 2026 15:43:23 GMT)
+  https://www.ithome.com/0/940/958.htm
+- 林林：荣耀手表 4 最快下周五陆续推送 OTA  (Sun, 19 Apr 2026 14:53:18 GMT)
+  https://www.ithome.com/0/940/953.htm
+
+## Solidot
+----------------------------------------
+- 人形机器人打破人类半马世界纪录  (Sun, 19 Apr 2026 21:09:39 +0800)
+  https://www.solidot.org/story?sid=84087
+- 内存芯片短缺可能持续到 2030 年  (Sun, 19 Apr 2026 20:18:26 +0800)
+  https://www.solidot.org/story?sid=84085
+- 微软正式将 FAT32 分区大小从 32GB 增加到 2TB  (Sat, 18 Apr 2026 19:14:21 +0800)
+  https://www.solidot.org/story?sid=84080
+- 英伟达 CEO 反对进一步限制向中国出口芯片  (Sat, 18 Apr 2026 00:32:56 +0800)
+  https://www.solidot.org/story?sid=84078
+- 乌克兰军方开始大规模使用地面武装机器人  (Fri, 17 Apr 2026 23:40:27 +0800)
+  https://www.solidot.org/story?sid=84076
+- 美国主流媒体封禁互联网档案馆的存档机器人  (Fri, 17 Apr 2026 14:24:42 +0800)
+  https://www.solidot.org/story?sid=84070
+
+============================================================
+本文件由本地脚本自动生成，可配合 launchd 每日运行。

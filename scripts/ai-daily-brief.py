@@ -2553,7 +2553,7 @@ def main() -> Path:
     txt_path.write_text(text, encoding="utf-8")
     html_path.write_text(html_doc, encoding="utf-8")
     json_path.write_text(json.dumps(archive_payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    index_path.write_text(render_index_timeline_html(out_dir, html_path.name), encoding="utf-8")
+    index_path.write_text(render_index_html(out_dir, html_path.name), encoding="utf-8")
     latest_path.write_text(render_latest_html(html_path.name), encoding="utf-8")
 
     published_url = None

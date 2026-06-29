@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-06-24</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a><a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-06-24</span>
+          <span>10:30（北京时间）</span>
+          <span>36氪、IT之家、Solidot、量子位、雷锋网</span>
+        </div>
+        <p class="hero-copy hero-copy--muted">本期模型总结暂不可用，页面仍保留完整的原始聚合与主题整理。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>39</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>5</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>0</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>14</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>36氪、IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>14</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>36氪、IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>11</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>36氪、IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>8</strong></div><p>基础设施的效率叙事持续升温</p><small>36氪、IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>8</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>36氪、IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>7</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>36氪、IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>2</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>IT之家、量子位</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>模型总结暂不可用</h3><p>当 API 未配置或调用失败时，这一块会自动降级，但页面主体仍会正常更新。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>暂无额外点评。</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>暂无 watchlist。</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>14 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>刚刚，豆包2.1发布！Agent自己跑18个小时搞定芯片设计代码</h3><a href="https://www.qbitai.com/2026/06/437503.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>57场面试杀进OpenAI！华人博士开源「AI面经」，含泪推荐</h3><a href="https://www.qbitai.com/2026/06/437425.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>GAIR Paper 104｜Agent 真的能自我进化吗？我们造了一把它骗不过去的尺子</h3><p>我们用 GDPevo，衡量出 AI 自进化的真实价值。 作者丨 PrismShadow AI 编辑丨岑峰 01 为什么“自进化”突然成了所有人都在抢的赛道？ 想象一下，你有一个新入职的员工。他一开始什么都不会，需要你手把手教。但几周后，他开始自己总结经验、优化工作流程，甚至能独立应对从未见过的新问题。 如果把这个场景里的员工换成AI，这就是眼下人工智能领域最前沿、也最令人兴奋的方向：自进化Agent（Self-evolving Agent）。 先说一句这两年在 AI 圈被反复验证的“铁律”：在 AI 时代，一件事一旦能被 清晰地评估 、又能被 自动化 地去做，那它离被做到极致就不远了。围棋是这样，写代码是这样，做数学题也是这样——只要有一把靠谱的尺子，模型就能顺着这把尺子一路爬到顶。自进化Agent做的，就是这样的事情。 那么下一个被这把尺子盯上的，是什么？ 越来越多人把答案押在了 自进化（Self-evolution） 上。所谓自进化，说白了就是 Agent…</p><a href="https://www.leiphone.com/category/private/lWPaab1Q7cpgqnRI.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>网易有道首发14语种零口音语音克隆模型，无需参考文本即可复刻任意音色</h3><p>当前，人工智能作为培育新质生产力的核心引擎，已上升为国家战略层面。国务院《关于深入实施“人工智能+”行动的意见》明确提出，要加快AI核心技术自主创新、降低产业落地门槛、构建开放共享的国产AI生态，推动人工智能与千行百业深度融合。 在这一战略背景下，网易有道正式推出“子曰4.0”大模型体系TTS语音合成引擎——Confucius4-TTS，并已面向全球用户开放。近日，该引擎凭借全球首个不依赖参考文本即可实现14语种无口音跨语种语音克隆的开创性突破引发行业高度关注，为数字人、跨境传播、智能教育等产业提供国产化、低成本语音克隆功能。 重磅开源发布，完整模型权重本地可部署 Confucius4-TTS采用1.3B参数高性能语音模型，开放行业领先的零样本语音克隆、跨语种无痕音色迁移、情感复刻能力，采用宽松友好的Apache开源协议，面向全球创作者、开发者开放完整模型权重与配套工具链。开发者可完整下载54G资源包，本地离线部署运行，配套开源龙虾智能体工具链，商用无限制。 图 1 TTS模型开源地址：https://github.com/netease-youdao/Confucius4-TTS 三大技术突破，重新定义开源TTS天花板…</p><a href="https://www.leiphone.com/category/industrynews/30qYFuhjh76yBsIV.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>GAIR Paper 103｜上海交大联合腾讯提出 Token 级别幻觉优化，实现大模型幻觉精准消除</h3><p>让大模型只改错的地方，不误伤对的内容。 作者丨李宁 上海交通大学 大语言模型（LLM）在医疗、金融、法律等高风险场景中的部署，始终面临一个核心挑战—— 幻觉 （Hallucination）。模型生成的内容可能包含与事实不符的实体、数字或逻辑关系，而这些错误往往隐藏在大量正确内容之中，极难检测和消除。 如何让大模型在减少幻觉的同时，不丧失回答的信息量和实用性？来自 上海交通大学 与 腾讯 的研究团队提出了一种全新的强化学习框架—— BALTO（Balanced Token-Level Policy Optimization） ，通过平衡的token级信用分配机制，精准消除幻觉，同时保持回答的丰富性。 01 问题的本质：幻觉是&quot;局部&quot;的，但惩罚却是&quot;全局&quot;的 研究团队首先在金融问答数据集FinLLM-Eval上进行了先导实验，揭示了一个关键现象： - 幻觉在token层面是极其稀疏的 ：每条回答中，幻觉token平均仅占2.77%，中位数仅1.87%。 - 但幻觉在回答层面却非常普遍 ：94.7%的采样组中至少包含一条含有幻觉的回答。…</p><a href="https://www.leiphone.com/category/private/qY695YwdBe6ap14w.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Fable 5 刚被封杀，OpenRouter 用「多模型协作」搞出了「平替天团」</h3><p>最强 AI 突遭封杀下架，多模型协作能否填补空白？ 作者丨 高允毅 编辑丨 马晓宁 当世界上最聪明的 AI 被强制拔掉网线，我们能否有另一套方案，用上同样聪明的智力？ 2026年6月14日，全球最大的大模型 API 聚合平台OpenRouter，在 X 上发布一条推文，短短几天，吸引近600万人围观。 该平台宣布推出了世界上最聪明的“复合模型”Fusion API ，能用模型组合的方式，复刻 Claude Fable 5 的智力水平。 所谓“复合模型”，不是靠一个 AI 自己埋头苦干，而是让好多 AI 模型一块儿配合，做出一份最好的答案，再交给用户，对外统一用一个API 入口。 Fusion API 的横空出世，踩中了一个微妙的时机。 就在同一周，Anthropic 刚发布了 史上最强模型Claude Fable 5。该模型以强悍的长周期智能体推理出圈，能将企业原本需要数月的代码迁移工作缩短至一天。 然而，发布仅 3 天，美国政府便签发了紧急出口管制令。Anthropic 官方被迫切断全球网络，暂停该模型的 API 访问，原本跃跃欲试的开发者们，瞬间哀嚎遍野。…</p><a href="https://www.leiphone.com/category/yanxishe/9TGZvtD8CvNeaEKw.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>超越 SONIC ！人形机器人通用小脑迎来 GPT 时刻</h3><p>AstraBrain-WBC 0.5 论文深度解读 作者丨 齐铖湧 编辑丨 林觉民 全球首个人形通用小脑GPT基座大模型来了。 在美国科罗 拉多州 丹佛会议中心举行的CVPR 2026现场，银河通用联合研究团队提 出的 AstraBrain-WBC 0.5 ，用一组数字直接刷新了行业认知： ▎ 引入&quot;20亿帧最大人类行为数据规模&quot; ▎ 真机实测效果，显著优于SONIC ▎ 零样本泛化成功率92.58% 史上最大规模、 整 整20亿 帧人类动作数据，80.4M参数，零样本泛化成功率92.58%， 把传统三 层ML P的76.89%远远甩在身后，在MPJPE、MPJVE等多项指标上全面超越SONIC、 TWIST、Any2Track等当前最优方法。 这是 人形机器人运控领域前所未有的事。（雷峰网） 01 引入&quot;最大人类行为数据规模&quot;， 真机实测超越 SONIC 一个模型，没有任何预先编程，就能直接跟做从未见过的新动作。在室外泥地里拿起锄头干活，在家庭里丝滑稳定地撸猫/铲屎，在拳打脚踢下保持鲁棒，也能风度翩翩跳起华尔兹。武术踢腿、篮球运球投篮等高动态动作，同样是零样本，无需针对任务 微调。 这就是银河通用最新发布——全球首个人…</p><a href="https://www.leiphone.com/category/ai/lzqSU7xisToFg45M.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>专访火山引擎谭待：模型好对MaaS是最重要的事，豆包2.1算「上牌桌」了</h3><p>文 | 邓咏仪 编辑 | 张雨忻 火山引擎总裁谭待 来源：火山引擎 过去三年，火山引擎总裁谭待给团队定 MaaS（模型即服务） 营收目标的过程，也重复了三次：年初，定一个很高的目标，团队都觉得太难了，完不成；到了年中，“居然完成的差不多了”，随后目标再度上调。 2026 年初，字节的视频模型 Seedance 2.0 让火山引擎迎来了一场漂亮的开门红。作为云市场的后来者，火山引擎乘着 AI 的风，实现了让行业意想不到的增长。 “两年前我就和大家说 MaaS 是个大生意，当时你们都不信。”谭待对36氪说。 从 2025 年下半年开始，Coding 和视频模型陆续解锁了商业化生产的场景，这让大家发现，现阶段，模型的能力边界依旧难以预测， 顶尖模型是 MaaS 服务当下最核心的增长引擎，甚至没有之一。 在 6 月 23 日的火山引擎 Force 大会上，字节新一代旗舰模型豆包大模型 2.1 Pro 登场。这也代表着字节在视频生成之外，模型侧终于补上了 Coding 的拼图。 谭待对豆包大模型 2.1 Pro 的定义是，在 Coding 和 Agent 能力方面，“ 终于可以上桌了 ”。在知名编程评测 Terminal…</p><a href="https://36kr.com/p/3865912900588548?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>港股智谱涨幅扩大至13%，总市值重回1万亿港元</h3><p>36氪获悉，港股大模型概念股智谱涨幅扩大至13%，总市值重回1万亿港元。</p><a href="https://36kr.com/newsflashes/3866555102614535?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>火山引擎发布豆包音频生成模型 1.0，支持多模态参考生成与长时音色一致性</h3><p>IT之家 6 月 24 日消息，昨天火山引擎正式发布了豆包音频生成模型 1.0（Doubao-Seed-Audio 1.0），首次支持参考生成：把文本、音频任一模态作为输入，可以端到端生成目标音频。并且，它能在长时生成场景中保持多角色音色的一致性，大幅减少后期修音工作。 借由豆包音频生成模型 1.0，还可以在单条 Prompt 中编排角色对白、情绪语气、背景音乐、环境氛围等，直接产出具备叙事张力的完整音频作品，改变了过往人声、音效、音乐单独制作再合成剪辑的传统工作流。 火山方舟已开启豆包音频生成模型 1.0 API 邀测，个人用户可以在火山方舟体验中心直接体验，享有 30 分钟的创作额度。面向音频创作者，豆包音频生成模型 1.0 也即将上线剪映、即梦、番茄等产品。 IT之家附官方详细介绍如下： 影视级音频创作： 全要素生成，告别人工剪辑 过去，一段成片级音频作品意味着对白、音效、配乐等逐条生成、手动对齐、多轨混音，流程繁琐且高度依赖后期技术能力。豆包音频生成模型 1.0 将这一切压缩进一条 Prompt，直接产出具备完整叙事感的成片级音频，省去多轨剪辑、对齐、混音的全部后期工作：…</p><a href="https://www.ithome.com/0/967/748.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>因 Anthropic Mythos 5 / Fable 5 模型下架，一公司起诉美国政府</h3><p>IT之家 6 月 24 日消息，据路透社消息，当地时间 6 月 23 日，一家美国法律科技公司 Legion LegalTech Corp 对美国政府提起诉讼。 据IT之家此前报道，美国商务部工业和安全局于 6 月 12 日下达命令，要求 Anthropic 禁止“任何外国国民”使用其 Fable 5 和 Mythos 5 模型。为确保合规， Anthropic 于命令下达当日便关闭了全球所有客户的访问权限 。 Legion 公司向华盛顿哥伦比亚特区联邦法院递交了诉状， 请求法官撤销并废止政府针对 Anthropic 下达的这项指令 。该公司还表示， 将申请一项初步禁令，以阻止政府继续执行该指令 。 该公司表示，其软件平台的运行高度依赖 Anthropic 的 AI 工具。美国政府的这一举措，瞬间切断了 Legion 驻加拿大软件开发团队成员的访问权限，导致公司业务陷入停滞。据悉，该公司专门为律师开发文书起草和案件管理工具。 诉状中强调：“这一禁令对 Legion 造成的损害是即时的、不可挽回且生死攸关的。前沿人工智能领域的发展日新月异，一旦在业务暂停期间错失了竞争优势，事后根本无法弥补。”…</p><a href="https://www.ithome.com/0/967/731.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>EA 高管看好生成式 AI：可简化开发流程、加速创意产出</h3><p>IT之家 6 月 24 日消息，当下电子游戏行业面临的一大难题，就是新作的开发周期过于漫长。在 PS2 主机时代，一款游戏的开发周期最短仅 18 个月，如今却拉长至五年甚至更久。各大游戏厂商是否认为全新生成式人工智能工具能填补这一效率缺口呢？ 据 Eurogamer 报道，本月早些时候，在《The Game Business Live》栏目中，艺电（EA）企业发展总裁劳拉 · 米耶勒被问及了这一问题。她对此回应道：“部分环节或许能实现提速。亲眼见识过相关技术后，我对此十分看好，内心也相当期待。我一直希望能为旗下工作室的开发者扫清各类工作阻碍，也始终想为他们排忧解难，助力他们打造足以载入职业生涯的经典游戏作品。” 她接着补充：“就我所见，人工智能的确能简化制作流程、工具链与工作环节中的诸多繁琐步骤，这点令人振奋。它减轻了开发者重复枯燥的工作；原型制作效率大幅提升，创意产出速度更快，团队围绕创意沟通、达成共识的过程也变得更简洁高效。所以我认为这项技术极具价值。当开发中大量重复性杂活被人工智能承接后，开发者的创作活力会真正迸发出来。” 米耶勒并未详细说明新型人工智能工具究竟催生了哪些创意成果。业内如今大量讨论 AI…</p><a href="https://www.ithome.com/0/967/730.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>调研证实：游戏标注使用 AI 会显著降低玩家评测量</h3><p>IT之家 6 月 24 日消息，生成式人工智能问世以来，业内围绕其在游戏开发中的应用争论从未停歇。但如果纯粹从务实、商业的角度评判，人工智能的实际表现究竟如何？市场数据分析师罗斯 · 伯顿在游戏行业分析平台 Game Oracle 发布的一篇博客文章中提出，这项技术自带的负面口碑会劝退潜在玩家。 IT之家注意到，Game Oracle 抽样统计了 2025 年 1 月至 10 月上线的 9879 款游戏，筛选剔除了垃圾游戏、纯商业化换皮作品以及免费游戏。当然，这一筛选标准也会漏掉部分热度较高的免费游戏，还有被曝光暗中使用 AI 生成美术资源的作品。在所有抽样游戏里，有 17.9% 的作品主动公开开发过程中使用了人工智能。 整体数据显示，使用 AI 开发的游戏收获的玩家反馈热度普遍偏低。未公示 AI 应用的游戏评测数量更多，零评测的作品占比更少；而仅统计评测数不少于 100 条的游戏样本时，这类游戏的均分中位数要高出约 4%。 不过，当研究调整统计方法，将其他维度条件相近的游戏做对照后，结论出现了变化。报告写道：“在剔除发行商、开发团队从业年限、游戏品类等变量干扰后， 使用 AI 开发的游戏评测总量相比纯人工开发作品减少约…</p><a href="https://www.ithome.com/0/967/724.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Anthropic 对特定功能访问要求身份验证</h3><p>Anthropic 更新了其隐私政策，从 2026 年 7 月 8 日起，部分功能将需要身份验证，该验证将由 Persona 公司负责。Persona 是一家第三方身份验证公司，由 Peter Thiel 投资。此前 Discord 因用户强烈反对以及 2026 年 2 月发生的一起数据泄露事件而终止了在年龄验证上与 Persona 的合作。</p><a href="https://www.solidot.org/story?sid=84645" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>14 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>响应国家「体重管理年」，蚂蚁阿福发起「科学减重1亿斤」行动</h3><p>“国家喊你减肥了！”别以为这只是网络调侃。 数据显示，当前我国成人超重率为34.3%、肥胖率16.4%，合起来超过50%，相当于每两名成年人就有一人体重亮“黄灯”。为此，国家卫健委等16部门于2024年联合启动“体重管理年”，今年正是收官之年。 为响应号召，6月22日，全国最大的健康AI应用“蚂蚁阿福”发起“科学减重1亿斤”健康行动，希望帮用户科学管理体重，守护健康。 01 “1亿斤”怎么减，阿福打算这么干 一、补贴智能硬件 。 许多家庭尚未配备体脂秤，阿福将集中采购，以“地板价”供应给用户。因为只有了解自己的体脂率、肌肉率等身体数据，才能科学管理体重。 二、升级AI功能 ，当“AI私教”。 连接智能硬件后，AI可根据体重、体脂、肌肉率等，给出个性化的饮食和运动建议，助力用户科学管理体重体脂。 三、组织健康挑战赛 ，通过有趣的激励机制，帮助用户克服“三分钟热度”。 图：蚂蚁阿福发起“科学减重1亿斤”健康行动 消息一公布，网友们彻底坐不住了：“胖了这么多年，终于有人监督了！”“6月不减肥，7月徒伤悲，这个倡议来得太及时了！”…</p><a href="https://www.leiphone.com/category/industrynews/Bqf1PqF4RtuxHXnP.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>阿里高管集体下田插秧，忙了一上午才种半亩？网友：真人版「芭芭农场」实锤了；智谱市值超1万亿港元；乐道总裁：卖车比我考清华大学还难</h3><p>要闻提示 1.阿里高管集体下田插秧，忙了一上午才种半亩？网友：真人版“芭芭农场”实锤了！ 2.智谱市值超11000亿，已超过百度+美团+快手三者之和 3.字节跳动暂不考虑上市，估值有望破万亿美元 4.蚂蚁集团新一届董事会换届：何小鹏等出任独董 5.乐道总裁：卖车比我考清华大学还难 6.亿咖通拟18亿收购Flyme软件业务：年内魅族现有手机将迎大规模系统升级 7.雷军后悔和董明珠打赌：只是开玩笑，没想到被激怒后一直批评小米 8.罗永浩曾痛批iPhone设计属于二流！苹果新CEO调转方向：将设计视为第一优先级 今日头条 阿里高管集体下田插秧，忙了一上午才种半亩？网友：真人版“芭芭农场”实锤了！ 6 月 22 日消息，阿里巴巴合伙人、高德董事长刘振飞在阿里内网发文《手里有秧，才能确保未来有粮》，文章记录了近日阿里管理层在杭州一次下田插秧的团建活动。刘振飞在内网帖中说：“前几天在杭州和同事们一起体验插秧，十几个人一起忙上一个上午，才歪歪扭扭种了半亩水田。”有网友调侃：这是上演了真人版“芭芭农场”。…</p><a href="https://www.leiphone.com/category/zaobao/h3CWyacKTOhA0l1L.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>GAIR Paper 103｜上海交大联合腾讯提出 Token 级别幻觉优化，实现大模型幻觉精准消除</h3><p>让大模型只改错的地方，不误伤对的内容。 作者丨李宁 上海交通大学 大语言模型（LLM）在医疗、金融、法律等高风险场景中的部署，始终面临一个核心挑战—— 幻觉 （Hallucination）。模型生成的内容可能包含与事实不符的实体、数字或逻辑关系，而这些错误往往隐藏在大量正确内容之中，极难检测和消除。 如何让大模型在减少幻觉的同时，不丧失回答的信息量和实用性？来自 上海交通大学 与 腾讯 的研究团队提出了一种全新的强化学习框架—— BALTO（Balanced Token-Level Policy Optimization） ，通过平衡的token级信用分配机制，精准消除幻觉，同时保持回答的丰富性。 01 问题的本质：幻觉是&quot;局部&quot;的，但惩罚却是&quot;全局&quot;的 研究团队首先在金融问答数据集FinLLM-Eval上进行了先导实验，揭示了一个关键现象： - 幻觉在token层面是极其稀疏的 ：每条回答中，幻觉token平均仅占2.77%，中位数仅1.87%。 - 但幻觉在回答层面却非常普遍 ：94.7%的采样组中至少包含一条含有幻觉的回答。…</p><a href="https://www.leiphone.com/category/private/qY695YwdBe6ap14w.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家丨微软与平安CEO，曾「密谋」联手做云</h3><p>近期，微软云中国研发团队大裁员，让地缘政治下的“脱钩”与“切割”再度成为行业焦点，但很少有人记得这家巨头曾在中国市场做过怎样大胆的本土化尝试。 这段尘封的科技秘史的一角，藏在 疫情 前深圳平安金融大厦里的一场闭门密谈里。 据微软知情人士向雷峰网透露，当时，时任平安联席CEO的陈心颖与更高管理层，向微软CEO萨提亚、Azure总裁Scott Guthrie等一行人介绍了平安在 “金融+科技”战略转型上的进展。 萨提亚听后表示惊叹，他感慨道，平安做科技业务的模式是：先想好要做什么，然后再“生个孩子”，培养他去做，往往能做得不错；而微软的模式是：先生“孩子”，然后再给他找事做，结果经常做不好。 这个形象的总结，被平安高层在后来数次公司内部会上提及、称赞。 彼时，这两大中美巨头正在尝试强强联合： 微软云有意更换在华代理商，让平安做中国区代理，而平安也在云计算业务上野心勃勃，准备一展拳脚。 于微软而言，平安是一家在本土有极强政企信任度的巨头，由它来做微软云在华代理商，会为微软云打开更大市场空间。 于平安而言，作为云市场的后来者，想要在极度内卷的红海中搏杀出一席之地并非易事，这时候微软云伸出的橄榄枝，颇具吸引力。…</p><a href="https://www.leiphone.com/category/industrycloud/23aEGFli48UtVkDq.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>专访火山引擎谭待：模型好对MaaS是最重要的事，豆包2.1算「上牌桌」了</h3><p>文 | 邓咏仪 编辑 | 张雨忻 火山引擎总裁谭待 来源：火山引擎 过去三年，火山引擎总裁谭待给团队定 MaaS（模型即服务） 营收目标的过程，也重复了三次：年初，定一个很高的目标，团队都觉得太难了，完不成；到了年中，“居然完成的差不多了”，随后目标再度上调。 2026 年初，字节的视频模型 Seedance 2.0 让火山引擎迎来了一场漂亮的开门红。作为云市场的后来者，火山引擎乘着 AI 的风，实现了让行业意想不到的增长。 “两年前我就和大家说 MaaS 是个大生意，当时你们都不信。”谭待对36氪说。 从 2025 年下半年开始，Coding 和视频模型陆续解锁了商业化生产的场景，这让大家发现，现阶段，模型的能力边界依旧难以预测， 顶尖模型是 MaaS 服务当下最核心的增长引擎，甚至没有之一。 在 6 月 23 日的火山引擎 Force 大会上，字节新一代旗舰模型豆包大模型 2.1 Pro 登场。这也代表着字节在视频生成之外，模型侧终于补上了 Coding 的拼图。 谭待对豆包大模型 2.1 Pro 的定义是，在 Coding 和 Agent 能力方面，“ 终于可以上桌了 ”。在知名编程评测 Terminal…</p><a href="https://36kr.com/p/3865912900588548?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>8点1氪丨追觅辟谣汽车CEO离职：职务与网传不符；微信小范围内测原生AI助手；苹果、特斯拉核心供应商数据泄露</h3><p>今日热点导览 创业板指创年内最大跌幅，失守4200点整数关口 影石回应Luna Ultra新品骗国补质疑：发布会标价有误 上交所向沪市公司发出“提质增效重回报”2.0专项行动公开倡议 韩国将要求所有上市公司披露库存股详情 贾跃亭推出工业级轮臂机器人 TOP3大新闻 追觅辟谣汽车CEO离职：陈龙冬职务与网络传言不符，今年5月已离职 6月23日，针对追觅汽车CEO离职传闻，追觅旗下星辰未来汽车发布声明称：“陈龙冬先生于2025年6月加入追觅科技原星辰未来BU，担任BU负责人，其职务与网络传言‘追觅汽车CEO’不符；2026年5月，陈龙冬先生已从星辰未来离职，该离职属正常人事变动。” 此前公司大整改中，追觅把原本两百多个独立业务单元全部整合，只保留全屋智能清洁、智能家电、智慧出行、AI具身智能四大核心板块。汽车、手机两大外界关注度最高的跨界业务，不再作为独立业务运营，统一划入新成立的产业研究院，只保留底层技术研发职能，彻底砍掉C端整车量产、线下门店、重资产整车工厂相关规划。（界面新闻、凤凰网财经） 微信迎来重磅更新，原生AI助手开启小范围内测…</p><a href="https://36kr.com/p/3866428592657411?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软 Win11 26H1 推送 6 月可选更新 28000.2340：优化放大镜、改善装机体验</h3><p>IT之家 6 月 24 日消息，微软今天（6 月 24 日）发布公告，面向 Windows 11 26H1 设备，推送 6 月可选更新 KB5095091，用户安装后版本号升至 Build 28000.2340。 在适配范围上，本次更新仅面向搭载高通骁龙 X2 系列芯片的设备推送： 骁龙 X2 Plus（“X2P”） 骁龙 X2 Elite（“X2E”） 骁龙 X2 Elite Extreme（“X2E”） 更新内容方面，本次更新涵盖逐步推出和常规推送两个板块，IT之家附上相关更新内容如下： 一、逐步推出 1.1、屏幕放大镜 用户在使用屏幕阅读器时，放大镜功能可提供更清晰、更一致的语音提示。放大或缩小、切换视图模式、启用或禁用颜色反转以及启动或关闭该实用程序后，用户都会听到相应的提示音。 放大镜现在支持放大受保护的内容。 提高了放大镜模式下移动放大镜时的流畅度。 1.2、任务管理器 任务管理器新增 NPU、NPU Module、专用 NPU 内存和总 NPU 内存等列，还加入“Isolation”列，用于显示应用是否运行在 AppContainer 隔离环境中。 1.3、相机 Windows 11 新增…</p><a href="https://www.ithome.com/0/967/753.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软 Xbox CEO 夏尔马：《使命召唤》商业规模超越漫威电影宇宙</h3><p>IT之家 6 月 24 日消息，多年来，微软与 Xbox 旗下游戏改编影视项目口碑不一：贝塞斯达联合亚马逊推出的《辐射》剧集、2025 年上映的《我的世界》真人电影均大获成功；但此前真人剧集《光环》以及前传短片《光环：夜幕》却让绝大多数观众大失所望。 不过总体来看，近几年基于 Xbox 游戏 IP 打造的多媒体衍生作品收获了更多正面评价。Xbox 首席执行官阿莎 · 夏尔马及其他高管在《Entertainment Weekly》的最新专访中透露：“如今业内想要和我们合作改编游戏 IP 的意愿，达到了历史新高。” 夏尔马解释道：“我们无意去争夺全球头部传统影视平台之类的头衔，但我认为优质游戏本身就是一种文化，而文化即是娱乐。你不妨想想，我们的《辐射》拿下亚马逊平台史上收视第二的剧集，《我的世界》电影跻身 2025 年票房前五，《使命召唤》全系列商业体量甚至超越漫威电影宇宙。各项数据都能印证这一点，现在各方都比以往更愿意和我们合作开发游戏改编作品。” 称《使命召唤》系列规模超过迪士尼旗下体量庞大的漫威电影宇宙，这番说法十分大胆，但从现有数据来看，该结论确实有据可依：公开票房数据显示，漫威电影宇宙累计总营收约 320…</p><a href="https://www.ithome.com/0/967/751.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>火山引擎发布豆包音频生成模型 1.0，支持多模态参考生成与长时音色一致性</h3><p>IT之家 6 月 24 日消息，昨天火山引擎正式发布了豆包音频生成模型 1.0（Doubao-Seed-Audio 1.0），首次支持参考生成：把文本、音频任一模态作为输入，可以端到端生成目标音频。并且，它能在长时生成场景中保持多角色音色的一致性，大幅减少后期修音工作。 借由豆包音频生成模型 1.0，还可以在单条 Prompt 中编排角色对白、情绪语气、背景音乐、环境氛围等，直接产出具备叙事张力的完整音频作品，改变了过往人声、音效、音乐单独制作再合成剪辑的传统工作流。 火山方舟已开启豆包音频生成模型 1.0 API 邀测，个人用户可以在火山方舟体验中心直接体验，享有 30 分钟的创作额度。面向音频创作者，豆包音频生成模型 1.0 也即将上线剪映、即梦、番茄等产品。 IT之家附官方详细介绍如下： 影视级音频创作： 全要素生成，告别人工剪辑 过去，一段成片级音频作品意味着对白、音效、配乐等逐条生成、手动对齐、多轨混音，流程繁琐且高度依赖后期技术能力。豆包音频生成模型 1.0 将这一切压缩进一条 Prompt，直接产出具备完整叙事感的成片级音频，省去多轨剪辑、对齐、混音的全部后期工作：…</p><a href="https://www.ithome.com/0/967/748.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软推送 Win11 六月可选更新：优化时间点还原、改进打印、修复回收站弹窗异常</h3><p>IT之家 6 月 24 日消息，微软昨日（6 月 23 日）发布公告，面向 Windows 11 系统推送 6 月可选更新 KB5095093， 24H2 版本用户安装后版本号升至 Build 26100.8737；25H2 用户升至 Build 26200.8737。 IT之家援引博文内容，附上相关更新内容如下： 一、新增功能 1.1、Windows 时间点还原 该功能主要用于缩短故障处理时间，用户可回滚电脑到最近的自动还原点，并同步恢复应用、设置和个人文件。 1.2、Windows Update 微软支持用户延后安装 Windows 更新，新增日历式暂停选项，用户可直接选择暂停结束日期，最长可暂停 35 天，也可再次设定新的结束日期。 1.3、小部件 系统默认不再因悬停自动打开小组件，通知和任务栏角标默认更克制，首次使用时默认进入仪表板： 减少干扰： 鼠标悬停时小部件不再打开。通知和任务栏徽章默认最小化。 更简洁： 首次使用时默认打开小部件仪表板。 自定义： 选择导航栏中的“设置”，然后更改任何默认设置，即可按您想要的方式配置小部件。 随时掌握最新信息： 仪表盘图标显示警报数量，离开仪表盘后徽章会自动清除。…</p><a href="https://www.ithome.com/0/967/744.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软 Xbox 公布《光环：战役进化》PC 配置要求：高画质需 32G 内存 + 100GB 固态硬盘</h3><p>IT之家 6 月 24 日消息，《光环：战役进化》是微软与 Xbox 今年重磅新作之一，本作是 2001 年初代《光环：战斗进化》的完整重制版本，新增大量游戏玩法内容，提升了重玩价值，并采用虚幻引擎 5 完成全方位画面升级。 Xbox 游戏发布会上，官方官宣了这款游戏的发售日期：7 月 28 日，游戏将登陆 Xbox Series X|S、Windows PC 以及 PS5 平台。值得一提的是，购买高级版的玩家可提前五天，于 7 月 23 日抢先体验；想必这一福利吸引了大量玩家预购，也让本作登上 Steam 热销榜单。 距离这款游戏正式上线仅剩一个多月，PC 玩家最为关心的游戏最低配置与推荐配置现已正式公布。 微软 Xbox 与开发商光环工作室现已放出完整配置需求，我整理成下方表格方便大家查阅： 综合来看，作为一款主打顶级画面效果的虚幻引擎 5 游戏，《光环：战役进化》的处理器、显卡与显存门槛并不算苛刻。即便想要 2K/4K 分辨率稳定 60 帧、运行中高画质，使用五六年的老主机也能胜任，这也是绝大多数游戏电脑的主流硬件水平。 但内存与硬盘存储要求相对偏高。1080P、2K 低中画质仅需 16G…</p><a href="https://www.ithome.com/0/967/720.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>苹果 macOS 27 Beta 2 已封堵“跳过 Siri AI 候补名单”终端命令</h3><p>IT之家 6 月 24 日消息，科技媒体 Cult of Mac 昨日（6 月 23 日）发布博文，报道称在 macOS 27 Beta 2 更新中，苹果封堵了一条 Mac 终端命令， 用户使用该命令可以绕过候补名单启用新版 Siri AI。 IT之家援引博文介绍，在 macOS 27 Beta 1 更新中，用户在 Mac 终端中输入以下命令，即可跳过候补名单，解锁启用 Siri AI： sudo defaults write &quot;/Library/Preferences/FeatureFlags/Domain/GenerativeModels.plist&quot; &quot;EnhancedSiriWaitlist&quot; -dict-add Enabled -bool NO 不过用户反馈在 macOS 27 Beta 2 更新中，苹果公司已封堵了该功能。不过网友在 Reddit 社区发帖，指出另一种减少等待，启用 Siri AI 的方式，而且适用于 iOS 27 等其它版本： 1. 升级 iOS 27、macOS 27 最新 Beta 版本 2.使用图乐园生成一些图片 3.生成图像后，点击右上角的 “更多 ”按钮（ ⋯ ），然后点击…</p><a href="https://www.ithome.com/0/967/715.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>在敏感信息泄漏后 Meta 暂停内部 AI 训练项目</h3><p>在敏感信息泄漏后 Meta 暂停了内部的 AI 训练项目。泄密事件暴露了员工的私人对话、绩效数据和转录文本。Meta 发言人证实了此事，表示公司正在调查，称目前没有迹象表明 Meta 员工不当访问了任何数据。Meta 公司是在今年 4 月宣布了名为 Model Capability Initiative 的 AI 训练计划，旨在利用员工的按键和鼠标移动作为训练数据，以改进公司的 AI 模型。该计划对大多数员工强制执行，但引发了部分员工的强烈反对，他们对自己的数据被记录感到不安。最新的泄密事件令 Meta 内部员工感到沮丧，他们批评公司从一开始就没有对数据进行安全防护。</p><a href="https://www.solidot.org/story?sid=84650" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Anthropic 对特定功能访问要求身份验证</h3><p>Anthropic 更新了其隐私政策，从 2026 年 7 月 8 日起，部分功能将需要身份验证，该验证将由 Persona 公司负责。Persona 是一家第三方身份验证公司，由 Peter Thiel 投资。此前 Discord 因用户强烈反对以及 2026 年 2 月发生的一起数据泄露事件而终止了在年龄验证上与 Persona 的合作。</p><a href="https://www.solidot.org/story?sid=84645" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>11 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>起底大晓：四个月狂融数亿美金，国家队、车企、芯片巨头为何集体「押注」</h3><p>日前，大晓机器人官宣完成天使+轮融资。 投资方集齐国家队、产业队、VC 队三股力量： 既有深创投、上海科创基金、临港新片区基金等政府资本，吉利资本与沐曦股份等公司业务强相关的产业资本； 又有达晨财智、盛宇投资、复星锐正、华控基金、豫资涨泉等 VC 资本；而老股东商汤国香资本持续增资。 这轮融资，三重信号值得关注： 第一，上海、深圳政府资本集体入局。世界模型、具身智能已进入国家与地方政府的产业视野，战略关注度显著提升。 第二，吉利资本、沐曦股份等产业资本下场。大晓机器人与国产算力、汽车制造产业链深度绑定，上下游协同更加紧密。 第三，资本结构蜕变。从单一市场化VC主导，进化到“政府资本背书+产业资本协同+市场化资本跟进”的黄金组合。大晓机器人进入政策助力、产业资源深度耦合的产业化新阶段。 值得一提的是，本次融资距离上一次，仅隔了四个月。 在整个一级市场冰火两重天的当下，大晓机器人无疑是“火”的那一头：四个月，已累计融资数亿美元。 凭什么？技术能力够硬气，人才团队够重磅，国产部署够果断。各路资本各有各的考量。 资本最热门赛道 + 世界模型“天花板” 首先，世界模型、具身智能是 2026 年风投圈最狂热、最吸金的两条王牌赛道。…</p><a href="https://www.leiphone.com/category/industrynews/SmlYKtAdXG3bGMMu.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>阿里高管集体下田插秧，忙了一上午才种半亩？网友：真人版「芭芭农场」实锤了；智谱市值超1万亿港元；乐道总裁：卖车比我考清华大学还难</h3><p>要闻提示 1.阿里高管集体下田插秧，忙了一上午才种半亩？网友：真人版“芭芭农场”实锤了！ 2.智谱市值超11000亿，已超过百度+美团+快手三者之和 3.字节跳动暂不考虑上市，估值有望破万亿美元 4.蚂蚁集团新一届董事会换届：何小鹏等出任独董 5.乐道总裁：卖车比我考清华大学还难 6.亿咖通拟18亿收购Flyme软件业务：年内魅族现有手机将迎大规模系统升级 7.雷军后悔和董明珠打赌：只是开玩笑，没想到被激怒后一直批评小米 8.罗永浩曾痛批iPhone设计属于二流！苹果新CEO调转方向：将设计视为第一优先级 今日头条 阿里高管集体下田插秧，忙了一上午才种半亩？网友：真人版“芭芭农场”实锤了！ 6 月 22 日消息，阿里巴巴合伙人、高德董事长刘振飞在阿里内网发文《手里有秧，才能确保未来有粮》，文章记录了近日阿里管理层在杭州一次下田插秧的团建活动。刘振飞在内网帖中说：“前几天在杭州和同事们一起体验插秧，十几个人一起忙上一个上午，才歪歪扭扭种了半亩水田。”有网友调侃：这是上演了真人版“芭芭农场”。…</p><a href="https://www.leiphone.com/category/zaobao/h3CWyacKTOhA0l1L.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>成立不到90天的超级创企昆仑行，刷新具身最快独角兽</h3><p>资本疯狂抢筹，90天击穿行业最快独角兽天花板。 成立不到3个月的昆仑行机器人，上演了一出让整个投资圈沸腾的融资速度。 据媒体报道，今年饱受行业和投资界瞩目的具身智能“超级明星创企”昆仑行机器人，注册不到90天，接连完成3轮融资，累计吸金规模达到数十亿元。 其中首轮投资 在宣布启动融资3天内，便被顶级资本快速哄抢， 堪称具身行业“超级吸金石”。 火速跑完3轮融资后，昆仑行机器人估值达到具身智能独角兽级别。 平均不到30天完成一轮融资，不到90天刷新具身行业独角兽最快纪录。 2026 年具身智能赛道，昆仑行机器人强势打破 0-1 创企最快融资纪录，刷新行业初创公司成长速度上限，跃升为本赛道年度最快诞生的独角兽企业，堪称今年赛道内极具代表性的现象级黑马。 史诗级融资背后，投资人名单拉出来堪称明星天团朋友圈：除了高榕创投、高瓴创投、钟鼎资本、中科创星、华业资本、创新工场、心资本等国内顶级创投机构尽数入局，还有巨型产业集团建发集团旗下的产业资本的强势加持，属于豪华顶配创投+头部产业资本的全方位背书。…</p><a href="https://www.leiphone.com/category/industrynews/piPbBllVn6chKHBz.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家丨微软与平安CEO，曾「密谋」联手做云</h3><p>近期，微软云中国研发团队大裁员，让地缘政治下的“脱钩”与“切割”再度成为行业焦点，但很少有人记得这家巨头曾在中国市场做过怎样大胆的本土化尝试。 这段尘封的科技秘史的一角，藏在 疫情 前深圳平安金融大厦里的一场闭门密谈里。 据微软知情人士向雷峰网透露，当时，时任平安联席CEO的陈心颖与更高管理层，向微软CEO萨提亚、Azure总裁Scott Guthrie等一行人介绍了平安在 “金融+科技”战略转型上的进展。 萨提亚听后表示惊叹，他感慨道，平安做科技业务的模式是：先想好要做什么，然后再“生个孩子”，培养他去做，往往能做得不错；而微软的模式是：先生“孩子”，然后再给他找事做，结果经常做不好。 这个形象的总结，被平安高层在后来数次公司内部会上提及、称赞。 彼时，这两大中美巨头正在尝试强强联合： 微软云有意更换在华代理商，让平安做中国区代理，而平安也在云计算业务上野心勃勃，准备一展拳脚。 于微软而言，平安是一家在本土有极强政企信任度的巨头，由它来做微软云在华代理商，会为微软云打开更大市场空间。 于平安而言，作为云市场的后来者，想要在极度内卷的红海中搏杀出一席之地并非易事，这时候微软云伸出的橄榄枝，颇具吸引力。…</p><a href="https://www.leiphone.com/category/industrycloud/23aEGFli48UtVkDq.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>36氪首发 | 同济博士从建筑机器人转战煤矿，押注辅助作业的“结构性蓝海”</h3><p>作者丨欧雪 编辑丨袁斯来 硬氪获悉，矿山机器人公司随擎机器人（下称“随擎”）近期已完成千万元级天使轮融资，投资方为连云港金桥基金。本轮资金将主要用于煤矿井下核心机器人产品的工程化迭代、供应链构建及团队扩充。 随擎2025年初正式成立，此前已通过子公司完成近两年的技术积累与井下验证。随擎核心团队深耕智能机器人及特种装备行业多年，平均从业年限超过10年，形成从80后到98后的年龄梯队，核心骨干均有从产品定义到现场交付的全链条实战经历。创始人王龙是同济大学机器人方向博士，国内建筑机器人早期开拓者，曾任香港科技大学高级研究员。 在矿山机器人这个正在从“单点自动化”向“全场景无人化”跨越的赛道上，大多数创业公司会选择采掘、运输等核心作业环节。但随擎做了一个相反的决定——聚焦辅助类作业，包括巷道物资运输、登高作业、密闭墙构筑和浮煤清理等。…</p><a href="https://36kr.com/p/3866531692844034?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>专访火山引擎谭待：模型好对MaaS是最重要的事，豆包2.1算「上牌桌」了</h3><p>文 | 邓咏仪 编辑 | 张雨忻 火山引擎总裁谭待 来源：火山引擎 过去三年，火山引擎总裁谭待给团队定 MaaS（模型即服务） 营收目标的过程，也重复了三次：年初，定一个很高的目标，团队都觉得太难了，完不成；到了年中，“居然完成的差不多了”，随后目标再度上调。 2026 年初，字节的视频模型 Seedance 2.0 让火山引擎迎来了一场漂亮的开门红。作为云市场的后来者，火山引擎乘着 AI 的风，实现了让行业意想不到的增长。 “两年前我就和大家说 MaaS 是个大生意，当时你们都不信。”谭待对36氪说。 从 2025 年下半年开始，Coding 和视频模型陆续解锁了商业化生产的场景，这让大家发现，现阶段，模型的能力边界依旧难以预测， 顶尖模型是 MaaS 服务当下最核心的增长引擎，甚至没有之一。 在 6 月 23 日的火山引擎 Force 大会上，字节新一代旗舰模型豆包大模型 2.1 Pro 登场。这也代表着字节在视频生成之外，模型侧终于补上了 Coding 的拼图。 谭待对豆包大模型 2.1 Pro 的定义是，在 Coding 和 Agent 能力方面，“ 终于可以上桌了 ”。在知名编程评测 Terminal…</p><a href="https://36kr.com/p/3865912900588548?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>圆桌论坛：比共识更早一步 AI 创投的真实棋局 | 2026WAVES</h3><p>AI不是一阵风，它正在变成地平线。而地平线的意思是——你看不到它的尽头，但它一直在那里。 当下AI热潮涌动，行业共识尚未形成，但真正的机遇往往诞生在共识之前。接下来就让我们进入比共识更早一步 AI 创投的真实棋局圆桌论坛 ! 以下为圆桌对话内容，经36氪整理编辑： 巴芮｜暗涌副主编（主持人） 朱天宇｜蓝驰创投 管理合伙人 秦深涛｜OriginFlow创始人&amp;CEO 巴芮：大家好！我们这场对谈的主题是比共识更早一步，刚才上一场收尾在说一些非共识的内容，我们这一场是说比共识更早一步的事情。 现场这两位，一位是在投资上出手非常早，蓝驰创投管理合伙人朱天宇。另外一位是创业比较早的OriginFlow的创始人秦深涛，这两位是敢于比共识更早一步的行动，其实这是基于非常笃定的判断，我们今天想聊聊这件事情。…</p><a href="https://36kr.com/p/3865630193030145?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>以“高导热+高强韧”镁合金切入机器人等高端制造领域，「宜镁华」完成数千万元天使轮融资｜36氪首发</h3><p>36氪获悉，「宜镁华」近期宣布完成数千万元天使轮融资。本轮融资由星河创投与华中实业集团投资。资金将用于产能建设、研发投入和团队扩充等。 宜镁华专注于镁合金材料研发，零部件开发设计与零部件产品制造，背靠上海交通大学轻合金精密成型国家工程研究中心，自研高导高强合金设计技术、超高导热复材设计及界面调控技术与半固态注塑成型工艺，切入机器人关节电机模组、外骨骼、汽车结构件等高附加值场景，目前已与包含头部机器人本体厂商在内的超10家机器人本体、零部件厂商开展合作，确定镁合金替代产品超15种，并且获得多个汽车领域客户定点。 公司创始人兼CEO程轩挺是上海交通大学材料工程硕士、复旦大学MBA，拥有20余年汽车行业产业化经验，曾主导技术产业化项目实现年营收超16亿元，后创立苏州和健汽车科技成功开发吉利、智己等头部客户。 以配方和工艺创新，突破镁合金性能局限 “新能源汽车变得越来越重，加上各种智能硬件，每辆车上市时实际重量都远超最初设定，所以轻量化成了车企必须解决的难题。”程轩挺告诉36氪，车企客户对轻量化材料的迫切需求是他创立宜镁华的直接动因。…</p><a href="https://36kr.com/p/3864082158785539?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>回到没有AI的那一天，寻找第一性原理 | WAVES2026</h3><p>我们不妨想一下，如果有一天，AI突然消失了，我们会失去什么？这个问题不是为了制造恐慌，而是为了让我们想清楚：我们今天投AI，到底是在投它的能力，还是投它背后的人性需求？接下来这个环节当中，回到没有AI的那一天，去找第一性原理。上一场李丰的演讲给了我们一个思考的起点，现在，我们要把它变成一场辩论。 以下为圆桌对话内容，经36氪整理编辑： 图源：Waves现场 海若镜｜暗涌副主编（主持人） 王鹤宇｜CMC AI创意基金 张毅｜静水湖创投 创始管理合伙人 聂艾玲 | 钛动科技 创始合伙人 石亚琼 | 锦秋基金副总裁 海若镜： 大家好！首先非常欢迎各位来到我们今天的WAVES大会，我是这场圆桌的主持人，暗涌的海若镜。今天我们这场主题挺有意思的，叫“回到没有AI的那一天”。这个思想实验有意思的地方在于，它会让我们去思考，人的需求到底是什么，人和世界交互的本质又是什么。…</p><a href="https://36kr.com/p/3865565708752134?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软 Xbox CEO 夏尔马：《使命召唤》商业规模超越漫威电影宇宙</h3><p>IT之家 6 月 24 日消息，多年来，微软与 Xbox 旗下游戏改编影视项目口碑不一：贝塞斯达联合亚马逊推出的《辐射》剧集、2025 年上映的《我的世界》真人电影均大获成功；但此前真人剧集《光环》以及前传短片《光环：夜幕》却让绝大多数观众大失所望。 不过总体来看，近几年基于 Xbox 游戏 IP 打造的多媒体衍生作品收获了更多正面评价。Xbox 首席执行官阿莎 · 夏尔马及其他高管在《Entertainment Weekly》的最新专访中透露：“如今业内想要和我们合作改编游戏 IP 的意愿，达到了历史新高。” 夏尔马解释道：“我们无意去争夺全球头部传统影视平台之类的头衔，但我认为优质游戏本身就是一种文化，而文化即是娱乐。你不妨想想，我们的《辐射》拿下亚马逊平台史上收视第二的剧集，《我的世界》电影跻身 2025 年票房前五，《使命召唤》全系列商业体量甚至超越漫威电影宇宙。各项数据都能印证这一点，现在各方都比以往更愿意和我们合作开发游戏改编作品。” 称《使命召唤》系列规模超过迪士尼旗下体量庞大的漫威电影宇宙，这番说法十分大胆，但从现有数据来看，该结论确实有据可依：公开票房数据显示，漫威电影宇宙累计总营收约 320…</p><a href="https://www.ithome.com/0/967/751.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Anthropic 对特定功能访问要求身份验证</h3><p>Anthropic 更新了其隐私政策，从 2026 年 7 月 8 日起，部分功能将需要身份验证，该验证将由 Persona 公司负责。Persona 是一家第三方身份验证公司，由 Peter Thiel 投资。此前 Discord 因用户强烈反对以及 2026 年 2 月发生的一起数据泄露事件而终止了在年龄验证上与 Persona 的合作。</p><a href="https://www.solidot.org/story?sid=84645" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>8 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>刚刚，豆包2.1发布！Agent自己跑18个小时搞定芯片设计代码</h3><a href="https://www.qbitai.com/2026/06/437503.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>马斯克又盯上AI基建：特斯拉要卖“算力积木”了</h3><a href="https://www.qbitai.com/2026/06/437340.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>起底大晓：四个月狂融数亿美金，国家队、车企、芯片巨头为何集体「押注」</h3><p>日前，大晓机器人官宣完成天使+轮融资。 投资方集齐国家队、产业队、VC 队三股力量： 既有深创投、上海科创基金、临港新片区基金等政府资本，吉利资本与沐曦股份等公司业务强相关的产业资本； 又有达晨财智、盛宇投资、复星锐正、华控基金、豫资涨泉等 VC 资本；而老股东商汤国香资本持续增资。 这轮融资，三重信号值得关注： 第一，上海、深圳政府资本集体入局。世界模型、具身智能已进入国家与地方政府的产业视野，战略关注度显著提升。 第二，吉利资本、沐曦股份等产业资本下场。大晓机器人与国产算力、汽车制造产业链深度绑定，上下游协同更加紧密。 第三，资本结构蜕变。从单一市场化VC主导，进化到“政府资本背书+产业资本协同+市场化资本跟进”的黄金组合。大晓机器人进入政策助力、产业资源深度耦合的产业化新阶段。 值得一提的是，本次融资距离上一次，仅隔了四个月。 在整个一级市场冰火两重天的当下，大晓机器人无疑是“火”的那一头：四个月，已累计融资数亿美元。 凭什么？技术能力够硬气，人才团队够重磅，国产部署够果断。各路资本各有各的考量。 资本最热门赛道 + 世界模型“天花板” 首先，世界模型、具身智能是 2026 年风投圈最狂热、最吸金的两条王牌赛道。…</p><a href="https://www.leiphone.com/category/industrynews/SmlYKtAdXG3bGMMu.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Fable 5 刚被封杀，OpenRouter 用「多模型协作」搞出了「平替天团」</h3><p>最强 AI 突遭封杀下架，多模型协作能否填补空白？ 作者丨 高允毅 编辑丨 马晓宁 当世界上最聪明的 AI 被强制拔掉网线，我们能否有另一套方案，用上同样聪明的智力？ 2026年6月14日，全球最大的大模型 API 聚合平台OpenRouter，在 X 上发布一条推文，短短几天，吸引近600万人围观。 该平台宣布推出了世界上最聪明的“复合模型”Fusion API ，能用模型组合的方式，复刻 Claude Fable 5 的智力水平。 所谓“复合模型”，不是靠一个 AI 自己埋头苦干，而是让好多 AI 模型一块儿配合，做出一份最好的答案，再交给用户，对外统一用一个API 入口。 Fusion API 的横空出世，踩中了一个微妙的时机。 就在同一周，Anthropic 刚发布了 史上最强模型Claude Fable 5。该模型以强悍的长周期智能体推理出圈，能将企业原本需要数月的代码迁移工作缩短至一天。 然而，发布仅 3 天，美国政府便签发了紧急出口管制令。Anthropic 官方被迫切断全球网络，暂停该模型的 API 访问，原本跃跃欲试的开发者们，瞬间哀嚎遍野。…</p><a href="https://www.leiphone.com/category/yanxishe/9TGZvtD8CvNeaEKw.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>韩国总统府官员：三星与SK海力士新芯片集群规划进入收尾阶段</h3><p>韩国总统办公室政策室长金容范6月24日表示，三星电子和SK海力士建立新半导体集群的计划已进入最后讨论阶段，一旦最终敲定将正式向大众公布。金容范指出，由于人工智能（AI）行业对芯片的需求呈现“爆发式增长”，两家公司现有的龙仁半导体集群建设进程将大幅提前。其中，SK海力士计划在龙仁建设四座晶圆厂，目前正讨论将第四座工厂的完工时间从原定的2044年大幅提前至2034年。（界面）</p><a href="https://36kr.com/newsflashes/3866532521825286?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软 Win11 26H1 推送 6 月可选更新 28000.2340：优化放大镜、改善装机体验</h3><p>IT之家 6 月 24 日消息，微软今天（6 月 24 日）发布公告，面向 Windows 11 26H1 设备，推送 6 月可选更新 KB5095091，用户安装后版本号升至 Build 28000.2340。 在适配范围上，本次更新仅面向搭载高通骁龙 X2 系列芯片的设备推送： 骁龙 X2 Plus（“X2P”） 骁龙 X2 Elite（“X2E”） 骁龙 X2 Elite Extreme（“X2E”） 更新内容方面，本次更新涵盖逐步推出和常规推送两个板块，IT之家附上相关更新内容如下： 一、逐步推出 1.1、屏幕放大镜 用户在使用屏幕阅读器时，放大镜功能可提供更清晰、更一致的语音提示。放大或缩小、切换视图模式、启用或禁用颜色反转以及启动或关闭该实用程序后，用户都会听到相应的提示音。 放大镜现在支持放大受保护的内容。 提高了放大镜模式下移动放大镜时的流畅度。 1.2、任务管理器 任务管理器新增 NPU、NPU Module、专用 NPU 内存和总 NPU 内存等列，还加入“Isolation”列，用于显示应用是否运行在 AppContainer 隔离环境中。 1.3、相机 Windows 11 新增…</p><a href="https://www.ithome.com/0/967/753.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>三星 Galaxy Watch9 智能手表渲染图曝光：家族式设计、升级骁龙 Wear Elite 芯片</h3><p>IT之家 6 月 24 日消息，科技媒体 Android Headline 昨日（6 月 23 日）发布博文， 分享了一组渲染图，展示了三星 Galaxy Watch9 系列智能手表，共有 40mm 和 44mm 两种尺寸。 外观方面，基于曝光的渲染图，三星 Galaxy Watch9 沿用了家族式设计，基本上和 Galaxy Watch8 保持一致，采用方圆形（squircle）表盘，背面照片显示传感器基本未变。 芯片方面，消息称三星 Galaxy Watch9 将采用高通骁龙 Wear Elite 芯片，从此前的 Exynos 芯片转向高通方案，提升本地 AI 能力，解锁更多智能功能。 颜色方面，40mm 版本预估配有奶油白（Cream）和石墨色（Graphite，渲染图显示偏绿色）两种颜色；而 44mm 版本将提供银色（Silver）和石墨色（Graphite）两种颜色。 IT之家附上相关图片如下：</p><a href="https://www.ithome.com/0/967/750.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>美国芯片安全法案将强制性要求位置跟踪 AI 芯片</h3><p>美国国会正在审议芯片安全法案（Chip Security Act），该法案将为先进 AI 芯片加入更严格的安全验证功能，将要求芯片出口商通过定制的位置验证硬件或软件追踪先进芯片的流向，确保先进芯片不会进入中国等国家。美国众议院外交事务委员会于 3 月下旬以 42 比 0 的投票结果一致通过了芯片安全法案，将其提交到众议院全体会议审议。参议院的配套立法则尚处于审议的第一个阶段。美国芯片行业组织反对这项法案，认为会阻碍芯片出口。最大的 AI 芯片制造商英伟达去年 12 月宣布它已开发出能满足该法案部分要求的技术。</p><a href="https://www.solidot.org/story?sid=84641" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>8 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>机器人全栈操作系统！老黄率先抛出“具身版安卓”</h3><a href="https://www.qbitai.com/2026/06/437382.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>起底大晓：四个月狂融数亿美金，国家队、车企、芯片巨头为何集体「押注」</h3><p>日前，大晓机器人官宣完成天使+轮融资。 投资方集齐国家队、产业队、VC 队三股力量： 既有深创投、上海科创基金、临港新片区基金等政府资本，吉利资本与沐曦股份等公司业务强相关的产业资本； 又有达晨财智、盛宇投资、复星锐正、华控基金、豫资涨泉等 VC 资本；而老股东商汤国香资本持续增资。 这轮融资，三重信号值得关注： 第一，上海、深圳政府资本集体入局。世界模型、具身智能已进入国家与地方政府的产业视野，战略关注度显著提升。 第二，吉利资本、沐曦股份等产业资本下场。大晓机器人与国产算力、汽车制造产业链深度绑定，上下游协同更加紧密。 第三，资本结构蜕变。从单一市场化VC主导，进化到“政府资本背书+产业资本协同+市场化资本跟进”的黄金组合。大晓机器人进入政策助力、产业资源深度耦合的产业化新阶段。 值得一提的是，本次融资距离上一次，仅隔了四个月。 在整个一级市场冰火两重天的当下，大晓机器人无疑是“火”的那一头：四个月，已累计融资数亿美元。 凭什么？技术能力够硬气，人才团队够重磅，国产部署够果断。各路资本各有各的考量。 资本最热门赛道 + 世界模型“天花板” 首先，世界模型、具身智能是 2026 年风投圈最狂热、最吸金的两条王牌赛道。…</p><a href="https://www.leiphone.com/category/industrynews/SmlYKtAdXG3bGMMu.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>成立不到90天的超级创企昆仑行，刷新具身最快独角兽</h3><p>资本疯狂抢筹，90天击穿行业最快独角兽天花板。 成立不到3个月的昆仑行机器人，上演了一出让整个投资圈沸腾的融资速度。 据媒体报道，今年饱受行业和投资界瞩目的具身智能“超级明星创企”昆仑行机器人，注册不到90天，接连完成3轮融资，累计吸金规模达到数十亿元。 其中首轮投资 在宣布启动融资3天内，便被顶级资本快速哄抢， 堪称具身行业“超级吸金石”。 火速跑完3轮融资后，昆仑行机器人估值达到具身智能独角兽级别。 平均不到30天完成一轮融资，不到90天刷新具身行业独角兽最快纪录。 2026 年具身智能赛道，昆仑行机器人强势打破 0-1 创企最快融资纪录，刷新行业初创公司成长速度上限，跃升为本赛道年度最快诞生的独角兽企业，堪称今年赛道内极具代表性的现象级黑马。 史诗级融资背后，投资人名单拉出来堪称明星天团朋友圈：除了高榕创投、高瓴创投、钟鼎资本、中科创星、华业资本、创新工场、心资本等国内顶级创投机构尽数入局，还有巨型产业集团建发集团旗下的产业资本的强势加持，属于豪华顶配创投+头部产业资本的全方位背书。…</p><a href="https://www.leiphone.com/category/industrynews/piPbBllVn6chKHBz.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>超越 SONIC ！人形机器人通用小脑迎来 GPT 时刻</h3><p>AstraBrain-WBC 0.5 论文深度解读 作者丨 齐铖湧 编辑丨 林觉民 全球首个人形通用小脑GPT基座大模型来了。 在美国科罗 拉多州 丹佛会议中心举行的CVPR 2026现场，银河通用联合研究团队提 出的 AstraBrain-WBC 0.5 ，用一组数字直接刷新了行业认知： ▎ 引入&quot;20亿帧最大人类行为数据规模&quot; ▎ 真机实测效果，显著优于SONIC ▎ 零样本泛化成功率92.58% 史上最大规模、 整 整20亿 帧人类动作数据，80.4M参数，零样本泛化成功率92.58%， 把传统三 层ML P的76.89%远远甩在身后，在MPJPE、MPJVE等多项指标上全面超越SONIC、 TWIST、Any2Track等当前最优方法。 这是 人形机器人运控领域前所未有的事。（雷峰网） 01 引入&quot;最大人类行为数据规模&quot;， 真机实测超越 SONIC 一个模型，没有任何预先编程，就能直接跟做从未见过的新动作。在室外泥地里拿起锄头干活，在家庭里丝滑稳定地撸猫/铲屎，在拳打脚踢下保持鲁棒，也能风度翩翩跳起华尔兹。武术踢腿、篮球运球投篮等高动态动作，同样是零样本，无需针对任务 微调。 这就是银河通用最新发布——全球首个人…</p><a href="https://www.leiphone.com/category/ai/lzqSU7xisToFg45M.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>36氪首发 | 同济博士从建筑机器人转战煤矿，押注辅助作业的“结构性蓝海”</h3><p>作者丨欧雪 编辑丨袁斯来 硬氪获悉，矿山机器人公司随擎机器人（下称“随擎”）近期已完成千万元级天使轮融资，投资方为连云港金桥基金。本轮资金将主要用于煤矿井下核心机器人产品的工程化迭代、供应链构建及团队扩充。 随擎2025年初正式成立，此前已通过子公司完成近两年的技术积累与井下验证。随擎核心团队深耕智能机器人及特种装备行业多年，平均从业年限超过10年，形成从80后到98后的年龄梯队，核心骨干均有从产品定义到现场交付的全链条实战经历。创始人王龙是同济大学机器人方向博士，国内建筑机器人早期开拓者，曾任香港科技大学高级研究员。 在矿山机器人这个正在从“单点自动化”向“全场景无人化”跨越的赛道上，大多数创业公司会选择采掘、运输等核心作业环节。但随擎做了一个相反的决定——聚焦辅助类作业，包括巷道物资运输、登高作业、密闭墙构筑和浮煤清理等。…</p><a href="https://36kr.com/p/3866531692844034?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>8点1氪丨追觅辟谣汽车CEO离职：职务与网传不符；微信小范围内测原生AI助手；苹果、特斯拉核心供应商数据泄露</h3><p>今日热点导览 创业板指创年内最大跌幅，失守4200点整数关口 影石回应Luna Ultra新品骗国补质疑：发布会标价有误 上交所向沪市公司发出“提质增效重回报”2.0专项行动公开倡议 韩国将要求所有上市公司披露库存股详情 贾跃亭推出工业级轮臂机器人 TOP3大新闻 追觅辟谣汽车CEO离职：陈龙冬职务与网络传言不符，今年5月已离职 6月23日，针对追觅汽车CEO离职传闻，追觅旗下星辰未来汽车发布声明称：“陈龙冬先生于2025年6月加入追觅科技原星辰未来BU，担任BU负责人，其职务与网络传言‘追觅汽车CEO’不符；2026年5月，陈龙冬先生已从星辰未来离职，该离职属正常人事变动。” 此前公司大整改中，追觅把原本两百多个独立业务单元全部整合，只保留全屋智能清洁、智能家电、智慧出行、AI具身智能四大核心板块。汽车、手机两大外界关注度最高的跨界业务，不再作为独立业务运营，统一划入新成立的产业研究院，只保留底层技术研发职能，彻底砍掉C端整车量产、线下门店、重资产整车工厂相关规划。（界面新闻、凤凰网财经） 微信迎来重磅更新，原生AI助手开启小范围内测…</p><a href="https://36kr.com/p/3866428592657411?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>以“高导热+高强韧”镁合金切入机器人等高端制造领域，「宜镁华」完成数千万元天使轮融资｜36氪首发</h3><p>36氪获悉，「宜镁华」近期宣布完成数千万元天使轮融资。本轮融资由星河创投与华中实业集团投资。资金将用于产能建设、研发投入和团队扩充等。 宜镁华专注于镁合金材料研发，零部件开发设计与零部件产品制造，背靠上海交通大学轻合金精密成型国家工程研究中心，自研高导高强合金设计技术、超高导热复材设计及界面调控技术与半固态注塑成型工艺，切入机器人关节电机模组、外骨骼、汽车结构件等高附加值场景，目前已与包含头部机器人本体厂商在内的超10家机器人本体、零部件厂商开展合作，确定镁合金替代产品超15种，并且获得多个汽车领域客户定点。 公司创始人兼CEO程轩挺是上海交通大学材料工程硕士、复旦大学MBA，拥有20余年汽车行业产业化经验，曾主导技术产业化项目实现年营收超16亿元，后创立苏州和健汽车科技成功开发吉利、智己等头部客户。 以配方和工艺创新，突破镁合金性能局限 “新能源汽车变得越来越重，加上各种智能硬件，每辆车上市时实际重量都远超最初设定，所以轻量化成了车企必须解决的难题。”程轩挺告诉36氪，车企客户对轻量化材料的迫切需求是他创立宜镁华的直接动因。…</p><a href="https://36kr.com/p/3864082158785539?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>1:49.434，小米 YU7 GT 创造浙赛首个自动驾驶圈速纪录</h3><p>IT之家 6 月 24 日消息，小米公司今日宣布，小米 YU7 GT 创造浙赛首个自动驾驶圈速纪录，用时 1:49.434 。 据IT之家此前报道，小米本周还宣布， 小米 YU7 GT 达成全球首个纽北自动驾驶圈速纪录 ，用时 10 分 29 秒 483 。 小米 YU7 GT 于 5 月 21 日正式发布 ，搭载新一代超级电机 V8s EVO，定位为“跑车级 SUV”，官方指导价 38.99 万元、大满配 42.99 万元。 该车最大马力 1003 匹、峰值功率 738kW、CLTC 续航 705km，零百加速 2.92 秒，最高时速 300km/h。其搭载 101.7kWh 三元锂电池，基于 897V 碳化硅高压平台，15 分钟充电最长可补能 570km。 相关阅读： 《 新一代小米 SU7 Max 挑战浙江国际赛车场原片发布，圈速 1:37.974 成浙赛 50 万内最速四门量产车 》 《 1 分 43 秒 384！小米 YU7 Max 成为浙赛 100 万以内最速 SUV 》</p><a href="https://www.ithome.com/0/967/756.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>7 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>GAIR Paper 103｜上海交大联合腾讯提出 Token 级别幻觉优化，实现大模型幻觉精准消除</h3><p>让大模型只改错的地方，不误伤对的内容。 作者丨李宁 上海交通大学 大语言模型（LLM）在医疗、金融、法律等高风险场景中的部署，始终面临一个核心挑战—— 幻觉 （Hallucination）。模型生成的内容可能包含与事实不符的实体、数字或逻辑关系，而这些错误往往隐藏在大量正确内容之中，极难检测和消除。 如何让大模型在减少幻觉的同时，不丧失回答的信息量和实用性？来自 上海交通大学 与 腾讯 的研究团队提出了一种全新的强化学习框架—— BALTO（Balanced Token-Level Policy Optimization） ，通过平衡的token级信用分配机制，精准消除幻觉，同时保持回答的丰富性。 01 问题的本质：幻觉是&quot;局部&quot;的，但惩罚却是&quot;全局&quot;的 研究团队首先在金融问答数据集FinLLM-Eval上进行了先导实验，揭示了一个关键现象： - 幻觉在token层面是极其稀疏的 ：每条回答中，幻觉token平均仅占2.77%，中位数仅1.87%。 - 但幻觉在回答层面却非常普遍 ：94.7%的采样组中至少包含一条含有幻觉的回答。…</p><a href="https://www.leiphone.com/category/private/qY695YwdBe6ap14w.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>微信AI助手小微，还有许多做不到的事情｜产品观察</h3><p>文｜王毓婵 编辑｜张雨忻 微信AI助手“小微”正在灰度内测，36氪智能涌现拿到了首批测试资格。 先说结论：一些简单操作，小微做得没那么好；一些复杂操作，小微反而做得比较好。 小微入口 小微的服务主要基于微信自研模型WeLM，部分回答可能会调用DeepSeek来处理。主入口在微信首页左上角，默认交互方式是语音转文字，亦可直接手动打字输入。 小微会默认开启记忆能力、个性化服务和授权帮助模型改进效果。用户也可以在“记忆与隐私”界面手动选择关闭。 这款尚为测试版的AI助手打通了小程序、微信聊天、朋友圈、公众号、视频号、微信小店等微信的基础功能，但同时又有很多做不到的事情——比如，它可以读取你的朋友圈内容，却不能直接帮你发布朋友圈；它可以读取你的微信聊天内容，但是一次只能读一条消息。 小微在设计上呈现出典型的微信风格，简洁、易用，同时又很小心。在一些可能涉及到信任危机的场景中，它宁愿后撤一步。 今年3月，36氪独家了解到，微信内部曾在2025年12月的一场内部高管会议上总结了微信入局AI的几个趋势： 第一，微信必须拥有不依赖于第三方系统的内置AI工具。…</p><a href="https://36kr.com/p/3865425714795525?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>因 Anthropic Mythos 5 / Fable 5 模型下架，一公司起诉美国政府</h3><p>IT之家 6 月 24 日消息，据路透社消息，当地时间 6 月 23 日，一家美国法律科技公司 Legion LegalTech Corp 对美国政府提起诉讼。 据IT之家此前报道，美国商务部工业和安全局于 6 月 12 日下达命令，要求 Anthropic 禁止“任何外国国民”使用其 Fable 5 和 Mythos 5 模型。为确保合规， Anthropic 于命令下达当日便关闭了全球所有客户的访问权限 。 Legion 公司向华盛顿哥伦比亚特区联邦法院递交了诉状， 请求法官撤销并废止政府针对 Anthropic 下达的这项指令 。该公司还表示， 将申请一项初步禁令，以阻止政府继续执行该指令 。 该公司表示，其软件平台的运行高度依赖 Anthropic 的 AI 工具。美国政府的这一举措，瞬间切断了 Legion 驻加拿大软件开发团队成员的访问权限，导致公司业务陷入停滞。据悉，该公司专门为律师开发文书起草和案件管理工具。 诉状中强调：“这一禁令对 Legion 造成的损害是即时的、不可挽回且生死攸关的。前沿人工智能领域的发展日新月异，一旦在业务暂停期间错失了竞争优势，事后根本无法弥补。”…</p><a href="https://www.ithome.com/0/967/731.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>调研证实：游戏标注使用 AI 会显著降低玩家评测量</h3><p>IT之家 6 月 24 日消息，生成式人工智能问世以来，业内围绕其在游戏开发中的应用争论从未停歇。但如果纯粹从务实、商业的角度评判，人工智能的实际表现究竟如何？市场数据分析师罗斯 · 伯顿在游戏行业分析平台 Game Oracle 发布的一篇博客文章中提出，这项技术自带的负面口碑会劝退潜在玩家。 IT之家注意到，Game Oracle 抽样统计了 2025 年 1 月至 10 月上线的 9879 款游戏，筛选剔除了垃圾游戏、纯商业化换皮作品以及免费游戏。当然，这一筛选标准也会漏掉部分热度较高的免费游戏，还有被曝光暗中使用 AI 生成美术资源的作品。在所有抽样游戏里，有 17.9% 的作品主动公开开发过程中使用了人工智能。 整体数据显示，使用 AI 开发的游戏收获的玩家反馈热度普遍偏低。未公示 AI 应用的游戏评测数量更多，零评测的作品占比更少；而仅统计评测数不少于 100 条的游戏样本时，这类游戏的均分中位数要高出约 4%。 不过，当研究调整统计方法，将其他维度条件相近的游戏做对照后，结论出现了变化。报告写道：“在剔除发行商、开发团队从业年限、游戏品类等变量干扰后， 使用 AI 开发的游戏评测总量相比纯人工开发作品减少约…</p><a href="https://www.ithome.com/0/967/724.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>在敏感信息泄漏后 Meta 暂停内部 AI 训练项目</h3><p>在敏感信息泄漏后 Meta 暂停了内部的 AI 训练项目。泄密事件暴露了员工的私人对话、绩效数据和转录文本。Meta 发言人证实了此事，表示公司正在调查，称目前没有迹象表明 Meta 员工不当访问了任何数据。Meta 公司是在今年 4 月宣布了名为 Model Capability Initiative 的 AI 训练计划，旨在利用员工的按键和鼠标移动作为训练数据，以改进公司的 AI 模型。该计划对大多数员工强制执行，但引发了部分员工的强烈反对，他们对自己的数据被记录感到不安。最新的泄密事件令 Meta 内部员工感到沮丧，他们批评公司从一开始就没有对数据进行安全防护。</p><a href="https://www.solidot.org/story?sid=84650" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Anthropic 对特定功能访问要求身份验证</h3><p>Anthropic 更新了其隐私政策，从 2026 年 7 月 8 日起，部分功能将需要身份验证，该验证将由 Persona 公司负责。Persona 是一家第三方身份验证公司，由 Peter Thiel 投资。此前 Discord 因用户强烈反对以及 2026 年 2 月发生的一起数据泄露事件而终止了在年龄验证上与 Persona 的合作。</p><a href="https://www.solidot.org/story?sid=84645" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>美国芯片安全法案将强制性要求位置跟踪 AI 芯片</h3><p>美国国会正在审议芯片安全法案（Chip Security Act），该法案将为先进 AI 芯片加入更严格的安全验证功能，将要求芯片出口商通过定制的位置验证硬件或软件追踪先进芯片的流向，确保先进芯片不会进入中国等国家。美国众议院外交事务委员会于 3 月下旬以 42 比 0 的投票结果一致通过了芯片安全法案，将其提交到众议院全体会议审议。参议院的配套立法则尚处于审议的第一个阶段。美国芯片行业组织反对这项法案，认为会阻碍芯片出口。最大的 AI 芯片制造商英伟达去年 12 月宣布它已开发出能满足该法案部分要求的技术。</p><a href="https://www.solidot.org/story?sid=84641" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>2 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>智能座舱之王「转身」物理AI，高通需要被重估了</h3><a href="https://www.qbitai.com/2026/06/432494.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>荣耀 MagicOS 11 超前点映推送，行业首个动态液态玻璃效果</h3><p>IT之家 6 月 24 日消息，荣耀 MagicOS 11 超前点映今日宣布开启推送， 首批先锋用户今天就能抢先体验 。 荣耀 MagicOS 11 采用 全屏通透视觉设计 + 行业首个动态液态玻璃效果 + 无极自定义 ，官方发布了一段演示视频。 据IT之家此前报道， MagicOS 11 液态玻璃先锋版已开启小范围共创招募 ，招募机型包括： 荣耀 Magic8 荣耀 Magic8 Pro 荣耀 Magic8 Pro Air 荣耀 Magic8 RSR | 保时捷设计 用户需要打开我的荣耀 App &gt; 俱乐部 &gt; MagicOS 板块，点击 MagicOS 11 液态玻璃尝鲜版先锋招募，根据提示进行报名，填写申请问卷后等待审核。 MagicOS 11 液态玻璃尝鲜版于 6 月 24 日 ~6 月 25 日根据审核结果分批推送。</p><a href="https://www.ithome.com/0/967/759.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Wed, 24 Jun 2026 00:26:07 +0000</div><h3>智能座舱之王「转身」物理AI，高通需要被重估了</h3><a href="https://www.qbitai.com/2026/06/432494.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 23 Jun 2026 13:37:17 +0000</div><h3>刚刚，豆包2.1发布！Agent自己跑18个小时搞定芯片设计代码</h3><a href="https://www.qbitai.com/2026/06/437503.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 23 Jun 2026 07:31:30 +0000</div><h3>57场面试杀进OpenAI！华人博士开源「AI面经」，含泪推荐</h3><a href="https://www.qbitai.com/2026/06/437425.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 23 Jun 2026 06:06:02 +0000</div><h3>机器人全栈操作系统！老黄率先抛出“具身版安卓”</h3><a href="https://www.qbitai.com/2026/06/437382.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 23 Jun 2026 06:02:11 +0000</div><h3>马斯克又盯上AI基建：特斯拉要卖“算力积木”了</h3><a href="https://www.qbitai.com/2026/06/437340.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Tue, 23 Jun 2026 18:35:00 +0800</div><h3>响应国家「体重管理年」，蚂蚁阿福发起「科学减重1亿斤」行动</h3><p>“国家喊你减肥了！”别以为这只是网络调侃。 数据显示，当前我国成人超重率为34.3%、肥胖率16.4%，合起来超过50%，相当于每两名成年人就有一人体重亮“黄灯”。为此，国家卫健委等16部门于2024年联合启动“体重管理年”，今年正是收官之年。 为响应号召，6月22日，全国最大的健康AI应用“蚂蚁阿福”发起“科学减重1亿斤”健康行动，希望帮用户科学管理体重，守护健康。 01 “1亿斤”怎么减，阿福打算这么干 一、补贴智能硬件 。 许多家庭尚未配备体脂秤，阿福将集中采购，以“地板价”供应给用户。因为只有了解自己的体脂率、肌肉率等身体数据，才能科学管理体重。 二、升级AI功能 ，当“AI私教”。 连接智能硬件后，AI可根据体重、体脂、肌肉率等，给出个性化的饮食和运动建议，助力用户科学管理体重体脂。 三、组织健康挑战赛 ，通过有趣的激励机制，帮助用户克服“三分钟热度”。 图：蚂蚁阿福发起“科学减重1亿斤”健康行动 消息一公布，网友们彻底坐不住了：“胖了这么多年，终于有人监督了！”“6月不减肥，7月徒伤悲，这个倡议来得太及时了！”…</p><a href="https://www.leiphone.com/category/industrynews/Bqf1PqF4RtuxHXnP.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 23 Jun 2026 18:25:00 +0800</div><h3>GAIR Paper 104｜Agent 真的能自我进化吗？我们造了一把它骗不过去的尺子</h3><p>我们用 GDPevo，衡量出 AI 自进化的真实价值。 作者丨 PrismShadow AI 编辑丨岑峰 01 为什么“自进化”突然成了所有人都在抢的赛道？ 想象一下，你有一个新入职的员工。他一开始什么都不会，需要你手把手教。但几周后，他开始自己总结经验、优化工作流程，甚至能独立应对从未见过的新问题。 如果把这个场景里的员工换成AI，这就是眼下人工智能领域最前沿、也最令人兴奋的方向：自进化Agent（Self-evolving Agent）。 先说一句这两年在 AI 圈被反复验证的“铁律”：在 AI 时代，一件事一旦能被 清晰地评估 、又能被 自动化 地去做，那它离被做到极致就不远了。围棋是这样，写代码是这样，做数学题也是这样——只要有一把靠谱的尺子，模型就能顺着这把尺子一路爬到顶。自进化Agent做的，就是这样的事情。 那么下一个被这把尺子盯上的，是什么？ 越来越多人把答案押在了 自进化（Self-evolution） 上。所谓自进化，说白了就是 Agent…</p><a href="https://www.leiphone.com/category/private/lWPaab1Q7cpgqnRI.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 23 Jun 2026 18:20:00 +0800</div><h3>起底大晓：四个月狂融数亿美金，国家队、车企、芯片巨头为何集体「押注」</h3><p>日前，大晓机器人官宣完成天使+轮融资。 投资方集齐国家队、产业队、VC 队三股力量： 既有深创投、上海科创基金、临港新片区基金等政府资本，吉利资本与沐曦股份等公司业务强相关的产业资本； 又有达晨财智、盛宇投资、复星锐正、华控基金、豫资涨泉等 VC 资本；而老股东商汤国香资本持续增资。 这轮融资，三重信号值得关注： 第一，上海、深圳政府资本集体入局。世界模型、具身智能已进入国家与地方政府的产业视野，战略关注度显著提升。 第二，吉利资本、沐曦股份等产业资本下场。大晓机器人与国产算力、汽车制造产业链深度绑定，上下游协同更加紧密。 第三，资本结构蜕变。从单一市场化VC主导，进化到“政府资本背书+产业资本协同+市场化资本跟进”的黄金组合。大晓机器人进入政策助力、产业资源深度耦合的产业化新阶段。 值得一提的是，本次融资距离上一次，仅隔了四个月。 在整个一级市场冰火两重天的当下，大晓机器人无疑是“火”的那一头：四个月，已累计融资数亿美元。 凭什么？技术能力够硬气，人才团队够重磅，国产部署够果断。各路资本各有各的考量。 资本最热门赛道 + 世界模型“天花板” 首先，世界模型、具身智能是 2026 年风投圈最狂热、最吸金的两条王牌赛道。…</p><a href="https://www.leiphone.com/category/industrynews/SmlYKtAdXG3bGMMu.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 23 Jun 2026 13:57:00 +0800</div><h3>网易有道首发14语种零口音语音克隆模型，无需参考文本即可复刻任意音色</h3><p>当前，人工智能作为培育新质生产力的核心引擎，已上升为国家战略层面。国务院《关于深入实施“人工智能+”行动的意见》明确提出，要加快AI核心技术自主创新、降低产业落地门槛、构建开放共享的国产AI生态，推动人工智能与千行百业深度融合。 在这一战略背景下，网易有道正式推出“子曰4.0”大模型体系TTS语音合成引擎——Confucius4-TTS，并已面向全球用户开放。近日，该引擎凭借全球首个不依赖参考文本即可实现14语种无口音跨语种语音克隆的开创性突破引发行业高度关注，为数字人、跨境传播、智能教育等产业提供国产化、低成本语音克隆功能。 重磅开源发布，完整模型权重本地可部署 Confucius4-TTS采用1.3B参数高性能语音模型，开放行业领先的零样本语音克隆、跨语种无痕音色迁移、情感复刻能力，采用宽松友好的Apache开源协议，面向全球创作者、开发者开放完整模型权重与配套工具链。开发者可完整下载54G资源包，本地离线部署运行，配套开源龙虾智能体工具链，商用无限制。 图 1 TTS模型开源地址：https://github.com/netease-youdao/Confucius4-TTS 三大技术突破，重新定义开源TTS天花板…</p><a href="https://www.leiphone.com/category/industrynews/30qYFuhjh76yBsIV.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 23 Jun 2026 10:56:00 +0800</div><h3>阿里高管集体下田插秧，忙了一上午才种半亩？网友：真人版「芭芭农场」实锤了；智谱市值超1万亿港元；乐道总裁：卖车比我考清华大学还难</h3><p>要闻提示 1.阿里高管集体下田插秧，忙了一上午才种半亩？网友：真人版“芭芭农场”实锤了！ 2.智谱市值超11000亿，已超过百度+美团+快手三者之和 3.字节跳动暂不考虑上市，估值有望破万亿美元 4.蚂蚁集团新一届董事会换届：何小鹏等出任独董 5.乐道总裁：卖车比我考清华大学还难 6.亿咖通拟18亿收购Flyme软件业务：年内魅族现有手机将迎大规模系统升级 7.雷军后悔和董明珠打赌：只是开玩笑，没想到被激怒后一直批评小米 8.罗永浩曾痛批iPhone设计属于二流！苹果新CEO调转方向：将设计视为第一优先级 今日头条 阿里高管集体下田插秧，忙了一上午才种半亩？网友：真人版“芭芭农场”实锤了！ 6 月 22 日消息，阿里巴巴合伙人、高德董事长刘振飞在阿里内网发文《手里有秧，才能确保未来有粮》，文章记录了近日阿里管理层在杭州一次下田插秧的团建活动。刘振飞在内网帖中说：“前几天在杭州和同事们一起体验插秧，十几个人一起忙上一个上午，才歪歪扭扭种了半亩水田。”有网友调侃：这是上演了真人版“芭芭农场”。…</p><a href="https://www.leiphone.com/category/zaobao/h3CWyacKTOhA0l1L.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 23 Jun 2026 10:36:00 +0800</div><h3>成立不到90天的超级创企昆仑行，刷新具身最快独角兽</h3><p>资本疯狂抢筹，90天击穿行业最快独角兽天花板。 成立不到3个月的昆仑行机器人，上演了一出让整个投资圈沸腾的融资速度。 据媒体报道，今年饱受行业和投资界瞩目的具身智能“超级明星创企”昆仑行机器人，注册不到90天，接连完成3轮融资，累计吸金规模达到数十亿元。 其中首轮投资 在宣布启动融资3天内，便被顶级资本快速哄抢， 堪称具身行业“超级吸金石”。 火速跑完3轮融资后，昆仑行机器人估值达到具身智能独角兽级别。 平均不到30天完成一轮融资，不到90天刷新具身行业独角兽最快纪录。 2026 年具身智能赛道，昆仑行机器人强势打破 0-1 创企最快融资纪录，刷新行业初创公司成长速度上限，跃升为本赛道年度最快诞生的独角兽企业，堪称今年赛道内极具代表性的现象级黑马。 史诗级融资背后，投资人名单拉出来堪称明星天团朋友圈：除了高榕创投、高瓴创投、钟鼎资本、中科创星、华业资本、创新工场、心资本等国内顶级创投机构尽数入局，还有巨型产业集团建发集团旗下的产业资本的强势加持，属于豪华顶配创投+头部产业资本的全方位背书。…</p><a href="https://www.leiphone.com/category/industrynews/piPbBllVn6chKHBz.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 23 Jun 2026 10:13:00 +0800</div><h3>GAIR Paper 103｜上海交大联合腾讯提出 Token 级别幻觉优化，实现大模型幻觉精准消除</h3><p>让大模型只改错的地方，不误伤对的内容。 作者丨李宁 上海交通大学 大语言模型（LLM）在医疗、金融、法律等高风险场景中的部署，始终面临一个核心挑战—— 幻觉 （Hallucination）。模型生成的内容可能包含与事实不符的实体、数字或逻辑关系，而这些错误往往隐藏在大量正确内容之中，极难检测和消除。 如何让大模型在减少幻觉的同时，不丧失回答的信息量和实用性？来自 上海交通大学 与 腾讯 的研究团队提出了一种全新的强化学习框架—— BALTO（Balanced Token-Level Policy Optimization） ，通过平衡的token级信用分配机制，精准消除幻觉，同时保持回答的丰富性。 01 问题的本质：幻觉是&quot;局部&quot;的，但惩罚却是&quot;全局&quot;的 研究团队首先在金融问答数据集FinLLM-Eval上进行了先导实验，揭示了一个关键现象： - 幻觉在token层面是极其稀疏的 ：每条回答中，幻觉token平均仅占2.77%，中位数仅1.87%。 - 但幻觉在回答层面却非常普遍 ：94.7%的采样组中至少包含一条含有幻觉的回答。…</p><a href="https://www.leiphone.com/category/private/qY695YwdBe6ap14w.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 23 Jun 2026 09:42:00 +0800</div><h3>独家丨微软与平安CEO，曾「密谋」联手做云</h3><p>近期，微软云中国研发团队大裁员，让地缘政治下的“脱钩”与“切割”再度成为行业焦点，但很少有人记得这家巨头曾在中国市场做过怎样大胆的本土化尝试。 这段尘封的科技秘史的一角，藏在 疫情 前深圳平安金融大厦里的一场闭门密谈里。 据微软知情人士向雷峰网透露，当时，时任平安联席CEO的陈心颖与更高管理层，向微软CEO萨提亚、Azure总裁Scott Guthrie等一行人介绍了平安在 “金融+科技”战略转型上的进展。 萨提亚听后表示惊叹，他感慨道，平安做科技业务的模式是：先想好要做什么，然后再“生个孩子”，培养他去做，往往能做得不错；而微软的模式是：先生“孩子”，然后再给他找事做，结果经常做不好。 这个形象的总结，被平安高层在后来数次公司内部会上提及、称赞。 彼时，这两大中美巨头正在尝试强强联合： 微软云有意更换在华代理商，让平安做中国区代理，而平安也在云计算业务上野心勃勃，准备一展拳脚。 于微软而言，平安是一家在本土有极强政企信任度的巨头，由它来做微软云在华代理商，会为微软云打开更大市场空间。 于平安而言，作为云市场的后来者，想要在极度内卷的红海中搏杀出一席之地并非易事，这时候微软云伸出的橄榄枝，颇具吸引力。…</p><a href="https://www.leiphone.com/category/industrycloud/23aEGFli48UtVkDq.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 22 Jun 2026 18:03:00 +0800</div><h3>Fable 5 刚被封杀，OpenRouter 用「多模型协作」搞出了「平替天团」</h3><p>最强 AI 突遭封杀下架，多模型协作能否填补空白？ 作者丨 高允毅 编辑丨 马晓宁 当世界上最聪明的 AI 被强制拔掉网线，我们能否有另一套方案，用上同样聪明的智力？ 2026年6月14日，全球最大的大模型 API 聚合平台OpenRouter，在 X 上发布一条推文，短短几天，吸引近600万人围观。 该平台宣布推出了世界上最聪明的“复合模型”Fusion API ，能用模型组合的方式，复刻 Claude Fable 5 的智力水平。 所谓“复合模型”，不是靠一个 AI 自己埋头苦干，而是让好多 AI 模型一块儿配合，做出一份最好的答案，再交给用户，对外统一用一个API 入口。 Fusion API 的横空出世，踩中了一个微妙的时机。 就在同一周，Anthropic 刚发布了 史上最强模型Claude Fable 5。该模型以强悍的长周期智能体推理出圈，能将企业原本需要数月的代码迁移工作缩短至一天。 然而，发布仅 3 天，美国政府便签发了紧急出口管制令。Anthropic 官方被迫切断全球网络，暂停该模型的 API 访问，原本跃跃欲试的开发者们，瞬间哀嚎遍野。…</p><a href="https://www.leiphone.com/category/yanxishe/9TGZvtD8CvNeaEKw.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 22 Jun 2026 17:48:00 +0800</div><h3>超越 SONIC ！人形机器人通用小脑迎来 GPT 时刻</h3><p>AstraBrain-WBC 0.5 论文深度解读 作者丨 齐铖湧 编辑丨 林觉民 全球首个人形通用小脑GPT基座大模型来了。 在美国科罗 拉多州 丹佛会议中心举行的CVPR 2026现场，银河通用联合研究团队提 出的 AstraBrain-WBC 0.5 ，用一组数字直接刷新了行业认知： ▎ 引入&quot;20亿帧最大人类行为数据规模&quot; ▎ 真机实测效果，显著优于SONIC ▎ 零样本泛化成功率92.58% 史上最大规模、 整 整20亿 帧人类动作数据，80.4M参数，零样本泛化成功率92.58%， 把传统三 层ML P的76.89%远远甩在身后，在MPJPE、MPJVE等多项指标上全面超越SONIC、 TWIST、Any2Track等当前最优方法。 这是 人形机器人运控领域前所未有的事。（雷峰网） 01 引入&quot;最大人类行为数据规模&quot;， 真机实测超越 SONIC 一个模型，没有任何预先编程，就能直接跟做从未见过的新动作。在室外泥地里拿起锄头干活，在家庭里丝滑稳定地撸猫/铲屎，在拳打脚踢下保持鲁棒，也能风度翩翩跳起华尔兹。武术踢腿、篮球运球投篮等高动态动作，同样是零样本，无需针对任务 微调。 这就是银河通用最新发布——全球首个人…</p><a href="https://www.leiphone.com/category/ai/lzqSU7xisToFg45M.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">2026-06-24 10:00:00  +0800</div><h3>微信AI助手小微，还有许多做不到的事情｜产品观察</h3><p>文｜王毓婵 编辑｜张雨忻 微信AI助手“小微”正在灰度内测，36氪智能涌现拿到了首批测试资格。 先说结论：一些简单操作，小微做得没那么好；一些复杂操作，小微反而做得比较好。 小微入口 小微的服务主要基于微信自研模型WeLM，部分回答可能会调用DeepSeek来处理。主入口在微信首页左上角，默认交互方式是语音转文字，亦可直接手动打字输入。 小微会默认开启记忆能力、个性化服务和授权帮助模型改进效果。用户也可以在“记忆与隐私”界面手动选择关闭。 这款尚为测试版的AI助手打通了小程序、微信聊天、朋友圈、公众号、视频号、微信小店等微信的基础功能，但同时又有很多做不到的事情——比如，它可以读取你的朋友圈内容，却不能直接帮你发布朋友圈；它可以读取你的微信聊天内容，但是一次只能读一条消息。 小微在设计上呈现出典型的微信风格，简洁、易用，同时又很小心。在一些可能涉及到信任危机的场景中，它宁愿后撤一步。 今年3月，36氪独家了解到，微信内部曾在2025年12月的一场内部高管会议上总结了微信入局AI的几个趋势： 第一，微信必须拥有不依赖于第三方系统的内置AI工具。…</p><a href="https://36kr.com/p/3865425714795525?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">2026-06-24 09:59:38  +0800</div><h3>36氪首发 | 同济博士从建筑机器人转战煤矿，押注辅助作业的“结构性蓝海”</h3><p>作者丨欧雪 编辑丨袁斯来 硬氪获悉，矿山机器人公司随擎机器人（下称“随擎”）近期已完成千万元级天使轮融资，投资方为连云港金桥基金。本轮资金将主要用于煤矿井下核心机器人产品的工程化迭代、供应链构建及团队扩充。 随擎2025年初正式成立，此前已通过子公司完成近两年的技术积累与井下验证。随擎核心团队深耕智能机器人及特种装备行业多年，平均从业年限超过10年，形成从80后到98后的年龄梯队，核心骨干均有从产品定义到现场交付的全链条实战经历。创始人王龙是同济大学机器人方向博士，国内建筑机器人早期开拓者，曾任香港科技大学高级研究员。 在矿山机器人这个正在从“单点自动化”向“全场景无人化”跨越的赛道上，大多数创业公司会选择采掘、运输等核心作业环节。但随擎做了一个相反的决定——聚焦辅助类作业，包括巷道物资运输、登高作业、密闭墙构筑和浮煤清理等。…</p><a href="https://36kr.com/p/3866531692844034?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">2026-06-24 09:00:59  +0800</div><h3>专访火山引擎谭待：模型好对MaaS是最重要的事，豆包2.1算「上牌桌」了</h3><p>文 | 邓咏仪 编辑 | 张雨忻 火山引擎总裁谭待 来源：火山引擎 过去三年，火山引擎总裁谭待给团队定 MaaS（模型即服务） 营收目标的过程，也重复了三次：年初，定一个很高的目标，团队都觉得太难了，完不成；到了年中，“居然完成的差不多了”，随后目标再度上调。 2026 年初，字节的视频模型 Seedance 2.0 让火山引擎迎来了一场漂亮的开门红。作为云市场的后来者，火山引擎乘着 AI 的风，实现了让行业意想不到的增长。 “两年前我就和大家说 MaaS 是个大生意，当时你们都不信。”谭待对36氪说。 从 2025 年下半年开始，Coding 和视频模型陆续解锁了商业化生产的场景，这让大家发现，现阶段，模型的能力边界依旧难以预测， 顶尖模型是 MaaS 服务当下最核心的增长引擎，甚至没有之一。 在 6 月 23 日的火山引擎 Force 大会上，字节新一代旗舰模型豆包大模型 2.1 Pro 登场。这也代表着字节在视频生成之外，模型侧终于补上了 Coding 的拼图。 谭待对豆包大模型 2.1 Pro 的定义是，在 Coding 和 Agent 能力方面，“ 终于可以上桌了 ”。在知名编程评测 Terminal…</p><a href="https://36kr.com/p/3865912900588548?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">2026-06-24 08:15:39  +0800</div><h3>8点1氪丨追觅辟谣汽车CEO离职：职务与网传不符；微信小范围内测原生AI助手；苹果、特斯拉核心供应商数据泄露</h3><p>今日热点导览 创业板指创年内最大跌幅，失守4200点整数关口 影石回应Luna Ultra新品骗国补质疑：发布会标价有误 上交所向沪市公司发出“提质增效重回报”2.0专项行动公开倡议 韩国将要求所有上市公司披露库存股详情 贾跃亭推出工业级轮臂机器人 TOP3大新闻 追觅辟谣汽车CEO离职：陈龙冬职务与网络传言不符，今年5月已离职 6月23日，针对追觅汽车CEO离职传闻，追觅旗下星辰未来汽车发布声明称：“陈龙冬先生于2025年6月加入追觅科技原星辰未来BU，担任BU负责人，其职务与网络传言‘追觅汽车CEO’不符；2026年5月，陈龙冬先生已从星辰未来离职，该离职属正常人事变动。” 此前公司大整改中，追觅把原本两百多个独立业务单元全部整合，只保留全屋智能清洁、智能家电、智慧出行、AI具身智能四大核心板块。汽车、手机两大外界关注度最高的跨界业务，不再作为独立业务运营，统一划入新成立的产业研究院，只保留底层技术研发职能，彻底砍掉C端整车量产、线下门店、重资产整车工厂相关规划。（界面新闻、凤凰网财经） 微信迎来重磅更新，原生AI助手开启小范围内测…</p><a href="https://36kr.com/p/3866428592657411?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">2026-06-23 18:43:59  +0800</div><h3>圆桌论坛：比共识更早一步 AI 创投的真实棋局 | 2026WAVES</h3><p>AI不是一阵风，它正在变成地平线。而地平线的意思是——你看不到它的尽头，但它一直在那里。 当下AI热潮涌动，行业共识尚未形成，但真正的机遇往往诞生在共识之前。接下来就让我们进入比共识更早一步 AI 创投的真实棋局圆桌论坛 ! 以下为圆桌对话内容，经36氪整理编辑： 巴芮｜暗涌副主编（主持人） 朱天宇｜蓝驰创投 管理合伙人 秦深涛｜OriginFlow创始人&amp;CEO 巴芮：大家好！我们这场对谈的主题是比共识更早一步，刚才上一场收尾在说一些非共识的内容，我们这一场是说比共识更早一步的事情。 现场这两位，一位是在投资上出手非常早，蓝驰创投管理合伙人朱天宇。另外一位是创业比较早的OriginFlow的创始人秦深涛，这两位是敢于比共识更早一步的行动，其实这是基于非常笃定的判断，我们今天想聊聊这件事情。…</p><a href="https://36kr.com/p/3865630193030145?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">2026-06-23 18:22:21  +0800</div><h3>以“高导热+高强韧”镁合金切入机器人等高端制造领域，「宜镁华」完成数千万元天使轮融资｜36氪首发</h3><p>36氪获悉，「宜镁华」近期宣布完成数千万元天使轮融资。本轮融资由星河创投与华中实业集团投资。资金将用于产能建设、研发投入和团队扩充等。 宜镁华专注于镁合金材料研发，零部件开发设计与零部件产品制造，背靠上海交通大学轻合金精密成型国家工程研究中心，自研高导高强合金设计技术、超高导热复材设计及界面调控技术与半固态注塑成型工艺，切入机器人关节电机模组、外骨骼、汽车结构件等高附加值场景，目前已与包含头部机器人本体厂商在内的超10家机器人本体、零部件厂商开展合作，确定镁合金替代产品超15种，并且获得多个汽车领域客户定点。 公司创始人兼CEO程轩挺是上海交通大学材料工程硕士、复旦大学MBA，拥有20余年汽车行业产业化经验，曾主导技术产业化项目实现年营收超16亿元，后创立苏州和健汽车科技成功开发吉利、智己等头部客户。 以配方和工艺创新，突破镁合金性能局限 “新能源汽车变得越来越重，加上各种智能硬件，每辆车上市时实际重量都远超最初设定，所以轻量化成了车企必须解决的难题。”程轩挺告诉36氪，车企客户对轻量化材料的迫切需求是他创立宜镁华的直接动因。…</p><a href="https://36kr.com/p/3864082158785539?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">2026-06-23 17:44:46  +0800</div><h3>回到没有AI的那一天，寻找第一性原理 | WAVES2026</h3><p>我们不妨想一下，如果有一天，AI突然消失了，我们会失去什么？这个问题不是为了制造恐慌，而是为了让我们想清楚：我们今天投AI，到底是在投它的能力，还是投它背后的人性需求？接下来这个环节当中，回到没有AI的那一天，去找第一性原理。上一场李丰的演讲给了我们一个思考的起点，现在，我们要把它变成一场辩论。 以下为圆桌对话内容，经36氪整理编辑： 图源：Waves现场 海若镜｜暗涌副主编（主持人） 王鹤宇｜CMC AI创意基金 张毅｜静水湖创投 创始管理合伙人 聂艾玲 | 钛动科技 创始合伙人 石亚琼 | 锦秋基金副总裁 海若镜： 大家好！首先非常欢迎各位来到我们今天的WAVES大会，我是这场圆桌的主持人，暗涌的海若镜。今天我们这场主题挺有意思的，叫“回到没有AI的那一天”。这个思想实验有意思的地方在于，它会让我们去思考，人的需求到底是什么，人和世界交互的本质又是什么。…</p><a href="https://36kr.com/p/3865565708752134?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">2026-06-24 10:23:14  +0800</div><h3>港股智谱涨幅扩大至13%，总市值重回1万亿港元</h3><p>36氪获悉，港股大模型概念股智谱涨幅扩大至13%，总市值重回1万亿港元。</p><a href="https://36kr.com/newsflashes/3866555102614535?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">2026-06-24 10:00:16  +0800</div><h3>韩国总统府官员：三星与SK海力士新芯片集群规划进入收尾阶段</h3><p>韩国总统办公室政策室长金容范6月24日表示，三星电子和SK海力士建立新半导体集群的计划已进入最后讨论阶段，一旦最终敲定将正式向大众公布。金容范指出，由于人工智能（AI）行业对芯片的需求呈现“爆发式增长”，两家公司现有的龙仁半导体集群建设进程将大幅提前。其中，SK海力士计划在龙仁建设四座晶圆厂，目前正讨论将第四座工厂的完工时间从原定的2044年大幅提前至2034年。（界面）</p><a href="https://36kr.com/newsflashes/3866532521825286?f=rss" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Wed, 24 Jun 2026 02:13:39 GMT</div><h3>荣耀 MagicOS 11 超前点映推送，行业首个动态液态玻璃效果</h3><p>IT之家 6 月 24 日消息，荣耀 MagicOS 11 超前点映今日宣布开启推送， 首批先锋用户今天就能抢先体验 。 荣耀 MagicOS 11 采用 全屏通透视觉设计 + 行业首个动态液态玻璃效果 + 无极自定义 ，官方发布了一段演示视频。 据IT之家此前报道， MagicOS 11 液态玻璃先锋版已开启小范围共创招募 ，招募机型包括： 荣耀 Magic8 荣耀 Magic8 Pro 荣耀 Magic8 Pro Air 荣耀 Magic8 RSR | 保时捷设计 用户需要打开我的荣耀 App &gt; 俱乐部 &gt; MagicOS 板块，点击 MagicOS 11 液态玻璃尝鲜版先锋招募，根据提示进行报名，填写申请问卷后等待审核。 MagicOS 11 液态玻璃尝鲜版于 6 月 24 日 ~6 月 25 日根据审核结果分批推送。</p><a href="https://www.ithome.com/0/967/759.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 24 Jun 2026 02:09:13 GMT</div><h3>1:49.434，小米 YU7 GT 创造浙赛首个自动驾驶圈速纪录</h3><p>IT之家 6 月 24 日消息，小米公司今日宣布，小米 YU7 GT 创造浙赛首个自动驾驶圈速纪录，用时 1:49.434 。 据IT之家此前报道，小米本周还宣布， 小米 YU7 GT 达成全球首个纽北自动驾驶圈速纪录 ，用时 10 分 29 秒 483 。 小米 YU7 GT 于 5 月 21 日正式发布 ，搭载新一代超级电机 V8s EVO，定位为“跑车级 SUV”，官方指导价 38.99 万元、大满配 42.99 万元。 该车最大马力 1003 匹、峰值功率 738kW、CLTC 续航 705km，零百加速 2.92 秒，最高时速 300km/h。其搭载 101.7kWh 三元锂电池，基于 897V 碳化硅高压平台，15 分钟充电最长可补能 570km。 相关阅读： 《 新一代小米 SU7 Max 挑战浙江国际赛车场原片发布，圈速 1:37.974 成浙赛 50 万内最速四门量产车 》 《 1 分 43 秒 384！小米 YU7 Max 成为浙赛 100 万以内最速 SUV 》</p><a href="https://www.ithome.com/0/967/756.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 24 Jun 2026 02:00:51 GMT</div><h3>微软 Win11 26H1 推送 6 月可选更新 28000.2340：优化放大镜、改善装机体验</h3><p>IT之家 6 月 24 日消息，微软今天（6 月 24 日）发布公告，面向 Windows 11 26H1 设备，推送 6 月可选更新 KB5095091，用户安装后版本号升至 Build 28000.2340。 在适配范围上，本次更新仅面向搭载高通骁龙 X2 系列芯片的设备推送： 骁龙 X2 Plus（“X2P”） 骁龙 X2 Elite（“X2E”） 骁龙 X2 Elite Extreme（“X2E”） 更新内容方面，本次更新涵盖逐步推出和常规推送两个板块，IT之家附上相关更新内容如下： 一、逐步推出 1.1、屏幕放大镜 用户在使用屏幕阅读器时，放大镜功能可提供更清晰、更一致的语音提示。放大或缩小、切换视图模式、启用或禁用颜色反转以及启动或关闭该实用程序后，用户都会听到相应的提示音。 放大镜现在支持放大受保护的内容。 提高了放大镜模式下移动放大镜时的流畅度。 1.2、任务管理器 任务管理器新增 NPU、NPU Module、专用 NPU 内存和总 NPU 内存等列，还加入“Isolation”列，用于显示应用是否运行在 AppContainer 隔离环境中。 1.3、相机 Windows 11 新增…</p><a href="https://www.ithome.com/0/967/753.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 24 Jun 2026 01:46:14 GMT</div><h3>微软 Xbox CEO 夏尔马：《使命召唤》商业规模超越漫威电影宇宙</h3><p>IT之家 6 月 24 日消息，多年来，微软与 Xbox 旗下游戏改编影视项目口碑不一：贝塞斯达联合亚马逊推出的《辐射》剧集、2025 年上映的《我的世界》真人电影均大获成功；但此前真人剧集《光环》以及前传短片《光环：夜幕》却让绝大多数观众大失所望。 不过总体来看，近几年基于 Xbox 游戏 IP 打造的多媒体衍生作品收获了更多正面评价。Xbox 首席执行官阿莎 · 夏尔马及其他高管在《Entertainment Weekly》的最新专访中透露：“如今业内想要和我们合作改编游戏 IP 的意愿，达到了历史新高。” 夏尔马解释道：“我们无意去争夺全球头部传统影视平台之类的头衔，但我认为优质游戏本身就是一种文化，而文化即是娱乐。你不妨想想，我们的《辐射》拿下亚马逊平台史上收视第二的剧集，《我的世界》电影跻身 2025 年票房前五，《使命召唤》全系列商业体量甚至超越漫威电影宇宙。各项数据都能印证这一点，现在各方都比以往更愿意和我们合作开发游戏改编作品。” 称《使命召唤》系列规模超过迪士尼旗下体量庞大的漫威电影宇宙，这番说法十分大胆，但从现有数据来看，该结论确实有据可依：公开票房数据显示，漫威电影宇宙累计总营收约 320…</p><a href="https://www.ithome.com/0/967/751.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 24 Jun 2026 01:42:57 GMT</div><h3>三星 Galaxy Watch9 智能手表渲染图曝光：家族式设计、升级骁龙 Wear Elite 芯片</h3><p>IT之家 6 月 24 日消息，科技媒体 Android Headline 昨日（6 月 23 日）发布博文， 分享了一组渲染图，展示了三星 Galaxy Watch9 系列智能手表，共有 40mm 和 44mm 两种尺寸。 外观方面，基于曝光的渲染图，三星 Galaxy Watch9 沿用了家族式设计，基本上和 Galaxy Watch8 保持一致，采用方圆形（squircle）表盘，背面照片显示传感器基本未变。 芯片方面，消息称三星 Galaxy Watch9 将采用高通骁龙 Wear Elite 芯片，从此前的 Exynos 芯片转向高通方案，提升本地 AI 能力，解锁更多智能功能。 颜色方面，40mm 版本预估配有奶油白（Cream）和石墨色（Graphite，渲染图显示偏绿色）两种颜色；而 44mm 版本将提供银色（Silver）和石墨色（Graphite）两种颜色。 IT之家附上相关图片如下：</p><a href="https://www.ithome.com/0/967/750.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 24 Jun 2026 01:39:42 GMT</div><h3>火山引擎发布豆包音频生成模型 1.0，支持多模态参考生成与长时音色一致性</h3><p>IT之家 6 月 24 日消息，昨天火山引擎正式发布了豆包音频生成模型 1.0（Doubao-Seed-Audio 1.0），首次支持参考生成：把文本、音频任一模态作为输入，可以端到端生成目标音频。并且，它能在长时生成场景中保持多角色音色的一致性，大幅减少后期修音工作。 借由豆包音频生成模型 1.0，还可以在单条 Prompt 中编排角色对白、情绪语气、背景音乐、环境氛围等，直接产出具备叙事张力的完整音频作品，改变了过往人声、音效、音乐单独制作再合成剪辑的传统工作流。 火山方舟已开启豆包音频生成模型 1.0 API 邀测，个人用户可以在火山方舟体验中心直接体验，享有 30 分钟的创作额度。面向音频创作者，豆包音频生成模型 1.0 也即将上线剪映、即梦、番茄等产品。 IT之家附官方详细介绍如下： 影视级音频创作： 全要素生成，告别人工剪辑 过去，一段成片级音频作品意味着对白、音效、配乐等逐条生成、手动对齐、多轨混音，流程繁琐且高度依赖后期技术能力。豆包音频生成模型 1.0 将这一切压缩进一条 Prompt，直接产出具备完整叙事感的成片级音频，省去多轨剪辑、对齐、混音的全部后期工作：…</p><a href="https://www.ithome.com/0/967/748.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 24 Jun 2026 01:20:19 GMT</div><h3>微软推送 Win11 六月可选更新：优化时间点还原、改进打印、修复回收站弹窗异常</h3><p>IT之家 6 月 24 日消息，微软昨日（6 月 23 日）发布公告，面向 Windows 11 系统推送 6 月可选更新 KB5095093， 24H2 版本用户安装后版本号升至 Build 26100.8737；25H2 用户升至 Build 26200.8737。 IT之家援引博文内容，附上相关更新内容如下： 一、新增功能 1.1、Windows 时间点还原 该功能主要用于缩短故障处理时间，用户可回滚电脑到最近的自动还原点，并同步恢复应用、设置和个人文件。 1.2、Windows Update 微软支持用户延后安装 Windows 更新，新增日历式暂停选项，用户可直接选择暂停结束日期，最长可暂停 35 天，也可再次设定新的结束日期。 1.3、小部件 系统默认不再因悬停自动打开小组件，通知和任务栏角标默认更克制，首次使用时默认进入仪表板： 减少干扰： 鼠标悬停时小部件不再打开。通知和任务栏徽章默认最小化。 更简洁： 首次使用时默认打开小部件仪表板。 自定义： 选择导航栏中的“设置”，然后更改任何默认设置，即可按您想要的方式配置小部件。 随时掌握最新信息： 仪表盘图标显示警报数量，离开仪表盘后徽章会自动清除。…</p><a href="https://www.ithome.com/0/967/744.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 24 Jun 2026 00:45:12 GMT</div><h3>因 Anthropic Mythos 5 / Fable 5 模型下架，一公司起诉美国政府</h3><p>IT之家 6 月 24 日消息，据路透社消息，当地时间 6 月 23 日，一家美国法律科技公司 Legion LegalTech Corp 对美国政府提起诉讼。 据IT之家此前报道，美国商务部工业和安全局于 6 月 12 日下达命令，要求 Anthropic 禁止“任何外国国民”使用其 Fable 5 和 Mythos 5 模型。为确保合规， Anthropic 于命令下达当日便关闭了全球所有客户的访问权限 。 Legion 公司向华盛顿哥伦比亚特区联邦法院递交了诉状， 请求法官撤销并废止政府针对 Anthropic 下达的这项指令 。该公司还表示， 将申请一项初步禁令，以阻止政府继续执行该指令 。 该公司表示，其软件平台的运行高度依赖 Anthropic 的 AI 工具。美国政府的这一举措，瞬间切断了 Legion 驻加拿大软件开发团队成员的访问权限，导致公司业务陷入停滞。据悉，该公司专门为律师开发文书起草和案件管理工具。 诉状中强调：“这一禁令对 Legion 造成的损害是即时的、不可挽回且生死攸关的。前沿人工智能领域的发展日新月异，一旦在业务暂停期间错失了竞争优势，事后根本无法弥补。”…</p><a href="https://www.ithome.com/0/967/731.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 24 Jun 2026 00:43:55 GMT</div><h3>EA 高管看好生成式 AI：可简化开发流程、加速创意产出</h3><p>IT之家 6 月 24 日消息，当下电子游戏行业面临的一大难题，就是新作的开发周期过于漫长。在 PS2 主机时代，一款游戏的开发周期最短仅 18 个月，如今却拉长至五年甚至更久。各大游戏厂商是否认为全新生成式人工智能工具能填补这一效率缺口呢？ 据 Eurogamer 报道，本月早些时候，在《The Game Business Live》栏目中，艺电（EA）企业发展总裁劳拉 · 米耶勒被问及了这一问题。她对此回应道：“部分环节或许能实现提速。亲眼见识过相关技术后，我对此十分看好，内心也相当期待。我一直希望能为旗下工作室的开发者扫清各类工作阻碍，也始终想为他们排忧解难，助力他们打造足以载入职业生涯的经典游戏作品。” 她接着补充：“就我所见，人工智能的确能简化制作流程、工具链与工作环节中的诸多繁琐步骤，这点令人振奋。它减轻了开发者重复枯燥的工作；原型制作效率大幅提升，创意产出速度更快，团队围绕创意沟通、达成共识的过程也变得更简洁高效。所以我认为这项技术极具价值。当开发中大量重复性杂活被人工智能承接后，开发者的创作活力会真正迸发出来。” 米耶勒并未详细说明新型人工智能工具究竟催生了哪些创意成果。业内如今大量讨论 AI…</p><a href="https://www.ithome.com/0/967/730.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 24 Jun 2026 00:11:13 GMT</div><h3>调研证实：游戏标注使用 AI 会显著降低玩家评测量</h3><p>IT之家 6 月 24 日消息，生成式人工智能问世以来，业内围绕其在游戏开发中的应用争论从未停歇。但如果纯粹从务实、商业的角度评判，人工智能的实际表现究竟如何？市场数据分析师罗斯 · 伯顿在游戏行业分析平台 Game Oracle 发布的一篇博客文章中提出，这项技术自带的负面口碑会劝退潜在玩家。 IT之家注意到，Game Oracle 抽样统计了 2025 年 1 月至 10 月上线的 9879 款游戏，筛选剔除了垃圾游戏、纯商业化换皮作品以及免费游戏。当然，这一筛选标准也会漏掉部分热度较高的免费游戏，还有被曝光暗中使用 AI 生成美术资源的作品。在所有抽样游戏里，有 17.9% 的作品主动公开开发过程中使用了人工智能。 整体数据显示，使用 AI 开发的游戏收获的玩家反馈热度普遍偏低。未公示 AI 应用的游戏评测数量更多，零评测的作品占比更少；而仅统计评测数不少于 100 条的游戏样本时，这类游戏的均分中位数要高出约 4%。 不过，当研究调整统计方法，将其他维度条件相近的游戏做对照后，结论出现了变化。报告写道：“在剔除发行商、开发团队从业年限、游戏品类等变量干扰后， 使用 AI 开发的游戏评测总量相比纯人工开发作品减少约…</p><a href="https://www.ithome.com/0/967/724.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 23 Jun 2026 23:54:44 GMT</div><h3>微软 Xbox 公布《光环：战役进化》PC 配置要求：高画质需 32G 内存 + 100GB 固态硬盘</h3><p>IT之家 6 月 24 日消息，《光环：战役进化》是微软与 Xbox 今年重磅新作之一，本作是 2001 年初代《光环：战斗进化》的完整重制版本，新增大量游戏玩法内容，提升了重玩价值，并采用虚幻引擎 5 完成全方位画面升级。 Xbox 游戏发布会上，官方官宣了这款游戏的发售日期：7 月 28 日，游戏将登陆 Xbox Series X|S、Windows PC 以及 PS5 平台。值得一提的是，购买高级版的玩家可提前五天，于 7 月 23 日抢先体验；想必这一福利吸引了大量玩家预购，也让本作登上 Steam 热销榜单。 距离这款游戏正式上线仅剩一个多月，PC 玩家最为关心的游戏最低配置与推荐配置现已正式公布。 微软 Xbox 与开发商光环工作室现已放出完整配置需求，我整理成下方表格方便大家查阅： 综合来看，作为一款主打顶级画面效果的虚幻引擎 5 游戏，《光环：战役进化》的处理器、显卡与显存门槛并不算苛刻。即便想要 2K/4K 分辨率稳定 60 帧、运行中高画质，使用五六年的老主机也能胜任，这也是绝大多数游戏电脑的主流硬件水平。 但内存与硬盘存储要求相对偏高。1080P、2K 低中画质仅需 16G…</p><a href="https://www.ithome.com/0/967/720.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 23 Jun 2026 23:30:45 GMT</div><h3>苹果 macOS 27 Beta 2 已封堵“跳过 Siri AI 候补名单”终端命令</h3><p>IT之家 6 月 24 日消息，科技媒体 Cult of Mac 昨日（6 月 23 日）发布博文，报道称在 macOS 27 Beta 2 更新中，苹果封堵了一条 Mac 终端命令， 用户使用该命令可以绕过候补名单启用新版 Siri AI。 IT之家援引博文介绍，在 macOS 27 Beta 1 更新中，用户在 Mac 终端中输入以下命令，即可跳过候补名单，解锁启用 Siri AI： sudo defaults write &quot;/Library/Preferences/FeatureFlags/Domain/GenerativeModels.plist&quot; &quot;EnhancedSiriWaitlist&quot; -dict-add Enabled -bool NO 不过用户反馈在 macOS 27 Beta 2 更新中，苹果公司已封堵了该功能。不过网友在 Reddit 社区发帖，指出另一种减少等待，启用 Siri AI 的方式，而且适用于 iOS 27 等其它版本： 1. 升级 iOS 27、macOS 27 最新 Beta 版本 2.使用图乐园生成一些图片 3.生成图像后，点击右上角的 “更多 ”按钮（ ⋯ ），然后点击…</p><a href="https://www.ithome.com/0/967/715.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Tue, 23 Jun 2026 15:48:59 +0800</div><h3>在敏感信息泄漏后 Meta 暂停内部 AI 训练项目</h3><p>在敏感信息泄漏后 Meta 暂停了内部的 AI 训练项目。泄密事件暴露了员工的私人对话、绩效数据和转录文本。Meta 发言人证实了此事，表示公司正在调查，称目前没有迹象表明 Meta 员工不当访问了任何数据。Meta 公司是在今年 4 月宣布了名为 Model Capability Initiative 的 AI 训练计划，旨在利用员工的按键和鼠标移动作为训练数据，以改进公司的 AI 模型。该计划对大多数员工强制执行，但引发了部分员工的强烈反对，他们对自己的数据被记录感到不安。最新的泄密事件令 Meta 内部员工感到沮丧，他们批评公司从一开始就没有对数据进行安全防护。</p><a href="https://www.solidot.org/story?sid=84650" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 22 Jun 2026 19:02:33 +0800</div><h3>Anthropic 对特定功能访问要求身份验证</h3><p>Anthropic 更新了其隐私政策，从 2026 年 7 月 8 日起，部分功能将需要身份验证，该验证将由 Persona 公司负责。Persona 是一家第三方身份验证公司，由 Peter Thiel 投资。此前 Discord 因用户强烈反对以及 2026 年 2 月发生的一起数据泄露事件而终止了在年龄验证上与 Persona 的合作。</p><a href="https://www.solidot.org/story?sid=84645" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 22 Jun 2026 15:53:11 +0800</div><h3>美国芯片安全法案将强制性要求位置跟踪 AI 芯片</h3><p>美国国会正在审议芯片安全法案（Chip Security Act），该法案将为先进 AI 芯片加入更严格的安全验证功能，将要求芯片出口商通过定制的位置验证硬件或软件追踪先进芯片的流向，确保先进芯片不会进入中国等国家。美国众议院外交事务委员会于 3 月下旬以 42 比 0 的投票结果一致通过了芯片安全法案，将其提交到众议院全体会议审议。参议院的配套立法则尚处于审议的第一个阶段。美国芯片行业组织反对这项法案，认为会阻碍芯片出口。最大的 AI 芯片制造商英伟达去年 12 月宣布它已开发出能满足该法案部分要求的技术。</p><a href="https://www.solidot.org/story?sid=84641" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>

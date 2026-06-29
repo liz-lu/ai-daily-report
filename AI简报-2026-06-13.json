@@ -1,0 +1,212 @@
+{
+  "date": "2026-06-13",
+  "generated_at": "2026-06-13T10:51:13.848315+08:00",
+  "timezone": "Asia/Shanghai",
+  "stats": {
+    "story_count": 6,
+    "error_count": 4,
+    "source_count": 1,
+    "theme_count": 4
+  },
+  "sources": [
+    "量子位"
+  ],
+  "themes": [
+    {
+      "name": "大模型 / 应用 / 智能体",
+      "count": 4,
+      "sources": [
+        "量子位"
+      ],
+      "stories": [
+        {
+          "source": "量子位",
+          "title": "Anthropic老大的唯一 -1，就是AI股神的未婚妻",
+          "link": "https://www.qbitai.com/2026/06/433717.html",
+          "excerpt": null
+        },
+        {
+          "source": "量子位",
+          "title": "“智能体最后的考试”，Fable 5竟然不敌GPT 5.5",
+          "link": "https://www.qbitai.com/2026/06/434774.html",
+          "excerpt": null
+        },
+        {
+          "source": "量子位",
+          "title": "Claude Fable 5省钱秘诀来了：调成Low档比Opus更便宜",
+          "link": "https://www.qbitai.com/2026/06/434571.html",
+          "excerpt": null
+        },
+        {
+          "source": "量子位",
+          "title": "1290万高考生看过来！阿里出了个志愿填报Agent，免费的",
+          "link": "https://www.qbitai.com/2026/06/434558.html",
+          "excerpt": null
+        }
+      ]
+    },
+    {
+      "name": "产业 / 投融资 / 活动",
+      "count": 1,
+      "sources": [
+        "量子位"
+      ],
+      "stories": [
+        {
+          "source": "量子位",
+          "title": "2026奇点智能产品大会首批嘉宾官宣：在 AI 的“可交付的时代”，看一线专家如何拆解真实落地闭环！",
+          "link": "https://www.qbitai.com/2026/06/435105.html",
+          "excerpt": null
+        }
+      ]
+    },
+    {
+      "name": "具身 / 机器人 / 智驾",
+      "count": 1,
+      "sources": [
+        "量子位"
+      ],
+      "stories": [
+        {
+          "source": "量子位",
+          "title": "BEV 杀入具身智能：跨维把机器人数据带上 Scaling 快车道",
+          "link": "https://www.qbitai.com/2026/06/434761.html",
+          "excerpt": null
+        }
+      ]
+    },
+    {
+      "name": "云 / 大厂 / 生态",
+      "count": 1,
+      "sources": [
+        "量子位"
+      ],
+      "stories": [
+        {
+          "source": "量子位",
+          "title": "1290万高考生看过来！阿里出了个志愿填报Agent，免费的",
+          "link": "https://www.qbitai.com/2026/06/434558.html",
+          "excerpt": null
+        }
+      ]
+    }
+  ],
+  "stories": [
+    {
+      "section": "量子位",
+      "title": "Anthropic老大的唯一 -1，就是AI股神的未婚妻",
+      "link": "https://www.qbitai.com/2026/06/433717.html",
+      "published_at": "Fri, 12 Jun 2026 07:29:59 +0000",
+      "excerpt": null,
+      "themes": [
+        "大模型 / 应用 / 智能体"
+      ]
+    },
+    {
+      "section": "量子位",
+      "title": "2026奇点智能产品大会首批嘉宾官宣：在 AI 的“可交付的时代”，看一线专家如何拆解真实落地闭环！",
+      "link": "https://www.qbitai.com/2026/06/435105.html",
+      "published_at": "Fri, 12 Jun 2026 07:27:14 +0000",
+      "excerpt": null,
+      "themes": [
+        "产业 / 投融资 / 活动"
+      ]
+    },
+    {
+      "section": "量子位",
+      "title": "“智能体最后的考试”，Fable 5竟然不敌GPT 5.5",
+      "link": "https://www.qbitai.com/2026/06/434774.html",
+      "published_at": "Fri, 12 Jun 2026 04:13:23 +0000",
+      "excerpt": null,
+      "themes": [
+        "大模型 / 应用 / 智能体"
+      ]
+    },
+    {
+      "section": "量子位",
+      "title": "BEV 杀入具身智能：跨维把机器人数据带上 Scaling 快车道",
+      "link": "https://www.qbitai.com/2026/06/434761.html",
+      "published_at": "Fri, 12 Jun 2026 04:11:02 +0000",
+      "excerpt": null,
+      "themes": [
+        "具身 / 机器人 / 智驾"
+      ]
+    },
+    {
+      "section": "量子位",
+      "title": "Claude Fable 5省钱秘诀来了：调成Low档比Opus更便宜",
+      "link": "https://www.qbitai.com/2026/06/434571.html",
+      "published_at": "Thu, 11 Jun 2026 08:23:31 +0000",
+      "excerpt": null,
+      "themes": [
+        "大模型 / 应用 / 智能体"
+      ]
+    },
+    {
+      "section": "量子位",
+      "title": "1290万高考生看过来！阿里出了个志愿填报Agent，免费的",
+      "link": "https://www.qbitai.com/2026/06/434558.html",
+      "published_at": "Thu, 11 Jun 2026 07:25:55 +0000",
+      "excerpt": null,
+      "themes": [
+        "大模型 / 应用 / 智能体",
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "雷锋网",
+      "title": "[抓取失败] https://www.leiphone.com/feed",
+      "link": "The read operation timed out",
+      "published_at": null,
+      "excerpt": null,
+      "themes": []
+    },
+    {
+      "section": "36氪",
+      "title": "[抓取失败] https://36kr.com/feed",
+      "link": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+      "published_at": null,
+      "excerpt": null,
+      "themes": []
+    },
+    {
+      "section": "IT之家",
+      "title": "[抓取失败] https://www.ithome.com/rss/",
+      "link": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+      "published_at": null,
+      "excerpt": null,
+      "themes": []
+    },
+    {
+      "section": "Solidot",
+      "title": "[抓取失败] https://www.solidot.org/index.rss",
+      "link": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+      "published_at": null,
+      "excerpt": null,
+      "themes": []
+    }
+  ],
+  "errors": [
+    {
+      "section": "雷锋网",
+      "title": "[抓取失败] https://www.leiphone.com/feed",
+      "detail": "The read operation timed out"
+    },
+    {
+      "section": "36氪",
+      "title": "[抓取失败] https://36kr.com/feed",
+      "detail": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    },
+    {
+      "section": "IT之家",
+      "title": "[抓取失败] https://www.ithome.com/rss/",
+      "detail": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    },
+    {
+      "section": "Solidot",
+      "title": "[抓取失败] https://www.solidot.org/index.rss",
+      "detail": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    }
+  ],
+  "llm_summary": null
+}

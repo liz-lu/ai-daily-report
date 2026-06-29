@@ -1,0 +1,48 @@
+中文 AI 资讯简报 · 2026-06-28 10:50（北京时间）
+============================================================
+说明：数据来自各站 RSS；在标题与链接外，尽量附带摘要字段的纯文本摘录，并按主题自动归类。归类规则为关键词启发式，可能与人工编辑分类不同，请以原文为准。
+
+## 一、本期概览与主题地图
+----------------------------------------
+- 有效条目 **0** 条，来自栏目：。另有抓取/解析异常 **5** 处（见文末）。
+- 阅读建议：先扫主题地图把握「今天在吵什么」，再下钻感兴趣的主题段落；需要核对事实或细节时，用「分源原文索引」直达媒体原始页面。
+
+| 主题 | 相关条数（可跨主题重复计数） | 主要来源 |
+| --- | ---: | --- |
+
+## 二、按主题深读（摘录 + 链接）
+----------------------------------------
+
+## 三、分源原文索引（时间线）
+----------------------------------------
+
+### 量子位
+----------------------------
+- [抓取失败] https://www.qbitai.com/feed — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+
+### 雷锋网
+----------------------------
+- [抓取失败] https://www.leiphone.com/feed — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+
+### 36氪
+----------------------------
+- [抓取失败] https://36kr.com/feed — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+
+### IT之家
+----------------------------
+- [抓取失败] https://www.ithome.com/rss/ — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+
+### Solidot
+----------------------------
+- [抓取失败] https://www.solidot.org/index.rss — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+
+## 附：抓取异常
+----------------------------------------
+- [量子位] [抓取失败] https://www.qbitai.com/feed — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+- [雷锋网] [抓取失败] https://www.leiphone.com/feed — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+- [36氪] [抓取失败] https://36kr.com/feed — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+- [IT之家] [抓取失败] https://www.ithome.com/rss/ — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+- [Solidot] [抓取失败] https://www.solidot.org/index.rss — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+
+============================================================
+本文件由本地脚本自动生成，可配合 launchd 每日运行。

@@ -1,0 +1,84 @@
+中文 AI 资讯简报 · 2026-06-13 15:23（北京时间）
+============================================================
+说明：数据来自各站 RSS；在标题与链接外，尽量附带摘要字段的纯文本摘录，并按主题自动归类。归类规则为关键词启发式，可能与人工编辑分类不同，请以原文为准。
+
+## 一、本期概览与主题地图
+----------------------------------------
+- 有效条目 **6** 条，来自栏目：量子位。另有抓取/解析异常 **4** 处（见文末）。
+- 阅读建议：先扫主题地图把握「今天在吵什么」，再下钻感兴趣的主题段落；需要核对事实或细节时，用「分源原文索引」直达媒体原始页面。
+
+| 主题 | 相关条数（可跨主题重复计数） | 主要来源 |
+| --- | ---: | --- |
+| 大模型 / 应用 / 智能体 | 4 | 量子位 |
+| 产业 / 投融资 / 活动 | 1 | 量子位 |
+| 具身 / 机器人 / 智驾 | 1 | 量子位 |
+| 云 / 大厂 / 生态 | 1 | 量子位 |
+
+## 二、按主题深读（摘录 + 链接）
+----------------------------------------
+
+### 大模型 / 应用 / 智能体
+- **【量子位】** Anthropic老大的唯一 -1，就是AI股神的未婚妻
+  https://www.qbitai.com/2026/06/433717.html
+- **【量子位】** “智能体最后的考试”，Fable 5竟然不敌GPT 5.5
+  https://www.qbitai.com/2026/06/434774.html
+- **【量子位】** Claude Fable 5省钱秘诀来了：调成Low档比Opus更便宜
+  https://www.qbitai.com/2026/06/434571.html
+- **【量子位】** 1290万高考生看过来！阿里出了个志愿填报Agent，免费的
+  https://www.qbitai.com/2026/06/434558.html
+
+### 产业 / 投融资 / 活动
+- **【量子位】** 2026奇点智能产品大会首批嘉宾官宣：在 AI 的“可交付的时代”，看一线专家如何拆解真实落地闭环！
+  https://www.qbitai.com/2026/06/435105.html
+
+### 具身 / 机器人 / 智驾
+- **【量子位】** BEV 杀入具身智能：跨维把机器人数据带上 Scaling 快车道
+  https://www.qbitai.com/2026/06/434761.html
+
+### 云 / 大厂 / 生态
+- **【量子位】** 1290万高考生看过来！阿里出了个志愿填报Agent，免费的
+  https://www.qbitai.com/2026/06/434558.html
+
+## 三、分源原文索引（时间线）
+----------------------------------------
+
+### 量子位
+----------------------------
+- Anthropic老大的唯一 -1，就是AI股神的未婚妻  (Fri, 12 Jun 2026 07:29:59 +0000)
+  https://www.qbitai.com/2026/06/433717.html
+- 2026奇点智能产品大会首批嘉宾官宣：在 AI 的“可交付的时代”，看一线专家如何拆解真实落地闭环！  (Fri, 12 Jun 2026 07:27:14 +0000)
+  https://www.qbitai.com/2026/06/435105.html
+- “智能体最后的考试”，Fable 5竟然不敌GPT 5.5  (Fri, 12 Jun 2026 04:13:23 +0000)
+  https://www.qbitai.com/2026/06/434774.html
+- BEV 杀入具身智能：跨维把机器人数据带上 Scaling 快车道  (Fri, 12 Jun 2026 04:11:02 +0000)
+  https://www.qbitai.com/2026/06/434761.html
+- Claude Fable 5省钱秘诀来了：调成Low档比Opus更便宜  (Thu, 11 Jun 2026 08:23:31 +0000)
+  https://www.qbitai.com/2026/06/434571.html
+- 1290万高考生看过来！阿里出了个志愿填报Agent，免费的  (Thu, 11 Jun 2026 07:25:55 +0000)
+  https://www.qbitai.com/2026/06/434558.html
+
+### 雷锋网
+----------------------------
+- [抓取失败] https://www.leiphone.com/feed — The read operation timed out
+
+### 36氪
+----------------------------
+- [抓取失败] https://36kr.com/feed — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+
+### IT之家
+----------------------------
+- [抓取失败] https://www.ithome.com/rss/ — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+
+### Solidot
+----------------------------
+- [抓取失败] https://www.solidot.org/index.rss — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+
+## 附：抓取异常
+----------------------------------------
+- [雷锋网] [抓取失败] https://www.leiphone.com/feed — The read operation timed out
+- [36氪] [抓取失败] https://36kr.com/feed — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+- [IT之家] [抓取失败] https://www.ithome.com/rss/ — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+- [Solidot] [抓取失败] https://www.solidot.org/index.rss — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+
+============================================================
+本文件由本地脚本自动生成，可配合 launchd 每日运行。

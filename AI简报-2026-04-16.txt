@@ -1,0 +1,118 @@
+中文 AI 资讯简报 · 2026-04-16 18:54（北京时间）
+============================================================
+说明：条目以中文科技媒体 RSS 为主，仅作标题与链接索引，请以原文为准。
+
+
+## 量子位
+----------------------------------------
+- 它石智航Pre-A轮融资4.55亿美金破中国具身智能纪录，高瓴红杉美团联合领投  (Thu, 16 Apr 2026 07:38:42 +0000)
+  https://www.qbitai.com/2026/04/401714.html
+- 腾讯官宣升级AI小程序成长计划，所有小程序都能申请  (Thu, 16 Apr 2026 06:57:53 +0000)
+  https://www.qbitai.com/2026/04/401710.html
+- 智象未来完成新一轮融资，全力打造下一代原生全模态世界模型  (Thu, 16 Apr 2026 06:40:06 +0000)
+  https://www.qbitai.com/2026/04/401705.html
+- 扔掉你的Token账单吧，荣耀YOYO Claw技术把养虾成本打下来了  (Thu, 16 Apr 2026 04:53:31 +0000)
+  https://www.qbitai.com/2026/04/401682.html
+- Claude实名认证引众怒！强制验证是为了更精准封号  (Thu, 16 Apr 2026 04:28:09 +0000)
+  https://www.qbitai.com/2026/04/401655.html
+- 短短3个月，高德已拿下具身智能领域15项世界第一  (Thu, 16 Apr 2026 03:45:58 +0000)
+  https://www.qbitai.com/2026/04/401649.html
+- 我用1分钟开发了个上线应用，有阿里Meoo谁还学编程啊  (Thu, 16 Apr 2026 03:16:51 +0000)
+  https://www.qbitai.com/2026/04/401553.html
+- 继HappyHorse后，阿里又有一款模型登顶权威评测榜单  (Thu, 16 Apr 2026 03:03:39 +0000)
+  https://www.qbitai.com/2026/04/401554.html
+- 具身智能为什么还没真正落地？问题卡在这｜沙龙报名  (Thu, 16 Apr 2026 02:41:44 +0000)
+  https://www.qbitai.com/2026/04/401541.html
+
+## 雷锋网
+----------------------------------------
+- 别克×火山引擎：至境E7行业首发搭载豆包大模型最新版  (Mon, 13 Apr 2026 16:24:00 +0800)
+  https://www.leiphone.com/category/industrynews/c8rGA0s3Z9EolPet.html
+- 强强联手，追觅牵手阿里速卖通，将在海外加大投入  (Mon, 13 Apr 2026 15:08:00 +0800)
+  https://www.leiphone.com/category/industrynews/hEpG4zt1yAPvy6tJ.html
+- 推理卡毛利率下滑超7%，天数智芯「降价换量」的买卖值不值？  (Mon, 13 Apr 2026 12:56:00 +0800)
+  https://www.leiphone.com/category/chips/bwKuuKUGYn8a3IbY.html
+- 明日新程完成连续两轮融资，领跑Harness群体多智能体赛道  (Mon, 13 Apr 2026 12:12:00 +0800)
+  https://www.leiphone.com/category/industrynews/aiDP2A7dwvwQL6Ue.html
+- 腾讯发布并开源混元世界模型 2.0，一句话造出3D世界，兼容游戏引擎！  (Thu, 16 Apr 2026 15:25:00 +0800)
+  https://www.leiphone.com/category/industrynews/OC4vHTtPgnG8nNzl.html
+- 阿里发布世界模型HappyOyster，与谷歌Genie3竞争  (Thu, 16 Apr 2026 15:18:00 +0800)
+  https://www.leiphone.com/category/industrynews/lgwQMCTn55AMCLBX.html
+- 智象未来完成新一轮融资，全力打造下一代原生全模态世界模型  (Thu, 16 Apr 2026 14:01:00 +0800)
+  https://www.leiphone.com/category/ai/HPQegPF11KQhQ2jq.html
+- 它石智航Pre-A轮融资4.55亿美金破中国具身智能纪录，高瓴红杉美团联合领投  (Thu, 16 Apr 2026 11:00:00 +0800)
+  https://www.leiphone.com/category/industrynews/0rE9sWGSXjUMbNay.html
+- 阿里ATH发布AI开发工具Meoo，已打通阿里云核心产品  (Wed, 15 Apr 2026 15:03:00 +0800)
+  https://www.leiphone.com/category/industrynews/IxgflozPQulEV4xG.html
+- 阿里云连续5年稳居游戏云市场份额第一！  (Wed, 15 Apr 2026 13:55:00 +0800)
+  https://www.leiphone.com/category/industrynews/KNYld92kIlzwpITf.html
+
+## 36氪
+----------------------------------------
+- 新加坡的AI征途：孕育下一个“硅谷”  (2026-04-16 14:59:53  +0800)
+  https://36kr.com/p/3768997634130434?f=rss
+- 要做电商Agent OS，前钉钉最年轻副总裁创立的「攀峰智能」再次完成数千万天使轮融资  (2026-04-16 10:00:26  +0800)
+  https://36kr.com/p/3768320373441281?f=rss
+- 氪星晚报｜Snap宣布将裁员约1000人；字节启动新一轮期权回购；苹果CEO库克斥资106万美元增持耐克  (2026-04-15 21:53:11  +0800)
+  https://36kr.com/p/3767970803221251?f=rss
+- 粗门完成数千万A+轮融资，在AI时代让更多人“出门”｜36氪首发  (2026-04-15 10:39:44  +0800)
+  https://36kr.com/p/3766710136570368?f=rss
+- 8点1氪丨许家印一审当庭认罪悔罪；交管部门回应新能源车牌绿色变白色；生成内容涉黄，哩布哩布AI回应  (2026-04-15 08:05:51  +0800)
+  https://36kr.com/p/3767326268392199?f=rss
+- 3天2板晶科科技：拟投约245亿元建设宁夏中卫1GW算力中心项目  (2026-04-16 18:21:47  +0800)
+  https://36kr.com/newsflashes/3769350673662466?f=rss
+- 佑驾创新与荣耀达成合作  (2026-04-16 18:21:12  +0800)
+  https://36kr.com/newsflashes/3769350098912000?f=rss
+- 特斯拉拟在上海生产人形机器人  (2026-04-16 18:11:59  +0800)
+  https://36kr.com/newsflashes/3769341040181765?f=rss
+- 台积电CEO：全力扩产仍难以满足强劲AI需求  (2026-04-16 17:41:16  +0800)
+  https://36kr.com/newsflashes/3769310852301573?f=rss
+- 澜舟科技发布可信AI技术体系  (2026-04-16 17:34:04  +0800)
+  https://36kr.com/newsflashes/3769303773233668?f=rss
+
+## IT之家
+----------------------------------------
+- 科大讯飞推出 AI 英语宝 EBOX Pro 青春版学习机，699 元  (Thu, 16 Apr 2026 10:48:04 GMT)
+  https://www.ithome.com/0/940/029.htm
+- IPv6 历史性时刻：全球半数互联网用户已通过其连接谷歌服务  (Thu, 16 Apr 2026 10:36:06 GMT)
+  https://www.ithome.com/0/940/027.htm
+- 荣耀 MagicBook 14 / 16 2026 款笔记本酷睿 Ultra X7 358H 版本开售 10 分钟电商全平台售罄  (Thu, 16 Apr 2026 10:21:16 GMT)
+  https://www.ithome.com/0/940/024.htm
+- 欧盟委员会：谷歌应允许第三方搜索引擎获取搜索数据  (Thu, 16 Apr 2026 10:04:46 GMT)
+  https://www.ithome.com/0/940/019.htm
+- 荣耀 MagicPad 3 Pro 12.3 英寸平板月影白 / 星空灰配色亮相：全金属一体化设计，4 月 23 日发布  (Thu, 16 Apr 2026 09:44:19 GMT)
+  https://www.ithome.com/0/940/013.htm
+- 【视频】轻薄本也能兼顾续航和性能，更有 AI 新视界，荣耀MagicBook系列 2026 评测  (Thu, 16 Apr 2026 09:15:13 GMT)
+  https://www.ithome.com/0/939/998.htm
+- 华为云发布自研龙虾办公智能体 OfficeClaw：快速生成专业 PPT、智能整理本地文件，支持微信一键扫码直连  (Thu, 16 Apr 2026 09:11:32 GMT)
+  https://www.ithome.com/0/939/978.htm
+- 中国银联与蚂蚁集团共研新支付终端，首次全面融合“支付宝碰一下”、银联手机 Pay、扫码、刷卡等  (Thu, 16 Apr 2026 08:53:01 GMT)
+  https://www.ithome.com/0/939/973.htm
+- “让 AI 帮忙买保险，结果付款给了陌生人”引热议，涉事平台回应称“系模型幻觉”已修复相应问题  (Thu, 16 Apr 2026 08:48:39 GMT)
+  https://www.ithome.com/0/939/972.htm
+- 比授予价提高 30.8%，消息称字节跳动启动“豆包股”首次回购  (Thu, 16 Apr 2026 08:40:15 GMT)
+  https://www.ithome.com/0/939/965.htm
+- 中端线开卷：消息称华为在评估万级大电池新手机，小米万级也在路上  (Thu, 16 Apr 2026 08:28:19 GMT)
+  https://www.ithome.com/0/939/963.htm
+- 台积电董事长魏哲家回应特斯拉自建芯片工厂：我们对自己的技术地位非常有信心  (Thu, 16 Apr 2026 08:11:43 GMT)
+  https://www.ithome.com/0/939/946.htm
+
+## Solidot
+----------------------------------------
+- 波士顿动力的机器狗集成了 Google 的 Gemini 模型  (Thu, 16 Apr 2026 15:34:04 +0800)
+  https://www.solidot.org/story?sid=84060
+- Cal.com 因 AI 从开源转为闭源  (Thu, 16 Apr 2026 14:21:22 +0800)
+  https://www.solidot.org/story?sid=84059
+- 免费领取价值30/90美金的NVIDIA DLI自学课程并测试获得证书  (Thu, 16 Apr 2026 12:02:11 +0800)
+  https://www.solidot.org/story?sid=84058
+- 斯坦福报告凸显了 AI 业内人士和公众之间的分歧  (Wed, 15 Apr 2026 22:23:49 +0800)
+  https://www.solidot.org/story?sid=84055
+- 微软 Surface 系列产品大幅涨价  (Wed, 15 Apr 2026 15:07:22 +0800)
+  https://www.solidot.org/story?sid=84049
+- Google 违反承诺未提前通知就将用户数据交给 ICE  (Wed, 15 Apr 2026 14:15:46 +0800)
+  https://www.solidot.org/story?sid=84047
+- Google 将惩罚“后退按钮劫持”行为  (Wed, 15 Apr 2026 00:56:20 +0800)
+  https://www.solidot.org/story?sid=84046
+
+============================================================
+本文件由本地脚本自动生成，可配合 launchd 每日运行。

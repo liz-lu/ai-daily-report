@@ -1,0 +1,105 @@
+中文 AI 资讯简报 · 2026-06-06 13:40（北京时间）
+============================================================
+说明：数据来自各站 RSS；在标题与链接外，尽量附带摘要字段的纯文本摘录，并按主题自动归类。归类规则为关键词启发式，可能与人工编辑分类不同，请以原文为准。
+
+## 一、本期概览与主题地图
+----------------------------------------
+- 有效条目 **8** 条，来自栏目：量子位。另有抓取/解析异常 **4** 处（见文末）。
+- 阅读建议：先扫主题地图把握「今天在吵什么」，再下钻感兴趣的主题段落；需要核对事实或细节时，用「分源原文索引」直达媒体原始页面。
+
+| 主题 | 相关条数（可跨主题重复计数） | 主要来源 |
+| --- | ---: | --- |
+| 云 / 大厂 / 生态 | 3 | 量子位 |
+| 大模型 / 应用 / 智能体 | 2 | 量子位 |
+| 产业 / 投融资 / 活动 | 2 | 量子位 |
+| 其他 AI 科技动态 | 2 | 量子位 |
+| 芯片 / 算力 / 推理 | 1 | 量子位 |
+| 具身 / 机器人 / 智驾 | 1 | 量子位 |
+
+## 二、按主题深读（摘录 + 链接）
+----------------------------------------
+
+### 云 / 大厂 / 生态
+- **【量子位】** 华为云发布Agentic AI系列新品 打造智能时代“硅基黑土地”
+  https://www.qbitai.com/2026/06/431027.html
+- **【量子位】** 国星宇航与腾讯云签署“星算”计划战略合作协议，携手领航AI云服务新生态
+  https://www.qbitai.com/2026/06/430757.html
+- **【量子位】** 从超级个体到超级团队，腾讯云发布WorkBuddy企业版
+  https://www.qbitai.com/2026/06/430758.html
+
+### 大模型 / 应用 / 智能体
+- **【量子位】** 智源&清华合作成果登上Science：脑科学多模态基础模型Brainμ支撑揭示“记忆-睡眠”调控的神经机制
+  摘录：研究表明，睡眠中的记忆重激活参与调控睡眠动态，为理解“记忆-睡眠”双向作用机制提供了新的实验证据。
+  https://www.qbitai.com/2026/06/431033.html
+- **【量子位】** 华为云发布Agentic AI系列新品 打造智能时代“硅基黑土地”
+  https://www.qbitai.com/2026/06/431027.html
+
+### 产业 / 投融资 / 活动
+- **【量子位】** 智源&清华合作成果登上Science：脑科学多模态基础模型Brainμ支撑揭示“记忆-睡眠”调控的神经机制
+  摘录：研究表明，睡眠中的记忆重激活参与调控睡眠动态，为理解“记忆-睡眠”双向作用机制提供了新的实验证据。
+  https://www.qbitai.com/2026/06/431033.html
+- **【量子位】** 国星宇航与腾讯云签署“星算”计划战略合作协议，携手领航AI云服务新生态
+  https://www.qbitai.com/2026/06/430757.html
+
+### 其他 AI 科技动态
+- **【量子位】** WPS笔记正式发布：AI贯穿记录、整理与复用全过程
+  https://www.qbitai.com/2026/06/431014.html
+- **【量子位】** B站宣布启动AI创造公开赛 打造中国版Build in Public
+  https://www.qbitai.com/2026/06/430752.html
+
+### 芯片 / 算力 / 推理
+- **【量子位】** 有人靠CPU把AI算力密度卷到了新高度
+  https://www.qbitai.com/2026/06/431045.html
+
+### 具身 / 机器人 / 智驾
+- **【量子位】** 全球首个机器人训练楼盘开盘：30万套中国住宅，机器人拎包入住
+  https://www.qbitai.com/2026/06/429349.html
+
+## 三、分源原文索引（时间线）
+----------------------------------------
+
+### 量子位
+----------------------------
+- 有人靠CPU把AI算力密度卷到了新高度  (Fri, 05 Jun 2026 13:16:53 +0000)
+  https://www.qbitai.com/2026/06/431045.html
+- 智源&清华合作成果登上Science：脑科学多模态基础模型Brainμ支撑揭示“记忆-睡眠”调控的神经机制  (Fri, 05 Jun 2026 10:53:01 +0000)
+  摘录：研究表明，睡眠中的记忆重激活参与调控睡眠动态，为理解“记忆-睡眠”双向作用机制提供了新的实验证据。
+  https://www.qbitai.com/2026/06/431033.html
+- 华为云发布Agentic AI系列新品 打造智能时代“硅基黑土地”  (Fri, 05 Jun 2026 10:46:59 +0000)
+  https://www.qbitai.com/2026/06/431027.html
+- 国星宇航与腾讯云签署“星算”计划战略合作协议，携手领航AI云服务新生态  (Fri, 05 Jun 2026 09:40:44 +0000)
+  https://www.qbitai.com/2026/06/430757.html
+- WPS笔记正式发布：AI贯穿记录、整理与复用全过程  (Fri, 05 Jun 2026 09:16:04 +0000)
+  https://www.qbitai.com/2026/06/431014.html
+- 从超级个体到超级团队，腾讯云发布WorkBuddy企业版  (Fri, 05 Jun 2026 08:55:29 +0000)
+  https://www.qbitai.com/2026/06/430758.html
+- B站宣布启动AI创造公开赛 打造中国版Build in Public  (Fri, 05 Jun 2026 07:38:08 +0000)
+  https://www.qbitai.com/2026/06/430752.html
+- 全球首个机器人训练楼盘开盘：30万套中国住宅，机器人拎包入住  (Fri, 05 Jun 2026 06:33:37 +0000)
+  https://www.qbitai.com/2026/06/429349.html
+
+### 雷锋网
+----------------------------
+- [抓取失败] https://www.leiphone.com/feed — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+
+### 36氪
+----------------------------
+- [抓取失败] https://36kr.com/feed — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+
+### IT之家
+----------------------------
+- [抓取失败] https://www.ithome.com/rss/ — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+
+### Solidot
+----------------------------
+- [抓取失败] https://www.solidot.org/index.rss — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+
+## 附：抓取异常
+----------------------------------------
+- [雷锋网] [抓取失败] https://www.leiphone.com/feed — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+- [36氪] [抓取失败] https://36kr.com/feed — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+- [IT之家] [抓取失败] https://www.ithome.com/rss/ — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+- [Solidot] [抓取失败] https://www.solidot.org/index.rss — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+
+============================================================
+本文件由本地脚本自动生成，可配合 launchd 每日运行。

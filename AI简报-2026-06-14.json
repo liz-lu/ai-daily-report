@@ -1,0 +1,83 @@
+{
+  "date": "2026-06-14",
+  "generated_at": "2026-06-14T10:48:30.735575+08:00",
+  "timezone": "Asia/Shanghai",
+  "stats": {
+    "story_count": 0,
+    "error_count": 5,
+    "source_count": 0,
+    "theme_count": 0
+  },
+  "sources": [],
+  "themes": [],
+  "stories": [
+    {
+      "section": "量子位",
+      "title": "[抓取失败] https://www.qbitai.com/feed",
+      "link": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+      "published_at": null,
+      "excerpt": null,
+      "themes": []
+    },
+    {
+      "section": "雷锋网",
+      "title": "[抓取失败] https://www.leiphone.com/feed",
+      "link": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+      "published_at": null,
+      "excerpt": null,
+      "themes": []
+    },
+    {
+      "section": "36氪",
+      "title": "[抓取失败] https://36kr.com/feed",
+      "link": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+      "published_at": null,
+      "excerpt": null,
+      "themes": []
+    },
+    {
+      "section": "IT之家",
+      "title": "[抓取失败] https://www.ithome.com/rss/",
+      "link": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+      "published_at": null,
+      "excerpt": null,
+      "themes": []
+    },
+    {
+      "section": "Solidot",
+      "title": "[抓取失败] https://www.solidot.org/index.rss",
+      "link": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+      "published_at": null,
+      "excerpt": null,
+      "themes": []
+    }
+  ],
+  "errors": [
+    {
+      "section": "量子位",
+      "title": "[抓取失败] https://www.qbitai.com/feed",
+      "detail": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    },
+    {
+      "section": "雷锋网",
+      "title": "[抓取失败] https://www.leiphone.com/feed",
+      "detail": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    },
+    {
+      "section": "36氪",
+      "title": "[抓取失败] https://36kr.com/feed",
+      "detail": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    },
+    {
+      "section": "IT之家",
+      "title": "[抓取失败] https://www.ithome.com/rss/",
+      "detail": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    },
+    {
+      "section": "Solidot",
+      "title": "[抓取失败] https://www.solidot.org/index.rss",
+      "detail": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    }
+  ],
+  "llm_summary": null
+}

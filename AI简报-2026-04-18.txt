@@ -1,0 +1,114 @@
+中文 AI 资讯简报 · 2026-04-18 10:37（北京时间）
+============================================================
+说明：条目以中文科技媒体 RSS 为主，仅作标题与链接索引，请以原文为准。
+
+
+## 量子位
+----------------------------------------
+- 11.58万，全系Lidar+L4同源算法，广汽文远把城区NOA打成白菜价  (Fri, 17 Apr 2026 08:24:28 +0000)
+  https://www.qbitai.com/2026/04/402440.html
+- 4.55亿美金！中国具身智能最大单笔融资诞生，高瓴红杉联手押注具身大脑  (Fri, 17 Apr 2026 07:37:14 +0000)
+  https://www.qbitai.com/2026/04/402388.html
+- 谷歌最强具身大脑发布！波士顿机器狗瞬间人模人样  (Fri, 17 Apr 2026 07:08:17 +0000)
+  https://www.qbitai.com/2026/04/402329.html
+- π0.7发布，VLA押出了机器人的GPT-3时刻  (Fri, 17 Apr 2026 06:57:35 +0000)
+  https://www.qbitai.com/2026/04/402189.html
+- 18家具身顶尖势力集结，RoboChallenge 打造全球最大具身模型竞技场  (Fri, 17 Apr 2026 05:52:13 +0000)
+  https://www.qbitai.com/2026/04/402186.html
+- ImageNet作者苏昊回国任教复旦！李飞飞高徒，具身第一高引，出任通用物理AI院长  (Fri, 17 Apr 2026 02:16:36 +0000)
+  https://www.qbitai.com/2026/04/402088.html
+- PPIO上线PPHermes：云端沙箱一键部署Hermes Agent  (Thu, 16 Apr 2026 13:36:09 +0000)
+  https://www.qbitai.com/2026/04/402085.html
+- 72天，从0到千万小时产能，这个具身「新锐派」凭什么接管数据赛道？  (Thu, 16 Apr 2026 13:04:18 +0000)
+  https://www.qbitai.com/2026/04/401741.html
+
+## 雷锋网
+----------------------------------------
+- 别克×火山引擎：至境E7行业首发搭载豆包大模型最新版  (Mon, 13 Apr 2026 16:24:00 +0800)
+  https://www.leiphone.com/category/industrynews/c8rGA0s3Z9EolPet.html
+- 强强联手，追觅牵手阿里速卖通，将在海外加大投入  (Mon, 13 Apr 2026 15:08:00 +0800)
+  https://www.leiphone.com/category/industrynews/hEpG4zt1yAPvy6tJ.html
+- 推理卡毛利率下滑超7%，天数智芯「降价换量」的买卖值不值？  (Mon, 13 Apr 2026 12:56:00 +0800)
+  https://www.leiphone.com/category/chips/bwKuuKUGYn8a3IbY.html
+- 明日新程完成连续两轮融资，领跑Harness群体多智能体赛道  (Mon, 13 Apr 2026 12:12:00 +0800)
+  https://www.leiphone.com/category/industrynews/aiDP2A7dwvwQL6Ue.html
+- 物理AI时代，为什么需要一颗“舱驾融合”芯片？  (Fri, 17 Apr 2026 18:08:00 +0800)
+  https://www.leiphone.com/category/transportation/RCJOIk9kvsXhxVvd.html
+- 逐际动力开源 FluxVLA Engine：专为具身智能打造的标准化VLA工程底座  (Fri, 17 Apr 2026 15:52:00 +0800)
+  https://www.leiphone.com/category/robot/PJ2nHfNQ6K5Tz5yt.html
+- 全球首款！进迭时空 RISC-V AI CPU K3 成功适配 OpenHarmony 6.1  (Fri, 17 Apr 2026 11:07:00 +0800)
+  https://www.leiphone.com/category/chips/2VeR9uuIHQOur2mT.html
+- 在女性黑客松上，看见AI硬件的另一种可能  (Fri, 17 Apr 2026 10:46:00 +0800)
+  https://www.leiphone.com/category/weiwu/KbZ3IHJtl1tsk3xS.html
+- Plaud 爆火后，YoooClaw 要改写 AI 硬件的剧本  (Fri, 17 Apr 2026 10:08:00 +0800)
+  https://www.leiphone.com/category/weiwu/l5ArU7CftQcIfedA.html
+- 黄仁勋：DeepSeek在华为芯片上发布「很可怕」；抖音集团副总裁辟谣郭达雅亿元年薪入职字节；五角大楼与通用、福特等汽车制造商讨论造军火  (Fri, 17 Apr 2026 09:49:00 +0800)
+  https://www.leiphone.com/category/zaobao/As9S1mnDtaVEtMzK.html
+
+## 36氪
+----------------------------------------
+- 智元机器人，要做AI大模型平台和开放生态  (2026-04-18 10:00:00  +0800)
+  https://36kr.com/p/3770721219035649?f=rss
+- 专访荣耀AI专家李向东：端侧AI方向还没收敛，但AI手机是最好的载体  (2026-04-17 19:17:58  +0800)
+  https://36kr.com/p/3770819743728131?f=rss
+- AI PC下半场，荣耀想让所有人先用上消费级龙虾  (2026-04-17 19:02:56  +0800)
+  https://36kr.com/p/3770787623404293?f=rss
+- 求购长征火箭老股份额；求购多家机器人公司老股份额｜资情留言板第182期  (2026-04-17 17:34:38  +0800)
+  https://36kr.com/p/3770718127964928?f=rss
+- 科氪 | 享刻智能：不追人形机器人，深耕餐饮场景做具身智能落地派  (2026-04-17 16:25:30  +0800)
+  https://36kr.com/p/3770651778761481?f=rss
+- 玩腻了AI的年轻人，爱上桔子酒店的「手搓」生活？  (2026-04-17 15:23:59  +0800)
+  https://36kr.com/p/3770578424676866?f=rss
+- 36氪首发 | “华为天才少年”创业连融超4亿元，做新一代推理芯片重构显存成本  (2026-04-17 11:33:56  +0800)
+  https://36kr.com/p/3770363954954755?f=rss
+- Sora负责人离职  (2026-04-18 09:48:06  +0800)
+  https://36kr.com/newsflashes/3771676858827523?f=rss
+- 仕佳光子：拟12.65亿元投建高速光芯片与器件开发及产业化项目  (2026-04-17 20:40:09  +0800)
+  https://36kr.com/newsflashes/3770902281863945?f=rss
+
+## IT之家
+----------------------------------------
+- 2026 人形机器人半马约四成团队采用自主巡航模式，明日开跑  (Sat, 18 Apr 2026 02:26:57 GMT)
+  https://www.ithome.com/0/940/640.htm
+- 消息称马斯克 xAI 进军 AI 智能编程领域，有望下周发布 Grok Build  (Sat, 18 Apr 2026 02:13:11 GMT)
+  https://www.ithome.com/0/940/638.htm
+- 微软 Surface Pro 商用版第 12 版曝光，内置支持 5G 网络  (Sat, 18 Apr 2026 01:56:33 GMT)
+  https://www.ithome.com/0/940/636.htm
+- 荣耀 600/Pro 手机规格曝光：7000mAh 电池、2 亿主摄  (Sat, 18 Apr 2026 01:28:03 GMT)
+  https://www.ithome.com/0/940/631.htm
+- 消息称 Meta 下月启动首轮大裁员，10% 员工成 AI 发展“牺牲品”  (Sat, 18 Apr 2026 01:06:01 GMT)
+  https://www.ithome.com/0/940/628.htm
+- Cloudflare 公测邮件服务，AI 智能体可原生收发邮件  (Sat, 18 Apr 2026 01:04:40 GMT)
+  https://www.ithome.com/0/940/627.htm
+- 微软重构 Win11 开始菜单爆料：可调尺寸、关闭推荐等区域、高负载时也能秒开  (Sat, 18 Apr 2026 00:39:14 GMT)
+  https://www.ithome.com/0/940/625.htm
+- 微软发布 Win11 RP 26x00.8313 预览版：任务栏可监控 AI 智能体、修复文件管理器“闪光弹”  (Sat, 18 Apr 2026 00:25:58 GMT)
+  https://www.ithome.com/0/940/623.htm
+- 微软发布 Win11 Canary 28020.1863/29570.1000 预览版，优化文件管理器右键菜单  (Sat, 18 Apr 2026 00:09:38 GMT)
+  https://www.ithome.com/0/940/621.htm
+- 微软发布 Win11 Beta 26220.8271/Dev 26300.8276 预览版：优化文件管理器、改善输入  (Fri, 17 Apr 2026 23:57:07 GMT)
+  https://www.ithome.com/0/940/620.htm
+- 苹果 2026 款 Mac Studio 前瞻：封顶 256GB 内存、M5 Max / Ultra 芯片  (Fri, 17 Apr 2026 23:40:09 GMT)
+  https://www.ithome.com/0/940/618.htm
+- “砍刀部”出手，微软视频编辑工具 Clipchamp iOS 版 6 月 10 日停止服务  (Fri, 17 Apr 2026 23:28:55 GMT)
+  https://www.ithome.com/0/940/616.htm
+
+## Solidot
+----------------------------------------
+- 英伟达 CEO 反对进一步限制向中国出口芯片  (Sat, 18 Apr 2026 00:32:56 +0800)
+  https://www.solidot.org/story?sid=84078
+- 美国主流媒体封禁互联网档案馆的存档机器人  (Fri, 17 Apr 2026 14:24:42 +0800)
+  https://www.solidot.org/story?sid=84070
+- 新研究再次证实 AI 有害大脑  (Thu, 16 Apr 2026 23:18:58 +0800)
+  https://www.solidot.org/story?sid=84069
+- Mozilla 宣布开源可自托管 AI 客户端 Thunderbolt  (Thu, 16 Apr 2026 22:52:32 +0800)
+  https://www.solidot.org/story?sid=84068
+- 波士顿动力的机器狗集成了 Google 的 Gemini 模型  (Thu, 16 Apr 2026 15:34:04 +0800)
+  https://www.solidot.org/story?sid=84060
+- Cal.com 因 AI 从开源转为闭源  (Thu, 16 Apr 2026 14:21:22 +0800)
+  https://www.solidot.org/story?sid=84059
+- 免费领取价值30/90美金的NVIDIA DLI自学课程并测试获得证书  (Thu, 16 Apr 2026 12:02:11 +0800)
+  https://www.solidot.org/story?sid=84058
+
+============================================================
+本文件由本地脚本自动生成，可配合 launchd 每日运行。

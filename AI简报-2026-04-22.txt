@@ -1,0 +1,94 @@
+中文 AI 资讯简报 · 2026-04-22 10:30（北京时间）
+============================================================
+说明：条目以中文科技媒体 RSS 为主，仅作标题与链接索引，请以原文为准。
+
+
+## 量子位
+----------------------------------------
+- 前小鹏汽车自动驾驶一号位李力耘出任众擎CTO，加速打造具身大脑  (Tue, 21 Apr 2026 14:21:13 +0000)
+  https://www.qbitai.com/2026/04/404124.html
+- 5月20日，马上AI起来！中国AIGC产业峰会报名已启动｜首波嘉宾官宣  (Tue, 21 Apr 2026 12:02:52 +0000)
+  https://www.qbitai.com/2026/04/404096.html
+- 物理优先+VLA闭环进化：高德ABot-World世界模型，破解具身智能零样本泛化难题  (Tue, 21 Apr 2026 08:45:58 +0000)
+  https://www.qbitai.com/2026/04/404086.html
+- ISC.AI 2026创新独角兽沙盒大赛在京启动 聚焦智能体 共筑AI创新生态  (Tue, 21 Apr 2026 08:31:55 +0000)
+  https://www.qbitai.com/2026/04/404082.html
+- Agent正杀入软件研发一线！全球超60位技术专家拆解AI落地困局，2026奇点智能技术大会收官  (Tue, 21 Apr 2026 04:54:43 +0000)
+  https://www.qbitai.com/2026/04/403859.html
+- 天立启鸣AI研究院院长刘志毅，入选2025福布斯中国科创人物  (Tue, 21 Apr 2026 04:33:09 +0000)
+  https://www.qbitai.com/2026/04/403825.html
+
+## 雷锋网
+----------------------------------------
+- 别克×火山引擎：至境E7行业首发搭载豆包大模型最新版  (Mon, 13 Apr 2026 16:24:00 +0800)
+  https://www.leiphone.com/category/industrynews/c8rGA0s3Z9EolPet.html
+- 强强联手，追觅牵手阿里速卖通，将在海外加大投入  (Mon, 13 Apr 2026 15:08:00 +0800)
+  https://www.leiphone.com/category/industrynews/hEpG4zt1yAPvy6tJ.html
+- 推理卡毛利率下滑超7%，天数智芯「降价换量」的买卖值不值？  (Mon, 13 Apr 2026 12:56:00 +0800)
+  https://www.leiphone.com/category/chips/bwKuuKUGYn8a3IbY.html
+- 明日新程完成连续两轮融资，领跑Harness群体多智能体赛道  (Mon, 13 Apr 2026 12:12:00 +0800)
+  https://www.leiphone.com/category/industrynews/aiDP2A7dwvwQL6Ue.html
+- RoboSense速腾聚创发布芯片战略，SPAD-SoC技术代际领先，年内量产交付  (Tue, 21 Apr 2026 20:24:00 +0800)
+  https://www.leiphone.com/category/industrynews/reb1v7Y22QImJyCv.html
+- 蚂蚁技术研究院副院长吕乐当选美国医学与生物工程院（AIMBE）Fellow  (Tue, 21 Apr 2026 14:37:00 +0800)
+  https://www.leiphone.com/category/ai/p9I1luhTnfcQURAm.html
+- QClaw海外版开启内测，腾讯龙虾特工队正式出海  (Tue, 21 Apr 2026 11:33:00 +0800)
+  https://www.leiphone.com/category/industrynews/DQA1OrWSfeSCYC3b.html
+- 蚂蚁灵光圈上线！一句话生成应用；苹果宣布库克卸任CEO；字节澄清2025年净利润下滑超七成；华为发布Pura系列！余承东：手机可能会涨价  (Tue, 21 Apr 2026 09:13:00 +0800)
+  https://www.leiphone.com/category/zaobao/ABueyE2qlQKkh1HM.html
+- 华为Pura系列及全场景新品发布会举行，重磅新品悉数亮相  (Tue, 21 Apr 2026 00:04:00 +0800)
+  https://www.leiphone.com/category/industrynews/BDz93OXWdnaD5pSi.html
+- 周鸿祎谈AI风险：龙虾类智能体仍存安全隐患，“安全智能体”成关键解法  (Mon, 20 Apr 2026 18:59:00 +0800)
+  https://www.leiphone.com/category/industrynews/E1ZjLpBZvk7zEtC5.html
+
+## 36氪
+----------------------------------------
+- PettiChat获百万美元种子投资，造出宠物穿戴AI翻译器  (2026-04-21 16:19:29  +0800)
+  https://36kr.com/p/3769659305427459?f=rss
+- 奇世智能CheeChips完成天使轮融资，专注AI+母婴智能硬件生态｜最前线  (2026-04-21 12:45:02  +0800)
+  https://36kr.com/p/3774891479712514?f=rss
+- 专访Eight Sleep CTO：被马斯克们买爆的AI床垫，进中国先砍一刀订阅费  (2026-04-21 09:17:02  +0800)
+  https://36kr.com/p/3775892441301511?f=rss
+- 8点1氪丨库克将不再担任苹果CEO；爱奇艺回应AI艺人库争议：入驻仅代表有接洽意愿；日本修正震级为7.7级  (2026-04-21 08:19:48  +0800)
+  https://36kr.com/p/3775833331286530?f=rss
+- 阿里巴巴发布千问AI数字人形象“千问小酒窝”  (2026-04-22 10:16:31  +0800)
+  https://36kr.com/newsflashes/3777367099475977?f=rss
+- LG人工智能研究院与英伟达同意加强AI合作  (2026-04-22 09:30:15  +0800)
+  https://36kr.com/newsflashes/3777321625225219?f=rss
+
+## IT之家
+----------------------------------------
+- 千问推出 AI 助手数字人形象“小酒窝”，将接入阿里各生态应用中  (Wed, 22 Apr 2026 02:19:26 GMT)
+  https://www.ithome.com/0/941/926.htm
+- 涉嫌“参与策划枪击案”，佛罗里达州对 OpenAI 和 ChatGPT 展开刑事调查  (Wed, 22 Apr 2026 02:15:28 GMT)
+  https://www.ithome.com/0/941/922.htm
+- iOS 测试版谷歌 Chrome 浏览器扩展支持快捷指令，Siri 语音可直达 Dino 游戏  (Wed, 22 Apr 2026 02:10:29 GMT)
+  https://www.ithome.com/0/941/919.htm
+- 华为余承东官宣肖战成为鸿蒙智行尚界品牌代言人  (Wed, 22 Apr 2026 02:07:20 GMT)
+  https://www.ithome.com/0/941/917.htm
+- 微软发布 TypeScript 7.0 首个 Beta 版，速度比 6.0 提升 10 倍  (Wed, 22 Apr 2026 02:04:27 GMT)
+  https://www.ithome.com/0/941/915.htm
+- 蚂蚁集团百灵大模型 Ling-2.6-flash 发布，匿名上线一周日均 tokens 调用达 100B 级  (Wed, 22 Apr 2026 02:00:57 GMT)
+  https://www.ithome.com/0/941/911.htm
+- 用真方向盘和踏板玩赛车，小鹏 GX 联合腾讯云游戏首发线控赛车游戏  (Wed, 22 Apr 2026 01:53:04 GMT)
+  https://www.ithome.com/0/941/908.htm
+- 新任 CEO 夏尔马上任仅数月，消息称微软 Xbox 部门将裁员 15%  (Wed, 22 Apr 2026 01:48:18 GMT)
+  https://www.ithome.com/0/941/905.htm
+- 微软公布 2026 年 OneDrive 规划：整合 AI、增强语义搜索  (Wed, 22 Apr 2026 01:37:03 GMT)
+  https://www.ithome.com/0/941/901.htm
+- IPO 前先泼冷水：SpaceX 警告投资者 AI 数据中心商业上或“不可行”  (Wed, 22 Apr 2026 01:31:08 GMT)
+  https://www.ithome.com/0/941/899.htm
+- 微软 Xbox 副总裁回应：Project Helix 为第一方主机，否认退出硬件市场传闻  (Wed, 22 Apr 2026 01:24:46 GMT)
+  https://www.ithome.com/0/941/895.htm
+- 微软修复 Win10/Win11 文件历史记录反复提示断连问题  (Wed, 22 Apr 2026 00:56:22 GMT)
+  https://www.ithome.com/0/941/883.htm
+
+## Solidot
+----------------------------------------
+- 荣耀人形机器人如何成为半马冠军  (Tue, 21 Apr 2026 16:08:42 +0800)
+  https://www.solidot.org/story?sid=84104
+- Deezer 称 44% 的新上传音乐是 AI 生成的  (Tue, 21 Apr 2026 15:23:18 +0800)
+  https://www.solidot.org/story?sid=84103
+
+============================================================
+本文件由本地脚本自动生成，可配合 launchd 每日运行。

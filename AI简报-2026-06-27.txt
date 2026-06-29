@@ -1,0 +1,95 @@
+中文 AI 资讯简报 · 2026-06-27 12:12（北京时间）
+============================================================
+说明：数据来自各站 RSS；在标题与链接外，尽量附带摘要字段的纯文本摘录，并按主题自动归类。归类规则为关键词启发式，可能与人工编辑分类不同，请以原文为准。
+
+## 一、本期概览与主题地图
+----------------------------------------
+- 有效条目 **7** 条，来自栏目：量子位。另有抓取/解析异常 **4** 处（见文末）。
+- 阅读建议：先扫主题地图把握「今天在吵什么」，再下钻感兴趣的主题段落；需要核对事实或细节时，用「分源原文索引」直达媒体原始页面。
+
+| 主题 | 相关条数（可跨主题重复计数） | 主要来源 |
+| --- | ---: | --- |
+| 大模型 / 应用 / 智能体 | 2 | 量子位 |
+| 产业 / 投融资 / 活动 | 2 | 量子位 |
+| 芯片 / 算力 / 推理 | 2 | 量子位 |
+| 具身 / 机器人 / 智驾 | 2 | 量子位 |
+| 云 / 大厂 / 生态 | 1 | 量子位 |
+
+## 二、按主题深读（摘录 + 链接）
+----------------------------------------
+
+### 大模型 / 应用 / 智能体
+- **【量子位】** GPT-5.6突然发布！Fable5痛失最强基模王座
+  https://www.qbitai.com/2026/06/438895.html
+- **【量子位】** Claude Fable 5分批重新上线！GPT-5.6秒跟
+  https://www.qbitai.com/2026/06/438789.html
+
+### 产业 / 投融资 / 活动
+- **【量子位】** 两个月连获两轮数亿元融资 深度机智以全栈自主路线加速国产物理AI基座模型落地
+  https://www.qbitai.com/2026/06/438887.html
+- **【量子位】** 华勤技术与正行创新达成战略合作，加速机器人“走进工厂、走上产线”
+  https://www.qbitai.com/2026/06/438741.html
+
+### 芯片 / 算力 / 推理
+- **【量子位】** 谷歌「推理之王」也跑路Meta了，当年还是李飞飞挖来的
+  https://www.qbitai.com/2026/06/438848.html
+- **【量子位】** 英伟达MoE新开源：一行import，微调加速3.7倍
+  摘录：在Transformers v5的基础上，增加了专家并行、DeepEP和TransformerEngine
+  https://www.qbitai.com/2026/06/438703.html
+
+### 具身 / 机器人 / 智驾
+- **【量子位】** 华勤技术与正行创新达成战略合作，加速机器人“走进工厂、走上产线”
+  https://www.qbitai.com/2026/06/438741.html
+- **【量子位】** 让机器人学会“预判接触”：它石智航牵头四大顶尖机构发布TacForeSight，破解精细操作难题
+  https://www.qbitai.com/2026/06/438701.html
+
+### 云 / 大厂 / 生态
+- **【量子位】** 谷歌「推理之王」也跑路Meta了，当年还是李飞飞挖来的
+  https://www.qbitai.com/2026/06/438848.html
+
+## 三、分源原文索引（时间线）
+----------------------------------------
+
+### 量子位
+----------------------------
+- GPT-5.6突然发布！Fable5痛失最强基模王座  (Sat, 27 Jun 2026 01:53:27 +0000)
+  https://www.qbitai.com/2026/06/438895.html
+- 两个月连获两轮数亿元融资 深度机智以全栈自主路线加速国产物理AI基座模型落地  (Fri, 26 Jun 2026 15:45:43 +0000)
+  https://www.qbitai.com/2026/06/438887.html
+- 谷歌「推理之王」也跑路Meta了，当年还是李飞飞挖来的  (Fri, 26 Jun 2026 08:05:07 +0000)
+  https://www.qbitai.com/2026/06/438848.html
+- Claude Fable 5分批重新上线！GPT-5.6秒跟  (Fri, 26 Jun 2026 06:55:20 +0000)
+  https://www.qbitai.com/2026/06/438789.html
+- 华勤技术与正行创新达成战略合作，加速机器人“走进工厂、走上产线”  (Fri, 26 Jun 2026 04:00:59 +0000)
+  https://www.qbitai.com/2026/06/438741.html
+- 让机器人学会“预判接触”：它石智航牵头四大顶尖机构发布TacForeSight，破解精细操作难题  (Fri, 26 Jun 2026 03:47:08 +0000)
+  https://www.qbitai.com/2026/06/438701.html
+- 英伟达MoE新开源：一行import，微调加速3.7倍  (Fri, 26 Jun 2026 03:23:35 +0000)
+  摘录：在Transformers v5的基础上，增加了专家并行、DeepEP和TransformerEngine
+  https://www.qbitai.com/2026/06/438703.html
+
+### 雷锋网
+----------------------------
+- [抓取失败] https://www.leiphone.com/feed — <urlopen error _ssl.c:1063: The handshake operation timed out>
+
+### 36氪
+----------------------------
+- [抓取失败] https://36kr.com/feed — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+
+### IT之家
+----------------------------
+- [抓取失败] https://www.ithome.com/rss/ — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+
+### Solidot
+----------------------------
+- [抓取失败] https://www.solidot.org/index.rss — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+
+## 附：抓取异常
+----------------------------------------
+- [雷锋网] [抓取失败] https://www.leiphone.com/feed — <urlopen error _ssl.c:1063: The handshake operation timed out>
+- [36氪] [抓取失败] https://36kr.com/feed — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+- [IT之家] [抓取失败] https://www.ithome.com/rss/ — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+- [Solidot] [抓取失败] https://www.solidot.org/index.rss — <urlopen error [Errno 8] nodename nor servname provided, or not known>
+
+============================================================
+本文件由本地脚本自动生成，可配合 launchd 每日运行。

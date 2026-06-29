@@ -1,0 +1,98 @@
+中文 AI 资讯简报 · 2026-04-21 10:30（北京时间）
+============================================================
+说明：条目以中文科技媒体 RSS 为主，仅作标题与链接索引，请以原文为准。
+
+
+## 量子位
+----------------------------------------
+- 跨维智能DexWorldModel斩获榜首，世界模型真正的考场在机器人执行里  (Tue, 21 Apr 2026 00:06:39 +0000)
+  https://www.qbitai.com/2026/04/403777.html
+- 谁能通过真实世界考验？ATEC2026发起具身智能“图灵测试”  (Mon, 20 Apr 2026 09:33:35 +0000)
+  https://www.qbitai.com/2026/04/403753.html
+- 阿里发布Wan2.7-Image，人类偏好盲测评分国内第一  (Mon, 20 Apr 2026 08:59:05 +0000)
+  https://www.qbitai.com/2026/04/403733.html
+- 国内三大头部AI 工具平台上架支付宝支付集成Skill，助“好想法”轻松“收到钱”  (Mon, 20 Apr 2026 08:40:22 +0000)
+  https://www.qbitai.com/2026/04/403729.html
+- 全球最大规模含触觉数据集，凭什么吸引谷歌和众多高校的加入？  (Mon, 20 Apr 2026 07:55:03 +0000)
+  https://www.qbitai.com/2026/04/403701.html
+- 20亿美金苏度科技具身首秀即大招！0真机数据，zero-shot，跑出98%首次抓取成功率  (Mon, 20 Apr 2026 05:34:32 +0000)
+  https://www.qbitai.com/2026/04/403543.html
+
+## 雷锋网
+----------------------------------------
+- 别克×火山引擎：至境E7行业首发搭载豆包大模型最新版  (Mon, 13 Apr 2026 16:24:00 +0800)
+  https://www.leiphone.com/category/industrynews/c8rGA0s3Z9EolPet.html
+- 强强联手，追觅牵手阿里速卖通，将在海外加大投入  (Mon, 13 Apr 2026 15:08:00 +0800)
+  https://www.leiphone.com/category/industrynews/hEpG4zt1yAPvy6tJ.html
+- 推理卡毛利率下滑超7%，天数智芯「降价换量」的买卖值不值？  (Mon, 13 Apr 2026 12:56:00 +0800)
+  https://www.leiphone.com/category/chips/bwKuuKUGYn8a3IbY.html
+- 明日新程完成连续两轮融资，领跑Harness群体多智能体赛道  (Mon, 13 Apr 2026 12:12:00 +0800)
+  https://www.leiphone.com/category/industrynews/aiDP2A7dwvwQL6Ue.html
+- 华为Pura系列及全场景新品发布会举行，重磅新品悉数亮相  (Tue, 21 Apr 2026 00:04:00 +0800)
+  https://www.leiphone.com/category/industrynews/BDz93OXWdnaD5pSi.html
+- 周鸿祎谈AI风险：龙虾类智能体仍存安全隐患，“安全智能体”成关键解法  (Mon, 20 Apr 2026 18:59:00 +0800)
+  https://www.leiphone.com/category/industrynews/E1ZjLpBZvk7zEtC5.html
+- 从“供电”到“供算力”：光伏电站如何为数字中国注入“绿色动能”？  (Mon, 20 Apr 2026 18:57:00 +0800)
+  https://www.leiphone.com/category/industrynews/g5SW1XuQzIU1gUei.html
+- 一部设备多重体验：华为WATCH Buds 2二合一耳机表精准匹配四类人群  (Mon, 20 Apr 2026 18:39:00 +0800)
+  https://www.leiphone.com/category/industrynews/A6PiKHDGQmhzRVFb.html
+- 华为WATCH FIT 5系列发布：最值得推荐的高质价比智能手表  (Mon, 20 Apr 2026 18:28:00 +0800)
+  https://www.leiphone.com/category/industrynews/ki3yCpW0LftAY1AO.html
+- 珠宝腕表与智能手表不再二选一：华为首款珠宝智能腕表，重构高端穿戴价值  (Mon, 20 Apr 2026 17:52:00 +0800)
+  https://www.leiphone.com/category/industrynews/4yuDSpmXXwMPn7TY.html
+
+## 36氪
+----------------------------------------
+- 专访Eight Sleep CTO：被马斯克们买爆的AI床垫，进中国先砍一刀订阅费  (2026-04-21 09:17:02  +0800)
+  https://36kr.com/p/3775892441301511?f=rss
+- 8点1氪丨库克将不再担任苹果CEO；爱奇艺回应AI艺人库争议：入驻仅代表有接洽意愿；日本修正震级为7.7级  (2026-04-21 08:19:48  +0800)
+  https://36kr.com/p/3775833331286530?f=rss
+- 氪星晚报 ｜华为发布首款鸿蒙AI眼镜；天齐锂业：一季度净利润同比预增1530.31%—1818.01%  (2026-04-20 22:14:13  +0800)
+  https://36kr.com/p/3775059219792648?f=rss
+- 一季度工业机器人产量同比增长33.2%  (2026-04-21 10:09:48  +0800)
+  https://36kr.com/newsflashes/3775944919663105?f=rss
+- 贝佐斯旗下人工智能实验室融资交易接近敲定，估值逼近380亿美元  (2026-04-21 09:45:14  +0800)
+  https://36kr.com/newsflashes/3775911052378633?f=rss
+- 谷歌：Chrome浏览器的Gemini功能将扩展至更多亚太地区国家  (2026-04-21 09:32:48  +0800)
+  https://36kr.com/newsflashes/3775899763311107?f=rss
+
+## IT之家
+----------------------------------------
+- 消息称微软打破传统，Xbox Project Helix 游戏主机放弃 GPU 定制  (Tue, 21 Apr 2026 02:20:05 GMT)
+  https://www.ithome.com/0/941/450.htm
+- 索尼 PS5 玩家突然收到年龄验证通知，不验证将无法使用语音及文字聊天  (Tue, 21 Apr 2026 02:14:12 GMT)
+  https://www.ithome.com/0/941/449.htm
+- 理想汽车将与高德在座舱 Agent 进行深入合作  (Tue, 21 Apr 2026 02:13:33 GMT)
+  https://www.ithome.com/0/941/448.htm
+- 现代汽车集团将基于 DEEPX DX-M2 芯片打造未来机器人物理 AI 计算平台  (Tue, 21 Apr 2026 02:10:28 GMT)
+  https://www.ithome.com/0/941/447.htm
+- QClaw 正式开启海外版内测，OpenClaw 小龙虾之父发文感谢腾讯  (Tue, 21 Apr 2026 02:10:21 GMT)
+  https://www.ithome.com/0/941/446.htm
+- 华为门店限时免费领取 Pura 90 系列同款配色“假日特调”  (Tue, 21 Apr 2026 02:06:19 GMT)
+  https://www.ithome.com/0/941/444.htm
+- 英伟达增强 ReSTIR 算法，游戏路径追踪性能有望提升 2~3 倍  (Tue, 21 Apr 2026 02:03:23 GMT)
+  https://www.ithome.com/0/941/442.htm
+- 人工智能渗透 3A 游戏开发：育碧招聘要求精通生成式 AI  (Tue, 21 Apr 2026 01:56:11 GMT)
+  https://www.ithome.com/0/941/439.htm
+- GitHub Copilot 调整个人订阅方案：暂停新用户付费选项，Pro 不再提供 Opus 模型  (Tue, 21 Apr 2026 01:49:45 GMT)
+  https://www.ithome.com/0/941/436.htm
+- 华为余承东宣布鸿蒙智行尚界品牌首位空降代言人，预计为肖战  (Tue, 21 Apr 2026 01:43:37 GMT)
+  https://www.ithome.com/0/941/435.htm
+- AMD AI 加速器 MI500 前瞻：CPO 封装、CDNA 6 架构、内存带宽将超 19.6 TB/s  (Tue, 21 Apr 2026 01:30:55 GMT)
+  https://www.ithome.com/0/941/428.htm
+- 特斯拉一 Optimus 机器人手部专利被弃用，马斯克坦言设计行不通  (Tue, 21 Apr 2026 01:21:55 GMT)
+  https://www.ithome.com/0/941/426.htm
+
+## Solidot
+----------------------------------------
+- 蚂蚁也有清洁工  (Mon, 20 Apr 2026 13:44:56 +0800)
+  https://www.solidot.org/story?sid=84089
+- 人形机器人打破人类半马世界纪录  (Sun, 19 Apr 2026 21:09:39 +0800)
+  https://www.solidot.org/story?sid=84087
+- 内存芯片短缺可能持续到 2030 年  (Sun, 19 Apr 2026 20:18:26 +0800)
+  https://www.solidot.org/story?sid=84085
+- 微软正式将 FAT32 分区大小从 32GB 增加到 2TB  (Sat, 18 Apr 2026 19:14:21 +0800)
+  https://www.solidot.org/story?sid=84080
+
+============================================================
+本文件由本地脚本自动生成，可配合 launchd 每日运行。
