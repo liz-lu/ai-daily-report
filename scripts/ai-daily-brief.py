@@ -2055,23 +2055,40 @@ def render_index_html(out_dir: Path, latest_name: str) -> str:
 
 
 def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
-    entries = sorted(out_dir.glob("AI简报-*.html"), key=lambda path: path.name, reverse=True)
+    all_days = sorted(
+        {
+            path.stem.replace("AI简报-", "")
+            for pattern in ("AI简报-*.html", "AI简报-*.json", "AI简报-*.txt")
+            for path in out_dir.glob(pattern)
+        },
+        reverse=True,
+    )
     latest_day = latest_name.removesuffix(".html").replace("AI简报-", "")
+    if all_days and latest_day not in all_days:
+        latest_day = all_days[0]
     timeline_rows: list[str] = []
     total_story_count = 0
     latest_story_count = 0
     latest_source_count = 0
 
-    for idx, path in enumerate(entries):
-        day = path.stem.replace("AI简报-", "")
-        payload = _load_archive_payload(out_dir / f"AI简报-{day}.json")
+    for idx, day in enumerate(all_days):
+        html_name = f"AI简报-{day}.html"
+        json_name = f"AI简报-{day}.json"
+        txt_name = f"AI简报-{day}.txt"
+        html_path = out_dir / html_name
+        json_path = out_dir / json_name
+        txt_path = out_dir / txt_name
+        html_exists = html_path.exists()
+        json_exists = json_path.exists()
+        txt_exists = txt_path.exists()
+        payload = _load_archive_payload(json_path) if json_exists else None
         stats = payload.get("stats", {}) if payload else {}
         story_count = int(stats.get("story_count", 0) or 0)
         source_count = int(stats.get("source_count", 0) or 0)
         theme_count = int(stats.get("theme_count", 0) or 0)
         error_count = int(stats.get("error_count", 0) or 0)
         total_story_count += story_count
-        if path.name == latest_name:
+        if day == latest_day:
             latest_story_count = story_count
             latest_source_count = source_count
 
@@ -2082,25 +2099,33 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
         source_items = payload.get("sources", []) if payload else []
         hero_summary = str((llm_summary or {}).get("heroSummary") or "").strip() if isinstance(llm_summary, dict) else ""
 
-        display_date = datetime.strptime(day, "%Y-%m-%d").strftime("%b %d")
+        try:
+            display_date = datetime.strptime(day, "%Y-%m-%d").strftime("%b %d")
+        except ValueError:
+            display_date = day
         first_theme = key_themes[0] if key_themes and isinstance(key_themes[0], dict) else {}
         headline = str(first_theme.get("title") or "").strip()
         if not headline and theme_items:
             headline = str(theme_items[0].get("name") or "").strip()
         if not headline and story_items:
             headline = str(story_items[0].get("title") or "").strip()
+        if not headline and txt_exists:
+            headline = "每日简报文本归档"
         if not headline:
             headline = "not much happened today"
 
         tag_links: list[tuple[str, str]] = []
+        fallback_href = html_name if html_exists else (json_name if json_exists else (txt_name if txt_exists else "#"))
         for theme in theme_items[:7]:
             name = str(theme.get("name") or "").strip()
             if name:
-                tag_links.append((name, f"{path.name}#{_slugify(name)}"))
+                href = f"{html_name}#{_slugify(name)}" if html_exists else fallback_href
+                tag_links.append((name, href))
         for source in source_items[:5]:
             name = str(source or "").strip()
             if name:
-                tag_links.append((name, f"{path.name}#source-{_slugify(name)}"))
+                href = f"{html_name}#source-{_slugify(name)}" if html_exists else fallback_href
+                tag_links.append((name, href))
         tag_names = [name for name, _href in tag_links]
         tags_html = "".join(
             f'<a href="{_escape_html(href)}">{_escape_html(tag)}</a>'
@@ -2120,12 +2145,42 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
                 + (f"<small>{_escape_html(source)}</small>" if source else "")
                 + '</li>'
             )
+        if not story_links and txt_exists:
+            story_links.append(
+                '<li>'
+                f'<a href="{_escape_html(txt_name)}" target="_blank" rel="noopener noreferrer">查看当日 TXT 全文归档</a>'
+                + "</li>"
+            )
 
         summary = hero_summary
         if not summary and first_theme:
             summary = str(first_theme.get("summary") or "").strip()
+        if not summary and txt_exists:
+            try:
+                lines = [ln.strip() for ln in txt_path.read_text(encoding="utf-8").splitlines() if ln.strip()]
+                preview = next((ln for ln in lines if len(ln) > 18 and not ln.startswith(("##", "-", "=", "中文 AI"))), "")
+                summary = preview
+            except Exception:
+                summary = ""
         if not summary:
             summary = "这一天的简报已归档，可展开查看主题、来源和重点原文。"
+
+        action_links: list[str] = []
+        if html_exists:
+            action_links.append(
+                f'<a href="{_escape_html(html_name)}" target="_blank" rel="noopener noreferrer">打开当日网页</a>'
+            )
+        if txt_exists:
+            action_links.append(
+                f'<a href="{_escape_html(txt_name)}" target="_blank" rel="noopener noreferrer">TXT</a>'
+            )
+        if json_exists:
+            action_links.append(
+                f'<a href="{_escape_html(json_name)}" target="_blank" rel="noopener noreferrer">JSON</a>'
+            )
+        if error_count:
+            action_links.append(f"<span>异常 {error_count}</span>")
+        issue_actions_html = "".join(action_links) or "<span>暂无可用文件</span>"
 
         timeline_rows.append(
             '<details class="timeline-item"'
@@ -2143,10 +2198,7 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
             f'<div class="tag-row">{tags_html or "<span>暂无标签</span>"}</div>'
             f'<ul class="issue-links">{"".join(story_links) or "<li><span>暂无资讯条目</span></li>"}</ul>'
             '<div class="issue-actions">'
-            f'<a href="{_escape_html(path.name)}" target="_blank" rel="noopener noreferrer">打开当日网页</a>'
-            f'<a href="AI简报-{_escape_html(day)}.txt" target="_blank" rel="noopener noreferrer">TXT</a>'
-            f'<a href="AI简报-{_escape_html(day)}.json" target="_blank" rel="noopener noreferrer">JSON</a>'
-            + (f"<span>异常 {error_count}</span>" if error_count else "")
+            f"{issue_actions_html}"
             + '</div>'
             + '</div>'
             + '</details>'
@@ -2492,11 +2544,11 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
     </header>
 
     <section class="hero" aria-label="站点介绍">
-      <div>中文 AI 每日简报 · {len(entries)} days · {total_story_count} stories</div>
+      <div>中文 AI 每日简报 · {len(all_days)} days · {total_story_count} stories</div>
     </section>
 
     <section class="timeline-head">
-      <h1>Last 30 days in AI</h1>
+      <h1>All archived days in AI</h1>
       <label class="filter-box">
         <span>Filter titles:</span>
         <input id="title-filter" type="text" value="^((?!not much).)*$" aria-describedby="filter-error" />
@@ -2665,7 +2717,7 @@ def main() -> Path:
     txt_path.write_text(text, encoding="utf-8")
     html_path.write_text(html_doc, encoding="utf-8")
     json_path.write_text(json.dumps(archive_payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    index_path.write_text(render_index_html(out_dir, html_path.name), encoding="utf-8")
+    index_path.write_text(render_index_timeline_html(out_dir, html_path.name), encoding="utf-8")
     latest_path.write_text(render_latest_html(html_path.name), encoding="utf-8")
 
     published_url = None
