@@ -9,7 +9,7 @@
   - AI简报-YYYY-MM-DD.html  排版后的网页版（推荐阅读）
   - AI简报-YYYY-MM-DD.json  结构化归档（便于检索/复盘/二次分析）
   - index.html               按日期浏览历史简报
-  - latest.html              自动跳转到最新一期
+  - latest.html              自动跳转到新版单页首页
 """
 
 from __future__ import annotations
@@ -2572,7 +2572,7 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
     <header class="topbar">
       <a class="brand" href="index.html">人工智能新闻</a>
       <nav class="top-links" aria-label="站点导航">
-        <a href="latest.html">最新</a><span>/</span>
+        <a href="index.html">最新</a><span>/</span>
         <a href="index.html">归档</a><span>/</span>
         <a href="#timeline">标签</a><span>/</span>
         <span class="search-pill">搜索(Cmd+K)</span>
@@ -2590,7 +2590,7 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
         <input id="title-filter" type="text" value="^((?!not much).)*$" aria-describedby="filter-error" />
         <span class="invalid-copy" id="filter-error">Invalid regex</span>
       </label>
-      <a class="all-link" href="latest.html">See all issues</a>
+      <a class="all-link" href="index.html">See all issues</a>
     </section>
 
     <main class="timeline" id="timeline">
@@ -2637,16 +2637,16 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
 """
 
 
-def render_latest_html(target_name: str) -> str:
+def render_latest_html(target_name: str = "index.html") -> str:
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="refresh" content="0; url={_escape_html(target_name)}" />
-  <title>跳转到最新一期简报</title>
+  <title>跳转到新版首页</title>
 </head>
 <body>
-  <p>正在跳转到最新一期简报：<a href="{_escape_html(target_name)}">{_escape_html(target_name)}</a></p>
+  <p>正在跳转到新版单页首页：<a href="{_escape_html(target_name)}">{_escape_html(target_name)}</a></p>
 </body>
 </html>
 """
@@ -2754,7 +2754,7 @@ def main() -> Path:
     html_path.write_text(html_doc, encoding="utf-8")
     json_path.write_text(json.dumps(archive_payload, ensure_ascii=False, indent=2), encoding="utf-8")
     index_path.write_text(render_index_timeline_html(out_dir, html_path.name), encoding="utf-8")
-    latest_path.write_text(render_latest_html(html_path.name), encoding="utf-8")
+    latest_path.write_text(render_latest_html("index.html"), encoding="utf-8")
 
     published_url = None
     publish_error = None
