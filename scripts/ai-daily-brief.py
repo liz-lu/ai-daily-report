@@ -24,6 +24,7 @@ import subprocess
 import sys
 import tempfile
 import textwrap
+import time
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -107,15 +108,28 @@ def _strip_ns(tag: str) -> str:
     return tag
 
 
+def _env_int(name: str, default: int) -> int:
+    raw = os.environ.get(name)
+    if not raw:
+        return default
+    try:
+        return max(1, int(raw))
+    except ValueError:
+        return default
+
+
 def _fetch(url: str, timeout: int = 35) -> bytes:
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     last_err: Exception | None = None
-    for _ in range(2):
+    retry_count = _env_int("AI_DAILY_BRIEF_FETCH_RETRIES", 3)
+    for attempt in range(retry_count):
         try:
             with urllib.request.urlopen(req, timeout=timeout) as resp:
                 return resp.read()
         except (URLError, HTTPError, TimeoutError, OSError) as e:
             last_err = e
+            if attempt < retry_count - 1:
+                time.sleep(min(2 ** attempt, 8))
     assert last_err is not None
     raise last_err
 
@@ -369,9 +383,14 @@ def generate_llm_summary(
     if not api_key or not model or not ok:
         return None
 
+    max_themes = _env_int("AI_DAILY_BRIEF_LLM_MAX_THEMES", 5)
+    max_stories_per_theme = _env_int("AI_DAILY_BRIEF_LLM_MAX_STORIES_PER_THEME", 4)
+    max_prompt_chars = _env_int("AI_DAILY_BRIEF_LLM_MAX_PROMPT_CHARS", 12000)
+    max_output_tokens = _env_int("AI_DAILY_BRIEF_LLM_MAX_OUTPUT_TOKENS", 900)
+
     top_themes: list[dict[str, Any]] = []
-    for theme in themes_sorted[:5]:
-        rows = theme_to_rows[theme][:4]
+    for theme in themes_sorted[:max_themes]:
+        rows = theme_to_rows[theme][:max_stories_per_theme]
         top_themes.append({
             "theme": theme,
             "stories": [
@@ -383,6 +402,15 @@ def generate_llm_summary(
                 for section, title, _link, excerpt in rows
             ],
         })
+
+    payload_json = json.dumps({
+        "date": datetime.now(TZ_CN).strftime("%Y-%m-%d"),
+        "story_count": len(ok),
+        "error_count": len(errors),
+        "themes": top_themes,
+    }, ensure_ascii=False)
+    if len(payload_json) > max_prompt_chars:
+        payload_json = payload_json[:max_prompt_chars] + "\n[内容因费用保护被截断]"
 
     payload = {
         "date": datetime.now(TZ_CN).strftime("%Y-%m-%d"),
@@ -401,9 +429,10 @@ def generate_llm_summary(
     body = {
         "model": model,
         "temperature": 0.3,
+        "max_tokens": max_output_tokens,
         "messages": [
             {"role": "system", "content": prompt},
-            {"role": "user", "content": json.dumps(payload, ensure_ascii=False)},
+            {"role": "user", "content": payload_json},
         ],
     }
     req = urllib.request.Request(
@@ -417,13 +446,20 @@ def generate_llm_summary(
         method="POST",
     )
 
-    try:
-        with urllib.request.urlopen(req, timeout=60) as resp:
-            raw = json.loads(resp.read().decode("utf-8"))
-        message = raw["choices"][0]["message"]["content"]
-        parsed = json.loads(_extract_json_block(message))
-    except Exception:
-        return None
+    retry_count = _env_int("AI_DAILY_BRIEF_LLM_RETRIES", 2)
+    parsed: Any = None
+    for attempt in range(retry_count):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                raw = json.loads(resp.read().decode("utf-8"))
+            message = raw["choices"][0]["message"]["content"]
+            parsed = json.loads(_extract_json_block(message))
+            break
+        except Exception as exc:
+            if attempt == retry_count - 1:
+                print(f"[llm] summary unavailable: {exc}", file=sys.stderr)
+                return None
+            time.sleep(min(2 ** attempt, 8))
 
     if not isinstance(parsed, dict):
         return None
@@ -2652,6 +2688,41 @@ def render_latest_html(target_name: str = "index.html") -> str:
 """
 
 
+def validate_generated_site(out_dir: Path, day: str) -> None:
+    required_files = [
+        out_dir / "index.html",
+        out_dir / "latest.html",
+        out_dir / f"AI简报-{day}.html",
+        out_dir / f"AI简报-{day}.txt",
+        out_dir / f"AI简报-{day}.json",
+    ]
+    missing = [path.name for path in required_files if not path.exists() or path.stat().st_size == 0]
+    if missing:
+        raise RuntimeError(f"生成文件缺失或为空：{', '.join(missing)}")
+
+    index_text = (out_dir / "index.html").read_text(encoding="utf-8")
+    latest_text = (out_dir / "latest.html").read_text(encoding="utf-8")
+    if day not in index_text:
+        raise RuntimeError(f"首页未包含最新日期：{day}")
+    if "Last " not in index_text or "days in AI" not in index_text:
+        raise RuntimeError("首页不是预期的单页时间线结构")
+    if "url=index.html" not in latest_text:
+        raise RuntimeError("latest.html 未指向新版单页首页 index.html")
+
+    forbidden_terms = ("抓取失败", "解析失败", "未知 Feed 格式", "抓取异常")
+    leaked_terms = [term for term in forbidden_terms if term in index_text]
+    if leaked_terms:
+        raise RuntimeError(f"首页泄露抓取异常信息：{', '.join(leaked_terms)}")
+
+    try:
+        archive = json.loads((out_dir / f"AI简报-{day}.json").read_text(encoding="utf-8"))
+    except Exception as exc:
+        raise RuntimeError(f"当日 JSON 归档无法解析：{exc}") from exc
+    stats = archive.get("stats", {})
+    if int(stats.get("story_count", 0) or 0) <= 0:
+        raise RuntimeError("当日有效资讯数为 0，停止提交坏页面")
+
+
 def _github_api_request(url: str, token: str, method: str = "GET", data: dict[str, Any] | None = None) -> dict[str, Any] | None:
     body = None
     headers = {
@@ -2755,6 +2826,7 @@ def main() -> Path:
     json_path.write_text(json.dumps(archive_payload, ensure_ascii=False, indent=2), encoding="utf-8")
     index_path.write_text(render_index_timeline_html(out_dir, html_path.name), encoding="utf-8")
     latest_path.write_text(render_latest_html("index.html"), encoding="utf-8")
+    validate_generated_site(out_dir, day)
 
     published_url = None
     publish_error = None

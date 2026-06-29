@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: daily-ai-brief
@@ -35,6 +36,12 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: ${{ secrets.OPENAI_MODEL }}
           OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+          AI_DAILY_BRIEF_FETCH_RETRIES: "3"
+          AI_DAILY_BRIEF_LLM_RETRIES: "2"
+          AI_DAILY_BRIEF_LLM_MAX_THEMES: "5"
+          AI_DAILY_BRIEF_LLM_MAX_STORIES_PER_THEME: "4"
+          AI_DAILY_BRIEF_LLM_MAX_PROMPT_CHARS: "12000"
+          AI_DAILY_BRIEF_LLM_MAX_OUTPUT_TOKENS: "900"
         run: python scripts/ai-daily-brief.py
 
       - name: Commit and push when changed
@@ -48,3 +55,25 @@ jobs:
           fi
           git commit -m "chore: update daily AI brief"
           git push
+
+      - name: Create failure issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="AI Daily Brief workflow failed: $(date -u +%Y-%m-%d)"
+          body="$(cat <<EOF
+          Daily AI Brief 自动更新失败。
+
+          - Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          - Branch: ${{ github.ref_name }}
+          - Commit: ${{ github.sha }}
+
+          请检查 RSS 抓取、AI API 余额/可用性，或页面生成自检错误。
+          EOF
+          )"
+          if gh issue list --state open --search "$title in:title" --json number --jq 'length' | grep -q '^0$'; then
+            gh issue create --title "$title" --body "$body"
+          else
+            echo "Failure issue already exists for today."
+          fi
