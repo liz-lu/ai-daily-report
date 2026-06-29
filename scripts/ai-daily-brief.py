@@ -2064,33 +2064,26 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
         reverse=True,
     )
     latest_day = latest_name.removesuffix(".html").replace("AI简报-", "")
-    if all_days and latest_day not in all_days:
-        latest_day = all_days[0]
-
     timeline_rows: list[str] = []
     total_story_count = 0
     latest_story_count = 0
     latest_source_count = 0
 
     for idx, day in enumerate(all_days):
-        html_name = f"AI简报-{day}.html"
-        json_name = f"AI简报-{day}.json"
-        txt_name = f"AI简报-{day}.txt"
-        html_path = out_dir / html_name
-        json_path = out_dir / json_name
-        txt_path = out_dir / txt_name
-        html_exists = html_path.exists()
-        json_exists = json_path.exists()
-        txt_exists = txt_path.exists()
-
-        payload = _load_archive_payload(json_path) if json_exists else None
+        html_path = out_dir / f"AI简报-{day}.html"
+        json_path = out_dir / f"AI简报-{day}.json"
+        txt_path = out_dir / f"AI简报-{day}.txt"
+        has_html = html_path.exists()
+        has_json = json_path.exists()
+        has_txt = txt_path.exists()
+        payload = _load_archive_payload(out_dir / f"AI简报-{day}.json")
         stats = payload.get("stats", {}) if payload else {}
         story_count = int(stats.get("story_count", 0) or 0)
         source_count = int(stats.get("source_count", 0) or 0)
         theme_count = int(stats.get("theme_count", 0) or 0)
         error_count = int(stats.get("error_count", 0) or 0)
         total_story_count += story_count
-        if day == latest_day:
+        if html_path.name == latest_name:
             latest_story_count = story_count
             latest_source_count = source_count
 
@@ -2101,390 +2094,487 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
         source_items = payload.get("sources", []) if payload else []
         hero_summary = str((llm_summary or {}).get("heroSummary") or "").strip() if isinstance(llm_summary, dict) else ""
 
-        try:
-            display_date = datetime.strptime(day, "%Y-%m-%d").strftime("%b %d")
-        except ValueError:
-            display_date = day
-
+        display_date = datetime.strptime(day, "%Y-%m-%d").strftime("%b %d")
         first_theme = key_themes[0] if key_themes and isinstance(key_themes[0], dict) else {}
         headline = str(first_theme.get("title") or "").strip()
         if not headline and theme_items:
             headline = str(theme_items[0].get("name") or "").strip()
         if not headline and story_items:
             headline = str(story_items[0].get("title") or "").strip()
-        if not headline and txt_exists:
-            headline = "每日简报文本归档"
         if not headline:
-            headline = "not much happened today"
+            headline = "历史文本归档" if has_txt and not has_json else "not much happened today"
 
-        fallback_href = html_name if html_exists else (json_name if json_exists else (txt_name if txt_exists else "#"))
         tag_links: list[tuple[str, str]] = []
-        for theme in theme_items[:8]:
+        for theme in theme_items[:7]:
             name = str(theme.get("name") or "").strip()
-            if name:
-                href = f"{html_name}#{_slugify(name)}" if html_exists else fallback_href
-                tag_links.append((name, href))
-        for source in source_items[:8]:
+            if name and has_html:
+                tag_links.append((name, f"{html_path.name}#{_slugify(name)}"))
+            elif name:
+                tag_links.append((name, "#timeline"))
+        for source in source_items[:5]:
             name = str(source or "").strip()
-            if name:
-                href = f"{html_name}#source-{_slugify(name)}" if html_exists else fallback_href
-                tag_links.append((name, href))
-        dedup_tag_links: list[tuple[str, str]] = []
-        seen_tags: set[str] = set()
-        for name, href in tag_links:
-            key = name.lower()
-            if key in seen_tags:
-                continue
-            seen_tags.add(key)
-            dedup_tag_links.append((name, href))
-            if len(dedup_tag_links) >= 20:
-                break
-        tag_names = [name for name, _href in dedup_tag_links]
-        tags_html = (
-            "  ".join(
-                f'<a href="{_escape_html(href)}">{_escape_html(name)}</a>'
-                for name, href in dedup_tag_links
-            )
-            if dedup_tag_links
-            else "<span>暂无标签</span>"
+            if name and has_html:
+                tag_links.append((name, f"{html_path.name}#source-{_slugify(name)}"))
+            elif name:
+                tag_links.append((name, "#timeline"))
+        tag_names = [name for name, _href in tag_links]
+        tags_html = "".join(
+            f'<a href="{_escape_html(href)}">{_escape_html(tag)}</a>'
+            for tag, href in tag_links[:12]
         )
 
-        story_links: list[str] = []
-        for story in story_items[:8]:
+        story_links = []
+        for story in story_items:
             title = str(story.get("title") or "").strip()
             link = str(story.get("link") or "#").strip()
             source = str(story.get("section") or "").strip()
+            excerpt = str(story.get("excerpt") or "").strip()
             if not title:
                 continue
+            excerpt_html = f"<p>{_escape_html(_truncate(excerpt, 260))}</p>" if excerpt else ""
             story_links.append(
-                "<li>"
+                '<li>'
                 f'<a href="{_escape_html(link)}" target="_blank" rel="noopener noreferrer">{_escape_html(title)}</a>'
-                + (f'<small>{_escape_html(source)}</small>' if source else "")
-                + "</li>"
+                + (f"<small>{_escape_html(source)}</small>" if source else "")
+                + excerpt_html
+                + '</li>'
             )
-        if not story_links and txt_exists:
-            story_links.append(
-                "<li>"
-                f'<a href="{_escape_html(txt_name)}" target="_blank" rel="noopener noreferrer">查看当日 TXT 全文归档</a>'
-                + "</li>"
-            )
-        story_html = "".join(story_links) if story_links else "<li><span>暂无资讯条目</span></li>"
 
         summary = hero_summary
         if not summary and first_theme:
             summary = str(first_theme.get("summary") or "").strip()
-        if not summary and txt_exists:
-            try:
-                lines = [ln.strip() for ln in txt_path.read_text(encoding="utf-8").splitlines() if ln.strip()]
-                preview = next((ln for ln in lines if len(ln) > 18 and not ln.startswith(("##", "-", "=", "中文 AI"))), "")
-                summary = preview
-            except Exception:
-                summary = ""
         if not summary:
             summary = "这一天的简报已归档，可展开查看主题、来源和重点原文。"
 
+        txt_archive_html = ""
+        if has_txt and not story_links:
+            try:
+                txt_archive = txt_path.read_text(encoding="utf-8")
+            except Exception:
+                txt_archive = ""
+            if txt_archive:
+                txt_archive_html = f'<pre class="txt-archive">{_escape_html(txt_archive)}</pre>'
+
         action_links: list[str] = []
-        if html_exists:
+        if has_html:
             action_links.append(
-                f'<a href="{_escape_html(html_name)}" target="_blank" rel="noopener noreferrer">打开当日网页</a>'
+                f'<a href="{_escape_html(html_path.name)}" target="_blank" rel="noopener noreferrer">打开当日网页</a>'
             )
-        if txt_exists:
+        if has_txt:
             action_links.append(
-                f'<a href="{_escape_html(txt_name)}" target="_blank" rel="noopener noreferrer">TXT</a>'
+                f'<a href="AI简报-{_escape_html(day)}.txt" target="_blank" rel="noopener noreferrer">TXT</a>'
             )
-        if json_exists:
+        if has_json:
             action_links.append(
-                f'<a href="{_escape_html(json_name)}" target="_blank" rel="noopener noreferrer">JSON</a>'
+                f'<a href="AI简报-{_escape_html(day)}.json" target="_blank" rel="noopener noreferrer">JSON</a>'
             )
         if error_count:
             action_links.append(f"<span>异常 {error_count}</span>")
-        actions_html = "  ".join(action_links) if action_links else "<span>暂无可用文件</span>"
-
-        row_meta = f"{story_count} 条 · {theme_count} 主题 · {source_count} 来源"
-        open_attr = " open" if idx == 0 else ""
-        timeline_rows.append(
-            '<details class="issue-item"'
-            + f' data-title="{_escape_html((headline + " " + " ".join(tag_names)).lower())}"'
-            + f' data-day="{_escape_html(day)}"'
-            + open_attr
-            + ">"
-            + "<summary>"
-            + f'<time datetime="{_escape_html(day)}">{_escape_html(display_date)}</time>'
-            + f'<strong>{_escape_html(headline)}</strong>'
-            + '<span class="toggle-copy toggle-open">Show details</span>'
-            + '<span class="toggle-copy toggle-close">Hide details</span>'
-            + "</summary>"
-            + f'<div class="meta-row">{_escape_html(row_meta)}</div>'
-            + '<div class="issue-body">'
-            + f'<div class="tag-row">{tags_html}</div>'
-            + f'<p class="summary">{_escape_html(summary)}</p>'
-            + f'<ul class="story-list">{story_html}</ul>'
-            + f'<div class="issue-actions">{actions_html}</div>'
-            + "</div>"
-            + "</details>"
+        action_html = "".join(action_links)
+        file_meta = " · ".join(
+            label for label, exists in (("HTML", has_html), ("JSON", has_json), ("TXT", has_txt)) if exists
         )
 
-    rows_html = "\n".join(timeline_rows) or '<p class="empty-copy">暂无归档。</p>'
+        timeline_rows.append(
+            '<details class="timeline-item"'
+            f' data-title="{_escape_html((headline + " " + " ".join(tag_names)).lower())}"'
+            f'{" open" if idx == 0 else ""}>'
+            '<summary>'
+            '<span class="timeline-dot" aria-hidden="true"></span>'
+            f'<time datetime="{_escape_html(day)}">{_escape_html(display_date)}</time>'
+            f'<strong>{_escape_html(headline)}</strong>'
+            f'<span class="row-meta">{story_count} 条 · {theme_count} 主题 · {source_count} 来源 · {file_meta}</span>'
+            '<span class="chevron" aria-hidden="true">›</span>'
+            '</summary>'
+            '<div class="timeline-detail">'
+            f'<p>{_escape_html(summary)}</p>'
+            f'<div class="tag-row">{tags_html or "<span>暂无标签</span>"}</div>'
+            f'<ul class="issue-links">{"".join(story_links) or "<li><span>暂无资讯条目</span></li>"}</ul>'
+            f'{txt_archive_html}'
+            '<div class="issue-actions">'
+            f'{action_html}'
+            + '</div>'
+            + '</div>'
+            + '</details>'
+        )
+
+    rows_html = "".join(timeline_rows) or '<p class="empty-copy">暂无归档。</p>'
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI 每日简报</title>
+  <title>人工智能新闻</title>
   <style>
     :root {{
-      --bg: #f6f6f2;
-      --text: #1f1f1f;
-      --muted: #5f5f5f;
-      --line: #d8d8d2;
-      --accent: #111;
+      --bg: #f5f5f4;
+      --text: #171717;
+      --muted: #737373;
+      --line: #d9d9d6;
+      --card: #f7f7f6;
+      --card-hover: #ffffff;
+      --shadow: 0 1px 2px rgba(0,0,0,.03);
     }}
     * {{ box-sizing: border-box; }}
     html {{ scroll-behavior: smooth; }}
     body {{
       margin: 0;
+      min-height: 100vh;
       background: var(--bg);
       color: var(--text);
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
-      line-height: 1.55;
       font-size: 14px;
+      line-height: 1.5;
     }}
-    a {{
-      color: inherit;
-      text-decoration: none;
-    }}
-    a:hover {{
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }}
-    .page {{
-      width: min(980px, calc(100vw - 36px));
+    a {{ color: inherit; text-decoration: none; }}
+    a:hover {{ text-decoration: underline; }}
+    .site-shell {{
+      width: min(1180px, calc(100vw - 48px));
       margin: 0 auto;
-      padding: 20px 0 60px;
+      padding: 22px 0 72px;
     }}
-    .top-nav {{
+    .topbar {{
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
       align-items: center;
-      font-size: 13px;
-      color: #333;
-      margin-bottom: 18px;
-    }}
-    .top-nav .slash {{
-      color: #888;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 30px;
     }}
     .brand {{
       display: inline-flex;
       align-items: center;
-      padding: 1px 7px;
       min-height: 22px;
-      background: var(--accent);
+      padding: 0 7px;
+      background: #050505;
       color: #fff;
       font-weight: 700;
       letter-spacing: .03em;
-      margin-right: 8px;
-    }}
-    h1 {{
-      margin: 0;
-      font-size: clamp(24px, 3.3vw, 34px);
-      line-height: 1.1;
-      letter-spacing: .01em;
-    }}
-    .byline {{
-      margin: 8px 0 0;
-      color: #444;
-      font-size: 14px;
-    }}
-    .intro {{
-      margin: 8px 0 0;
-      color: #404040;
-      max-width: 760px;
-    }}
-    .stats {{
-      margin: 12px 0 24px;
-      color: #5d5d5d;
       font-size: 13px;
     }}
-    .section-head {{
-      margin: 28px 0 14px;
-    }}
-    .section-head h2 {{
-      margin: 0 0 10px;
-      font-size: 20px;
-      line-height: 1.2;
-    }}
-    .filter-row {{
+    .top-links {{
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       gap: 8px;
-      color: #444;
+      color: #111;
       font-size: 13px;
     }}
-    .filter-row input {{
-      width: min(240px, 100%);
-      min-height: 28px;
+    .top-links a,
+    .search-pill {{
+      color: #111;
+      opacity: .86;
+    }}
+    .search-pill {{
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 9px;
       border: 1px solid var(--line);
-      background: #fff;
       border-radius: 4px;
-      padding: 0 8px;
-      outline: none;
+      background: rgba(255,255,255,.46);
+      font-size: 12px;
     }}
-    .filter-row input:focus {{
-      border-color: #9f9f99;
+    .hero {{
+      min-height: 188px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: rgba(0,0,0,.16);
+      font-size: clamp(15px, 2vw, 22px);
+      font-weight: 650;
+      letter-spacing: .02em;
+      user-select: none;
     }}
-    .filter-row .invalid-copy {{
-      display: none;
-      color: #9c2f2f;
+    .timeline-head {{
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 28px;
     }}
-    .issues {{
-      margin-top: 14px;
-    }}
-    .issue-item {{
-      border-bottom: 1px solid var(--line);
-      padding: 10px 0 14px;
-    }}
-    .issue-item[hidden] {{
-      display: none;
-    }}
-    .issue-item summary {{
-      list-style: none;
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      cursor: pointer;
-    }}
-    .issue-item summary::-webkit-details-marker {{
-      display: none;
-    }}
-    .issue-item time {{
-      min-width: 56px;
-      color: #666;
-      font-size: 13px;
-      white-space: nowrap;
-    }}
-    .issue-item strong {{
+    .timeline-head h1 {{
+      margin: 0;
       font-size: 15px;
-      line-height: 1.35;
+      line-height: 1;
       font-weight: 750;
     }}
-    .toggle-copy {{
-      margin-left: auto;
-      color: #666;
-      font-size: 12px;
+    .filter-box {{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #555;
+      font-size: 13px;
+    }}
+    .filter-box input {{
+      width: min(220px, 32vw);
+      height: 28px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: rgba(255,255,255,.58);
+      padding: 0 9px;
+      outline: none;
+      color: #222;
+    }}
+    .filter-box input:focus {{
+      border-color: #9f9f9b;
+      background: #fff;
+    }}
+    .all-link {{
+      justify-self: end;
+      color: #222;
       text-decoration: underline;
       text-underline-offset: 2px;
+      font-size: 13px;
+    }}
+    .timeline {{
+      position: relative;
+      padding-left: 32px;
+    }}
+    .timeline::before {{
+      content: "";
+      position: absolute;
+      left: 12px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--line);
+    }}
+    .timeline-item {{
+      position: relative;
+      margin: 0 0 14px;
+    }}
+    .timeline-item[hidden] {{ display: none; }}
+    .timeline-item summary {{
+      position: relative;
+      display: grid;
+      grid-template-columns: 92px minmax(180px, 1fr) auto 20px;
+      align-items: center;
+      gap: 16px;
+      min-height: 40px;
+      padding: 0 10px;
+      list-style: none;
+      cursor: pointer;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }}
+    .timeline-item summary::-webkit-details-marker {{ display: none; }}
+    .timeline-item summary:hover {{
+      background: var(--card-hover);
+    }}
+    .timeline-dot {{
+      position: absolute;
+      left: -24px;
+      top: 50%;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #777;
+      transform: translateY(-50%);
+      box-shadow: 0 0 0 4px var(--bg);
+    }}
+    time {{
+      color: #777;
+      font-size: 13px;
       white-space: nowrap;
     }}
-    .issue-item .toggle-close {{
-      display: none;
+    summary strong {{
+      font-size: 14px;
+      font-weight: 760;
+      color: #262626;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }}
-    .issue-item[open] .toggle-open {{
-      display: none;
-    }}
-    .issue-item[open] .toggle-close {{
-      display: inline;
-    }}
-    .meta-row {{
-      margin: 4px 0 0 66px;
-      color: #6d6d6d;
+    .row-meta {{
+      color: #777;
       font-size: 12px;
+      white-space: nowrap;
     }}
-    .issue-body {{
-      margin: 8px 0 0 66px;
+    .chevron {{
+      color: #3f3f3f;
+      font-size: 26px;
+      line-height: 1;
+      transform: translateY(-1px);
+      transition: transform .15s ease;
+    }}
+    .timeline-item[open] .chevron {{
+      transform: rotate(90deg) translateX(-1px);
+    }}
+    .timeline-detail {{
+      margin: 8px 0 18px;
+      padding: 16px 18px 18px;
+      border: 1px solid var(--line);
+      border-top: 0;
+      border-radius: 0 0 8px 8px;
+      background: rgba(255,255,255,.46);
+      color: #303030;
+    }}
+    .timeline-detail p {{
+      margin: 0 0 12px;
+      max-width: 920px;
     }}
     .tag-row {{
-      margin: 0 0 8px;
-      color: #606060;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 14px;
+      color: #686868;
       font-size: 12px;
     }}
     .tag-row a,
     .tag-row span {{
-      margin-right: 8px;
-      white-space: nowrap;
+      padding: 2px 7px;
+      border: 1px solid #ddddda;
+      border-radius: 999px;
+      background: rgba(255,255,255,.55);
     }}
-    .summary {{
-      margin: 0 0 10px;
-      color: #2f2f2f;
+    .tag-row a:hover {{
+      background: #fff;
+      border-color: #bdbdb8;
+      text-decoration: none;
     }}
-    .story-list {{
-      margin: 0 0 10px;
+    .issue-links {{
+      margin: 0;
       padding-left: 18px;
       display: grid;
-      gap: 6px;
+      gap: 7px;
     }}
-    .story-list small {{
+    .issue-links small {{
       margin-left: 8px;
-      color: #717171;
-      font-size: 12px;
+      color: var(--muted);
+    }}
+    .issue-links p {{
+      margin: 4px 0 0;
+      color: #4b4b4b;
+      font-size: 13px;
+      line-height: 1.55;
+    }}
+    .txt-archive {{
+      margin: 14px 0 0;
+      padding: 14px;
+      max-height: 360px;
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: rgba(255,255,255,.66);
+      color: #303030;
+      font: 12px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      white-space: pre-wrap;
     }}
     .issue-actions {{
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       gap: 12px;
-      color: #5a5a5a;
+      margin-top: 16px;
+      color: #444;
       font-size: 13px;
     }}
-    .empty-copy {{
-      color: #666;
-      font-size: 14px;
+    .issue-actions a {{
+      text-decoration: underline;
+      text-underline-offset: 2px;
     }}
-    footer {{
-      margin-top: 30px;
-      color: #666;
+    .empty-copy,
+    .invalid-copy {{
+      color: var(--muted);
+    }}
+    .invalid-copy {{
+      display: none;
+      margin-left: 8px;
+      font-size: 12px;
+    }}
+    .footer {{
+      margin: 44px 0 0 32px;
+      color: var(--muted);
       font-size: 13px;
     }}
     @media (max-width: 760px) {{
-      .page {{
-        width: min(100vw - 22px, 980px);
+      .site-shell {{
+        width: min(100vw - 24px, 1180px);
         padding-top: 14px;
       }}
-      .issue-item summary {{
+      .topbar,
+      .timeline-head {{
+        grid-template-columns: 1fr;
+      }}
+      .topbar {{
+        align-items: flex-start;
+      }}
+      .top-links {{
         flex-wrap: wrap;
       }}
-      .toggle-copy {{
-        margin-left: 0;
+      .hero {{
+        min-height: 110px;
       }}
-      .meta-row,
-      .issue-body {{
-        margin-left: 0;
+      .timeline-head {{
+        display: grid;
+        gap: 12px;
+      }}
+      .filter-box {{
+        align-items: flex-start;
+        flex-direction: column;
+      }}
+      .filter-box input {{
+        width: 100%;
+      }}
+      .all-link {{
+        justify-self: start;
+      }}
+      .timeline {{
+        padding-left: 24px;
+      }}
+      .timeline::before {{
+        left: 9px;
+      }}
+      .timeline-item summary {{
+        grid-template-columns: 64px minmax(0, 1fr) 18px;
+        gap: 10px;
+        min-height: 46px;
+      }}
+      .timeline-dot {{
+        left: -19px;
+      }}
+      .row-meta {{
+        display: none;
+      }}
+      summary strong {{
+        white-space: normal;
       }}
     }}
   </style>
 </head>
 <body>
-  <div class="page">
-    <nav class="top-nav" aria-label="站点导航">
-      <a class="brand" href="index.html">AI日报</a>
-      <a href="latest.html">latest</a><span class="slash">/</span>
-      <a href="#timeline">issues</a><span class="slash">/</span>
-      <a href="#timeline">tags</a><span class="slash">/</span>
-      <span>Search (Cmd+K)</span>
-    </nav>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">人工智能新闻</a>
+      <nav class="top-links" aria-label="站点导航">
+        <a href="latest.html">最新</a><span>/</span>
+        <a href="index.html">归档</a><span>/</span>
+        <a href="#timeline">标签</a><span>/</span>
+        <span class="search-pill">搜索(Cmd+K)</span>
+      </nav>
+    </header>
 
-    <h1>AI每日简报</h1>
-    <p class="byline">by Kanyun · 自动汇总每日 AI 资讯</p>
-    <p class="intro">将每日信息报告按时间线排列在同一页，支持按标题关键词筛选，并保留每期 HTML/TXT/JSON 原始归档链接。</p>
-    <p class="stats">共 {len(all_days)} 天归档 · 累计 {total_story_count} 条资讯</p>
-
-    <section class="section-head" id="timeline">
-      <h2>All Days in AI</h2>
-      <div class="filter-row">
-        <span>Filter titles:</span>
-        <input id="title-filter" type="text" value="" aria-describedby="filter-error" />
-        <span class="invalid-copy" id="filter-error">Invalid regex</span>
-        <a href="latest.html">See latest issue</a>
-      </div>
+    <section class="hero" aria-label="站点介绍">
+      <div>中文 AI 每日简报 · {len(all_days)} days · {total_story_count} stories</div>
     </section>
 
-    <main class="issues">
+    <section class="timeline-head">
+      <h1>Last {len(all_days)} days in AI</h1>
+      <label class="filter-box">
+        <span>Filter titles:</span>
+        <input id="title-filter" type="text" value="^((?!not much).)*$" aria-describedby="filter-error" />
+        <span class="invalid-copy" id="filter-error">Invalid regex</span>
+      </label>
+      <a class="all-link" href="latest.html">See all issues</a>
+    </section>
+
+    <main class="timeline" id="timeline">
       {rows_html}
     </main>
 
-    <footer>
-      最新一期：{_escape_html(latest_day)} · {latest_story_count} 条资讯 · {latest_source_count} 个来源
+    <footer class="footer">
+      最新一期：{_escape_html(latest_day)} · {latest_story_count} 条资讯 · {latest_source_count} 个来源 · 全部历史已合并在本页 · GitHub Actions 自动生成
     </footer>
   </div>
 
@@ -2492,12 +2582,12 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
     (() => {{
       const input = document.getElementById('title-filter');
       const error = document.getElementById('filter-error');
-      const items = Array.from(document.querySelectorAll('.issue-item[data-title]'));
+      const items = Array.from(document.querySelectorAll('.timeline-item[data-title]'));
       if (!input || !items.length) return;
 
       const applyFilter = () => {{
-        const value = input.value.trim();
         let regex = null;
+        const value = input.value.trim();
         if (value) {{
           try {{
             regex = new RegExp(value, 'i');
@@ -2509,7 +2599,6 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
         }} else if (error) {{
           error.style.display = 'none';
         }}
-
         items.forEach((item) => {{
           item.hidden = Boolean(regex && !regex.test(item.dataset.title || ''));
         }});
