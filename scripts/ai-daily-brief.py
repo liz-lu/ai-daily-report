@@ -1168,6 +1168,47 @@ def render_index_html(out_dir: Path, latest_name: str) -> str:
     days = [path.stem.replace("AI简报-", "") for path in entries]
     latest_day = latest_name.removesuffix(".html").replace("AI简报-", "")
     calendar_html = _render_calendar_html(days, latest_day)
+    all_days = sorted(
+        {
+            path.stem.replace("AI简报-", "")
+            for pattern in ("AI简报-*.html", "AI简报-*.json", "AI简报-*.txt")
+            for path in out_dir.glob(pattern)
+        },
+        reverse=True,
+    )
+    all_day_count = len(all_days)
+    history_rows: list[str] = []
+    for day in all_days:
+        html_name = f"AI简报-{day}.html"
+        json_name = f"AI简报-{day}.json"
+        txt_name = f"AI简报-{day}.txt"
+        html_exists = (out_dir / html_name).exists()
+        json_exists = (out_dir / json_name).exists()
+        txt_exists = (out_dir / txt_name).exists()
+        html_cell = (
+            f'<a class="history-link" href="{_escape_html(html_name)}" target="_blank" rel="noopener noreferrer">网页</a>'
+            if html_exists
+            else '<span class="file-missing">—</span>'
+        )
+        json_cell = (
+            f'<a class="history-link" href="{_escape_html(json_name)}" target="_blank" rel="noopener noreferrer">JSON</a>'
+            if json_exists
+            else '<span class="file-missing">—</span>'
+        )
+        txt_cell = (
+            f'<a class="history-link" href="{_escape_html(txt_name)}" target="_blank" rel="noopener noreferrer">TXT</a>'
+            if txt_exists
+            else '<span class="file-missing">—</span>'
+        )
+        history_rows.append(
+            "<tr>"
+            f"<td>{_escape_html(day)}</td>"
+            f"<td>{html_cell}</td>"
+            f"<td>{json_cell}</td>"
+            f"<td>{txt_cell}</td>"
+            "</tr>"
+        )
+    history_table_html = "".join(history_rows) or '<tr><td colspan="4">暂无历史文件。</td></tr>'
     nav_links = []
     day_sections = []
     total_story_count = 0
@@ -1341,7 +1382,8 @@ def render_index_html(out_dir: Path, latest_name: str) -> str:
     nav_html = "".join(nav_links) if nav_links else '<span class="date-chip">暂无归档</span>'
     sections_html = "".join(day_sections) if day_sections else "<p>暂无归档。</p>"
     overview_html = (
-        f'<article class="overview-card"><span>归档天数</span><strong>{len(entries)}</strong><p>每天都会保留在同一页里切换查看。</p></article>'
+        f'<article class="overview-card"><span>可切换归档</span><strong>{len(entries)}</strong><p>这些日期可在页面内直接切换阅读。</p></article>'
+        f'<article class="overview-card"><span>全量历史日期</span><strong>{all_day_count}</strong><p>已合并展示全部历史信息（含仅 TXT/JSON 日期）。</p></article>'
         f'<article class="overview-card"><span>累计资讯</span><strong>{total_story_count}</strong><p>保留网页、TXT、JSON 三份归档。</p></article>'
         f'<article class="overview-card"><span>最新一期</span><strong>{_escape_html(latest_day)}</strong><p>{latest_story_count} 条资讯 · {latest_theme_count} 个主题 · {latest_source_count} 个来源</p></article>'
     ) if entries else ""
@@ -1466,7 +1508,7 @@ def render_index_html(out_dir: Path, latest_name: str) -> str:
     }}
     .overview-grid {{
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 14px;
       margin-top: 18px;
     }}
@@ -1509,6 +1551,59 @@ def render_index_html(out_dir: Path, latest_name: str) -> str:
     .calendar-panel p {{
       margin: 0 0 16px;
       color: #6f7771;
+    }}
+    .history-panel {{
+      background: #fffdfa;
+      border: 1px solid rgba(56,68,62,.10);
+      border-radius: 22px;
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 10px 30px rgba(60,72,66,.06);
+    }}
+    .history-panel h2 {{
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+    }}
+    .history-panel p {{
+      margin: 0 0 14px;
+      color: #6f7771;
+    }}
+    .history-table-wrap {{
+      overflow: auto;
+      border: 1px solid rgba(56,68,62,.08);
+      border-radius: 14px;
+      background: rgba(255,255,255,.72);
+    }}
+    .history-table {{
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 520px;
+    }}
+    .history-table th,
+    .history-table td {{
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(56,68,62,.08);
+      font-size: .92rem;
+    }}
+    .history-table th {{
+      font-size: .86rem;
+      color: #5f6a64;
+      background: rgba(245,244,241,.9);
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }}
+    .history-table tr:last-child td {{
+      border-bottom: none;
+    }}
+    .history-link {{
+      color: #436354;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }}
+    .file-missing {{
+      color: #98a19c;
     }}
     .calendar-stack {{
       display: grid;
@@ -1888,6 +1983,23 @@ def render_index_html(out_dir: Path, latest_name: str) -> str:
       <h2>日期日历</h2>
       <p>你可以点日历，也可以直接点页面最上方的日期条；两者都会在同一页切换到对应日期内容。</p>
       <div class="calendar-stack">{calendar_html}</div>
+    </section>
+    <section class="history-panel">
+      <h2>全量历史信息索引</h2>
+      <p>这里合并展示所有历史文件。即使某天只有 TXT/JSON，没有网页版本，也会在这里保留并可直接访问。</p>
+      <div class="history-table-wrap">
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>日期</th>
+              <th>网页</th>
+              <th>JSON</th>
+              <th>TXT</th>
+            </tr>
+          </thead>
+          <tbody>{history_table_html}</tbody>
+        </table>
+      </div>
     </section>
     <section class="daily-stack">{sections_html}</section>
   </div>
