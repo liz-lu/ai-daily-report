@@ -2066,6 +2066,7 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
     latest_day = latest_name.removesuffix(".html").replace("AI简报-", "")
     if all_days and latest_day not in all_days:
         latest_day = all_days[0]
+
     timeline_rows: list[str] = []
     total_story_count = 0
     latest_story_count = 0
@@ -2081,6 +2082,7 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
         html_exists = html_path.exists()
         json_exists = json_path.exists()
         txt_exists = txt_path.exists()
+
         payload = _load_archive_payload(json_path) if json_exists else None
         stats = payload.get("stats", {}) if payload else {}
         story_count = int(stats.get("story_count", 0) or 0)
@@ -2103,6 +2105,7 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
             display_date = datetime.strptime(day, "%Y-%m-%d").strftime("%b %d")
         except ValueError:
             display_date = day
+
         first_theme = key_themes[0] if key_themes and isinstance(key_themes[0], dict) else {}
         headline = str(first_theme.get("title") or "").strip()
         if not headline and theme_items:
@@ -2114,43 +2117,58 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
         if not headline:
             headline = "not much happened today"
 
-        tag_links: list[tuple[str, str]] = []
         fallback_href = html_name if html_exists else (json_name if json_exists else (txt_name if txt_exists else "#"))
-        for theme in theme_items[:7]:
+        tag_links: list[tuple[str, str]] = []
+        for theme in theme_items[:8]:
             name = str(theme.get("name") or "").strip()
             if name:
                 href = f"{html_name}#{_slugify(name)}" if html_exists else fallback_href
                 tag_links.append((name, href))
-        for source in source_items[:5]:
+        for source in source_items[:8]:
             name = str(source or "").strip()
             if name:
                 href = f"{html_name}#source-{_slugify(name)}" if html_exists else fallback_href
                 tag_links.append((name, href))
-        tag_names = [name for name, _href in tag_links]
-        tags_html = "".join(
-            f'<a href="{_escape_html(href)}">{_escape_html(tag)}</a>'
-            for tag, href in tag_links[:12]
+        dedup_tag_links: list[tuple[str, str]] = []
+        seen_tags: set[str] = set()
+        for name, href in tag_links:
+            key = name.lower()
+            if key in seen_tags:
+                continue
+            seen_tags.add(key)
+            dedup_tag_links.append((name, href))
+            if len(dedup_tag_links) >= 20:
+                break
+        tag_names = [name for name, _href in dedup_tag_links]
+        tags_html = (
+            "  ".join(
+                f'<a href="{_escape_html(href)}">{_escape_html(name)}</a>'
+                for name, href in dedup_tag_links
+            )
+            if dedup_tag_links
+            else "<span>暂无标签</span>"
         )
 
-        story_links = []
-        for story in story_items[:6]:
+        story_links: list[str] = []
+        for story in story_items[:8]:
             title = str(story.get("title") or "").strip()
             link = str(story.get("link") or "#").strip()
             source = str(story.get("section") or "").strip()
             if not title:
                 continue
             story_links.append(
-                '<li>'
+                "<li>"
                 f'<a href="{_escape_html(link)}" target="_blank" rel="noopener noreferrer">{_escape_html(title)}</a>'
-                + (f"<small>{_escape_html(source)}</small>" if source else "")
-                + '</li>'
+                + (f'<small>{_escape_html(source)}</small>' if source else "")
+                + "</li>"
             )
         if not story_links and txt_exists:
             story_links.append(
-                '<li>'
+                "<li>"
                 f'<a href="{_escape_html(txt_name)}" target="_blank" rel="noopener noreferrer">查看当日 TXT 全文归档</a>'
                 + "</li>"
             )
+        story_html = "".join(story_links) if story_links else "<li><span>暂无资讯条目</span></li>"
 
         summary = hero_summary
         if not summary and first_theme:
@@ -2180,389 +2198,293 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
             )
         if error_count:
             action_links.append(f"<span>异常 {error_count}</span>")
-        issue_actions_html = "".join(action_links) or "<span>暂无可用文件</span>"
+        actions_html = "  ".join(action_links) if action_links else "<span>暂无可用文件</span>"
 
+        row_meta = f"{story_count} 条 · {theme_count} 主题 · {source_count} 来源"
+        open_attr = " open" if idx == 0 else ""
         timeline_rows.append(
-            '<details class="timeline-item"'
-            f' data-title="{_escape_html((headline + " " + " ".join(tag_names)).lower())}"'
-            f'{" open" if idx == 0 else ""}>'
-            '<summary>'
-            '<span class="timeline-dot" aria-hidden="true"></span>'
-            f'<time datetime="{_escape_html(day)}">{_escape_html(display_date)}</time>'
-            f'<strong>{_escape_html(headline)}</strong>'
-            f'<span class="row-meta">{story_count} 条 · {theme_count} 主题 · {source_count} 来源</span>'
-            '<span class="chevron" aria-hidden="true">›</span>'
-            '</summary>'
-            '<div class="timeline-detail">'
-            f'<p>{_escape_html(summary)}</p>'
-            f'<div class="tag-row">{tags_html or "<span>暂无标签</span>"}</div>'
-            f'<ul class="issue-links">{"".join(story_links) or "<li><span>暂无资讯条目</span></li>"}</ul>'
-            '<div class="issue-actions">'
-            f"{issue_actions_html}"
-            + '</div>'
-            + '</div>'
-            + '</details>'
+            '<details class="issue-item"'
+            + f' data-title="{_escape_html((headline + " " + " ".join(tag_names)).lower())}"'
+            + f' data-day="{_escape_html(day)}"'
+            + open_attr
+            + ">"
+            + "<summary>"
+            + f'<time datetime="{_escape_html(day)}">{_escape_html(display_date)}</time>'
+            + f'<strong>{_escape_html(headline)}</strong>'
+            + '<span class="toggle-copy toggle-open">Show details</span>'
+            + '<span class="toggle-copy toggle-close">Hide details</span>'
+            + "</summary>"
+            + f'<div class="meta-row">{_escape_html(row_meta)}</div>'
+            + '<div class="issue-body">'
+            + f'<div class="tag-row">{tags_html}</div>'
+            + f'<p class="summary">{_escape_html(summary)}</p>'
+            + f'<ul class="story-list">{story_html}</ul>'
+            + f'<div class="issue-actions">{actions_html}</div>'
+            + "</div>"
+            + "</details>"
         )
 
-    rows_html = "".join(timeline_rows) or '<p class="empty-copy">暂无归档。</p>'
+    rows_html = "\n".join(timeline_rows) or '<p class="empty-copy">暂无归档。</p>'
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>人工智能新闻</title>
+  <title>AI 每日简报</title>
   <style>
     :root {{
-      --bg: #f5f5f4;
-      --text: #171717;
-      --muted: #737373;
-      --line: #d9d9d6;
-      --card: #f7f7f6;
-      --card-hover: #ffffff;
-      --shadow: 0 1px 2px rgba(0,0,0,.03);
+      --bg: #f6f6f2;
+      --text: #1f1f1f;
+      --muted: #5f5f5f;
+      --line: #d8d8d2;
+      --accent: #111;
     }}
     * {{ box-sizing: border-box; }}
     html {{ scroll-behavior: smooth; }}
     body {{
       margin: 0;
-      min-height: 100vh;
       background: var(--bg);
       color: var(--text);
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+      line-height: 1.55;
       font-size: 14px;
-      line-height: 1.5;
     }}
-    a {{ color: inherit; text-decoration: none; }}
-    a:hover {{ text-decoration: underline; }}
-    .site-shell {{
-      width: min(1180px, calc(100vw - 48px));
+    a {{
+      color: inherit;
+      text-decoration: none;
+    }}
+    a:hover {{
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }}
+    .page {{
+      width: min(980px, calc(100vw - 36px));
       margin: 0 auto;
-      padding: 22px 0 72px;
+      padding: 20px 0 60px;
     }}
-    .topbar {{
+    .top-nav {{
       display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
       align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      min-height: 30px;
+      font-size: 13px;
+      color: #333;
+      margin-bottom: 18px;
+    }}
+    .top-nav .slash {{
+      color: #888;
     }}
     .brand {{
       display: inline-flex;
       align-items: center;
+      padding: 1px 7px;
       min-height: 22px;
-      padding: 0 7px;
-      background: #050505;
+      background: var(--accent);
       color: #fff;
       font-weight: 700;
       letter-spacing: .03em;
-      font-size: 13px;
+      margin-right: 8px;
     }}
-    .top-links {{
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: #111;
-      font-size: 13px;
-    }}
-    .top-links a,
-    .search-pill {{
-      color: #111;
-      opacity: .86;
-    }}
-    .search-pill {{
-      display: inline-flex;
-      align-items: center;
-      min-height: 24px;
-      padding: 0 9px;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      background: rgba(255,255,255,.46);
-      font-size: 12px;
-    }}
-    .hero {{
-      min-height: 188px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      color: rgba(0,0,0,.16);
-      font-size: clamp(15px, 2vw, 22px);
-      font-weight: 650;
-      letter-spacing: .02em;
-      user-select: none;
-    }}
-    .timeline-head {{
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 24px;
-      margin-bottom: 28px;
-    }}
-    .timeline-head h1 {{
+    h1 {{
       margin: 0;
-      font-size: 15px;
-      line-height: 1;
-      font-weight: 750;
+      font-size: clamp(24px, 3.3vw, 34px);
+      line-height: 1.1;
+      letter-spacing: .01em;
     }}
-    .filter-box {{
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: #555;
-      font-size: 13px;
-    }}
-    .filter-box input {{
-      width: min(220px, 32vw);
-      height: 28px;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      background: rgba(255,255,255,.58);
-      padding: 0 9px;
-      outline: none;
-      color: #222;
-    }}
-    .filter-box input:focus {{
-      border-color: #9f9f9b;
-      background: #fff;
-    }}
-    .all-link {{
-      justify-self: end;
-      color: #222;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-      font-size: 13px;
-    }}
-    .timeline {{
-      position: relative;
-      padding-left: 32px;
-    }}
-    .timeline::before {{
-      content: "";
-      position: absolute;
-      left: 12px;
-      top: 0;
-      bottom: 0;
-      width: 1px;
-      background: var(--line);
-    }}
-    .timeline-item {{
-      position: relative;
-      margin: 0 0 14px;
-    }}
-    .timeline-item[hidden] {{ display: none; }}
-    .timeline-item summary {{
-      position: relative;
-      display: grid;
-      grid-template-columns: 92px minmax(180px, 1fr) auto 20px;
-      align-items: center;
-      gap: 16px;
-      min-height: 40px;
-      padding: 0 10px;
-      list-style: none;
-      cursor: pointer;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: var(--card);
-      box-shadow: var(--shadow);
-    }}
-    .timeline-item summary::-webkit-details-marker {{ display: none; }}
-    .timeline-item summary:hover {{
-      background: var(--card-hover);
-    }}
-    .timeline-dot {{
-      position: absolute;
-      left: -24px;
-      top: 50%;
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #777;
-      transform: translateY(-50%);
-      box-shadow: 0 0 0 4px var(--bg);
-    }}
-    time {{
-      color: #777;
-      font-size: 13px;
-      white-space: nowrap;
-    }}
-    summary strong {{
+    .byline {{
+      margin: 8px 0 0;
+      color: #444;
       font-size: 14px;
-      font-weight: 760;
-      color: #262626;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
     }}
-    .row-meta {{
-      color: #777;
-      font-size: 12px;
-      white-space: nowrap;
+    .intro {{
+      margin: 8px 0 0;
+      color: #404040;
+      max-width: 760px;
     }}
-    .chevron {{
-      color: #3f3f3f;
-      font-size: 26px;
-      line-height: 1;
-      transform: translateY(-1px);
-      transition: transform .15s ease;
+    .stats {{
+      margin: 12px 0 24px;
+      color: #5d5d5d;
+      font-size: 13px;
     }}
-    .timeline-item[open] .chevron {{
-      transform: rotate(90deg) translateX(-1px);
+    .section-head {{
+      margin: 28px 0 14px;
     }}
-    .timeline-detail {{
-      margin: 8px 0 18px;
-      padding: 16px 18px 18px;
-      border: 1px solid var(--line);
-      border-top: 0;
-      border-radius: 0 0 8px 8px;
-      background: rgba(255,255,255,.46);
-      color: #303030;
+    .section-head h2 {{
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.2;
     }}
-    .timeline-detail p {{
-      margin: 0 0 12px;
-      max-width: 920px;
-    }}
-    .tag-row {{
+    .filter-row {{
       display: flex;
       flex-wrap: wrap;
-      gap: 7px;
-      margin-bottom: 14px;
-      color: #686868;
+      align-items: center;
+      gap: 8px;
+      color: #444;
+      font-size: 13px;
+    }}
+    .filter-row input {{
+      width: min(240px, 100%);
+      min-height: 28px;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 4px;
+      padding: 0 8px;
+      outline: none;
+    }}
+    .filter-row input:focus {{
+      border-color: #9f9f99;
+    }}
+    .filter-row .invalid-copy {{
+      display: none;
+      color: #9c2f2f;
+    }}
+    .issues {{
+      margin-top: 14px;
+    }}
+    .issue-item {{
+      border-bottom: 1px solid var(--line);
+      padding: 10px 0 14px;
+    }}
+    .issue-item[hidden] {{
+      display: none;
+    }}
+    .issue-item summary {{
+      list-style: none;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      cursor: pointer;
+    }}
+    .issue-item summary::-webkit-details-marker {{
+      display: none;
+    }}
+    .issue-item time {{
+      min-width: 56px;
+      color: #666;
+      font-size: 13px;
+      white-space: nowrap;
+    }}
+    .issue-item strong {{
+      font-size: 15px;
+      line-height: 1.35;
+      font-weight: 750;
+    }}
+    .toggle-copy {{
+      margin-left: auto;
+      color: #666;
+      font-size: 12px;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      white-space: nowrap;
+    }}
+    .issue-item .toggle-close {{
+      display: none;
+    }}
+    .issue-item[open] .toggle-open {{
+      display: none;
+    }}
+    .issue-item[open] .toggle-close {{
+      display: inline;
+    }}
+    .meta-row {{
+      margin: 4px 0 0 66px;
+      color: #6d6d6d;
+      font-size: 12px;
+    }}
+    .issue-body {{
+      margin: 8px 0 0 66px;
+    }}
+    .tag-row {{
+      margin: 0 0 8px;
+      color: #606060;
       font-size: 12px;
     }}
     .tag-row a,
     .tag-row span {{
-      padding: 2px 7px;
-      border: 1px solid #ddddda;
-      border-radius: 999px;
-      background: rgba(255,255,255,.55);
+      margin-right: 8px;
+      white-space: nowrap;
     }}
-    .tag-row a:hover {{
-      background: #fff;
-      border-color: #bdbdb8;
-      text-decoration: none;
+    .summary {{
+      margin: 0 0 10px;
+      color: #2f2f2f;
     }}
-    .issue-links {{
-      margin: 0;
+    .story-list {{
+      margin: 0 0 10px;
       padding-left: 18px;
       display: grid;
-      gap: 7px;
+      gap: 6px;
     }}
-    .issue-links small {{
+    .story-list small {{
       margin-left: 8px;
-      color: var(--muted);
+      color: #717171;
+      font-size: 12px;
     }}
     .issue-actions {{
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       gap: 12px;
-      margin-top: 16px;
-      color: #444;
+      color: #5a5a5a;
       font-size: 13px;
     }}
-    .issue-actions a {{
-      text-decoration: underline;
-      text-underline-offset: 2px;
+    .empty-copy {{
+      color: #666;
+      font-size: 14px;
     }}
-    .empty-copy,
-    .invalid-copy {{
-      color: var(--muted);
-    }}
-    .invalid-copy {{
-      display: none;
-      margin-left: 8px;
-      font-size: 12px;
-    }}
-    .footer {{
-      margin: 44px 0 0 32px;
-      color: var(--muted);
+    footer {{
+      margin-top: 30px;
+      color: #666;
       font-size: 13px;
     }}
     @media (max-width: 760px) {{
-      .site-shell {{
-        width: min(100vw - 24px, 1180px);
+      .page {{
+        width: min(100vw - 22px, 980px);
         padding-top: 14px;
       }}
-      .topbar,
-      .timeline-head {{
-        grid-template-columns: 1fr;
-      }}
-      .topbar {{
-        align-items: flex-start;
-      }}
-      .top-links {{
+      .issue-item summary {{
         flex-wrap: wrap;
       }}
-      .hero {{
-        min-height: 110px;
+      .toggle-copy {{
+        margin-left: 0;
       }}
-      .timeline-head {{
-        display: grid;
-        gap: 12px;
-      }}
-      .filter-box {{
-        align-items: flex-start;
-        flex-direction: column;
-      }}
-      .filter-box input {{
-        width: 100%;
-      }}
-      .all-link {{
-        justify-self: start;
-      }}
-      .timeline {{
-        padding-left: 24px;
-      }}
-      .timeline::before {{
-        left: 9px;
-      }}
-      .timeline-item summary {{
-        grid-template-columns: 64px minmax(0, 1fr) 18px;
-        gap: 10px;
-        min-height: 46px;
-      }}
-      .timeline-dot {{
-        left: -19px;
-      }}
-      .row-meta {{
-        display: none;
-      }}
-      summary strong {{
-        white-space: normal;
+      .meta-row,
+      .issue-body {{
+        margin-left: 0;
       }}
     }}
   </style>
 </head>
 <body>
-  <div class="site-shell">
-    <header class="topbar">
-      <a class="brand" href="index.html">人工智能新闻</a>
-      <nav class="top-links" aria-label="站点导航">
-        <a href="latest.html">最新</a><span>/</span>
-        <a href="index.html">归档</a><span>/</span>
-        <a href="#timeline">标签</a><span>/</span>
-        <span class="search-pill">搜索(Cmd+K)</span>
-      </nav>
-    </header>
+  <div class="page">
+    <nav class="top-nav" aria-label="站点导航">
+      <a class="brand" href="index.html">AI日报</a>
+      <a href="latest.html">latest</a><span class="slash">/</span>
+      <a href="#timeline">issues</a><span class="slash">/</span>
+      <a href="#timeline">tags</a><span class="slash">/</span>
+      <span>Search (Cmd+K)</span>
+    </nav>
 
-    <section class="hero" aria-label="站点介绍">
-      <div>中文 AI 每日简报 · {len(all_days)} days · {total_story_count} stories</div>
-    </section>
+    <h1>AI每日简报</h1>
+    <p class="byline">by Kanyun · 自动汇总每日 AI 资讯</p>
+    <p class="intro">将每日信息报告按时间线排列在同一页，支持按标题关键词筛选，并保留每期 HTML/TXT/JSON 原始归档链接。</p>
+    <p class="stats">共 {len(all_days)} 天归档 · 累计 {total_story_count} 条资讯</p>
 
-    <section class="timeline-head">
-      <h1>All archived days in AI</h1>
-      <label class="filter-box">
+    <section class="section-head" id="timeline">
+      <h2>All Days in AI</h2>
+      <div class="filter-row">
         <span>Filter titles:</span>
-        <input id="title-filter" type="text" value="^((?!not much).)*$" aria-describedby="filter-error" />
+        <input id="title-filter" type="text" value="" aria-describedby="filter-error" />
         <span class="invalid-copy" id="filter-error">Invalid regex</span>
-      </label>
-      <a class="all-link" href="latest.html">See all issues</a>
+        <a href="latest.html">See latest issue</a>
+      </div>
     </section>
 
-    <main class="timeline" id="timeline">
+    <main class="issues">
       {rows_html}
     </main>
 
-    <footer class="footer">
-      最新一期：{_escape_html(latest_day)} · {latest_story_count} 条资讯 · {latest_source_count} 个来源 · 本页由本地脚本自动生成
+    <footer>
+      最新一期：{_escape_html(latest_day)} · {latest_story_count} 条资讯 · {latest_source_count} 个来源
     </footer>
   </div>
 
@@ -2570,12 +2492,12 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
     (() => {{
       const input = document.getElementById('title-filter');
       const error = document.getElementById('filter-error');
-      const items = Array.from(document.querySelectorAll('.timeline-item[data-title]'));
+      const items = Array.from(document.querySelectorAll('.issue-item[data-title]'));
       if (!input || !items.length) return;
 
       const applyFilter = () => {{
-        let regex = null;
         const value = input.value.trim();
+        let regex = null;
         if (value) {{
           try {{
             regex = new RegExp(value, 'i');
@@ -2587,6 +2509,7 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
         }} else if (error) {{
           error.style.display = 'none';
         }}
+
         items.forEach((item) => {{
           item.hidden = Boolean(regex && !regex.test(item.dataset.title || ''));
         }});
