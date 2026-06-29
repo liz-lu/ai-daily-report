@@ -1163,6 +1163,21 @@ def _load_archive_payload(path: Path) -> dict[str, Any] | None:
         return None
 
 
+def _strip_error_section_from_text_archive(text: str) -> str:
+    """Keep old TXT archives readable in the homepage without surfacing fetch failures."""
+    markers = ("\n## 附：抓取异常", "\n附：抓取异常")
+    cleaned = text
+    for marker in markers:
+        if marker in cleaned:
+            cleaned = cleaned.split(marker, 1)[0].rstrip()
+    filtered_lines = [
+        line
+        for line in cleaned.splitlines()
+        if "[抓取失败]" not in line and "[解析失败]" not in line and "[未知 Feed 格式]" not in line
+    ]
+    return "\n".join(filtered_lines).rstrip()
+
+
 def render_index_html(out_dir: Path, latest_name: str) -> str:
     entries = sorted(out_dir.glob("AI简报-*.html"), key=lambda path: path.name, reverse=True)
     days = [path.stem.replace("AI简报-", "") for path in entries]
@@ -1249,6 +1264,11 @@ def render_index_html(out_dir: Path, latest_name: str) -> str:
 
         theme_items = payload.get("themes", []) if payload else []
         story_items = payload.get("stories", []) if payload else []
+        story_items = [
+            story
+            for story in story_items
+            if not str(story.get("title") or "").strip().startswith("[")
+        ]
         source_items = payload.get("sources", []) if payload else []
 
         theme_cards = []
@@ -2091,6 +2111,11 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
         key_themes = llm_summary.get("keyThemes", []) if isinstance(llm_summary, dict) else []
         theme_items = payload.get("themes", []) if payload else []
         story_items = payload.get("stories", []) if payload else []
+        story_items = [
+            story
+            for story in story_items
+            if not str(story.get("title") or "").strip().startswith("[")
+        ]
         source_items = payload.get("sources", []) if payload else []
         hero_summary = str((llm_summary or {}).get("heroSummary") or "").strip() if isinstance(llm_summary, dict) else ""
 
@@ -2152,6 +2177,7 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
                 txt_archive = txt_path.read_text(encoding="utf-8")
             except Exception:
                 txt_archive = ""
+            txt_archive = _strip_error_section_from_text_archive(txt_archive)
             if txt_archive:
                 txt_archive_html = f'<pre class="txt-archive">{_escape_html(txt_archive)}</pre>'
 
@@ -2168,8 +2194,6 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
             action_links.append(
                 f'<a href="AI简报-{_escape_html(day)}.json" target="_blank" rel="noopener noreferrer">JSON</a>'
             )
-        if error_count:
-            action_links.append(f"<span>异常 {error_count}</span>")
         action_html = "".join(action_links)
         file_meta = " · ".join(
             label for label, exists in (("HTML", has_html), ("JSON", has_json), ("TXT", has_txt)) if exists
