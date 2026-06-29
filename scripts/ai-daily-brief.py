@@ -585,9 +585,9 @@ def render_brief_html(
                 "<article class=\"story-card\">"
                 f"<div class=\"story-card__source\">{_escape_html(section)}</div>"
                 f"<h3>{_escape_html(title)}</h3>"
-                f"{f'<p>{_escape_html(excerpt)}</p>' if excerpt else ''}"
-                f'<a href="{_escape_html(link)}" target="_blank" rel="noreferrer">查看原文</a>'
-                "</article>"
+                + (f"<p>{_escape_html(excerpt)}</p>" if excerpt else "")
+                + f'<a href="{_escape_html(link)}" target="_blank" rel="noreferrer">查看原文</a>'
+                + "</article>"
             )
         theme_sections.append(
             f'<section class="section-card" id="{card["anchor"]}">'
@@ -631,9 +631,13 @@ def render_brief_html(
             '<article class="source-item">'
             f"<div class=\"source-meta\">{_escape_html(pub or '无时间信息')}</div>"
             f"<h3>{_escape_html(title)}</h3>"
-            f"{f'<p>{_escape_html(excerpt)}</p>' if excerpt else ''}"
-            f'{f"<a href=\"{_escape_html(link)}\" target=\"_blank\" rel=\"noreferrer\">原文链接</a>" if link.startswith("http") else ""}'
-            "</article>"
+            + (f"<p>{_escape_html(excerpt)}</p>" if excerpt else "")
+            + (
+                f'<a href="{_escape_html(link)}" target="_blank" rel="noreferrer">原文链接</a>'
+                if link.startswith("http")
+                else ""
+            )
+            + "</article>"
         )
     flush_source_section(current_section, current_items)
 
@@ -1244,9 +1248,9 @@ def render_index_html(out_dir: Path, latest_name: str) -> str:
             quick_story_rows.append(
                 '<article class="story-row">'
                 f'<a class="story-row__title" href="{link}" target="_blank" rel="noopener noreferrer">{title}</a>'
-                f'{f"<div class=\"story-row__meta\">{meta}</div>" if meta else ""}'
-                f'{f"<p>{_escape_html(excerpt)}</p>" if excerpt else ""}'
-                '</article>'
+                + (f'<div class="story-row__meta">{meta}</div>' if meta else "")
+                + (f"<p>{_escape_html(excerpt)}</p>" if excerpt else "")
+                + '</article>'
             )
 
         impact_html = "".join(f"<li>{_escape_html(item)}</li>" for item in impact_notes[:4]) or "<li>暂无补充观察。</li>"
@@ -1285,10 +1289,18 @@ def render_index_html(out_dir: Path, latest_name: str) -> str:
             '</div>'
             '<div class="day-actions">'
             f'<a class="action-primary" href="{_escape_html(path.name)}" target="_blank" rel="noopener noreferrer">单独打开网页</a>'
-            f'{f"<a class=\"action-secondary\" href=\"{_escape_html(txt_name)}\" target=\"_blank\" rel=\"noopener noreferrer\">TXT</a>" if txt_exists else ""}'
-            f'{f"<a class=\"action-secondary\" href=\"{_escape_html(json_name)}\" target=\"_blank\" rel=\"noopener noreferrer\">JSON</a>" if json_exists else ""}'
-            '</div>'
-            '</div>'
+            + (
+                f'<a class="action-secondary" href="{_escape_html(txt_name)}" target="_blank" rel="noopener noreferrer">TXT</a>'
+                if txt_exists
+                else ""
+            )
+            + (
+                f'<a class="action-secondary" href="{_escape_html(json_name)}" target="_blank" rel="noopener noreferrer">JSON</a>'
+                if json_exists
+                else ""
+            )
+            + '</div>'
+            + '</div>'
             '<div class="stat-row">'
             f'<span class="stat-pill">资讯 {story_count}</span>'
             f'<span class="stat-pill">主题 {theme_count}</span>'
@@ -1991,8 +2003,8 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
             story_links.append(
                 '<li>'
                 f'<a href="{_escape_html(link)}" target="_blank" rel="noopener noreferrer">{_escape_html(title)}</a>'
-                f'{f"<small>{_escape_html(source)}</small>" if source else ""}'
-                '</li>'
+                + (f"<small>{_escape_html(source)}</small>" if source else "")
+                + '</li>'
             )
 
         summary = hero_summary
@@ -2020,10 +2032,10 @@ def render_index_timeline_html(out_dir: Path, latest_name: str) -> str:
             f'<a href="{_escape_html(path.name)}" target="_blank" rel="noopener noreferrer">打开当日网页</a>'
             f'<a href="AI简报-{_escape_html(day)}.txt" target="_blank" rel="noopener noreferrer">TXT</a>'
             f'<a href="AI简报-{_escape_html(day)}.json" target="_blank" rel="noopener noreferrer">JSON</a>'
-            f'{f"<span>异常 {error_count}</span>" if error_count else ""}'
-            '</div>'
-            '</div>'
-            '</details>'
+            + (f"<span>异常 {error_count}</span>" if error_count else "")
+            + '</div>'
+            + '</div>'
+            + '</details>'
         )
 
     rows_html = "".join(timeline_rows) or '<p class="empty-copy">暂无归档。</p>'
