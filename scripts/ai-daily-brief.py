@@ -991,7 +991,7 @@ def render_brief_html(
       <a class="toc-link" href="#insights">模型总结</a>
       {nav_links}
       <a class="toc-link" href="#timeline">分源时间线</a>
-      {"<a class=\"toc-link\" href=\"#errors\">抓取异常</a>" if errors else ""}
+      {'<a class="toc-link" href="#errors">抓取异常</a>' if errors else ''}
     </aside>
     <main class="main">
       <section class="hero" id="hero">
@@ -1269,6 +1269,8 @@ def render_index_html(out_dir: Path, latest_name: str) -> str:
             f'<span class="source-pill">{_escape_html(str(source))}</span>'
             for source in source_items[:8]
         ) or '<span class="source-pill">暂无来源信息</span>'
+        theme_grid_html = "".join(theme_cards) or '<p class="empty-copy">暂无主题聚合内容。</p>'
+        story_list_html = "".join(quick_story_rows) or '<p class="empty-copy">暂无资讯条目。</p>'
 
         nav_links.append(
             f'<a class="date-chip{" date-chip--latest" if is_latest else ""}{" is-active" if is_latest else ""}" href="#" data-target="{_escape_html(section_id)}">{_escape_html(day)}{" · 最新" if is_latest else ""}</a>'
@@ -1312,7 +1314,7 @@ def render_index_html(out_dir: Path, latest_name: str) -> str:
             '<div class="panel-head"><h3>模型抓手</h3><span>快速看懂这一天</span></div>'
             f'<ul class="summary-list">{key_theme_html}</ul>'
             '<div class="panel-head panel-head--spaced"><h3>重点主题</h3><span>点击上方日期，下面内容会直接切换</span></div>'
-            f'<div class="theme-grid">{"".join(theme_cards) or "<p class=\"empty-copy\">暂无主题聚合内容。</p>"}</div>'
+            f'<div class="theme-grid">{theme_grid_html}</div>'
             '</section>'
             '<aside class="content-side">'
             '<section class="side-card">'
@@ -1331,7 +1333,7 @@ def render_index_html(out_dir: Path, latest_name: str) -> str:
             '</div>'
             '<section class="content-panel content-panel--stories">'
             '<div class="panel-head"><h3>当日资讯列表</h3><span>保留原始链接，方便继续深挖</span></div>'
-            f'<div class="story-list">{"".join(quick_story_rows) or "<p class=\"empty-copy\">暂无资讯条目。</p>"}</div>'
+            f'<div class="story-list">{story_list_html}</div>'
             '</section>'
             '</article>'
         )
