@@ -4,56 +4,57 @@
 <meta charset="UTF-8">
 <title>度小满笔试 - 内容AI - 选题搭子</title>
 <style>
-@page { size: A4; margin: 9mm 11mm; }
+@page { size: A4; margin: 5mm 7mm; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  font-size: 9px;
-  line-height: 1.4;
+  font-size: 9.3px;
+  line-height: 1.34;
   color: #1a1a1a;
   width: 210mm;
-  min-height: 297mm;
+  height: 297mm;
   margin: 0 auto;
-  padding: 9mm 11mm;
+  padding: 8mm 8mm;
   background: white;
+  overflow: hidden;
 }
 @media print { body { padding: 0; } }
-h1 { font-size: 15px; font-weight: 700; }
-h2 { font-size: 10px; font-weight: 700; color: #2d5be3; margin-bottom: 2.5px; padding-bottom: 1.5px; border-bottom: 1.5px solid #2d5be3; }
-h3 { font-size: 9px; font-weight: 600; margin-bottom: 1.5px; margin-top: 3px; }
-.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px; padding-bottom: 4px; border-bottom: 2px solid #1a1a1a; }
-.header-left h1 { margin-bottom: 1px; }
-.header-left .subtitle { font-size: 9.5px; color: #2d5be3; font-weight: 500; }
-.header-right { text-align: right; font-size: 8px; color: #666; line-height: 1.4; }
-.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 5px; }
-.section { margin-bottom: 5px; }
-.card { background: #f6f8fe; border-radius: 3px; padding: 5px 6px; margin-bottom: 3px; }
-.highlight { background: #2d5be3; color: white; padding: 0.5px 4px; border-radius: 2px; font-size: 8px; font-weight: 600; }
-.metric { display: inline-block; background: #e8eeff; padding: 0.5px 4px; border-radius: 2px; font-weight: 600; color: #2d5be3; font-size: 8px; }
-ul { padding-left: 11px; margin-bottom: 2px; }
-li { margin-bottom: 1px; }
-.evidence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
-.evidence-item { background: #fffdf5; border-left: 2.5px solid #f0a030; padding: 3px 5px; border-radius: 0 3px 3px 0; font-size: 8.5px; line-height: 1.35; }
-.evidence-item .source { font-size: 7px; color: #999; margin-top: 1px; font-style: italic; }
-.flow { display: flex; align-items: center; gap: 2px; margin: 3px 0; flex-wrap: wrap; }
-.flow-step { background: #e8eeff; padding: 2.5px 5px; border-radius: 3px; font-size: 8px; font-weight: 500; }
-.flow-arrow { color: #2d5be3; font-weight: bold; font-size: 9px; }
-.table { width: 100%; border-collapse: collapse; font-size: 8px; margin-top: 2px; }
-.table th { background: #2d5be3; color: white; padding: 2px 3px; text-align: left; font-size: 7.5px; }
-.table td { padding: 2px 3px; border-bottom: 1px solid #eee; }
+h1 { font-size: 16px; font-weight: 700; }
+h2 { font-size: 11px; font-weight: 700; color: #2d5be3; margin-bottom: 4px; padding-bottom: 2.5px; border-bottom: 1.5px solid #2d5be3; }
+h3 { font-size: 9.5px; font-weight: 600; margin-bottom: 2px; margin-top: 5px; }
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; padding-bottom: 5px; border-bottom: 2px solid #1a1a1a; }
+.header-left h1 { margin-bottom: 3px; }
+.header-left .subtitle { font-size: 10px; color: #2d5be3; font-weight: 500; }
+.header-right { text-align: right; font-size: 8.5px; color: #666; line-height: 1.5; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 7px; }
+.section { margin-bottom: 7px; }
+.card { background: #f6f8fe; border-radius: 4px; padding: 5px 8px; margin-bottom: 4px; }
+.metric { display: inline-block; background: #e8eeff; padding: 2px 6px; border-radius: 2px; font-weight: 600; color: #2d5be3; font-size: 8.5px; }
+ul { padding-left: 14px; margin-bottom: 4px; }
+li { margin-bottom: 2px; }
+.evidence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.evidence-item { background: #fffdf5; border-left: 3px solid #f0a030; padding: 4px 6px; border-radius: 0 3px 3px 0; font-size: 9px; line-height: 1.4; }
+.evidence-item .source { font-size: 7.5px; color: #999; margin-top: 2px; font-style: italic; }
+.flow { display: flex; align-items: center; gap: 4px; margin: 4px 0; flex-wrap: wrap; }
+.flow-step { background: #e8eeff; padding: 4px 8px; border-radius: 3px; font-size: 8.5px; font-weight: 500; }
+.flow-arrow { color: #2d5be3; font-weight: bold; font-size: 10px; }
+.table { width: 100%; border-collapse: collapse; font-size: 8.5px; margin-top: 4px; }
+.table th { background: #2d5be3; color: white; padding: 2.5px 5px; text-align: left; font-size: 8px; }
+.table td { padding: 2.5px 5px; border-bottom: 1px solid #eee; }
 .table tr:nth-child(even) td { background: #f9faff; }
-.timeline { display: grid; grid-template-columns: auto 1fr; gap: 1px 5px; font-size: 8.5px; margin-top: 2px; }
+.timeline { display: grid; grid-template-columns: auto 1fr; gap: 3px 8px; font-size: 9px; margin-top: 4px; }
 .timeline .day { font-weight: 600; color: #2d5be3; white-space: nowrap; }
-.footer { margin-top: 3px; padding-top: 2px; border-top: 1px solid #ddd; font-size: 7px; color: #999; text-align: center; }
-.tag { display: inline-block; padding: 0.5px 3px; border-radius: 2px; font-size: 7.5px; background: #e8eeff; color: #2d5be3; margin-right: 2px; }
-.cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; }
-.mini-card { background: white; border: 1px solid #dde4f7; border-radius: 3px; padding: 4px 5px; }
-.mini-card h4 { font-size: 8px; color: #2d5be3; margin-bottom: 1px; }
-.mini-card p { font-size: 7.5px; line-height: 1.35; }
-.callout { background: #f0fff4; border-left: 2.5px solid #34c759; padding: 3px 6px; border-radius: 0 3px 3px 0; margin: 3px 0; font-size: 8px; }
-.risk-note { font-size: 7.5px; color: #555; background: #fafafa; padding: 2px 5px; border-radius: 2px; margin-top: 2px; }
-.persona-box { background: #f0f4ff; border: 1px solid #c5d4ff; border-radius: 4px; padding: 5px 7px; margin: 3px 0; }
-.persona-box .label { font-size: 7.5px; color: #2d5be3; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+.footer { margin-top: 5px; padding-top: 4px; border-top: 1px solid #ddd; font-size: 8px; color: #999; text-align: center; }
+.cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; }
+.mini-card { background: white; border: 1px solid #dde4f7; border-radius: 4px; padding: 5px 7px; }
+.mini-card h4 { font-size: 9px; color: #2d5be3; margin-bottom: 3px; }
+.mini-card p { font-size: 8.5px; line-height: 1.45; }
+.callout { background: #f0fff4; border-left: 3px solid #34c759; padding: 5px 8px; border-radius: 0 3px 3px 0; margin: 4px 0; font-size: 9px; }
+.risk-note { font-size: 8.5px; color: #555; background: #fafafa; padding: 4px 7px; border-radius: 3px; margin-top: 5px; }
+.persona-box { background: #f0f4ff; border: 1px solid #c5d4ff; border-radius: 4px; padding: 5px 8px; margin: 4px 0; }
+.persona-box .label { font-size: 8px; color: #2d5be3; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
+.kv { display: flex; justify-content: space-between; font-size: 8.5px; padding: 2.5px 0; border-bottom: 0.5px dashed #e5e7eb; }
+.kv:last-child { border-bottom: none; }
 </style>
 </head>
 <body>
@@ -61,7 +62,7 @@ li { margin-bottom: 1px; }
 <div class="header">
   <div class="header-left">
     <h1>选题搭子 — AI日更选题引擎</h1>
-    <div class="subtitle">方向3：内容AI ｜ 解决成长期博主"好选题用完了，接下来发什么"的持续焦虑</div>
+    <div class="subtitle">方向3：内容AI ｜ 帮成长期博主在自己赛道里，持续找到"下一个能火的新角度"</div>
   </div>
   <div class="header-right">
     卢佳丽<br>
@@ -76,28 +77,28 @@ li { margin-bottom: 1px; }
     <div class="section">
       <h2>1 机会判断</h2>
 
-      <h3>目标用户：成长期单人创作者</h3>
+      <h3>目标用户：成长期单人创作者（1k-5万粉）</h3>
       <div class="persona-box">
-        <div class="label">核心用户画像</div>
-        <p><strong>平台：</strong>小红书/抖音 ｜ <strong>粉丝：</strong>1k-5万 ｜ <strong>频率：</strong>3-7条/周</p>
-        <p><strong>变现状态：</strong>已开始赚钱（品牌合作/带货，月入2k-2万元）</p>
-        <p><strong>团队：</strong>一个人完成选题→拍摄→剪辑→发布全流程</p>
-        <p><strong>核心特征：</strong>赛道已明确，不再迷茫方向，但面临<strong>持续产出的创意枯竭</strong></p>
+        <div class="label">核心画像</div>
+        <p><strong>平台：</strong>小红书/抖音 ｜ <strong>粉丝：</strong>1k-5万 ｜ <strong>更新频率：</strong>3-7条/周</p>
+        <p><strong>变现：</strong>已开始赚钱（品牌合作/带货，月入2k-2万元）</p>
+        <p><strong>工作方式：</strong>一个人完成选题→拍摄→剪辑→发布全流程</p>
+        <p><strong>核心矛盾：</strong>赛道已明确，执行力不缺，但<strong>不知道在自己赛道里"下一个能火的角度"是什么</strong>——不想重复自己，又没有数据支撑去赌一个新角度</p>
       </div>
 
-      <h3>核心问题</h3>
+      <h3>痛点拆解</h3>
       <div class="card">
-        <p style="font-size:10px;font-weight:600;margin-bottom:3px;">"每天最难的不是拍和剪，是想'今天发什么'——但没有任何工具帮你做这个决策。"</p>
-        <p>拍摄有剪映教，剪辑有模板套，唯独<strong>选题决策</strong>——每天都要做、做错就掉数据的高频判断——完全靠创作者自己硬想。</p>
-        <p style="margin-top:2px;font-size:8px;color:#444;">后果：想不出→断更→算法降权→数据跌→收入跌→更焦虑→更想不出（恶性循环）。一个好选题vs平庸选题，数据差距可达<strong>10倍</strong>。</p>
+        <p style="font-size:10px;font-weight:600;margin-bottom:3px;">"赛道我懂，但这周用什么角度切入、能有数据——完全不确定。"</p>
+        <p>成长期博主的困境不是"没方向"，而是<strong>三重卡点</strong>：① 在自己赛道里找不到"当下能火的新角度"（做美食的知道做美食，但用哪个切入点不知道）；② 重复已有选题会审美疲劳，尝试新角度又怕数据扑街；③ 每一个选题决策都缺数据支撑，只能凭感觉赌。</p>
+        <p style="margin-top:3px;font-size:8.5px;color:#333;"><strong>问题本质：</strong>不是"没灵感"，而是缺少<strong>基于自己赛道的实时数据支撑</strong>——不知道哪个新角度正在起势、哪个已经过时。好选题vs平庸选题，数据差距可达<strong>10倍</strong>。</p>
       </div>
 
       <h3>为什么现在值得做</h3>
       <ul>
-        <li><strong>需求极度刚性但解法原始</strong>：21万浏览的"选题清单"笔记证明需求强烈，而当前最优解是"静态列表"——AI有10倍升级空间</li>
-        <li><strong>LLM个性化能力到位</strong>：可理解赛道+人设+已发内容→推荐差异化新角度</li>
-        <li><strong>高频场景=天然高留存</strong>：每天都要做选题决策，不是一次性工具</li>
-        <li><strong>平台不会自己做</strong>：平台追求内容多样性，不会告诉每个人"你该发什么"（会导致同质化）</li>
+        <li><strong>需求刚性但解法原始</strong>：21万浏览的"选题清单"笔记证明需求强烈，当前最优解是"100个通用选题清单"——AI可以做到千人千面、每日更新</li>
+        <li><strong>LLM结构化输出成熟</strong>：可根据赛道+人设+风格生成完整的执行方案（选题→分镜→发布策略），不再只是"给个idea"</li>
+        <li><strong>高频=天然高留存</strong>：日更博主每天都需要，周更也是每周3-7次决策场景</li>
+        <li><strong>平台不会自己做</strong>：平台追求内容多样性，不会告诉个人"你该发什么"（与多样性利益冲突）</li>
       </ul>
     </div>
   </div>
@@ -107,34 +108,34 @@ li { margin-bottom: 1px; }
       <h2>2 用户证据</h2>
       <div class="evidence-grid">
         <div class="evidence-item">
-          <strong>"谁拍谁火的100个vlog选题"</strong> 单篇21.3万浏览、8846收藏。标题中"谁拍谁火"表明读者已在创作、追求爆款——正是成长期博主
+          <strong>"谁拍谁火的100个vlog选题"</strong> 单篇21.3万浏览、8846收藏。"谁拍谁火"=读者已在创作且追求爆款——精准命中成长期博主
           <div class="source">小红书 · @一只鱼 · 2026.03 · 实际搜索截图</div>
         </div>
         <div class="evidence-item">
-          <strong>"120个容易爆火的选题"</strong> 4340赞、1万+收藏。同类笔记反复爆火→选题焦虑是持续性痛点，从未被工具化解决
+          <strong>"120个容易爆火的选题"</strong> 4340赞、1万+收藏。同类笔记反复爆火说明：选题需求是<strong>持续性</strong>的，静态清单用完又要找新的
           <div class="source">小红书 · @大咖新媒体运营 · 实际搜索截图</div>
         </div>
         <div class="evidence-item">
-          <strong>37%创作者因"不知道从哪开始"放弃视频</strong>。国际数据交叉验证：内容决策障碍是全球创作者共性痛点
+          <strong>37%创作者因"不知道从哪开始"放弃视频</strong>。不是缺技能，是决策瘫痪——全球创作者共性痛点
           <div class="source">Sprout Social · 2025 Video Marketing Report</div>
         </div>
         <div class="evidence-item">
-          <strong>63%视频营销者已使用AI工具</strong>。市场教育完成，AI辅助创作已被广泛接受，无认知门槛
+          <strong>63%视频创作者已使用AI工具</strong>。市场教育已完成，AI辅助创作被广泛接受，用户无认知门槛
           <div class="source">Wyzowl · State of Video Marketing 2025</div>
         </div>
       </div>
 
-      <h3 style="margin-top:4px;">现有解法 vs 选题搭子</h3>
+      <h3 style="margin-top:5px;">现有解法 vs 选题搭子</h3>
       <table class="table">
         <tr><th>现有解法</th><th>问题</th><th>选题搭子的升级</th></tr>
-        <tr><td>收藏选题清单</td><td>通用、静态、用完作废</td><td>个性化+每天更新+基于你已做内容推新角度</td></tr>
-        <tr><td>付费社群（199-999/年）</td><td>信噪比低，需自己筛</td><td>AI直接输出匹配你赛道的可执行方案</td></tr>
-        <tr><td>买课（2000-8000）</td><td>教方法不给答案</td><td>不教方法论，直接给今天该发什么</td></tr>
-        <tr><td>问豆包/ChatGPT</td><td>需会写prompt，输出无结构</td><td>零门槛，结构化（标题+角度+为何能火+分镜）</td></tr>
+        <tr><td>收藏选题清单</td><td>通用、静态、用完作废</td><td>个性化+每天更新+算法保证不重复</td></tr>
+        <tr><td>付费社群（199-999/年）</td><td>信噪比低，要自己筛</td><td>AI直接输出匹配你赛道的可拍方案</td></tr>
+        <tr><td>买课/训练营（2000-8000）</td><td>教方法论，不给每天的答案</td><td>不教方法，直接给"今天拍这个"</td></tr>
+        <tr><td>问豆包/ChatGPT</td><td>需写prompt，输出散乱无结构</td><td>零门槛，结构化输出（选题→分镜→发布策略）</td></tr>
       </table>
 
-      <div class="callout" style="margin-top:3px;">
-        <strong>关键洞察：</strong>现有方案要么"教你方法"（需自己转化），要么"给你清单"（通用不个性化）。选题搭子是唯一<strong>"根据你的赛道+已做内容，每天直接告诉你今天发什么"</strong>的方案。
+      <div class="callout" style="margin-top:4px;">
+        <strong>产品定位：</strong>不是又一个"AI写文案"工具。选题搭子只做一件事——<strong>在你已有赛道的基础上，每天推荐"当下能火的新角度"+完整执行方案</strong>，用数据降低每一条内容的决策风险。
       </div>
     </div>
   </div>
@@ -142,45 +143,55 @@ li { margin-bottom: 1px; }
 
 <!-- Row 2: MVP -->
 <div class="section">
-  <h2>3 MVP 样例</h2>
-  <div class="flow">
-    <div class="flow-step">🎯 设置赛道+人设+已做内容方向</div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step">📲 每日推荐5个个性化选题</div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step">👆 点击展开=完整拍摄方案</div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step">🔄 不满意→换一批</div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step">📈 学习偏好，越用越准</div>
+  <h2>3 MVP 产品设计（附完整交互原型）</h2>
+  <div style="background:#2d5be3;color:#fff;border-radius:4px;padding:5px 9px;margin-bottom:5px;font-size:9px;display:flex;align-items:center;gap:6px;">
+    <span style="font-size:11px;">🔗</span>
+    <span><strong>在线体验完整交互原型：</strong><a href="https://liz-lu.github.io/ai-daily-report/duxiaoman-submission/%E5%BA%A6%E5%B0%8F%E6%BB%A1%E7%AC%94%E8%AF%95-MVP%E5%8E%9F%E5%9E%8B.html" style="color:#fff;font-family:Consolas,Monaco,monospace;font-size:8.5px;word-break:break-all;">https://liz-lu.github.io/ai-daily-report/duxiaoman-submission/度小满笔试-MVP原型.html</a></span>
   </div>
-  <p style="font-size:8px;color:#444;margin-bottom:3px;"><strong>产品形态：</strong>微信小程序 + 每日订阅消息推送 ｜ <strong>核心差异：</strong>不是"给你100个通用选题"，是"基于你已有内容+实时热点，每天推5个没做过的、当下能火的新角度"</p>
+  <div class="flow">
+    <div class="flow-step">🎯 设置创作档案（赛道+人设+风格+粉丝+平台）</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">📲 每日推5个选题（带数据支撑）</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">👆 展开=完整执行方案</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">🔄 不满意换一批（保证0重复）</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">⭐ 收藏/标记已拍</div>
+  </div>
+  <p style="font-size:8.5px;color:#333;margin:3px 0;"><strong>产品形态：</strong>H5页面（可封装小程序）｜ <strong>核心机制：</strong>基于创作档案个性化匹配，刷新算法保证每批内容0重复 ｜ <strong>数据规模：</strong>10赛道 × 10选题 = 100条带完整方案的选题库</p>
   <div class="cols-3">
     <div class="mini-card">
-      <h4>选题卡片示例（美食赛道）</h4>
-      <p><strong>"挑战用便利店食材做一人食法餐"</strong><br>
-      角度：反差感+独居共鸣<br>
-      为何现在能火：#反差美食 话题本周上升42%<br>
-      难度⭐⭐ · 预估点赞2000+<br>
-      <em style="color:#666;">你之前没做过"反差"类型→推荐尝试</em></p>
+      <h4>选题卡片（MVP真实数据）</h4>
+      <p><strong>"粤语探店｜本地人大排档隐藏吃法"</strong><br>
+      <strong>角度：</strong>方言人设差异化+本地测评+猎奇感<br>
+      <strong>数据：</strong>方言探店完播率比普通话高2.4倍<br>
+      <strong>来源：</strong>小红书美食频道实时热门 7.8<br>
+      <strong>标签：</strong>差异化强 · 地域特色 · 预估赞2500+<br>
+      <em style="color:#666;font-size:7px;">每条选题均附平台数据支撑，非AI凭空生成</em></p>
     </div>
     <div class="mini-card">
-      <h4>展开=完整执行方案</h4>
-      <p>Hook: "全家47块的东西，做出人均300效果"<br>
-      5镜头分镜（购物→处理→摆盘→成品→开吃）<br>
-      拍摄Tips: 微距拍摆盘+暖光+轻爵士BGM<br>
-      参考爆款: 3条同类高赞视频链接</p>
+      <h4>展开 = 拿到就能拍的执行方案</h4>
+      <p><strong>✅ 拍前准备</strong>（4-5项可勾选清单）<br>
+      <em style="color:#555;">选1家口碑店·确认拍摄可行性·准备食材·手机+稳定器</em><br>
+      <strong>🎬 分镜脚本</strong>（5镜+时间轴+内容）<br>
+      <em style="color:#555;">Hook/0-4s → 环境/4-12s → 上菜 → 特色展示 → 收尾</em><br>
+      <strong>✂️ 剪辑建议</strong><br>
+      <em style="color:#555;">保留环境音·双语字幕·标价格·保持质朴感</em><br>
+      <strong>📱 发布策略</strong><br>
+      <em style="color:#555;">周五18:00发 · #本地美食 #探店vlog · 互动hook设计</em></p>
     </div>
     <div class="mini-card">
-      <h4>技术架构</h4>
-      <p>多模态LLM（理解赛道语境）<br>
-      + 用户已发内容画像（避免重复）<br>
-      + 平台热点追踪（推当下能火的）<br>
-      + 结构化Prompt工程（保证输出质量）<br>
-      <em style="color:#666;">MVP阶段API成本~0.1元/次</em></p>
+      <h4>四大功能模块</h4>
+      <p><strong>💡 推荐：</strong>个性化选题流 + 每日3次刷新 + 展开方案<br>
+      <strong>🔥 热点：</strong>平台实时热点 + 历史热点存档 + 推荐拍摄角度<br>
+      <strong>⭐ 收藏：</strong>收藏管理 + 完整方案随时查 + 可移除<br>
+      <strong>👤 我的：</strong>创作档案编辑 + 数据概览（累计推荐/已采纳/已收藏）+ 升级入口<br><br>
+      <strong>付费设计：</strong>免费5条推荐/3条可展开/3次刷新<br>
+      Pro 无限推荐+全部展开+深度热点+30天存档</p>
     </div>
   </div>
-  <p style="font-size:7.5px;color:#666;margin-top:2px;">▶ 附件：完整交互原型（H5页面，含设置→推荐→展开→换一批全流程） ｜ 核心Prompt工程设计文档</p>
+  <p style="font-size:7.5px;color:#666;margin-top:3px;">▶ 附件：完整可交互H5原型（iPhone 15 Pro仿真框，含引导→档案设置→推荐→展开方案→刷新→收藏→热点→历史→升级全流程，所有按钮/标签页/弹层均可点击交互）</p>
 </div>
 
 <!-- Row 3: 商业判断 + 验证计划 -->
@@ -188,29 +199,31 @@ li { margin-bottom: 1px; }
   <div>
     <div class="section">
       <h2>4 商业判断</h2>
-      <h3>谁付费 & 付费驱动力</h3>
-      <p>成长期博主（1k-5万粉，月入2k-2万）。付费逻辑：<strong>ROI驱动</strong>——一个好选题=一条品牌合作=500-5000元收入。19.9/月的工具如果每月帮多跑出1个爆款，ROI是<strong>25x-250x</strong>。</p>
+      <h3>付费逻辑：ROI驱动</h3>
+      <p style="font-size:8.5px;">目标用户月入2k-2万元。一个好选题=一条品牌合作=500-5000元收入。19.9/月的工具如果每月帮多出1个爆款，ROI是<strong>25x-250x</strong>——付费决策极轻。</p>
 
       <table class="table">
-        <tr><th>套餐</th><th>价格</th><th>权益</th><th>对标</th></tr>
-        <tr><td>免费</td><td>0</td><td>每日推荐5条，可展开3条方案</td><td>—</td></tr>
-        <tr><td>Pro</td><td>19.9元/月</td><td>无限推荐+全部展开+热点数据+避重复</td><td>替代每月买选题包</td></tr>
-        <tr><td>年卡</td><td>99元/年（5折）</td><td>Pro全部+数据复盘+选题日历</td><td>替代199社群</td></tr>
+        <tr><th>套餐</th><th>价格</th><th>权益</th><th>替代方案</th></tr>
+        <tr><td>免费版</td><td>0</td><td>每日5条推荐 · 展开3条方案 · 3次刷新 · 7天历史</td><td>—</td></tr>
+        <tr><td>Pro月卡</td><td>19.9元/月</td><td>无限推荐 · 全部展开 · 深度热点 · 30天存档 · 数据对标</td><td>替代月付选题包</td></tr>
+        <tr><td>Pro年卡</td><td>99元/年（5折）</td><td>Pro全部 + 选题日历 + 数据复盘报告</td><td>替代199-999社群</td></tr>
       </table>
 
       <h3>获客策略（精准触达成长期博主）</h3>
       <ul>
-        <li><strong>定向邀请</strong>：DM小红书/抖音1k-5万粉博主，提供"免费7天定制选题"</li>
-        <li><strong>内容获客</strong>：发"涨粉瓶颈期怎么破"/"日更不掉质的方法"（精准触达成长期人群）</li>
-        <li><strong>裂变</strong>：邀请1位博主好友→双方各+3次免费选题</li>
-        <li><strong>渠道</strong>：与MCN/创作者学院合作（他们有精准成长期博主池）</li>
+        <li><strong>定向DM</strong>：在小红书/抖音找1k-5万粉活跃博主，私信"免费7天定制选题"试用</li>
+        <li><strong>内容获客</strong>：发"日更不掉质量的方法"/"选题焦虑怎么破"精准命中目标人群</li>
+        <li><strong>裂变机制</strong>：邀请1位博主好友 → 双方各+3次免费刷新（利用博主社交圈层）</li>
+        <li><strong>渠道合作</strong>：MCN/创作者学院（精准成长期博主池，批量触达）</li>
       </ul>
 
       <h3>市场空间（保守估算）</h3>
-      <p style="font-size:8px;">小红书+抖音 1k-5万粉活跃创作者约<span class="metric">500-800万</span>｜ 第一年2%渗透=10-16万付费 × 19.9/月 = <span class="metric">月收入200-320万</span>｜ 三年5%渗透 = <span class="metric">月收入800万+</span></p>
+      <div class="kv"><span>小红书+抖音1k-5万粉活跃创作者</span><span class="metric">500-800万人</span></div>
+      <div class="kv"><span>第一年渗透率2% × 19.9元/月</span><span class="metric">月收入200-320万</span></div>
+      <div class="kv"><span>三年渗透率5%（含年卡）</span><span class="metric">年收入1亿+</span></div>
 
       <div class="risk-note">
-        <strong>竞争风险&护城河：</strong>平台自建"创作灵感"？→ 平台做通用推荐（保持多样性），不会为个人定制"你该发什么"（与内容多样性利益矛盾）。我们的壁垒：深度个性化+用户内容画像积累。
+        <strong>竞争壁垒：</strong>① 平台不会自建（告诉个人"你该发什么"与内容多样性利益冲突）；② 创作档案+使用偏好+采纳记录形成个性化数据飞轮；③ 选题库持续扩充+热点追踪构成内容规模壁垒。
       </div>
     </div>
   </div>
@@ -219,36 +232,36 @@ li { margin-bottom: 1px; }
     <div class="section">
       <h2>5 两周验证计划</h2>
       <div class="timeline">
-        <div class="day">Day 1-2</div><div>搭建极简MVP（LLM API + 结构化Prompt + H5前端），跑通核心链路</div>
-        <div class="day">Day 3-4</div><div>定向DM 30个1k-5万粉博主（美食/日常/职场各10个），提供免费7天定制选题</div>
-        <div class="day">Day 5-7</div><div>每日推送选题，跟踪：展开率、是否采纳拍摄、发布后数据表现</div>
-        <div class="day">Day 8-10</div><div>上线小程序自助版，引导种子用户迁移，追踪自助使用留存</div>
-        <div class="day">Day 11-12</div><div>推"9.9元解锁本月无限选题"，测付费转化率</div>
-        <div class="day">Day 13-14</div><div>数据复盘 → Go/No-Go决策</div>
+        <div class="day">Day 1-2</div><div>搭建极简MVP：LLM API + 结构化Prompt + H5前端，跑通"输入档案→输出选题+方案"核心链路</div>
+        <div class="day">Day 3-4</div><div>定向DM 30个博主（美食/日常/职场各10个，1k-5万粉），提供"免费7天定制选题"</div>
+        <div class="day">Day 5-7</div><div>每日推送选题，埋点跟踪：展开率、刷新次数、是否采纳拍摄、发布后数据表现</div>
+        <div class="day">Day 8-10</div><div>上线小程序自助版，种子用户迁移，观察自助使用频率和留存</div>
+        <div class="day">Day 11-12</div><div>推出"9.9元解锁本月无限选题"促销，测试真实付费转化</div>
+        <div class="day">Day 13-14</div><div>数据复盘：对比"AI选题 vs 自选题"发布数据，做Go/No-Go决策</div>
       </div>
 
-      <h3 style="margin-top:3px;">Go/No-Go 量化标准</h3>
+      <h3 style="margin-top:4px;">Go/No-Go 量化标准</h3>
       <table class="table">
-        <tr><th>指标</th><th>通过线</th><th>衡量方式</th></tr>
-        <tr><td>选题展开率</td><td>&gt;30%</td><td>推送选题后点击"展开方案"的比例</td></tr>
+        <tr><th>核心指标</th><th>通过线</th><th>衡量方式</th></tr>
+        <tr><td>选题展开率</td><td>&gt;30%</td><td>看到选题后点击"展开方案"的比例</td></tr>
         <tr><td>采纳拍摄率</td><td>&gt;15%</td><td>用户确认使用推荐选题发布了内容</td></tr>
-        <tr><td>7日留存</td><td>&gt;25%</td><td>第7天仍打开使用</td></tr>
-        <tr><td>付费转化</td><td>&gt;5%</td><td>种子用户购买9.9体验的比例</td></tr>
-        <tr><td style="background:#f0fff4;"><strong>终极验证</strong></td><td style="background:#f0fff4;"><strong>数据提升</strong></td><td style="background:#f0fff4;">AI选题发布后数据 > 自选题平均数据</td></tr>
+        <tr><td>7日留存</td><td>&gt;25%</td><td>第7天仍主动打开使用</td></tr>
+        <tr><td>付费转化率</td><td>&gt;5%</td><td>种子用户购买9.9体验卡的比例</td></tr>
+        <tr><td style="background:#f0fff4;"><strong>终极验证</strong></td><td style="background:#f0fff4;"><strong>数据提升</strong></td><td style="background:#f0fff4;">AI选题发布数据 &gt; 自选题平均（证明工具有效）</td></tr>
       </table>
 
       <h3>资源需求</h3>
-      <p style="font-size:8px;">1人全栈 · LLM API ~300元 · 获客成本0元（定向DM免费）· 合计<span class="metric">&lt;500元</span>启动</p>
+      <p style="font-size:8.5px;">1人全栈开发 · LLM API ~300元/月 · 获客0元（DM免费）· 小程序认证300元 · 合计<span class="metric">&lt;600元启动</span></p>
 
       <div class="callout">
-        <strong>验证逻辑：</strong>如果AI推荐的选题，发布后数据系统性优于用户自选题→付费是确定性事件（因为好选题=收入增长）。这是最硬的PMF证据。
+        <strong>验证核心逻辑：</strong>如果使用AI推荐选题发布的内容，数据系统性优于用户自己想的选题 → 工具创造了可量化的收入增长 → 付费是确定性事件。这是最硬的Product-Market Fit证据。
       </div>
     </div>
   </div>
 </div>
 
 <div class="footer">
-  数据来源：小红书实际搜索截图（2026.07）· Sprout Social 2025 · Wyzowl 2025 · Product Hunt竞品扫描 ｜ 附件：MVP交互原型（H5）
+  数据来源：小红书实际搜索截图（2026.07）· Sprout Social 2025 Video Marketing Report · Wyzowl State of Video Marketing 2025 ｜ 附件：MVP交互原型（H5，iPhone 15 Pro仿真，全功能可点击交互）
 </div>
 
 </body>
