@@ -1,43 +1,41 @@
-# AI Daily Report
+# liz-lu / ai-daily-report
 
-This repository hosts a static Chinese AI daily brief site on GitHub Pages.
+## 仓库结构
 
-## Automation (GitHub-only, no local dependency)
+```
+├── daily-briefs/          ← AI 每日简报（自动生成）
+│   ├── index.html         ← 简报首页（按日期浏览）
+│   ├── latest.html        ← 跳转最新一期
+│   └── AI简报-YYYY-MM-DD.*
+├── duxiaoman-submission/  ← 度小满笔试提交
+│   ├── 度小满笔试-A4提交版.html
+│   └── 度小满笔试-MVP原型.html
+├── scripts/               ← 生成脚本
+├── index.html             ← 根导航页（GitHub Pages 入口）
+└── .github/workflows/     ← 自动化
+```
 
-Daily generation is handled by GitHub Actions:
+## AI Daily Brief 自动化
 
-- Workflow file: `.github/workflows/daily-ai-brief.yml`
-- Script: `scripts/ai-daily-brief.py`
-- Schedule: `30 2 * * *` (UTC), which is **10:30 Beijing time** every day
-- Manual run: Actions -> `Daily AI Brief` -> `Run workflow`
+- Workflow: `.github/workflows/daily-ai-brief.yml`
+- 脚本: `scripts/ai-daily-brief.py`
+- 定时: 每天北京时间 10:30 自动运行
+- 手动: Actions → `Daily AI Brief` → `Run workflow`
 
-The workflow runs the generator, updates:
-
-- `AI简报-YYYY-MM-DD.html`
-- `AI简报-YYYY-MM-DD.txt`
-- `AI简报-YYYY-MM-DD.json`
-- `index.html`
-- `latest.html`
-
-Then commits and pushes changes to `main`.
+输出到 `daily-briefs/` 目录。
 
 ## Required repository settings
 
 1. **Actions write permission**
-   - GitHub -> Settings -> Actions -> General
-   - Set **Workflow permissions** to **Read and write permissions**
+   - Settings → Actions → General → Workflow permissions → Read and write
 
 2. **Pages source**
-   - GitHub -> Settings -> Pages
-   - Source: `Deploy from a branch`
-   - Branch: `main` and folder `/ (root)`
+   - Settings → Pages → Source: `Deploy from a branch` → Branch: `main`, folder `/ (root)`
 
-## Optional secrets (for model summary block)
+## Optional secrets
 
-If not provided, the page still updates using RSS aggregation.
+- `AI_DAILY_BRIEF_API_KEY` / `OPENAI_API_KEY`
+- `AI_DAILY_BRIEF_MODEL` / `OPENAI_MODEL`
+- `AI_DAILY_BRIEF_BASE_URL` / `OPENAI_BASE_URL`
 
-- `AI_DAILY_BRIEF_API_KEY` (or `OPENAI_API_KEY`)
-- `AI_DAILY_BRIEF_MODEL` (or `OPENAI_MODEL`)
-- `AI_DAILY_BRIEF_BASE_URL` (or `OPENAI_BASE_URL`) for OpenAI-compatible endpoints
-
-Do **not** commit secrets into files. Local-only env can be placed in `scripts/ai-daily-brief.env` (ignored by `.gitignore`).
+勿提交密钥到文件。本地环境变量放 `scripts/ai-daily-brief.env`（已 gitignore）。
