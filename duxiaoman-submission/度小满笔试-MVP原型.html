@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>选题搭子 MVP</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, 'SF Pro Display', 'PingFang SC', sans-serif; background: #ffffff; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+
+.phone {
+  width: 393px; height: 852px; background: #f2f2f7; border-radius: 55px;
+  overflow: hidden; position: relative; border: 12px solid #1a1a1a;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25), 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Dynamic Island */
+.dynamic-island {
+  position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+  width: 126px; height: 36px; background: #000; border-radius: 20px; z-index: 999;
+}
+
+/* iOS Status Bar */
+.statusbar {
+  height: 54px; padding: 14px 28px 0; display: flex; justify-content: space-between;
+  align-items: flex-end; font-size: 14px; font-weight: 600; flex-shrink: 0;
+  background: inherit; position: relative; z-index: 10;
+}
+.statusbar .time { margin-left: 4px; }
+.statusbar .icons { display: flex; gap: 5px; align-items: center; font-size: 12px; }
+
+/* Page container */
+.page {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  display: none; flex-direction: column; background: #f2f2f7;
+}
+.page.active { display: flex; }
+.page.overlay { z-index: 50; background: #f2f2f7; animation: slideUp 0.3s ease; }
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+/* Navigation bar - iOS style */
+.navbar {
+  padding: 8px 20px 12px; flex-shrink: 0; background: #f2f2f7;
+}
+.navbar-large { font-size: 28px; font-weight: 700; color: #000; line-height: 1.2; }
+.navbar-sub { font-size: 13px; color: #8e8e93; margin-top: 2px; }
+.navbar-back {
+  display: flex; align-items: center; gap: 4px; font-size: 17px; color: #10b981;
+  cursor: pointer; padding: 8px 0; font-weight: 400;
+}
+
+/* Tags row */
+.tags-row {
+  padding: 0 20px 12px; display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0;
+  background: #f2f2f7; border-bottom: 0.5px solid rgba(0,0,0,0.1);
+}
+.tag-pill {
+  padding: 5px 12px; border-radius: 16px; font-size: 12px; font-weight: 500;
+  background: #fff; color: #1d1d1f; border: 0.5px solid rgba(0,0,0,0.08);
+}
+.tag-pill:first-child { background: #ecfdf5; color: #059669; border-color: #a7f3d0; }
+
+/* Scrollable content */
+.scroll-area { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.scroll-content { padding: 16px 20px 20px; }
+
+/* Section header */
+.section-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 12px; padding: 0 2px;
+}
+.section-title { font-size: 13px; color: #8e8e93; font-weight: 500; }
+.section-link { font-size: 13px; color: #10b981; cursor: pointer; }
+
+/* Quota indicator */
+.quota-strip {
+  display: flex; align-items: center; gap: 8px; padding: 10px 14px;
+  background: #fff; border-radius: 12px; margin-bottom: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.quota-strip .dots { display: flex; gap: 4px; }
+.quota-strip .dot { width: 8px; height: 8px; border-radius: 50%; background: #10b981; }
+.quota-strip .dot.used { background: #d1d1d6; }
+.quota-strip .label { font-size: 12px; color: #8e8e93; flex: 1; }
+.quota-strip .count { font-size: 12px; color: #10b981; font-weight: 600; }
+
+/* Topic Card - iOS card style */
+.topic-card {
+  background: #fff; border-radius: 16px; padding: 16px; margin-bottom: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06); position: relative; cursor: pointer;
+  transition: transform 0.15s;
+}
+.topic-card:active { transform: scale(0.98); }
+.topic-card.locked { opacity: 0.88; }
+.topic-card .pro-badge {
+  position: absolute; top: 12px; right: 12px; background: linear-gradient(135deg,#10b981,#059669);
+  color: #fff; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 8px;
+}
+.topic-card .card-title { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; padding-right: 50px; color: #000; }
+.topic-card .card-angle { font-size: 13px; color: #6b7280; line-height: 1.5; margin-bottom: 10px; }
+.topic-card .card-data {
+  font-size: 12px; color: #374151; background: #fffbeb; border: 0.5px solid #fde68a;
+  padding: 10px 12px; border-radius: 10px; margin-bottom: 10px; line-height: 1.7;
+}
+.topic-card .card-data .src { font-size: 11px; color: #9ca3af; margin-top: 6px; border-top: 0.5px dashed #e5e7eb; padding-top: 6px; }
+.topic-card .card-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.topic-card .card-tag {
+  font-size: 11px; padding: 4px 8px; border-radius: 6px; font-weight: 500;
+}
+.card-tag.hot { background: #fef2f2; color: #dc2626; }
+.card-tag.easy { background: #f0fdf4; color: #16a34a; }
+.card-tag.trend { background: #ecfdf5; color: #059669; }
+.card-tag.normal { background: #f3f4f6; color: #4b5563; }
+
+/* Save button */
+.save-btn {
+  position: absolute; top: 14px; right: 14px; width: 32px; height: 32px;
+  border-radius: 50%; border: 1.5px solid #d1d5db; display: flex; align-items: center;
+  justify-content: center; font-size: 16px; cursor: pointer; background: #fff;
+  transition: all 0.2s; z-index: 5;
+}
+.save-btn.saved { background: #10b981; border-color: #10b981; color: #fff; }
+
+/* Expand hint */
+.expand-hint { font-size: 12px; color: #10b981; margin-top: 10px; font-weight: 500; }
+
+/* Expanded panel */
+.expanded-panel { display: none; margin-top: 14px; padding-top: 14px; border-top: 0.5px solid #e5e7eb; }
+.expanded-panel.open { display: block; animation: fadeDown 0.25s ease; }
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+.panel-section { margin-bottom: 14px; }
+.panel-label { font-size: 13px; font-weight: 600; color: #000; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.check-item { display: flex; align-items: flex-start; gap: 8px; padding: 5px 0; font-size: 13px; color: #374151; line-height: 1.5; }
+.check-box {
+  width: 18px; height: 18px; border: 1.5px solid #d1d5db; border-radius: 5px;
+  flex-shrink: 0; margin-top: 2px; cursor: pointer; display: flex; align-items: center;
+  justify-content: center; font-size: 11px; transition: all 0.15s;
+}
+.check-box.done { background: #10b981; border-color: #10b981; color: #fff; }
+.shot-item {
+  background: #f9fafb; border-left: 3px solid #10b981; border-radius: 0 8px 8px 0;
+  padding: 8px 12px; margin-bottom: 6px; font-size: 12px; line-height: 1.5;
+}
+.shot-item .shot-num { font-weight: 600; color: #10b981; }
+.edit-tips { background: #faf5ff; border-radius: 10px; padding: 10px 12px; font-size: 12px; line-height: 1.7; color: #6b21a8; }
+.publish-box { background: #f0fdf4; border-radius: 10px; padding: 10px 12px; font-size: 12px; line-height: 1.8; color: #166534; }
+.publish-box .hashtag { display: inline-block; background: #dcfce7; padding: 2px 8px; border-radius: 4px; margin: 2px 3px 2px 0; font-size: 11px; }
+.action-row { display: flex; gap: 8px; margin-top: 14px; }
+.action-row .btn-act {
+  flex: 1; padding: 11px; border-radius: 10px; font-size: 14px; font-weight: 500;
+  text-align: center; cursor: pointer; border: none; transition: all 0.15s;
+}
+.action-row .btn-act:active { transform: scale(0.96); }
+.action-row .btn-primary { background: #10b981; color: #fff; }
+.action-row .btn-secondary { background: #f3f4f6; color: #374151; }
+
+/* Locked card overlay */
+.lock-overlay {
+  margin-top: 12px; padding: 14px; background: linear-gradient(135deg,#f0fdf4,#ecfdf5);
+  border-radius: 12px; text-align: center;
+}
+.lock-overlay .lock-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.lock-overlay .lock-sub { font-size: 12px; color: #6b7280; margin-bottom: 10px; }
+.lock-overlay .lock-btn { font-size: 13px; color: #10b981; font-weight: 600; cursor: pointer; }
+
+/* Refresh button */
+.refresh-btn {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 14px; border: 1.5px dashed #86efac; border-radius: 14px;
+  color: #10b981; font-size: 14px; font-weight: 500; cursor: pointer;
+  margin-bottom: 14px; transition: all 0.2s; background: #fff;
+}
+.refresh-btn:active { background: #ecfdf5; }
+.refresh-btn.off { opacity: 0.4; pointer-events: none; border-color: #d1d5db; color: #9ca3af; }
+
+/* Upgrade banner */
+.upgrade-banner {
+  background: #fff; border: 1.5px solid #d1fae5; border-radius: 16px;
+  padding: 20px; text-align: center; margin-bottom: 14px;
+}
+.upgrade-banner .ub-title { font-size: 13px; color: #059669; font-weight: 600; margin-bottom: 10px; }
+.upgrade-banner .ub-stats { font-size: 13px; color: #374151; line-height: 2; text-align: left; margin-bottom: 14px; }
+.upgrade-banner .ub-cta {
+  display: inline-block; background: linear-gradient(135deg,#10b981,#059669);
+  color: #fff; padding: 10px 24px; border-radius: 22px; font-size: 14px;
+  font-weight: 600; cursor: pointer;
+}
+.upgrade-banner .ub-note { font-size: 11px; color: #9ca3af; margin-top: 8px; }
+
+/* Bottom Tab Bar - iOS style */
+.tab-bar {
+  display: flex; padding: 6px 0 20px; background: #fff; flex-shrink: 0;
+  border-top: 0.5px solid rgba(0,0,0,0.1); position: relative; z-index: 10;
+}
+.tab-item {
+  flex: 1; text-align: center; cursor: pointer; padding: 4px 0;
+  font-size: 10px; color: #8e8e93; transition: color 0.2s;
+}
+.tab-item .tab-icon { font-size: 22px; margin-bottom: 1px; }
+.tab-item.on { color: #10b981; }
+
+/* Setup page */
+.setup-inner { flex: 1; overflow-y: auto; padding: 20px; }
+.setup-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+.setup-sub { font-size: 14px; color: #8e8e93; margin-bottom: 20px; }
+.step-dots { display: flex; justify-content: center; gap: 6px; margin-bottom: 20px; }
+.step-dot { width: 8px; height: 8px; border-radius: 50%; background: #d1d5db; }
+.step-dot.active { background: #10b981; width: 22px; border-radius: 4px; }
+.step-dot.done { background: #34d399; }
+.field-label { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.field-hint { font-size: 12px; color: #8e8e93; margin-bottom: 10px; }
+.chip-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.chip {
+  padding: 8px 12px; border: 1.5px solid #e5e7eb; border-radius: 16px;
+  font-size: 13px; cursor: pointer; transition: all 0.15s; user-select: none;
+  white-space: nowrap;
+}
+.chip:active { transform: scale(0.95); }
+.chip.sel { background: #10b981; color: #fff; border-color: #10b981; }
+.textarea-field {
+  width: 100%; padding: 12px 14px; border: 1.5px solid #e5e7eb; border-radius: 12px;
+  font-size: 14px; resize: none; height: 70px; font-family: inherit; outline: none;
+  margin-bottom: 20px;
+}
+.textarea-field:focus { border-color: #10b981; }
+.btn-row { display: flex; gap: 10px; margin-top: 16px; }
+.btn {
+  flex: 1; padding: 14px; border-radius: 14px; font-size: 16px; font-weight: 600;
+  cursor: pointer; text-align: center; border: none; transition: all 0.15s;
+}
+.btn:active { transform: scale(0.97); }
+.btn-green { background: #10b981; color: #fff; box-shadow: 0 4px 12px rgba(16,185,129,0.3); }
+.btn-gray { background: #fff; color: #374151; border: 1.5px solid #d1d5db; }
+
+/* Hot topic cards */
+.hot-card {
+  background: #fff; border-radius: 14px; padding: 14px 16px; margin-bottom: 10px;
+  cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.hot-card:active { opacity: 0.8; }
+.hot-card .hc-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.hot-card .hc-date { font-size: 12px; color: #8e8e93; }
+.hot-card .hc-badge { font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 500; }
+.hc-badge.reuse { background: #dcfce7; color: #059669; }
+.hc-badge.expired { background: #fef3c7; color: #d97706; }
+.hc-badge.evergreen { background: #dbeafe; color: #2563eb; }
+.hot-card .hc-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.hot-card .hc-stats { font-size: 12px; color: #6b7280; }
+.hot-card .hc-expand { font-size: 12px; color: #10b981; margin-top: 6px; font-weight: 500; }
+.hot-card .hc-detail {
+  display: none; margin-top: 10px; padding-top: 10px; border-top: 0.5px solid #e5e7eb;
+  font-size: 13px; color: #374151; line-height: 1.8;
+}
+.hot-card .hc-detail.open { display: block; }
+
+/* Overlay screens */
+.overlay-screen {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: #f2f2f7; z-index: 60; display: none; flex-direction: column;
+}
+.overlay-screen.show { display: flex; animation: slideUp 0.3s ease; }
+.overlay-content { flex: 1; overflow-y: auto; padding: 20px; }
+
+/* Loading */
+.loading-overlay {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(242,242,247,0.96); z-index: 100; display: none;
+  flex-direction: column; align-items: center; justify-content: center;
+}
+.loading-overlay.show { display: flex; }
+.spinner { width: 32px; height: 32px; border: 3px solid #d1fae5; border-top: 3px solid #10b981; border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 14px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Toast */
+.toast-msg {
+  position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%);
+  background: rgba(0,0,0,0.8); color: #fff; padding: 10px 20px; border-radius: 20px;
+  font-size: 14px; display: none; z-index: 200; white-space: nowrap;
+}
+
+/* Empty state */
+.empty-box { text-align: center; padding: 60px 20px; }
+.empty-box .em-icon { font-size: 48px; margin-bottom: 10px; }
+.empty-box .em-text { font-size: 15px; color: #8e8e93; }
+.empty-box .em-hint { font-size: 13px; color: #c7c7cc; margin-top: 6px; }
+
+/* Me page */
+.me-card { background: #fff; border-radius: 14px; padding: 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.me-card .mc-title { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+
+/* Demo badge */
+.demo-badge {
+  position: fixed; top: 10px; right: 10px; background: #10b981;
+  color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 11px; z-index: 9999;
+  font-weight: 500;
+}
+</style>
+</head>
+<body>
+<div class="demo-badge">选题搭子 MVP Demo</div>
+
+<div class="phone">
+  <div class="dynamic-island"></div>
+
+  <!-- Loading -->
+  <div class="loading-overlay" id="loading">
+    <div class="spinner"></div>
+    <div style="font-size:15px;font-weight:500;color:#1d1d1f;">正在生成今日选题...</div>
+    <div style="font-size:13px;color:#8e8e93;margin-top:4px;">分析赛道 · 追踪热点 · 匹配人设</div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-msg" id="toast"></div>
+
+  <!-- ========== SETUP PAGE ========== -->
+  <div class="page active" id="pageSetup">
+    <div class="statusbar"><span class="time">9:41</span><span class="icons">&#9679;&#9679;&#9679; &#9889; &#9608;&#9608;</span></div>
+    <div class="navbar"><div class="navbar-large">设置创作档案</div><div class="navbar-sub">30秒完成，之后为你推荐个性化选题</div></div>
+    <div class="setup-inner">
+      <div class="step-dots"><div class="step-dot active" id="sd0"></div><div class="step-dot" id="sd1"></div><div class="step-dot" id="sd2"></div></div>
+
+      <div id="sp0">
+        <div class="field-label">你的内容赛道</div>
+        <div class="field-hint">选择主要创作领域（可多选）</div>
+        <div class="chip-grid" id="cTrack">
+          <div class="chip" onclick="togChip(this)">美食探店</div>
+          <div class="chip" onclick="togChip(this)">日常Vlog</div>
+          <div class="chip" onclick="togChip(this)">美妆护肤</div>
+          <div class="chip" onclick="togChip(this)">职场干货</div>
+          <div class="chip" onclick="togChip(this)">成长学习</div>
+          <div class="chip" onclick="togChip(this)">家居生活</div>
+          <div class="chip" onclick="togChip(this)">母婴育儿</div>
+          <div class="chip" onclick="togChip(this)">健身运动</div>
+          <div class="chip" onclick="togChip(this)">穿搭时尚</div>
+          <div class="chip" onclick="togChip(this)">数码科技</div>
+        </div>
+        <div class="btn btn-green" onclick="nextStep()">下一步</div>
+      </div>
+
+      <div id="sp1" style="display:none">
+        <div class="field-label">你的人设标签</div>
+        <div class="field-hint">AI据此匹配受众认可的内容角度</div>
+        <div class="chip-grid" id="cPersona">
+          <div class="chip" onclick="togChip(this)">独居女生</div>
+          <div class="chip" onclick="togChip(this)">打工人</div>
+          <div class="chip" onclick="togChip(this)">大学生</div>
+          <div class="chip" onclick="togChip(this)">宝妈</div>
+          <div class="chip" onclick="togChip(this)">自由职业</div>
+          <div class="chip" onclick="togChip(this)">斜杠青年</div>
+          <div class="chip" onclick="togChip(this)">小镇青年</div>
+          <div class="chip" onclick="togChip(this)">留学生</div>
+          <div class="chip" onclick="togChip(this)">情侣/夫妻</div>
+          <div class="chip" onclick="togChip(this)">考研/考公人</div>
+          <div class="chip" onclick="togChip(this)">健身爱好者</div>
+          <div class="chip" onclick="togChip(this)">数码极客</div>
+        </div>
+        <div class="field-label">内容风格偏好</div>
+        <div class="field-hint">决定推荐选题的调性</div>
+        <div class="chip-grid" id="cStyle">
+          <div class="chip" onclick="togChip(this)">治愈安静</div>
+          <div class="chip" onclick="togChip(this)">搞笑轻松</div>
+          <div class="chip" onclick="togChip(this)">干货实用</div>
+          <div class="chip" onclick="togChip(this)">情绪共鸣</div>
+          <div class="chip" onclick="togChip(this)">热点追踪</div>
+          <div class="chip" onclick="togChip(this)">真实记录</div>
+          <div class="chip" onclick="togChip(this)">种草测评</div>
+          <div class="chip" onclick="togChip(this)">知识科普</div>
+          <div class="chip" onclick="togChip(this)">对比挑战</div>
+          <div class="chip" onclick="togChip(this)">沉浸式ASMR</div>
+        </div>
+        <div class="btn-row">
+          <div class="btn btn-gray" onclick="prevStep()">返回</div>
+          <div class="btn btn-green" onclick="nextStep()">下一步</div>
+        </div>
+      </div>
+
+      <div id="sp2" style="display:none">
+        <div class="field-label">粉丝量级</div>
+        <div class="field-hint">匹配适合当前阶段的选题</div>
+        <div class="chip-grid" id="cFans">
+          <div class="chip" onclick="singleChip(this,'cFans')">0-1k</div>
+          <div class="chip" onclick="singleChip(this,'cFans')">1k-5k</div>
+          <div class="chip" onclick="singleChip(this,'cFans')">5k-2万</div>
+          <div class="chip" onclick="singleChip(this,'cFans')">2万-5万</div>
+        </div>
+        <div class="field-label">发布平台</div>
+        <div class="chip-grid" id="cPlatform">
+          <div class="chip" onclick="togChip(this)">小红书</div>
+          <div class="chip" onclick="togChip(this)">抖音</div>
+          <div class="chip" onclick="togChip(this)">视频号</div>
+          <div class="chip" onclick="togChip(this)">B站</div>
+        </div>
+        <div class="field-label">已做过的内容方向</div>
+        <div class="field-hint">AI会避免推荐重复方向</div>
+        <textarea class="textarea-field" id="doneInput" placeholder="如：独居做饭、周末brunch、平价测评..."></textarea>
+        <div class="btn-row">
+          <div class="btn btn-gray" onclick="prevStep()">返回</div>
+          <div class="btn btn-green" onclick="generate()">生成今日选题</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== MAIN PAGE ========== -->
+  <div class="page" id="pageMain">
+    <div class="statusbar" style="background:#fff;"><span class="time">9:41</span><span class="icons">&#9679;&#9679;&#9679; &#9889; &#9608;&#9608;</span></div>
+    <div class="navbar" style="background:#fff;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div class="navbar-large">今日选题</div>
+        <div style="font-size:20px;cursor:pointer;padding:4px 8px;color:#10b981;" onclick="showOverlay('olSettings')">&#9881;</div>
+      </div>
+      <div class="navbar-sub" id="dateLine">7月8日 · 基于创作档案智能推荐</div>
+    </div>
+    <div class="tags-row" id="tagsRow">
+      <span class="tag-pill">美食探店</span>
+      <span class="tag-pill">独居女生</span>
+      <span class="tag-pill">治愈安静</span>
+      <span class="tag-pill">小红书</span>
+      <span class="tag-pill">1k-5k粉</span>
+    </div>
+
+    <div class="scroll-area">
+      <!-- Tab: 推荐 -->
+      <div class="scroll-content" id="tabRecommend">
+        <div class="quota-strip">
+          <div class="dots" id="quotaDots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot used"></span><span class="dot used"></span></div>
+          <span class="label">每日推荐5条 · 可展开3条方案</span>
+          <span class="count" id="quotaNum">3/3</span>
+        </div>
+
+        <div class="section-header">
+          <span class="section-title">为你筛选的高潜力选题</span>
+          <span class="section-link" onclick="showOverlay('olHistory')">历史 ›</span>
+        </div>
+
+        <div id="topicList"></div>
+
+        <div class="refresh-btn" id="refreshBtn" onclick="doRefresh()">🔄 换一批推荐</div>
+
+        <div class="upgrade-banner" onclick="showOverlay('olUpgrade')">
+          <div class="ub-title">📈 Pro用户真实数据对比</div>
+          <div class="ub-stats">
+            使用AI选题后平均：<br>
+            · 点赞量 <b style="color:#059669">+186%</b>（847 → 2,420）<br>
+            · 收藏率 <b style="color:#059669">+213%</b>（4.2% → 13.1%）<br>
+            · 涨粉速度 <b style="color:#059669">+92%</b>（日均+28 → +54）
+          </div>
+          <div class="ub-cta">19.9元/月 · 解锁全部选题</div>
+          <div class="ub-note">好选题 = 好数据 = 好收入 · 7天无理由退款</div>
+        </div>
+      </div>
+
+      <!-- Tab: 热点 -->
+      <div class="scroll-content" id="tabHot" style="display:none">
+        <div class="section-header">
+          <span class="section-title">7.8 平台实时热点</span>
+          <span class="section-link" onclick="showOverlay('olHotHistory')">历史热点 ›</span>
+        </div>
+        <div id="hotList"></div>
+      </div>
+
+      <!-- Tab: 收藏 -->
+      <div class="scroll-content" id="tabSaved" style="display:none">
+        <div class="empty-box" id="savedEmpty">
+          <div class="em-icon">⭐</div>
+          <div class="em-text">还没有收藏选题</div>
+          <div class="em-hint">点击选题卡片右上角 ♡ 即可收藏</div>
+        </div>
+        <div id="savedList"></div>
+      </div>
+
+      <!-- Tab: 我的 -->
+      <div class="scroll-content" id="tabMe" style="display:none">
+        <div class="me-card">
+          <div class="mc-title">创作档案</div>
+          <div style="font-size:13px;color:#6b7280;line-height:2.2;">
+            <b>赛道：</b><span id="meTrack">-</span><br>
+            <b>人设：</b><span id="mePersona">-</span><br>
+            <b>风格：</b><span id="meStyle">-</span><br>
+            <b>粉丝：</b><span id="meFans">-</span><br>
+            <b>平台：</b><span id="mePlatform">-</span>
+          </div>
+          <div style="margin-top:12px;text-align:center;"><span style="color:#10b981;font-size:14px;cursor:pointer;" onclick="showOverlay('olSettings')">编辑档案 ›</span></div>
+        </div>
+        <div class="me-card">
+          <div class="mc-title">数据概览</div>
+          <div style="display:flex;justify-content:space-around;text-align:center;padding:8px 0;">
+            <div><div style="font-size:22px;font-weight:700;color:#10b981;">12</div><div style="font-size:11px;color:#8e8e93;">累计推荐</div></div>
+            <div><div style="font-size:22px;font-weight:700;color:#059669;">5</div><div style="font-size:11px;color:#8e8e93;">已采纳</div></div>
+            <div><div style="font-size:22px;font-weight:700;color:#f59e0b;">3</div><div style="font-size:11px;color:#8e8e93;">已收藏</div></div>
+          </div>
+        </div>
+        <div class="me-card">
+          <div class="mc-title">使用情况</div>
+          <div style="font-size:13px;color:#6b7280;">免费版 · 每日推荐5条，可展开3条方案<br><span style="color:#10b981;cursor:pointer;" onclick="showOverlay('olUpgrade')">升级Pro展开全部+无限刷新 ›</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-bar">
+      <div class="tab-item on" onclick="switchTab(this,'Recommend')"><div class="tab-icon">💡</div>推荐</div>
+      <div class="tab-item" onclick="switchTab(this,'Hot')"><div class="tab-icon">🔥</div>热点</div>
+      <div class="tab-item" onclick="switchTab(this,'Saved')"><div class="tab-icon">⭐</div>收藏</div>
+      <div class="tab-item" onclick="switchTab(this,'Me')"><div class="tab-icon">👤</div>我的</div>
+    </div>
+  </div>
+
+  <!-- ========== OVERLAY: HISTORY ========== -->
+  <div class="overlay-screen" id="olHistory">
+    <div class="statusbar"><span class="time">9:41</span><span class="icons">&#9679;&#9679;&#9679; &#9889; &#9608;&#9608;</span></div>
+    <div class="navbar"><div class="navbar-back" onclick="hideOverlay('olHistory')">‹ 返回</div><div class="navbar-large">历史推荐</div></div>
+    <div class="overlay-content">
+      <div style="font-size:13px;color:#8e8e93;margin-bottom:14px;">最近7天推荐记录</div>
+      <div class="me-card"><div style="font-size:12px;color:#8e8e93;">7月7日</div><div style="font-size:14px;margin-top:4px;">"一个人的晚餐仪式感" · <span style="color:#059669;">已采纳</span></div><div style="font-size:14px;margin-top:4px;">"租房改造花了200块的效果"</div></div>
+      <div class="me-card"><div style="font-size:12px;color:#8e8e93;">7月6日</div><div style="font-size:14px;margin-top:4px;">"周末菜市场vlog" · <span style="color:#059669;">已采纳</span></div><div style="font-size:14px;margin-top:4px;">"3步做出咖啡店级拿铁"</div><div style="font-size:14px;margin-top:4px;">"独居女生的冰箱整理术"</div></div>
+      <div class="me-card"><div style="font-size:12px;color:#8e8e93;">7月5日</div><div style="font-size:14px;margin-top:4px;">"夏天必备的5款凉拌菜"</div><div style="font-size:14px;margin-top:4px;">"打工人周末充电计划" · <span style="color:#059669;">已采纳</span></div></div>
+      <div class="me-card"><div style="font-size:12px;color:#8e8e93;">7月4日</div><div style="font-size:14px;margin-top:4px;">"下班后30分钟快手菜" · <span style="color:#059669;">已采纳</span></div><div style="font-size:14px;margin-top:4px;">"独居安全好物推荐"</div></div>
+    </div>
+  </div>
+
+  <!-- ========== OVERLAY: HOT HISTORY ========== -->
+  <div class="overlay-screen" id="olHotHistory">
+    <div class="statusbar"><span class="time">9:41</span><span class="icons">&#9679;&#9679;&#9679; &#9889; &#9608;&#9608;</span></div>
+    <div class="navbar"><div class="navbar-back" onclick="hideOverlay('olHotHistory')">‹ 返回</div><div class="navbar-large">历史热点存档</div><div class="navbar-sub">点击卡片展开推荐角度</div></div>
+    <div class="overlay-content" id="hotHistoryList"></div>
+  </div>
+
+  <!-- ========== OVERLAY: SETTINGS ========== -->
+  <div class="overlay-screen" id="olSettings">
+    <div class="statusbar"><span class="time">9:41</span><span class="icons">&#9679;&#9679;&#9679; &#9889; &#9608;&#9608;</span></div>
+    <div class="navbar"><div class="navbar-back" onclick="hideOverlay('olSettings')">‹ 返回</div><div class="navbar-large">创作档案设置</div></div>
+    <div class="overlay-content" id="settingsContent"></div>
+  </div>
+
+  <!-- ========== OVERLAY: UPGRADE ========== -->
+  <div class="overlay-screen" id="olUpgrade">
+    <div class="statusbar"><span class="time">9:41</span><span class="icons">&#9679;&#9679;&#9679; &#9889; &#9608;&#9608;</span></div>
+    <div class="navbar"><div class="navbar-back" onclick="hideOverlay('olUpgrade')">‹ 返回</div><div class="navbar-large">升级 Pro</div></div>
+    <div class="overlay-content">
+      <div style="text-align:center;margin-bottom:20px;"><div style="font-size:40px;">🌱</div><div style="font-size:18px;font-weight:700;margin-top:8px;">选题搭子 Pro</div><div style="font-size:14px;color:#8e8e93;margin-top:4px;">好选题 = 好数据 = 好收入</div></div>
+      <div class="me-card" style="background:#f0fdf4;border:1px solid #d1fae5;">
+        <div style="font-size:13px;font-weight:600;color:#059669;margin-bottom:10px;">📈 Pro用户数据（内测30人）</div>
+        <div style="display:flex;justify-content:space-around;text-align:center;">
+          <div><div style="font-size:20px;font-weight:700;color:#059669;">+186%</div><div style="font-size:11px;color:#6b7280;">点赞提升</div></div>
+          <div><div style="font-size:20px;font-weight:700;color:#059669;">+213%</div><div style="font-size:11px;color:#6b7280;">收藏率</div></div>
+          <div><div style="font-size:20px;font-weight:700;color:#059669;">+92%</div><div style="font-size:11px;color:#6b7280;">涨粉速度</div></div>
+        </div>
+      </div>
+      <div class="me-card">
+        <div style="font-size:14px;font-weight:600;margin-bottom:10px;">免费版 vs Pro</div>
+        <div style="font-size:13px;line-height:2.4;color:#374151;">
+          <div style="display:flex;justify-content:space-between;">每日推荐<span><span style="color:#9ca3af;">5条</span> → <b style="color:#059669;">无限</b></span></div>
+          <div style="display:flex;justify-content:space-between;">可展开方案<span><span style="color:#9ca3af;">3条</span> → <b style="color:#059669;">全部</b></span></div>
+          <div style="display:flex;justify-content:space-between;">热点数据<span><span style="color:#9ca3af;">基础</span> → <b style="color:#059669;">深度</b></span></div>
+          <div style="display:flex;justify-content:space-between;">历史存档<span><span style="color:#9ca3af;">7天</span> → <b style="color:#059669;">30天</b></span></div>
+          <div style="display:flex;justify-content:space-between;">博主数据对标<span><span style="color:#9ca3af;">—</span> → <b style="color:#059669;">✓</b></span></div>
+        </div>
+      </div>
+      <div style="text-align:center;margin:20px 0;">
+        <div style="font-size:32px;font-weight:700;color:#059669;">¥19.9<span style="font-size:14px;font-weight:400;color:#8e8e93;">/月</span></div>
+        <div style="font-size:12px;color:#8e8e93;margin-top:4px;">年卡¥99（省¥140）· 每天不到3毛</div>
+      </div>
+      <div class="btn btn-green" onclick="hideOverlay('olUpgrade');toast('Demo模式：实际将跳转支付')">立即升级 Pro</div>
+      <div style="text-align:center;font-size:12px;color:#c7c7cc;margin-top:10px;">7天无理由退款 · 随时取消</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== STATE =====
+let step = 0, batch = 0, quota = 3, saved = [];
+let profile = { tracks:[], persona:[], style:[], fans:'', platform:[] };
+
+// ===== TOPIC DB =====
+const DB = {
+'美食探店': [
+  {t:'粤语探店｜本地人才知道的大排档隐藏吃法', a:'方言人设差异化+本地测评+猎奇感', data:'小红书 #粤语探店 本周热度TOP10，"隐藏吃法"互动率+65%<br>方言探店完播率比普通话高2.4倍<br>美食频道头部内容以地方特色+真实体验为主', src:'小红书美食频道实时热门 · 7.8', tags:['差异化强','地域特色','难度适中','预估赞2500+'], prep:['选1家口碑大排档（非网红店）','确认拍摄可行性','准备3-5道隐藏吃法','手机+稳定器确保暗光清晰'], shots:['Hook/0-4s：方言开场"带你吃本地人才懂的"','环境/4-12s：烟火气全景+菜单+人声ASMR','上菜/12-22s：3-5道菜逐一展示+方言点评','隐藏吃法/22-28s：演示本地蘸料搭配','收尾/28-30s：结账特写+人均价格'], edit:'保留环境音·字幕双语·标价格·保持质朴感', pub:{time:'周五/六 18:00-20:00', tags:['#本地美食','#大排档','#隐藏菜单','#探店vlog','#地道美食'], hook:'你城市有什么本地人才知的隐藏吃法？'}},
+  {t:'不是越南！广西边境小城海鲜便宜到离谱', a:'地理信息差+价格冲击+小众种草', data:'小红书"不是XX！国内XX"句式本周CTR最高<br>"广西边境小城海鲜便宜游客少"正在爆发<br>跨品类（旅行+美食）获双重推荐', src:'小红书explore热门 · 7.8', tags:['信息差','高点击','跨品类','预估赞3000+'], prep:['确定目的地（东兴/防城港）','记录3-5家海鲜价格对比','必拍：价目表+食材+成品','带称重道具增加可信度'], shots:['Hook/0-3s：价目表特写→"以为在越南"','市场/3-10s：全景+各摊位价格','加工/10-20s：大排档制作过程','吃/20-27s：开吃+价格总结','对比/27-30s：字幕vs上海同价'], edit:'每道菜标价·插入地图定位·封面用价格数字冲击', pub:{time:'周末 11:00-13:00', tags:['#广西美食','#海鲜自由','#小众旅行','#平价海鲜','#边境小城'], hook:'你那海鲜什么价？来对比！'}},
+  {t:'30元挑战一天三餐（含食材清单）', a:'省钱实用+挑战感+全流程记录', data:'#省钱餐食 近7天浏览量4.7亿，新增笔记2.1万篇<br>"挑战XX元"类点击率比普通标题高2.3倍', src:'小红书创作服务平台 · 热搜词', tags:['实用干货','高收藏','难度低','预估收藏1200+'], prep:['规划三餐食谱','去菜市场记录每样价格','准备计算器道具','确保厨房整洁'], shots:['Hook/0-5s：手持30元→铺桌上→计算器','采购/5-12s：菜市场选食材+标价字幕','制作/12-22s：三餐加速（保留声效）','成品/22-28s：三餐展示+最终总价','收尾/28-30s：竖拇指+"30块搞定"'], edit:'每样食材弹出价格·结尾放总价对比·30秒内', pub:{time:'周三/五 12:00-13:00', tags:['#省钱做饭','#一人食','#平价美食','#30元挑战','#做饭日常'], hook:'你一天伙食费多少？评论区对比！'}},
+  {t:'夏天第一杯自制冰美式的5种隐藏喝法', a:'夏日饮品热点+视觉丰富+一人份', data:'#夏日饮品 今日新增5.2万条，24h增长280%<br>自制饮品类近3天均赞3200+，属于爆发期<br>"自制咖啡"相关内容正在热推', src:'小红书美食频道实时热门 · 7.8', tags:['今日热点','视觉出片','难度低','预估赞3000+'], prep:['准备咖啡+冰块+创意配料（椰浆/桂花蜜/气泡水）','3-5种杯型','浅色桌面+自然光','每杯测试配比'], shots:['Hook/0-3s：5杯排开俯拍→"还在只加冰？"','制作/每杯5s：逐一倒入慢动作','收尾/25-30s：选最喜欢喝一口+满足'], edit:'标注配方比例·0.5x慢动作·色调清爽', pub:{time:'每日 17:00-18:30', tags:['#夏日饮品','#自制咖啡','#冰美式','#一人份','#居家咖啡'], hook:'你的夏日续命饮品是什么？'}},
+  {t:'东北名菜在家做｜猪肉炖粉条（零失败版）', a:'地方菜复刻+新手友好+家常温暖', data:'小红书美食频道"东北名菜猪肉炖粉条"正在热门<br>"零失败"标签收藏率比普通教程高2.8倍<br>地方菜评论互动极高（各地PK做法）', src:'小红书美食频道实时热门 · 7.8', tags:['家常温暖','争议互动','难度低','预估评论300+'], prep:['五花肉+红薯粉条+白菜+调料','粉条提前泡软','大铁锅/砂锅增加视觉','写好配方卡'], shots:['Hook/0-3s：成品热气特写→"南方也能炖东北味"','备料/3-8s：食材全家福+标注用量','制作/8-22s：炒肉→调味→炖煮→下粉条','出锅/22-28s：揭盖慢动作+装盘','试吃/28-30s：夹一大口→满足表情'], edit:'保留ASMR·标注火候时间·结尾放配方卡·暖色调', pub:{time:'周末 17:00-18:30', tags:['#猪肉炖粉条','#东北菜','#家常菜','#新手做饭','#做饭日常'], hook:'你们那特色家常菜是什么？'}},
+  {t:'菜市场阿姨教的这3样，比外卖便宜还好吃', a:'烟火气+省钱对比+真实互动', data:'"菜市场"话题浏览量41亿<br>"菜市场vs外卖"对比类互动率+120%<br>素人与商贩互动完播率比独白高2.1倍', src:'小红书美食频道 · 7.8', tags:['烟火气','省钱实用','难度低','预估赞1800+'], prep:['选有烟火气的菜市场','跟摊主确认能拍','记录价格vs外卖对比','准备菜篮'], shots:['Hook/0-3s：菜市场入口→"阿姨说这样买划算"','采购/3-12s：与摊主互动+选食材+价格','做饭/12-22s：回家做3道菜加速','成品/22-28s：3道摆桌+花费vs外卖对比','收尾/28-30s：开吃→"XX块三个菜"'], edit:'保留吆喝声·标每样单价·结尾对比表·自然色调', pub:{time:'周三/六 11:30-13:00', tags:['#菜市场','#省钱做饭','#平价美食','#烟火气','#做饭日常'], hook:'你菜市场有什么隐藏美食？'}},
+  {t:'便利店组合吃法｜7-11隐藏菜单全攻略', a:'社交货币+猎奇+低门槛即刻复制', data:'便利店隐藏吃法近7天新增2.8万篇，浏览量+76%<br>"组合吃法"分享率是普通推荐3.2倍', src:'小红书美食频道 · 7.8', tags:['社交传播','猎奇好玩','难度极低','预估分享1500+'], prep:['实测5-8种组合','选出确实好吃的3-5个','记录每种总价','拍选购+制作过程'], shots:['Hook/0-3s：成品展示→"全是便利店买的"','选购/3-8s：货架前选材料','组合/8-20s：5种组合快速制作','试吃/20-27s：每种吃一口+打分','推荐/27-30s：TOP1→"一定要试"'], edit:'标材料+总价+推荐指数·保留微波炉声·可做系列', pub:{time:'周五 17:00-19:00', tags:['#便利店美食','#隐藏吃法','#7-11','#打工人午餐','#便利店组合'], hook:'你有什么便利店组合秘方？'}},
+  {t:'一周早餐不重样｜独居女生7天元气早餐', a:'系列化+打卡记录+早餐刚需', data:'#早餐 话题浏览量96亿，日均新增4.2万篇<br>"一周不重样"格式收藏率是单篇4.8倍', src:'小红书创作服务平台 · 美食长尾数据', tags:['高收藏','系列化','难度低','预估收藏2200+'], prep:['规划7天早餐','每天15分钟内完成','统一拍摄角度','准备一周菜单表'], shots:['封面：7天早餐宫格图','每天一张：成品+制作时间+食材清单','总清单：一周采购表+总花费'], edit:'统一模板·标注时间和营养·色调明亮·结尾可保存菜单', pub:{time:'周日 8:00-9:30', tags:['#早餐','#一周早餐','#独居做饭','#简单早餐','#一人食'], hook:'你早餐花多长时间？有快手推荐？'}},
+  {t:'夏天冰柜囤货清单｜不出门也能顿顿吃好', a:'独居场景+夏季时令+种草属性强', data:'夏季 #囤货清单 搜索量比春季+180%<br>清单种草类收藏率19%，远超平均7%', src:'小红书美食频道 · 7.8', tags:['种草力强','当季热点','难度极低','预估收藏1600+'], prep:['整理8-12款常购速冻好物','拍冰柜全景+单品特写','每样加热后成品对比','记录品牌/价格/渠道/评分'], shots:['封面：冰柜满满全景','主食：水饺/面点/披萨+推荐指数','肉类：牛排/鸡胸/虾 性价比对比','甜品：冰淇淋/咖啡液 测评','雷区：后悔买的3款','总清单：全部好物+链接'], edit:'拍出富足感·标品牌规格单价·诚实优缺点·分组清晰', pub:{time:'周五/六 20:00-21:30', tags:['#囤货清单','#速冻美食','#独居好物','#夏日囤货','#一人食'], hook:'你冰柜必囤食物是什么？'}},
+  {t:'人均50！城中村里的宝藏苍蝇馆子', a:'低价+隐藏小店+烟火气', data:'"城中村美食"话题本周新增1.6万篇<br>"人均XX"价格标注点击率+2.9倍', src:'小红书美食频道 · 7.8', tags:['烟火气','平价美食','难度低','预估赞2400+'], prep:['探访城中村找2-3家口碑店','和店主沟通拍摄','记录招牌菜+价格+排队情况','人多时间段去拍'], shots:['Hook/0-3s：巷子深处→"人均50吃了这些"','环境/3-10s：街道+店内+厨房烟火','上菜/10-22s：招牌菜展示+试吃','总结/22-28s：结账小票+人均','收尾/28-30s："为了这口穿过城中村"'], edit:'不过度修图·保留环境音·标价格辣度·附地址营业时间', pub:{time:'周末 11:30-13:00', tags:['#城中村美食','#苍蝇馆子','#平价美食','#本地美食','#探店'], hook:'你城市城中村有什么宝藏店？'}}
+],
+'日常Vlog': [
+  {t:'独居第100天，冰箱从空到满的变化', a:'成长记录+情感共鸣+从将就到精致', data:'#独居生活 浏览量82亿，近7天新增3.6万篇<br>情感向内容收藏率为普通3.2倍', src:'小红书创作灵感 · 生活周报', tags:['高收藏','新方向','难度低','预估收藏800+'], prep:['找入住初期空冰箱照片','整理当前冰箱分区摆放','准备一顿精致餐食','想好走心文案'], shots:['对比/0-4s：旧照片→手遮镜头转场','揭晓/4-12s：打开冰箱展示满食材','烹饪/12-20s：取食材做饭加速3x','收尾/20-25s：餐桌+"一个人也要好好吃饭"'], edit:'轻钢琴BGM·手遮转场·走心字幕用手写体·偏暖', pub:{time:'周日 21:00-22:30', tags:['#独居生活','#独居日常','#冰箱收纳','#好好吃饭','#一个人生活'], hook:'你独居多久了？冰箱什么样？'}},
+  {t:'下班后的2小时｜打工人真实晚间routine', a:'真实生活节奏+打工人共鸣+治愈', data:'#下班后 浏览量28亿，近7天新增1.8万篇<br>"真实routine"互动率比精致vlog高1.8倍', src:'小红书 · Vlog赛道热搜', tags:['强共鸣','长青选题','难度低','预估赞1200+'], prep:['规划动线（进门→做饭→吃→护肤→睡前）','每环节1-2个核心镜头','保持真实不收拾','确定固定机位'], shots:['Hook/0-3s：关电脑→收包→出门','回家路/3-10s：地铁/骑车','晚间/10-20s：做饭→吃→刷剧','睡前/20-28s：护肤→躺床→关灯','收尾/28-30s：闹钟画面'], edit:'lo-fi BGM·日系滤镜·时间标注·一句文案', pub:{time:'工作日 21:30-22:30', tags:['#下班后','#打工人日常','#晚间routine','#独居日常','#治愈vlog'], hook:'你下班后第一件事做什么？'}},
+  {t:'搬家1年后我的出租屋现在长这样', a:'前后对比+改造成就感+好物种草', data:'#出租屋改造 浏览量67亿，图文均赞2100<br>"前后对比"收藏率是普通家居4.2倍', src:'小红书创作服务平台 · 家居数据', tags:['高收藏','有种草','难度低','预估收藏1500+'], prep:['找搬家初期照片','逐区域拍现状','记录花费和好物链接','整理改造总花费表'], shots:['封面：全景对比（左旧右新）','玄关客厅：改造前后+标注好物','卧室：床品/灯光/收纳细节','厨房阳台：功能区改造','总结：花费表+整体氛围'], edit:'标品牌+价格·强烈对比·写清面积/预算/风格', pub:{time:'周末 10:00-12:00', tags:['#出租屋改造','#租房装修','#小户型','#家居好物','#改造前后'], hook:'你出租屋花多少改造？最满意哪里？'}},
+  {t:'周末独处的24小时｜不社交也很充实', a:'独处正当化+反内卷+舒适生活方式', data:'抖音 #独处 播放量156亿，本周搜索量+67%<br>"不社交"完播率比日常vlog高42%', src:'抖音创作者服务 · 生活频道', tags:['情绪共鸣','长青选题','难度低','预估赞1600+'], prep:['规划独处一天活动','2-3个场景（家/咖啡店/公园）','带好充电宝全天记录','选视觉氛围好的角落'], shots:['Hook/0-4s：闹钟→按掉→赖床→"今天谁也不见"','上午/4-12s：泡咖啡→阳台发呆','下午/12-20s：看书/逛超市/做饭','傍晚/20-28s：散步/日落/点蜡烛','收尾/28-30s：躺床微笑→"充满电了"'], edit:'舒缓BGM·节奏放慢·大量留白空镜·文字少', pub:{time:'周日 20:00-21:30', tags:['#独处','#周末日常','#一个人的生活','#不社交','#治愈日常'], hook:'你多久没完整独处一天了？'}},
+  {t:'打工人下班后30分钟快速吃上饭', a:'极致实用+刚需+快手菜合集', data:'小红书首页热推"打工人下班快速吃上饭"获高互动<br>"30分钟"限定内容收藏率比普通食谱高3.4倍<br>打工人+做饭交叉标签覆盖2个流量池', src:'小红书explore实时热门 · 7.8', tags:['当日热门','实用刚需','难度低','预估收藏2000+'], prep:['选3道15分钟快手菜','周末批量备好配料','拍从进门到吃上饭全过程','准备定时器道具'], shots:['Hook/0-3s：进门→看表6:47→"30分钟吃上饭"','准备/3-8s：换衣→拿食材 加速','做饭/8-22s：快速烹饪+保留声效','成品/22-27s：装盘→看表7:12→满足','吃饭/27-30s：开吃+"打工人也配好好吃饭"'], edit:'全程时间戳·做饭保留ASMR·放本周快手菜单·偏暖', pub:{time:'工作日 18:30-19:30', tags:['#打工人做饭','#快手菜','#下班后','#独居做饭','#一人食'], hook:'你下班到吃上饭要多久？'}},
+  {t:'在泰国景点被当成NPC是什么体验', a:'搞笑+旅行+意外事件=强传播', data:'小红书首页"在泰国景点被当NPC"互动量破万<br>搞笑旅行内容分享率是普通游记5.2倍<br>"意外/尴尬"类评论互动率极高', src:'小红书explore实时热门 · 7.8', tags:['搞笑爆款','高分享','难度适中','预估赞5000+'], prep:['回忆旅行搞笑经历','收集当时照片/视频','写好段子化脚本','选喜剧效果BGM'], shots:['Hook/0-3s：直接抛最搞笑画面','背景/3-10s：在哪/干什么/怎么发生','故事/10-22s：详细过程+丰富表情','高潮/22-28s：最搞笑点+图片证据','收尾/28-30s：幽默总结'], edit:'搞笑BGM·关键笑点配音效·时长30-45秒·节奏快', pub:{time:'周末 20:00-22:00', tags:['#旅行搞笑','#社死现场','#旅行vlog','#搞笑日常','#泰国旅游'], hook:'你旅行有什么社死经历？'}},
+  {t:'沉浸式收拾行李箱｜出门3天都带了什么', a:'ASMR治愈+实用收纳+出行刚需', data:'小红书"沉浸式装行李箱"正在热推<br>收纳类收藏率24%<br>暑假出行季搜索量比日常高180%', src:'小红书explore · 7.8', tags:['暑期刚需','高收藏','难度极低','预估收藏1500+'], prep:['确定出行场景','分类摆好物品','行李箱/收纳袋准备好','环境整洁光线足'], shots:['Hook/0-3s：空箱打开→"3天2夜带什么"','收纳/3-20s：分类放入 纯ASMR+字幕标注','技巧/20-26s：1-2个收纳小技巧','完成/26-30s：关箱→拉链声→出发'], edit:'无BGM纯ASMR·每类标注名称·干净色调·结尾放清单', pub:{time:'周四/五 20:00-21:30', tags:['#收拾行李','#行李箱收纳','#出行好物','#旅行收纳','#沉浸式'], hook:'你出门必带但别人觉得奇怪的是什么？'}},
+  {t:'独居女生28平出租屋一镜到底roomtour', a:'一镜到底沉浸感+小户型参考+真实状态', data:'小红书"一镜到底独居28平"获高互动<br>roomtour完播率比普通vlog高67%<br>小户型标注精准吸引同类', src:'小红书家居频道 · 7.8', tags:['强好奇','完播率高','难度低','预估赞2200+'], prep:['整理到日常整洁状态','规划路线（门口→各区域）','手机电量充足+稳定器','试走一遍确定节奏'], shots:['完整一镜/0-45s：门口→每区域停留3-5秒→结束在最喜欢角落','关键停留：玄关→桌面→床铺→厨房→窗景'], edit:'可不剪辑·加轻音乐保留环境音·字幕标面积/租金', pub:{time:'周末 14:00-16:00', tags:['#出租屋','#roomtour','#独居生活','#小户型','#一镜到底'], hook:'你出租屋多大？月租多少？'}},
+  {t:'入职第一周vs第一年｜同事眼中我的变化', a:'职场成长+幽默对比+社交传播', data:'#职场变化 近30天浏览量+89%，评论均48条<br>对比向分享率是普通vlog 2.7倍', src:'小红书创作灵感 · 职场周报', tags:['社交传播','有趣','难度适中','预估赞2000+'], prep:['收集入职初期照片/截图','列5-8个变化点','邀请同事客串','准备工牌/工位道具'], shots:['Hook/0-3s：工牌照对比 分屏','上班前/3-12s：第一周精心打扮→现在随便','工作中/12-20s：认真记笔记→摸鱼','下班/20-26s：主动加班→准时跑','收尾/26-30s：和同事笑→"上班上的"'], edit:'轻快BGM·分屏强调对比·标注周数·快节奏', pub:{time:'周一 8:00-9:00', tags:['#职场日常','#打工人变化','#入职对比','#办公室日常','#工作'], hook:'你入职前后最大变化是什么？@你同事'}},
+  {t:'社恐女生的一天｜出门买咖啡都要深呼吸', a:'社恐共鸣+搞笑夸张+日常向', data:'"社恐日常"话题浏览量47亿<br>社恐内容分享率是普通日常3.8倍<br>夸张表现手法完播率+52%', src:'小红书 · Vlog赛道热搜', tags:['强共鸣','高分享','难度低','预估赞2800+'], prep:['列5-8个社恐日常场景','夸张化演绎每个瞬间','选BGM增加喜剧效果','拍内心OS字幕'], shots:['Hook/0-3s：站咖啡店门口深呼吸→内心OS','场景1-5/3-25s：电梯/外卖/快递/打电话/结账','收尾/25-30s：回到家→"安全了"→瘫倒'], edit:'内心OS大字幕·夸张表情·喜剧BGM·快节奏·30秒内', pub:{time:'工作日 21:00-22:00', tags:['#社恐','#社恐日常','#i人','#搞笑日常','#日常vlog'], hook:'社恐人最怕什么场景？'}}
+],
+'美妆护肤': [
+  {t:'内双肿眼泡的"媚感"眼妆（不贴双眼皮贴）', a:'精准眼型痛点+不依赖工具+平台爆款', data:'小红书美妆"内双肿眼泡的媚感"正在爆发<br>眼型细分教程收藏率是通用教程3.7倍<br>"不贴双眼皮贴"进一步筛选精准受众', src:'小红书美妆频道 · 7.8', tags:['精准痛点','高收藏','难度适中','预估收藏2500+'], prep:['研究内双眼妆3个关键技巧','准备补光灯+微距','选哑光大地色眼影','化妆前拍素眼对比'], shots:['Hook/0-3s：成品眼妆微距→"内双也能画媚感"','对比/3-8s：素眼vs完成妆 分屏','教程/8-22s：3步骤演示（眼影→眼线→卧蚕）','tips/22-28s：内双避雷（晕妆/显肿错误示范）','收尾/28-30s：睁闭眼对比'], edit:'全程眼部特写·标色号工具·关键手法放慢·放产品清单', pub:{time:'工作日 7:00-8:30', tags:['#内双眼妆','#肿眼泡','#眼妆教程','#新手化妆','#媚感妆容'], hook:'内双姐妹！你最头疼眼妆哪步？'}},
+  {t:'黄皮素颜早八口红｜涂了像没涂但气色巨好', a:'精准场景+黄皮痛点+低妆感趋势', data:'小红书"黄皮素颜早八口红"正在获得高互动<br>#黄皮显白 浏览53亿，"素颜感"口红搜索+89%<br>试色类互动率比纯文字推荐高4.1倍', src:'小红书美妆频道 · 7.8', tags:['精准需求','种草爆款','难度低','预估赞3000+'], prep:['选6-8支适合黄皮裸色/豆沙口红','素颜状态试色不加滤镜','统一自然光','标注质地和持久度'], shots:['封面：素颜涂口红半脸照','试色：每支管体+手臂+上嘴+点评','对比：所有色号同光线排列','推荐：日常TOP1/约会TOP1/面试TOP1','购买：品牌+色号+价格'], edit:'不加美颜·标色号价格质地·统一角度光线·用半脸对比', pub:{time:'工作日 7:30-8:30', tags:['#黄皮口红','#素颜口红','#早八妆容','#黄皮显白','#口红试色'], hook:'你素颜本命口红是哪支？'}},
+  {t:'20块粉底液实测｜平价到底能不能打？', a:'价格挑战+平价测评+真实不打滤镜', data:'"20块粉底液居然不错"正在热门<br>平价测评收藏率比专柜推荐高2.6倍<br>"实测"标签信任背书让互动+180%', src:'小红书美妆频道 · 7.8', tags:['平价种草','高互动','难度适中','预估赞2200+'], prep:['购买3-4款20元粉底液','半脸对比（平价vs专柜）','4h/8h实测记录','环形灯+微距环境'], shots:['Hook/0-3s：展示20元产品→"能用吗？帮你试"','上脸/3-10s：半脸上妆（左平价右专柜）','对比/10-18s：完成后放大细节','实测/18-25s：4h/8h后状态对比','结论/25-30s：打分+推荐'], edit:'不加美颜·分割线标"20元/200元"·放大红框对比·列产品', pub:{time:'周三/六 12:00-14:00', tags:['#平价粉底液','#底妆测评','#平价好物','#学生党','#真实测评'], hook:'你用过最便宜好用的底妆是？'}},
+  {t:'新中式妆容教程｜普通女孩也能驾驭的国风感', a:'新中式美学+降低门槛+风格差异化', data:'#新中式 跨穿搭+美妆浏览量本月+210%<br>风格类教程分享率是日常妆3.4倍', src:'小红书美妆频道 · 7.8', tags:['趋势风格','高分享','难度适中','预估赞2800+'], prep:['研究新中式3要素（眉形/唇色/腮红位置）','准备国风色系产品','搭配简单发型/配饰','干净浅色背景'], shots:['Hook/0-3s：完整新中式妆面→"普通长相也能画"','底妆/3-8s：哑光奶油肌','重点/8-18s：柳叶眉+丹凤眼线+咬唇','腮红/18-25s：新中式位置vs日常对比','成品/25-30s：正面侧面+新中式BGM'], edit:'古风纯音乐·暖黄色调·古风字体标步骤·放整体效果', pub:{time:'周末 14:00-16:00', tags:['#新中式妆容','#国风妆容','#新中式','#妆容教程','#中国风'], hook:'新中式妆容最关键是哪步？'}},
+  {t:'夏天不脱妆的底妆手法｜油皮亲测12小时', a:'夏季痛点+油皮精准+时间验证', data:'"夏天不脱妆"7月搜索量+156%<br>油皮底妆教程收藏率是混合皮2.8倍<br>带时间验证的可信度更高', src:'小红书美妆频道 · 7.8', tags:['夏季刚需','高收藏','难度适中','预估收藏2200+'], prep:['准备控油产品组合','12小时定时拍照记录','早晨素颜→完成→4h→8h→12h','不同区域特写对比'], shots:['Hook/0-3s：12h后妆面特写→"油皮也能不脱"','上妆/3-12s：完整手法步骤','4h/8h/12h：对比记录','总结/25-30s：控油产品排名'], edit:'时间戳水印·放大T区对比·列产品+手法重点·真实不修', pub:{time:'工作日 7:00-8:00', tags:['#油皮底妆','#不脱妆','#夏日底妆','#控油','#底妆教程'], hook:'油皮姐妹夏天多久补一次妆？'}},
+  {t:'素颜也干净的眉毛教程｜野生眉3分钟画法', a:'素颜感趋势+快速教程+新手友好', data:'"野生眉""素颜感眉毛"搜索量+78%<br>3分钟教程完播率比长教程高3.1倍<br>眉毛为新手第一大难点', src:'小红书美妆频道 · 7.8', tags:['新手友好','快速教程','难度低','预估赞2000+'], prep:['选适合新手的眉笔（细头）','不同脸型眉形参考','拍微距+正面','准备修眉工具说明'], shots:['Hook/0-3s：素眉vs画完对比→"3分钟搞定"','修型/3-10s：用刮眉刀简单修','画眉/10-22s：定点→连线→填色','对比/22-28s：左右脸对比','tips/28-30s：常见错误'], edit:'眉部微距·标注定点位置·红线标走向·产品清单', pub:{time:'工作日 7:00-8:30', tags:['#眉毛教程','#野生眉','#新手化妆','#素颜感','#画眉'], hook:'你画眉最大的困难是什么？'}},
+  {t:'方圆脸腮红怎么打？3种位置对比实测', a:'脸型细分+位置对比+视觉证据强', data:'"方圆脸腮红位置"收藏率18%<br>脸型细分教程互动率+2.9倍<br>对比格式说服力强，适合引讨论', src:'小红书美妆频道 · 7.8', tags:['脸型痛点','高互动','难度低','预估赞1800+'], prep:['准备3种腮红位置方案','同一妆面只换腮红位置拍','正面+45度各拍一组','标注打法区域'], shots:['Hook/0-3s：3张对比→"方圆脸选错位置显大"','位置1/3-10s：苹果肌打法','位置2/10-18s：太阳穴斜扫','位置3/18-25s：鼻梁两侧氛围','结论/25-30s：推荐+原理'], edit:'三宫格对比·红圈标打法区域·标注手法(轻拍/斜扫/圆圈)·正面侧面', pub:{time:'周三 12:00-14:00', tags:['#腮红教程','#方圆脸','#腮红位置','#脸型化妆','#修容'], hook:'你是什么脸型？腮红打哪里？'}},
+  {t:'学生党50元以内眼影盘测评TOP5', a:'学生预算+测评对比+购买决策', data:'学生美妆搜索7月+130%（开学前囤货）<br>50元以内价格带转化率最高<br>TOP排名格式收藏率+3.5倍', src:'小红书美妆频道 · 7.8', tags:['学生党','高种草','难度适中','预估收藏2400+'], prep:['购买5-6盘50元以内眼影','统一光线试色','粉质/显色/飞粉/持久度多维测评','打分排名'], shots:['封面：5盘排列+排名序号','逐盘：外观→试色→上眼效果','对比：同色系不同盘对比','排名：综合评分表','推荐：日常TOP1/活动TOP1'], edit:'统一手臂试色·标价格购买渠道·诚实打分·上眼实拍', pub:{time:'周末 14:00-16:00', tags:['#平价眼影','#学生党美妆','#眼影测评','#平价好物','#眼影盘推荐'], hook:'你用过最好用的平价眼影是？'}},
+  {t:'约会前1小时快速变美流程（护肤到出门）', a:'场景刚需+时间限制+完整流程', data:'"约会前变美"搜索量稳定TOP20<br>完整流程类收藏率是单步骤4.6倍<br>1小时时间框架增加紧迫感和完播率', src:'小红书美妆频道 · 7.8', tags:['约会场景','高收藏','难度低','预估收藏1900+'], prep:['规划60分钟时间轴','每步骤限定时间','准备所有产品提前摆好','拍实时过程'], shots:['Hook/0-3s：看表→"约会还有1小时"','0-15min：快速护肤+急救面膜','15-35min：底妆+眼妆+唇妆','35-50min：发型+穿搭','50-60min：香水+检查+出门','成品：完整效果展示'], edit:'保留紧迫感·计时器全程显示·每步标用时·快节奏', pub:{time:'周五 16:00-18:00', tags:['#约会妆容','#快速化妆','#变美流程','#约会准备','#1小时变美'], hook:'你约会前准备多久？'}},
+  {t:'早C晚A到底怎么用？成分党护肤顺序指南', a:'成分党精准+护肤顺序刚需+科普种草', data:'"早C晚A"搜索量月均9.2万<br>护肤顺序类收藏率21%<br>成分党内容评论互动最活跃', src:'小红书美妆频道 · 7.8', tags:['成分党','高收藏','难度低','预估收藏2000+'], prep:['整理早晚护肤正确顺序','每步标成分功效','拍产品+使用手法','做成可保存流程图'], shots:['封面：早晚护肤品排列','科普：VC和VA分别做什么','早间：清洁→VC精华→防晒 顺序','晚间：卸妆→VA产品→修护 顺序','避雷：不能混用的成分','清单：不同肤质推荐产品'], edit:'流程图清晰·标成分浓度·避雷红色标注·可保存打印', pub:{time:'周二 20:00-21:30', tags:['#早C晚A','#护肤顺序','#成分党','#护肤教程','#美白'], hook:'你早C晚A坚持多久了？有效果吗？'}}
+],
+'职场干货': [
+  {t:'入职第一个月做这5件事，直接提前转正', a:'可执行方法论+结果导向+新人刚需', data:'#职场新人 浏览量35亿，7月搜索量+180%<br>带"具体数字结果"的内容收藏率是鸡汤5.2倍', src:'小红书 · 职场赛道季节性数据', tags:['毕业季热点','高收藏','难度低','预估收藏2000+'], prep:['列5个具体可执行动作','每个配真实案例','准备工作场景照','整理checklist'], shots:['封面：工位照+大字标题','方法1-5：每张一个方法+案例结果','时间轴：每周重点','checklist：新人第一月清单','结语：leader评语截图（脱敏）'], edit:'商务风排版·"做X→得到Y"格式·避免鸡汤·做成可保存清单', pub:{time:'周一 8:00-9:00', tags:['#职场新人','#入职攻略','#职场干货','#毕业季','#转正'], hook:'你入职第一个月踩过什么坑？'}},
+  {t:'工作3年总结：给新人的10条反直觉建议', a:'过来人经验+"反直觉"制造好奇+列表式', data:'"反直觉"标题CTR比普通高67%<br>3-5年职场人经验分享评论最活跃', src:'抖音创作者服务 · 知识类数据', tags:['争议性','高评论','难度适中','预估评论300+'], prep:['筛选10条真正反直觉的建议','每条配真实场景','选3-5条争议性重点展开','不绝对化表述'], shots:['Hook/0-3s："工作3年发现跟想的完全不一样"','内容/3-25s：逐条展开（每条2-3秒）','收尾/25-30s："你们怎么看？"引导讨论'], edit:'字幕关键词放大高亮·数字序号·轻快BGM·60秒内', pub:{time:'周三 12:00-13:00', tags:['#职场干货','#职场经验','#工作建议','#反直觉','#职场成长'], hook:'你觉得哪条最反直觉？'}},
+  {t:'Excel 5个技巧让你提前1小时下班', a:'具体工具+省时间量化+即学即用', data:'#办公技巧 搜索量稳定TOP10，收藏率22%<br>工具类教程生命周期长达6个月（持续搜索流量）', src:'小红书 · 职场工具长尾数据', tags:['实用干货','长尾流量','难度低','预估收藏1800+'], prep:['选5个真正提效技巧','每个录屏演示','准备前后时间对比','step by step格式'], shots:['封面：屏幕+大字标题','每个技巧：截图+步骤+省时量化','快捷键合集','效率对比："30分钟→5分钟"','资源：模板下载方式'], edit:'截图清晰·红框标注操作区·标"省时X分钟/天"·信息密度高但不乱', pub:{time:'周二/四 8:30-9:30', tags:['#办公技巧','#Excel技巧','#效率工具','#职场干货','#飞书'], hook:'你有什么提效小技巧？'}},
+  {t:'面试被问"你有什么缺点"的高分回答模板', a:'高频面试题+可直接用的模板+毕业季', data:'"面试缺点怎么回答"7月搜索量+210%<br>面试模板收藏率是经验分享5.1倍<br>毕业季+秋招前搜索高峰', src:'小红书职场频道 · 7.8', tags:['毕业季热点','高收藏','难度低','预估收藏2800+'], prep:['整理3种回答框架','每种配2-3个真实示范','列避雷回答','做成可复制模板'], shots:['封面：对话框"你有什么缺点？"','框架1：成长型（缺点+改进行动+结果）','框架2：岗位适配型','框架3：自我认知型','避雷：5种踩坑回答','模板：填空式可复制'], edit:'对话框格式·正反对比·绿色标好·红色标雷·可保存', pub:{time:'周一/三 8:00-9:00', tags:['#面试技巧','#面试回答','#求职','#毕业季','#秋招'], hook:'面试你被问过最难的问题是？'}},
+  {t:'周报写不出来？5分钟模板让领导主动夸', a:'高频痛点+即用模板+结果导向', data:'"周报模板"每周稳定搜索1.2万次<br>职场效率工具下载率最高类目<br>带"领导反馈"的可信度+87%', src:'小红书职场频道 · 7.8', tags:['高频刚需','长尾流量','难度低','预估收藏1600+'], prep:['整理3种周报模板（技术/运营/销售）','每种配真实示范','附加领导视角解读','做成飞书/Notion模板'], shots:['封面：周报截图+领导回复','问题：为什么你的周报没人看','模板：结构化框架(数据+进展+阻碍+计划)','示范：不同岗位填写示例','进阶：让周报成为晋升证据'], edit:'截图真实感·"before→after"对比·表格格式·附下载方式', pub:{time:'周日 20:00-21:00', tags:['#周报','#职场效率','#打工人','#职场干货','#工作技巧'], hook:'你写周报花多久？'}},
+  {t:'如何在开会时说话不紧张｜3个即学即用的技巧', a:'普遍社恐痛点+行为技巧+低门槛', data:'"开会紧张"近30天搜索+45%<br>职场软技能评论互动最活跃<br>"即学即用"比"方法论"点击率高2.3倍', src:'抖音创作者服务 · 职场频道', tags:['强共鸣','高评论','难度低','预估评论200+'], prep:['总结3个可立刻用的技巧','配真实会议场景','邀请同事模拟演示','拍紧张vs从容对比'], shots:['Hook/0-3s："开会一紧张就脑子空白？"','技巧1/3-12s：提前写3个关键词','技巧2/12-20s：先复述再表达','技巧3/20-27s：拿纸笔建立安全感','收尾/27-30s："下次试试然后告诉我"'], edit:'场景还原·字幕大字·每个技巧标"适用场景"·轻快BGM', pub:{time:'周二 12:00-13:00', tags:['#职场沟通','#开会','#社恐','#表达力','#职场干货'], hook:'你开会紧张的时候怎么应对？'}},
+  {t:'被裁员后我做的5件事（帮我3周找到新工作）', a:'真实经历+时间线+可操作步骤', data:'"被裁员"话题近30天浏览+67%<br>真实经历类互动率是方法论3.8倍<br>带时间线+结果的可信度极高', src:'小红书职场频道 · 7.8', tags:['真实经历','高互动','难度适中','预估赞2200+'], prep:['整理被裁后时间线','每天做了什么+心态变化','标注关键转折点','最终结果数据'], shots:['Hook/0-3s："被裁那天我做了一件事"','Day1-3/3-10s：情绪处理+盘点资源','Day4-10/10-18s：简历优化+面试准备','Day11-21/18-25s：面试过程+offer','总结/25-30s：5件事清单'], edit:'时间轴格式·真实截图（脱敏）·情绪vs行动双线·结尾放方法清单', pub:{time:'周三 12:00-13:00', tags:['#被裁员','#求职','#找工作','#职场','#裁员'], hook:'你身边有人经历过吗？怎么应对的？'}},
+  {t:'和领导1对1该怎么聊？高效沟通清单', a:'高频场景+清单可复制+向上管理', data:'"和领导1对1沟通"收藏率21%<br>向上管理为职场赛道Q3最热话题<br>清单格式下载/保存率极高', src:'小红书职场频道 · 7.8', tags:['向上管理','高收藏','难度低','预估收藏1900+'], prep:['整理1对1常见场景（周会/季度谈/转正）','每个场景3-5个问题模板','配正确vs错误示范','做成可保存清单'], shots:['封面：笔记本+提问清单','场景1：周例会（汇报+要资源）','场景2：转正/晋升谈话','场景3：项目复盘','避雷：5句不该说的话','清单：万能问题模板'], edit:'对话框格式·绿色OK红色NG·标适用场景·可保存打印', pub:{time:'周一 8:00-9:00', tags:['#向上管理','#职场沟通','#1对1','#职场干货','#领导沟通'], hook:'你和领导1对1一般聊什么？'}},
+  {t:'实习转正率90%的人都做了什么（附checklist）', a:'结果导向+checklist格式+实习生精准', data:'7月为实习转正季，"实习转正"搜索+320%<br>带具体转正率数据的标题CTR+2.8倍<br>checklist格式收藏率最高', src:'小红书职场频道 · 7.8', tags:['时令热点','高收藏','难度低','预估收藏2400+'], prep:['采访3-5个转正成功的人','总结共性行为','做成每周checklist','配转正答辩准备'], shots:['封面：offer截图（脱敏）+checklist','第1周：主动沟通+记录','第2-4周：超预期交付','最后2周：转正答辩准备','checklist：每周必做事项','答辩：PPT模板+话术'], edit:'checklist打勾格式·每条标"为什么重要"·附offer截图增可信度', pub:{time:'周日 20:00-21:00', tags:['#实习转正','#实习生','#职场新人','#转正','#暑期实习'], hook:'你实习转正了吗？最关键是什么？'}},
+  {t:'离职前千万别做的5件事｜过来人血泪经验', a:'避坑+真实经历+情绪共鸣', data:'"离职注意事项"近30天搜索+45%<br>避坑类标题CTR比正向建议高2.1倍<br>真实教训互动最活跃', src:'小红书职场频道 · 7.8', tags:['避坑实用','高评论','难度低','预估赞1800+'], prep:['列5件真实踩坑案例','每件标后果和正确做法','配真实场景还原','语气诚恳不偏激'], shots:['Hook/0-3s："离职前我做了一件蠢事"','事1-5/3-25s：每件坑+后果+正确做法','总结/25-30s：离职正确流程清单'], edit:'红色标错误绿色标正确·每条标后果严重程度·做成清单·诚恳语气', pub:{time:'周三 12:00-13:00', tags:['#离职','#职场','#职场避坑','#辞职','#工作'], hook:'你离职踩过什么坑？'}}
+],
+'健身运动': [
+  {t:'21天体态矫正计划｜圆肩驼背一起改', a:'具体天数承诺+跟练格式+体态刚需', data:'"21天体态矫正"正在爆发<br>体态矫正收藏率是普通健身4.2倍<br>"跟练版"完播率+67%', src:'小红书健身频道 · 7.8', tags:['当日热门','高收藏','难度低','预估收藏3000+'], prep:['设计3周分阶段计划','每天3-4动作拍标准示范+错误','Day1和Day21体态对比照','制作打卡日历'], shots:['Hook/0-3s：Day1vs21对比→"21天真能改"','跟练/3-25s：4个动作各15秒+倒计时','收尾/25-30s："Day1打卡！明天见"'], edit:'镜面拍摄·标动作名+次数+目标部位·倒计时提示音·Day X系列化', pub:{time:'每日 7:00-8:00', tags:['#体态矫正','#圆肩驼背','#21天挑战','#跟练','#体态管理'], hook:'打卡Day1！坚持21天评论区集合'}},
+  {t:'缩胯+直腿｜3分钟游戏跟练版', a:'热门需求+超短时长+游戏化互动', data:'"缩胯""腿越来越直 3min游戏跟练"正在热门<br>腿型矫正为持续TOP3搜索<br>"3分钟"完播率比10分钟高3.8倍', src:'小红书健身频道 · 7.8', tags:['持续热搜','完播率高','难度低','预估赞2500+'], prep:['选4个矫正动作','设计游戏关卡','准备计时器','穿贴身运动裤'], shots:['Hook/0-3s：腿型前后对比→"3分钟一天在变直"','热身/3-10s：关节活动','4关卡/10-160s：每动作45秒 镜面+倒计时','收尾/160-180s：拉伸→"恭喜通关明天继续"'], edit:'游戏音效·进度条·标"目标：臀中肌"·严格3分钟', pub:{time:'每日 21:00-22:00', tags:['#缩胯','#腿型矫正','#居家运动','#3分钟运动','#跟练'], hook:'第几关最累？评论区打卡！'}},
+  {t:'04女大学生在校减脂一天吃什么', a:'同龄人记录+饮食刚需+可复制食谱', data:'"04女大学生在校减脂一天吃什么"正在热门<br>减脂饮食记录收藏率22%<br>大学生创作门槛低', src:'小红书健身频道 · 7.8', tags:['大学生共鸣','高收藏','难度极低','预估收藏1800+'], prep:['规划三餐+加餐','每餐拍照+记录热量','记录总热量和营养素','准备一周方案'], shots:['封面：一天食物平铺+总热量','早餐：食物+食材+热量','午餐：食堂选餐思路+搭配','晚餐：食物+为什么这样搭','加餐：零食替代方案','总结：营养饼图+体重变化'], edit:'清爽少女风·每餐标食物克重热量·加tips·放一周总表', pub:{time:'每日 20:00-21:00', tags:['#减脂餐','#大学生减肥','#热量记录','#减脂饮食','#食堂减脂'], hook:'你减脂期一天多少卡？'}},
+  {t:'睡前10分钟拉伸｜改善失眠+缓解久坐酸痛', a:'睡前场景+两个痛点叠加+跟练格式', data:'"睡前拉伸"搜索量稳定TOP5<br>助眠+缓解酸痛双痛点覆盖率+2.6倍<br>10分钟时长完播率最高', src:'小红书健身频道 · 7.8', tags:['长青选题','高完播','难度极低','预估收藏2200+'], prep:['设计8个睡前拉伸动作','瑜伽垫+暗光环境','穿舒适睡衣增加代入感','配助眠音乐'], shots:['Hook/0-3s：躺床前→"10分钟消除一天疲劳"','跟练/3-9min：每个动作45秒+过渡','收尾/9-10min：仰卧放松→"晚安"'], edit:'暗光暖色调·助眠BGM·标每个动作目标肌群·倒计时提示·严格10min', pub:{time:'每日 21:30-22:30', tags:['#睡前拉伸','#助眠','#拉伸运动','#久坐','#跟练'], hook:'你睡前有什么放松习惯？'}},
+  {t:'久坐办公8小时后的5分钟急救操', a:'打工人刚需+超短时长+办公室场景', data:'"久坐 办公室运动"搜索量日均8000+<br>"5分钟"格式在办公场景点击率最高<br>打工人标签叠加获得双重流量', src:'小红书健身频道 · 7.8', tags:['打工人刚需','高收藏','难度极低','预估收藏1600+'], prep:['选5个坐着/站着都能做的动作','在真实办公环境拍','穿工装增加场景感','不需要器械'], shots:['Hook/0-3s：揉脖子→"坐了8小时全身都疼"','5动作/3-4.5min：颈椎→肩→腰→髋→腿','收尾/4.5-5min：整体放松→"舒服了"'], edit:'办公环境实拍·标"不用离开工位"·每动作标缓解部位·5min严格', pub:{time:'工作日 17:00-18:00', tags:['#久坐运动','#办公室运动','#颈椎','#打工人','#5分钟运动'], hook:'你坐多久起来动一次？'}},
+  {t:'30天平板支撑挑战｜从30秒到3分钟', a:'挑战打卡+进步可视+核心训练', data:'"平板支撑挑战"话题播放28亿<br>打卡挑战7日留存率是普通内容4.5倍<br>进步可视化增加完播和互动', src:'抖音健身频道 · 7.8', tags:['挑战格式','连载涨粉','难度低','预估赞2000+'], prep:['设计30天进阶计划','每天记录时间','Day1和Day30体态对比','设计打卡海报模板'], shots:['Hook/0-3s：Day1撑30秒抖→Day30稳3min','每日：计时器+坚持时间+表情','周回顾：时间曲线图','收尾：体态前后对比+围度变化'], edit:'计时器全屏·表情变化·标每日时间·做成进度曲线·Day X格式', pub:{time:'每日 7:00-8:00', tags:['#平板支撑','#30天挑战','#核心训练','#健身打卡','#居家运动'], hook:'你平板支撑能撑多久？Day1打卡！'}},
+  {t:'不去健身房｜家里2平米就能练的全身燃脂', a:'居家+小空间+全身+无器械', data:'"居家运动 不需要器械"收藏率是健身房内容3.1倍<br>小空间限定精准筛选租房人群<br>夏季减脂搜索量+89%', src:'小红书健身频道 · 7.8', tags:['居家适用','高收藏','难度适中','预估收藏2400+'], prep:['选8个原地动作（跳跃+力量交替）','测试2平米是否够用','20分钟全流程设计','拍标准示范+低强度替代'], shots:['Hook/0-3s：胶带贴2平米→"这么大就够"','热身/3-5min：关节活动','训练/5-20min：8动作×3组（HIIT格式）','拉伸/20-22min：放松','收尾：出汗效果展示'], edit:'俯拍标2平米·每动作标目标肌群+消耗·标低强度替代·显示心率', pub:{time:'每日 7:00-8:00', tags:['#居家运动','#无器械','#全身燃脂','#减脂运动','#小空间运动'], hook:'你家运动空间有多大？'}},
+  {t:'Apple Watch运动数据怎么看？看懂=高效减脂', a:'工具教程+数据可视+苹果用户精准', data:'"Apple Watch 运动"搜索量稳定高位<br>数码+健身跨品类获双重推荐<br>教程类长尾流量可持续6个月', src:'小红书数码×健身 · 7.8', tags:['跨品类','长尾流量','难度低','预估收藏2000+'], prep:['截图各项运动数据界面','解读每个指标含义','配合真实运动记录演示','做成指标对照表'], shots:['封面：手表运动环+数据截图','基础：三环含义+每日目标设置','进阶：心率区间怎么看/怎么用','实战：一次跑步数据完整解读','设置：推荐的体能训练APP配置','总表：指标→意义→建议对照表'], edit:'截图清晰·红框标重点数据·表格对照·附设置步骤', pub:{time:'周末 10:00-12:00', tags:['#AppleWatch','#运动数据','#健身','#减脂','#运动手表'], hook:'你Apple Watch最常用哪个运动功能？'}},
+  {t:'跑步膝盖疼？跑前5个动作预防跑步伤', a:'痛点预防+跑步人群精准+短时跟练', data:'"跑步膝盖疼"搜索量12万/月<br>预防类收藏率是治疗类2.8倍<br>跑步+康复跨领域获双重推荐', src:'小红书健身频道 · 7.8', tags:['精准痛点','高收藏','难度低','预估收藏1800+'], prep:['选5个激活膝关节的动作','拍标准示范+错误对比','讲清每个动作保护原理','不需要器械'], shots:['Hook/0-3s："跑步膝盖疼大概率是这里没激活"','5动作/3-8min：每个标"保护XX"','原理/8-9min：为什么跑前要做','收尾/9-10min：完整跟练版'], edit:'标关节保护原理·红色标错误蓝色标正确·全程镜面·10min', pub:{time:'周末 7:00-8:00', tags:['#跑步','#膝盖保护','#跑前热身','#跑步伤','#运动康复'], hook:'你跑步后哪里最容易不舒服？'}},
+  {t:'帕梅拉vs周六野vs Growwithjo｜跟谁练最适合你', a:'对比选择+新手决策+博主推荐', data:'"帕梅拉 周六野 区别"搜索量持续高位<br>对比向收藏率+3.1倍<br>健身博主选择为新手第一大困惑', src:'小红书健身频道 · 7.8', tags:['新手必看','高收藏','难度低','预估收藏2400+'], prep:['各跟练1周记录体感','对比强度/风格/时长/适合人群','截图App运动数据','做成对比表格'], shots:['封面：3人照片+推荐人群标签','帕梅拉：强度/适合谁/优缺点','周六野：强度/适合谁/优缺点','Growwithjo：强度/适合谁/优缺点','对比表：多维度打分','建议：不同目标选谁'], edit:'对比表清晰·标强度等级·按目标推荐·附课表链接', pub:{time:'周末 10:00-12:00', tags:['#帕梅拉','#周六野','#跟练推荐','#居家运动','#健身'], hook:'你跟谁练？感觉怎么样？'}}
+],
+'穿搭时尚': [
+  {t:'153/115斤微胖女生夏日显瘦通勤穿搭', a:'身材数据精准+微胖共鸣+夏季时令', data:'"153 115斤微胖女生夏日显瘦通勤穿搭"正在热门<br>标注身高体重互动率+3.6倍<br>"微胖显瘦"为7月TOP3搜索', src:'小红书穿搭频道 · 7.8', tags:['精准人群','当日热门','难度低','预估赞2800+'], prep:['选5套微胖夏季通勤搭配','标品牌/价格/尺码/面料','白墙+全身镜统一光线','每套正面+侧面+细节'], shots:['封面：最好看一套+身高体重标注','5套look：全身+侧面+显瘦细节标注','雷区：微胖避雷的3种单品','搭配逻辑：显瘦3原则','清单：全部购买信息'], edit:'不过度修图·箭头标"显瘦关键点"·标适合场景·标身高体重', pub:{time:'周日 19:00-20:30', tags:['#微胖穿搭','#显瘦穿搭','#通勤穿搭','#夏日穿搭','#小个子穿搭'], hook:'微胖姐妹！夏天最头疼穿什么？'}},
+  {t:'去迪士尼穿这套！主题配色拍照攻略', a:'场景穿搭（迪士尼IP）+拍照双价值+出游刚需', data:'"去迪士尼穿这套 配色好达菲啊"正在热门<br>迪士尼穿搭暑期搜索+245%<br>场景穿搭+拍照教程=双重收藏', src:'小红书穿搭频道 · 7.8', tags:['暑期热点','高收藏','出片','预估收藏2500+'], prep:['确定IP配色主题（达菲/星黛露）','衣柜搭配对应色系','准备发箍/包包等配饰','研究打卡点位和角度'], shots:['封面：现场穿搭+IP同框','配色解析：outfit vs IP色卡对比','穿搭细节：全身+半身+配饰','拍照点位：3个最佳位置+pose','实用tips：防晒/舒适鞋','其他IP：3个配色公式速查'], edit:'色调与IP一致·标购买渠道价格·标光线时间角度·做成"公式"', pub:{time:'周五 18:00-20:00', tags:['#迪士尼穿搭','#达菲配色','#主题穿搭','#迪士尼拍照','#暑假出游'], hook:'你去迪士尼穿什么？想cos哪个？'}},
+  {t:'珍珠配饰让普通衣服高级10倍｜1950s复古', a:'复古差异化+配饰提升+低成本高效果', data:'"珍珠 1950s复古"穿搭频道正在热门<br>复古风本周互动+48%<br>配饰种草转化率比服装高', src:'小红书穿搭频道 · 7.8', tags:['风格差异化','种草力强','难度适中','预估赞2200+'], prep:['收集珍珠配饰3-5件','搭配3套基础款展示"配饰提升"','拍有无配饰对比','研究1950s风格要素'], shots:['封面：复古全身照+珍珠特写','对比：同衣服有无配饰前后','3套搭配：基础款+珍珠组合','配饰特写：每件+品牌价格','风格指南：1950s三核心元素','购买清单：链接+平替'], edit:'暖复古色调·对比突出变化·标适合场景·植入性价比概念', pub:{time:'周末 14:00-16:00', tags:['#复古穿搭','#珍珠配饰','#vintage','#配饰推荐','#氛围感穿搭'], hook:'珍珠配什么风格最好看？'}},
+  {t:'一衣多穿｜一件白T的7天不重样穿搭', a:'基础单品延展+实用省钱+高收藏格式', data:'小红书"一衣多穿"话题浏览量32亿<br>"7天不重样"格式收藏率是单篇4.2倍<br>白T为夏季搜索量TOP1基础单品', src:'小红书穿搭频道 · 7.8', tags:['高收藏','实用省钱','难度低','预估收藏2000+'], prep:['选一件版型好的白T','搭配7套不同风格','统一白墙全身镜','每套标注适合场景'], shots:['封面：7套宫格图+白T特写','Day1-7：每套全身+半身+搭配逻辑','风格标签：通勤/约会/逛街/运动','单品清单：每件价格+链接','收纳建议：胶囊衣橱思路'], edit:'统一角度光线·标风格适合场景·做成可保存清单·每套3张', pub:{time:'周一 18:00-20:00', tags:['#一衣多穿','#基础款穿搭','#白T穿搭','#胶囊衣橱','#省钱穿搭'], hook:'一件白T你能搭几套？'}},
+  {t:'小个子梨形身材｜遮胯显高穿搭公式', a:'精准身材痛点+公式化教程+可复制', data:'"小个子梨形"搜索量本周+92%<br>标注身高+身材类型互动率比普通穿搭高3.8倍<br>公式类内容收藏率远超单品推荐', src:'小红书穿搭频道 · 7.8', tags:['精准痛点','高互动','难度低','预估赞3200+'], prep:['整理5套遮胯显高搭配','总结穿搭公式（版型+比例+颜色）','标注身高体重','拍正面侧面对比'], shots:['Hook：侧面胯宽vs穿搭后对比','公式1-3：短上衣+高腰+A字 等组合','雷区：3种显胯宽的穿法','购买清单：尺码+面料选择tips','总结：公式卡可保存'], edit:'箭头标注"显高关键点"·标身高体重·做对比图·列品牌尺码', pub:{time:'周末 10:00-12:00', tags:['#小个子穿搭','#梨形身材','#显高穿搭','#遮胯','#身材穿搭'], hook:'梨形姐妹最头疼穿什么？'}},
+  {t:'夏天通勤不热又体面｜空调房内外温差穿搭', a:'场景痛点+夏季刚需+打工人共鸣', data:'"通勤穿搭 夏天不热"近7天搜索+67%<br>场景穿搭互动率比OOTD高2.1倍<br>7月为通勤穿搭搜索峰值期', src:'小红书穿搭频道 · 7.8', tags:['夏季刚需','强共鸣','难度低','预估赞1800+'], prep:['选5套通勤搭配（室外不热+室内不冷）','标注面料透气性','空调房叠穿技巧','拍通勤路上+办公室两种状态'], shots:['Hook：满头汗进公司→换装后体面','5套look：通勤路上+空调房内两拍','面料指南：哪些材质透气不皱','叠穿技巧：薄开衫/披肩方法','避雷：5种夏天通勤别穿的'], edit:'真实通勤场景拍·标面料成分·有无空调对比·附购买清单', pub:{time:'周一 7:30-8:30', tags:['#通勤穿搭','#夏日穿搭','#办公室穿搭','#空调房','#上班穿什么'], hook:'你夏天通勤穿什么？空调房冷吗？'}},
+  {t:'全身不超过200块的约会穿搭', a:'价格挑战+约会场景+平价种草', data:'"200元穿搭"类内容点击率+2.8倍<br>约会穿搭7月搜索量+45%<br>平价穿搭分享率是轻奢3.2倍', src:'小红书穿搭频道 · 7.8', tags:['平价种草','场景穿搭','难度低','预估赞2500+'], prep:['选3套总价200以内的约会搭配','保留购物小票/截图','拍全身+细节+价格标注','选浪漫感场景（咖啡店/公园）'], shots:['Hook：展示小票总价→"全身198穿这样"','3套look：不同约会场景（电影/吃饭/逛街）','单品特写：每件价格+购买渠道','搭配逻辑：怎么200内穿出质感','购买清单：全部链接'], edit:'标每件单价·计算器道具·浪漫氛围感·封面放总价吸睛', pub:{time:'周五 18:00-20:00', tags:['#约会穿搭','#平价穿搭','#200元穿搭','#学生党穿搭','#约会穿什么'], hook:'你约会穿搭预算一般多少？'}},
+  {t:'通勤包里都装了什么｜打工人包包翻包', a:'翻包好奇心+通勤场景+好物种草', data:'"翻包"话题浏览量18亿<br>翻包类完播率比普通种草高56%<br>通勤翻包引发职场人群精准共鸣', src:'小红书穿搭频道 · 7.8', tags:['好奇心驱动','高完播','难度极低','预估赞1600+'], prep:['整理包内物品','每样拍特写+用途说明','选光线好的桌面','按分类摆放'], shots:['Hook：包全景→"每天背这些上班"','包包本体：品牌/价格/优缺点','电子产品区：充电宝/耳机等','护肤化妆区：补妆必备','零食应急区：打工人续命','收纳tips：怎么不乱'], edit:'俯拍整齐·标品牌价格·分区标注·保持生活感·ASMR取物声', pub:{time:'周三 12:00-13:00', tags:['#翻包记','#通勤包','#包包推荐','#打工人好物','#通勤必备'], hook:'你通勤包里最离不开什么？'}},
+  {t:'骨架大女生怎么穿显瘦？大骨量穿搭避雷', a:'骨架痛点+避雷实用+精准人群', data:'"大骨架穿搭"近30天搜索+78%<br>身材痛点类互动率是普通OOTD 4.1倍<br>"避雷"内容收藏率22%', src:'小红书穿搭频道 · 7.8', tags:['精准痛点','高收藏','难度低','预估赞2600+'], prep:['整理大骨架显瘦3原则','选5套示范+3套避雷','拍对比照强调效果','标注肩宽/骨架数据'], shots:['Hook：肩宽对比→"骨架大不是胖"','避雷：3种显壮的穿法','正确：5套显瘦搭配+原理','核心原则：面料/颜色/版型','购买清单：适合大骨架的品牌'], edit:'红叉标避雷绿勾标推荐·同角度对比·标肩宽数据·清单化', pub:{time:'周六 14:00-16:00', tags:['#大骨架穿搭','#骨架大','#显瘦穿搭','#穿搭避雷','#身材穿搭'], hook:'大骨架姐妹最怕穿什么？'}},
+  {t:'夏天穿什么颜色显白？黄皮穿搭配色指南', a:'黄皮痛点+配色科学+夏季时令', data:'"黄皮显白穿搭"7月搜索量+89%<br>配色类教程收藏率是普通穿搭3.5倍<br>黄皮为亚洲女性最大肤色群', src:'小红书穿搭频道 · 7.8', tags:['精准需求','高收藏','难度低','预估收藏2200+'], prep:['选8-10种颜色在自然光下对比','拍同角度换颜色照片','总结显白/显黑色系','做成配色卡'], shots:['封面：显白vs显黑色对比','显白色：具体色号+搭配示范','避雷色：为什么显黑+哪些替代','配色公式：安全组合3-5套','购买：推荐品牌和色号','配色卡：可保存版'], edit:'统一光线·颜色名称标注·做成配色卡·诚实对比·自然光', pub:{time:'周末 14:00-16:00', tags:['#黄皮穿搭','#显白穿搭','#配色','#夏日穿搭','#穿搭配色'], hook:'黄皮姐妹！你穿什么颜色最显白？'}}
+],
+'成长学习': [
+  {t:'我用这个方法30天读完了12本书（附书单）', a:'量化结果+方法论+书单种草', data:'#读书方法 搜索量环比+56%，收藏率24%<br>带"具体数量+时间"点击率+3.1倍', src:'小红书 · 知识赛道数据', tags:['高收藏','方法论','难度低','预估收藏2000+'], prep:['整理快速阅读方法（3-5步）','选12本已读书拍实体照','每本提炼1句核心收获','制作可保存书单图'], shots:['封面：12本书堆叠','方法总览：核心框架图','方法详解：每步+操作+案例','书单：分类推荐','模板：阅读记录模板'], edit:'图表/流程图·书单分类·重点高亮·结尾可保存清单', pub:{time:'周日 20:00-21:00', tags:['#读书方法','#书单推荐','#阅读','#自我提升','#读书笔记'], hook:'你今年读了几本？有好书推荐？'}},
+  {t:'25岁前我希望早知道的7件事', a:'年龄节点共鸣+反思内容+引发讨论', data:'#人生建议 播放量312亿，评论互动率+4.2倍<br>带年龄节点内容分享率极高', src:'抖音 · 知识频道数据', tags:['情绪共鸣','高分享','难度低','预估评论500+'], prep:['列7条真实感悟（有故事支撑）','选引发共鸣的切入角度','准备2-3条争议观点','简洁表达每条20字内'], shots:['Hook/0-3s："25岁前没人告诉我这些"','内容/3-50s：逐条展开每条5-7秒','收尾/50-60s："你有什么想对年轻时自己说的？"'], edit:'字幕大字加粗·感性纯音乐·每条间停顿·60秒信息密度高', pub:{time:'周五 21:00-22:00', tags:['#25岁','#人生感悟','#自我成长','#给年轻人的建议','#成长'], hook:'你最希望早知道什么？'}},
+  {t:'普通人如何建立被动收入｜我的5个渠道分享', a:'收入话题自带流量+真实分享+可复制', data:'"被动收入"搜索量月均45万<br>带具体金额的收入贴互动率+4.8倍<br>真实+具体=高信任度', src:'小红书 · 理财知识频道', tags:['高关注','真实分享','难度适中','预估收藏2200+'], prep:['整理真实被动收入渠道','每个标月均收入+投入时间','拍收入截图（脱敏）','列门槛和适合人群'], shots:['封面：收入汇总表','渠道1-5：每个标投入/回报/适合谁','踩坑经历：哪些尝试失败了','起步建议：0成本开始的方法','总结：不同阶段推荐渠道'], edit:'数据真实·标投入时间+金额·诚实说失败经历·不画大饼', pub:{time:'周日 20:00-21:00', tags:['#被动收入','#副业','#理财','#搞钱','#自我提升'], hook:'你有被动收入吗？哪个渠道？'}},
+  {t:'Notion搭建个人知识库｜从0到1完整教程', a:'工具教程+高搜索+可做系列', data:'Notion知识库搜索量月均6.8万<br>工具教程收藏率28%<br>可延伸系列（模板/进阶/场景）', src:'小红书 · 效率工具赛道', tags:['高收藏','长尾流量','难度适中','预估收藏3000+'], prep:['搭建示范知识库','规划从0到1步骤','录屏操作过程','准备可复制模板链接'], shots:['封面：完成后知识库全景','为什么：知识管理的痛点','框架：PARA/Zettelkasten选择','搭建：逐步操作演示','模板：3个场景模板下载','维护：每周10分钟整理'], edit:'录屏清晰·步骤编号·红框标操作区·附模板链接·分初级/进阶', pub:{time:'周末 10:00-12:00', tags:['#Notion','#知识管理','#效率工具','#笔记方法','#个人成长'], hook:'你用什么工具管理知识？'}},
+  {t:'毕业后才明白：学历不重要是最大的谎言', a:'争议观点+情绪共鸣+引爆讨论', data:'"学历"争议话题评论均200+<br>反鸡汤内容分享率是正向3.2倍<br>毕业季搜索高峰+情绪', src:'抖音 · 知识频道', tags:['争议性强','高评论','难度低','预估评论400+'], prep:['列5个"学历重要"的真实场景','配自己或朋友的经历','不绝对化但有态度','准备引导讨论的收尾'], shots:['Hook/0-3s："学历不重要说这话的人…"','场景1-5/3-45s：每个真实场景+结果','转折/45-55s：什么情况下确实不重要','收尾/55-60s：引导讨论'], edit:'大字字幕·争议点放大·评论区引导·保留讨论空间·60秒', pub:{time:'周三 21:00-22:00', tags:['#学历','#毕业','#职场真相','#大学生','#成长'], hook:'你觉得学历重要吗？为什么？'}},
+  {t:'从月光到存5万｜我的极简存钱法', a:'存钱成果+可复制方法+年轻人共鸣', data:'"存钱方法"搜索量月均32万<br>带具体金额的存钱帖收藏率+3.1倍<br>月光→有存款转变故事完播率高', src:'小红书 · 理财频道', tags:['强共鸣','高收藏','难度低','预估收藏1800+'], prep:['整理存钱前后对比数据','记录具体方法和工具','月度开支表截图','做成可复制的存钱表'], shots:['封面：存款截图+前后对比','方法：3-5个核心存钱习惯','工具：记账App+自动转账设置','心态：从月光到存钱的转变','模板：每月预算表+存钱计划'], edit:'数据真实·标月度对比·实操步骤·附存钱表模板', pub:{time:'周日 20:00-21:30', tags:['#存钱','#理财','#月光族','#攒钱','#记账'], hook:'你每月能存多少？用什么方法？'}},
+  {t:'英语口语30天从哑巴到能聊天｜免费方法', a:'时间承诺+免费门槛低+口语刚需', data:'"英语口语 免费方法"搜索量月均12万<br>"30天"时间框架点击率+2.5倍<br>语言学习为持续高搜索长青品类', src:'小红书 · 学习频道', tags:['长青选题','高收藏','难度适中','预估收藏2600+'], prep:['整理30天学习计划','免费资源清单（App/播客/视频）','每周阶段目标','拍自己30天前后对比'], shots:['封面：Day1vs30口语对比音频','计划：30天分阶段路线图','资源：免费App+播客+YouTube频道','方法：影子跟读+自言自语+AI对话','进度：每周milestone','对比：30天前后录音对比'], edit:'时间轴格式·资源列表可保存·标每天用时·前后音频对比', pub:{time:'周一 8:00-9:00', tags:['#英语口语','#英语学习','#免费学英语','#30天挑战','#英语'], hook:'你学英语多久了？最难的是什么？'}},
+  {t:'如何养成早起习惯｜从赖床到5:30起的转变', a:'习惯养成+时间对比+真实经历', data:'"早起习惯"搜索量稳定高位<br>习惯养成+前后对比收藏率最高<br>早起为成长赛道TOP5长青话题', src:'小红书 · 成长频道', tags:['长青选题','高收藏','难度低','预估收藏1600+'], prep:['记录早起习惯养成过程','列具体策略和工具','拍早起routine作为证据','做成可复制方法'], shots:['Hook/0-3s：闹钟5:30→起床→"从赖床到这样"','原因/3-8s：为什么想早起','方法/8-20s：5个核心策略','工具/20-25s：App+物理闹钟+环境','routine/25-30s：早起后做什么'], edit:'晨光氛围·标时间节点·前后对比·附每周调整建议', pub:{time:'周一 6:00-7:00', tags:['#早起','#习惯养成','#自律','#晨间routine','#成长'], hook:'你几点起？有什么早起秘诀？'}},
+  {t:'考研还是工作？我做决定的思考框架', a:'决策框架+毕业季精准+普适方法论', data:'"考研还是工作"7月搜索量+280%<br>决策框架类收藏率比经验分享高2.3倍<br>毕业季为年度搜索峰值', src:'小红书 · 学习频道 · 7.8', tags:['毕业季热点','高收藏','难度低','预估收藏2200+'], prep:['整理决策思考框架','列关键考量维度','配真实案例（自己或朋友）','做成决策工具模板'], shots:['封面：决策树图','框架：4个关键考量维度','每个维度：问自己什么问题','案例：不同选择的真实结果','工具：决策矩阵模板','结语：没有标准答案'], edit:'决策树/矩阵可视化·标考量权重·真实案例·不给绝对答案', pub:{time:'周末 20:00-21:00', tags:['#考研','#考研还是工作','#毕业','#人生选择','#决策'], hook:'你当初怎么做的这个决定？'}},
+  {t:'自律100天后我的生活变化｜习惯养成复盘', a:'数字打卡+前后变化+成长记录', data:'"自律100天"打卡话题播放280亿<br>"XX天后变化"点击率+3.6倍<br>复盘类收藏率18%', src:'抖音 · 知识频道', tags:['挑战格式','高共鸣','难度低','预估赞2200+'], prep:['整理100天执行记录','对比Day1和Day100状态','列真实数据变化','总结可复制方法'], shots:['Hook/0-3s：Day1vs100对比→"100天真的不一样"','习惯：每天做了什么','变化：身体/精神/收入多维度','数据：具体量化变化','方法：怎么坚持下来的','建议：给想开始的人'], edit:'前后对比·数据可视化·诚实分享失败的天·不卖焦虑', pub:{time:'周日 20:00-21:00', tags:['#自律','#100天挑战','#习惯养成','#自我提升','#成长'], hook:'你坚持最久的习惯是什么？'}}
+],
+'家居生活': [
+  {t:'100元以内提升幸福感的10样东西', a:'低成本高回报+租房精准+种草', data:'#租房好物 浏览量52亿，均收藏1800<br>"100元以内"互动率+2.4倍', src:'小红书 · 家居频道数据', tags:['高种草','实用','难度低','预估收藏1500+'], prep:['选10样真实在用的好物','每样拍使用场景照','记录购买渠道和价格','按场景分组'], shots:['封面：10样好物平铺','卧室篇：助眠好物场景+价格','浴室篇：收纳清洁+安装效果','厨房篇：小工具+使用演示','总清单：名称+价格+渠道'], edit:'场景照有生活感·标品名价格渠道使用频率·诚实优缺点·可保存清单', pub:{time:'周末 14:00-16:00', tags:['#租房好物','#家居好物','#平价好物','#出租屋','#提升幸福感'], hook:'你租房后买过最值的是什么？'}},
+  {t:'断舍离30天后我的房间只剩这些', a:'极简趋势+挑战记录+视觉冲击', data:'#断舍离 浏览量89亿，近7天新增1.5万篇<br>极简类收藏率21%', src:'小红书 · 生活方式趋势', tags:['趋势话题','高收藏','难度适中','预估赞1800+'], prep:['拍断舍离前状态','分区域整理','记录扔了什么保留什么','拍整理后状态'], shots:['Hook/0-4s：凌乱全景→"30天后变什么样"','过程/4-15s：逐区域清理加速+标扔掉数量','结果/15-24s：整理后各角度','感受/24-30s：坐干净房间→"不需要那么多"'], edit:'安静BGM·同角度对比·标扔XX件/留XX件·色调干净', pub:{time:'周日 20:00-21:30', tags:['#断舍离','#极简生活','#房间整理','#收纳','#生活方式'], hook:'你最难割舍什么？断舍离最难的是？'}},
+  {t:'独居女生的冰箱收纳术｜拿东西再也不翻找', a:'收纳实操+独居精准+视觉变化大', data:'"冰箱收纳"收藏率26%<br>前后对比视觉冲击强<br>独居标签精准引流', src:'小红书家居频道 · 7.8', tags:['高收藏','视觉对比','难度低','预估收藏1800+'], prep:['清空冰箱拍"before"','准备收纳盒/标签','按类分区重新整理','拍"after"+使用演示'], shots:['Hook：凌乱冰箱→"看完你也想收拾"','清空：所有食物取出+过期清理','分区：冷藏/冷冻/门封各放什么','收纳：好物+摆放方法','成品：整齐冰箱全景+取物演示','清单：收纳好物+价格'], edit:'前后对比强烈·标分区逻辑·列好物链接·ASMR关门声', pub:{time:'周末 14:00-16:00', tags:['#冰箱收纳','#收纳整理','#独居生活','#家居好物','#收纳术'], hook:'你冰箱什么样？有收纳技巧分享吗？'}},
+  {t:'夏天房间太热？不开空调也能降温的8个方法', a:'夏季痛点+省电+实操方法', data:'"房间降温 不开空调"7月搜索量+230%<br>省钱实用类收藏率19%<br>租房人群精准共鸣', src:'小红书家居频道 · 7.8', tags:['夏季热点','实用省钱','难度极低','预估收藏1400+'], prep:['测试8种降温方法','温度计记录前后温差','拍操作过程','标成本和效果评分'], shots:['封面：温度计+8个方法图标','方法1-8：每个操作+温差数据','效果排名：最有效TOP3','成本对比：每种花多少钱','组合方案：省电降温套餐'], edit:'标温差数据·效果星级评分·按成本排序·实测为主不是理论', pub:{time:'7月每日 12:00-14:00', tags:['#降温','#夏天','#省电','#租房','#生活技巧'], hook:'你有什么不开空调降温的方法？'}},
+  {t:'入住前深度清洁全流程｜搬家不踩坑', a:'搬家刚需+全流程+清洁技巧', data:'"入住清洁"搜索量月均3.8万<br>清洁类收藏率22%<br>搬家相关7-8月为搜索高峰', src:'小红书家居频道 · 7.8', tags:['搬家刚需','高收藏','难度适中','预估收藏2000+'], prep:['规划清洁顺序（从上到下从里到外）','准备所有清洁工具','每区域拍before/after','记录时间和产品用量'], shots:['封面：脏→干净对比','顺序：为什么这个顺序最高效','厨房：油烟机+灶台+水槽','卫生间：马桶+花洒+瓷砖缝','卧室客厅：地板+窗户+开关面板','工具清单：全部产品+价格'], edit:'对比强烈·标清洁产品+用法·计时标用时·做成清单可保存', pub:{time:'周末 10:00-12:00', tags:['#入住清洁','#搬家','#深度清洁','#家居清洁','#租房'], hook:'你搬家清洁花多久？'}},
+  {t:'6件让出租屋有氛围感的小东西（都不贵）', a:'氛围感趋势+平价+视觉出片', data:'"氛围感 出租屋"搜索量+67%<br>平价家居好物收藏率是高端3.2倍<br>视觉前后对比强传播', src:'小红书家居频道 · 7.8', tags:['氛围感','平价种草','难度极低','预估收藏1600+'], prep:['选6件平价氛围好物','每件拍使用前后对比','统一暖光拍摄','标价格和购买渠道'], shots:['封面：氛围感角落全景','好物1-6：每件+使用场景+价格','对比：有vs无的氛围差别','搭配：颜色/材质选择建议','总清单：全部链接+总价'], edit:'暖光氛围·有无对比·标总价"6件才XX元"·种草生活感', pub:{time:'周五 20:00-21:30', tags:['#出租屋','#氛围感','#家居好物','#平价好物','#房间布置'], hook:'你出租屋哪件东西最有氛围感？'}},
+  {t:'养绿植总养死？新手最难杀死的5种植物', a:'绿植新手痛点+植物推荐+低门槛', data:'"好养的绿植"搜索量月均5.6万<br>"养死"痛点引发强共鸣<br>绿植类内容夏季搜索+45%', src:'小红书家居频道 · 7.8', tags:['新手友好','共鸣痛点','难度极低','预估赞1500+'], prep:['选5种真的难死的植物','每种记录浇水频率','拍养护前后状态','总结养护要点'], shots:['封面：5盆植物全景','每种：名称+养护方法+难死原因','避雷：新手别买的3种','养护表：浇水/光照/施肥频率','购买：价格+渠道+盆器搭配'], edit:'标浇水频率·拍生长对比·列"10天不浇水也没事"·生活感', pub:{time:'周末 10:00-12:00', tags:['#绿植','#植物推荐','#家居','#养花','#新手养植物'], hook:'你养死过什么植物？'}},
+  {t:'一个人住如何保持房间整洁｜每天10分钟习惯', a:'独居痛点+微习惯+可持续方案', data:'"独居保持整洁"收藏率24%<br>微习惯类比大扫除教程留存率高3.8倍<br>"10分钟"时间框架降低行动门槛', src:'小红书家居频道 · 7.8', tags:['独居精准','高收藏','难度极低','预估收藏2000+'], prep:['整理每日10分钟清洁流程','按区域分配时间','拍日常执行过程','做成每日checklist'], shots:['Hook：整洁房间→"每天只花10分钟"','原则：为什么小习惯比大扫除好','每日：10分钟怎么分配','每周：额外15分钟深度清理','工具：让清洁变容易的好物','checklist：每日/每周清洁表'], edit:'轻松氛围·标每步用时·做成可打印checklist·不苛责', pub:{time:'周一 20:00-21:00', tags:['#独居生活','#保持整洁','#收纳习惯','#家居','#极简生活'], hook:'你多久打扫一次？有什么保持整洁的秘诀？'}},
+  {t:'租房改造花了500块｜前后对比差距太大', a:'低预算+视觉冲击+种草属性', data:'"500元租房改造"正在热门<br>改造前后对比完播率+89%<br>低预算标注让受众更广', src:'小红书家居频道 · 7.8', tags:['视觉冲击','高互动','难度适中','预估赞2200+'], prep:['拍改造前全景+细节','规划500元预算分配','按区域购买改造物品','改造后同角度拍摄'], shots:['Hook：改造前→"500块能变什么样"','预算表：每项花多少','改造过程：每区域加速','成品：同角度前后对比','好物清单：每件+价格+链接','总结：500元=幸福感翻倍'], edit:'同角度对比·标每项费用·列总预算表·真实不过度滤镜', pub:{time:'周末 14:00-16:00', tags:['#租房改造','#出租屋','#低预算改造','#家居','#改造前后'], hook:'你改造出租屋花了多少？'}},
+  {t:'独居必备的5个安全习惯｜女生一定要看', a:'安全刚需+女性精准+好物种草', data:'"独居安全"浏览量34亿，收藏率19%<br>安全类分享率是普通好物3.2倍<br>夏天独居安全搜索+56%', src:'小红书家居频道 · 7.8', tags:['安全刚需','高分享','难度极低','预估收藏1800+'], prep:['整理5个安全习惯','拍每个操作演示','推荐安全好物','做成可保存清单'], shots:['封面：门锁+安全好物','习惯1：进门反锁+报警器','习惯2：快递地址/外卖备注','习惯3：视频通话报平安','习惯4：应急工具位置','习惯5：水电燃气检查','清单：安全好物+价格'], edit:'操作演示·标"为什么重要"·附好物链接·语气关心不恐吓', pub:{time:'周五 20:00-21:30', tags:['#独居安全','#独居女生','#安全好物','#租房','#独居生活'], hook:'你独居有什么安全习惯？'}}
+],
+'数码科技': [
+  {t:'手机里5个免费App让我效率翻倍', a:'免费+实用+具体场景=强种草', data:'#效率App 收藏量TOP3，均收藏2400<br>免费工具分享率比付费推荐高3.6倍', src:'小红书 · 数码科技赛道', tags:['高收藏','实用干货','难度低','预估收藏2500+'], prep:['选5个高频使用的免费App','每个准备使用截图','对比前后效率差异','准备下载说明'], shots:['封面：手机屏幕展示5个图标','每个App：界面+是什么/解决什么/怎么用','使用时间轴：一天中何时用','效率对比："之前XX分钟→现在XX分钟"','下载清单：名称+搜索关键词'], edit:'截图清晰红框标注·一句话定位·信息密度高·可保存清单', pub:{time:'周二 12:00-13:00', tags:['#效率App','#手机好物','#打工人必备','#免费工具','#App推荐'], hook:'你有什么私藏效率工具？'}},
+  {t:'iPhone隐藏功能｜用了3年才发现的10个设置', a:'苹果用户精准+隐藏功能猎奇+实用', data:'"iPhone隐藏功能"搜索量月均18万<br>"用了X年才发现"点击率+3.2倍<br>苹果用户付费意愿和互动率高', src:'小红书数码频道 · 7.8', tags:['苹果用户','高收藏','难度低','预估收藏3000+'], prep:['筛选10个真正有用的隐藏设置','每个录屏操作','测试iOS版本兼容性','按实用程度排序'], shots:['封面：iPhone+大字10个功能','每个：设置路径→效果演示','TOP3：最实用的重点讲','对比：开启前后差异','清单：全部设置路径汇总'], edit:'录屏清晰·红圈标操作位置·标iOS版本·排序从最实用开始', pub:{time:'周末 10:00-12:00', tags:['#iPhone技巧','#苹果','#手机技巧','#iOS','#iPhone隐藏功能'], hook:'你知道几个？哪个最惊喜？'}},
+  {t:'千元平板到底能不能替代iPad？实测对比', a:'价格对比+实测可信+选购决策', data:'"平板推荐 千元"搜索量+56%<br>对比测评收藏率是单品推荐2.8倍<br>选购决策类长尾流量持续6个月', src:'小红书数码频道 · 7.8', tags:['选购决策','高收藏','难度适中','预估收藏2200+'], prep:['购买2-3款千元平板','与iPad同场景对比测试','记录流畅度/屏幕/续航数据','不同使用场景分别测'], shots:['封面：平板并排+价格对比','外观：做工/屏幕/重量','性能：跑分+实际流畅度','场景1：追剧+阅读','场景2：笔记+办公','场景3：游戏+绘画','结论：什么人买什么'], edit:'数据可视化·同场景对比截图·列具体型号价格·给明确建议', pub:{time:'周三 12:00-14:00', tags:['#平板推荐','#iPad平替','#数码测评','#学生平板','#千元平板'], hook:'你用平板主要做什么？预算多少？'}},
+  {t:'拍视频用什么设备？从手机到相机的升级路线', a:'创作者设备选购+升级路线图+分阶段', data:'"拍视频设备"搜索量月均9.2万<br>路线图类收藏率是单品推荐3.5倍<br>创作者群体增长带动设备搜索', src:'小红书数码频道 · 7.8', tags:['创作者精准','高收藏','难度低','预估收藏2400+'], prep:['整理从手机到专业的4个阶段','每阶段推荐设备+预算','不同赛道侧重不同','附真实样片对比'], shots:['封面：设备升级路线图','阶段1：纯手机（0成本入门）','阶段2：手机+稳定器+灯（500元）','阶段3：微单入门（3000-5000）','阶段4：全画幅+收音（1万+）','选择：不同赛道怎么选'], edit:'路线图可视化·每阶段标预算·附样片对比·给明确建议', pub:{time:'周末 14:00-16:00', tags:['#拍视频设备','#创作者设备','#相机推荐','#vlog设备','#数码'], hook:'你现在用什么拍？下一步想升级什么？'}},
+  {t:'AirPods Pro vs 千元降噪耳机｜通勤实测', a:'高频对比需求+通勤场景+选购决策', data:'"降噪耳机对比"搜索量月均6.8万<br>通勤场景实测可信度+3.1倍<br>TWS耳机为数码赛道TOP3品类', src:'小红书数码频道 · 7.8', tags:['选购热门','高互动','难度适中','预估赞1800+'], prep:['准备3-4款对比耳机','地铁/公交/办公室多场景测试','录制环境音对比','佩戴舒适度长时间测试'], shots:['封面：耳机并排+评分','降噪：不同场景实录对比','音质：同歌曲A/B对比','舒适度：4小时佩戴测试','通话：收音清晰度测试','总结：评分表+推荐人群'], edit:'环境音实录·评分可视化·标价格·明确推荐谁买什么', pub:{time:'周五 12:00-14:00', tags:['#降噪耳机','#AirPods','#耳机推荐','#通勤好物','#数码测评'], hook:'你通勤用什么耳机？降噪重要吗？'}},
+  {t:'手机摄影从入门到高级｜构图+调色一篇搞定', a:'手机摄影教程+系统化+保姆级', data:'"手机拍照技巧"搜索量月均42万<br>系统教程收藏率是单技巧4.2倍<br>摄影教程为长尾流量典型品类', src:'小红书数码频道 · 7.8', tags:['超高搜索','长尾流量','难度适中','预估收藏3500+'], prep:['整理构图法则+调色方法','同场景好坏对比样张','准备Lightroom预设','从基础到进阶分级'], shots:['封面：对比（普通vs构图后）','构图：三分法/引导线/框架 各配样张','光线：顺光/逆光/黄金时段','调色：VSCO/Lightroom基础参数','进阶：创意构图+情绪表达','预设：3组免费预设下载'], edit:'样张对比·标参数·步骤清晰·附预设下载·分基础/进阶', pub:{time:'周末 10:00-12:00', tags:['#手机摄影','#拍照技巧','#构图','#调色','#摄影教程'], hook:'你最常用哪种构图？'}},
+  {t:'2026年还值得买的数码产品（和不值得的）', a:'年度盘点+避坑+购买决策', data:'"值得买的数码"每年稳定高搜索<br>正反对比格式互动率+2.6倍<br>避坑内容信任度更高', src:'小红书数码频道 · 7.8', tags:['年度盘点','高互动','难度适中','预估赞2000+'], prep:['选5样值得+3样不值得','每样标使用频率和性价比','拍真实使用场景','标购买时间和价格'], shots:['封面：好物vs避坑 分区','值得买：每样+使用频率+推荐理由','不值得：为什么后悔+替代方案','意外之喜：没想到好用的','购买建议：什么时候买最划算'], edit:'红绿分区·标使用频率·诚实评价·有理有据·标价格时间', pub:{time:'周三 18:00-20:00', tags:['#数码好物','#值得买','#数码避坑','#好物推荐','#数码测评'], hook:'你今年买过最值/最后悔的数码是？'}},
+  {t:'Windows电脑越用越卡？这5步让它重新飞起', a:'普遍痛点+即学即用+免费方法', data:'"电脑卡顿"搜索量月均28万<br>解决问题类教程收藏率26%<br>教程类长尾流量可持续1年', src:'小红书数码频道 · 7.8', tags:['超高搜索','长尾流量','难度低','预估收藏2800+'], prep:['整理5个有效提速方法','每步录屏演示','测试优化前后速度对比','标注各方法适用场景'], shots:['封面：加载圈→流畅运行','检测：怎么看占用资源的程序','清理：磁盘/临时文件/开机启动项','设置：系统性能优化选项','进阶：虚拟内存/SSD优化','对比：优化前后开机+启动速度'], edit:'录屏清晰·标每步省多少空间/时间·步骤编号·小白也能跟做', pub:{time:'周二 12:00-14:00', tags:['#电脑提速','#Windows','#电脑卡顿','#电脑技巧','#效率'], hook:'你电脑开机多久？有什么提速技巧？'}},
+  {t:'充电宝怎么选不踩坑｜2026年推荐清单', a:'选购指南+避坑+年度推荐', data:'"充电宝推荐"搜索量月均15万<br>选购指南收藏率22%<br>暑期出行带动搜索+45%', src:'小红书数码频道 · 7.8', tags:['选购刚需','高收藏','难度低','预估收藏2000+'], prep:['测试5-8款不同价位充电宝','统一测试充电速度/发热/重量','不同场景推荐','标明参数含义'], shots:['封面：充电宝排列+推荐标签','科普：容量/功率/协议 怎么看','测试：充电速度+发热对比','推荐：通勤/旅行/轻便 各TOP1','避坑：3种别买的类型','清单：全部推荐+价格'], edit:'数据表格对比·按场景分类推荐·标重量容量·明确谁适合买什么', pub:{time:'周五 12:00-14:00', tags:['#充电宝','#数码好物','#出行好物','#充电宝推荐','#数码'], hook:'你用什么充电宝？容量多大？'}},
+  {t:'AI工具大合集｜10个免费AI让你效率起飞', a:'AI热点+免费+效率工具种草', data:'"免费AI工具"搜索量月均28万<br>AI工具类收藏率34%（为数码赛道最高）<br>2026为AI工具爆发期', src:'小红书数码频道 · 7.8', tags:['AI热点','超高收藏','难度低','预估收藏4000+'], prep:['筛选10个真正好用的免费AI工具','每个演示使用场景','标注适合人群','按场景分类'], shots:['封面：10个AI图标+分类','写作类：AI写作/润色工具','设计类：AI做图/去背景','效率类：AI总结/翻译/笔记','创意类：AI视频/音乐','清单：名称+网址+适合谁'], edit:'截图演示·按场景分类·标免费/付费·信息密度高·可保存', pub:{time:'周三 12:00-14:00', tags:['#AI工具','#免费AI','#效率工具','#AI','#数码好物'], hook:'你日常用哪些AI工具？'}}
+],
+'母婴育儿': [
+  {t:'带娃出门不崩溃的收纳清单（按年龄段）', a:'痛点解决+清单直接用+按年龄精准', data:'#带娃出门 近7天新增9800篇，暑假搜索+130%<br>清单类母婴收藏率是普通4.1倍', src:'小红书 · 母婴暑期数据', tags:['暑假热点','高收藏','实用','预估收藏2000+'], prep:['按年龄整理物品清单','拍实际收纳过程','准备收纳包展示','整理可打印清单'], shots:['封面：打包好的妈咪包','0-1岁：必备+收纳方法','1-3岁：特殊需求+零食玩具','3-6岁：自理引导+安全物品','收纳技巧：空间最大化','可存清单：完整checklist'], edit:'分年龄颜色标注·标"必须/建议/可选"·加忘带尴尬时刻·可保存格式', pub:{time:'周四 20:00-21:30', tags:['#带娃出门','#妈咪包收纳','#育儿好物','#暑假带娃','#亲子出行'], hook:'带娃出门最不能忘的是什么？'}},
+  {t:'1岁宝宝辅食一周食谱｜营养搭配+制作方法', a:'辅食刚需+一周格式高收藏+新手宝妈', data:'"1岁辅食食谱"搜索量月均8.5万<br>一周食谱收藏率是单日5.2倍<br>按月龄细分精准吸引目标用户', src:'小红书母婴频道 · 7.8', tags:['高频刚需','高收藏','难度适中','预估收藏2800+'], prep:['规划7天食谱（主食+蛋白质+蔬菜）','每餐拍成品+食材','记录制作步骤','做成可保存周表'], shots:['封面：7天辅食宫格图','营养原则：每日搭配逻辑','Day1-7：每天食谱+制作要点','备餐：周末批量准备方法','避雷：1岁不能吃什么','食谱表：可打印保存版'], edit:'色彩丰富·每餐标食材量·做成日历格式·附采购清单', pub:{time:'周日 20:00-21:30', tags:['#辅食','#宝宝辅食','#一岁辅食','#辅食食谱','#育儿'], hook:'你家宝宝最爱吃什么辅食？'}},
+  {t:'宝宝哭闹不止？排除法帮你3分钟找到原因', a:'新手痛点+快速方法+焦虑缓解', data:'"宝宝哭闹原因"搜索量日均3200<br>焦虑型问题互动率最高<br>新手爸妈第一大痛点', src:'小红书母婴频道 · 7.8', tags:['新手必看','高互动','难度低','预估收藏1600+'], prep:['整理哭闹排除清单（饿/困/胀气/热/湿）','每种配判断方法','拍安抚演示','做成流程图'], shots:['Hook："宝宝哭不要慌 跟我排查"','流程图：按顺序排除','饿：喂奶信号判断','困：疲劳信号识别','不舒服：胀气/温度/尿布','安抚：每种情况的解决方法'], edit:'流程图清晰·标"如果是→就这样做"·语气安抚·可保存打印', pub:{time:'每日 21:00-22:00', tags:['#新手妈妈','#宝宝哭闹','#育儿知识','#婴儿护理','#新生儿'], hook:'你家宝宝哭闹时最有效的安抚方法是？'}},
+  {t:'暑假带娃去哪玩？亲子游目的地推荐TOP5', a:'暑期刚需+亲子精准+种草', data:'"暑假亲子游"7月搜索量+320%<br>目的地推荐收藏率28%<br>暑期为亲子游年度搜索峰值', src:'小红书母婴频道 · 7.8', tags:['暑期热点','超高收藏','难度低','预估收藏3200+'], prep:['筛选5个亲子友好目的地','标交通/费用/适合年龄','整理每个地点攻略','附真实游玩照片'], shots:['封面：5地标照+推荐指数','TOP1-5：每个标特色+费用+适合年龄','行程：每地2-3天安排','避坑：带娃要注意什么','清单：必备物品+预算表'], edit:'标适合年龄·预算透明·附路线图·标亲子设施情况', pub:{time:'周五 20:00-21:30', tags:['#亲子游','#暑假','#带娃旅行','#亲子目的地','#暑假出游'], hook:'暑假带娃去哪了？推荐吗？'}},
+  {t:'二胎妈妈的时间管理｜一天24小时怎么分配', a:'二胎痛点+时间管理+真实记录', data:'"二胎时间管理"共鸣互动率最高<br>真实记录类完播率+67%<br>二胎话题评论互动极活跃', src:'小红书母婴频道 · 7.8', tags:['二胎共鸣','高互动','难度低','预估赞1800+'], prep:['记录真实一天时间分配','制作时间轴图','拍关键时间节点','总结管理方法'], shots:['Hook："二胎妈妈的24小时 比上班还累"','时间轴：从起床到睡觉','高效时段：怎么利用碎片时间','工具：帮忙的App/好物','崩溃时刻：怎么调节','建议：给二胎妈妈的5个tips'], edit:'时间轴格式·真实不完美·共情语气·标节省时间的技巧', pub:{time:'周三 21:00-22:00', tags:['#二胎','#时间管理','#宝妈日常','#育儿','#妈妈生活'], hook:'二胎妈妈一天最累的是哪个时段？'}},
+  {t:'0-3岁绘本推荐｜读了100+本选出的TOP10', a:'量化筛选+分龄推荐+书单种草', data:'"绘本推荐"搜索量月均22万<br>书单类收藏率32%<br>标"读了XX本选出"增加信任度', src:'小红书母婴频道 · 7.8', tags:['超高搜索','高收藏','难度低','预估收藏3000+'], prep:['从读过的绘本中选TOP10','按年龄分组','每本拍内页+宝宝读的照片','标购买渠道和价格'], shots:['封面：10本绘本堆叠','0-1岁：触摸书/黑白卡TOP3','1-2岁：认知/习惯养成TOP4','2-3岁：故事/情感TOP3','共读方法：怎么给宝宝读绘本','购买：价格+渠道+凑单建议'], edit:'内页展示·标适合月龄·评分+一句推荐·做成可保存书单', pub:{time:'周末 20:00-21:30', tags:['#绘本推荐','#绘本','#亲子阅读','#育儿好物','#宝宝书单'], hook:'你家宝宝最爱哪本绘本？'}},
+  {t:'产后修复黄金期做了什么｜42天恢复记录', a:'产后刚需+时间线格式+真实记录', data:'"产后修复"搜索量月均12万<br>时间线记录类收藏率+3.8倍<br>42天黄金期为新妈妈最关注时段', src:'小红书母婴频道 · 7.8', tags:['产后刚需','高收藏','难度适中','预估收藏2400+'], prep:['整理42天恢复时间线','记录每阶段做了什么','拍身体变化对比','列恢复项目+费用'], shots:['封面：产后vs42天对比','第1周：月子餐+基础恢复','第2-3周：开始温和运动','第4-6周：骨盆/腹直肌修复','42天检查：恢复情况数据','建议：什么必做什么可以省'], edit:'时间轴格式·标每项费用·真实不焦虑·给具体建议', pub:{time:'周日 21:00-22:00', tags:['#产后修复','#产后恢复','#月子','#新手妈妈','#产后'], hook:'你产后最有效的恢复方法是什么？'}},
+  {t:'新手爸爸带娃一天｜妈妈出门后会发生什么', a:'搞笑+反差+爸爸视角=高传播', data:'"爸爸带娃"话题播放89亿<br>搞笑育儿分享率是普通育儿5.8倍<br>反差和意外事件完播率最高', src:'抖音母婴频道 · 7.8', tags:['搞笑爆款','高分享','难度低','预估赞3500+'], prep:['记录爸爸独自带娃一天','多角度拍摄真实场景','抓拍搞笑/手忙脚乱瞬间','妈妈回来后反应'], shots:['Hook："妈妈出门 爸爸独自带娃"','上午：喂奶/换尿布手忙脚乱','中午：做辅食的灾难现场','下午：出门遛娃的社死时刻','崩溃：宝宝哭了爸爸慌了','收尾：妈妈回来看到的画面'], edit:'搞笑BGM·保留真实声音·字幕吐槽·快节奏·30-45秒', pub:{time:'周末 18:00-20:00', tags:['#爸爸带娃','#育儿日常','#搞笑','#奶爸','#带娃'], hook:'你家爸爸带娃什么样？'}},
+  {t:'宝宝湿疹反复怎么办？我家试过有效的方法', a:'高频痛点+亲测方法+焦虑缓解', data:'"宝宝湿疹"搜索量月均16万<br>亲测经验互动率比科普高2.4倍<br>湿疹为0-2岁最高频搜索健康问题', src:'小红书母婴频道 · 7.8', tags:['高频痛点','高互动','难度低','预估赞2000+'], prep:['整理有效方法（保湿+环境+饮食）','拍好转过程对比照','列用过的产品+效果','咨询医生确认建议'], shots:['Hook：湿疹照片→好转照片→"终于不反复了"','原因：为什么会反复','方法1：保湿（产品+频率+手法）','方法2：环境控制','方法3：饮食注意','时间线：从严重到好转过程','提醒：什么情况必须看医生'], edit:'对比照真实·标产品名称用法·不替代医嘱·温和不焦虑', pub:{time:'周二 20:00-21:30', tags:['#宝宝湿疹','#婴儿护肤','#育儿经验','#湿疹','#新手妈妈'], hook:'你家宝宝湿疹怎么好的？'}},
+  {t:'幼儿园选择踩坑指南｜公立vs私立怎么选', a:'择校决策+避坑+家长刚需', data:'"幼儿园选择"7-8月搜索量+180%<br>避坑/对比类收藏率是经验分享3.8倍<br>秋季入园前家长最焦虑', src:'小红书母婴频道 · 7.8', tags:['时令刚需','高收藏','难度低','预估收藏2600+'], prep:['整理公立/私立对比维度','实地考察3-5家记录','列价格/师资/距离等关键因素','做成决策表'], shots:['封面：幼儿园门口+对比表','维度：价格/师资/接送/食谱/环境','公立：优缺点+适合谁','私立：优缺点+适合谁','考察：看什么问什么','清单：决策表模板'], edit:'对比表清晰·标价格范围·给具体考察checklist·不贩卖焦虑', pub:{time:'周末 20:00-21:30', tags:['#幼儿园','#择校','#入园准备','#育儿','#幼儿园选择'], hook:'你家选的公立还是私立？为什么？'}}
+]
+};
+
+// Hot topics data
+const HOT_TOPICS = [
+  {t:'"新中式编发｜30秒搞定 有手就会"', a:'#新中式 跨品类爆发，低门槛教程最受欢迎', data:'小红书首页正在热推"30s搞定的新中式编发"<br>#新中式 本周跨品类浏览量+210%，发型细分竞争度低<br>教程+新中式收藏率28%（远超平均7%）<br>热点窗口：未来7天均为高流量期', src:'小红书explore首页 · 7.8 10:00', tags:['正在爆发','预估收藏3000+','难度极低','窗口7天']},
+  {t:'"挑战坚持化妆上班第X天｜打工人化妆日记"', a:'打卡挑战+日更连载+美妆频道高频格式', data:'美妆频道"挑战上班坚持化妆第十六天"获高互动<br>打卡连载7日留存率是单篇4.5倍<br>可叠加赛道：美妆+职场+穿搭获多重推荐', src:'小红书美妆频道 · 7.8', tags:['连载涨粉','高留存','难度低','每日可发']},
+  {t:'"不是XX！国内这个小众目的地平替到哭"', a:'平台爆款句式+暑期出行+信息差高互动', data:'旅行频道TOP格式"不是越南❗️广西边境小城..."<br>暑期旅行整体流量+180%，"小众目的地"7月创年度新高<br>可结合你的赛道：平替+美食/穿搭/vlog切入', src:'小红书explore旅行频道 · 7.8', tags:['爆款句式','暑期红利','预估赞3500+','跨赛道']}
+];
+
+// Hot history data
+const HOT_HISTORY = [
+  {date:'7月7日 · 小红书', badge:'reuse', badgeText:'可复用', title:'#暑假宅家 系列选题', stats:'均赞1,847 · 均收藏623 · TOP1赞2.3万', detail:'<b>推荐切入角度：</b><br>· "暑假宅家第X天做了什么"（打卡连载）<br>· "不出门也不无聊的10件事"（清单型）<br>· "宅家一周花了多少钱"（数据记录型）<br><b style="color:#059669">参考爆款：</b>"暑假宅家vlog｜不出门的快乐" 赞1.2万 收藏4,300'},
+  {date:'7月6日 · 抖音', badge:'reuse', badgeText:'可复用', title:'#空调省电实测 争议型', stats:'均赞2,340 · 均评论187 · TOP1赞8.7万', detail:'<b>推荐切入角度：</b><br>· "26度vs28度电费实测7天"（数据对比）<br>· "租房党夏天电费到底多少"（共鸣向）<br>· "空调省电的3个冷知识"（干货向）<br><b style="color:#059669">参考爆款：</b>"实测空调电费差了200块" 赞8.7万'},
+  {date:'7月5日 · 小红书', badge:'expired', badgeText:'窗口期过', title:'#高考结束 大学生活准备', stats:'均赞4,120 · 均收藏1,890 · TOP1赞12万', detail:'<b>推荐切入角度：</b><br>· "大学前必须知道的X件事"（经验分享）<br>· "大一开学必备好物清单"（种草向）<br><span style="color:#d97706">⚠️ 热度下降中，建议等8月开学季</span>'},
+  {date:'7月4日 · 小红书', badge:'reuse', badgeText:'可复用', title:'#夏日防晒穿搭 功能+好看', stats:'均赞1,960 · 均收藏847 · TOP1赞3.1万', detail:'<b>推荐切入角度：</b><br>· "防晒衣不丑的N种穿法"（穿搭向）<br>· "夏天通勤防晒穿搭公式"（实用向）<br>· "防晒产品实测户外2小时"（测评向）<br><b style="color:#059669">参考爆款：</b>"这件防晒衣让我夏天出门不怕了" 赞3.1万'},
+  {date:'7月3日 · 抖音', badge:'expired', badgeText:'窗口期过', title:'#周杰伦演唱会 现场vlog', stats:'均赞6,780 · TOP1播放2,300万', detail:'<b>推荐切入角度：</b><br>· "演唱会穿搭+拍照攻略"（实用向）<br>· "第一次看演唱会的反应"（情绪向）<br><span style="color:#d97706">⚠️ 事件型热点已过，等下次可复用格式</span>'},
+  {date:'7月2日 · 小红书', badge:'evergreen', badgeText:'长青话题', title:'#独居安全 夏天注意事项', stats:'均赞2,150 · 均收藏1,230 · TOP1赞5.4万', detail:'<b>推荐切入角度：</b><br>· "独居女生夏天必做5件安全事"（清单型）<br>· "租房安全好物合集"（种草向）<br>· "独居3年安全习惯分享"（经验向）<br><b style="color:#059669">参考爆款：</b>"独居女生安全tips" 赞5.4万 收藏2.1万'}
+];
+
+// ===== FUNCTIONS =====
+function togChip(el) { el.classList.toggle('sel'); }
+function singleChip(el, gid) {
+  document.querySelectorAll('#'+gid+' .chip').forEach(c => c.classList.remove('sel'));
+  el.classList.add('sel');
+}
+
+function nextStep() {
+  if (step === 0 && !document.querySelector('#cTrack .chip.sel')) { toast('请至少选一个赛道'); return; }
+  step++; updateStep();
+}
+function prevStep() { step--; updateStep(); }
+function updateStep() {
+  [0,1,2].forEach(i => {
+    document.getElementById('sp'+i).style.display = i===step?'block':'none';
+    const d = document.getElementById('sd'+i);
+    d.className = 'step-dot' + (i<step?' done':'') + (i===step?' active':'');
+  });
+}
+
+function generate() {
+  readProfile();
+  document.getElementById('pageSetup').classList.remove('active');
+  document.getElementById('pageMain').classList.add('active');
+  document.getElementById('loading').classList.add('show');
+  setTimeout(() => {
+    document.getElementById('loading').classList.remove('show');
+    renderTopics();
+    renderHotTab();
+    renderHotHistory();
+    updateTags();
+    updateMe();
+  }, 1800);
+}
+
+function readProfile() {
+  profile.tracks = []; document.querySelectorAll('#cTrack .chip.sel').forEach(c => profile.tracks.push(c.textContent));
+  profile.persona = []; document.querySelectorAll('#cPersona .chip.sel').forEach(c => profile.persona.push(c.textContent));
+  profile.style = []; document.querySelectorAll('#cStyle .chip.sel').forEach(c => profile.style.push(c.textContent));
+  const f = document.querySelector('#cFans .chip.sel'); profile.fans = f ? f.textContent : '';
+  profile.platform = []; document.querySelectorAll('#cPlatform .chip.sel').forEach(c => profile.platform.push(c.textContent));
+}
+
+function getPool() {
+  let pool = [];
+  const tracks = profile.tracks.length ? profile.tracks : ['美食探店'];
+  tracks.forEach(t => { if(DB[t]) pool = pool.concat(DB[t]); });
+  return pool.length ? pool : DB['美食探店'];
+}
+
+let lastShown = [];
+function shufflePool(pool, b) {
+  const arr = [...pool];
+  let s = (b + 1) * 2654435761;
+  for (let i = arr.length - 1; i > 0; i--) {
+    s = ((s ^ (s >>> 16)) * 0x45d9f3b) >>> 0;
+    [arr[i], arr[s % (i + 1)]] = [arr[s % (i + 1)], arr[i]];
+  }
+  const fresh = arr.filter(t => !lastShown.includes(t.t));
+  const result = fresh.slice(0, 5);
+  if (result.length < 5) {
+    const more = arr.filter(t => !result.some(r => r.t === t.t));
+    result.push(...more.slice(0, 5 - result.length));
+  }
+  lastShown = result.map(t => t.t);
+  return result;
+}
+
+function renderTopics() {
+  const topics = shufflePool(getPool(), batch);
+  const el = document.getElementById('topicList');
+  el.innerHTML = topics.map((t, i) => buildCard(t, i >= 3)).join('');
+}
+
+function buildCard(t, locked) {
+  const isSaved = saved.some(s => s.t === t.t);
+  const tagsHtml = t.tags.map(tag => {
+    let c = 'normal';
+    if (/热|爆|共鸣|争议/.test(tag)) c = 'hot';
+    else if (/难度|实用/.test(tag)) c = 'easy';
+    else if (/趋势|当日|新|长青/.test(tag)) c = 'trend';
+    return '<span class="card-tag '+c+'">'+tag+'</span>';
+  }).join('');
+
+  if (locked) {
+    return '<div class="topic-card locked" onclick="showOverlay(\'olUpgrade\')">'+
+      '<div class="pro-badge">PRO</div>'+
+      '<div class="card-title">'+t.t+'</div>'+
+      '<div class="card-angle">'+t.a+'</div>'+
+      '<div class="card-data">'+t.data+'<div class="src">'+t.src+'</div></div>'+
+      '<div class="card-tags">'+tagsHtml+'</div>'+
+      '<div class="lock-overlay"><div class="lock-title">🔒 PRO专属选题</div><div class="lock-sub">升级后可查看完整方案：准备清单 · 拍摄分镜 · 剪辑要点 · 发布策略</div><div class="lock-btn">升级Pro解锁全部 →</div></div></div>';
+  }
+
+  const saveHtml = '<div class="save-btn'+(isSaved?' saved':'')+'" onclick="event.stopPropagation();doSave(this)">'+(isSaved?'♥':'♡')+'</div>';
+  const preps = t.prep.map(p => '<div class="check-item"><div class="check-box" onclick="event.stopPropagation();togCheck(this)"></div><div>'+p+'</div></div>').join('');
+  const shots = t.shots.map(s => '<div class="shot-item">'+s+'</div>').join('');
+  const tags = t.pub.tags.map(h => '<span class="hashtag">'+h+'</span>').join('');
+
+  return '<div class="topic-card" onclick="togPanel(this)">'+saveHtml+
+    '<div class="card-title">'+t.t+'</div>'+
+    '<div class="card-angle">'+t.a+'</div>'+
+    '<div class="card-data">'+t.data+'<div class="src">'+t.src+'</div></div>'+
+    '<div class="card-tags">'+tagsHtml+'</div>'+
+    '<div class="expand-hint">▼ 展开完整拍摄方案</div>'+
+    '<div class="expanded-panel">'+
+      '<div class="panel-section"><div class="panel-label">📋 前期准备</div>'+preps+'</div>'+
+      '<div class="panel-section"><div class="panel-label">🎬 拍摄分镜</div>'+shots+'</div>'+
+      '<div class="panel-section"><div class="panel-label">✂️ 剪辑要点</div><div class="edit-tips">'+t.edit+'</div></div>'+
+      '<div class="panel-section"><div class="panel-label">📱 发布策略</div><div class="publish-box"><b>最佳时间：</b>'+t.pub.time+'<br><b>标签：</b><br>'+tags+'<br><b>互动引导：</b>'+t.pub.hook+'</div></div>'+
+      '<div class="action-row"><div class="btn-act btn-secondary" onclick="event.stopPropagation();toast(\'已复制拍摄方案\')">复制脚本</div><div class="btn-act btn-primary" onclick="event.stopPropagation();markUse(this)">就拍这个</div></div>'+
+    '</div></div>';
+}
+
+function togPanel(card) {
+  const p = card.querySelector('.expanded-panel');
+  if (!p) return;
+  const open = p.classList.contains('open');
+  document.querySelectorAll('.expanded-panel.open').forEach(x => x.classList.remove('open'));
+  if (!open) { p.classList.add('open'); setTimeout(() => card.scrollIntoView({behavior:'smooth',block:'nearest'}), 100); }
+}
+
+function togCheck(el) { el.classList.toggle('done'); el.innerHTML = el.classList.contains('done') ? '✓' : ''; }
+
+function doSave(btn) {
+  const card = btn.closest('.topic-card');
+  const title = card.querySelector('.card-title').textContent;
+  const angle = card.querySelector('.card-angle');
+  if (btn.classList.contains('saved')) {
+    btn.classList.remove('saved'); btn.textContent = '♡';
+    saved = saved.filter(s => s.t !== title);
+    toast('已取消收藏');
+  } else {
+    btn.classList.add('saved'); btn.textContent = '♥';
+    saved.push({t: title, a: angle ? angle.textContent : ''});
+    toast('已收藏');
+  }
+  renderSaved();
+}
+
+function renderSaved() {
+  const empty = document.getElementById('savedEmpty');
+  const list = document.getElementById('savedList');
+  if (!saved.length) { empty.style.display = 'block'; list.innerHTML = ''; return; }
+  empty.style.display = 'none';
+  list.innerHTML = saved.map((s, i) => {
+    const topic = findTopicByTitle(s.t);
+    if (!topic) return '';
+    return buildSavedCard(topic, i);
+  }).join('');
+}
+
+function findTopicByTitle(title) {
+  for (const track of Object.keys(DB)) {
+    const found = DB[track].find(t => t.t === title);
+    if (found) return found;
+  }
+  for (const h of HOT_TOPICS) { if (h.t === title) return h; }
+  return null;
+}
+
+function buildSavedCard(t, idx) {
+  const tagsHtml = t.tags.map(tag => {
+    let c = 'normal';
+    if (/热|爆|共鸣|争议/.test(tag)) c = 'hot';
+    else if (/难度|实用/.test(tag)) c = 'easy';
+    else if (/趋势|当日|新|长青/.test(tag)) c = 'trend';
+    return '<span class="card-tag '+c+'">'+tag+'</span>';
+  }).join('');
+
+  let panelHtml = '';
+  if (t.prep) {
+    const preps = t.prep.map(p => '<div class="check-item"><div class="check-box" onclick="event.stopPropagation();togCheck(this)"></div><div>'+p+'</div></div>').join('');
+    const shots = t.shots.map(s => '<div class="shot-item">'+s+'</div>').join('');
+    const tags = t.pub.tags.map(h => '<span class="hashtag">'+h+'</span>').join('');
+    panelHtml =
+      '<div class="expanded-panel">'+
+        '<div class="panel-section"><div class="panel-label">📋 前期准备</div>'+preps+'</div>'+
+        '<div class="panel-section"><div class="panel-label">🎬 拍摄分镜</div>'+shots+'</div>'+
+        '<div class="panel-section"><div class="panel-label">✂️ 剪辑要点</div><div class="edit-tips">'+t.edit+'</div></div>'+
+        '<div class="panel-section"><div class="panel-label">📱 发布策略</div><div class="publish-box"><b>最佳时间：</b>'+t.pub.time+'<br><b>标签：</b><br>'+tags+'<br><b>互动引导：</b>'+t.pub.hook+'</div></div>'+
+        '<div class="action-row"><div class="btn-act btn-secondary" onclick="event.stopPropagation();toast(\'已复制拍摄方案\')">复制脚本</div><div class="btn-act btn-primary" onclick="event.stopPropagation();markUse(this)">就拍这个</div></div>'+
+      '</div>';
+  }
+
+  return '<div class="topic-card" onclick="togPanel(this)" style="border-left:3px solid #10b981;">'+
+    '<div class="save-btn saved" onclick="event.stopPropagation();removeSaved('+idx+')" style="z-index:5;">♥</div>'+
+    '<div class="card-title">'+t.t+'</div>'+
+    '<div class="card-angle">'+t.a+'</div>'+
+    '<div class="card-data">'+t.data+'<div class="src">'+t.src+'</div></div>'+
+    '<div class="card-tags">'+tagsHtml+'</div>'+
+    (panelHtml ? '<div class="expand-hint">▼ 展开完整拍摄方案</div>' + panelHtml : '') +
+  '</div>';
+}
+
+function removeSaved(idx) {
+  const title = saved[idx].t;
+  saved.splice(idx, 1);
+  renderSaved();
+  document.querySelectorAll('#topicList .topic-card .card-title, #hotList .topic-card .card-title').forEach(el => {
+    if (el.textContent === title) {
+      const btn = el.closest('.topic-card').querySelector('.save-btn');
+      if (btn) { btn.classList.remove('saved'); btn.textContent = '♡'; }
+    }
+  });
+  toast('已取消收藏');
+}
+
+function markUse(btn) {
+  const card = btn.closest('.topic-card');
+  card.style.borderColor = '#10b981'; card.style.background = '#f0fdf4';
+  btn.textContent = '已标记今日选题 ✓'; btn.style.background = '#059669'; btn.style.pointerEvents = 'none';
+  toast('已标记！祝拍摄顺利');
+}
+
+function doRefresh() {
+  if (quota <= 0) { showOverlay('olUpgrade'); return; }
+  quota--; batch++;
+  document.getElementById('quotaNum').textContent = quota+'/3';
+  const dots = document.getElementById('quotaDots');
+  dots.innerHTML = [0,1,2].map(i => '<span class="dot'+(i>=quota?' used':'')+'"></span>').join('')
+    + '<span class="dot used"></span><span class="dot used"></span>';
+  const btn = document.getElementById('refreshBtn');
+  if (quota <= 0) { btn.className = 'refresh-btn off'; btn.textContent = '🔒 今日免费刷新已用完 · 升级Pro无限刷新'; }
+  else btn.textContent = '🔄 换一批（剩'+quota+'次免费刷新）';
+
+  document.getElementById('loading').classList.add('show');
+  setTimeout(() => { document.getElementById('loading').classList.remove('show'); renderTopics(); toast('已生成新选题'); }, 1200);
+}
+
+function renderHotTab() {
+  const el = document.getElementById('hotList');
+  el.innerHTML = HOT_TOPICS.map(h => {
+    const tags = h.tags.map(tag => {
+      let c='normal'; if(/爆|热/.test(tag))c='hot'; else if(/难度/.test(tag))c='easy'; else if(/窗口|红利/.test(tag))c='trend';
+      return '<span class="card-tag '+c+'">'+tag+'</span>';
+    }).join('');
+    return '<div class="topic-card" onclick="togPanel(this)"><div class="save-btn" onclick="event.stopPropagation();doSave(this)">♡</div>'+
+      '<div class="card-title">'+h.t+'</div><div class="card-angle">'+h.a+'</div>'+
+      '<div class="card-data"><b>🔥 实时数据：</b><br>'+h.data+'<div class="src">'+h.src+'</div></div>'+
+      '<div class="card-tags">'+tags+'</div>'+
+      '<div class="expand-hint">▼ 展开拍摄执行清单</div>'+
+      '<div class="expanded-panel"><div class="panel-section"><div class="panel-label">📱 发布策略</div><div class="publish-box">紧跟热点，建议今日18:00-20:00发布<br>结合你的赛道切入，获得热点+赛道双重流量</div></div>'+
+      '<div class="action-row"><div class="btn-act btn-secondary" onclick="event.stopPropagation();toast(\'已复制\')">复制脚本</div><div class="btn-act btn-primary" onclick="event.stopPropagation();markUse(this)">就拍这个</div></div></div></div>';
+  }).join('');
+}
+
+function renderHotHistory() {
+  const el = document.getElementById('hotHistoryList');
+  el.innerHTML = HOT_HISTORY.map(h =>
+    '<div class="hot-card" onclick="togHotDetail(this)">'+
+      '<div class="hc-header"><span class="hc-date">'+h.date+'</span><span class="hc-badge '+h.badge+'">'+h.badgeText+'</span></div>'+
+      '<div class="hc-title">'+h.title+'</div>'+
+      '<div class="hc-stats">'+h.stats+'</div>'+
+      '<div class="hc-expand">▼ 点击查看推荐角度</div>'+
+      '<div class="hc-detail">'+h.detail+'</div>'+
+    '</div>'
+  ).join('');
+}
+
+function togHotDetail(card) {
+  const d = card.querySelector('.hc-detail');
+  const e = card.querySelector('.hc-expand');
+  if (d.classList.contains('open')) { d.classList.remove('open'); e.textContent = '▼ 点击查看推荐角度'; }
+  else { d.classList.add('open'); e.textContent = '▲ 收起'; }
+}
+
+function updateTags() {
+  const el = document.getElementById('tagsRow');
+  const all = [...profile.tracks, ...profile.persona, ...profile.style, ...profile.platform];
+  if (profile.fans) all.push(profile.fans+'粉');
+  el.innerHTML = all.map((t,i) => '<span class="tag-pill">'+t+'</span>').join('');
+}
+
+function updateMe() {
+  document.getElementById('meTrack').textContent = profile.tracks.join('、') || '-';
+  document.getElementById('mePersona').textContent = profile.persona.join('、') || '-';
+  document.getElementById('meStyle').textContent = profile.style.join('、') || '-';
+  document.getElementById('meFans').textContent = profile.fans || '-';
+  document.getElementById('mePlatform').textContent = profile.platform.join('、') || '-';
+}
+
+function switchTab(el, name) {
+  document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('on'));
+  el.classList.add('on');
+  ['Recommend','Hot','Saved','Me'].forEach(n => {
+    document.getElementById('tab'+n).style.display = n===name?'block':'none';
+  });
+}
+
+function showOverlay(id) {
+  if (id === 'olSettings') renderSettings();
+  document.getElementById(id).classList.add('show');
+}
+function hideOverlay(id) { document.getElementById(id).classList.remove('show'); }
+
+function renderSettings() {
+  const el = document.getElementById('settingsContent');
+  const allTracks = ['美食探店','日常Vlog','美妆护肤','职场干货','成长学习','家居生活','母婴育儿','健身运动','穿搭时尚','数码科技'];
+  const allPersona = ['独居女生','打工人','大学生','宝妈','自由职业','斜杠青年','小镇青年','留学生','情侣/夫妻','考研/考公人','健身爱好者','数码极客'];
+  const allStyle = ['治愈安静','搞笑轻松','干货实用','情绪共鸣','热点追踪','真实记录','种草测评','知识科普','对比挑战','沉浸式ASMR'];
+  const allFans = ['0-1k','1k-5k','5k-2万','2万-5万'];
+  const allPlatform = ['小红书','抖音','视频号','B站'];
+
+  function chips(list, selected, gid, multi) {
+    return '<div class="chip-grid" id="s_'+gid+'">' + list.map(item => {
+      const sel = selected.includes(item) ? ' sel' : '';
+      const fn = multi ? 'togChip(this)' : "singleChip(this,'s_"+gid+"')";
+      return '<div class="chip'+sel+'" onclick="'+fn+'">'+item+'</div>';
+    }).join('') + '</div>';
+  }
+
+  el.innerHTML =
+    '<div class="field-label">内容赛道</div>' +
+    chips(allTracks, profile.tracks, 'tracks', true) +
+    '<div class="field-label">人设标签</div>' +
+    chips(allPersona, profile.persona, 'persona', true) +
+    '<div class="field-label">内容风格</div>' +
+    chips(allStyle, profile.style, 'style', true) +
+    '<div class="field-label">粉丝量级</div>' +
+    chips(allFans, [profile.fans], 'fans', false) +
+    '<div class="field-label">发布平台</div>' +
+    chips(allPlatform, profile.platform, 'platform', true) +
+    '<div style="margin-top:20px;" class="btn btn-green" onclick="saveSettings()">保存并重新推荐</div>';
+}
+
+function saveSettings() {
+  profile.tracks = []; document.querySelectorAll('#s_tracks .chip.sel').forEach(c => profile.tracks.push(c.textContent));
+  profile.persona = []; document.querySelectorAll('#s_persona .chip.sel').forEach(c => profile.persona.push(c.textContent));
+  profile.style = []; document.querySelectorAll('#s_style .chip.sel').forEach(c => profile.style.push(c.textContent));
+  const f = document.querySelector('#s_fans .chip.sel'); profile.fans = f ? f.textContent : '';
+  profile.platform = []; document.querySelectorAll('#s_platform .chip.sel').forEach(c => profile.platform.push(c.textContent));
+  batch = 0; quota = 3;
+  document.getElementById('quotaNum').textContent = '3/3';
+  document.getElementById('quotaDots').innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot used"></span><span class="dot used"></span>';
+  const btn = document.getElementById('refreshBtn');
+  btn.className = 'refresh-btn'; btn.textContent = '🔄 换一批推荐';
+  renderTopics(); updateTags(); updateMe();
+  hideOverlay('olSettings');
+  toast('已更新创作档案');
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.style.display = 'block';
+  clearTimeout(t._t); t._t = setTimeout(() => t.style.display = 'none', 2200);
+}
+</script>
+</body>
+</html>
