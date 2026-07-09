@@ -1,7 +1,7 @@
 {
-  "_comment": "各公司招聘官网入口(人工整理,校招/实习/产品岗)。监测脚本每天访问检测更新;前端展示为直达入口。可自行增删。",
+  "_comment": "各公司招聘官网入口(人工整理,校招/实习/产品岗)。监测脚本每天访问检测更新;前端展示为直达入口。可自行增删。URL中的中文需用百分号编码,避免请求失败。",
   "companies": [
-    {"name": "字节跳动", "category": "大厂", "url": "https://jobs.bytedance.com/campus/position?keywords=产品", "note": "校招产品岗;抖音/TikTok/豆包等AI产品线"},
+    {"name": "字节跳动", "category": "大厂", "url": "https://jobs.bytedance.com/campus/position?keywords=%E4%BA%A7%E5%93%81", "note": "校招产品岗;抖音/TikTok/豆包等AI产品线"},
     {"name": "腾讯", "category": "大厂", "url": "https://join.qq.com/post.html", "note": "校招/实习;微信/腾讯云/AILab"},
     {"name": "阿里巴巴", "category": "大厂", "url": "https://talent.alibaba.com/campus/position-list", "note": "校招;通义/淘天/阿里云AI产品"},
     {"name": "美团", "category": "大厂", "url": "https://zhaopin.meituan.com/web/campus", "note": "校招提前批;含AI产品岗"},
