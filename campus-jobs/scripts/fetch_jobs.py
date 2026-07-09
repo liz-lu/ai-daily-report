@@ -1,22 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-实习/秋招岗位追踪器 —— 数据抓取与结构化脚本
+实习/秋招岗位追踪器 —— 多源健壮抓取脚本（自用，非商业，不公开）
 
-数据源：开源社区维护的校招/实习汇总仓库（Markdown 表格，合规、每日更新）
-  默认：namewyf/Campus2026（2026届互联网校招&实习信息汇总）
+数据源（多源并行，能抓则抓，单源失败不影响其它）：
+  1. zapplyjobs/Internships-2026  —— 机器人实时更新的科技实习岗（Markdown 表格，海外为主）
+  2. vanshb03/Summer2027-Internships —— 2027 暑期实习（Markdown 表格，海外为主）
+  3. 实习僧网页搜索 —— 国内实习岗（HTML 解析；当前停用，结构多变）
+  可在 SOURCES 增减。
 
-流程：
-  1. 抓取数据源 README.md（标准 Markdown 表格）
-  2. 直接解析表格 → 结构化岗位（公司/链接/更新日期/地点/备注）——无需任何 API
-  3. 与已有 data/jobs.json 合并去重（按 公司+链接），标记新增、按更新日期倒序
-  4. 写回 data/jobs.json，供 index.html 前端渲染
-
-设计原则：
-  - 仅用 Python 标准库，无第三方 pip 依赖（GitHub Actions 直接可跑）
-  - 不需要任何 API key —— 纯规则解析，零成本、零故障点
-  - 抓取失败不阻断：保留已有数据，脚本正常退出（不让 Actions 失败）
-  - 关键词过滤：默认聚焦 产品 / AI 相关岗位（可在 KEYWORDS 调整；留空则收录全部）
+技术加固：
+  - 每源独立 try/except，任一失败仅记录、不中断整体
+  - 请求：完整浏览器 headers + 随机 UA + 超时 + 3 次重试 + 退避
+  - 解析容错：字段缺失有默认值，脏数据跳过不崩
+  - 合并去重（按 链接 / 公司+岗位）、标记近3天新增、按新鲜度排序
+  - 抓取统计日志：每源成功/失败/条数
+  - 零第三方依赖（仅标准库），GitHub Actions 直接可跑；无需任何 API key
 """
 
 from __future__ import annotations
@@ -24,6 +23,8 @@ from __future__ import annotations
 import json
 import re
 import sys
+import time
+import html as _html
 import urllib.request
 import urllib.error
 from datetime import datetime, timezone, timedelta
@@ -34,88 +35,148 @@ TODAY = datetime.now(TZ_CN).strftime("%Y-%m-%d")
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
-SOURCES_FILE = DATA_DIR / "sources.json"
 JOBS_FILE = DATA_DIR / "jobs.json"
 
-USER_AGENT = (
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 AI-PM-Tracker/2.0"
-)
-
-# 关键词过滤：岗位「公司+备注+链接文字+地点」命中任一即收录。留空列表 = 收录全部。
-KEYWORDS = ["产品", "AI", "product", "运营", "实习"]
-
-# 默认数据源（若 sources.json 未配置则用这个）
-DEFAULT_SOURCES = [
-    {
-        "name": "Campus2026(社区维护·每日更新)",
-        "url": "https://raw.githubusercontent.com/namewyf/Campus2026/main/README.md",
-    }
+UA_POOL = [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3 Safari/605.1.15",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 Edg/121.0",
 ]
+
+# 关键词过滤：命中任一即收录（面向 产品/AI 岗）。留空 = 全部收录。
+KEYWORDS = ["产品", "AI", "product", "运营", "PM", "machine learning", "ML", "data"]
 
 
 def log(msg: str) -> None:
     print(f"[{datetime.now(TZ_CN).strftime('%H:%M:%S')}] {msg}", flush=True)
 
 
-def fetch_url(url: str, timeout: int = 25) -> str:
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            return resp.read().decode("utf-8", errors="ignore")
-    except Exception as e:
-        log(f"  [warn] 抓取失败 {url}: {e}")
-        return ""
+def _ua(i: int = 0) -> str:
+    return UA_POOL[i % len(UA_POOL)]
 
 
-def parse_markdown_table(md: str, source_name: str) -> list:
-    """解析 Markdown 表格，抽取岗位。表头形如：公司 | 招聘状态&&投递链接 | 更新日期 | 地点 | 备注"""
+def fetch(url: str, retries: int = 3, timeout: int = 20) -> str:
+    """带重试+退避+随机UA的抓取，全部失败返回空串。"""
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(url, headers={
+                "User-Agent": _ua(attempt),
+                "Accept": "text/html,application/json,application/xhtml+xml,*/*;q=0.8",
+                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                "Referer": "https://www.google.com/",
+                "Connection": "keep-alive",
+            })
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                return resp.read().decode("utf-8", errors="ignore")
+        except Exception as e:
+            log(f"    第{attempt+1}次失败: {type(e).__name__}")
+            time.sleep(1.5 * (attempt + 1))
+    return ""
+
+
+# ---------- 各源解析器 ----------
+
+def parse_md_table_generic(md: str, source: str, col_map: dict) -> list:
+    """通用 Markdown 表格解析。col_map: {'company':idx,'title':idx,'city':idx,'date':idx,'link_col':idx}"""
     jobs = []
     for line in md.splitlines():
         line = line.strip()
         if not line.startswith("|"):
             continue
         cells = [c.strip() for c in line.strip("|").split("|")]
-        if len(cells) < 3:
+        if len(cells) < 3 or set(cells[0]) <= set("-: *"):
             continue
-        if cells[0] in ("公司", "Company", "") or set(cells[0]) <= set("-: "):
+        if cells[0].lower() in ("company", "公司", "role", "name"):
             continue
 
-        company = cells[0]
-        status_cell = cells[1] if len(cells) > 1 else ""
-        update_date = cells[2] if len(cells) > 2 else ""
-        location = cells[3] if len(cells) > 3 else ""
-        note = cells[4] if len(cells) > 4 else ""
+        def cell(k):
+            i = col_map.get(k, -1)
+            return cells[i] if 0 <= i < len(cells) else ""
 
-        link_m = re.search(r"\[([^\]]*)\]\((https?://[^)]+)\)", status_cell)
-        title = link_m.group(1).strip() if link_m else re.sub(r"[\[\]]", "", status_cell)
-        link = link_m.group(2).strip() if link_m else ""
+        raw_company = re.sub(r"[*\[\]]", "", cell("company")).strip()
+        raw_title = re.sub(r"[*\[\]]", "", cell("title")).strip()
+        city = re.sub(r"[*\[\]]", "", cell("city")).strip()
+        date_txt = cell("date")
 
-        d = re.search(r"(\d{4})[/-](\d{1,2})[/-](\d{1,2})", update_date)
-        deadline_norm = f"{d.group(1)}-{int(d.group(2)):02d}-{int(d.group(3)):02d}" if d else ""
+        link_cell = cell("link_col") or cell("title") or cell("company")
+        lm = re.search(r"\]\((https?://[^)]+)\)", link_cell)
+        link = lm.group(1).strip() if lm else ""
 
-        haystack = " ".join([company, title, note, location])
-        if KEYWORDS and not any(k.lower() in haystack.lower() for k in KEYWORDS):
+        if not raw_company and not raw_title:
+            continue
+
+        hay = " ".join([raw_company, raw_title, city])
+        if KEYWORDS and not any(k.lower() in hay.lower() for k in KEYWORDS):
             continue
 
         jobs.append({
-            "company": company,
-            "title": title or "校招/实习",
-            "city": location or "—",
+            "company": _html.unescape(raw_company) or "—",
+            "title": _html.unescape(raw_title) or "岗位",
+            "city": _html.unescape(city) or "—",
             "degree": "",
-            "deadline": deadline_norm,
+            "deadline": "",
+            "posted": date_txt,
             "link": link,
-            "source": source_name,
-            "tags": [t for t in ["实习" if "实习" in haystack else "校招",
-                                  "AI" if ("AI" in haystack or "ai" in haystack) else "",
-                                  "产品" if "产品" in haystack else ""] if t],
-            "note": note,
+            "source": source,
+            "tags": [t for t in [
+                "实习" if re.search(r"intern|实习", hay, re.I) else "",
+                "AI" if re.search(r"\bAI\b|ML|machine learning|大模型", hay, re.I) else "",
+                "产品" if re.search(r"产品|product|PM", hay, re.I) else "",
+            ] if t],
+            "note": "",
         })
     return jobs
 
 
+def parse_shixiseng(html_text: str, source: str) -> list:
+    """实习僧网页：抽岗位名+公司+链接（当前停用，结构多变时保留备用）。"""
+    jobs = []
+    ids = re.findall(r'shixiseng\.com/intern/(inn_[a-zA-Z0-9_]+)', html_text)
+    titles = re.findall(r'"job_name"\s*:\s*"([^"]{2,40})"', html_text)
+    comps = re.findall(r'"company_name"\s*:\s*"([^"]{2,40})"', html_text)
+    seen = set()
+    for i, jid in enumerate(dict.fromkeys(ids)):
+        title = titles[i] if i < len(titles) else "实习岗位"
+        comp = comps[i] if i < len(comps) else "—"
+        if jid in seen:
+            continue
+        seen.add(jid)
+        jobs.append({
+            "company": _html.unescape(comp), "title": _html.unescape(title),
+            "city": "—", "degree": "", "deadline": "", "posted": "",
+            "link": f"https://www.shixiseng.com/intern/{jid}",
+            "source": source, "tags": ["实习"], "note": "",
+        })
+    return jobs
+
+
+# ---------- 数据源配置 ----------
+SOURCES = [
+    {
+        "name": "zapplyjobs·实时科技实习",
+        "url": "https://raw.githubusercontent.com/zapplyjobs/Internships-2026/main/README.md",
+        "parser": lambda t, s: parse_md_table_generic(t, s, {"company": 0, "title": 1, "city": 2, "date": 3, "link_col": 5}),
+    },
+    {
+        "name": "Summer2027·暑期实习",
+        "url": "https://raw.githubusercontent.com/vanshb03/Summer2027-Internships/dev/README.md",
+        "parser": lambda t, s: parse_md_table_generic(t, s, {"company": 0, "title": 1, "city": 2, "date": 3, "link_col": 4}),
+    },
+    # 实习僧（国内源）：页面有字体加密+NUXT结构多变，当前解析不稳定，暂停用。
+    # 待其结构稳定或换用其它国内源时启用（取消下面注释即可）：
+    # {
+    #     "name": "实习僧·国内实习",
+    #     "url": "https://www.shixiseng.com/interns?keyword=%E4%BA%A7%E5%93%81&city=%E5%85%A8%E5%9B%BD",
+    #     "parser": parse_shixiseng,
+    # },
+]
+
+
 def job_key(job: dict) -> str:
-    return (str(job.get("company", "")).strip() + "|" + str(job.get("link", "")).strip()).lower()
+    link = str(job.get("link", "")).strip().lower()
+    if link:
+        return link
+    return (str(job.get("company", "")) + "|" + str(job.get("title", ""))).lower()
 
 
 def load_json(path: Path, default):
@@ -128,32 +189,35 @@ def load_json(path: Path, default):
 
 
 def main() -> int:
-    sources = load_json(SOURCES_FILE, {}).get("fetch_sources") or DEFAULT_SOURCES
     existing = load_json(JOBS_FILE, {}).get("jobs", [])
     log(f"已有岗位 {len(existing)} 条")
     merged = {job_key(j): j for j in existing}
 
-    new_count = 0
-    for src in sources:
-        url = src.get("url", "")
-        name = src.get("name", url)
-        if not url:
-            continue
-        log(f"抓取源: {name}")
-        md = fetch_url(url)
-        if not md:
-            continue
-        jobs = parse_markdown_table(md, name)
-        log(f"  → 解析得到 {len(jobs)} 条(关键词过滤后)")
-        for j in jobs:
-            k = job_key(j)
-            if k not in merged:
-                j["first_seen"] = TODAY
-                new_count += 1
-            else:
-                j["first_seen"] = merged[k].get("first_seen", TODAY)
-            j["updated"] = TODAY
-            merged[k] = j
+    stats, new_count = [], 0
+    for src in SOURCES:
+        name = src["name"]
+        try:
+            log(f"抓取源: {name}")
+            content = fetch(src["url"])
+            if not content:
+                stats.append(f"{name}: 抓取失败(0)")
+                continue
+            jobs = src["parser"](content, name)
+            stats.append(f"{name}: {len(jobs)} 条")
+            log(f"  → 解析 {len(jobs)} 条")
+            for j in jobs:
+                k = job_key(j)
+                if k not in merged:
+                    j["first_seen"] = TODAY
+                    new_count += 1
+                else:
+                    j["first_seen"] = merged[k].get("first_seen", TODAY)
+                j["updated"] = TODAY
+                merged[k] = j
+            time.sleep(1)
+        except Exception as e:
+            stats.append(f"{name}: 异常({type(e).__name__})")
+            log(f"  [warn] {name} 处理异常: {e}")
 
     all_jobs = list(merged.values())
     for j in all_jobs:
@@ -164,19 +228,18 @@ def main() -> int:
         except Exception:
             j["is_new"] = False
 
-    def sort_key(j):
-        d = j.get("deadline", "")
-        return d if re.match(r"\d{4}-\d{2}-\d{2}", d or "") else "0000"
-    all_jobs.sort(key=sort_key, reverse=True)
+    all_jobs.sort(key=lambda j: (j.get("first_seen", ""), j.get("is_new", False)), reverse=True)
 
     output = {
         "updated_at": datetime.now(TZ_CN).strftime("%Y-%m-%d %H:%M"),
         "total": len(all_jobs),
         "new_today": new_count,
+        "source_stats": stats,
         "jobs": all_jobs,
     }
     JOBS_FILE.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
-    log(f"完成：共 {len(all_jobs)} 条，本次新增 {new_count} 条 → {JOBS_FILE}")
+    log(f"完成：共 {len(all_jobs)} 条，本次新增 {new_count} 条")
+    log(f"各源: {' | '.join(stats)}")
     return 0
 
 
