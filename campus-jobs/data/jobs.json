@@ -1,52 +1,3588 @@
 {
-  "updated_at": "2026-07-09 18:17",
-  "total": 45,
-  "new_today": 45,
+  "updated_at": "2026-07-10 00:42",
+  "total": 209,
+  "new_today": 164,
+  "source_stats": [
+    "zapplyjobs·实时科技实习: 143 条",
+    "Summer2027·暑期实习: 22 条"
+  ],
   "jobs": [
-    {"company":"携程旅行","title":"暑期实习","city":"全国","degree":"","deadline":"2025-03-20","link":"https://app.mokahr.com/su/qnjubz","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"内推码：NTAciAS","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"蔚来","title":"暑期实习","city":"—","degree":"","deadline":"2025-03-14","link":"https://nio.jobs.feishu.cn/intern/position/","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"全灵","title":"日常实习","city":"深圳，杭州","degree":"","deadline":"2025-03-13","link":"https://www.zhipin.com/gongsi/job/fb232170d51123f71X192N-8FlA~.html?ka=seo_companys_open_joblist","source":"Campus2026(社区维护·每日更新)","tags":["实习","AI"],"note":"AI+游戏 已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"小红书","title":"日常实习&暑期实习&REDstar 顶尖人才计划","city":"北京，上海，武汉，广州，深圳，杭州","degree":"","deadline":"2025-03-13","link":"https://job.xiaohongshu.com/campus","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"哔哩哔哩","title":"日常实习","city":"北京，上海，芜湖，重庆","degree":"","deadline":"2025-03-13","link":"https://jobs.bilibili.com/campus/positions?type=0","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"360","title":"校园招聘&实习生招聘","city":"北京，南京，沈阳，深圳","degree":"","deadline":"2025-03-13","link":"https://360campus.zhiye.com/jobs","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"拼多多","title":"暑期实习","city":"全国","degree":"","deadline":"2025-03-10","link":"https://careers.pddglobalhr.net/campus","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"招商银行信用卡","title":"暑期实习","city":"—","degree":"","deadline":"2025-03-09","link":"https://career.cmbchina.com/positionlist/DF94FD6D-26D3-4A19-9E69-577C4BA1DE82","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"阿里巴巴","title":"暑期实习","city":"全国","degree":"","deadline":"2025-03-08","link":"https://talent.alibaba.com/campus/position-list?campusType=internship","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"网易","title":"雷火暑期实习","city":"杭州","degree":"","deadline":"2025-03-08","link":"https://leihuo.163.com/campus/#/intern","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"游戏部门已开启","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"小米","title":"暑期实习","city":"全国","degree":"","deadline":"2025-03-08","link":"https://xiaomi.jobs.f.mioffice.cn/internship/","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"北森","title":"暑期实习","city":"—","degree":"","deadline":"2025-03-07","link":"https://beisen.zhiye.com/intern/jobs","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"金山软件","title":"日常实习","city":"—","degree":"","deadline":"2025-03-07","link":"https://app.mokahr.com/campus-recruitment/wps/41436#/jobs?project%5B0%5D=100074177&page=1&anchorName=jobsList","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"中控信息","title":"日常实习","city":"—","degree":"","deadline":"2025-03-07","link":"https://app.mokahr.com/campus-recruitment/zkxx/72098#/","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"smartx","title":"日常实习","city":"—","degree":"","deadline":"2025-03-07","link":"https://app.mokahr.com/campus_apply/smartx/4183#/jobs?zhineng=111480","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"七牛云","title":"日常实习","city":"—","degree":"","deadline":"2025-03-07","link":"https://campus.qiniu.com/campus/jobs","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"美团","title":"暑期实习","city":"全国","degree":"","deadline":"2025-03-05","link":"https://zhaopin.meituan.com/web/campus","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"快手","title":"暑期实习","city":"全国","degree":"","deadline":"2025-03-04","link":"https://campus.kuaishou.cn/#/campus/index","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"广告算法日常实习可投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"腾讯云智","title":"暑期实习","city":"—","degree":"","deadline":"2025-03-04","link":"https://app-tc.mokahr.com/campus-recruitment/csig/20001#/page/%E5%AE%9E%E4%B9%A0%E7%94%9F%E6%8B%9B%E8%81%98","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"深信服","title":"日常实习","city":"—","degree":"","deadline":"2025-03-04","link":"https://hr.sangfor.com/campucompon/schoolRecruitment/trainee","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"京东","title":"暑期实习","city":"全国","degree":"","deadline":"2025-03-03","link":"https://campus.jd.com/#/jobs","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"帆软","title":"日常实习","city":"—","degree":"","deadline":"2025-03-03","link":"https://join.fanruan.com/","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"百度","title":"暑期实习","city":"全国","degree":"","deadline":"2025-03-02","link":"https://talent.baidu.com/jobs/list","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"华为","title":"暑期实习","city":"全国","degree":"","deadline":"2025-03-02","link":"https://career.huawei.com/reccampportal/portal5/campus-recruitment.html","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"oppo","title":"暑期实习","city":"深圳，东莞，北京，上海，成都，南京，重庆，杭州，武汉，西安，南昌","degree":"","deadline":"2025-02-25","link":"https://careers.oppo.com/university/oppo/campus/post","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"理想","title":"日常实习","city":"—","degree":"","deadline":"2025-02-25","link":"https://www.lixiang.com/employ/social/list.html?keyword=%E5%AE%9E%E4%B9%A0&fromJob=1","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"联想","title":"暑期实习","city":"—","degree":"","deadline":"2025-02-25","link":"https://talent.lenovo.com.cn/position?projectType=2","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"微软","title":"暑期实习","city":"北京/苏州","degree":"","deadline":"2025-02-22","link":"https://jobs.careers.microsoft.com/global/en/search?lc=China&exp=Students%20and%20graduates&et=Internship&l=en_us&pg=1&pgSz=20&o=Relevance&flt=true","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"中国银行","title":"暑期实习","city":"—","degree":"","deadline":"2025-02-22","link":"https://campus.chinahr.com/pages/2024-boc-spring","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"OPPO","title":"25届实习","city":"—","degree":"","deadline":"2025-02-21","link":"https://careers.oppo.com/university/oppo/campus/post?recruitType=Intern","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"vivo","title":"春季校园招聘&暑期实习","city":"东菀，北京，南京，上海，深圳，杭州，重庆，西安","degree":"","deadline":"2025-02-15","link":"https://hr.vivo.com","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"米哈游","title":"暑期实习","city":"上海/深圳","degree":"","deadline":"2025-02-08","link":"https://jobs.mihoyo.com/#/campus/position","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"网易游戏","title":"暑期实习","city":"杭州/广州","degree":"","deadline":"2025-02-08","link":"https://game.campus.163.com/position","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"腾讯游戏","title":"暑期实习","city":"深圳/上海","degree":"","deadline":"2025-02-08","link":"https://join.qq.com/post.html?query=p_2","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"英特尔","title":"暑期实习","city":"北京/上海/成都","degree":"","deadline":"2025-02-08","link":"https://chinacampus.jobs.intel.cn/","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"高通","title":"暑期实习","city":"北京/上海","degree":"","deadline":"2025-02-08","link":"https://www.qualcomm.cn/company/careers","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"小鹏","title":"暑期实习","city":"—","degree":"","deadline":"2025-02-07","link":"https://xiaopeng.jobs.feishu.cn/campus/position/list","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"IBM","title":"暑期实习","city":"北京/上海","degree":"","deadline":"2025-02-06","link":"https://careers.ibm.com/job/search","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"陆续开放中","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"完美世界","title":"暑期实习","city":"北京","degree":"","deadline":"2025-02-05","link":"https://recruit.games.wanmei.com/campus-recruitment/perfect-world/94767/#/","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"苹果","title":"暑期实习","city":"北京/上海","degree":"","deadline":"2025-02-05","link":"https://jobs.apple.com/zh-cn/search?location=china-mainland","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"陆续开放中","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"戴尔","title":"暑期实习","city":"北京/厦门/成都","degree":"","deadline":"2025-02-05","link":"https://jobs.dell.com/search-jobs/China","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"小米","title":"日常实习&暑期实习","city":"北京，南京，上海，武汉，巴黎，胡志明市，米兰","degree":"","deadline":"2025-01-13","link":"https://xiaomi.jobs.f.mioffice.cn/internship/?keywords=&category=&location=&project=7194746444959334509&type=&job_hot_flag=&current=1&limit=10&functionCategory=&tag=&spread=6AA3R7B","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"吉利","title":"日常实习","city":"全国","degree":"","deadline":"2025-01-13","link":"https://campus.geely.com/campus-recruitment/geely/78436/#/jobs?commitment%5B0%5D=%E5%AE%9E%E4%B9%A0&page=1&anchorName=jobsList","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"平安银行","title":"暑期实习","city":"深圳","degree":"","deadline":"2025-01-13","link":"https://campus.pingan.com/pab","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"已开启投递","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true},
-    {"company":"腾讯","title":"暑期实习&日常实习","city":"全国","degree":"","deadline":"2024-12-27","link":"https://join.qq.com/post.html?query=p_2,b_14129","source":"Campus2026(社区维护·每日更新)","tags":["实习"],"note":"全年可投递，越早投越好","first_seen":"2026-07-09","updated":"2026-07-09","is_new":true}
+    {
+      "company": "Fortinet",
+      "title": "Software Development Intern - GenAI",
+      "city": "Santa Clara, CA, ...",
+      "degree": "",
+      "deadline": "",
+      "posted": "6d",
+      "link": "https://edel.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2001/job/22401",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Daimler Truck",
+      "title": "Manufacturing Systems Engineering Co-op",
+      "city": "Byesville, OH US",
+      "degree": "",
+      "deadline": "",
+      "posted": "2w",
+      "link": "https://dtna.wd5.myworkdayjobs.com/DTNA_external/job/Byesville-OH-US/Manufacturing-Systems-Engineering-Co-op_DT-18529",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Formlabs",
+      "title": "Manufacturing Test Software Intern (F...",
+      "city": "Somerville, MA",
+      "degree": "",
+      "deadline": "",
+      "posted": "2w",
+      "link": "https://careers.formlabs.com/job/8021679/apply/?gh_jid=8021679",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Agilent Technologies",
+      "title": "Intern - R&D Software Engineering (AI...",
+      "city": "Wilmington, DE",
+      "degree": "",
+      "deadline": "",
+      "posted": "3w",
+      "link": "https://agilent.wd5.myworkdayjobs.com/Agilent_Student_Careers/job/US-DE-Wilmington/Intern---R-D-Software-Engineering--AI---Test-Automation-_4038437",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "iHerb",
+      "title": "Software Development Intern",
+      "city": "Remote / Home",
+      "degree": "",
+      "deadline": "",
+      "posted": "3w",
+      "link": "https://job-boards.greenhouse.io/iherb/jobs/7776154003",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Ambarella",
+      "title": "Software Development Engineer Intern",
+      "city": "Headquarters",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://ambarella.wd108.myworkdayjobs.com/ambarella/job/US-Headquarters/Software-Development-Engineer-Intern_JR100108",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Cisive",
+      "title": "Software Development Intern",
+      "city": "Maryland",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://cisive.wd108.myworkdayjobs.com/Cisive/job/Remote---Maryland/Software-Development-Intern_JR100290",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Expedia Group",
+      "title": "Software Development Engineering Inte...",
+      "city": "Austin Domain 11 ...",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://expedia.wd108.myworkdayjobs.com/private/job/Austin-Domain-11---HomeAway/Software-Development-Engineering-Intern---2026---Austin--San-Jose--Seattle_R-98557",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "LiveRamp",
+      "title": "AI/Automation Engineer (Intern)",
+      "city": "San Francisco + 1...",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://liveramp.wd5.myworkdayjobs.com/LiveRampCareers/job/San-Francisco/AI-Automation-Engineer--Intern-_JR012159",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "GenBio AI",
+      "title": "Software Engineering Intern",
+      "city": "Palo Alto, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://jobs.lever.co/genbio/4bdb14ae-e19f-40c8-84db-1307dbdabe74/apply",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Nokia",
+      "title": "Software Development Coop",
+      "city": "United States",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://fa-evmr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/36934",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "PlusAI",
+      "title": "Systems Engineering Intern",
+      "city": "Santa Clara, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://jobs.lever.co/plus-2/1864b1be-25e5-424f-9626-09e58f6147f2/apply",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "PlusAI",
+      "title": "Systems Engineering Intern",
+      "city": "Santa Clara, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://jobs.lever.co/plus-2/43bad137-b976-4dfa-b72d-96918929e9db/apply",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "PlusAI",
+      "title": "Systems Engineering Intern",
+      "city": "Santa Clara, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://jobs.lever.co/plus-2/bbdaa94b-6c29-4b1b-b810-05cda3c08d03/apply",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "kos.ai",
+      "title": "Software Engineer Intern",
+      "city": "San Francisco",
+      "degree": "",
+      "deadline": "",
+      "posted": "2mo",
+      "link": "https://jobs.ashbyhq.com/kos.ai/efab6ffb-9658-47f7-8b5f-a295c55957d3/application",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Amazon.com Services LLC",
+      "title": "Software Development Engineer Intern,...",
+      "city": "Seattle, WA",
+      "degree": "",
+      "deadline": "",
+      "posted": "2mo",
+      "link": "https://www.amazon.jobs/en/jobs/10412530/software-development-engineer-intern-aws-data-services-fall-2026-us",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "TikTok",
+      "title": "Machine Learning Engineer Intern - Gl...",
+      "city": "Seattle, Washington",
+      "degree": "",
+      "deadline": "",
+      "posted": "5m",
+      "link": "https://lifeattiktok.com/position/7527077153591675154",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "TikTok",
+      "title": "Machine Learning Engineer Intern (Tik...",
+      "city": "San Jose, California",
+      "degree": "",
+      "deadline": "",
+      "posted": "5m",
+      "link": "https://lifeattiktok.com/position/7557122323507349778",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "ByteDance",
+      "title": "Machine Learning Engineer Intern (Glo...",
+      "city": "Seattle, Washington",
+      "degree": "",
+      "deadline": "",
+      "posted": "26m",
+      "link": "https://joinbytedance.com/search/7535951608832657682",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "ByteDance",
+      "title": "Machine Learning Engineer Intern (Glo...",
+      "city": "Seattle, Washington",
+      "degree": "",
+      "deadline": "",
+      "posted": "26m",
+      "link": "https://joinbytedance.com/search/7535953226975054098",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "ByteDance",
+      "title": "Machine Learning Engineer Intern (E-c...",
+      "city": "Seattle, Washington",
+      "degree": "",
+      "deadline": "",
+      "posted": "26m",
+      "link": "https://joinbytedance.com/search/7535171166420453639",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Jump Trading",
+      "title": "Campus Data Engineer (Intern)",
+      "city": "Chicago",
+      "degree": "",
+      "deadline": "",
+      "posted": "18h",
+      "link": "https://www.jumptrading.com/hr/job?gh_jid=8002998",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Intel",
+      "title": "DTCO Data Engineer Intern",
+      "city": "US, Texas, Austin",
+      "degree": "",
+      "deadline": "",
+      "posted": "2d",
+      "link": "https://intel.wd1.myworkdayjobs.com/External/job/US-Texas-Austin/DTCO-Data-Engineer-Intern_JR0285341",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Capital One",
+      "title": "Data Analyst Intern - Summer 2027",
+      "city": "McLean, VA + 1 more",
+      "degree": "",
+      "deadline": "",
+      "posted": "3d",
+      "link": "https://capitalone.wd12.myworkdayjobs.com/Capital_One/job/McLean-VA/Data-Analyst-Intern---Summer-2027_R244317-1",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Comcast",
+      "title": "Comcast Data Science & Analytics Co-op",
+      "city": "Philadelphia, PA",
+      "degree": "",
+      "deadline": "",
+      "posted": "6d",
+      "link": "https://comcast.wd5.myworkdayjobs.com/Comcast_Careers/job/PA---Philadelphia-1701-John-F-Kennedy-Blvd/Comcast-Data-Science---Analytics-Co-op_R436444",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Nelnet",
+      "title": "Intern - AI Engineer",
+      "city": "Lincoln, NE",
+      "degree": "",
+      "deadline": "",
+      "posted": "1w",
+      "link": "https://nelnet.wd1.myworkdayjobs.com/MyNelnet/job/Lincoln-NE/Intern---AI-Engineer_R22763",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Bosch Group",
+      "title": "Foreign Trade Data Analytics Intern",
+      "city": "Oak Brook, IL",
+      "degree": "",
+      "deadline": "",
+      "posted": "1w",
+      "link": "https://jobs.smartrecruiters.com/BoschGroup/744000134542009",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Nuro",
+      "title": "Data Scientist Intern",
+      "city": "Mountain View, Ca...",
+      "degree": "",
+      "deadline": "",
+      "posted": "2w",
+      "link": "https://nuro.ai/careersitem?gh_jid=7594577",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Centerfield",
+      "title": "Data Science Intern",
+      "city": "Los Angeles, Cali...",
+      "degree": "",
+      "deadline": "",
+      "posted": "2w",
+      "link": "https://jobs.ashbyhq.com/centerfield/916dcf42-d69a-4f00-875a-f8fe630e0f33/application",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Doctors Without Borders",
+      "title": "Data Science Intern",
+      "city": "New York, New Yor...",
+      "degree": "",
+      "deadline": "",
+      "posted": "2w",
+      "link": "https://job-boards.greenhouse.io/msfcareers/jobs/5271141008",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Neighborly",
+      "title": "AI Internship",
+      "city": "Irving, TX",
+      "degree": "",
+      "deadline": "",
+      "posted": "3w",
+      "link": "https://neighborlybrands.wd1.myworkdayjobs.com/neighborly/job/Irving-TX/AI-Internship_JR0003837",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Campbell Soup Company",
+      "title": "Agentic AI Engineer Co-Op",
+      "city": "Remote",
+      "degree": "",
+      "deadline": "",
+      "posted": "3w",
+      "link": "https://campbellsoup.wd5.myworkdayjobs.com/externalcareers_globalsite/job/USA---Remote/Agentic-AI-Engineer-Co-Op_Req-66015",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Campbell Soup Company",
+      "title": "Agentic AI Engineer Co-Op",
+      "city": "Remote",
+      "degree": "",
+      "deadline": "",
+      "posted": "3w",
+      "link": "https://campbellsoup.wd5.myworkdayjobs.com/externalcareers_globalsite/job/USA---Remote/Agentic-AI-Engineer-Co-Op_Req-66014",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Harbinger Motors",
+      "title": "Intern, Production Data Analytics",
+      "city": "Garden Grove, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "3w",
+      "link": "https://job-boards.greenhouse.io/harbingermotors/jobs/5164341007",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Institute for Foundation Models",
+      "title": "AI Research Internship - WM",
+      "city": "Sunnyvale, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "3w",
+      "link": "https://jobs.lever.co/ifm-us/3eec355c-6dde-4a3e-8cdf-b2a8930d5678/apply",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Campbell Soup Company",
+      "title": "Business Analyst (Co-op), DA&AI",
+      "city": "Remote",
+      "degree": "",
+      "deadline": "",
+      "posted": "3w",
+      "link": "https://campbellsoup.wd5.myworkdayjobs.com/externalcareers_globalsite/job/USA---Remote/Business-Analyst--Co-op---DA-AI_Req-65915",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "SWBC",
+      "title": "AI Intern",
+      "city": "San Antonio, TX",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://swbc.wd1.myworkdayjobs.com/swbccareers/job/San-Antonio-TX/AI-Intern_R0014877",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "NVIDIA",
+      "title": "PhD Research Intern, Generative AI - ...",
+      "city": "US, CA, Santa Clara",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://nvidia.wd5.myworkdayjobs.com/nvidiaexternalcareersite/job/US-CA-Santa-Clara/PhD-Research-Intern--Generative-AI---2026_JR2016035",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Ardian",
+      "title": "Data Scientist Intern",
+      "city": "New York",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://ardian.wd103.myworkdayjobs.com/ArdianCareers/job/New-York/Data-Scientist-Intern_JR1001434",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Equifax",
+      "title": "Data & Analytics Intern",
+      "city": "Georgia",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://equifax.wd5.myworkdayjobs.com/UR_External/job/USA---Georgia---Alpharetta---30005/Data---Analytics-Intern_J00171081",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Marmon Holdings",
+      "title": "Data Engineering Intern OR Student Co-Op",
+      "city": "Milwaukee, WI",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://marmon.wd501.myworkdayjobs.com/Marmon_MSIP_Internships/job/Milwaukee-WI/Data-Engineering-Intern-OR-Student-Co-Op_JR0000037453",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Unisys",
+      "title": "Digital Marketing  & AI Intern   Remote",
+      "city": "Blue Bell, PA, Un...",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://unisys.wd5.myworkdayjobs.com/External/job/Blue-Bell-PA-United-States-of-America/Digital-Marketing----AI-Intern---Remote_REQ573283",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "InterDigital",
+      "title": "Generative AI Implementation Intern",
+      "city": "Conshohocken, PA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://interdigital.wd5.myworkdayjobs.com/InterDigital_Intern/job/Conshohocken-PA/Generative-AI-Implementation-Intern_REQ26-1093",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "National Interstate Insurance",
+      "title": "Catastrophe Modeling & Data Analytics...",
+      "city": "Cincinnati, OH",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://gaig.wd1.myworkdayjobs.com/GAIG_External/job/Cincinnati-OH-USA/Catastrophe-Modeling---Data-Analytics-Intern--Fall-2026-_R9102",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "iSpot.tv",
+      "title": "Data Science Intern",
+      "city": "Bellevue, WA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://job-boards.greenhouse.io/ispottv/jobs/4703297005",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Rivian and Volkswagen Group Technologies",
+      "title": "Data Engineering Intern - AI & Analyt...",
+      "city": "Palo Alto, Califo...",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://jobs.ashbyhq.com/rivianvw.tech/3864f83a-7b29-4c96-b00e-436d60c0508a/application",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "d-Matrix",
+      "title": "Applied AI Engineering Intern",
+      "city": "Santa Clara",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://jobs.ashbyhq.com/d-matrix/93a6e6ee-3391-4437-8459-e28eb05eace7/application",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Eragon",
+      "title": "Applied AI Intern",
+      "city": "San Francisco",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://jobs.ashbyhq.com/eragon/0b90ea4a-8684-4ae1-a7cc-c998db6e862e/application",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Walleye Capital",
+      "title": "Investment Data Science Intern (Summe...",
+      "city": "New York, New York",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://job-boards.greenhouse.io/walleyecapital-external-students/jobs/4676587006",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "PlusAI",
+      "title": "Deep Learning Intern",
+      "city": "Santa Clara, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://jobs.lever.co/plus-2/58d77886-bf3a-4707-8af8-e1af47162e2e/apply",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Great Question",
+      "title": "AI Engineer Intern",
+      "city": "San Francisco",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://jobs.ashbyhq.com/greatquestion/c533196c-75d5-43b8-b1c8-dedf2437d544/application",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "PlusAI",
+      "title": "Machine Learning Engineer Intern",
+      "city": "Santa Clara, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://jobs.lever.co/plus-2/5d71c173-fef1-409f-b3f0-750e3b828266/apply",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Evolver",
+      "title": "Applied Data Science Intern",
+      "city": "Palo Alto, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://job-boards.greenhouse.io/evolver/jobs/4254540009",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "PlusAI",
+      "title": "Machine Learning Engineer Intern - Pl...",
+      "city": "Santa Clara, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://jobs.lever.co/plus-2/91a07eb1-2244-48bf-a65b-dc166a327ddc/apply",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Nokia",
+      "title": "Compliance Data Scientist Coop",
+      "city": "United States",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://fa-evmr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/36308",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Lucid Motors",
+      "title": "Marketing Data & Analytics Intern",
+      "city": "Amsterdam, NH",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://job-boards.greenhouse.io/lucidmotors/jobs/5136417007",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Cresta",
+      "title": "Data Science Intern (Customer Success)",
+      "city": "United States (Re...",
+      "degree": "",
+      "deadline": "",
+      "posted": "2mo",
+      "link": "https://job-boards.greenhouse.io/cresta/jobs/5213417008",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "XPENG Motors",
+      "title": "AI Intern – VLA Deployment",
+      "city": "Santa Clara, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "2mo",
+      "link": "https://job-boards.greenhouse.io/xpengmotors/jobs/8535409002",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Nokia",
+      "title": "Data Science Co-op",
+      "city": "United States",
+      "degree": "",
+      "deadline": "",
+      "posted": "2mo",
+      "link": "https://fa-evmr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/35743",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Integra FEC",
+      "title": "(FALL) Data Scientist Intern - PhD",
+      "city": "Austin, Texas",
+      "degree": "",
+      "deadline": "",
+      "posted": "2mo",
+      "link": "https://job-boards.greenhouse.io/integra/jobs/5134592008",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Integra FEC",
+      "title": "(FALL) Data Analyst Intern",
+      "city": "Austin, Texas",
+      "degree": "",
+      "deadline": "",
+      "posted": "2mo",
+      "link": "https://job-boards.greenhouse.io/integra/jobs/5134522008",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Fortinet",
+      "title": "AI Intern",
+      "city": "Sunnyvale, CA, Un...",
+      "degree": "",
+      "deadline": "",
+      "posted": "2mo",
+      "link": "https://edel.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2001/job/22741",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Pinterest",
+      "title": "PhD Fall Machine Learning Intern (ATG...",
+      "city": "San Francisco, CA...",
+      "degree": "",
+      "deadline": "",
+      "posted": "2mo",
+      "link": "https://www.pinterestcareers.com/jobs/?gh_jid=7255640",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Workato",
+      "title": "Intern, AI Engineering",
+      "city": "San Francisco, Ca...",
+      "degree": "",
+      "deadline": "",
+      "posted": "3mo",
+      "link": "https://www.workato.com/careers?gh_jid=8492935002#open-roles",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Human Computer Lab",
+      "title": "Intern - Software/ML Engineering",
+      "city": "San Francisco",
+      "degree": "",
+      "deadline": "",
+      "posted": "3mo",
+      "link": "https://jobs.ashbyhq.com/human-computer-lab/7d13ae27-1f02-4d9b-8d39-e3d9d67df705/application",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "SharkNinja",
+      "title": "Fall 2026: SharkByte Applied AI & Ana...",
+      "city": "Miami, Florida, U...",
+      "degree": "",
+      "deadline": "",
+      "posted": "3mo",
+      "link": "https://job-boards.greenhouse.io/sharkninjaoperatingllc/jobs/4669676006",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Crane Co.",
+      "title": "Sustaining Engineering Intern",
+      "city": "Cincinnati, Ohio",
+      "degree": "",
+      "deadline": "",
+      "posted": "1w",
+      "link": "https://cranecompany.wd5.myworkdayjobs.com/Careers/job/Cincinnati-Ohio/Sustaining-Engineering-Intern_JR102022",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Crane Co.",
+      "title": "Sustaining Engineering Intern",
+      "city": "Cincinnati, Ohio",
+      "degree": "",
+      "deadline": "",
+      "posted": "1w",
+      "link": "https://cranecompany.wd5.myworkdayjobs.com/Careers/job/Cincinnati-Ohio/Sustaining-Engineering-Intern_JR102023",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Hologic",
+      "title": "Co-op Mechanical Engineer, Product De...",
+      "city": "Newark, DE, Unite...",
+      "degree": "",
+      "deadline": "",
+      "posted": "1w",
+      "link": "https://ebwb.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/11503",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Cadence (University)",
+      "title": "Product Engineering Internship, Simul...",
+      "city": "Burlington, MA",
+      "degree": "",
+      "deadline": "",
+      "posted": "2w",
+      "link": "https://cadence.wd1.myworkdayjobs.com/Univ_Careers/job/Burlington-MA/Product-Engineering-Internship--Simulation-and-Verification--Summer-2026-_R53475",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Copart",
+      "title": "Database Engineering Intern",
+      "city": "Dallas, TX - Head...",
+      "degree": "",
+      "deadline": "",
+      "posted": "2w",
+      "link": "https://copart.wd12.myworkdayjobs.com/Copart/job/Dallas-TX---Headquarters/Database-Engineering-Intern_JR109636",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Formlabs",
+      "title": "Hardware R&D Engineering Intern (Fall...",
+      "city": "Somerville, MA",
+      "degree": "",
+      "deadline": "",
+      "posted": "2w",
+      "link": "https://careers.formlabs.com/job/7890746/apply/?gh_jid=7890746",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Marmon Holdings",
+      "title": "Digital Production Engineering Intern...",
+      "city": "Milwaukee, WI",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://marmon.wd501.myworkdayjobs.com/Marmon_MSIP_Internships/job/Milwaukee-WI/Digital-Production-Engineering-Intern-OR-Student-Co-Op_JR0000037451",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Safari AI",
+      "title": "GTM Engineering Intern",
+      "city": "Remote",
+      "degree": "",
+      "deadline": "",
+      "posted": "2mo",
+      "link": "https://job-boards.greenhouse.io/safariai/jobs/5117812007",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Figure AI",
+      "title": "Electrical Engineering Intern Fall 2...",
+      "city": "San Jose, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "2mo",
+      "link": "https://job-boards.greenhouse.io/figureai/jobs/4676467006",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Shield AI",
+      "title": "Electrical Engineering Spring Co-op (...",
+      "city": "Dallas, Texas",
+      "degree": "",
+      "deadline": "",
+      "posted": "2mo",
+      "link": "https://jobs.lever.co/shieldai/87d982f2-8b2b-4c73-9a19-71e461c7b724/apply",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "TikTok",
+      "title": "Product Manager Project Intern (TikTo...",
+      "city": "San Jose, California",
+      "degree": "",
+      "deadline": "",
+      "posted": "5m",
+      "link": "https://lifeattiktok.com/position/7657728959042046213",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "TikTok",
+      "title": "Product Manager Project Intern (TikTo...",
+      "city": "San Jose, California",
+      "degree": "",
+      "deadline": "",
+      "posted": "5m",
+      "link": "https://lifeattiktok.com/position/7657778928769534213",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "ByteDance",
+      "title": "Research Intern (AML) - 2026 Start (PhD)",
+      "city": "San Jose, California",
+      "degree": "",
+      "deadline": "",
+      "posted": "26m",
+      "link": "https://joinbytedance.com/search/7654366987607542021",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "ByteDance",
+      "title": "Applied Research Intern - AI Safety S...",
+      "city": "San Jose, California",
+      "degree": "",
+      "deadline": "",
+      "posted": "26m",
+      "link": "https://joinbytedance.com/search/7645070235035044101",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Jump Trading",
+      "title": "Campus AI Research Engineer – Researc...",
+      "city": "Chicago; New York",
+      "degree": "",
+      "deadline": "",
+      "posted": "18h",
+      "link": "https://www.jumptrading.com/hr/job?gh_jid=8052351",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Jump Trading",
+      "title": "Campus AI Research Engineer - Deep Le...",
+      "city": "Chicago; New York",
+      "degree": "",
+      "deadline": "",
+      "posted": "18h",
+      "link": "https://www.jumptrading.com/hr/job?gh_jid=8052338",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Jump Trading",
+      "title": "Campus AI Research Engineer (Intern)",
+      "city": "Chicago; New York",
+      "degree": "",
+      "deadline": "",
+      "posted": "18h",
+      "link": "https://www.jumptrading.com/hr/job?gh_jid=8052281",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Copart",
+      "title": "Technology Product Analyst Intern",
+      "city": "Dallas, TX - Head...",
+      "degree": "",
+      "deadline": "",
+      "posted": "2d",
+      "link": "https://copart.wd12.myworkdayjobs.com/Copart/job/Dallas-TX---Headquarters/Technology-Product-Analyst-Intern_JR109793",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "IMC Trading",
+      "title": "Machine Learning Research Intern - Su...",
+      "city": "Chicago, United S...",
+      "degree": "",
+      "deadline": "",
+      "posted": "1w",
+      "link": "https://job-boards.eu.greenhouse.io/imc/jobs/4907430101",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Together AI",
+      "title": "Research Intern RL & Post-Training Sy...",
+      "city": "San Francisco",
+      "degree": "",
+      "deadline": "",
+      "posted": "2w",
+      "link": "https://job-boards.greenhouse.io/togetherai/jobs/5168929007",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Netflix",
+      "title": "AI/ML Scientist Intern, AIMS AI Found...",
+      "city": "Los Gatos, Califo...",
+      "degree": "",
+      "deadline": "",
+      "posted": "2w",
+      "link": "https://explore.jobs.netflix.net/careers/job/790316547536",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Snowflake",
+      "title": "Product Marketing Intern (Fall 2026)",
+      "city": "Menlo Park, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "3w",
+      "link": "https://jobs.ashbyhq.com/snowflake/3ac79875-b7bb-4078-b9c4-3bd5636e5d9c/application",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Together AI",
+      "title": "Research Intern, Model Shaping (Fall ...",
+      "city": "San Francisco",
+      "degree": "",
+      "deadline": "",
+      "posted": "3w",
+      "link": "https://job-boards.greenhouse.io/togetherai/jobs/5157661007",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Together AI",
+      "title": "Systems Research Engineer Intern - GP...",
+      "city": "San Francisco",
+      "degree": "",
+      "deadline": "",
+      "posted": "3w",
+      "link": "https://job-boards.greenhouse.io/togetherai/jobs/5157559007",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Centerfield",
+      "title": "Product Manager Intern",
+      "city": "Los Angeles, Cali...",
+      "degree": "",
+      "deadline": "",
+      "posted": "3w",
+      "link": "https://jobs.ashbyhq.com/centerfield/92a124aa-9efd-4dbd-90f1-6319be7706b2/application",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Copart",
+      "title": "Technology Product Analyst Intern",
+      "city": "Dallas, TX - Head...",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://copart.wd12.myworkdayjobs.com/Copart/job/Dallas-TX---Headquarters/Technology-Product-Analyst-Intern_JR107890",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Copart",
+      "title": "Technology Product Analyst Intern",
+      "city": "Dallas, TX - Head...",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://copart.wd12.myworkdayjobs.com/Copart/job/Dallas-TX---Headquarters/Technology-Product-Analyst-Intern_JR108712",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Marvell",
+      "title": "Applied Machine Learning Scientist In...",
+      "city": "Santa Clara, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://marvell.wd1.myworkdayjobs.com/MarvellCareers/job/Santa-Clara-CA/Applied-Machine-Learning-Scientist-Intern---PhD_2502662-1",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Astreya",
+      "title": "AI Infrastructure DC Design Intern",
+      "city": "Remote, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://astreya.wd5.myworkdayjobs.com/life-at-astreya-opportunities/job/Remote-CA/AI-Infrastructure-DC-Design-Intern_R0015746",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Astreya",
+      "title": "AI Infrastructure DC Design Intern",
+      "city": "Remote, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://astreya.wd5.myworkdayjobs.com/life-at-astreya-opportunities/job/Remote-CA/AI-Infrastructure-DC-Design-Intern_R0015747",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Expedia Group",
+      "title": "2023 PhD Intern - Machine Learning Sc...",
+      "city": "Austin Domain 11 ...",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://expedia.wd108.myworkdayjobs.com/private/job/Austin-Domain-11---HomeAway/XMLNAME-2023-PhD-Intern---Machine-Learning-Science_R-76833",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "HNTB",
+      "title": "Co-op Engineer: Track Design/Rail - F...",
+      "city": "Philadelphia PA P...",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://hntb.wd5.myworkdayjobs.com/hntb_careers/job/Philadelphia-PA-Pennsylvania/Co-op-Engineer--Track-Design-Rail---Fall-Winter-2026-2027_R-29874",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Tessera Labs",
+      "title": "Product Manager, Intern",
+      "city": "San Jose",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://jobs.ashbyhq.com/tessera-labs/3b2d45b8-9881-41fe-b103-7bbc400e1544/application",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Per Scholas",
+      "title": "Development Prospect Research Intern",
+      "city": "United States",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://job-boards.greenhouse.io/perscholashires/jobs/4678875006",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Formlabs",
+      "title": "Industrial Design Intern (Fall 2026)",
+      "city": "Somerville, MA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://careers.formlabs.com/job/7959457/apply/?gh_jid=7959457",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "NewsBreak",
+      "title": "Research Intern, Agent RL Training",
+      "city": "Mountain View, Ca...",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://job-boards.greenhouse.io/newsbreak/jobs/4684555006",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "PlusAI",
+      "title": "Reinforcement Learning Planning Resea...",
+      "city": "Santa Clara, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://jobs.lever.co/plus-2/7565aed4-41b0-44e9-8608-3ccd07e18262/apply",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "PlusAI",
+      "title": "Deep Learning Research Intern",
+      "city": "Santa Clara, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://jobs.lever.co/plus-2/2f2c1cd9-f099-483a-9717-0da83a391333/apply",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "PlusAI",
+      "title": "Research Engineer Intern - Mapping & ...",
+      "city": "Santa Clara, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://jobs.lever.co/plus-2/efbb82d3-1c4a-4fc9-8b40-ee1545085061/apply",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Oracle",
+      "title": "OH Product Manager Intern - OVIP",
+      "city": "Kansas City, MO, ...",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_45001/job/334348",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Lucid Motors",
+      "title": "Learning & Development (Instructional...",
+      "city": "Amsterdam, NH",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://job-boards.greenhouse.io/lucidmotors/jobs/5136415007",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Axiomatic AI",
+      "title": "Internship - Research  (Uncertainty Q...",
+      "city": "Boston, US / Cast...",
+      "degree": "",
+      "deadline": "",
+      "posted": "2mo",
+      "link": "https://job-boards.eu.greenhouse.io/axiomaticai/jobs/4845020101",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "TikTok",
+      "title": "Campaign Marketing Intern (TikTok Sho...",
+      "city": "Los Angeles, Cali...",
+      "degree": "",
+      "deadline": "",
+      "posted": "5m",
+      "link": "https://lifeattiktok.com/position/7647347657793390853",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Sony",
+      "title": "Marketing Intern – Home Entertainment...",
+      "city": "San Diego",
+      "degree": "",
+      "deadline": "",
+      "posted": "1d",
+      "link": "https://sonyglobal.wd1.myworkdayjobs.com/sonyglobalcareers/job/San-Diego/Marketing-Intern---Home-Entertainment--Launch-Execution---Operations-_JR-119138",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Huntsman",
+      "title": "Supply Chain Intern",
+      "city": "Texas",
+      "degree": "",
+      "deadline": "",
+      "posted": "3d",
+      "link": "https://huntsman.wd1.myworkdayjobs.com/Huntsman/job/USA---Texas---Houston---The-Woodlands---Corporate-Office/Supply-Chain-Intern_J-020028",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Baker Hughes",
+      "title": "Emerging Talent – Supply Chain Intern",
+      "city": "Jw, ID",
+      "degree": "",
+      "deadline": "",
+      "posted": "6d",
+      "link": "https://bakerhughes.wd5.myworkdayjobs.com/BakerHughes/job/ID-JW-JAKARTA-JI-RA-KARTINI-KAV-8-CILANDAK-BARAT/Emerging-Talent---Supply-Chain-Intern_R165849",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Crane Co.",
+      "title": "Supply Chain Intern",
+      "city": "Cincinnati, Ohio",
+      "degree": "",
+      "deadline": "",
+      "posted": "2w",
+      "link": "https://cranecompany.wd5.myworkdayjobs.com/Careers/job/Cincinnati-Ohio/Supply-Chain-Intern_JR102000",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Live Nation",
+      "title": "Insomniac - Paid Fall Marketing Inter...",
+      "city": "Calabasas, CA, USA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://livenation.wd503.myworkdayjobs.com/LNExternalSite/job/Calabasas-CA-USA/Insomniac---Paid-Fall-Marketing-Internship_JR-90208-3",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Live Nation",
+      "title": "Insomniac - Paid Fall Music Group Mar...",
+      "city": "Calabasas, CA, USA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://livenation.wd503.myworkdayjobs.com/LNExternalSite/job/Calabasas-CA-USA/Insomniac---Paid-Fall-Music-Group-Marketing-Intern_JR-90211-1",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Live Nation",
+      "title": "Insomniac - Paid Fall People Operatio...",
+      "city": "Calabasas, CA, USA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://livenation.wd503.myworkdayjobs.com/LNExternalSite/job/Calabasas-CA-USA/Insomniac---Paid-Fall-People-Operations-Intern_JR-90210-4",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Curtiss-Wright",
+      "title": "Purchasing & Supply Chain Intern (6-m...",
+      "city": "Middleburg Hts., OH",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://curtisswright.wd1.myworkdayjobs.com/CW_External_Career_Site/job/US-OH-Middleburg-Hts-Nuclear/Purchasing---Supply-Chain-Intern--6-month-assignment-_JR12367-1",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "HARMAN International",
+      "title": "Supply Chain ESG & Compliance Analyst...",
+      "city": "California, USA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://harman.wd3.myworkdayjobs.com/HARMAN/job/Northridge---California-USA/Supply-Chain-ESG---Compliance-Analyst-Intern_R-53404-2026",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Marmon Holdings",
+      "title": "Product Management/Marketing Intern –...",
+      "city": "Charlotte, NC",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://marmon.wd501.myworkdayjobs.com/Marmon_MSIP_Internships/job/Charlotte-NC/Product-Management-Marketing-Intern---Summer-2026_JR0000037719-3",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "GlobalFoundries",
+      "title": "Human Resources Intern, Digital & AI ...",
+      "city": "Texas",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://globalfoundries.wd1.myworkdayjobs.com/External/job/USA---Texas---Austin/Human-Resources-Intern--HR-Shared-Services--Summer-2026-_JR-2503145",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Regal Rexnord",
+      "title": "Supply Chain Co-Op",
+      "city": "Florence, Kentuck...",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://regalrexnord.wd1.myworkdayjobs.com/careers/job/Florence-Kentucky-United-States/Supply-Chain-Co-Op_R26_02200-1",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Formlabs",
+      "title": "Marketing Intern (Fall 2026)",
+      "city": "Somerville, MA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://careers.formlabs.com/job/7991371/apply/?gh_jid=7991371",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Formlabs",
+      "title": "Technology Operations Intern (Fall 2026)",
+      "city": "Somerville, MA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://careers.formlabs.com/job/7991279/apply/?gh_jid=7991279",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Formlabs",
+      "title": "Event Logistics Intern (Fall 2026)",
+      "city": "Somerville, MA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://careers.formlabs.com/job/7985796/apply/?gh_jid=7985796",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Nokia",
+      "title": "Corporate Development Co-op",
+      "city": "United States",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://fa-evmr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/36549",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Lambda",
+      "title": "AI Research Marketing Intern - Summer...",
+      "city": "San Francisco",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://jobs.ashbyhq.com/lambda/1c764f96-966d-4560-8087-35452480d330/application",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Oracle",
+      "title": "CEGIU Demo Data Strategy Intern - OVIP",
+      "city": "Redwood City, CA,...",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_45001/job/334396",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Rocket Lab",
+      "title": "Supply Chain Intern Fall 2026",
+      "city": "Long Beach, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://job-boards.greenhouse.io/rocketlab/jobs/7728092003",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Rocket Lab",
+      "title": "Supply Chain Intern Fall 2026",
+      "city": "Middle River, MD",
+      "degree": "",
+      "deadline": "",
+      "posted": "1mo",
+      "link": "https://job-boards.greenhouse.io/rocketlab/jobs/7733795003",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Gotion",
+      "title": "Supply Chain Intern",
+      "city": "Manteno, Illinois",
+      "degree": "",
+      "deadline": "",
+      "posted": "2mo",
+      "link": "https://job-boards.greenhouse.io/gotion/jobs/8506288002",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "TikTok",
+      "title": "Emerging Verticals Product Operations...",
+      "city": "Los Angeles, Cali...",
+      "degree": "",
+      "deadline": "",
+      "posted": "5m",
+      "link": "https://lifeattiktok.com/position/7656815032549787957",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Vertex Pharmaceuticals",
+      "title": "Vertex Fall Co-op 2026, AI and Govern...",
+      "city": "Boston, MA",
+      "degree": "",
+      "deadline": "",
+      "posted": "19m",
+      "link": "https://vrtx.wd501.myworkdayjobs.com/vertex_careers/job/Boston-MA/Vertex-Fall-Co-op-2026--AI-and-Governance_REQ-28615-1",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "ByteDance",
+      "title": "Backend Development Engineer Intern (...",
+      "city": "San Jose, California",
+      "degree": "",
+      "deadline": "",
+      "posted": "26m",
+      "link": "https://joinbytedance.com/search/7540396013748766984",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Schweitzer Engineering Laboratories",
+      "title": "Equipment Maintenance Technician Intern",
+      "city": "Lewiston",
+      "degree": "",
+      "deadline": "",
+      "posted": "1h",
+      "link": "https://selinc.wd1.myworkdayjobs.com/SEL/job/Idaho---Lewiston/Equipment-Maintenance-Technician-Intern_2026-19395",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Caterpillar",
+      "title": "Part-time Intern - AI Developer",
+      "city": "Peoria, Illinois",
+      "degree": "",
+      "deadline": "",
+      "posted": "2d",
+      "link": "https://cat.wd5.myworkdayjobs.com/caterpillarcareers/job/Peoria-Illinois/Part-time-Intern---AI-Developer_R0000376582",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Figure AI",
+      "title": "Special Projects Intern Fall 2026",
+      "city": "San Jose, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "2d",
+      "link": "https://job-boards.greenhouse.io/figureai/jobs/4694889006",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Disney",
+      "title": "Disney Entertainment Television Produ...",
+      "city": "Burbank, CA, USA",
+      "degree": "",
+      "deadline": "",
+      "posted": "3d",
+      "link": "https://disney.wd5.myworkdayjobs.com/disneycareer/job/Burbank-CA-USA/Disney-Entertainment-Television-Production-Innovation-Intern--Fall-2026_10154490",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Daimler Truck",
+      "title": "Facilities Maintenance Technician Intern",
+      "city": "Portland, OR US",
+      "degree": "",
+      "deadline": "",
+      "posted": "3d",
+      "link": "https://dtna.wd5.myworkdayjobs.com/DTNA_external/job/Portland-OR-US/Facilities-Maintenance-Technician-Intern_DT-18443",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Capital One",
+      "title": "Product Development Internship Progra...",
+      "city": "McLean, VA + 1 more",
+      "degree": "",
+      "deadline": "",
+      "posted": "3d",
+      "link": "https://capitalone.wd12.myworkdayjobs.com/Capital_One/job/McLean-VA/Product-Development-Internship-Program---Summer-2027_R246020-1",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Johnson & Johnson",
+      "title": "J&J Technology Business Development P...",
+      "city": "Spring House, Pen...",
+      "degree": "",
+      "deadline": "",
+      "posted": "3d",
+      "link": "https://jj.wd5.myworkdayjobs.com/jj/job/Spring-House-Pennsylvania-United-States-of-America/J-J-Technology-Business-Development-Project-Management-Off-Cycle-Co-Op_R-030022",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "The Travelers Companies",
+      "title": "Product Management Development Progra...",
+      "city": "Hartford, CT",
+      "degree": "",
+      "deadline": "",
+      "posted": "6d",
+      "link": "https://travelers.wd5.myworkdayjobs.com/External/job/CT---Hartford/Product-Management-Development-Program--PMDP--Internship---Summer-2027_R-51214",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "The Travelers Companies",
+      "title": "Product Management Development Progra...",
+      "city": "Hartford, CT",
+      "degree": "",
+      "deadline": "",
+      "posted": "6d",
+      "link": "https://travelers.wd5.myworkdayjobs.com/External/job/CT---Hartford/Product-Management-Development-Program--PMDP--Pricing-Analyst---Summer-2027_R-51216",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Saronic Technologies",
+      "title": "Enterprise Technology Intern - AI and...",
+      "city": "Austin, TX",
+      "degree": "",
+      "deadline": "",
+      "posted": "6d",
+      "link": "https://jobs.ashbyhq.com/saronic/c95c2e3a-4c67-47b0-a03d-0e0317ac11a3/application",
+      "source": "zapplyjobs·实时科技实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Citadel",
+      "title": "Software Engineer Intern",
+      "city": "<details><summary>4 locations</summary>New York, NY</br>Greenwich, CT</br>Miami, FL</br>Houston, TX</details>",
+      "degree": "",
+      "deadline": "",
+      "posted": "<a href=\"https://www.citadel.com/careers/details/software-engineer-intern-us/?utm_source=github-vansh-ouckah\"><img src=\"https://i.imgur.com/u1KNU8z.png\" width=\"118\" alt=\"Apply\"></a>",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Capital One",
+      "title": "Data Analyst Intern",
+      "city": "Mclean, VA",
+      "degree": "",
+      "deadline": "",
+      "posted": "<a href=\"https://www.capitalonecareers.com/job/mclean/data-analyst-intern-summer-2027/31238/97421687472?utm_source=github-vansh-ouckah\"><img src=\"https://i.imgur.com/u1KNU8z.png\" width=\"118\" alt=\"Apply\"></a>",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "↳",
+      "title": "Product Development Internship Program",
+      "city": "Mclean, VA</br>Plano, TX",
+      "degree": "",
+      "deadline": "",
+      "posted": "<a href=\"https://capitalone.wd12.myworkdayjobs.com/Capital_One/job/McLean-VA/Product-Development-Internship-Program---Summer-2027_R246020-1?utm_source=github-vansh-ouckah\"><img src=\"https://i.imgur.com/u1KNU8z.png\" width=\"118\" alt=\"Apply\"></a>",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Anduril",
+      "title": "Software Engineer Intern",
+      "city": "<details><summary>6 locations</summary>Atlanta, GA</br>Boston, MA</br>Costa Mesa, CA</br>Irvine, CA</br>Reston, VA</br>Seattle, WA</details>",
+      "degree": "",
+      "deadline": "",
+      "posted": "<a href=\"https://job-boards.greenhouse.io/andurilindustries/jobs/5148079007?gh_jid=5148079007&utm_source=github-vansh-ouckah\"><img src=\"https://i.imgur.com/u1KNU8z.png\" width=\"118\" alt=\"Apply\"></a>",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Terranox AI",
+      "title": "Summer Intern - AI/ML Engineering 🇺🇸",
+      "city": "San Francisco, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "<a href=\"https://www.workatastartup.com/jobs/94631?utm_source=github-vansh-ouckah\"><img src=\"https://i.imgur.com/u1KNU8z.png\" width=\"118\" alt=\"Apply\"></a>",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "↳",
+      "title": "Software Engineering Intern, Platform, Security & AI",
+      "city": "San Jose, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "<a href=\"https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4857832101?utm_source=github-vansh-ouckah\"><img src=\"https://i.imgur.com/u1KNU8z.png\" width=\"118\" alt=\"Apply\"></a>",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Salesforce",
+      "title": "Software Engineer Intern(Futureforce Summer 2027)",
+      "city": "<details><summary>5 locations</summary>San Francisco, CA</br>Palo Alto, CA</br>New York, NY</br>Seattle, WA</br>Burlington, MA</details>",
+      "degree": "",
+      "deadline": "",
+      "posted": "<a href=\"https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/California---San-Francisco/Summer-2027-Intern---Software-Engineer_JR340771-1?utm_source=github-vansh-ouckah\"><img src=\"https://i.imgur.com/u1KNU8z.png\" width=\"118\" alt=\"Apply\"></a>",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "DimeHealth AI",
+      "title": "Forward Deployed Engineering Intern",
+      "city": "New York, NY",
+      "degree": "",
+      "deadline": "",
+      "posted": "<a href=\"https://www.workatastartup.com/jobs/94211?utm_source=github-vansh-ouckah\"><img src=\"https://i.imgur.com/u1KNU8z.png\" width=\"118\" alt=\"Apply\"></a>",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Amazon",
+      "title": "Software Development Engineer Intern, Amazon Leo 🇺🇸",
+      "city": "Sunnyvale, CA</br>Redmond, WA</br>Northridge, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "<a href=\"https://www.amazon.jobs/en/jobs/3144153/software-development-engineer-internship-amazon-leo-summer-2026-us?no_int_redir=1&utm_source=github-vansh-ouckah\"><img src=\"https://i.imgur.com/u1KNU8z.png\" width=\"118\" alt=\"Apply\"></a>",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "↳",
+      "title": "Robotics - Software Development Engineer Intern/Co-op",
+      "city": "<details><summary>8 locations</summary>Sunnyvale, CA</br>North Reading, MA</br>Westboro, MA</br>Nashville, TN</br>Austin, TX</br>Arlington, VA</br>Bellevue, WA</br>Seattle, WA</details>",
+      "degree": "",
+      "deadline": "",
+      "posted": "<a href=\"https://www.amazon.jobs/en/jobs/3136266/robotics-software-development-engineer-intern-co-op-2026?no_int_redir=1&utm_source=github-vansh-ouckah\"><img src=\"https://i.imgur.com/u1KNU8z.png\" width=\"118\" alt=\"Apply\"></a>",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Homebase",
+      "title": "Forward Deployed Engineering Intern, AI-Native",
+      "city": "Houston, TX</br>San Francisco, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "<a href=\"https://jobs.ashbyhq.com/homebase/a7ab59c0-786e-4675-b684-2ed19b240fb2?utm_source=github-vansh-ouckah\"><img src=\"https://i.imgur.com/u1KNU8z.png\" width=\"118\" alt=\"Apply\"></a>",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "TikTok",
+      "title": "LLM Post-training Engineer Intern, Research & Product",
+      "city": "San Jose, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "<a href=\"https://lifeattiktok.com/search/7631599293708126517?utm_source=github-vansh-ouckah\"><img src=\"https://i.imgur.com/u1KNU8z.png\" width=\"118\" alt=\"Apply\"></a>",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "H&CO",
+      "title": "Software Development Intern",
+      "city": "Coral Gables, FL",
+      "degree": "",
+      "deadline": "",
+      "posted": "<a href=\"https://career41.sapsf.com/career?career_ns=job_listing&company=hcollp&career_job_req_id=3507&utm_source=github-vansh-ouckah\"><img src=\"https://i.imgur.com/u1KNU8z.png\" width=\"118\" alt=\"Apply\"></a>",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Intercontinental Exchange, Inc.",
+      "title": "Artificial Intelligence, Data & Machine Learning Intern",
+      "city": "New York, NY",
+      "degree": "",
+      "deadline": "",
+      "posted": "<a href=\"https://careers.ice.com/jobs/12830?lang=en-us&iis=LinkedIn&iisn=Linkedin&mode=apply&jr_id=69e67bb27820c036924d0af9&utm_source=github-vansh-ouckah\"><img src=\"https://i.imgur.com/u1KNU8z.png\" width=\"118\" alt=\"Apply\"></a>",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Fiserv",
+      "title": "Application Development Intern 🛂",
+      "city": "Alpharetta, GA",
+      "degree": "",
+      "deadline": "",
+      "posted": "🔒",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "ABC News",
+      "title": "Product Management and Engineering Intern",
+      "city": "New York, NY",
+      "degree": "",
+      "deadline": "",
+      "posted": "<a href=\"https://jobs.disneycareers.com/job/new-york/abc-news-product-management-and-engineering-intern-summer-fall-2026/391/93958488896?utm_source=github-vansh-ouckah\"><img src=\"https://i.imgur.com/u1KNU8z.png\" width=\"118\" alt=\"Apply\"></a>",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Point72",
+      "title": "Investment Analyst Intern, Point72 Academy",
+      "city": "<details><summary>5 locations</summary>New York, NY</br>San Francisco, CA</br>Chicago, IL</br>West Palm Beach, FL</br>Miami, FL</details>",
+      "degree": "",
+      "deadline": "",
+      "posted": "<a href=\"https://careers.point72.com/CSJobDetail?jobName=2027-point72-academy-investment-analyst-summer-internship-program-us&jobCode=CPA-0014081&utm_source=github-vansh-ouckah\"><img src=\"https://i.imgur.com/u1KNU8z.png\" width=\"118\" alt=\"Apply\"></a>",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Apptronik",
+      "title": "Software Engineer Intern, ML Ops",
+      "city": "Austin, TX",
+      "degree": "",
+      "deadline": "",
+      "posted": "🔒",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "↳",
+      "title": "Data Engineer Intern",
+      "city": "Alpharetta, GA",
+      "degree": "",
+      "deadline": "",
+      "posted": "🔒",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "SK Hynix Memory Solution",
+      "title": "Product Application Engineer Intern",
+      "city": "San Jose, CA",
+      "degree": "",
+      "deadline": "",
+      "posted": "🔒",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习",
+        "产品"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "Northspyre",
+      "title": "AI Engineer Intern",
+      "city": "Atlanta, GA",
+      "degree": "",
+      "deadline": "",
+      "posted": "🔒",
+      "link": "",
+      "source": "Summer2027·暑期实习",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "",
+      "first_seen": "2026-07-10",
+      "updated": "2026-07-10",
+      "is_new": true
+    },
+    {
+      "company": "携程旅行",
+      "title": "暑期实习",
+      "city": "全国",
+      "degree": "",
+      "deadline": "2025-03-20",
+      "link": "https://app.mokahr.com/su/qnjubz",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "内推码：NTAciAS",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "蔚来",
+      "title": "暑期实习",
+      "city": "—",
+      "degree": "",
+      "deadline": "2025-03-14",
+      "link": "https://nio.jobs.feishu.cn/intern/position/",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "全灵",
+      "title": "日常实习",
+      "city": "深圳，杭州",
+      "degree": "",
+      "deadline": "2025-03-13",
+      "link": "https://www.zhipin.com/gongsi/job/fb232170d51123f71X192N-8FlA~.html?ka=seo_companys_open_joblist",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习",
+        "AI"
+      ],
+      "note": "AI+游戏 已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "小红书",
+      "title": "日常实习&暑期实习&REDstar 顶尖人才计划",
+      "city": "北京，上海，武汉，广州，深圳，杭州",
+      "degree": "",
+      "deadline": "2025-03-13",
+      "link": "https://job.xiaohongshu.com/campus",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "哔哩哔哩",
+      "title": "日常实习",
+      "city": "北京，上海，芜湖，重庆",
+      "degree": "",
+      "deadline": "2025-03-13",
+      "link": "https://jobs.bilibili.com/campus/positions?type=0",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "360",
+      "title": "校园招聘&实习生招聘",
+      "city": "北京，南京，沈阳，深圳",
+      "degree": "",
+      "deadline": "2025-03-13",
+      "link": "https://360campus.zhiye.com/jobs",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "拼多多",
+      "title": "暑期实习",
+      "city": "全国",
+      "degree": "",
+      "deadline": "2025-03-10",
+      "link": "https://careers.pddglobalhr.net/campus",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "招商银行信用卡",
+      "title": "暑期实习",
+      "city": "—",
+      "degree": "",
+      "deadline": "2025-03-09",
+      "link": "https://career.cmbchina.com/positionlist/DF94FD6D-26D3-4A19-9E69-577C4BA1DE82",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "阿里巴巴",
+      "title": "暑期实习",
+      "city": "全国",
+      "degree": "",
+      "deadline": "2025-03-08",
+      "link": "https://talent.alibaba.com/campus/position-list?campusType=internship",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "网易",
+      "title": "雷火暑期实习",
+      "city": "杭州",
+      "degree": "",
+      "deadline": "2025-03-08",
+      "link": "https://leihuo.163.com/campus/#/intern",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "游戏部门已开启",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "小米",
+      "title": "暑期实习",
+      "city": "全国",
+      "degree": "",
+      "deadline": "2025-03-08",
+      "link": "https://xiaomi.jobs.f.mioffice.cn/internship/",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "北森",
+      "title": "暑期实习",
+      "city": "—",
+      "degree": "",
+      "deadline": "2025-03-07",
+      "link": "https://beisen.zhiye.com/intern/jobs",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "金山软件",
+      "title": "日常实习",
+      "city": "—",
+      "degree": "",
+      "deadline": "2025-03-07",
+      "link": "https://app.mokahr.com/campus-recruitment/wps/41436#/jobs?project%5B0%5D=100074177&page=1&anchorName=jobsList",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "中控信息",
+      "title": "日常实习",
+      "city": "—",
+      "degree": "",
+      "deadline": "2025-03-07",
+      "link": "https://app.mokahr.com/campus-recruitment/zkxx/72098#/",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "smartx",
+      "title": "日常实习",
+      "city": "—",
+      "degree": "",
+      "deadline": "2025-03-07",
+      "link": "https://app.mokahr.com/campus_apply/smartx/4183#/jobs?zhineng=111480",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "七牛云",
+      "title": "日常实习",
+      "city": "—",
+      "degree": "",
+      "deadline": "2025-03-07",
+      "link": "https://campus.qiniu.com/campus/jobs",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "美团",
+      "title": "暑期实习",
+      "city": "全国",
+      "degree": "",
+      "deadline": "2025-03-05",
+      "link": "https://zhaopin.meituan.com/web/campus",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "快手",
+      "title": "暑期实习",
+      "city": "全国",
+      "degree": "",
+      "deadline": "2025-03-04",
+      "link": "https://campus.kuaishou.cn/#/campus/index",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "广告算法日常实习可投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "腾讯云智",
+      "title": "暑期实习",
+      "city": "—",
+      "degree": "",
+      "deadline": "2025-03-04",
+      "link": "https://app-tc.mokahr.com/campus-recruitment/csig/20001#/page/%E5%AE%9E%E4%B9%A0%E7%94%9F%E6%8B%9B%E8%81%98",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "深信服",
+      "title": "日常实习",
+      "city": "—",
+      "degree": "",
+      "deadline": "2025-03-04",
+      "link": "https://hr.sangfor.com/campucompon/schoolRecruitment/trainee",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "京东",
+      "title": "暑期实习",
+      "city": "全国",
+      "degree": "",
+      "deadline": "2025-03-03",
+      "link": "https://campus.jd.com/#/jobs",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "帆软",
+      "title": "日常实习",
+      "city": "—",
+      "degree": "",
+      "deadline": "2025-03-03",
+      "link": "https://join.fanruan.com/",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "百度",
+      "title": "暑期实习",
+      "city": "全国",
+      "degree": "",
+      "deadline": "2025-03-02",
+      "link": "https://talent.baidu.com/jobs/list",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "华为",
+      "title": "暑期实习",
+      "city": "全国",
+      "degree": "",
+      "deadline": "2025-03-02",
+      "link": "https://career.huawei.com/reccampportal/portal5/campus-recruitment.html",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "oppo",
+      "title": "暑期实习",
+      "city": "深圳，东莞，北京，上海，成都，南京，重庆，杭州，武汉，西安，南昌",
+      "degree": "",
+      "deadline": "2025-02-25",
+      "link": "https://careers.oppo.com/university/oppo/campus/post",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "理想",
+      "title": "日常实习",
+      "city": "—",
+      "degree": "",
+      "deadline": "2025-02-25",
+      "link": "https://www.lixiang.com/employ/social/list.html?keyword=%E5%AE%9E%E4%B9%A0&fromJob=1",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "联想",
+      "title": "暑期实习",
+      "city": "—",
+      "degree": "",
+      "deadline": "2025-02-25",
+      "link": "https://talent.lenovo.com.cn/position?projectType=2",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "微软",
+      "title": "暑期实习",
+      "city": "北京/苏州",
+      "degree": "",
+      "deadline": "2025-02-22",
+      "link": "https://jobs.careers.microsoft.com/global/en/search?lc=China&exp=Students%20and%20graduates&et=Internship&l=en_us&pg=1&pgSz=20&o=Relevance&flt=true",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "中国银行",
+      "title": "暑期实习",
+      "city": "—",
+      "degree": "",
+      "deadline": "2025-02-22",
+      "link": "https://campus.chinahr.com/pages/2024-boc-spring",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "OPPO",
+      "title": "25届实习",
+      "city": "—",
+      "degree": "",
+      "deadline": "2025-02-21",
+      "link": "https://careers.oppo.com/university/oppo/campus/post?recruitType=Intern",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "vivo",
+      "title": "春季校园招聘&暑期实习",
+      "city": "东菀，北京，南京，上海，深圳，杭州，重庆，西安",
+      "degree": "",
+      "deadline": "2025-02-15",
+      "link": "https://hr.vivo.com",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "米哈游",
+      "title": "暑期实习",
+      "city": "上海/深圳",
+      "degree": "",
+      "deadline": "2025-02-08",
+      "link": "https://jobs.mihoyo.com/#/campus/position",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "网易游戏",
+      "title": "暑期实习",
+      "city": "杭州/广州",
+      "degree": "",
+      "deadline": "2025-02-08",
+      "link": "https://game.campus.163.com/position",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "腾讯游戏",
+      "title": "暑期实习",
+      "city": "深圳/上海",
+      "degree": "",
+      "deadline": "2025-02-08",
+      "link": "https://join.qq.com/post.html?query=p_2",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "英特尔",
+      "title": "暑期实习",
+      "city": "北京/上海/成都",
+      "degree": "",
+      "deadline": "2025-02-08",
+      "link": "https://chinacampus.jobs.intel.cn/",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "高通",
+      "title": "暑期实习",
+      "city": "北京/上海",
+      "degree": "",
+      "deadline": "2025-02-08",
+      "link": "https://www.qualcomm.cn/company/careers",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "小鹏",
+      "title": "暑期实习",
+      "city": "—",
+      "degree": "",
+      "deadline": "2025-02-07",
+      "link": "https://xiaopeng.jobs.feishu.cn/campus/position/list",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "IBM",
+      "title": "暑期实习",
+      "city": "北京/上海",
+      "degree": "",
+      "deadline": "2025-02-06",
+      "link": "https://careers.ibm.com/job/search",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "陆续开放中",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "完美世界",
+      "title": "暑期实习",
+      "city": "北京",
+      "degree": "",
+      "deadline": "2025-02-05",
+      "link": "https://recruit.games.wanmei.com/campus-recruitment/perfect-world/94767/#/",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "苹果",
+      "title": "暑期实习",
+      "city": "北京/上海",
+      "degree": "",
+      "deadline": "2025-02-05",
+      "link": "https://jobs.apple.com/zh-cn/search?location=china-mainland",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "陆续开放中",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "戴尔",
+      "title": "暑期实习",
+      "city": "北京/厦门/成都",
+      "degree": "",
+      "deadline": "2025-02-05",
+      "link": "https://jobs.dell.com/search-jobs/China",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "小米",
+      "title": "日常实习&暑期实习",
+      "city": "北京，南京，上海，武汉，巴黎，胡志明市，米兰",
+      "degree": "",
+      "deadline": "2025-01-13",
+      "link": "https://xiaomi.jobs.f.mioffice.cn/internship/?keywords=&category=&location=&project=7194746444959334509&type=&job_hot_flag=&current=1&limit=10&functionCategory=&tag=&spread=6AA3R7B",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "吉利",
+      "title": "日常实习",
+      "city": "全国",
+      "degree": "",
+      "deadline": "2025-01-13",
+      "link": "https://campus.geely.com/campus-recruitment/geely/78436/#/jobs?commitment%5B0%5D=%E5%AE%9E%E4%B9%A0&page=1&anchorName=jobsList",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "平安银行",
+      "title": "暑期实习",
+      "city": "深圳",
+      "degree": "",
+      "deadline": "2025-01-13",
+      "link": "https://campus.pingan.com/pab",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "已开启投递",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    },
+    {
+      "company": "腾讯",
+      "title": "暑期实习&日常实习",
+      "city": "全国",
+      "degree": "",
+      "deadline": "2024-12-27",
+      "link": "https://join.qq.com/post.html?query=p_2,b_14129",
+      "source": "Campus2026(社区维护·每日更新)",
+      "tags": [
+        "实习"
+      ],
+      "note": "全年可投递，越早投越好",
+      "first_seen": "2026-07-09",
+      "updated": "2026-07-09",
+      "is_new": true
+    }
   ]
 }
