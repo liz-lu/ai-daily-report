@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI产品岗 · 求职作战台</title>
 <style>
-  :root{--blue:#2d5be3;--bg:#f5f7fb;--card:#fff;--muted:#8a94a6;--line:#e7ebf3;--red:#e8453c;--green:#16a34a}
+  :root{--blue:#2d5be3;--bg:#f5f7fb;--card:#fff;--muted:#8a94a6;--line:#e7ebf3;--red:#e8453c;--green:#16a34a;--yellow:#d97706}
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:#1a1f2e;line-height:1.6}
   .wrap{max-width:1000px;margin:0 auto;padding:26px 16px 60px}
@@ -35,14 +35,22 @@
   .empty{text-align:center;color:var(--muted);padding:40px}
   .tip{background:#fffdf5;border-left:3px solid #f0a030;padding:10px 14px;border-radius:0 8px 8px 0;font-size:12.5px;color:#7a5a10;margin-bottom:16px;line-height:1.6}
   footer{text-align:center;color:var(--muted);font-size:12px;margin-top:30px;line-height:1.8}
-  .track-add{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
-  .track-add input{flex:1;min-width:140px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;font-size:13px}
+  .track-add{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
+  .track-add input{flex:1;min-width:120px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;font-size:13px}
+  .track-add .dl-wrap{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--muted)}
+  .track-add input[type=date]{flex:none;min-width:150px}
   .track-add button{padding:8px 18px;background:var(--blue);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer}
   .track-add button:active{transform:scale(.97)}
   .trow{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:8px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .trow.exp{opacity:.55}
   .trow .tc{flex:1;min-width:120px}
   .trow .tt{font-weight:600;font-size:14px}
   .trow .tsub{font-size:12px;color:var(--muted);margin-top:2px}
+  .ddl{font-size:12px;font-weight:700;padding:3px 9px;border-radius:20px;white-space:nowrap}
+  .ddl.red{background:#ffefef;color:var(--red)}
+  .ddl.yellow{background:#fff7ed;color:var(--yellow)}
+  .ddl.gray{background:#f0f2f7;color:var(--muted)}
+  .ddl.normal{background:#eef2fe;color:var(--blue)}
   .st-sel{padding:5px 10px;border-radius:8px;border:1px solid var(--line);font-size:12px;cursor:pointer}
   .del{color:var(--red);cursor:pointer;font-size:12px;background:none;border:none}
 </style>
@@ -76,11 +84,12 @@
   </div>
 
   <div id="tab-track" style="display:none">
-    <div class="tip">📌 手动记录你看到的岗位和投递进度。<b>每条自动记录录入时间；状态改为"已投"时自动记录投递时间。</b>数据存在你自己浏览器本地，不上传。</div>
+    <div class="tip">📌 手动记录岗位和投递进度。<b>填了截止日期后，临近截止会标红提醒⏰、并按截止日排序（快到期的排最前）。</b>状态改"已投"自动记投递时间。数据存本地浏览器，不上传。</div>
     <div class="track-add">
       <input id="t-company" placeholder="公司">
       <input id="t-role" placeholder="岗位">
       <input id="t-link" placeholder="链接(可选)">
+      <span class="dl-wrap">截止<input id="t-ddl" type="date"></span>
       <button id="t-add" type="button">+ 添加</button>
     </div>
     <div id="track-list"></div>
@@ -96,14 +105,12 @@
 <script>
 const STATUS = ["想投","已投","笔试","面试","Offer","流程结束"];
 
-// Tab 切换
 document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>{
   document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on"));
   t.classList.add("on");
   ["monitor","entry","track"].forEach(n=>document.getElementById("tab-"+n).style.display = n===t.dataset.tab?"block":"none");
 }));
 
-// 监测数据
 fetch("data/monitor.json?t="+Date.now()).then(r=>r.json()).then(d=>{
   document.getElementById("m-total").textContent=d.total;
   document.getElementById("m-upd").textContent=d.updated_today;
@@ -123,7 +130,6 @@ fetch("data/monitor.json?t="+Date.now()).then(r=>r.json()).then(d=>{
   }).join('')+'</div>';
 }).catch(e=>{document.getElementById("monitor-list").innerHTML='<div class="empty">监测数据加载中，首次运行后显示</div>';});
 
-// 入口合集
 fetch("data/companies.json?t="+Date.now()).then(r=>r.json()).then(d=>{
   const cats={};
   d.companies.forEach(c=>{(cats[c.category]=cats[c.category]||[]).push(c)});
@@ -133,46 +139,68 @@ fetch("data/companies.json?t="+Date.now()).then(r=>r.json()).then(d=>{
     `</div>`).join('');
 }).catch(e=>{});
 
-// ===== 投递追踪(localStorage) =====
+// ===== 投递追踪 =====
 function loadTrack(){try{return JSON.parse(localStorage.getItem("pm_track")||"[]")}catch(e){return[]}}
 function saveTrack(a){localStorage.setItem("pm_track",JSON.stringify(a))}
 function nowStr(){const d=new Date();const p=n=>String(n).padStart(2,'0');return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`}
+
+// 截止提醒
+function ddlInfo(deadline){
+  if(!deadline) return {txt:'', cls:'', days:99999};
+  const today=new Date();today.setHours(0,0,0,0);
+  const d=new Date(deadline);
+  const days=Math.round((d-today)/86400000);
+  if(days<0) return {txt:'已截止', cls:'gray', days};
+  if(days===0) return {txt:'⏰今天截止!', cls:'red', days};
+  if(days<=3) return {txt:`⏰剩${days}天`, cls:'red', days};
+  if(days<=7) return {txt:`剩${days}天`, cls:'yellow', days};
+  return {txt:`${deadline}截止`, cls:'normal', days};
+}
+
 function addTrack(){
   const c=document.getElementById("t-company").value.trim();
   const r=document.getElementById("t-role").value.trim();
   const l=document.getElementById("t-link").value.trim();
+  const dl=document.getElementById("t-ddl").value;
   if(!c&&!r){alert("请至少填写公司或岗位");return}
   const a=loadTrack();
-  a.unshift({company:c,role:r,link:l,status:"想投",added_at:nowStr(),applied_at:""});
+  a.push({company:c,role:r,link:l,deadline:dl,status:"想投",added_at:nowStr(),applied_at:""});
   saveTrack(a);
   document.getElementById("t-company").value="";
   document.getElementById("t-role").value="";
   document.getElementById("t-link").value="";
+  document.getElementById("t-ddl").value="";
   renderTrack();
 }
 function renderTrack(){
-  const a=loadTrack();const box=document.getElementById("track-list");
+  let a=loadTrack();const box=document.getElementById("track-list");
   if(!a.length){box.innerHTML='<div class="empty">还没有记录，在上方添加你想投/已投的岗位</div>';return}
-  box.innerHTML=a.map((t,i)=>`<div class="trow">
-    <div class="tc"><div class="tt">${t.company||'—'} ${t.role?'· '+t.role:''}</div>
-    <div class="tsub">📝 录入 ${t.added_at||'-'}${t.applied_at?' · ✅ 投递 '+t.applied_at:''}${t.link?' · <a href="'+t.link+'" target="_blank" rel="noopener">链接</a>':''}</div></div>
-    <select class="st-sel" data-i="${i}">${STATUS.map(s=>`<option ${s===t.status?'selected':''}>${s}</option>`).join('')}</select>
-    <button class="del" data-i="${i}">删除</button>
-  </div>`).join('');
-  // 绑定事件(避免内联onclick)
+  // 按截止日期排序：有截止且越近越前，无截止的排后
+  a=a.map((t,idx)=>({t,idx,d:ddlInfo(t.deadline).days}));
+  a.sort((x,y)=>x.d-y.d);
+  box.innerHTML=a.map(({t,idx})=>{
+    const dl=ddlInfo(t.deadline);
+    const dlHtml=dl.txt?`<span class="ddl ${dl.cls}">${dl.txt}</span>`:'';
+    const expired=dl.cls==='gray';
+    return `<div class="trow ${expired?'exp':''}">
+      <div class="tc"><div class="tt">${t.company||'—'} ${t.role?'· '+t.role:''}</div>
+      <div class="tsub">📝 录入 ${t.added_at||'-'}${t.applied_at?' · ✅ 投递 '+t.applied_at:''}${t.link?' · <a href="'+t.link+'" target="_blank" rel="noopener">链接</a>':''}</div></div>
+      ${dlHtml}
+      <select class="st-sel" data-i="${idx}">${STATUS.map(s=>`<option ${s===t.status?'selected':''}>${s}</option>`).join('')}</select>
+      <button class="del" data-i="${idx}">删除</button>
+    </div>`;
+  }).join('');
   box.querySelectorAll(".st-sel").forEach(sel=>sel.addEventListener("change",e=>setStatus(+e.target.dataset.i,e.target.value)));
   box.querySelectorAll(".del").forEach(btn=>btn.addEventListener("click",e=>delTrack(+e.target.dataset.i)));
 }
 function setStatus(i,v){
   const a=loadTrack();a[i].status=v;
-  if(v==="已投"&&!a[i].applied_at)a[i].applied_at=nowStr();  // 状态改已投→自动记录投递时间
+  if(v==="已投"&&!a[i].applied_at)a[i].applied_at=nowStr();
   saveTrack(a);renderTrack();
 }
 function delTrack(i){const a=loadTrack();a.splice(i,1);saveTrack(a);renderTrack()}
 
-// 用事件绑定(修复"添加"按钮点不动)
 document.getElementById("t-add").addEventListener("click",addTrack);
-// 回车也能添加
 ["t-company","t-role","t-link"].forEach(id=>document.getElementById(id).addEventListener("keydown",e=>{if(e.key==="Enter")addTrack()}));
 renderTrack();
 </script>
