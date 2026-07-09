@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>27届 AI产品岗秋招追踪</title>
+<style>
+  :root { --blue:#2d5be3; --bg:#f5f7fb; --card:#fff; --muted:#8a94a6; --line:#e7ebf3; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:#1a1f2e; line-height:1.5; }
+  .wrap { max-width:1100px; margin:0 auto; padding:24px 16px 60px; }
+  header { margin-bottom:20px; }
+  h1 { font-size:24px; font-weight:800; }
+  h1 .badge { font-size:11px; background:var(--blue); color:#fff; padding:2px 8px; border-radius:20px; vertical-align:middle; margin-left:8px; font-weight:600; }
+  .sub { color:var(--muted); font-size:13px; margin-top:6px; }
+  .stats { display:flex; gap:12px; margin:16px 0; flex-wrap:wrap; }
+  .stat { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:10px 16px; }
+  .stat .n { font-size:22px; font-weight:800; color:var(--blue); }
+  .stat .l { font-size:11px; color:var(--muted); }
+  .controls { display:flex; gap:10px; margin:16px 0; flex-wrap:wrap; }
+  .controls input, .controls select { padding:9px 12px; border:1px solid var(--line); border-radius:8px; font-size:14px; background:#fff; }
+  .controls input { flex:1; min-width:200px; }
+  .job { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin-bottom:12px; transition:.15s; }
+  .job:hover { box-shadow:0 4px 18px rgba(45,91,227,.08); transform:translateY(-1px); }
+  .job-top { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; }
+  .job-title { font-size:16px; font-weight:700; }
+  .job-company { color:var(--blue); font-weight:600; font-size:14px; }
+  .job-meta { display:flex; gap:14px; flex-wrap:wrap; font-size:13px; color:#4a5164; margin:8px 0; }
+  .job-meta b { color:#1a1f2e; }
+  .tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; }
+  .tag { font-size:11px; background:#eef2fe; color:var(--blue); padding:2px 9px; border-radius:20px; }
+  .tag.new { background:#ffefef; color:#e8453c; font-weight:700; }
+  .note { font-size:12.5px; color:#5a6377; margin-top:8px; background:#fafbfe; padding:8px 10px; border-radius:8px; border-left:3px solid var(--line); }
+  .deadline { font-size:13px; font-weight:700; }
+  .deadline.urgent { color:#e8453c; }
+  .deadline.none { color:var(--muted); font-weight:400; }
+  .apply { display:inline-block; margin-top:10px; background:var(--blue); color:#fff; text-decoration:none; padding:7px 16px; border-radius:8px; font-size:13px; font-weight:600; }
+  .apply.disabled { background:#c7cedd; pointer-events:none; }
+  footer { text-align:center; color:var(--muted); font-size:12px; margin-top:30px; line-height:1.8; }
+  .empty { text-align:center; color:var(--muted); padding:40px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>27届 AI产品岗秋招追踪 <span class="badge">自动更新</span></h1>
+    <div class="sub">每日自动抓取 · DeepSeek 智能筛选 · 面向 2027届 AI产品/产品经理岗位</div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><div class="n" id="stat-total">–</div><div class="l">在追踪岗位</div></div>
+    <div class="stat"><div class="n" id="stat-new">–</div><div class="l">近3天新增</div></div>
+    <div class="stat"><div class="n" id="stat-updated" style="font-size:14px;padding-top:6px;">–</div><div class="l">最后更新</div></div>
+  </div>
+
+  <div class="controls">
+    <input type="text" id="search" placeholder="🔍 搜索公司 / 岗位 / 关键词…">
+    <select id="city-filter"><option value="">全部城市</option></select>
+    <select id="sort"><option value="deadline">按截止日期</option><option value="new">按最新</option></select>
+  </div>
+
+  <div id="job-list"></div>
+
+  <footer>
+    数据来源：公开招聘信息聚合 · 由 GitHub Actions 每日自动抓取、DeepSeek 结构化<br>
+    ⚠️ 岗位信息可能有延迟或变动，投递前请以企业官方渠道为准<br>
+    <span id="foot-updated"></span>
+  </footer>
+</div>
+
+<script>
+let ALL = [];
+
+function fmtDeadline(d) {
+  if (!d || !/^\d{4}-\d{2}-\d{2}/.test(d)) return {txt:'滚动招聘/未公布', cls:'none'};
+  const today = new Date(); today.setHours(0,0,0,0);
+  const dl = new Date(d);
+  const days = Math.round((dl - today) / 86400000);
+  if (days < 0) return {txt:d + ' (已截止)', cls:'none'};
+  if (days <= 7) return {txt:d + ` (剩${days}天!)`, cls:'urgent'};
+  return {txt:d + ` (剩${days}天)`, cls:''};
+}
+
+function render(list) {
+  const box = document.getElementById('job-list');
+  if (!list.length) { box.innerHTML = '<div class="empty">没有匹配的岗位，换个关键词试试～</div>'; return; }
+  box.innerHTML = list.map(j => {
+    const dl = fmtDeadline(j.deadline);
+    const tags = (j.tags||[]).map(t => `<span class="tag">${t}</span>`).join('');
+    const newTag = j.is_new ? '<span class="tag new">NEW</span>' : '';
+    const link = j.link
+      ? `<a class="apply" href="${j.link}" target="_blank" rel="noopener">投递 / 详情 →</a>`
+      : `<a class="apply disabled">链接待补充</a>`;
+    const note = j.note ? `<div class="note">${j.note}</div>` : '';
+    return `<div class="job">
+      <div class="job-top">
+        <div>
+          <div class="job-title">${j.title||''} ${newTag}</div>
+          <div class="job-company">${j.company||''}</div>
+        </div>
+        <div class="deadline ${dl.cls}">${dl.txt}</div>
+      </div>
+      <div class="job-meta">
+        <span>📍 <b>${j.city||'—'}</b></span>
+        <span>🎓 ${j.degree||'—'}</span>
+        <span>📄 ${j.source||'—'}</span>
+      </div>
+      <div class="tags">${tags}</div>
+      ${note}
+      ${link}
+    </div>`;
+  }).join('');
+}
+
+function apply() {
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  const city = document.getElementById('city-filter').value;
+  const sort = document.getElementById('sort').value;
+  let list = ALL.filter(j => {
+    const hay = [j.company,j.title,j.city,j.source,(j.tags||[]).join(''),j.note].join(' ').toLowerCase();
+    const okQ = !q || hay.includes(q);
+    const okCity = !city || (j.city||'').includes(city);
+    return okQ && okCity;
+  });
+  if (sort === 'new') {
+    list.sort((a,b) => (b.first_seen||'').localeCompare(a.first_seen||''));
+  } else {
+    list.sort((a,b) => {
+      const da = /^\d{4}-\d{2}-\d{2}/.test(a.deadline||'') ? a.deadline : '9999';
+      const db = /^\d{4}-\d{2}-\d{2}/.test(b.deadline||'') ? b.deadline : '9999';
+      return da.localeCompare(db);
+    });
+  }
+  render(list);
+}
+
+fetch('data/jobs.json?t=' + Date.now())
+  .then(r => r.json())
+  .then(data => {
+    ALL = data.jobs || [];
+    document.getElementById('stat-total').textContent = data.total ?? ALL.length;
+    document.getElementById('stat-new').textContent = ALL.filter(j=>j.is_new).length;
+    document.getElementById('stat-updated').textContent = data.updated_at || '—';
+    document.getElementById('foot-updated').textContent = '最后更新：' + (data.updated_at||'—');
+    const cities = new Set();
+    ALL.forEach(j => (j.city||'').split(/[\/、,]/).forEach(c => c.trim() && cities.add(c.trim())));
+    const sel = document.getElementById('city-filter');
+    [...cities].sort().forEach(c => { const o=document.createElement('option'); o.value=c; o.textContent=c; sel.appendChild(o); });
+    apply();
+  })
+  .catch(e => {
+    document.getElementById('job-list').innerHTML = '<div class="empty">加载数据失败：' + e + '</div>';
+  });
+
+document.getElementById('search').addEventListener('input', apply);
+document.getElementById('city-filter').addEventListener('change', apply);
+document.getElementById('sort').addEventListener('change', apply);
+</script>
+</body>
+</html>
