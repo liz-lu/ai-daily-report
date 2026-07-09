@@ -28,7 +28,7 @@ jobs:
 
       - name: Generate daily brief files
         env:
-          AI_DAILY_BRIEF_OUT_DIR: .
+          AI_DAILY_BRIEF_OUT_DIR: daily-briefs
           AI_DAILY_BRIEF_NO_NOTIFY: "1"
           AI_DAILY_BRIEF_API_KEY: ${{ secrets.AI_DAILY_BRIEF_API_KEY }}
           AI_DAILY_BRIEF_MODEL: ${{ secrets.AI_DAILY_BRIEF_MODEL }}
