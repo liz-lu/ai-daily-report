@@ -3,158 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>27届 AI产品岗秋招追踪</title>
+<title>AI产品岗 · 求职作战台</title>
 <style>
-  :root { --blue:#2d5be3; --bg:#f5f7fb; --card:#fff; --muted:#8a94a6; --line:#e7ebf3; }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:#1a1f2e; line-height:1.5; }
-  .wrap { max-width:1100px; margin:0 auto; padding:24px 16px 60px; }
-  header { margin-bottom:20px; }
-  h1 { font-size:24px; font-weight:800; }
-  h1 .badge { font-size:11px; background:var(--blue); color:#fff; padding:2px 8px; border-radius:20px; vertical-align:middle; margin-left:8px; font-weight:600; }
-  .sub { color:var(--muted); font-size:13px; margin-top:6px; }
-  .stats { display:flex; gap:12px; margin:16px 0; flex-wrap:wrap; }
-  .stat { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:10px 16px; }
-  .stat .n { font-size:22px; font-weight:800; color:var(--blue); }
-  .stat .l { font-size:11px; color:var(--muted); }
-  .controls { display:flex; gap:10px; margin:16px 0; flex-wrap:wrap; }
-  .controls input, .controls select { padding:9px 12px; border:1px solid var(--line); border-radius:8px; font-size:14px; background:#fff; }
-  .controls input { flex:1; min-width:200px; }
-  .job { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin-bottom:12px; transition:.15s; }
-  .job:hover { box-shadow:0 4px 18px rgba(45,91,227,.08); transform:translateY(-1px); }
-  .job-top { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; }
-  .job-title { font-size:16px; font-weight:700; }
-  .job-company { color:var(--blue); font-weight:600; font-size:14px; }
-  .job-meta { display:flex; gap:14px; flex-wrap:wrap; font-size:13px; color:#4a5164; margin:8px 0; }
-  .job-meta b { color:#1a1f2e; }
-  .tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; }
-  .tag { font-size:11px; background:#eef2fe; color:var(--blue); padding:2px 9px; border-radius:20px; }
-  .tag.new { background:#ffefef; color:#e8453c; font-weight:700; }
-  .note { font-size:12.5px; color:#5a6377; margin-top:8px; background:#fafbfe; padding:8px 10px; border-radius:8px; border-left:3px solid var(--line); }
-  .deadline { font-size:13px; font-weight:700; }
-  .deadline.urgent { color:#e8453c; }
-  .deadline.none { color:var(--muted); font-weight:400; }
-  .apply { display:inline-block; margin-top:10px; background:var(--blue); color:#fff; text-decoration:none; padding:7px 16px; border-radius:8px; font-size:13px; font-weight:600; }
-  .apply.disabled { background:#c7cedd; pointer-events:none; }
-  footer { text-align:center; color:var(--muted); font-size:12px; margin-top:30px; line-height:1.8; }
-  .empty { text-align:center; color:var(--muted); padding:40px; }
+  :root{--blue:#2d5be3;--bg:#f5f7fb;--card:#fff;--muted:#8a94a6;--line:#e7ebf3;--red:#e8453c;--green:#16a34a}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:#1a1f2e;line-height:1.6}
+  .wrap{max-width:1000px;margin:0 auto;padding:26px 16px 60px}
+  h1{font-size:24px;font-weight:800}
+  h1 .badge{font-size:11px;background:var(--blue);color:#fff;padding:2px 8px;border-radius:20px;vertical-align:middle;margin-left:8px}
+  .sub{color:var(--muted);font-size:13px;margin:6px 0 18px}
+  .tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+  .tab{padding:8px 16px;border-radius:20px;background:#fff;border:1px solid var(--line);cursor:pointer;font-size:14px;font-weight:600}
+  .tab.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .stats{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 14px}
+  .stat .n{font-size:20px;font-weight:800;color:var(--blue)}
+  .stat .l{font-size:11px;color:var(--muted)}
+  .cat{font-size:13px;font-weight:700;color:var(--muted);margin:16px 0 8px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+  .co{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;transition:.15s;position:relative}
+  .co:hover{box-shadow:0 4px 16px rgba(45,91,227,.1);transform:translateY(-1px)}
+  .co.upd{border-color:var(--red);box-shadow:0 0 0 1px var(--red)}
+  .co-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .co-name{font-size:16px;font-weight:700}
+  .co-note{font-size:12.5px;color:#5a6377;margin:6px 0 10px;line-height:1.5}
+  .co-meta{font-size:11px;color:var(--muted)}
+  .dot{font-size:11px;padding:2px 8px;border-radius:20px;font-weight:700;white-space:nowrap}
+  .dot.new{background:#ffefef;color:var(--red)}
+  .dot.quiet{background:#f0f2f7;color:var(--muted)}
+  .go{display:inline-block;margin-top:8px;background:var(--blue);color:#fff;text-decoration:none;padding:6px 14px;border-radius:8px;font-size:13px;font-weight:600}
+  .empty{text-align:center;color:var(--muted);padding:40px}
+  .tip{background:#fffdf5;border-left:3px solid #f0a030;padding:10px 14px;border-radius:0 8px 8px 0;font-size:12.5px;color:#7a5a10;margin-bottom:16px;line-height:1.6}
+  footer{text-align:center;color:var(--muted);font-size:12px;margin-top:30px;line-height:1.8}
+  .track-add{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+  .track-add input{flex:1;min-width:140px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;font-size:13px}
+  .track-add button{padding:8px 16px;background:var(--blue);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer}
+  .trow{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:8px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .trow .tc{flex:1;min-width:120px}
+  .trow .tt{font-weight:600;font-size:14px}
+  .trow .tsub{font-size:12px;color:var(--muted)}
+  .st-sel{padding:5px 10px;border-radius:8px;border:1px solid var(--line);font-size:12px}
+  .del{color:var(--red);cursor:pointer;font-size:12px;background:none;border:none}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <h1>27届 AI产品岗秋招追踪 <span class="badge">自动更新</span></h1>
-    <div class="sub">每日自动抓取 · DeepSeek 智能筛选 · 面向 2027届 AI产品/产品经理岗位</div>
+    <h1>AI产品岗 · 求职作战台 <span class="badge">每日监测</span></h1>
+    <div class="sub">大厂招聘官网直达 · 每日更新监测 · 投递追踪 · 面向 27届 AI产品/产品经理</div>
   </header>
 
-  <div class="stats">
-    <div class="stat"><div class="n" id="stat-total">–</div><div class="l">在追踪岗位</div></div>
-    <div class="stat"><div class="n" id="stat-new">–</div><div class="l">近3天新增</div></div>
-    <div class="stat"><div class="n" id="stat-updated" style="font-size:14px;padding-top:6px;">–</div><div class="l">最后更新</div></div>
+  <div class="tabs">
+    <div class="tab on" data-tab="monitor">📡 官网监测</div>
+    <div class="tab" data-tab="entry">🚪 全部入口</div>
+    <div class="tab" data-tab="track">📌 我的投递</div>
   </div>
 
-  <div class="controls">
-    <input type="text" id="search" placeholder="🔍 搜索公司 / 岗位 / 关键词…">
-    <select id="city-filter"><option value="">全部城市</option></select>
-    <select id="sort"><option value="deadline">按截止日期</option><option value="new">按最新</option></select>
+  <div id="tab-monitor">
+    <div class="tip">💡 <b>怎么用：</b>脚本每天访问各招聘官网，检测到内容变化就标 <b style="color:#e8453c">🔴今日有更新</b>——说明这家可能上新岗位，优先点进去看。点"打开官网"直达该公司产品岗页面。</div>
+    <div class="stats">
+      <div class="stat"><div class="n" id="m-total">–</div><div class="l">监测公司</div></div>
+      <div class="stat"><div class="n" id="m-upd" style="color:#e8453c">–</div><div class="l">今日有更新</div></div>
+      <div class="stat"><div class="n" id="m-time" style="font-size:13px;padding-top:5px">–</div><div class="l">最后检查</div></div>
+    </div>
+    <div id="monitor-list"></div>
   </div>
 
-  <div id="job-list"></div>
+  <div id="tab-entry" style="display:none">
+    <div class="tip">📚 各大厂 / AI 独角兽招聘官网入口合集，按类别分组，点击直达对应产品岗页面。</div>
+    <div id="entry-list"></div>
+  </div>
+
+  <div id="tab-track" style="display:none">
+    <div class="tip">📌 手动记录你看到的岗位和投递进度（数据存在你自己浏览器本地，不上传）。</div>
+    <div class="track-add">
+      <input id="t-company" placeholder="公司">
+      <input id="t-role" placeholder="岗位">
+      <input id="t-link" placeholder="链接(可选)">
+      <button onclick="addTrack()">+ 添加</button>
+    </div>
+    <div id="track-list"></div>
+  </div>
 
   <footer>
-    数据来源：公开招聘信息聚合 · 由 GitHub Actions 每日自动抓取、DeepSeek 结构化<br>
-    ⚠️ 岗位信息可能有延迟或变动，投递前请以企业官方渠道为准<br>
-    <span id="foot-updated"></span>
+    数据来源：各公司招聘官网公开页面 · GitHub Actions 每日监测<br>
+    ⚠️ 岗位明细请以官网为准 · 仅供个人求职参考<br>
+    <span id="foot"></span>
   </footer>
 </div>
 
 <script>
-let ALL = [];
+const STATUS = ["想投","已投","笔试","面试","Offer","流程结束"];
 
-function fmtDeadline(d) {
-  if (!d || !/^\d{4}-\d{2}-\d{2}/.test(d)) return {txt:'滚动招聘/未公布', cls:'none'};
-  const today = new Date(); today.setHours(0,0,0,0);
-  const dl = new Date(d);
-  const days = Math.round((dl - today) / 86400000);
-  if (days < 0) return {txt:d + ' (已截止)', cls:'none'};
-  if (days <= 7) return {txt:d + ` (剩${days}天!)`, cls:'urgent'};
-  return {txt:d + ` (剩${days}天)`, cls:''};
-}
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on"));
+  t.classList.add("on");
+  ["monitor","entry","track"].forEach(n=>document.getElementById("tab-"+n).style.display = n===t.dataset.tab?"block":"none");
+});
 
-function render(list) {
-  const box = document.getElementById('job-list');
-  if (!list.length) { box.innerHTML = '<div class="empty">没有匹配的岗位，换个关键词试试～</div>'; return; }
-  box.innerHTML = list.map(j => {
-    const dl = fmtDeadline(j.deadline);
-    const tags = (j.tags||[]).map(t => `<span class="tag">${t}</span>`).join('');
-    const newTag = j.is_new ? '<span class="tag new">NEW</span>' : '';
-    const link = j.link
-      ? `<a class="apply" href="${j.link}" target="_blank" rel="noopener">投递 / 详情 →</a>`
-      : `<a class="apply disabled">链接待补充</a>`;
-    const note = j.note ? `<div class="note">${j.note}</div>` : '';
-    return `<div class="job">
-      <div class="job-top">
-        <div>
-          <div class="job-title">${j.title||''} ${newTag}</div>
-          <div class="job-company">${j.company||''}</div>
-        </div>
-        <div class="deadline ${dl.cls}">${dl.txt}</div>
-      </div>
-      <div class="job-meta">
-        <span>📍 <b>${j.city||'—'}</b></span>
-        <span>🎓 ${j.degree||'—'}</span>
-        <span>📄 ${j.source||'—'}</span>
-      </div>
-      <div class="tags">${tags}</div>
-      ${note}
-      ${link}
+fetch("data/monitor.json?t="+Date.now()).then(r=>r.json()).then(d=>{
+  document.getElementById("m-total").textContent=d.total;
+  document.getElementById("m-upd").textContent=d.updated_today;
+  document.getElementById("m-time").textContent=d.updated_at;
+  document.getElementById("foot").textContent="最后监测："+d.updated_at;
+  const box=document.getElementById("monitor-list");
+  box.innerHTML='<div class="grid">'+d.companies.map(c=>{
+    const upd=c.updated_today;
+    const dot=upd?'<span class="dot new">🔴今日有更新</span>'
+      :(c.days_since_change!=null?`<span class="dot quiet">${c.days_since_change}天前更新</span>`:'<span class="dot quiet">监测中</span>');
+    return `<div class="co ${upd?'upd':''}">
+      <div class="co-top"><span class="co-name">${c.name}</span>${dot}</div>
+      <div class="co-note">${c.note||''}</div>
+      <div class="co-meta">${c.category} · 最后检查 ${c.last_check||'-'}${c.status!=='ok'?' · ⚠'+c.status:''}</div>
+      <a class="go" href="${c.url}" target="_blank" rel="noopener">打开官网 →</a>
     </div>`;
-  }).join('');
+  }).join('')+'</div>';
+}).catch(e=>document.getElementById("monitor-list").innerHTML='<div class="empty">监测数据加载中，首次运行后显示</div>');
+
+fetch("data/companies.json?t="+Date.now()).then(r=>r.json()).then(d=>{
+  const cats={};
+  d.companies.forEach(c=>{(cats[c.category]=cats[c.category]||[]).push(c)});
+  document.getElementById("entry-list").innerHTML=Object.entries(cats).map(([cat,list])=>
+    `<div class="cat">${cat}（${list.length}）</div><div class="grid">`+
+    list.map(c=>`<div class="co"><div class="co-name">${c.name}</div><div class="co-note">${c.note||''}</div><a class="go" href="${c.url}" target="_blank" rel="noopener">打开官网 →</a></div>`).join('')+
+    `</div>`).join('');
+}).catch(e=>{});
+
+function loadTrack(){return JSON.parse(localStorage.getItem("pm_track")||"[]")}
+function saveTrack(a){localStorage.setItem("pm_track",JSON.stringify(a))}
+function addTrack(){
+  const c=document.getElementById("t-company").value.trim();
+  const r=document.getElementById("t-role").value.trim();
+  const l=document.getElementById("t-link").value.trim();
+  if(!c&&!r)return;
+  const a=loadTrack();a.push({company:c,role:r,link:l,status:"想投",date:new Date().toISOString().slice(0,10)});
+  saveTrack(a);document.getElementById("t-company").value="";document.getElementById("t-role").value="";document.getElementById("t-link").value="";renderTrack();
 }
-
-function apply() {
-  const q = document.getElementById('search').value.trim().toLowerCase();
-  const city = document.getElementById('city-filter').value;
-  const sort = document.getElementById('sort').value;
-  let list = ALL.filter(j => {
-    const hay = [j.company,j.title,j.city,j.source,(j.tags||[]).join(''),j.note].join(' ').toLowerCase();
-    const okQ = !q || hay.includes(q);
-    const okCity = !city || (j.city||'').includes(city);
-    return okQ && okCity;
-  });
-  if (sort === 'new') {
-    list.sort((a,b) => (b.first_seen||'').localeCompare(a.first_seen||''));
-  } else {
-    list.sort((a,b) => {
-      const da = /^\d{4}-\d{2}-\d{2}/.test(a.deadline||'') ? a.deadline : '9999';
-      const db = /^\d{4}-\d{2}-\d{2}/.test(b.deadline||'') ? b.deadline : '9999';
-      return da.localeCompare(db);
-    });
-  }
-  render(list);
+function renderTrack(){
+  const a=loadTrack();const box=document.getElementById("track-list");
+  if(!a.length){box.innerHTML='<div class="empty">还没有记录，在上方添加你想投/已投的岗位</div>';return}
+  box.innerHTML=a.map((t,i)=>`<div class="trow">
+    <div class="tc"><div class="tt">${t.company||'—'} ${t.role?'· '+t.role:''}</div><div class="tsub">${t.date}${t.link?' · <a href="'+t.link+'" target="_blank">链接</a>':''}</div></div>
+    <select class="st-sel" onchange="setStatus(${i},this.value)">${STATUS.map(s=>`<option ${s===t.status?'selected':''}>${s}</option>`).join('')}</select>
+    <button class="del" onclick="delTrack(${i})">删除</button>
+  </div>`).join('');
 }
-
-fetch('data/jobs.json?t=' + Date.now())
-  .then(r => r.json())
-  .then(data => {
-    ALL = data.jobs || [];
-    document.getElementById('stat-total').textContent = data.total ?? ALL.length;
-    document.getElementById('stat-new').textContent = ALL.filter(j=>j.is_new).length;
-    document.getElementById('stat-updated').textContent = data.updated_at || '—';
-    document.getElementById('foot-updated').textContent = '最后更新：' + (data.updated_at||'—');
-    const cities = new Set();
-    ALL.forEach(j => (j.city||'').split(/[\/、,]/).forEach(c => c.trim() && cities.add(c.trim())));
-    const sel = document.getElementById('city-filter');
-    [...cities].sort().forEach(c => { const o=document.createElement('option'); o.value=c; o.textContent=c; sel.appendChild(o); });
-    apply();
-  })
-  .catch(e => {
-    document.getElementById('job-list').innerHTML = '<div class="empty">加载数据失败：' + e + '</div>';
-  });
-
-document.getElementById('search').addEventListener('input', apply);
-document.getElementById('city-filter').addEventListener('change', apply);
-document.getElementById('sort').addEventListener('change', apply);
+function setStatus(i,v){const a=loadTrack();a[i].status=v;saveTrack(a);renderTrack()}
+function delTrack(i){const a=loadTrack();a.splice(i,1);saveTrack(a);renderTrack()}
+renderTrack();
 </script>
 </body>
 </html>
