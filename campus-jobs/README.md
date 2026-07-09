@@ -1,40 +1,82 @@
-# 27届 AI产品岗秋招追踪器
+# AI产品岗 · 求职作战台
 
-一个自动更新的 27届（2027届）AI产品/产品经理岗位追踪看板。每天由 GitHub Actions 抓取公开招聘信息，用 **DeepSeek API** 做结构化筛选，输出到可筛选的网页。
+一个面向 27届 AI产品/产品经理求职的个人工具（自用，非商业，不公开）。
+每天自动监测各大厂招聘官网是否更新，帮你精准锁定"今天该去看哪家"，并管理投递进度。
 
-## 在线访问
+**在线地址**：https://liz-lu.github.io/ai-daily-report/campus-jobs/
 
-启用 GitHub Pages 后：`https://liz-lu.github.io/ai-daily-report/campus-jobs/`
+---
 
-## 架构
+## 一、检测原理
+
+### 核心：给每个招聘官网"拍指纹"，天天对比
 
 ```
-GitHub Actions (每日 09:30 北京时间)
-  → campus-jobs/scripts/fetch_jobs.py 抓取 data/sources.json 里的公开源
-  → DeepSeek API 提取/筛选/结构化为岗位 JSON
-  → 合并去重、按截止日期排序 → data/jobs.json
-  → 自动 commit → GitHub Pages 展示 (index.html)
+每天北京时间 9:00，GitHub Actions 自动：
+①  挨个访问 data/companies.json 里的 19 家招聘官网
+②  把每个页面的正文内容算成一串指纹（MD5 hash）
+③  和昨天的指纹对比：
+       指纹变了 → 页面内容变了（很可能上新岗位）→ 标 🔴今日有更新
+       指纹没变 → 页面没动 → ○无变化
+④  结果写入 data/monitor.json，前端页面渲染
 ```
 
-## 首次启用（3 步）
+### 为什么是"监测更新"而非"抓岗位明细"
 
-### 1. 添加 DeepSeek 密钥
-仓库 → **Settings → Secrets and variables → Actions → New repository secret**
-- Name: `DEEPSEEK_API_KEY`，Value: 你的 DeepSeek API key
+BOSS/小红书/大厂官网的**岗位明细**需要登录态 + JS 签名 + 真实浏览器，
+GitHub Actions（无浏览器的服务器脚本）无法稳定获取，且触碰反爬会被封。
+但**"页面是否更新"可以合规检测** —— 作为"哪家今天动了、值得去官网看"的高信噪比提醒，
+省去每天手动刷 19 个网站的重复劳动。
 
-### 2. 开启 Pages
-**Settings → Pages → Source: Deploy from a branch → Branch: main / (root)**
+### 技术加固
 
-### 3. 确认 Actions 写权限
-**Settings → Actions → General → Workflow permissions → Read and write**
+- 每家网站**独立容错**：某家失败不影响其它家
+- **3 次重试 + 退避 + 随机 UA + 超时**：对抗网络波动与临时拦截
+- **噪音过滤**：忽略页面里的时间戳/长数字串，避免"假更新"误报
+- 零第三方依赖（仅 Python 标准库）、零 API key
 
-完成后：Actions 页手动点一次 **Run workflow** 测试，或等每天 09:30 自动跑。
+---
 
-## 维护数据源
+## 二、怎么用（三个 Tab）
 
-编辑 `campus-jobs/data/sources.json` 的 `fetch_sources`，填入可 HTTP 抓取的公开页面。
+### 📡 官网监测（每天来看这个）
+- 顶部：监测公司数 / 今日有更新数 / 最后检查时间
+- **🔴"今日有更新"的公司排最前** → 今天优先点进去看
+- 灰色"X天前更新" = 最近没动静
+- 点"打开官网 →"直达该公司产品岗页面
 
-## 说明
+### 🚪 全部入口
+- 19 家按 **大厂 / 互联网 / AI独角兽** 分类的官网直达合集
 
-- 未配置 `DEEPSEEK_API_KEY` 时脚本不报错，保留现有数据。
-- 岗位信息可能有延迟或变动，**投递前请以企业官方渠道为准**。
+### 📌 我的投递
+- 手动记录岗位（公司+岗位+链接），下拉追踪状态：想投→已投→笔试→面试→Offer→结束
+- 数据存**本地浏览器**（localStorage），不上传
+
+---
+
+## 三、重要提醒
+
+1. **次日才见效**：第一次运行只建立指纹基线，从第二天起才能对比出"谁更新了"。
+2. **不是每天都有🔴**：招聘官网非每日更新，没🔴很正常，有🔴才是信号。
+3. **🔴= 建议去看，非保证有岗**：页面变化可能是上新岗、也可能改文案；🔴意为"值得花 30 秒去官网确认"。
+
+---
+
+## 四、维护
+
+- **加/减公司**：编辑 `data/companies.json`，按格式增删（name / category / url / note）。
+- **手动触发**：GitHub → Actions → "Update Campus Jobs" → Run workflow。
+- **自动运行**：每天北京时间 9:00（`.github/workflows/update-jobs.yml`，cron `0 1 * * *` UTC）。
+
+## 目录
+
+```
+campus-jobs/
+├── index.html              # 作战台前端（监测/入口/投递 三 Tab）
+├── data/
+│   ├── companies.json      # 招聘官网入口配置（人工维护）
+│   └── monitor.json        # 每日监测结果（自动生成）
+└── scripts/
+    ├── monitor.py          # 官网更新监测脚本（当前启用）
+    └── fetch_jobs.py       # 岗位抓取脚本（备用，社区源活跃时启用）
+```
