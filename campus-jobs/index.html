@@ -37,12 +37,13 @@
   footer{text-align:center;color:var(--muted);font-size:12px;margin-top:30px;line-height:1.8}
   .track-add{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
   .track-add input{flex:1;min-width:140px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;font-size:13px}
-  .track-add button{padding:8px 16px;background:var(--blue);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer}
+  .track-add button{padding:8px 18px;background:var(--blue);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer}
+  .track-add button:active{transform:scale(.97)}
   .trow{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:8px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
   .trow .tc{flex:1;min-width:120px}
   .trow .tt{font-weight:600;font-size:14px}
-  .trow .tsub{font-size:12px;color:var(--muted)}
-  .st-sel{padding:5px 10px;border-radius:8px;border:1px solid var(--line);font-size:12px}
+  .trow .tsub{font-size:12px;color:var(--muted);margin-top:2px}
+  .st-sel{padding:5px 10px;border-radius:8px;border:1px solid var(--line);font-size:12px;cursor:pointer}
   .del{color:var(--red);cursor:pointer;font-size:12px;background:none;border:none}
 </style>
 </head>
@@ -75,12 +76,12 @@
   </div>
 
   <div id="tab-track" style="display:none">
-    <div class="tip">📌 手动记录你看到的岗位和投递进度（数据存在你自己浏览器本地，不上传）。</div>
+    <div class="tip">📌 手动记录你看到的岗位和投递进度。<b>每条自动记录录入时间；状态改为"已投"时自动记录投递时间。</b>数据存在你自己浏览器本地，不上传。</div>
     <div class="track-add">
       <input id="t-company" placeholder="公司">
       <input id="t-role" placeholder="岗位">
       <input id="t-link" placeholder="链接(可选)">
-      <button onclick="addTrack()">+ 添加</button>
+      <button id="t-add" type="button">+ 添加</button>
     </div>
     <div id="track-list"></div>
   </div>
@@ -95,12 +96,14 @@
 <script>
 const STATUS = ["想投","已投","笔试","面试","Offer","流程结束"];
 
-document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{
+// Tab 切换
+document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>{
   document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on"));
   t.classList.add("on");
   ["monitor","entry","track"].forEach(n=>document.getElementById("tab-"+n).style.display = n===t.dataset.tab?"block":"none");
-});
+}));
 
+// 监测数据
 fetch("data/monitor.json?t="+Date.now()).then(r=>r.json()).then(d=>{
   document.getElementById("m-total").textContent=d.total;
   document.getElementById("m-upd").textContent=d.updated_today;
@@ -118,8 +121,9 @@ fetch("data/monitor.json?t="+Date.now()).then(r=>r.json()).then(d=>{
       <a class="go" href="${c.url}" target="_blank" rel="noopener">打开官网 →</a>
     </div>`;
   }).join('')+'</div>';
-}).catch(e=>document.getElementById("monitor-list").innerHTML='<div class="empty">监测数据加载中，首次运行后显示</div>');
+}).catch(e=>{document.getElementById("monitor-list").innerHTML='<div class="empty">监测数据加载中，首次运行后显示</div>';});
 
+// 入口合集
 fetch("data/companies.json?t="+Date.now()).then(r=>r.json()).then(d=>{
   const cats={};
   d.companies.forEach(c=>{(cats[c.category]=cats[c.category]||[]).push(c)});
@@ -129,27 +133,47 @@ fetch("data/companies.json?t="+Date.now()).then(r=>r.json()).then(d=>{
     `</div>`).join('');
 }).catch(e=>{});
 
-function loadTrack(){return JSON.parse(localStorage.getItem("pm_track")||"[]")}
+// ===== 投递追踪(localStorage) =====
+function loadTrack(){try{return JSON.parse(localStorage.getItem("pm_track")||"[]")}catch(e){return[]}}
 function saveTrack(a){localStorage.setItem("pm_track",JSON.stringify(a))}
+function nowStr(){const d=new Date();const p=n=>String(n).padStart(2,'0');return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`}
 function addTrack(){
   const c=document.getElementById("t-company").value.trim();
   const r=document.getElementById("t-role").value.trim();
   const l=document.getElementById("t-link").value.trim();
-  if(!c&&!r)return;
-  const a=loadTrack();a.push({company:c,role:r,link:l,status:"想投",date:new Date().toISOString().slice(0,10)});
-  saveTrack(a);document.getElementById("t-company").value="";document.getElementById("t-role").value="";document.getElementById("t-link").value="";renderTrack();
+  if(!c&&!r){alert("请至少填写公司或岗位");return}
+  const a=loadTrack();
+  a.unshift({company:c,role:r,link:l,status:"想投",added_at:nowStr(),applied_at:""});
+  saveTrack(a);
+  document.getElementById("t-company").value="";
+  document.getElementById("t-role").value="";
+  document.getElementById("t-link").value="";
+  renderTrack();
 }
 function renderTrack(){
   const a=loadTrack();const box=document.getElementById("track-list");
   if(!a.length){box.innerHTML='<div class="empty">还没有记录，在上方添加你想投/已投的岗位</div>';return}
   box.innerHTML=a.map((t,i)=>`<div class="trow">
-    <div class="tc"><div class="tt">${t.company||'—'} ${t.role?'· '+t.role:''}</div><div class="tsub">${t.date}${t.link?' · <a href="'+t.link+'" target="_blank">链接</a>':''}</div></div>
-    <select class="st-sel" onchange="setStatus(${i},this.value)">${STATUS.map(s=>`<option ${s===t.status?'selected':''}>${s}</option>`).join('')}</select>
-    <button class="del" onclick="delTrack(${i})">删除</button>
+    <div class="tc"><div class="tt">${t.company||'—'} ${t.role?'· '+t.role:''}</div>
+    <div class="tsub">📝 录入 ${t.added_at||'-'}${t.applied_at?' · ✅ 投递 '+t.applied_at:''}${t.link?' · <a href="'+t.link+'" target="_blank" rel="noopener">链接</a>':''}</div></div>
+    <select class="st-sel" data-i="${i}">${STATUS.map(s=>`<option ${s===t.status?'selected':''}>${s}</option>`).join('')}</select>
+    <button class="del" data-i="${i}">删除</button>
   </div>`).join('');
+  // 绑定事件(避免内联onclick)
+  box.querySelectorAll(".st-sel").forEach(sel=>sel.addEventListener("change",e=>setStatus(+e.target.dataset.i,e.target.value)));
+  box.querySelectorAll(".del").forEach(btn=>btn.addEventListener("click",e=>delTrack(+e.target.dataset.i)));
 }
-function setStatus(i,v){const a=loadTrack();a[i].status=v;saveTrack(a);renderTrack()}
+function setStatus(i,v){
+  const a=loadTrack();a[i].status=v;
+  if(v==="已投"&&!a[i].applied_at)a[i].applied_at=nowStr();  // 状态改已投→自动记录投递时间
+  saveTrack(a);renderTrack();
+}
 function delTrack(i){const a=loadTrack();a.splice(i,1);saveTrack(a);renderTrack()}
+
+// 用事件绑定(修复"添加"按钮点不动)
+document.getElementById("t-add").addEventListener("click",addTrack);
+// 回车也能添加
+["t-company","t-role","t-link"].forEach(id=>document.getElementById(id).addEventListener("keydown",e=>{if(e.key==="Enter")addTrack()}));
 renderTrack();
 </script>
 </body>
