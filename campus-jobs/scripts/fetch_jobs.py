@@ -1,33 +1,29 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-27届 AI 产品岗秋招追踪器 —— 数据抓取与结构化脚本
+实习/秋招岗位追踪器 —— 数据抓取与结构化脚本
+
+数据源：开源社区维护的校招/实习汇总仓库（Markdown 表格，合规、每日更新）
+  默认：namewyf/Campus2026（2026届互联网校招&实习信息汇总）
 
 流程：
-  1. 读取 data/sources.json 中的公开数据源（RSS / 聚合页 / 秋招汇总）
-  2. 抓取原始文本
-  3. 调用 DeepSeek API，从原始文本中提取「27届/2027届 AI产品/产品」岗位，结构化为 JSON
-  4. 与已有 data/jobs.json 合并去重（按 公司+岗位 唯一），标记新增、按截止日期排序
-  5. 写回 data/jobs.json，供 index.html 前端渲染
+  1. 抓取数据源 README.md（标准 Markdown 表格）
+  2. 直接解析表格 → 结构化岗位（公司/链接/更新日期/地点/备注）——无需任何 API
+  3. 与已有 data/jobs.json 合并去重（按 公司+链接），标记新增、按更新日期倒序
+  4. 写回 data/jobs.json，供 index.html 前端渲染
 
 设计原则：
-  - 无第三方 pip 依赖，仅用 Python 标准库（与 GitHub Actions 环境兼容）
-  - 优雅降级：未配置 DEEPSEEK_API_KEY 时，跳过 AI 处理、保留已有数据，脚本正常退出（不让 Actions 失败）
-  - 抓取失败不阻断：单个源失败仅记录，不影响其它源
-
-环境变量：
-  DEEPSEEK_API_KEY   DeepSeek API 密钥（存 GitHub Secrets，勿写进代码）
-  DEEPSEEK_MODEL     模型名，默认 deepseek-chat
-  DEEPSEEK_BASE_URL  接口地址，默认 https://api.deepseek.com
+  - 仅用 Python 标准库，无第三方 pip 依赖（GitHub Actions 直接可跑）
+  - 不需要任何 API key —— 纯规则解析，零成本、零故障点
+  - 抓取失败不阻断：保留已有数据，脚本正常退出（不让 Actions 失败）
+  - 关键词过滤：默认聚焦 产品 / AI 相关岗位（可在 KEYWORDS 调整；留空则收录全部）
 """
 
 from __future__ import annotations
 
 import json
-import os
 import re
 import sys
-import time
 import urllib.request
 import urllib.error
 from datetime import datetime, timezone, timedelta
@@ -43,101 +39,83 @@ JOBS_FILE = DATA_DIR / "jobs.json"
 
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 AI-PM-Tracker/1.0"
+    "(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 AI-PM-Tracker/2.0"
 )
 
-DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "").strip()
-DEEPSEEK_MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-chat").strip()
-DEEPSEEK_BASE_URL = os.environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com").strip().rstrip("/")
+# 关键词过滤：岗位「公司+备注+链接文字+地点」命中任一即收录。留空列表 = 收录全部。
+KEYWORDS = ["产品", "AI", "product", "运营", "实习"]
+
+# 默认数据源（若 sources.json 未配置则用这个）
+DEFAULT_SOURCES = [
+    {
+        "name": "Campus2026(社区维护·每日更新)",
+        "url": "https://raw.githubusercontent.com/namewyf/Campus2026/main/README.md",
+    }
+]
 
 
 def log(msg: str) -> None:
     print(f"[{datetime.now(TZ_CN).strftime('%H:%M:%S')}] {msg}", flush=True)
 
 
-def fetch_url(url: str, timeout: int = 20) -> str:
-    """抓取单个 URL 的文本内容，失败返回空串。"""
+def fetch_url(url: str, timeout: int = 25) -> str:
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
-            raw = resp.read()
-            for enc in ("utf-8", "gbk", "gb2312"):
-                try:
-                    return raw.decode(enc)
-                except UnicodeDecodeError:
-                    continue
-            return raw.decode("utf-8", errors="ignore")
+            return resp.read().decode("utf-8", errors="ignore")
     except Exception as e:
         log(f"  [warn] 抓取失败 {url}: {e}")
         return ""
 
 
-def strip_html(text: str) -> str:
-    """粗略去掉 HTML 标签与多余空白，得到可喂给 LLM 的纯文本。"""
-    text = re.sub(r"<script[\s\S]*?</script>", " ", text, flags=re.I)
-    text = re.sub(r"<style[\s\S]*?</style>", " ", text, flags=re.I)
-    text = re.sub(r"<[^>]+>", " ", text)
-    text = re.sub(r"&[a-zA-Z#0-9]+;", " ", text)
-    text = re.sub(r"\s+", " ", text)
-    return text.strip()
+def parse_markdown_table(md: str, source_name: str) -> list:
+    """解析 Markdown 表格，抽取岗位。表头形如：公司 | 招聘状态&&投递链接 | 更新日期 | 地点 | 备注"""
+    jobs = []
+    for line in md.splitlines():
+        line = line.strip()
+        if not line.startswith("|"):
+            continue
+        cells = [c.strip() for c in line.strip("|").split("|")]
+        if len(cells) < 3:
+            continue
+        if cells[0] in ("公司", "Company", "") or set(cells[0]) <= set("-: "):
+            continue
 
+        company = cells[0]
+        status_cell = cells[1] if len(cells) > 1 else ""
+        update_date = cells[2] if len(cells) > 2 else ""
+        location = cells[3] if len(cells) > 3 else ""
+        note = cells[4] if len(cells) > 4 else ""
 
-def call_deepseek(raw_text: str) -> list:
-    """调用 DeepSeek，把原始文本抽成结构化岗位列表。"""
-    if not DEEPSEEK_API_KEY:
-        log("未配置 DEEPSEEK_API_KEY，跳过 AI 结构化。")
-        return []
+        link_m = re.search(r"\[([^\]]*)\]\((https?://[^)]+)\)", status_cell)
+        title = link_m.group(1).strip() if link_m else re.sub(r"[\[\]]", "", status_cell)
+        link = link_m.group(2).strip() if link_m else ""
 
-    raw_text = raw_text[:24000]
+        d = re.search(r"(\d{4})[/-](\d{1,2})[/-](\d{1,2})", update_date)
+        deadline_norm = f"{d.group(1)}-{int(d.group(2)):02d}-{int(d.group(3)):02d}" if d else ""
 
-    system_prompt = (
-        "你是校招信息结构化助手。用户会给你从招聘网页抓取的原始文本，"
-        "你需要从中提取【2027届/27届】的【AI产品经理 / AI产品 / 产品经理（AI方向）】相关岗位。"
-        "严格只输出一个 JSON 数组，不要任何解释文字、不要 markdown 代码块。"
-        "每个岗位对象字段为："
-        "company(公司), title(岗位名), city(城市), degree(学历要求), "
-        "deadline(投递截止日期,格式YYYY-MM-DD,未知填空串), link(投递/详情链接,未知填空串), "
-        "source(信息来源), tags(标签数组)。"
-        "只保留确实与 AI/产品 相关、且面向 2027届（或2026年底-2027年毕业）的岗位；"
-        "无法确认是 27届的、或明显是 26届已截止的，请丢弃。若没有符合的，输出 []。"
-    )
+        haystack = " ".join([company, title, note, location])
+        if KEYWORDS and not any(k.lower() in haystack.lower() for k in KEYWORDS):
+            continue
 
-    payload = {
-        "model": DEEPSEEK_MODEL,
-        "messages": [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": raw_text},
-        ],
-        "temperature": 0.2,
-        "max_tokens": 4000,
-    }
-
-    data = json.dumps(payload).encode("utf-8")
-    req = urllib.request.Request(
-        f"{DEEPSEEK_BASE_URL}/chat/completions",
-        data=data,
-        headers={
-            "Authorization": f"Bearer {DEEPSEEK_API_KEY}",
-            "Content-Type": "application/json",
-        },
-        method="POST",
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=90) as resp:
-            result = json.loads(resp.read().decode("utf-8"))
-        content = result["choices"][0]["message"]["content"].strip()
-        content = re.sub(r"^```(?:json)?\s*|\s*```$", "", content).strip()
-        jobs = json.loads(content)
-        if isinstance(jobs, list):
-            return jobs
-        return []
-    except Exception as e:
-        log(f"  [warn] DeepSeek 调用/解析失败: {e}")
-        return []
+        jobs.append({
+            "company": company,
+            "title": title or "校招/实习",
+            "city": location or "—",
+            "degree": "",
+            "deadline": deadline_norm,
+            "link": link,
+            "source": source_name,
+            "tags": [t for t in ["实习" if "实习" in haystack else "校招",
+                                  "AI" if ("AI" in haystack or "ai" in haystack) else "",
+                                  "产品" if "产品" in haystack else ""] if t],
+            "note": note,
+        })
+    return jobs
 
 
 def job_key(job: dict) -> str:
-    return (str(job.get("company", "")).strip() + "|" + str(job.get("title", "")).strip()).lower()
+    return (str(job.get("company", "")).strip() + "|" + str(job.get("link", "")).strip()).lower()
 
 
 def load_json(path: Path, default):
@@ -150,40 +128,32 @@ def load_json(path: Path, default):
 
 
 def main() -> int:
-    sources = load_json(SOURCES_FILE, {})
-    existing_jobs = load_json(JOBS_FILE, {}).get("jobs", [])
-    log(f"已有岗位 {len(existing_jobs)} 条")
-
-    merged = {job_key(j): j for j in existing_jobs}
+    sources = load_json(SOURCES_FILE, {}).get("fetch_sources") or DEFAULT_SOURCES
+    existing = load_json(JOBS_FILE, {}).get("jobs", [])
+    log(f"已有岗位 {len(existing)} 条")
+    merged = {job_key(j): j for j in existing}
 
     new_count = 0
-    for src in sources.get("fetch_sources", []):
+    for src in sources:
         url = src.get("url", "")
         name = src.get("name", url)
         if not url:
             continue
         log(f"抓取源: {name}")
-        html = fetch_url(url)
-        if not html:
+        md = fetch_url(url)
+        if not md:
             continue
-        text = strip_html(html)
-        if len(text) < 50:
-            continue
-        jobs = call_deepseek(text)
-        log(f"  -> 结构化得到 {len(jobs)} 条")
+        jobs = parse_markdown_table(md, name)
+        log(f"  → 解析得到 {len(jobs)} 条(关键词过滤后)")
         for j in jobs:
-            j["source"] = j.get("source") or name
-            j["updated"] = TODAY
             k = job_key(j)
             if k not in merged:
                 j["first_seen"] = TODAY
-                j["is_new"] = True
                 new_count += 1
             else:
                 j["first_seen"] = merged[k].get("first_seen", TODAY)
-                j["is_new"] = False
+            j["updated"] = TODAY
             merged[k] = j
-        time.sleep(1)
 
     all_jobs = list(merged.values())
     for j in all_jobs:
@@ -196,11 +166,8 @@ def main() -> int:
 
     def sort_key(j):
         d = j.get("deadline", "")
-        if d and re.match(r"\d{4}-\d{2}-\d{2}", d):
-            return (0, d)
-        return (1, "9999")
-
-    all_jobs.sort(key=sort_key)
+        return d if re.match(r"\d{4}-\d{2}-\d{2}", d or "") else "0000"
+    all_jobs.sort(key=sort_key, reverse=True)
 
     output = {
         "updated_at": datetime.now(TZ_CN).strftime("%Y-%m-%d %H:%M"),
@@ -209,7 +176,7 @@ def main() -> int:
         "jobs": all_jobs,
     }
     JOBS_FILE.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
-    log(f"完成：共 {len(all_jobs)} 条岗位，本次新增 {new_count} 条 -> {JOBS_FILE}")
+    log(f"完成：共 {len(all_jobs)} 条，本次新增 {new_count} 条 → {JOBS_FILE}")
     return 0
 
 
