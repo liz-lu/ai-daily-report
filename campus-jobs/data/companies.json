@@ -1,0 +1,24 @@
+{
+  "_comment": "各公司招聘官网入口(人工整理,校招/实习/产品岗)。监测脚本每天访问检测更新;前端展示为直达入口。可自行增删。",
+  "companies": [
+    {"name": "字节跳动", "category": "大厂", "url": "https://jobs.bytedance.com/campus/position?keywords=产品", "note": "校招产品岗;抖音/TikTok/豆包等AI产品线"},
+    {"name": "腾讯", "category": "大厂", "url": "https://join.qq.com/post.html", "note": "校招/实习;微信/腾讯云/AILab"},
+    {"name": "阿里巴巴", "category": "大厂", "url": "https://talent.alibaba.com/campus/position-list", "note": "校招;通义/淘天/阿里云AI产品"},
+    {"name": "美团", "category": "大厂", "url": "https://zhaopin.meituan.com/web/campus", "note": "校招提前批;含AI产品岗"},
+    {"name": "百度", "category": "大厂", "url": "https://talent.baidu.com/jobs/list", "note": "文心一言/智能云,AI产品重镇"},
+    {"name": "快手", "category": "大厂", "url": "https://campus.kuaishou.cn/#/campus/index", "note": "校招;可灵AI/推荐产品"},
+    {"name": "网易", "category": "大厂", "url": "https://campus.163.com/", "note": "校招;游戏/有道AI产品"},
+    {"name": "小米", "category": "大厂", "url": "https://hr.xiaomi.com/campus", "note": "校招;澎湃OS/AI产品"},
+    {"name": "京东", "category": "大厂", "url": "https://campus.jd.com/#/jobs", "note": "校招;言犀大模型产品"},
+    {"name": "小红书", "category": "互联网", "url": "https://job.xiaohongshu.com/campus", "note": "校招/实习;社区产品+AI"},
+    {"name": "哔哩哔哩", "category": "互联网", "url": "https://jobs.bilibili.com/campus/positions", "note": "校招/实习"},
+    {"name": "滴滴", "category": "互联网", "url": "https://talent.didiglobal.com/", "note": "校招;出行AI产品"},
+    {"name": "携程", "category": "互联网", "url": "https://campus.ctrip.com/", "note": "校招/实习;AI旅行产品"},
+    {"name": "月之暗面 Kimi", "category": "AI独角兽", "url": "https://www.moonshot.cn/", "note": "Kimi;AI产品岗(留意官网/BOSS)"},
+    {"name": "智谱 AI", "category": "AI独角兽", "url": "https://www.zhipuai.cn/", "note": "GLM大模型;AI产品"},
+    {"name": "MiniMax", "category": "AI独角兽", "url": "https://www.minimaxi.com/", "note": "海螺AI;产品岗"},
+    {"name": "阶跃星辰", "category": "AI独角兽", "url": "https://www.stepfun.com/", "note": "大模型AI产品"},
+    {"name": "百川智能", "category": "AI独角兽", "url": "https://www.baichuan-ai.com/", "note": "大模型AI产品"},
+    {"name": "面壁智能", "category": "AI独角兽", "url": "https://modelbest.cn/", "note": "端侧大模型产品"}
+  ]
+}
