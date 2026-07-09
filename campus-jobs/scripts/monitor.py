@@ -1,0 +1,149 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+AI产品岗求职作战台 —— 招聘官网更新监测脚本（自用，非商业，不公开）
+
+做法（合规、稳定、不碰反爬接口）：
+  1. 读取 data/companies.json 里各公司招聘官网入口
+  2. 每天访问每个页面，计算正文内容指纹(hash)
+  3. 与上次指纹对比：变化 → 标记"今日有更新"，提示你优先去看
+  4. 记录每家的最近检查时间、连续无更新天数、历史更新次数
+  5. 输出 data/monitor.json 供前端渲染
+
+为什么是"监测更新"而非"抓岗位明细"：
+  BOSS/小红书/大厂官网的岗位明细需登录态+JS签名+真实浏览器，
+  服务器脚本(GitHub Actions)无法稳定获取。但"页面是否更新"可以合规检测，
+  作为"哪家今天动了、值得去官网看"的高信噪比提醒。
+
+技术加固：每站独立容错、3次重试+退避+随机UA+超时；任一失败不影响整体。
+零第三方依赖、零API key。
+"""
+
+from __future__ import annotations
+
+import json
+import re
+import sys
+import time
+import hashlib
+import urllib.request
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
+
+TZ_CN = timezone(timedelta(hours=8))
+NOW = datetime.now(TZ_CN)
+TODAY = NOW.strftime("%Y-%m-%d")
+
+ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = ROOT / "data"
+COMPANIES_FILE = DATA_DIR / "companies.json"
+MONITOR_FILE = DATA_DIR / "monitor.json"
+
+UA_POOL = [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3 Safari/605.1.15",
+]
+
+
+def log(m: str) -> None:
+    print(f"[{NOW.strftime('%H:%M:%S')}] {m}", flush=True)
+
+
+def fetch(url: str, retries: int = 3, timeout: int = 20) -> str:
+    for i in range(retries):
+        try:
+            req = urllib.request.Request(url, headers={
+                "User-Agent": UA_POOL[i % len(UA_POOL)],
+                "Accept": "text/html,*/*;q=0.8",
+                "Accept-Language": "zh-CN,zh;q=0.9",
+            })
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return r.read().decode("utf-8", errors="ignore")
+        except Exception as e:
+            log(f"    第{i+1}次失败: {type(e).__name__}")
+            time.sleep(1.5 * (i + 1))
+    return ""
+
+
+def content_fingerprint(html_text: str) -> str:
+    """提取正文可见文本(去脚本/样式/标签)算指纹，忽略每次都变的噪音。"""
+    t = re.sub(r"<script[\s\S]*?</script>", " ", html_text, flags=re.I)
+    t = re.sub(r"<style[\s\S]*?</style>", " ", t, flags=re.I)
+    t = re.sub(r"<[^>]+>", " ", t)
+    t = re.sub(r"\d{6,}", "", t)
+    t = re.sub(r"\s+", "", t)
+    return hashlib.md5(t.encode("utf-8")).hexdigest()
+
+
+def load_json(path: Path, default):
+    if path.exists():
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            return default
+    return default
+
+
+def main() -> int:
+    companies = load_json(COMPANIES_FILE, {}).get("companies", [])
+    prev = {c["name"]: c for c in load_json(MONITOR_FILE, {}).get("companies", [])}
+    log(f"监测 {len(companies)} 家招聘官网")
+
+    results, updated_today = [], 0
+    for c in companies:
+        name, url = c["name"], c["url"]
+        rec = prev.get(name, {})
+        entry = {
+            "name": name, "category": c.get("category", ""), "url": url,
+            "note": c.get("note", ""),
+            "first_seen": rec.get("first_seen", TODAY),
+            "last_change": rec.get("last_change", ""),
+            "update_count": rec.get("update_count", 0),
+            "fingerprint": rec.get("fingerprint", ""),
+            "status": "ok",
+        }
+        try:
+            html_text = fetch(url)
+            if not html_text:
+                entry["status"] = "unreachable"
+                entry["updated_today"] = False
+            else:
+                fp = content_fingerprint(html_text)
+                changed = bool(entry["fingerprint"]) and fp != entry["fingerprint"]
+                if changed:
+                    entry["last_change"] = TODAY
+                    entry["update_count"] += 1
+                    updated_today += 1
+                entry["updated_today"] = changed
+                entry["fingerprint"] = fp
+        except Exception as e:
+            entry["status"] = f"error:{type(e).__name__}"
+            entry["updated_today"] = False
+        entry["last_check"] = TODAY
+        if entry["last_change"]:
+            try:
+                entry["days_since_change"] = (datetime.strptime(TODAY, "%Y-%m-%d")
+                                              - datetime.strptime(entry["last_change"], "%Y-%m-%d")).days
+            except Exception:
+                entry["days_since_change"] = None
+        else:
+            entry["days_since_change"] = None
+        results.append(entry)
+        log(f"  {name}: {'today-updated' if entry.get('updated_today') else entry['status']}")
+        time.sleep(0.8)
+
+    results.sort(key=lambda e: (e.get("updated_today", False), e.get("last_change", "")), reverse=True)
+
+    out = {
+        "updated_at": NOW.strftime("%Y-%m-%d %H:%M"),
+        "total": len(results),
+        "updated_today": updated_today,
+        "companies": results,
+    }
+    MONITOR_FILE.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    log(f"完成：{len(results)} 家，今日 {updated_today} 家有更新")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
