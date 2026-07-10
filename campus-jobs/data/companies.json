@@ -7,18 +7,18 @@
     {"name": "美团", "category": "大厂", "url": "https://zhaopin.meituan.com/web/campus", "note": "校招提前批;含AI产品岗"},
     {"name": "百度", "category": "大厂", "url": "https://talent.baidu.com/jobs/list", "note": "文心一言/智能云,AI产品重镇"},
     {"name": "快手", "category": "大厂", "url": "https://campus.kuaishou.cn/#/campus/index", "note": "校招;可灵AI/推荐产品"},
-    {"name": "网易", "category": "大厂", "url": "https://campus.163.com/", "note": "校招;游戏/有道AI产品"},
+    {"name": "网易", "category": "大厂", "url": "https://campus.163.com/app/careers", "note": "校招;游戏/有道AI产品"},
     {"name": "小米", "category": "大厂", "url": "https://hr.xiaomi.com/campus", "note": "校招;澎湃OS/AI产品"},
     {"name": "京东", "category": "大厂", "url": "https://campus.jd.com/#/jobs", "note": "校招;言犀大模型产品"},
     {"name": "小红书", "category": "互联网", "url": "https://job.xiaohongshu.com/campus", "note": "校招/实习;社区产品+AI"},
     {"name": "哔哩哔哩", "category": "互联网", "url": "https://jobs.bilibili.com/campus/positions", "note": "校招/实习"},
-    {"name": "滴滴", "category": "互联网", "url": "https://talent.didiglobal.com/", "note": "校招;出行AI产品"},
-    {"name": "携程", "category": "互联网", "url": "https://campus.ctrip.com/", "note": "校招/实习;AI旅行产品"},
-    {"name": "月之暗面 Kimi", "category": "AI独角兽", "url": "https://www.moonshot.cn/", "note": "Kimi;AI产品岗(留意官网/BOSS)"},
-    {"name": "智谱 AI", "category": "AI独角兽", "url": "https://www.zhipuai.cn/", "note": "GLM大模型;AI产品"},
-    {"name": "MiniMax", "category": "AI独角兽", "url": "https://www.minimaxi.com/", "note": "海螺AI;产品岗"},
-    {"name": "阶跃星辰", "category": "AI独角兽", "url": "https://www.stepfun.com/", "note": "大模型AI产品"},
-    {"name": "百川智能", "category": "AI独角兽", "url": "https://www.baichuan-ai.com/", "note": "大模型AI产品"},
-    {"name": "面壁智能", "category": "AI独角兽", "url": "https://modelbest.cn/", "note": "端侧大模型产品"}
+    {"name": "滴滴", "category": "互联网", "url": "https://campus.didiglobal.com/", "note": "校招;出行AI产品"},
+    {"name": "携程", "category": "互联网", "url": "https://campus.ctrip.com/campus-recruitment/ctrip/", "note": "校招/实习;AI旅行产品"},
+    {"name": "月之暗面 Kimi", "category": "AI独角兽", "url": "https://moonshot.jobs.feishu.cn/", "note": "Kimi;AI产品岗(飞书招聘)"},
+    {"name": "智谱 AI", "category": "AI独角兽", "url": "https://www.zhipuai.cn/careers", "note": "GLM大模型;AI产品岗"},
+    {"name": "MiniMax", "category": "AI独角兽", "url": "https://www.minimaxi.com/careers", "note": "海螺AI;产品岗"},
+    {"name": "阶跃星辰", "category": "AI独角兽", "url": "https://www.zhipin.com/gongsi/2dd732abbc1fae841XJ92N20F1Q~.html", "note": "大模型AI产品;BOSS直聘在招岗位"},
+    {"name": "百川智能", "category": "AI独角兽", "url": "https://www.zhipin.com/gongsi/8f9e4d3e6e6c5f0f1nx-2N4~.html", "note": "大模型AI产品;BOSS直聘在招岗位"},
+    {"name": "面壁智能", "category": "AI独角兽", "url": "https://modelbest.jobs.feishu.cn/", "note": "端侧大模型产品;飞书招聘"}
   ]
 }
