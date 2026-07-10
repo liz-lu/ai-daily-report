@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-07-10 11:42",
-  "last_run": "2026-07-10 11:42:31",
+  "updated_at": "2026-07-10 12:26",
+  "last_run": "2026-07-10 12:26:00",
   "total": 19,
   "updated_today": 0,
   "anomaly": false,
   "companies": [
     {"name": "百度","category": "大厂","url": "https://talent.baidu.com/jobs/list","note": "文心一言/智能云,AI产品重镇","first_seen": "2026-07-10","last_change": "","update_count": 0,"fingerprint": "e0459e467f539ebecccaad5dac5a01f2","status": "ok","updated_today": false,"last_check": "2026-07-10","days_since_change": null},
-    {"name": "智谱 AI","category": "AI独角兽","url": "https://www.zhipuai.cn/careers","note": "GLM大模型;AI产品岗","first_seen": "2026-07-10","last_change": "","update_count": 0,"fingerprint": "1200270a639e13479a65c9e5a5ab8e4f","status": "ok","updated_today": false,"last_check": "2026-07-10","days_since_change": null},
+    {"name": "智谱 AI","category": "AI独角兽","url": "https://app.mokahr.com/campus-recruitment/zphz/148984#/jobs/","note": "GLM大模型;校招","first_seen": "2026-07-10","last_change": "","update_count": 0,"fingerprint": "","status": "ok","updated_today": false,"last_check": "2026-07-10","days_since_change": null},
     {"name": "月之暗面 Kimi","category": "AI独角兽","url": "https://moonshot.jobs.feishu.cn/","note": "Kimi;AI产品岗(飞书招聘)","first_seen": "2026-07-10","last_change": "","update_count": 0,"fingerprint": "5a827bdfb0eedafae99b8a3ffda54de8","status": "ok","updated_today": false,"last_check": "2026-07-10","days_since_change": null},
     {"name": "MiniMax","category": "AI独角兽","url": "https://minimaxi.com/careers","note": "海螺AI;产品岗","first_seen": "2026-07-10","last_change": "","update_count": 0,"fingerprint": "c83cd3c8c91bdd2005ba89ca0530c3d4","status": "ok","updated_today": false,"last_check": "2026-07-10","days_since_change": null},
     {"name": "百川智能","category": "AI独角兽","url": "https://cq6qe6bvfr6.jobs.feishu.cn/646926","note": "大模型AI产品;校招","first_seen": "2026-07-10","last_change": "","update_count": 0,"fingerprint": "db83e39e89cbcca789f8b8380b172a39","status": "ok","updated_today": false,"last_check": "2026-07-10","days_since_change": null},
