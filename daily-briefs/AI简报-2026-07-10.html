@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-07-10</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a><a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-07-10</span>
+          <span>10:48（北京时间）</span>
+          <span>36氪、IT之家、Solidot、量子位、雷锋网</span>
+        </div>
+        <p class="hero-copy">今日AI领域聚焦具身智能与云生态的突破性进展。蚂蚁灵波科技发布并开源了全球首个面向具身的MoE视频基模LingBot-Video及世界模型LingBot-World 2.0，引发海外开发者社区热议。同时，移远通信正式入局XR赛道，发布Hawk系列AR眼镜与Dolphin算力单元。产业层面，至简动力完成百台机器人交付，他山科技获数亿元融资，显示具身智能与触觉仿真赛道持续升温。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>35</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>5</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>0</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>14</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>13</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>36氪、IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>10</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>36氪、IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>8</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>8</strong></div><p>基础设施的效率叙事持续升温</p><small>36氪、IT之家、雷锋网</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>4</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>3</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>IT之家、Solidot</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>云 / 大厂 / 生态</h3><p>蚂蚁灵波科技升级全栈大脑2.0，发布涵盖视觉、动作、操作及物理预测的具身智能大模型，并开源全球首个面向具身的MoE视频基模LingBot-Video和世界模型LingBot-World 2.0，支持AI原生多人交互，引发海外社交媒体热榜。</p></article><article class="insight-card"><h3>具身 / 机器人 / 智驾</h3><p>具身智能领域迎来多项里程碑：蚂蚁灵波发布全球首个具身专属MoE视频模型；至简动力交付百台i7 Pro机器人，打破行业交付纪录；移远通信发布Hawk系列AR眼镜与Dolphin XR算力单元，全面入局XR赛道。</p></article><article class="insight-card"><h3>产业 / 投融资 / 活动</h3><p>产业资本持续加码：他山科技完成数亿元B轮融资，昇视唯盛完成数亿元B轮融资，聚焦焊接具身智能。天立启鸣“AI+教育”方案入选联合国AI for Good案例集。2026年世界人工智能大会将于7月17-20日在上海举办。</p></article><article class="insight-card"><h3>大模型 / 应用 / 智能体</h3><p>Agent进化从对话走向协作，支付宝发布AIS开发套件，支持Agent自动发现、调用与计费。OpenAI首席未来学家离职引发关注。天立启鸣AI+教育方案获国际认可。</p></article><article class="insight-card"><h3>芯片 / 算力 / 推理</h3><p>移远通信发布Dolphin XR算力单元，推动XR规模化落地。蚂蚁灵波LingBot-Video基于MoE架构，提升推理效率与物理合理性。他山科技作为英伟达全球首家触觉仿真合作伙伴，获数亿元融资，上半年订单超去年四倍。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>蚂蚁灵波开源LingBot-World 2.0和LingBot-Video，标志着具身智能从单一模型向多模态、小时级生成演进，可能加速机器人从实验室走向真实场景。</li><li>至简动力百台机器人交付与昇视唯盛融资，表明工业制造领域具身智能已进入量产验证阶段，焊接等细分场景成为落地突破口。</li><li>移远通信入局XR，结合其物联网制造能力，可能降低AR眼镜规模化门槛，推动消费级XR设备普及。</li><li>他山科技获英伟达生态加持，触觉仿真技术获资本认可，预示机器人感知能力将从视觉向触觉延伸。</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>蚂蚁灵波LingBot-World 2.0在多人交互场景中的实际应用效果</li><li>至简动力i7 Pro机器人在工业场景中的交付与反馈</li><li>移远通信Hawk AR眼镜与Dolphin算力单元的市场接受度</li><li>他山科技触觉仿真技术在机器人领域的落地案例</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>14 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>世界模型首次迎来“小时级”生成！蚂蚁灵波开源LingBot-World 2.0，支持AI原生多人交互</h3><a href="https://www.qbitai.com/2026/07/446548.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>蚂蚁灵波开源LingBot-Video，全球首个面向具身的视频基模来了！</h3><a href="https://www.qbitai.com/2026/07/446458.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>中国机器人大脑引爆海外，蚂蚁灵波全栈2.0模型定义具身智能“新大脑”</h3><p>7月9日，中国AI创新力量再次引发全球关注。 中国具身智能公司——蚂蚁灵波科技升级全栈大脑2.0，一口气发布了涵盖视觉、动作、操作以及物理预测等方向的具身智能大模型，在海外开发者社区掀起热潮，发布即登上海外社交媒体热榜。 图说：蚂蚁灵波世界模型LingBot-World 2.0（Infinity）及具身模型LingBot-VLA2.0登上X科技热榜 在Reddit、X（原Twitter）及Hugging Face等国际主流技术平台上，LingBot-World 2.0被网友评价为“相当惊艳”！ 海外知名科技博主AK等纷纷点赞，指出该模型实现了长达一小时的连续生成且画质零衰减，解决了长视频生成的结构失真难题。在海外社交媒体上，用户正通过键盘实时操控角色在赛博朋克风格的城市中施法、战斗，画面达到720p/60fps的高清流畅度，这种“像游戏一样可玩”的实时反馈能力让海外网友惊叹不已。 图说：海外开发者用蚂蚁灵波世界模型LingBot-World-Infinity跑出游戏实时互动效果 然而，LingBot-World…</p><a href="https://www.leiphone.com/category/industrynews/G37AgItr75dHXX0i.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>蚂蚁灵波开源 LingBot-Video，全球首个面向具身的视频基模来了！</h3><p>7 月 9 日，蚂蚁灵波开源 LingBot-Video，这是全球首个基于 Mixture-of-Experts（MoE）架构、面向具身智能的开源视频生成基础模型。该模型围绕机器人和具身智能的核心需求重新设计视频预训练范式，在推理效率、物理合理性、动作理解和任务完成度等方面取得系统性提升，为视频基础模型从数字内容创作走向具身智能提供了新的开源底座。 在北京大学联合字节跳动发布的基准 RBench 上，LingBot-Video 的总分是 0.620，超越了 Wan2.6（0.607）、Seedance 1.5 Pro（0.584）、Cosmos3 Super（0.581）。RBench 作为面向机器人操作视频的综合评测基准，重点考察模型能否生成符合真实物理规律的机器人行为。这一结果表明，LingBot-Video 在生成机器人相关视频时，更能保持动作过程的合理性和任务执行的完整性。 （图说：LingBot-Video 在 RBench 上性能最优） 为进一步验证 LingBot-Video 对物理世界变化的建模能力，蚂蚁灵波在内部 benchmark 中从通用质量和具身领域两个维度进行评估。结果显示，对比 NVIDIA…</p><a href="https://www.leiphone.com/category/industrynews/6Hyio1NHDBM1d5Iw.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>官宣！蚂蚁灵波世界模型2.0来了，小时级生成+Agent驱动定义AI交互新范式</h3><p>7 月 9 日，蚂蚁灵波科技开源新一代实时交互世界模型 LingBot-World 2.0（又称 LingBot-World-Infinity）。该模型全面升级世界预测与交互能力，支持小时级实时生成、720p/60fps 高清实时输出以及更丰富的交互动作与事件，并在业界首次将 Agent 机制引入世界模型，让生成的世界从“可观看、可操控”，进一步走向“可持续互动、可动态变化”。 （图说：LingBot-World 2.0 在生成时长、动态程度、实时性等方面均处于业界顶尖水平） 今年 1 月，蚂蚁灵波开源了第一代世界模型 LingBot-World，重点攻克长视频生成中常见的“长时漂移”问题，即生成时间一长，画面容易模糊、结构容易变形。LingBot-World 1.0 将连续稳定生成时长推进到近 10 分钟，而且支持键鼠操控与文本触发环境变化，引发业界广泛关注。 在此基础上，LingBot-World 2.0 进一步向“无限生成”迈进。模型采用因果预训练范式，并引入自研的 MoBA…</p><a href="https://www.leiphone.com/category/industrynews/P1RW5pSlLbX6EKfq.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>更精准地预测飓风，微软 Aurora 1.5 天气预报模型发布</h3><p>IT之家 7 月 10 日消息，据科技媒体 Neowin 昨天报道，微软现已正式发布 Aurora 1.5 天气预报模型，新增 22 种变量，支持小时级预测。 与上一代模型相比，Aurora 1.5 模型在精确度等方面有所提升。测试结果显示， 该模型在海伦妮飓风的路径预测的中位数路径误差率 ， 相比以往低了三分之一 。同时在各项指标中，以 88.9% 的准确率优于 ECMWF（IT之家注：欧洲中期天气预报中心）模型。 Aurora 1.5 模型将以开放形式发布，适用于各大科研机构、政府部门和社会组织，微软还计划将该模型集成到 Microsoft Weather 等商业产品中。 此外，这款模型目前已在 GitHub 平台开源，感兴趣的用户可以下载研究。 参考： Aurora 1.5: Fine-Tuning a Foundation Model for Medium-Range Ensemble Weather Prediction - Microsoft Research GitHub - microsoft/aurora: Implementation of the Aurora model for Earth…</p><a href="https://www.ithome.com/0/974/897.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软 Win11 开始菜单 / 任务栏搜索框未来将调高 4 个像素</h3><p>IT之家 7 月 10 日消息，科技媒体 Windows Central 昨日（7 月 9 日）发布博文， 报道称微软计划未来调整 Windows 11 开始菜单和任务栏中的搜索框高度，增加 4 个像素。 在视觉方面，搜索框高度在增加 4 个像素后，感觉会更厚。在任务栏中，搜索框会更靠近顶部边缘；而在开始菜单中，搜索框会略微下移。IT之家援引博文内容，附上对比动图如下： 微软官方尚未解释本次调整原因，不过该媒体推测可能关联 Ask Copilot，该功能用于增强 Windows 11 搜索体验，用户既能像过去一样搜索文件、应用和系统设置，也能直接调用 Copilot 获得 AI 辅助结果。 这项调整最初出现在 Experimental 频道 Windows 11 更新日志中，微软工程师确认目前正在内部测试，尚未进入预览阶段。</p><a href="https://www.ithome.com/0/974/880.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>猛士 X700 新车官宣：猛士汽车 × 华为乾崑联合设计，面向城市轻户外场景</h3><p>IT之家 7 月 10 日消息，今天（10 日）上午，猛士汽车官微发布了一张新车 X700 的预告图。官方并未透露太多的信息，仅称这是全新 X 系列的首款车型，由猛士汽车 × 华为乾崑联合设计，为城市轻户外场景而生。 预告图显示，这款新车配有贯穿式灯带和发光 logo，并用星空样式加以点缀增强精致感。 今年 5 月 26 日，猛士汽车宣布， 猛士 × 引望战略合作 2.0 正式启动 。根据规划，猛士 × 引望战略合作 2.0 首期将推出 5 款全新车型， 首款车型会在 2026 年量产 。另外，全新猛士 M817 也将在 5 月 29 日开启预售。 据IT之家此前报道， 今年 5 月 19 日，东风猛士与引望正式签署全面深化战略合作 2.0 协议 。华为轮值董事长徐直军表示，引望将投入优质的资源，与东风联合，支持猛士的发展。 今年上市的猛士新款车型都将获得华为乾崑最新科技赋能 。</p><a href="https://www.ithome.com/0/974/874.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>字节跳动公益基金会捐赠 2000 万元，支援广西、湖北、甘肃灾区</h3><p>IT之家 7 月 10 日消息，北京字节跳动公益基金会今日宣布捐赠 2000 万元 ，支援广西、湖北、甘肃灾区，用于开展应急救助、过渡安置、灾后重建等工作。 受台风“美莎克”及近期强降雨影响，广西多地出现严重暴雨洪涝灾害，湖北、甘肃部分地区先后发生风雹、山体滑坡灾害，造成人员伤亡和财产损失。灾害发生后，北京字节跳动公益基金会迅速响应应急管理部政社协同机制，联合中国红十字基金会、中国社会福利基金会及深圳壹基金公益基金会开展救灾行动，已向灾区运送两批救援物资。 同时，字节跳动公益平台启动应急响应机制，在抖音、今日头条上线“驰援一线，抗击水灾”专题，支持各公益组织开展筹款，并设置寻人专区。截至 7 月 10 日， 字节跳动公益平台已带动 200 多万人为灾区捐款 。 北京字节跳动公益基金会将持续关注灾区需求及汛期潜在险情，与各方保持密切协作，支持受灾人群渡过难关。 IT之家注意到，据广西南宁防汛救灾发布会 7 月 9 日通报：截至 7 月 9 日上午 11 时，南宁六蓝水库溃口洪灾已造成 26 人死亡（其中 5 人身份待确定）、失联 7 人。…</p><a href="https://www.ithome.com/0/974/869.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软推进 XBOX 重组，《上古卷轴 Online》游戏开发商裁员 213 人</h3><p>IT之家 7 月 10 日消息，科技媒体 Windows Central 昨日（7 月 9 日）发布博文，报道称在微软 XBOX 持续推进重组计划中， 《上古卷轴 Online》游戏开发商 ZeniMax Online 裁员 213 人。 根据美国马里兰州政府发布的 WARN 报告显示，ZeniMax Online 裁员 213 人，ZeniMax Media Inc. 裁员 166 人，合计 379 人。IT之家附上相关截图如下： 报道指出微软正在持续推进 XBOX 业务重组，最新报告确认《上古卷轴 Online》开发团队所在的 ZeniMax Online 已进入本轮裁员范围。 在此之前，Windows Central 已报道称， id Software 已确认流失超过 136 名员工 ，来源为 id Software 相关确认与 Windows Central 报道。该数字被作为 Xbox 近期重组影响持续扩大的另一项已公开数据。 报道还提到，曾在 ZeniMax Online 任职的开发者 Andrew Young 于 2026 年 7 月 6 日公开表达不满，称团队长期投入大量精力，并提到《上古卷轴…</p><a href="https://www.ithome.com/0/974/864.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌发布 LiteRT.js 库，Web AI 推理最高提速 3 倍</h3><p>IT之家 7 月 10 日消息，谷歌昨日（7 月 9 日）发布博文，为提升浏览器人工智能（AI）及机器学习（ML）工作负载的运行速度， 推出全新的 LiteRT.js 库。 谷歌表示 LiteRT.js 采用 WebAssembly，并结合 WebGPU 与 WebNN 等硬件加速能力，用于替代 TensorFlow.js 所使用的 JavaScript 内核方案。IT之家附上相关截图如下： LiteRT.js 架构概述 WebAssembly 是一种二进制指令格式，支持网页在浏览器中以接近本地代码的速度执行高性能计算。 TensorFlow.js 是由谷歌开发的库，支持用户在 JavaScript 环境中构建、训练和部署机器学习模型。它允许开发者将基于 TensorFlow 构建的模型直接部署到 Web 浏览器中，实现客户端的 AI 功能。 在搭载 M4 芯片的 2024 款苹果 MacBook Pro 笔记本上，谷歌测试发现相比较现有方案， LiteRT.js 速度提升 3 倍。谷歌在官方博文中表示，在运行旧硬件或使用不同引擎的浏览器时，实际性能可能存在差异。</p><a href="https://www.ithome.com/0/974/839.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>AI 加快漏洞发现，微软称 Win11 每月更新将整合更多安全修复</h3><p>IT之家 7 月 10 日消息，微软昨日（7 月 9 日）发布博文，为适应 AI 推动的漏洞发现加速趋势，宣布调整 Windows 11 漏洞管理体系， 把 AI 引入漏洞发现、修复与验证流程，从而缩短从发现到防护的时间。 微软 Windows and Devices 执行副总裁帕万 · 达武鲁里（Pavan Davuluri）表示，在 AI 参与漏洞发现流程后，可以帮助工程团队更快识别可利用问题，并加速分析流程，从而缩短漏洞发现到客户获得防护之间的时间。IT之家附上相关视频如下： 在漏洞发现环节，Windows 工程团队已采用智能体扫描框架 MDASH，结合多个前沿模型，从而更快更准发现系统漏洞。 在漏洞验证环节，经扫描确认的候选问题，会进入 Windows 专用验证流程，仅将高置信度结果提交给工程团队。 微软表示这套自动化流程可处理更大体量的潜在漏洞，并缩短新漏洞审查窗口，对于普通用户而言，每月发布的 Windows 11 累积更新会包含更多修复内容。 除漏洞发现外，AI…</p><a href="https://www.ithome.com/0/974/832.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Microsoft 365 Copilot 普及率不到 4.5%</h3><p>微软花了三年时间将 Copilot 深入集成到 Windows 11 和 Office 中，但数据显示用户使用率并不高。在 4.5 亿 Microsoft 365 订阅服务的商业客户中，只有 4.5% 的人付费使用 Copilot，而这些付费用户只有 20% 到 30% 会每周打开 Copilot。这意味着 Copilot 的周活跃用户数仅占 Microsoft 365 总用户数的 1%。Copilot 负责人 Jacob Andreou 在一份内部备忘录中称，Copilot 必须证明自己存在的价值。值得说明的是 Copilot 是指需要额外付费的 AI 服务，而 Copilot Chat 则是 Microsoft 365 用户可免费使用的 AI 服务，它的使用率比较高。</p><a href="https://www.solidot.org/story?sid=84782" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>LineageOS 项目谈 Google 的开发者认证计划</h3><p>LineageOS 项目谈论了即将生效的 Google Android 开发者认证计划对该项目意味着什么。Android 开发者认证计划意味着所有 Android 安装路径都将通过 Google 控制的基础设施，授予 Google 一个“终止开关”可封禁全球任何 Android 应用或开发者。开发者认证对 LineageOS 项目没有直接影响，但会影响到运行任何官方 ROM 的用户。因为验证开发者的基础设施是 Google Mobile Services（GMS）的一部分，而 LineageOS 默认并不提供也无计划提供 GMS。除非 LineageOS 用户选择安装包含开发者验证基础架构的 GApps 包，否则该功能不会造成任何影响。如果 Google 将该功能集成到 Play Services 中，那么 LineageOS 项目将会全局禁用该功能。</p><a href="https://www.solidot.org/story?sid=84777" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>13 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>刚刚，全球首个具身专属的MoE视频模型，开源了！</h3><a href="https://www.qbitai.com/2026/07/446568.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>世界模型首次迎来“小时级”生成！蚂蚁灵波开源LingBot-World 2.0，支持AI原生多人交互</h3><a href="https://www.qbitai.com/2026/07/446548.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>蚂蚁灵波开源LingBot-Video，全球首个面向具身的视频基模来了！</h3><a href="https://www.qbitai.com/2026/07/446458.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>移远通信发布 Hawk 系列 AR 眼镜与 Dolphin XR 算力单元：以一站式制造能力推动 XR 规模化落地</h3><p>7月9日，“方寸镜·无限远”——2026移远XR解决方案与生态战略发布会在深圳举办。会上，移远通信正式发布全链路自研的AI+AR眼镜Hawk系列，以及配套算力单元Dolphin系列，标志着这家物联网领军企业全面入局XR赛道。 三年沉淀，从“智联”到“视界”的战略跨越 活动现场，移远通信联合创始人&amp;首席运营官张栋以物联网发展的三次演进为脉络，阐述了移远从“智联”到“视界”的战略跃迁。 移远通信联合创始人&amp;首席运营官张栋 2010年，万物互联方兴未艾，行业核心命题在于“连接”本身，移远以稳定可靠的连接能力助力各类设备持续在线，完成1.0时代的战略奠基。2015年起，市场从基础连接转向对体验、交互与即时响应的更高要求，移远顺势而为，将“智能响应”确立为2.0时代的关键词。如今，随着AI、机器人、XR三大技术浪潮交汇，移远正式迈入3.0时代——从响应走向决策。 张栋表示：“移远已经把 AI 的决策能力，注入多类机器人的物理身驱。而对于XR，我们坚定地相信，下一代人机交互的核心入口，将是我们的眼睛。”在他看来，XR的底层逻辑是连接、算力与AI的深度融合，而这三大能力，正是移远过去十五年在通信与智能领域沉淀下来的深厚底气。…</p><a href="https://www.leiphone.com/category/arvr/5zNZCHth6f2indzb.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>中国机器人大脑引爆海外，蚂蚁灵波全栈2.0模型定义具身智能“新大脑”</h3><p>7月9日，中国AI创新力量再次引发全球关注。 中国具身智能公司——蚂蚁灵波科技升级全栈大脑2.0，一口气发布了涵盖视觉、动作、操作以及物理预测等方向的具身智能大模型，在海外开发者社区掀起热潮，发布即登上海外社交媒体热榜。 图说：蚂蚁灵波世界模型LingBot-World 2.0（Infinity）及具身模型LingBot-VLA2.0登上X科技热榜 在Reddit、X（原Twitter）及Hugging Face等国际主流技术平台上，LingBot-World 2.0被网友评价为“相当惊艳”！ 海外知名科技博主AK等纷纷点赞，指出该模型实现了长达一小时的连续生成且画质零衰减，解决了长视频生成的结构失真难题。在海外社交媒体上，用户正通过键盘实时操控角色在赛博朋克风格的城市中施法、战斗，画面达到720p/60fps的高清流畅度，这种“像游戏一样可玩”的实时反馈能力让海外网友惊叹不已。 图说：海外开发者用蚂蚁灵波世界模型LingBot-World-Infinity跑出游戏实时互动效果 然而，LingBot-World…</p><a href="https://www.leiphone.com/category/industrynews/G37AgItr75dHXX0i.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>至简动力交付百台「开箱即用」机器人，加速具身量产节奏</h3><p>打破具身行业最快交付纪录 作者丨 邓哲敏 编辑丨 齐铖湧 2026年7月6日，至简动力在苏州宣布 完成首批百台i7 Pro机器人交付，同时落成一条CNC智能化具身机器人产线。距离公司成立不足一年。 至简动力给这款产品的定位是&quot;开箱即用&quot;的工业具身机器人——客户采购后，无需漫长的现场调试，在一周内即可完成部署并进入生产节拍。与之配套的是&quot;同一套方案打穿多场景&quot;的叙事：同一套数据采集框架、同一套基座模型、同一套硬件本体，从CNC上下料延伸到光电模组、柔性PCB、商超零售等不同领域。 百台这个数字，放在汽车行业不值一提，但在一个连Demo能不能复现都要打问号的赛道里，它意味着，有人把实验室里的想法，变成了工厂里的订单。至简动力的百台是首批直接进入客户自有产线、而非实验室或展厅的规模化交付，这对于仍处于早期阶段的具身智能行业而言，无疑是一件值得关注的事。 过去三年，具身智能行业活在叙事裂缝中——融资额翻倍、Demo视频刷屏，但摩根士丹利调研显示，头部厂商机器人在工厂的实际工作效率仅约人类的30%，灵巧手成本高、寿命短，量产计划一推再推。智元在4月定义2026为&quot;部署态&quot;元年，核心标准是7×24小时自主干活、产生真实商业价值。…</p><a href="https://www.leiphone.com/category/ai/aFTmWZkO6CAIPGvW.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>人手数据，如何重塑机器人基础模型？专访 LaST-HD 一作刘家铭</h3><p>至简动力联合北大、港中文、乙太科技—不代替真机，人手与真机数据共生 作者丨邓哲敏 编辑丨 齐铖湧 数据一直是具身智能最难啃的骨头。目前几条主流数据路线都存在明显瓶颈。仿真数据采集效率高，却始终受到虚实鸿沟限制。真机遥操作能够获得高质量数据，但采集成本高、效率低，而且大量数据与机器人本体深度绑定，难以复用。 至简动力在苏州交付的首批 100 台 i7 Pro 机器人，已进入 CNC 上下料等工业场景部署，这批机器人采用的，是与行业主流有所不同的数据路线——人手数据。 围绕数据路线之争，AI科技评论（雷峰网公众号）对话至简动力北大联合实验室RD负责人、北京大学博士生刘家铭。 他最新发表的 LaST-HD 论文，由北京大学、香港中文大学、至简动力、乙太科技等团队联合推出，通过让机器人学习人手动作背后的物理规律，让难以利用的人类操作经验转化为机器人技能。 在这场对话中，刘家铭分享了交付背后的技术问题，也谈了谈他对具身领域模型与数据发展方向的判断。 以下是AI科技评论（雷峰网公众号）与刘家铭的对话，经不改变原意的编辑整理： 01 人手数据不是来代替真机数据的 ▎ AI科技评论：最近 Human Data…</p><a href="https://www.leiphone.com/category/ai/tc6oPeh2ZD5DST6g.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>蚂蚁灵波开源 LingBot-Video，全球首个面向具身的视频基模来了！</h3><p>7 月 9 日，蚂蚁灵波开源 LingBot-Video，这是全球首个基于 Mixture-of-Experts（MoE）架构、面向具身智能的开源视频生成基础模型。该模型围绕机器人和具身智能的核心需求重新设计视频预训练范式，在推理效率、物理合理性、动作理解和任务完成度等方面取得系统性提升，为视频基础模型从数字内容创作走向具身智能提供了新的开源底座。 在北京大学联合字节跳动发布的基准 RBench 上，LingBot-Video 的总分是 0.620，超越了 Wan2.6（0.607）、Seedance 1.5 Pro（0.584）、Cosmos3 Super（0.581）。RBench 作为面向机器人操作视频的综合评测基准，重点考察模型能否生成符合真实物理规律的机器人行为。这一结果表明，LingBot-Video 在生成机器人相关视频时，更能保持动作过程的合理性和任务执行的完整性。 （图说：LingBot-Video 在 RBench 上性能最优） 为进一步验证 LingBot-Video 对物理世界变化的建模能力，蚂蚁灵波在内部 benchmark 中从通用质量和具身领域两个维度进行评估。结果显示，对比 NVIDIA…</p><a href="https://www.leiphone.com/category/industrynews/6Hyio1NHDBM1d5Iw.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>官宣！蚂蚁灵波世界模型2.0来了，小时级生成+Agent驱动定义AI交互新范式</h3><p>7 月 9 日，蚂蚁灵波科技开源新一代实时交互世界模型 LingBot-World 2.0（又称 LingBot-World-Infinity）。该模型全面升级世界预测与交互能力，支持小时级实时生成、720p/60fps 高清实时输出以及更丰富的交互动作与事件，并在业界首次将 Agent 机制引入世界模型，让生成的世界从“可观看、可操控”，进一步走向“可持续互动、可动态变化”。 （图说：LingBot-World 2.0 在生成时长、动态程度、实时性等方面均处于业界顶尖水平） 今年 1 月，蚂蚁灵波开源了第一代世界模型 LingBot-World，重点攻克长视频生成中常见的“长时漂移”问题，即生成时间一长，画面容易模糊、结构容易变形。LingBot-World 1.0 将连续稳定生成时长推进到近 10 分钟，而且支持键鼠操控与文本触发环境变化，引发业界广泛关注。 在此基础上，LingBot-World 2.0 进一步向“无限生成”迈进。模型采用因果预训练范式，并引入自研的 MoBA…</p><a href="https://www.leiphone.com/category/industrynews/P1RW5pSlLbX6EKfq.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>36氪首发 | 英伟达全球首家触觉仿真合作伙伴再获数亿融资，上半年订单超去年四倍</h3><p>图源/企业 本文约 3100 字，建议阅读 7 分钟 作者丨欧雪 编辑丨袁斯来 硬氪获悉，北京他山科技有限公司（以下简称“他山科技”）已于近期完成B轮融资，金额为数亿元。本轮投资方包括均胜电子、太平创新、奥克斯、鹏翎股份、Lavender Hill Capital Partners（LHCP）、洪山资本等产业方，老股东道氏技术、彬复资本追加投资。资金将主要用于触觉传感器及芯片迭代、场景化方案落地及触觉训练平台建设。 这家成立于2017年的公司，总部位于北京，是一家专注于人工智能触觉感知技术及全栈式应用解决方案的研发商。核心团队由清华大学、曼彻斯特大学等高校研发人员组成；首席科学家为ARM架构共同发明人、英国两院院士Steve Furber；公司创始人孙滕谌毕业于清华大学自动化系，是平面电容与曲面电容技术发明人。 2019年，公司与曼彻斯特大学联合成立全球首个AI触觉感知实验室。经过近多年深耕，他山科技已构建起“芯片-传感器-算法模型-场景应用”的全栈技术体系。 触觉感知在机器人行业的重要性正在快速成为共识。据公司观察，2025年触觉传感器在灵巧手中的渗透率已从约20%出头提升至60%以上，且每月仍在持续增长。…</p><a href="https://36kr.com/p/3889141540370949?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>揭秘Momenta：马斯克式CEO、AI执念和量产机器丨深氪</h3><p>特斯拉FSD（Full Self-Driving）每迭代出一个新版本，自动驾驶公司Momenta的创始人曹旭东都会飞去美国亲自体验。 “他还不光是去坐车，还会找一切能接触到特斯拉的人聊。”接触到曹旭东的人士告诉36氪，马斯克是曹旭东最常提到的人。 在内部，许多员工对曹旭东的一个共同感受，就是“马斯克式CEO”。 创业十年，Momenta赴港股IPO，上市首日（7月8日）市值达700亿港元。Momenta创始人曹旭东对36氪用两个数据，概括Momenta的阶段性成绩：定点车型市占率超50%，量产搭载车辆市占率超60%。 在这个节点回望，多位在职或者离职人士都向36氪总结，Momenta的内核和这家公司的经营底色，几乎都指向曹旭东，这位掌舵者的目标感和决策力。 Momenta如今在辅助驾驶量产市占率上大幅度领跑，业界往往认为跟两件事有关。 第一，是在其他自动驾驶公司都押宝L4方向时，曹旭东选择了先做L2级别的量产交付，这个与众不同的选择，让Momenta获得了占领量产市场的先机。而令人困惑之处也在于，2020年特斯拉推出FSD之前，曹旭东选择的这条路，在数年内都少有外界支持、融资不畅，他为什么能坚持下来？…</p><a href="https://36kr.com/p/3888180493318921?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>自研焊接具身大脑模型，以“智能焊工”切入工业制造具身智能赛道，「昇视唯盛」完成数亿元B轮融资｜36氪首发</h3><p>36氪获悉，聚焦工业制造领域的具身智能机器人企业 「昇视唯盛」（3Srobotics）正式宣布完成数亿元B轮融资，本轮融资由上海半导体产投、金桥基金领投，零一创投、新鼎资本、中关鼎华及老股东微光创投持续加码跟投。 资金将主要用于焊接具身智能大脑与自主小脑运动控制系统的迭代升级，扩大自有智造工厂产能，扩充研发与市场服务团队，加速产品全国多行业规模化落地。 昇视唯盛成立于2020年，2023年获得国家高新技术企业认证，2024年获得上海市专精特新中小企业、上海市智能机器人标杆企业。本轮融资完成标志昇视唯盛依托“自主大脑+自主小脑+自研硬件量产”三级全栈自研体系迈入规模化高速发展新阶段，以可量产、可自主进化的工业级智能机器人产品，切入国内工业制造具身智能落地赛道。 昇视唯盛三代产品升级路径 1.切中焊接刚需场景，打造“智能焊工” 创立之初，昇视唯盛主要从事通用工业机器人的研发与生产销售。 随着业务发展，创始人王德钊逐渐形成判断，认为机器人在未来会从通用化走向垂直场景的深度智能化。 “所以我们定位在做AI算法与机器人硬件的深度结合，在垂直场景里充分发挥智能机器人的价值。” 在众多工业场景中，昇视唯盛选择了焊接。…</p><a href="https://36kr.com/p/3887871679347208?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>美国新泽西州拟禁止纯视觉自动驾驶汽车，特斯拉 Robotaxi 或被拒之门外</h3><p>IT之家 7 月 10 日消息，据科技媒体 The Verge 前天报道，自动驾驶行业十多年来始终在争论：仅凭摄像头是否能取代人类驾驶员，还是说真正的无人驾驶汽车必须配备毫米波雷达、激光雷达等冗余传感器，才能可靠地感知环境？ 特斯拉已经在纯视觉智驾方案投资数十亿美元，并坚定地在这条路上前进。但与此同时，其他自动驾驶企业都选择了截然不同的技术路线。 而美国新泽西州似乎想为这场争端画一个句号。该州立法者已经在起草法案，意图让新泽西州所有运营自动驾驶汽车的企业，都必须使用摄像头和另外两种环境感知技术。 目前，该法案还在起草过程中，预计将于今年晚些时候表决。 如果最终通过 ， 新泽西成为全美首个禁止 Robotaxi 等纯视觉自动驾驶方案的州 。 新泽西州参议员安德鲁 · 兹维克（IT之家注：Andrew Zwicker）对此表示：“这条法案并不是针对特斯拉，我在意全州人民的公共安全”。</p><a href="https://www.ithome.com/0/974/836.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>10 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>2026年世界人工智能大会，7月17-7月20上海举办</h3><a href="https://www.qbitai.com/2026/07/436498.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>天立启鸣“AI+教育”方案入选AI for Good</h3><p>北京时间7月7日，联合国机构国际电信联盟（ITU）2026年“人工智能向善”全球峰会（ AI for Good Global Summit ）在瑞士日内瓦举办，公布了年度 “AI for Good创新影响力案例集” 。天立国际旗下智慧教育公司启鸣达人（以下简称“天立启鸣”） 自主研发的“天立学科大脑：AI驱动的个性化公平学习路径”入选“Generative Al for Creativity, Education and Public Services”（用于创造力、教育和公共服务的生成式人工智能）类别案例集 。 “天立学科大脑：AI驱动的个性化公平学习路径”入选案例集 “人工智能向善”全球峰会是全球人工智能领域交流对话的重要平台之一，由国际电信联盟 （ ITU ） 与联合国工业发展组织、联合国教科文组织等联合国专门机构合作举办。“AI for Good创新影响力案例集”每年从 海量 申报案例中遴选出最具社会价值与落地成效的AI应用。在2026年周期中，年度全球应用案例征集的规模达到了迄今为止的最高水平：涵盖了来自国际电联五个区域的40个国家和经济体的267个用例。 天立启鸣此次的入选…</p><a href="https://www.leiphone.com/category/ai/PfbwTKDLzwL99jmZ.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>至简动力交付百台「开箱即用」机器人，加速具身量产节奏</h3><p>打破具身行业最快交付纪录 作者丨 邓哲敏 编辑丨 齐铖湧 2026年7月6日，至简动力在苏州宣布 完成首批百台i7 Pro机器人交付，同时落成一条CNC智能化具身机器人产线。距离公司成立不足一年。 至简动力给这款产品的定位是&quot;开箱即用&quot;的工业具身机器人——客户采购后，无需漫长的现场调试，在一周内即可完成部署并进入生产节拍。与之配套的是&quot;同一套方案打穿多场景&quot;的叙事：同一套数据采集框架、同一套基座模型、同一套硬件本体，从CNC上下料延伸到光电模组、柔性PCB、商超零售等不同领域。 百台这个数字，放在汽车行业不值一提，但在一个连Demo能不能复现都要打问号的赛道里，它意味着，有人把实验室里的想法，变成了工厂里的订单。至简动力的百台是首批直接进入客户自有产线、而非实验室或展厅的规模化交付，这对于仍处于早期阶段的具身智能行业而言，无疑是一件值得关注的事。 过去三年，具身智能行业活在叙事裂缝中——融资额翻倍、Demo视频刷屏，但摩根士丹利调研显示，头部厂商机器人在工厂的实际工作效率仅约人类的30%，灵巧手成本高、寿命短，量产计划一推再推。智元在4月定义2026为&quot;部署态&quot;元年，核心标准是7×24小时自主干活、产生真实商业价值。…</p><a href="https://www.leiphone.com/category/ai/aFTmWZkO6CAIPGvW.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>36氪首发 | 英伟达全球首家触觉仿真合作伙伴再获数亿融资，上半年订单超去年四倍</h3><p>图源/企业 本文约 3100 字，建议阅读 7 分钟 作者丨欧雪 编辑丨袁斯来 硬氪获悉，北京他山科技有限公司（以下简称“他山科技”）已于近期完成B轮融资，金额为数亿元。本轮投资方包括均胜电子、太平创新、奥克斯、鹏翎股份、Lavender Hill Capital Partners（LHCP）、洪山资本等产业方，老股东道氏技术、彬复资本追加投资。资金将主要用于触觉传感器及芯片迭代、场景化方案落地及触觉训练平台建设。 这家成立于2017年的公司，总部位于北京，是一家专注于人工智能触觉感知技术及全栈式应用解决方案的研发商。核心团队由清华大学、曼彻斯特大学等高校研发人员组成；首席科学家为ARM架构共同发明人、英国两院院士Steve Furber；公司创始人孙滕谌毕业于清华大学自动化系，是平面电容与曲面电容技术发明人。 2019年，公司与曼彻斯特大学联合成立全球首个AI触觉感知实验室。经过近多年深耕，他山科技已构建起“芯片-传感器-算法模型-场景应用”的全栈技术体系。 触觉感知在机器人行业的重要性正在快速成为共识。据公司观察，2025年触觉传感器在灵巧手中的渗透率已从约20%出头提升至60%以上，且每月仍在持续增长。…</p><a href="https://36kr.com/p/3889141540370949?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>揭秘Momenta：马斯克式CEO、AI执念和量产机器丨深氪</h3><p>特斯拉FSD（Full Self-Driving）每迭代出一个新版本，自动驾驶公司Momenta的创始人曹旭东都会飞去美国亲自体验。 “他还不光是去坐车，还会找一切能接触到特斯拉的人聊。”接触到曹旭东的人士告诉36氪，马斯克是曹旭东最常提到的人。 在内部，许多员工对曹旭东的一个共同感受，就是“马斯克式CEO”。 创业十年，Momenta赴港股IPO，上市首日（7月8日）市值达700亿港元。Momenta创始人曹旭东对36氪用两个数据，概括Momenta的阶段性成绩：定点车型市占率超50%，量产搭载车辆市占率超60%。 在这个节点回望，多位在职或者离职人士都向36氪总结，Momenta的内核和这家公司的经营底色，几乎都指向曹旭东，这位掌舵者的目标感和决策力。 Momenta如今在辅助驾驶量产市占率上大幅度领跑，业界往往认为跟两件事有关。 第一，是在其他自动驾驶公司都押宝L4方向时，曹旭东选择了先做L2级别的量产交付，这个与众不同的选择，让Momenta获得了占领量产市场的先机。而令人困惑之处也在于，2020年特斯拉推出FSD之前，曹旭东选择的这条路，在数年内都少有外界支持、融资不畅，他为什么能坚持下来？…</p><a href="https://36kr.com/p/3888180493318921?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>自研焊接具身大脑模型，以“智能焊工”切入工业制造具身智能赛道，「昇视唯盛」完成数亿元B轮融资｜36氪首发</h3><p>36氪获悉，聚焦工业制造领域的具身智能机器人企业 「昇视唯盛」（3Srobotics）正式宣布完成数亿元B轮融资，本轮融资由上海半导体产投、金桥基金领投，零一创投、新鼎资本、中关鼎华及老股东微光创投持续加码跟投。 资金将主要用于焊接具身智能大脑与自主小脑运动控制系统的迭代升级，扩大自有智造工厂产能，扩充研发与市场服务团队，加速产品全国多行业规模化落地。 昇视唯盛成立于2020年，2023年获得国家高新技术企业认证，2024年获得上海市专精特新中小企业、上海市智能机器人标杆企业。本轮融资完成标志昇视唯盛依托“自主大脑+自主小脑+自研硬件量产”三级全栈自研体系迈入规模化高速发展新阶段，以可量产、可自主进化的工业级智能机器人产品，切入国内工业制造具身智能落地赛道。 昇视唯盛三代产品升级路径 1.切中焊接刚需场景，打造“智能焊工” 创立之初，昇视唯盛主要从事通用工业机器人的研发与生产销售。 随着业务发展，创始人王德钊逐渐形成判断，认为机器人在未来会从通用化走向垂直场景的深度智能化。 “所以我们定位在做AI算法与机器人硬件的深度结合，在垂直场景里充分发挥智能机器人的价值。” 在众多工业场景中，昇视唯盛选择了焊接。…</p><a href="https://36kr.com/p/3887871679347208?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>猛士 X700 新车官宣：猛士汽车 × 华为乾崑联合设计，面向城市轻户外场景</h3><p>IT之家 7 月 10 日消息，今天（10 日）上午，猛士汽车官微发布了一张新车 X700 的预告图。官方并未透露太多的信息，仅称这是全新 X 系列的首款车型，由猛士汽车 × 华为乾崑联合设计，为城市轻户外场景而生。 预告图显示，这款新车配有贯穿式灯带和发光 logo，并用星空样式加以点缀增强精致感。 今年 5 月 26 日，猛士汽车宣布， 猛士 × 引望战略合作 2.0 正式启动 。根据规划，猛士 × 引望战略合作 2.0 首期将推出 5 款全新车型， 首款车型会在 2026 年量产 。另外，全新猛士 M817 也将在 5 月 29 日开启预售。 据IT之家此前报道， 今年 5 月 19 日，东风猛士与引望正式签署全面深化战略合作 2.0 协议 。华为轮值董事长徐直军表示，引望将投入优质的资源，与东风联合，支持猛士的发展。 今年上市的猛士新款车型都将获得华为乾崑最新科技赋能 。</p><a href="https://www.ithome.com/0/974/874.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软推进 XBOX 重组，《上古卷轴 Online》游戏开发商裁员 213 人</h3><p>IT之家 7 月 10 日消息，科技媒体 Windows Central 昨日（7 月 9 日）发布博文，报道称在微软 XBOX 持续推进重组计划中， 《上古卷轴 Online》游戏开发商 ZeniMax Online 裁员 213 人。 根据美国马里兰州政府发布的 WARN 报告显示，ZeniMax Online 裁员 213 人，ZeniMax Media Inc. 裁员 166 人，合计 379 人。IT之家附上相关截图如下： 报道指出微软正在持续推进 XBOX 业务重组，最新报告确认《上古卷轴 Online》开发团队所在的 ZeniMax Online 已进入本轮裁员范围。 在此之前，Windows Central 已报道称， id Software 已确认流失超过 136 名员工 ，来源为 id Software 相关确认与 Windows Central 报道。该数字被作为 Xbox 近期重组影响持续扩大的另一项已公开数据。 报道还提到，曾在 ZeniMax Online 任职的开发者 Andrew Young 于 2026 年 7 月 6 日公开表达不满，称团队长期投入大量精力，并提到《上古卷轴…</p><a href="https://www.ithome.com/0/974/864.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>美国新泽西州拟禁止纯视觉自动驾驶汽车，特斯拉 Robotaxi 或被拒之门外</h3><p>IT之家 7 月 10 日消息，据科技媒体 The Verge 前天报道，自动驾驶行业十多年来始终在争论：仅凭摄像头是否能取代人类驾驶员，还是说真正的无人驾驶汽车必须配备毫米波雷达、激光雷达等冗余传感器，才能可靠地感知环境？ 特斯拉已经在纯视觉智驾方案投资数十亿美元，并坚定地在这条路上前进。但与此同时，其他自动驾驶企业都选择了截然不同的技术路线。 而美国新泽西州似乎想为这场争端画一个句号。该州立法者已经在起草法案，意图让新泽西州所有运营自动驾驶汽车的企业，都必须使用摄像头和另外两种环境感知技术。 目前，该法案还在起草过程中，预计将于今年晚些时候表决。 如果最终通过 ， 新泽西成为全美首个禁止 Robotaxi 等纯视觉自动驾驶方案的州 。 新泽西州参议员安德鲁 · 兹维克（IT之家注：Andrew Zwicker）对此表示：“这条法案并不是针对特斯拉，我在意全州人民的公共安全”。</p><a href="https://www.ithome.com/0/974/836.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>三星电子会长李在镕拟于本月底赴美，会见英伟达 CEO 黄仁勋</h3><p>IT之家 7 月 10 日消息，据韩媒《东亚日报》今天报道，三星电子会长李在镕预计将于本月底奔赴美国， 会见英伟达创始人兼 CEO 黄仁勋 。 据业内人士透露，李在镕正在和黄仁勋协调硅谷会面的相关安排。如果会面成行，两人将在时隔九个月后会晤，他们上一次会面是在去年 10 月的 APEC 会议。 同时，本次会谈将进一步促进韩国国内的“三大超级计划”。根据该计划，韩国各大企业将在光州投资 800 万亿韩元（IT之家注：现汇率约合 3.62 万亿元人民币）建设半导体园区，并在国内投资超 1000 万亿韩元（现汇率约合 4.52 万亿元人民币）建立 AI 数据中心，而英伟达预计将在其中发挥关键作用。 并且，韩国的 AI 数据中心战略高度依赖英伟达 AI 服务器。 然而在全球 AI 狂热背景下 ， 相关芯片的供应仍然十分紧张 。 韩国总统李在明曾在去年 10 月会见黄仁勋后，帮助韩国企业获得 26 万颗英伟达 AI 芯片，为韩国 AI 设施建设提供重要支持。而三星电子此次与英伟达的会谈，预计将进一步深化合作关系。</p><a href="https://www.ithome.com/0/974/828.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>8 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>刚刚，OpenAI首席未来学家离职！曾被马斯克骂蠢驴</h3><a href="https://www.qbitai.com/2026/07/446658.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Agent 进化论：从对话到协作</h3><p>人与 AI 的沟通正在变得越来越像人与人之间的沟通。 一位店员用 AI 制作门店宣传视频时，不再把需求列成一段非常细致的 Prompt 发给 AI，然后等待它返回结果；而是直接开启一个与 AI 的对话，告诉它“帮我剪一条今天新品上架的视频”，然后通过连续对话敲定任务的具体细节，就像与人类剪辑师一样。 同样的情况已经发生在很多具体场景中。一些程序员在通勤或散步时会用语音和 Agent 讨论一个功能该怎么设计，如何实现；有用户在玩游戏时，会不断与 AI 游戏助手沟通现在应该做哪些任务，当前的关卡还有哪些道具没有收集…… 进入 Agent 时代，AI 不再只是输入框另一端的响应系统，而是开始进入需求讨论、方案判断和任务执行的全过程。这种角色变化，也让音视频对话成为越来越多人与 Agent 交互的主要方式。 数据显示，豆包 App 在今年一季度的音频用量环比增长约200%，视频用量增长约350%；近一年来的音视频模型日均 Token 消耗已经达到千亿级别。联想天禧 AI 看世界功能从2025年8月上线到2026年5月，人均对话轮次提升至刚上线时的1.65倍，是传统一问一答主对话的3倍。 当越来越多的人把与 Agent…</p><a href="https://www.leiphone.com/category/industrynews/RDpPRL52VCMB19vs.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>天立启鸣“AI+教育”方案入选AI for Good</h3><p>北京时间7月7日，联合国机构国际电信联盟（ITU）2026年“人工智能向善”全球峰会（ AI for Good Global Summit ）在瑞士日内瓦举办，公布了年度 “AI for Good创新影响力案例集” 。天立国际旗下智慧教育公司启鸣达人（以下简称“天立启鸣”） 自主研发的“天立学科大脑：AI驱动的个性化公平学习路径”入选“Generative Al for Creativity, Education and Public Services”（用于创造力、教育和公共服务的生成式人工智能）类别案例集 。 “天立学科大脑：AI驱动的个性化公平学习路径”入选案例集 “人工智能向善”全球峰会是全球人工智能领域交流对话的重要平台之一，由国际电信联盟 （ ITU ） 与联合国工业发展组织、联合国教科文组织等联合国专门机构合作举办。“AI for Good创新影响力案例集”每年从 海量 申报案例中遴选出最具社会价值与落地成效的AI应用。在2026年周期中，年度全球应用案例征集的规模达到了迄今为止的最高水平：涵盖了来自国际电联五个区域的40个国家和经济体的267个用例。 天立启鸣此次的入选…</p><a href="https://www.leiphone.com/category/ai/PfbwTKDLzwL99jmZ.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>支付宝发布AIS开发套件：让Agent自动发现、调用、计费</h3><p>7月8日，继发布全栈AI支付体系后，支付宝AI支付再推Agent经营方案。从AI开发、AI经营、AI营销三大方向探索Agent时代的商业新机会，帮助商家在AI时代实现产品创新、用户连接与经营增长。 全新推出开发套件AIS让Agent可构建完整商业链路 随着企业探索AI应用，开发Agent的复杂度也在快速提升。 一个真正服务用户的 Agent，需要连接推荐商品、库存管理、订单处理、售后服务等完整经营链路，同时调用云资源、模型服务、数据接口、行业 API、支付和风控能力。 然而，当前开发流程仍存在大量碎片化操作，例如注册账号、申请 Key、开通服务、充值、配置环境、调试接口、分散管理账单等，大量时间消耗在基础资源配置，而不是产品创新。 针对这一问题，AI付推出AIS（Agent Infrastructure Suite，智能体基础设施套件），把 AI 时代开发 Agent 所需的服务，变成可以被智能体自动发现、自动调用、自动计费的供给网络。 开发者登录全新AI支付官网后，在AI编程环境中提出需求，即可直接部署发布Agent所需的所有工具，完成资源推荐、Agent 调用、AI 付授权、预算控制以及统一账单和日志管理。…</p><a href="https://www.leiphone.com/category/industrynews/27C8eEaw1r1xfTzp.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>中国机器人大脑引爆海外，蚂蚁灵波全栈2.0模型定义具身智能“新大脑”</h3><p>7月9日，中国AI创新力量再次引发全球关注。 中国具身智能公司——蚂蚁灵波科技升级全栈大脑2.0，一口气发布了涵盖视觉、动作、操作以及物理预测等方向的具身智能大模型，在海外开发者社区掀起热潮，发布即登上海外社交媒体热榜。 图说：蚂蚁灵波世界模型LingBot-World 2.0（Infinity）及具身模型LingBot-VLA2.0登上X科技热榜 在Reddit、X（原Twitter）及Hugging Face等国际主流技术平台上，LingBot-World 2.0被网友评价为“相当惊艳”！ 海外知名科技博主AK等纷纷点赞，指出该模型实现了长达一小时的连续生成且画质零衰减，解决了长视频生成的结构失真难题。在海外社交媒体上，用户正通过键盘实时操控角色在赛博朋克风格的城市中施法、战斗，画面达到720p/60fps的高清流畅度，这种“像游戏一样可玩”的实时反馈能力让海外网友惊叹不已。 图说：海外开发者用蚂蚁灵波世界模型LingBot-World-Infinity跑出游戏实时互动效果 然而，LingBot-World…</p><a href="https://www.leiphone.com/category/industrynews/G37AgItr75dHXX0i.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>官宣！蚂蚁灵波世界模型2.0来了，小时级生成+Agent驱动定义AI交互新范式</h3><p>7 月 9 日，蚂蚁灵波科技开源新一代实时交互世界模型 LingBot-World 2.0（又称 LingBot-World-Infinity）。该模型全面升级世界预测与交互能力，支持小时级实时生成、720p/60fps 高清实时输出以及更丰富的交互动作与事件，并在业界首次将 Agent 机制引入世界模型，让生成的世界从“可观看、可操控”，进一步走向“可持续互动、可动态变化”。 （图说：LingBot-World 2.0 在生成时长、动态程度、实时性等方面均处于业界顶尖水平） 今年 1 月，蚂蚁灵波开源了第一代世界模型 LingBot-World，重点攻克长视频生成中常见的“长时漂移”问题，即生成时间一长，画面容易模糊、结构容易变形。LingBot-World 1.0 将连续稳定生成时长推进到近 10 分钟，而且支持键鼠操控与文本触发环境变化，引发业界广泛关注。 在此基础上，LingBot-World 2.0 进一步向“无限生成”迈进。模型采用因果预训练范式，并引入自研的 MoBA…</p><a href="https://www.leiphone.com/category/industrynews/P1RW5pSlLbX6EKfq.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>AI 加快漏洞发现，微软称 Win11 每月更新将整合更多安全修复</h3><p>IT之家 7 月 10 日消息，微软昨日（7 月 9 日）发布博文，为适应 AI 推动的漏洞发现加速趋势，宣布调整 Windows 11 漏洞管理体系， 把 AI 引入漏洞发现、修复与验证流程，从而缩短从发现到防护的时间。 微软 Windows and Devices 执行副总裁帕万 · 达武鲁里（Pavan Davuluri）表示，在 AI 参与漏洞发现流程后，可以帮助工程团队更快识别可利用问题，并加速分析流程，从而缩短漏洞发现到客户获得防护之间的时间。IT之家附上相关视频如下： 在漏洞发现环节，Windows 工程团队已采用智能体扫描框架 MDASH，结合多个前沿模型，从而更快更准发现系统漏洞。 在漏洞验证环节，经扫描确认的候选问题，会进入 Windows 专用验证流程，仅将高置信度结果提交给工程团队。 微软表示这套自动化流程可处理更大体量的潜在漏洞，并缩短新漏洞审查窗口，对于普通用户而言，每月发布的 Windows 11 累积更新会包含更多修复内容。 除漏洞发现外，AI…</p><a href="https://www.ithome.com/0/974/832.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>大多数 AI slop 应用会很快停止维护和抛弃</h3><p>由于涌入了大量低质量的 AI 生成应用，Linux 软件仓库 Flathub 于五月底宣布停止接受此类 AI 生成应用。审核递交到 Flathub 的应用是一个吃力不讨好的工作，当审核者试图与 AI 生成应用递交者沟通时，却发现对方使用的是 AI 智能体，回复都是答非所问。一位审核者对此评论说，“纯粹是噪音和浪费时间”。从 2026 年 1 月开始，Flathub 将此类应用打上了 AI Slop 的标签。知名 Linux 开发者 Evangelos“GeopJr”Paterakis 调查了 过去半年标记为 AI slop 的 120 个应用，32 个仍在维护，88 个已被抛弃，大多数都彻底删除了，部分应用在递交到 Flathub 后就停止了维护。</p><a href="https://www.solidot.org/story?sid=84784" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>8 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>移远通信发布 Hawk 系列 AR 眼镜与 Dolphin XR 算力单元：以一站式制造能力推动 XR 规模化落地</h3><p>7月9日，“方寸镜·无限远”——2026移远XR解决方案与生态战略发布会在深圳举办。会上，移远通信正式发布全链路自研的AI+AR眼镜Hawk系列，以及配套算力单元Dolphin系列，标志着这家物联网领军企业全面入局XR赛道。 三年沉淀，从“智联”到“视界”的战略跨越 活动现场，移远通信联合创始人&amp;首席运营官张栋以物联网发展的三次演进为脉络，阐述了移远从“智联”到“视界”的战略跃迁。 移远通信联合创始人&amp;首席运营官张栋 2010年，万物互联方兴未艾，行业核心命题在于“连接”本身，移远以稳定可靠的连接能力助力各类设备持续在线，完成1.0时代的战略奠基。2015年起，市场从基础连接转向对体验、交互与即时响应的更高要求，移远顺势而为，将“智能响应”确立为2.0时代的关键词。如今，随着AI、机器人、XR三大技术浪潮交汇，移远正式迈入3.0时代——从响应走向决策。 张栋表示：“移远已经把 AI 的决策能力，注入多类机器人的物理身驱。而对于XR，我们坚定地相信，下一代人机交互的核心入口，将是我们的眼睛。”在他看来，XR的底层逻辑是连接、算力与AI的深度融合，而这三大能力，正是移远过去十五年在通信与智能领域沉淀下来的深厚底气。…</p><a href="https://www.leiphone.com/category/arvr/5zNZCHth6f2indzb.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>蚂蚁灵波开源 LingBot-Video，全球首个面向具身的视频基模来了！</h3><p>7 月 9 日，蚂蚁灵波开源 LingBot-Video，这是全球首个基于 Mixture-of-Experts（MoE）架构、面向具身智能的开源视频生成基础模型。该模型围绕机器人和具身智能的核心需求重新设计视频预训练范式，在推理效率、物理合理性、动作理解和任务完成度等方面取得系统性提升，为视频基础模型从数字内容创作走向具身智能提供了新的开源底座。 在北京大学联合字节跳动发布的基准 RBench 上，LingBot-Video 的总分是 0.620，超越了 Wan2.6（0.607）、Seedance 1.5 Pro（0.584）、Cosmos3 Super（0.581）。RBench 作为面向机器人操作视频的综合评测基准，重点考察模型能否生成符合真实物理规律的机器人行为。这一结果表明，LingBot-Video 在生成机器人相关视频时，更能保持动作过程的合理性和任务执行的完整性。 （图说：LingBot-Video 在 RBench 上性能最优） 为进一步验证 LingBot-Video 对物理世界变化的建模能力，蚂蚁灵波在内部 benchmark 中从通用质量和具身领域两个维度进行评估。结果显示，对比 NVIDIA…</p><a href="https://www.leiphone.com/category/industrynews/6Hyio1NHDBM1d5Iw.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>36氪首发 | 英伟达全球首家触觉仿真合作伙伴再获数亿融资，上半年订单超去年四倍</h3><p>图源/企业 本文约 3100 字，建议阅读 7 分钟 作者丨欧雪 编辑丨袁斯来 硬氪获悉，北京他山科技有限公司（以下简称“他山科技”）已于近期完成B轮融资，金额为数亿元。本轮投资方包括均胜电子、太平创新、奥克斯、鹏翎股份、Lavender Hill Capital Partners（LHCP）、洪山资本等产业方，老股东道氏技术、彬复资本追加投资。资金将主要用于触觉传感器及芯片迭代、场景化方案落地及触觉训练平台建设。 这家成立于2017年的公司，总部位于北京，是一家专注于人工智能触觉感知技术及全栈式应用解决方案的研发商。核心团队由清华大学、曼彻斯特大学等高校研发人员组成；首席科学家为ARM架构共同发明人、英国两院院士Steve Furber；公司创始人孙滕谌毕业于清华大学自动化系，是平面电容与曲面电容技术发明人。 2019年，公司与曼彻斯特大学联合成立全球首个AI触觉感知实验室。经过近多年深耕，他山科技已构建起“芯片-传感器-算法模型-场景应用”的全栈技术体系。 触觉感知在机器人行业的重要性正在快速成为共识。据公司观察，2025年触觉传感器在灵巧手中的渗透率已从约20%出头提升至60%以上，且每月仍在持续增长。…</p><a href="https://36kr.com/p/3889141540370949?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">36氪</div><h3>自研焊接具身大脑模型，以“智能焊工”切入工业制造具身智能赛道，「昇视唯盛」完成数亿元B轮融资｜36氪首发</h3><p>36氪获悉，聚焦工业制造领域的具身智能机器人企业 「昇视唯盛」（3Srobotics）正式宣布完成数亿元B轮融资，本轮融资由上海半导体产投、金桥基金领投，零一创投、新鼎资本、中关鼎华及老股东微光创投持续加码跟投。 资金将主要用于焊接具身智能大脑与自主小脑运动控制系统的迭代升级，扩大自有智造工厂产能，扩充研发与市场服务团队，加速产品全国多行业规模化落地。 昇视唯盛成立于2020年，2023年获得国家高新技术企业认证，2024年获得上海市专精特新中小企业、上海市智能机器人标杆企业。本轮融资完成标志昇视唯盛依托“自主大脑+自主小脑+自研硬件量产”三级全栈自研体系迈入规模化高速发展新阶段，以可量产、可自主进化的工业级智能机器人产品，切入国内工业制造具身智能落地赛道。 昇视唯盛三代产品升级路径 1.切中焊接刚需场景，打造“智能焊工” 创立之初，昇视唯盛主要从事通用工业机器人的研发与生产销售。 随着业务发展，创始人王德钊逐渐形成判断，认为机器人在未来会从通用化走向垂直场景的深度智能化。 “所以我们定位在做AI算法与机器人硬件的深度结合，在垂直场景里充分发挥智能机器人的价值。” 在众多工业场景中，昇视唯盛选择了焊接。…</p><a href="https://36kr.com/p/3887871679347208?f=rss" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>荣耀 WIN 游戏本 H9 三角洲行动职业赛事联名款发布：3D 浮雕金属 A 面，240W 性能释放</h3><p>IT之家 7 月 10 日消息，7 月 10 日，荣耀在 2026 Bilibili World（BW 2026）展会上正式发布了 荣耀 WIN 游戏本 H9 三角洲行动职业赛事联名款，并于现场开启限量发售，建议零售价 14699 元，叠加学生优惠及国家补贴后到手价 13099 元。该产品也是荣耀为三角洲行动烽火职业联赛打造的首款联名笔记本。 外观方面，荣耀 WIN 游戏本 H9 三角洲行动职业赛事联名款采用黑海配色，主打战术风格设计。其金属 A 面采用 3D 浮雕工艺打造，融入了战术地图、枪械、战斗道具等游戏元素彩蛋，让整体辨识度较高的同时兼具收藏价值。包装方面，外盒采用《三角洲行动》联名喷绘设计，内部则延续荣耀原厂包装方案。 配置方面，这款联名游戏本搭载 Intel Core Ultra 9 290HX Plus 处理器、NVIDIA GeForce RTX 5070 独立显卡，配备 16GB 内存和 1TB SSD，支持双烤 240W 性能释放。散热部分，新机采用荣耀东风尾喷散热引擎，使用“2+4”风扇离心轴流混吹架构，以应对高负载游戏场景下的持续性能输出需求。 屏幕方面，荣耀 WIN 游戏本 H9…</p><a href="https://www.ithome.com/0/974/889.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌发布 LiteRT.js 库，Web AI 推理最高提速 3 倍</h3><p>IT之家 7 月 10 日消息，谷歌昨日（7 月 9 日）发布博文，为提升浏览器人工智能（AI）及机器学习（ML）工作负载的运行速度， 推出全新的 LiteRT.js 库。 谷歌表示 LiteRT.js 采用 WebAssembly，并结合 WebGPU 与 WebNN 等硬件加速能力，用于替代 TensorFlow.js 所使用的 JavaScript 内核方案。IT之家附上相关截图如下： LiteRT.js 架构概述 WebAssembly 是一种二进制指令格式，支持网页在浏览器中以接近本地代码的速度执行高性能计算。 TensorFlow.js 是由谷歌开发的库，支持用户在 JavaScript 环境中构建、训练和部署机器学习模型。它允许开发者将基于 TensorFlow 构建的模型直接部署到 Web 浏览器中，实现客户端的 AI 功能。 在搭载 M4 芯片的 2024 款苹果 MacBook Pro 笔记本上，谷歌测试发现相比较现有方案， LiteRT.js 速度提升 3 倍。谷歌在官方博文中表示，在运行旧硬件或使用不同引擎的浏览器时，实际性能可能存在差异。</p><a href="https://www.ithome.com/0/974/839.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>NVIDIA 发布 GeForce 典藏卡第 1 系列：致敬历史时刻，BW2026 有赠卡活动</h3><p>IT之家 7 月 10 日消息，NVIDIA（英伟达）当地时间昨日宣布推出首个 GeForce 典藏卡系列。这套免费典藏卡共包含 14 款设计，展示了 GeForce PC 游戏发展历程的经典时刻， 将通过 BW2026 等线上线下活动向玩家赠送 。 IT之家整理 GeForce 典藏卡第 1 系列部分主题内容如下： NV1（NVIDIA 首款面向主流市场的多媒体处理器）； GeForce 256（全球首款 GPU）； GeForce 3（首款支持可编程着色器的 GPU）； GeForce 7800 GTX（2000 年代中期 GeForce 7 系列的代表）； GeForce 10 系列； Bubble、Chameleon、Medusa（三款经典技术 Live Demo）； 《虚幻竞技场 2004》《无主之地》（代表了 GeForce 游戏不同时代的经典之作）； GeForce RTX 2080 Ti《赛博朋克 2077》特别版； 清单卡。</p><a href="https://www.ithome.com/0/974/830.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>三星电子会长李在镕拟于本月底赴美，会见英伟达 CEO 黄仁勋</h3><p>IT之家 7 月 10 日消息，据韩媒《东亚日报》今天报道，三星电子会长李在镕预计将于本月底奔赴美国， 会见英伟达创始人兼 CEO 黄仁勋 。 据业内人士透露，李在镕正在和黄仁勋协调硅谷会面的相关安排。如果会面成行，两人将在时隔九个月后会晤，他们上一次会面是在去年 10 月的 APEC 会议。 同时，本次会谈将进一步促进韩国国内的“三大超级计划”。根据该计划，韩国各大企业将在光州投资 800 万亿韩元（IT之家注：现汇率约合 3.62 万亿元人民币）建设半导体园区，并在国内投资超 1000 万亿韩元（现汇率约合 4.52 万亿元人民币）建立 AI 数据中心，而英伟达预计将在其中发挥关键作用。 并且，韩国的 AI 数据中心战略高度依赖英伟达 AI 服务器。 然而在全球 AI 狂热背景下 ， 相关芯片的供应仍然十分紧张 。 韩国总统李在明曾在去年 10 月会见黄仁勋后，帮助韩国企业获得 26 万颗英伟达 AI 芯片，为韩国 AI 设施建设提供重要支持。而三星电子此次与英伟达的会谈，预计将进一步深化合作关系。</p><a href="https://www.ithome.com/0/974/828.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>4 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>获联合国机构点赞！天立启鸣“AI+教育”方案入选AI for Good</h3><a href="https://www.qbitai.com/2026/07/446562.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>从餐饮后厨到物理世界基础模型：量化派的物理AI，走的是卖能力的路</h3><a href="https://www.qbitai.com/2026/07/446435.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>“我要寄大件”——顺心捷达接入支付宝AI，一句话唤醒“阿宝”，轻松寄件！</h3><p>7月7日，支付宝AI开放平台正式上线邀测，顺心捷达已接入其AI生态，将全网大件快运服务能力嵌入AI版支付宝“阿宝”。用户可直接通过语音或文字与“阿宝”对话，获取寄件指导、网点位置或上门取件服务。 如用户在“阿宝”中发出“我要寄快递”或“发顺心快递”等指令，填写相关信息后，就可通过“我的快递”服务卡片下单顺心捷达服务。指令识别、信息生成、订单确认，全流程环环相扣，真正实现“对话即服务”。此次 接入AI 生态，进一步拓宽了顺心捷达数智化服务的触达路径。 用户体验为先，顺心未来将持续以科技赋能，拓宽数智化服务边界，在支付宝 “阿宝” 之外探索更多智能服务场景，让用户在更多元的触点中，享受更高效、更贴心的服务体验。</p><a href="https://www.leiphone.com/category/industrynews/xHoScn0mDGYxjjem.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>小米可穿戴部总经理张雷回应“微信语音转文字”呼声：本月多款手表陆续更新微信相关功能</h3><p>IT之家 7 月 10 日消息，小米集团手机部副总裁、可穿戴部总经理张雷今日发文，宣布本月会有几款产品陆续更新微信相关的功能， 本周起部分产品会开始逐步推送 OTA 更新 。 跟大家同步一下: 最近一直在评论区看到大家对微信功能的呼声，尤其是微信语音转文字 —— 这个功能我们一直在推动。 好消息是, 本月会有几款产品陆续更新微信相关的功能，本周起部分产品会开始逐步推送 OTA 更新，以下几款基本都会在本月内完成迭代： S4 / S4 Sport / S4 41mm / S4 eSIM / S5 / S5 eSIM 其他呼声很高的产品，涉及到外部配合改造， 我们也在持续推进中 ，还请大家再多给我们一些时间 —— 真的没有忘，也没有放下。 小米穿戴一直有在听大家的声音，也谢谢每一位一直在评论区、私信里追问我们的朋友。一有明确的时间点，我第一时间来这里告诉大家。 张雷今年 4 月曾公布小米可穿戴产品在 2026 年 4 月至 9 月期间的 OTA 更新计划 。 此次更新覆盖手表、手环等多个产品线，涉及 Xiaomi Watch5、Xiaomi Watch S5、Xiaomi Watch S4 Sport、REDMI…</p><a href="https://www.ithome.com/0/974/868.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>3 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">IT之家</div><h3>美国新泽西州拟禁止纯视觉自动驾驶汽车，特斯拉 Robotaxi 或被拒之门外</h3><p>IT之家 7 月 10 日消息，据科技媒体 The Verge 前天报道，自动驾驶行业十多年来始终在争论：仅凭摄像头是否能取代人类驾驶员，还是说真正的无人驾驶汽车必须配备毫米波雷达、激光雷达等冗余传感器，才能可靠地感知环境？ 特斯拉已经在纯视觉智驾方案投资数十亿美元，并坚定地在这条路上前进。但与此同时，其他自动驾驶企业都选择了截然不同的技术路线。 而美国新泽西州似乎想为这场争端画一个句号。该州立法者已经在起草法案，意图让新泽西州所有运营自动驾驶汽车的企业，都必须使用摄像头和另外两种环境感知技术。 目前，该法案还在起草过程中，预计将于今年晚些时候表决。 如果最终通过 ， 新泽西成为全美首个禁止 Robotaxi 等纯视觉自动驾驶方案的州 。 新泽西州参议员安德鲁 · 兹维克（IT之家注：Andrew Zwicker）对此表示：“这条法案并不是针对特斯拉，我在意全州人民的公共安全”。</p><a href="https://www.ithome.com/0/974/836.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>AI 加快漏洞发现，微软称 Win11 每月更新将整合更多安全修复</h3><p>IT之家 7 月 10 日消息，微软昨日（7 月 9 日）发布博文，为适应 AI 推动的漏洞发现加速趋势，宣布调整 Windows 11 漏洞管理体系， 把 AI 引入漏洞发现、修复与验证流程，从而缩短从发现到防护的时间。 微软 Windows and Devices 执行副总裁帕万 · 达武鲁里（Pavan Davuluri）表示，在 AI 参与漏洞发现流程后，可以帮助工程团队更快识别可利用问题，并加速分析流程，从而缩短漏洞发现到客户获得防护之间的时间。IT之家附上相关视频如下： 在漏洞发现环节，Windows 工程团队已采用智能体扫描框架 MDASH，结合多个前沿模型，从而更快更准发现系统漏洞。 在漏洞验证环节，经扫描确认的候选问题，会进入 Windows 专用验证流程，仅将高置信度结果提交给工程团队。 微软表示这套自动化流程可处理更大体量的潜在漏洞，并缩短新漏洞审查窗口，对于普通用户而言，每月发布的 Windows 11 累积更新会包含更多修复内容。 除漏洞发现外，AI…</p><a href="https://www.ithome.com/0/974/832.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>大多数 AI slop 应用会很快停止维护和抛弃</h3><p>由于涌入了大量低质量的 AI 生成应用，Linux 软件仓库 Flathub 于五月底宣布停止接受此类 AI 生成应用。审核递交到 Flathub 的应用是一个吃力不讨好的工作，当审核者试图与 AI 生成应用递交者沟通时，却发现对方使用的是 AI 智能体，回复都是答非所问。一位审核者对此评论说，“纯粹是噪音和浪费时间”。从 2026 年 1 月开始，Flathub 将此类应用打上了 AI Slop 的标签。知名 Linux 开发者 Evangelos“GeopJr”Paterakis 调查了 过去半年标记为 AI slop 的 120 个应用，32 个仍在维护，88 个已被抛弃，大多数都彻底删除了，部分应用在递交到 Flathub 后就停止了维护。</p><a href="https://www.solidot.org/story?sid=84784" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Thu, 09 Jul 2026 06:29:30 +0000</div><h3>刚刚，OpenAI首席未来学家离职！曾被马斯克骂蠢驴</h3><a href="https://www.qbitai.com/2026/07/446658.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 09 Jul 2026 05:47:05 +0000</div><h3>刚刚，全球首个具身专属的MoE视频模型，开源了！</h3><a href="https://www.qbitai.com/2026/07/446568.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 09 Jul 2026 05:33:28 +0000</div><h3>2026年世界人工智能大会，7月17-7月20上海举办</h3><a href="https://www.qbitai.com/2026/07/436498.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 09 Jul 2026 03:56:06 +0000</div><h3>获联合国机构点赞！天立启鸣“AI+教育”方案入选AI for Good</h3><a href="https://www.qbitai.com/2026/07/446562.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 09 Jul 2026 03:39:41 +0000</div><h3>世界模型首次迎来“小时级”生成！蚂蚁灵波开源LingBot-World 2.0，支持AI原生多人交互</h3><a href="https://www.qbitai.com/2026/07/446548.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 09 Jul 2026 03:19:15 +0000</div><h3>蚂蚁灵波开源LingBot-Video，全球首个面向具身的视频基模来了！</h3><a href="https://www.qbitai.com/2026/07/446458.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 09 Jul 2026 02:32:01 +0000</div><h3>从餐饮后厨到物理世界基础模型：量化派的物理AI，走的是卖能力的路</h3><a href="https://www.qbitai.com/2026/07/446435.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Thu, 09 Jul 2026 21:03:00 +0800</div><h3>移远通信发布 Hawk 系列 AR 眼镜与 Dolphin XR 算力单元：以一站式制造能力推动 XR 规模化落地</h3><p>7月9日，“方寸镜·无限远”——2026移远XR解决方案与生态战略发布会在深圳举办。会上，移远通信正式发布全链路自研的AI+AR眼镜Hawk系列，以及配套算力单元Dolphin系列，标志着这家物联网领军企业全面入局XR赛道。 三年沉淀，从“智联”到“视界”的战略跨越 活动现场，移远通信联合创始人&amp;首席运营官张栋以物联网发展的三次演进为脉络，阐述了移远从“智联”到“视界”的战略跃迁。 移远通信联合创始人&amp;首席运营官张栋 2010年，万物互联方兴未艾，行业核心命题在于“连接”本身，移远以稳定可靠的连接能力助力各类设备持续在线，完成1.0时代的战略奠基。2015年起，市场从基础连接转向对体验、交互与即时响应的更高要求，移远顺势而为，将“智能响应”确立为2.0时代的关键词。如今，随着AI、机器人、XR三大技术浪潮交汇，移远正式迈入3.0时代——从响应走向决策。 张栋表示：“移远已经把 AI 的决策能力，注入多类机器人的物理身驱。而对于XR，我们坚定地相信，下一代人机交互的核心入口，将是我们的眼睛。”在他看来，XR的底层逻辑是连接、算力与AI的深度融合，而这三大能力，正是移远过去十五年在通信与智能领域沉淀下来的深厚底气。…</p><a href="https://www.leiphone.com/category/arvr/5zNZCHth6f2indzb.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 09 Jul 2026 18:40:00 +0800</div><h3>Agent 进化论：从对话到协作</h3><p>人与 AI 的沟通正在变得越来越像人与人之间的沟通。 一位店员用 AI 制作门店宣传视频时，不再把需求列成一段非常细致的 Prompt 发给 AI，然后等待它返回结果；而是直接开启一个与 AI 的对话，告诉它“帮我剪一条今天新品上架的视频”，然后通过连续对话敲定任务的具体细节，就像与人类剪辑师一样。 同样的情况已经发生在很多具体场景中。一些程序员在通勤或散步时会用语音和 Agent 讨论一个功能该怎么设计，如何实现；有用户在玩游戏时，会不断与 AI 游戏助手沟通现在应该做哪些任务，当前的关卡还有哪些道具没有收集…… 进入 Agent 时代，AI 不再只是输入框另一端的响应系统，而是开始进入需求讨论、方案判断和任务执行的全过程。这种角色变化，也让音视频对话成为越来越多人与 Agent 交互的主要方式。 数据显示，豆包 App 在今年一季度的音频用量环比增长约200%，视频用量增长约350%；近一年来的音视频模型日均 Token 消耗已经达到千亿级别。联想天禧 AI 看世界功能从2025年8月上线到2026年5月，人均对话轮次提升至刚上线时的1.65倍，是传统一问一答主对话的3倍。 当越来越多的人把与 Agent…</p><a href="https://www.leiphone.com/category/industrynews/RDpPRL52VCMB19vs.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 09 Jul 2026 16:59:00 +0800</div><h3>天立启鸣“AI+教育”方案入选AI for Good</h3><p>北京时间7月7日，联合国机构国际电信联盟（ITU）2026年“人工智能向善”全球峰会（ AI for Good Global Summit ）在瑞士日内瓦举办，公布了年度 “AI for Good创新影响力案例集” 。天立国际旗下智慧教育公司启鸣达人（以下简称“天立启鸣”） 自主研发的“天立学科大脑：AI驱动的个性化公平学习路径”入选“Generative Al for Creativity, Education and Public Services”（用于创造力、教育和公共服务的生成式人工智能）类别案例集 。 “天立学科大脑：AI驱动的个性化公平学习路径”入选案例集 “人工智能向善”全球峰会是全球人工智能领域交流对话的重要平台之一，由国际电信联盟 （ ITU ） 与联合国工业发展组织、联合国教科文组织等联合国专门机构合作举办。“AI for Good创新影响力案例集”每年从 海量 申报案例中遴选出最具社会价值与落地成效的AI应用。在2026年周期中，年度全球应用案例征集的规模达到了迄今为止的最高水平：涵盖了来自国际电联五个区域的40个国家和经济体的267个用例。 天立启鸣此次的入选…</p><a href="https://www.leiphone.com/category/ai/PfbwTKDLzwL99jmZ.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 09 Jul 2026 14:30:00 +0800</div><h3>支付宝发布AIS开发套件：让Agent自动发现、调用、计费</h3><p>7月8日，继发布全栈AI支付体系后，支付宝AI支付再推Agent经营方案。从AI开发、AI经营、AI营销三大方向探索Agent时代的商业新机会，帮助商家在AI时代实现产品创新、用户连接与经营增长。 全新推出开发套件AIS让Agent可构建完整商业链路 随着企业探索AI应用，开发Agent的复杂度也在快速提升。 一个真正服务用户的 Agent，需要连接推荐商品、库存管理、订单处理、售后服务等完整经营链路，同时调用云资源、模型服务、数据接口、行业 API、支付和风控能力。 然而，当前开发流程仍存在大量碎片化操作，例如注册账号、申请 Key、开通服务、充值、配置环境、调试接口、分散管理账单等，大量时间消耗在基础资源配置，而不是产品创新。 针对这一问题，AI付推出AIS（Agent Infrastructure Suite，智能体基础设施套件），把 AI 时代开发 Agent 所需的服务，变成可以被智能体自动发现、自动调用、自动计费的供给网络。 开发者登录全新AI支付官网后，在AI编程环境中提出需求，即可直接部署发布Agent所需的所有工具，完成资源推荐、Agent 调用、AI 付授权、预算控制以及统一账单和日志管理。…</p><a href="https://www.leiphone.com/category/industrynews/27C8eEaw1r1xfTzp.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 09 Jul 2026 14:12:00 +0800</div><h3>中国机器人大脑引爆海外，蚂蚁灵波全栈2.0模型定义具身智能“新大脑”</h3><p>7月9日，中国AI创新力量再次引发全球关注。 中国具身智能公司——蚂蚁灵波科技升级全栈大脑2.0，一口气发布了涵盖视觉、动作、操作以及物理预测等方向的具身智能大模型，在海外开发者社区掀起热潮，发布即登上海外社交媒体热榜。 图说：蚂蚁灵波世界模型LingBot-World 2.0（Infinity）及具身模型LingBot-VLA2.0登上X科技热榜 在Reddit、X（原Twitter）及Hugging Face等国际主流技术平台上，LingBot-World 2.0被网友评价为“相当惊艳”！ 海外知名科技博主AK等纷纷点赞，指出该模型实现了长达一小时的连续生成且画质零衰减，解决了长视频生成的结构失真难题。在海外社交媒体上，用户正通过键盘实时操控角色在赛博朋克风格的城市中施法、战斗，画面达到720p/60fps的高清流畅度，这种“像游戏一样可玩”的实时反馈能力让海外网友惊叹不已。 图说：海外开发者用蚂蚁灵波世界模型LingBot-World-Infinity跑出游戏实时互动效果 然而，LingBot-World…</p><a href="https://www.leiphone.com/category/industrynews/G37AgItr75dHXX0i.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 09 Jul 2026 12:01:00 +0800</div><h3>至简动力交付百台「开箱即用」机器人，加速具身量产节奏</h3><p>打破具身行业最快交付纪录 作者丨 邓哲敏 编辑丨 齐铖湧 2026年7月6日，至简动力在苏州宣布 完成首批百台i7 Pro机器人交付，同时落成一条CNC智能化具身机器人产线。距离公司成立不足一年。 至简动力给这款产品的定位是&quot;开箱即用&quot;的工业具身机器人——客户采购后，无需漫长的现场调试，在一周内即可完成部署并进入生产节拍。与之配套的是&quot;同一套方案打穿多场景&quot;的叙事：同一套数据采集框架、同一套基座模型、同一套硬件本体，从CNC上下料延伸到光电模组、柔性PCB、商超零售等不同领域。 百台这个数字，放在汽车行业不值一提，但在一个连Demo能不能复现都要打问号的赛道里，它意味着，有人把实验室里的想法，变成了工厂里的订单。至简动力的百台是首批直接进入客户自有产线、而非实验室或展厅的规模化交付，这对于仍处于早期阶段的具身智能行业而言，无疑是一件值得关注的事。 过去三年，具身智能行业活在叙事裂缝中——融资额翻倍、Demo视频刷屏，但摩根士丹利调研显示，头部厂商机器人在工厂的实际工作效率仅约人类的30%，灵巧手成本高、寿命短，量产计划一推再推。智元在4月定义2026为&quot;部署态&quot;元年，核心标准是7×24小时自主干活、产生真实商业价值。…</p><a href="https://www.leiphone.com/category/ai/aFTmWZkO6CAIPGvW.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 09 Jul 2026 11:57:00 +0800</div><h3>人手数据，如何重塑机器人基础模型？专访 LaST-HD 一作刘家铭</h3><p>至简动力联合北大、港中文、乙太科技—不代替真机，人手与真机数据共生 作者丨邓哲敏 编辑丨 齐铖湧 数据一直是具身智能最难啃的骨头。目前几条主流数据路线都存在明显瓶颈。仿真数据采集效率高，却始终受到虚实鸿沟限制。真机遥操作能够获得高质量数据，但采集成本高、效率低，而且大量数据与机器人本体深度绑定，难以复用。 至简动力在苏州交付的首批 100 台 i7 Pro 机器人，已进入 CNC 上下料等工业场景部署，这批机器人采用的，是与行业主流有所不同的数据路线——人手数据。 围绕数据路线之争，AI科技评论（雷峰网公众号）对话至简动力北大联合实验室RD负责人、北京大学博士生刘家铭。 他最新发表的 LaST-HD 论文，由北京大学、香港中文大学、至简动力、乙太科技等团队联合推出，通过让机器人学习人手动作背后的物理规律，让难以利用的人类操作经验转化为机器人技能。 在这场对话中，刘家铭分享了交付背后的技术问题，也谈了谈他对具身领域模型与数据发展方向的判断。 以下是AI科技评论（雷峰网公众号）与刘家铭的对话，经不改变原意的编辑整理： 01 人手数据不是来代替真机数据的 ▎ AI科技评论：最近 Human Data…</p><a href="https://www.leiphone.com/category/ai/tc6oPeh2ZD5DST6g.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 09 Jul 2026 11:57:00 +0800</div><h3>蚂蚁灵波开源 LingBot-Video，全球首个面向具身的视频基模来了！</h3><p>7 月 9 日，蚂蚁灵波开源 LingBot-Video，这是全球首个基于 Mixture-of-Experts（MoE）架构、面向具身智能的开源视频生成基础模型。该模型围绕机器人和具身智能的核心需求重新设计视频预训练范式，在推理效率、物理合理性、动作理解和任务完成度等方面取得系统性提升，为视频基础模型从数字内容创作走向具身智能提供了新的开源底座。 在北京大学联合字节跳动发布的基准 RBench 上，LingBot-Video 的总分是 0.620，超越了 Wan2.6（0.607）、Seedance 1.5 Pro（0.584）、Cosmos3 Super（0.581）。RBench 作为面向机器人操作视频的综合评测基准，重点考察模型能否生成符合真实物理规律的机器人行为。这一结果表明，LingBot-Video 在生成机器人相关视频时，更能保持动作过程的合理性和任务执行的完整性。 （图说：LingBot-Video 在 RBench 上性能最优） 为进一步验证 LingBot-Video 对物理世界变化的建模能力，蚂蚁灵波在内部 benchmark 中从通用质量和具身领域两个维度进行评估。结果显示，对比 NVIDIA…</p><a href="https://www.leiphone.com/category/industrynews/6Hyio1NHDBM1d5Iw.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 09 Jul 2026 11:45:00 +0800</div><h3>“我要寄大件”——顺心捷达接入支付宝AI，一句话唤醒“阿宝”，轻松寄件！</h3><p>7月7日，支付宝AI开放平台正式上线邀测，顺心捷达已接入其AI生态，将全网大件快运服务能力嵌入AI版支付宝“阿宝”。用户可直接通过语音或文字与“阿宝”对话，获取寄件指导、网点位置或上门取件服务。 如用户在“阿宝”中发出“我要寄快递”或“发顺心快递”等指令，填写相关信息后，就可通过“我的快递”服务卡片下单顺心捷达服务。指令识别、信息生成、订单确认，全流程环环相扣，真正实现“对话即服务”。此次 接入AI 生态，进一步拓宽了顺心捷达数智化服务的触达路径。 用户体验为先，顺心未来将持续以科技赋能，拓宽数智化服务边界，在支付宝 “阿宝” 之外探索更多智能服务场景，让用户在更多元的触点中，享受更高效、更贴心的服务体验。</p><a href="https://www.leiphone.com/category/industrynews/xHoScn0mDGYxjjem.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 09 Jul 2026 11:42:00 +0800</div><h3>官宣！蚂蚁灵波世界模型2.0来了，小时级生成+Agent驱动定义AI交互新范式</h3><p>7 月 9 日，蚂蚁灵波科技开源新一代实时交互世界模型 LingBot-World 2.0（又称 LingBot-World-Infinity）。该模型全面升级世界预测与交互能力，支持小时级实时生成、720p/60fps 高清实时输出以及更丰富的交互动作与事件，并在业界首次将 Agent 机制引入世界模型，让生成的世界从“可观看、可操控”，进一步走向“可持续互动、可动态变化”。 （图说：LingBot-World 2.0 在生成时长、动态程度、实时性等方面均处于业界顶尖水平） 今年 1 月，蚂蚁灵波开源了第一代世界模型 LingBot-World，重点攻克长视频生成中常见的“长时漂移”问题，即生成时间一长，画面容易模糊、结构容易变形。LingBot-World 1.0 将连续稳定生成时长推进到近 10 分钟，而且支持键鼠操控与文本触发环境变化，引发业界广泛关注。 在此基础上，LingBot-World 2.0 进一步向“无限生成”迈进。模型采用因果预训练范式，并引入自研的 MoBA…</p><a href="https://www.leiphone.com/category/industrynews/P1RW5pSlLbX6EKfq.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">2026-07-10 09:19:37  +0800</div><h3>36氪首发 | 英伟达全球首家触觉仿真合作伙伴再获数亿融资，上半年订单超去年四倍</h3><p>图源/企业 本文约 3100 字，建议阅读 7 分钟 作者丨欧雪 编辑丨袁斯来 硬氪获悉，北京他山科技有限公司（以下简称“他山科技”）已于近期完成B轮融资，金额为数亿元。本轮投资方包括均胜电子、太平创新、奥克斯、鹏翎股份、Lavender Hill Capital Partners（LHCP）、洪山资本等产业方，老股东道氏技术、彬复资本追加投资。资金将主要用于触觉传感器及芯片迭代、场景化方案落地及触觉训练平台建设。 这家成立于2017年的公司，总部位于北京，是一家专注于人工智能触觉感知技术及全栈式应用解决方案的研发商。核心团队由清华大学、曼彻斯特大学等高校研发人员组成；首席科学家为ARM架构共同发明人、英国两院院士Steve Furber；公司创始人孙滕谌毕业于清华大学自动化系，是平面电容与曲面电容技术发明人。 2019年，公司与曼彻斯特大学联合成立全球首个AI触觉感知实验室。经过近多年深耕，他山科技已构建起“芯片-传感器-算法模型-场景应用”的全栈技术体系。 触觉感知在机器人行业的重要性正在快速成为共识。据公司观察，2025年触觉传感器在灵巧手中的渗透率已从约20%出头提升至60%以上，且每月仍在持续增长。…</p><a href="https://36kr.com/p/3889141540370949?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">2026-07-09 17:01:56  +0800</div><h3>揭秘Momenta：马斯克式CEO、AI执念和量产机器丨深氪</h3><p>特斯拉FSD（Full Self-Driving）每迭代出一个新版本，自动驾驶公司Momenta的创始人曹旭东都会飞去美国亲自体验。 “他还不光是去坐车，还会找一切能接触到特斯拉的人聊。”接触到曹旭东的人士告诉36氪，马斯克是曹旭东最常提到的人。 在内部，许多员工对曹旭东的一个共同感受，就是“马斯克式CEO”。 创业十年，Momenta赴港股IPO，上市首日（7月8日）市值达700亿港元。Momenta创始人曹旭东对36氪用两个数据，概括Momenta的阶段性成绩：定点车型市占率超50%，量产搭载车辆市占率超60%。 在这个节点回望，多位在职或者离职人士都向36氪总结，Momenta的内核和这家公司的经营底色，几乎都指向曹旭东，这位掌舵者的目标感和决策力。 Momenta如今在辅助驾驶量产市占率上大幅度领跑，业界往往认为跟两件事有关。 第一，是在其他自动驾驶公司都押宝L4方向时，曹旭东选择了先做L2级别的量产交付，这个与众不同的选择，让Momenta获得了占领量产市场的先机。而令人困惑之处也在于，2020年特斯拉推出FSD之前，曹旭东选择的这条路，在数年内都少有外界支持、融资不畅，他为什么能坚持下来？…</p><a href="https://36kr.com/p/3888180493318921?f=rss" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">2026-07-09 11:48:49  +0800</div><h3>自研焊接具身大脑模型，以“智能焊工”切入工业制造具身智能赛道，「昇视唯盛」完成数亿元B轮融资｜36氪首发</h3><p>36氪获悉，聚焦工业制造领域的具身智能机器人企业 「昇视唯盛」（3Srobotics）正式宣布完成数亿元B轮融资，本轮融资由上海半导体产投、金桥基金领投，零一创投、新鼎资本、中关鼎华及老股东微光创投持续加码跟投。 资金将主要用于焊接具身智能大脑与自主小脑运动控制系统的迭代升级，扩大自有智造工厂产能，扩充研发与市场服务团队，加速产品全国多行业规模化落地。 昇视唯盛成立于2020年，2023年获得国家高新技术企业认证，2024年获得上海市专精特新中小企业、上海市智能机器人标杆企业。本轮融资完成标志昇视唯盛依托“自主大脑+自主小脑+自研硬件量产”三级全栈自研体系迈入规模化高速发展新阶段，以可量产、可自主进化的工业级智能机器人产品，切入国内工业制造具身智能落地赛道。 昇视唯盛三代产品升级路径 1.切中焊接刚需场景，打造“智能焊工” 创立之初，昇视唯盛主要从事通用工业机器人的研发与生产销售。 随着业务发展，创始人王德钊逐渐形成判断，认为机器人在未来会从通用化走向垂直场景的深度智能化。 “所以我们定位在做AI算法与机器人硬件的深度结合，在垂直场景里充分发挥智能机器人的价值。” 在众多工业场景中，昇视唯盛选择了焊接。…</p><a href="https://36kr.com/p/3887871679347208?f=rss" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Fri, 10 Jul 2026 02:44:32 GMT</div><h3>更精准地预测飓风，微软 Aurora 1.5 天气预报模型发布</h3><p>IT之家 7 月 10 日消息，据科技媒体 Neowin 昨天报道，微软现已正式发布 Aurora 1.5 天气预报模型，新增 22 种变量，支持小时级预测。 与上一代模型相比，Aurora 1.5 模型在精确度等方面有所提升。测试结果显示， 该模型在海伦妮飓风的路径预测的中位数路径误差率 ， 相比以往低了三分之一 。同时在各项指标中，以 88.9% 的准确率优于 ECMWF（IT之家注：欧洲中期天气预报中心）模型。 Aurora 1.5 模型将以开放形式发布，适用于各大科研机构、政府部门和社会组织，微软还计划将该模型集成到 Microsoft Weather 等商业产品中。 此外，这款模型目前已在 GitHub 平台开源，感兴趣的用户可以下载研究。 参考： Aurora 1.5: Fine-Tuning a Foundation Model for Medium-Range Ensemble Weather Prediction - Microsoft Research GitHub - microsoft/aurora: Implementation of the Aurora model for Earth…</p><a href="https://www.ithome.com/0/974/897.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 10 Jul 2026 02:41:19 GMT</div><h3>荣耀 WIN 游戏本 H9 三角洲行动职业赛事联名款发布：3D 浮雕金属 A 面，240W 性能释放</h3><p>IT之家 7 月 10 日消息，7 月 10 日，荣耀在 2026 Bilibili World（BW 2026）展会上正式发布了 荣耀 WIN 游戏本 H9 三角洲行动职业赛事联名款，并于现场开启限量发售，建议零售价 14699 元，叠加学生优惠及国家补贴后到手价 13099 元。该产品也是荣耀为三角洲行动烽火职业联赛打造的首款联名笔记本。 外观方面，荣耀 WIN 游戏本 H9 三角洲行动职业赛事联名款采用黑海配色，主打战术风格设计。其金属 A 面采用 3D 浮雕工艺打造，融入了战术地图、枪械、战斗道具等游戏元素彩蛋，让整体辨识度较高的同时兼具收藏价值。包装方面，外盒采用《三角洲行动》联名喷绘设计，内部则延续荣耀原厂包装方案。 配置方面，这款联名游戏本搭载 Intel Core Ultra 9 290HX Plus 处理器、NVIDIA GeForce RTX 5070 独立显卡，配备 16GB 内存和 1TB SSD，支持双烤 240W 性能释放。散热部分，新机采用荣耀东风尾喷散热引擎，使用“2+4”风扇离心轴流混吹架构，以应对高负载游戏场景下的持续性能输出需求。 屏幕方面，荣耀 WIN 游戏本 H9…</p><a href="https://www.ithome.com/0/974/889.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 10 Jul 2026 02:32:20 GMT</div><h3>微软 Win11 开始菜单 / 任务栏搜索框未来将调高 4 个像素</h3><p>IT之家 7 月 10 日消息，科技媒体 Windows Central 昨日（7 月 9 日）发布博文， 报道称微软计划未来调整 Windows 11 开始菜单和任务栏中的搜索框高度，增加 4 个像素。 在视觉方面，搜索框高度在增加 4 个像素后，感觉会更厚。在任务栏中，搜索框会更靠近顶部边缘；而在开始菜单中，搜索框会略微下移。IT之家援引博文内容，附上对比动图如下： 微软官方尚未解释本次调整原因，不过该媒体推测可能关联 Ask Copilot，该功能用于增强 Windows 11 搜索体验，用户既能像过去一样搜索文件、应用和系统设置，也能直接调用 Copilot 获得 AI 辅助结果。 这项调整最初出现在 Experimental 频道 Windows 11 更新日志中，微软工程师确认目前正在内部测试，尚未进入预览阶段。</p><a href="https://www.ithome.com/0/974/880.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 10 Jul 2026 02:29:44 GMT</div><h3>猛士 X700 新车官宣：猛士汽车 × 华为乾崑联合设计，面向城市轻户外场景</h3><p>IT之家 7 月 10 日消息，今天（10 日）上午，猛士汽车官微发布了一张新车 X700 的预告图。官方并未透露太多的信息，仅称这是全新 X 系列的首款车型，由猛士汽车 × 华为乾崑联合设计，为城市轻户外场景而生。 预告图显示，这款新车配有贯穿式灯带和发光 logo，并用星空样式加以点缀增强精致感。 今年 5 月 26 日，猛士汽车宣布， 猛士 × 引望战略合作 2.0 正式启动 。根据规划，猛士 × 引望战略合作 2.0 首期将推出 5 款全新车型， 首款车型会在 2026 年量产 。另外，全新猛士 M817 也将在 5 月 29 日开启预售。 据IT之家此前报道， 今年 5 月 19 日，东风猛士与引望正式签署全面深化战略合作 2.0 协议 。华为轮值董事长徐直军表示，引望将投入优质的资源，与东风联合，支持猛士的发展。 今年上市的猛士新款车型都将获得华为乾崑最新科技赋能 。</p><a href="https://www.ithome.com/0/974/874.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 10 Jul 2026 02:27:07 GMT</div><h3>字节跳动公益基金会捐赠 2000 万元，支援广西、湖北、甘肃灾区</h3><p>IT之家 7 月 10 日消息，北京字节跳动公益基金会今日宣布捐赠 2000 万元 ，支援广西、湖北、甘肃灾区，用于开展应急救助、过渡安置、灾后重建等工作。 受台风“美莎克”及近期强降雨影响，广西多地出现严重暴雨洪涝灾害，湖北、甘肃部分地区先后发生风雹、山体滑坡灾害，造成人员伤亡和财产损失。灾害发生后，北京字节跳动公益基金会迅速响应应急管理部政社协同机制，联合中国红十字基金会、中国社会福利基金会及深圳壹基金公益基金会开展救灾行动，已向灾区运送两批救援物资。 同时，字节跳动公益平台启动应急响应机制，在抖音、今日头条上线“驰援一线，抗击水灾”专题，支持各公益组织开展筹款，并设置寻人专区。截至 7 月 10 日， 字节跳动公益平台已带动 200 多万人为灾区捐款 。 北京字节跳动公益基金会将持续关注灾区需求及汛期潜在险情，与各方保持密切协作，支持受灾人群渡过难关。 IT之家注意到，据广西南宁防汛救灾发布会 7 月 9 日通报：截至 7 月 9 日上午 11 时，南宁六蓝水库溃口洪灾已造成 26 人死亡（其中 5 人身份待确定）、失联 7 人。…</p><a href="https://www.ithome.com/0/974/869.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 10 Jul 2026 02:23:36 GMT</div><h3>小米可穿戴部总经理张雷回应“微信语音转文字”呼声：本月多款手表陆续更新微信相关功能</h3><p>IT之家 7 月 10 日消息，小米集团手机部副总裁、可穿戴部总经理张雷今日发文，宣布本月会有几款产品陆续更新微信相关的功能， 本周起部分产品会开始逐步推送 OTA 更新 。 跟大家同步一下: 最近一直在评论区看到大家对微信功能的呼声，尤其是微信语音转文字 —— 这个功能我们一直在推动。 好消息是, 本月会有几款产品陆续更新微信相关的功能，本周起部分产品会开始逐步推送 OTA 更新，以下几款基本都会在本月内完成迭代： S4 / S4 Sport / S4 41mm / S4 eSIM / S5 / S5 eSIM 其他呼声很高的产品，涉及到外部配合改造， 我们也在持续推进中 ，还请大家再多给我们一些时间 —— 真的没有忘，也没有放下。 小米穿戴一直有在听大家的声音，也谢谢每一位一直在评论区、私信里追问我们的朋友。一有明确的时间点，我第一时间来这里告诉大家。 张雷今年 4 月曾公布小米可穿戴产品在 2026 年 4 月至 9 月期间的 OTA 更新计划 。 此次更新覆盖手表、手环等多个产品线，涉及 Xiaomi Watch5、Xiaomi Watch S5、Xiaomi Watch S4 Sport、REDMI…</p><a href="https://www.ithome.com/0/974/868.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 10 Jul 2026 02:21:03 GMT</div><h3>微软推进 XBOX 重组，《上古卷轴 Online》游戏开发商裁员 213 人</h3><p>IT之家 7 月 10 日消息，科技媒体 Windows Central 昨日（7 月 9 日）发布博文，报道称在微软 XBOX 持续推进重组计划中， 《上古卷轴 Online》游戏开发商 ZeniMax Online 裁员 213 人。 根据美国马里兰州政府发布的 WARN 报告显示，ZeniMax Online 裁员 213 人，ZeniMax Media Inc. 裁员 166 人，合计 379 人。IT之家附上相关截图如下： 报道指出微软正在持续推进 XBOX 业务重组，最新报告确认《上古卷轴 Online》开发团队所在的 ZeniMax Online 已进入本轮裁员范围。 在此之前，Windows Central 已报道称， id Software 已确认流失超过 136 名员工 ，来源为 id Software 相关确认与 Windows Central 报道。该数字被作为 Xbox 近期重组影响持续扩大的另一项已公开数据。 报道还提到，曾在 ZeniMax Online 任职的开发者 Andrew Young 于 2026 年 7 月 6 日公开表达不满，称团队长期投入大量精力，并提到《上古卷轴…</p><a href="https://www.ithome.com/0/974/864.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 10 Jul 2026 02:07:58 GMT</div><h3>谷歌发布 LiteRT.js 库，Web AI 推理最高提速 3 倍</h3><p>IT之家 7 月 10 日消息，谷歌昨日（7 月 9 日）发布博文，为提升浏览器人工智能（AI）及机器学习（ML）工作负载的运行速度， 推出全新的 LiteRT.js 库。 谷歌表示 LiteRT.js 采用 WebAssembly，并结合 WebGPU 与 WebNN 等硬件加速能力，用于替代 TensorFlow.js 所使用的 JavaScript 内核方案。IT之家附上相关截图如下： LiteRT.js 架构概述 WebAssembly 是一种二进制指令格式，支持网页在浏览器中以接近本地代码的速度执行高性能计算。 TensorFlow.js 是由谷歌开发的库，支持用户在 JavaScript 环境中构建、训练和部署机器学习模型。它允许开发者将基于 TensorFlow 构建的模型直接部署到 Web 浏览器中，实现客户端的 AI 功能。 在搭载 M4 芯片的 2024 款苹果 MacBook Pro 笔记本上，谷歌测试发现相比较现有方案， LiteRT.js 速度提升 3 倍。谷歌在官方博文中表示，在运行旧硬件或使用不同引擎的浏览器时，实际性能可能存在差异。</p><a href="https://www.ithome.com/0/974/839.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 10 Jul 2026 02:04:37 GMT</div><h3>美国新泽西州拟禁止纯视觉自动驾驶汽车，特斯拉 Robotaxi 或被拒之门外</h3><p>IT之家 7 月 10 日消息，据科技媒体 The Verge 前天报道，自动驾驶行业十多年来始终在争论：仅凭摄像头是否能取代人类驾驶员，还是说真正的无人驾驶汽车必须配备毫米波雷达、激光雷达等冗余传感器，才能可靠地感知环境？ 特斯拉已经在纯视觉智驾方案投资数十亿美元，并坚定地在这条路上前进。但与此同时，其他自动驾驶企业都选择了截然不同的技术路线。 而美国新泽西州似乎想为这场争端画一个句号。该州立法者已经在起草法案，意图让新泽西州所有运营自动驾驶汽车的企业，都必须使用摄像头和另外两种环境感知技术。 目前，该法案还在起草过程中，预计将于今年晚些时候表决。 如果最终通过 ， 新泽西成为全美首个禁止 Robotaxi 等纯视觉自动驾驶方案的州 。 新泽西州参议员安德鲁 · 兹维克（IT之家注：Andrew Zwicker）对此表示：“这条法案并不是针对特斯拉，我在意全州人民的公共安全”。</p><a href="https://www.ithome.com/0/974/836.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 10 Jul 2026 01:58:26 GMT</div><h3>AI 加快漏洞发现，微软称 Win11 每月更新将整合更多安全修复</h3><p>IT之家 7 月 10 日消息，微软昨日（7 月 9 日）发布博文，为适应 AI 推动的漏洞发现加速趋势，宣布调整 Windows 11 漏洞管理体系， 把 AI 引入漏洞发现、修复与验证流程，从而缩短从发现到防护的时间。 微软 Windows and Devices 执行副总裁帕万 · 达武鲁里（Pavan Davuluri）表示，在 AI 参与漏洞发现流程后，可以帮助工程团队更快识别可利用问题，并加速分析流程，从而缩短漏洞发现到客户获得防护之间的时间。IT之家附上相关视频如下： 在漏洞发现环节，Windows 工程团队已采用智能体扫描框架 MDASH，结合多个前沿模型，从而更快更准发现系统漏洞。 在漏洞验证环节，经扫描确认的候选问题，会进入 Windows 专用验证流程，仅将高置信度结果提交给工程团队。 微软表示这套自动化流程可处理更大体量的潜在漏洞，并缩短新漏洞审查窗口，对于普通用户而言，每月发布的 Windows 11 累积更新会包含更多修复内容。 除漏洞发现外，AI…</p><a href="https://www.ithome.com/0/974/832.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 10 Jul 2026 01:57:08 GMT</div><h3>NVIDIA 发布 GeForce 典藏卡第 1 系列：致敬历史时刻，BW2026 有赠卡活动</h3><p>IT之家 7 月 10 日消息，NVIDIA（英伟达）当地时间昨日宣布推出首个 GeForce 典藏卡系列。这套免费典藏卡共包含 14 款设计，展示了 GeForce PC 游戏发展历程的经典时刻， 将通过 BW2026 等线上线下活动向玩家赠送 。 IT之家整理 GeForce 典藏卡第 1 系列部分主题内容如下： NV1（NVIDIA 首款面向主流市场的多媒体处理器）； GeForce 256（全球首款 GPU）； GeForce 3（首款支持可编程着色器的 GPU）； GeForce 7800 GTX（2000 年代中期 GeForce 7 系列的代表）； GeForce 10 系列； Bubble、Chameleon、Medusa（三款经典技术 Live Demo）； 《虚幻竞技场 2004》《无主之地》（代表了 GeForce 游戏不同时代的经典之作）； GeForce RTX 2080 Ti《赛博朋克 2077》特别版； 清单卡。</p><a href="https://www.ithome.com/0/974/830.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 10 Jul 2026 01:47:36 GMT</div><h3>三星电子会长李在镕拟于本月底赴美，会见英伟达 CEO 黄仁勋</h3><p>IT之家 7 月 10 日消息，据韩媒《东亚日报》今天报道，三星电子会长李在镕预计将于本月底奔赴美国， 会见英伟达创始人兼 CEO 黄仁勋 。 据业内人士透露，李在镕正在和黄仁勋协调硅谷会面的相关安排。如果会面成行，两人将在时隔九个月后会晤，他们上一次会面是在去年 10 月的 APEC 会议。 同时，本次会谈将进一步促进韩国国内的“三大超级计划”。根据该计划，韩国各大企业将在光州投资 800 万亿韩元（IT之家注：现汇率约合 3.62 万亿元人民币）建设半导体园区，并在国内投资超 1000 万亿韩元（现汇率约合 4.52 万亿元人民币）建立 AI 数据中心，而英伟达预计将在其中发挥关键作用。 并且，韩国的 AI 数据中心战略高度依赖英伟达 AI 服务器。 然而在全球 AI 狂热背景下 ， 相关芯片的供应仍然十分紧张 。 韩国总统李在明曾在去年 10 月会见黄仁勋后，帮助韩国企业获得 26 万颗英伟达 AI 芯片，为韩国 AI 设施建设提供重要支持。而三星电子此次与英伟达的会谈，预计将进一步深化合作关系。</p><a href="https://www.ithome.com/0/974/828.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Wed, 08 Jul 2026 18:25:41 +0800</div><h3>大多数 AI slop 应用会很快停止维护和抛弃</h3><p>由于涌入了大量低质量的 AI 生成应用，Linux 软件仓库 Flathub 于五月底宣布停止接受此类 AI 生成应用。审核递交到 Flathub 的应用是一个吃力不讨好的工作，当审核者试图与 AI 生成应用递交者沟通时，却发现对方使用的是 AI 智能体，回复都是答非所问。一位审核者对此评论说，“纯粹是噪音和浪费时间”。从 2026 年 1 月开始，Flathub 将此类应用打上了 AI Slop 的标签。知名 Linux 开发者 Evangelos“GeopJr”Paterakis 调查了 过去半年标记为 AI slop 的 120 个应用，32 个仍在维护，88 个已被抛弃，大多数都彻底删除了，部分应用在递交到 Flathub 后就停止了维护。</p><a href="https://www.solidot.org/story?sid=84784" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 08 Jul 2026 17:23:53 +0800</div><h3>Microsoft 365 Copilot 普及率不到 4.5%</h3><p>微软花了三年时间将 Copilot 深入集成到 Windows 11 和 Office 中，但数据显示用户使用率并不高。在 4.5 亿 Microsoft 365 订阅服务的商业客户中，只有 4.5% 的人付费使用 Copilot，而这些付费用户只有 20% 到 30% 会每周打开 Copilot。这意味着 Copilot 的周活跃用户数仅占 Microsoft 365 总用户数的 1%。Copilot 负责人 Jacob Andreou 在一份内部备忘录中称，Copilot 必须证明自己存在的价值。值得说明的是 Copilot 是指需要额外付费的 AI 服务，而 Copilot Chat 则是 Microsoft 365 用户可免费使用的 AI 服务，它的使用率比较高。</p><a href="https://www.solidot.org/story?sid=84782" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 07 Jul 2026 23:19:37 +0800</div><h3>LineageOS 项目谈 Google 的开发者认证计划</h3><p>LineageOS 项目谈论了即将生效的 Google Android 开发者认证计划对该项目意味着什么。Android 开发者认证计划意味着所有 Android 安装路径都将通过 Google 控制的基础设施，授予 Google 一个“终止开关”可封禁全球任何 Android 应用或开发者。开发者认证对 LineageOS 项目没有直接影响，但会影响到运行任何官方 ROM 的用户。因为验证开发者的基础设施是 Google Mobile Services（GMS）的一部分，而 LineageOS 默认并不提供也无计划提供 GMS。除非 LineageOS 用户选择安装包含开发者验证基础架构的 GApps 包，否则该功能不会造成任何影响。如果 Google 将该功能集成到 Play Services 中，那么 LineageOS 项目将会全局禁用该功能。</p><a href="https://www.solidot.org/story?sid=84777" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>
