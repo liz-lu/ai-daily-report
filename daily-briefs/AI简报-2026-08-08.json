@@ -1,0 +1,993 @@
+{
+  "date": "2026-08-08",
+  "generated_at": "2026-08-08T11:50:26.921123+08:00",
+  "timezone": "Asia/Shanghai",
+  "stats": {
+    "story_count": 38,
+    "error_count": 1,
+    "source_count": 4,
+    "theme_count": 7
+  },
+  "sources": [
+    "IT之家",
+    "Solidot",
+    "量子位",
+    "雷锋网"
+  ],
+  "themes": [
+    {
+      "name": "云 / 大厂 / 生态",
+      "count": 24,
+      "sources": [
+        "IT之家",
+        "Solidot",
+        "量子位",
+        "雷锋网"
+      ],
+      "stories": [
+        {
+          "source": "量子位",
+          "title": "谷歌急了：AI核心员工全给我搬回硅谷坐班！",
+          "link": "https://www.qbitai.com/2026/08/468398.html",
+          "excerpt": null
+        },
+        {
+          "source": "量子位",
+          "title": "阿里推出国内首个AI语音平台CosyVoice Studio，将语义理解融入语音能力",
+          "link": "https://www.qbitai.com/2026/08/468324.html",
+          "excerpt": null
+        },
+        {
+          "source": "量子位",
+          "title": "AI批量轰炸苹果bug赏金计划，审核团队已下线",
+          "link": "https://www.qbitai.com/2026/08/466738.html",
+          "excerpt": null
+        },
+        {
+          "source": "量子位",
+          "title": "阿里视频大模型Wan3.0开启公测：文档、ppt也能变视频",
+          "link": "https://www.qbitai.com/2026/08/467877.html",
+          "excerpt": null
+        },
+        {
+          "source": "量子位",
+          "title": "蚂蚁集团开源Avernet，让人与智能体像组织一样高效协作",
+          "link": "https://www.qbitai.com/2026/08/467871.html",
+          "excerpt": null
+        },
+        {
+          "source": "雷锋网",
+          "title": "赌注十万亿：字节拒绝走蒸馏捷径背后，张一鸣的长期主义有多狠？",
+          "link": "https://www.leiphone.com/category/yanxishe/JR3ppBP5VOxND55d.html",
+          "excerpt": "张一鸣要的是，下一轮竞争中，Seed模型能力跻身世界第一梯队 作者丨高允毅 编辑丨岑 峰 近日，The Information爆出，在两周前的 Seed 全员会上，张一鸣罕见发声，明确拒绝以蒸馏手段追赶前沿大语言模型。他的态度很坚决：“字节跳动应该愿意为了长远目标牺牲一些短期利益。” 最新一期 Artificial Analysis 全球 LLM 排行榜中，月之暗面 Kimi K3 Max 位列第二，阿里 Qwen 3.8 Max 位居第四，智谱 GLM 5.2 Max、DeepSeek V4 Flash 分列第七、第八，中国模型已占据全球前十近半席位。反观字节 Seed 2.1 Pro，仅排在第 21 位，远低于其他中国模型。 论钱，字节年利润规模位居互联网头部；论人，Seed 团队汇聚了搜广推体系成长起来的顶尖算法人才；论算力，数万张 GPU 集群的智算中心正在全国铺开；论数据，抖音与 TikTok 坐拥全球最大的原生内容池。 样样不缺的字节，为什么在大模型榜单上追不上？ 据字节员工透露，公司内部认为，字节不愿蒸馏，被认为是其大语言模型落后于中国其他人工智能实验室的原因之一。 01 三次被否决的“兵变”…"
+        },
+        {
+          "source": "雷锋网",
+          "title": "IJCAI 2026 专访：机器人想学会人类动作，还差一座桥 | GAIR Paper 118",
+          "link": "https://www.leiphone.com/category/private/V2FQ6puH0pDdAKeI.html",
+          "excerpt": "重新审视人类视频如何赋能机器人学习 作者丨 邓哲敏 编辑丨 齐铖湧 大模型时代，规模化的数据能带来能力跃迁，这一规律已被反复验证。 当这套范式进入机器人领域，问题变得复杂。机器人需要的不仅是大量数据，而且是能够转化为动作能力的数据。 人类视频近期成为研究者关注的新来源。它规模巨大、获取成本低、覆盖场景丰富，但它毕竟不是机器人数据，视频里没有机器人动作标签，人类手部运动也无法直接对应机器人的控制信号。 问题由此产生： 人类视频进入机器人学习流程后，究竟应该被表示成什么？ 过去一年，研究者给出了不同答案：有人把动作压缩到隐空间，有人让模型学习视频背后的世界规律，也有人直接提取二维、三维轨迹。但这些路线究竟是彼此竞争，还是在解决同一个问题？ 今年 IJCAI 2026 ，一篇来自清华大学、香港科技大学、微软亚洲研究院等机构联合推出的综述论文，试图重新梳理这一领域： 不同方法的本质，都是在人类视频与机器人动作之间搭建一座 representation bridge。 AI科技评论（雷峰网公众号）采访了论文一作、清华大学博士生、微软亚洲研究院实习研究员冯志远，拆解这篇论文背后的技术路线与行业判断。 01…"
+        },
+        {
+          "source": "雷锋网",
+          "title": "Jeff Dean 创业路演 PPT，惊现 34 位创始人，谷歌系人才占领半壁江山",
+          "link": "https://www.leiphone.com/category/yanxishe/Ga2vGDMkzS2dp4Ew.html",
+          "excerpt": "杨植麟也是 Jeff Dean PPT 中列出的谷歌系创始人名单中的一位。 作者丨 高允毅 郑佳美 编辑丨 岑 峰 聚是一团火，散是满天星，这句话用在谷歌当年的核心实验室 Google Brain 最合适不过。 今早，谷歌传奇人物，首席科学家兼 Google Brain 创始人之一 Jeff Dean 官宣离职创业 ，作为谷歌老人，他已经加入谷歌工作 27 年。 据 Jeff 深情回忆，当初谷歌才 25 人，如今已经发展到 19 万多人，不仅成为全球技术创新的中心，还是全球 AI 人才的“黄埔军校”。 其中，Jeff 与吴恩达、Greg Corrado 当年着手创办 Google Brain，迅速扩张到 1001 人，走出的顶级人才在如今的 AI 创业大潮中已自成一派，不少人成为了AI领域不同公司创始人。 在 Jeff 的创业路演PPT中，这份名单得以曝光。不得不说，含金量高的惊人，比如Anthropic创始人Dario Amodei，SSI创始人Ilya Sutskever。 能孕育如此惊人的创造力，得益于 Jeff 在 2016 年亲自开创的 Brain Residency（谷歌大脑驻留计划） 。他打破了科技界…"
+        },
+        {
+          "source": "雷锋网",
+          "title": "阿里视频大模型Wan3.0开启公测：文档、ppt也能变视频",
+          "link": "https://www.leiphone.com/category/industrynews/Wp4SCQ5wu1Lbhtr1.html",
+          "excerpt": "8月6日，阿里巴巴视频生成大模型Wan 3.0开启公测，在生成时长、万能创作、全能参考以及真实世界还原等维度全面升级：单次可生成30秒视频，完整表达创作意图；在文本、图片、音频、视频四种基础模态之外，首次支持doc、xls、ppt、pdf、md等文档格式输入；力求准确还原真实世界——人物千人千面，每一帧画面既真实、又可信。 生成时长的延展是Wan3.0最直观的升级。单段30秒生成让叙事节奏更游刃有余，连续运镜、一镜到底等复杂镜头语言得以充分表达，AI视频从“生成一个镜头”走向“讲述一段完整的故事”。Wan3.0还有智能时长功能，可根据提示词自动推荐合适时长。 Wan3.0正从视频生成模型跃迁为信息的表达载体，不仅能以文本、图片、音频、视频作为全能参考，还能读取文档、ppt等结构化信息，搭配提示词即可生成教学课件、产品演示、业务汇报等内容。支持格式覆盖doc、xls、ppt、pdf、md等，单个文件或链接不超过100MB、50页。比如上传一个智能眼镜产品的ppt，配上提示词，就能得到一个完整的形象片。 这背后，是模型强大的提示词工程与指令遵循能力，将提示词转化为调度输入、控制表达的中枢。…"
+        },
+        {
+          "source": "雷锋网",
+          "title": "150.8元/股！宇树科技超百名员工参与IPO「盛宴」，一批90后千万富豪或将诞生；DeepSeek拟上调API服务定价；字节拟训练超5万亿参数大模型",
+          "link": "https://www.leiphone.com/category/zaobao/jTnxUYfadwnDJtNd.html",
+          "excerpt": "要闻提示 1.OpenAI 披露攻击 Hugging Face 前，AI 智能体秘密建立内部留言板 2.150.8元/股！宇树科技超百名员工参与IPO“盛宴”，一批90后千万富豪或将诞生 3.DeepSeek拟上调API服务定价，预计涨幅较大 4.小红书高薪招募AI人才，主导AI社交类产品 5.曝字节拟训练超5万亿参数大模型，参数规模超Kimi K3 6.前小鹏副总裁陈永海加入众擎机器人，担任运营总裁 7.王腾回应“SU7 Ultra 泊车异常”：小米汽车已迅速跟进分析，边界场景有 Bug 很正常 8.谷歌Gemini换帅，首席科学家Jeff Dean离职创业 今日头条 OpenAI 披露攻击 Hugging Face 前，AI 智能体秘密建立内部留言板 8月6日消息，OpenAI在一场网络安全会议上披露，其公司 AI 模型攻击 Hugging Face 之前，在测试环境下已“密谋约 2 个月”。…"
+        },
+        {
+          "source": "雷锋网",
+          "title": "Jeff Dean 创业路演 PPT，惊现 34 位创始人，谷歌系人才占领半壁江山",
+          "link": "https://www.leiphone.com/category/ai/woyyD9TFUP2pnDOC.html",
+          "excerpt": "杨植麟也是 Jeff Dean PPT 中列出的谷歌系创始人名单中的一位。 作者丨 高允毅 郑佳美 编辑丨 岑 峰 聚是一团火，散是满天星，这句话用在谷歌当年的核心实验室 Google Brain 最合适不过。 今早，谷歌传奇人物，首席科学家兼 Google Brain 创始人之一 Jeff Dean 官宣离职创业 ，作为谷歌老人，他已经加入谷歌工作 27 年。 据 Jeff 深情回忆，当初谷歌才 25 人，如今已经发展到 19 万多人，不仅成为全球技术创新的中心，还是全球 AI 人才的“黄埔军校”。 其中，Jeff 与吴恩达、Greg Corrado 当年着手创办 Google Brain，迅速扩张到 1001 人，走出的顶级人才在如今的 AI 创业大潮中已自成一派，不少人成为了AI领域不同公司创始人。 在 Jeff 的创业路演PPT中，这份名单得以曝光。不得不说，含金量高的惊人，比如Anthropic创始人Dario Amodei，SSI创始人Ilya Sutskever。 能孕育如此惊人的创造力，得益于 Jeff 在 2016 年亲自开创的 Brain Residency（谷歌大脑驻留计划） 。他打破了科技界…"
+        },
+        {
+          "source": "IT之家",
+          "title": "微软预告 Win10/Win11 经典版 Outlook 更新：基于上下文 AI 解释用户选中文本",
+          "link": "https://www.ithome.com/0/987/274.htm",
+          "excerpt": "IT之家 8 月 8 日消息，科技媒体 Windows Latest 昨日（8 月 7 日）发布博文，报道称面向 Windows 10、Windows 11 经典版 Outlook 应用， 微软开始推送名为 Explain This 的 Copilot AI 功能。 功能方面，用户打开邮件后，只需选中任意文本，Copilot 就会结合整封邮件的内容，给出贴切的上下文解释。 微软在更新说明里写道，这项改进让用户对 Copilot 有更高的控制权，可以决定其在何时、如何协助完成任务，从而在工作流中整合生产力、清晰度和决策能力。 时间表方面，微软预计经典版 Outlook 的 Explain This 功能会在 9 月底前完成推送，大多数用户会在 9 月初看到它。"
+        },
+        {
+          "source": "IT之家",
+          "title": "微软 Win10/Win11 新版 Outlook 收件箱塞入 Copilot，AI 摘要过去 8 小时邮件",
+          "link": "https://www.ithome.com/0/987/271.htm",
+          "excerpt": "IT之家 8 月 8 日消息，科技媒体 Windows Latest 昨日（8 月 7 日）发布博文，报道称针对 Windows 10、Windows 11 平台新版 Outlook， 微软计划引入“每日小结”（Wrap up your day） AI 功能。 产品布局方面，该媒体指出微软通过该功能，进一步扩充 Copilot 入口，将其整合到收件箱场景中。 在 Windows 10、Windows 11 平台新版 Outlook 中，Copilot 位于左侧边栏，并在功能区菜单中以按钮的形式出现。而在安卓和 iOS 平台 Outlook 中，Copilot 按钮位于撰写按钮旁边。 而本次计划进一步在新版 Outlook 中扩展 Copilot 入口，通过“每日小结”功能，整合到收件箱场景。 功能方面，用户点击“每日小结”后，Outlook 在右侧边栏打开 Copilot，并向其发送提示词。该提示词要求 Copilot 只基于过去 8 小时内 Inbox（包括 Focused 和 Other）以及 Sent 中的邮件，创建一份“执行摘要式、简洁的晚间收件箱简报”。 该提示词还要求 Copilot 按 3…"
+        },
+        {
+          "source": "IT之家",
+          "title": "网友反馈 2022 年购买的《指环王》电影从片库消失，谷歌回应无法退款",
+          "link": "https://www.ithome.com/0/987/265.htm",
+          "excerpt": "IT之家 8 月 8 日消息，网友 u/ugoindownsaka1 在 Reddit 社区发帖，声称其于 2022 年从 Google Play 购买了《指环王》三部曲电影， 但近期重温观看时发现相关片源已从其片库中消失。 该网友在 Reddit 社区分享了他和谷歌的客服聊天记录， 客服表示由于购买时间太久，超过了公司标准的 120 天退款期限，且系统无法追溯交易历史，因此无法退款。 该用户随后询问，在无法退款的情况下，平台是否可以发放礼品卡。客服直接拒绝，并称：“由于该电影托管在 YouTube 平台上，并且仍可在他们那端访问，我们建议联系 YouTube 支持团队寻求进一步帮助。” 该用户反驳称，自己购买影片的平台是 Google Movies & TV。 客服随后回复称，该电影已从 Google 平台目录中移除，系统中不再提供。 相关帖子很快获得数千次点赞和评论，多名用户表达了对数字购买模式的不满，认为该事件凸显消费者预期与数字授权现实之间的错位。IT之家附上相关截图如下："
+        },
+        {
+          "source": "IT之家",
+          "title": "华为鸿蒙电脑 HarmonyOS 7 花粉 Beta 版开启推送",
+          "link": "https://www.ithome.com/0/987/259.htm",
+          "excerpt": "IT之家 8 月 8 日消息，今日，华为鸿蒙电脑 HarmonyOS 7 花粉 Beta 版开启推送，版本号为 7.0.0.102 SP5，安装包体积为 15.46 GB。 据官方介绍，新版本为用户带来更精致的沉浸光感视效、更好用的小艺慧记，同时还在图库、备忘录、邮件等常用应用的使用方面新增诸多便捷、好用的新功能。 IT之家附主要内容如下： 沉浸光感 新增全新视效，覆盖更多场景，例如鼠标悬浮 Dock 栏图标时新增空间感光效；将桌面图标拖入大文件夹时新增光感吸附动效；在控制中心滑动音量条、亮度条，或在桌面删除卡片时新增粒子动效。视觉效果支持档位调节，您可根据个人喜好进行设置 (设置> 桌面和个性化 > 沉浸光感)。 小艺慧记 新增系统级悬浮工具栏，可便捷进行切换音源，启停慧记等操作。 慧记首页支持根据不同场景一键开启实时记录，记录过程中可同步显示原文和摘要总结并实时对比、根据记录文本自动提取发言人名称、针对提问自动检索记录文本上下文或互联网相关信息等。 AI 纪要提供会议纪要、学习笔记、对话访谈等常用模板，根据场景一键生成不同的纪要，突出该场景重点，还可以自定义模板。…"
+        },
+        {
+          "source": "IT之家",
+          "title": "微软宣布 Edge 浏览器将逐步取消 Manifest V2 扩展程序支持，影响广告拦截工具 uBlock Origin 等",
+          "link": "https://www.ithome.com/0/987/251.htm",
+          "excerpt": "IT之家 8 月 8 日消息，当地时间 8 月 7 日，微软宣布，自 2026 年 8 月起，Edge 浏览器将启动面向普通消费者的过渡计划， 逐步停止对 MV2 扩展的支持并全面转向 MV3 。目标是在 2026 年底前完成面向普通用户的过渡，并于 2027 年初正式面向企业客户弃用 MV2。 微软表示，Edge 浏览器的 Manifest Version 2（MV2）扩展程序正加速向 MV3 迁移，整个扩展生态已取得实质性进展。 目前 Edge 扩展商店中 95% 的头部 MV2 扩展均已完成升级 。仍拥有实质用户量的 MV2 扩展仅剩 58 个，其中只有 3 个尚未推出公开的 MV3 替代版本。 自 2026 年 8 月起，部分安装了 MV2 扩展的用户将在“管理扩展”页面 (edge://extensions) 及 Edge 浏览器加载项的产品详情页上看到相关提示。仍在维护 MV2 扩展的极少数开发者，将在 Microsoft 合作伙伴中心看到类似通知。 在接下来的几个月中，MV2 扩展将开始默认被逐步禁用。系统会提前通知用户，并引导其使用已上架的推荐 MV3 版本。 IT之家获悉，上述调整将首先在…"
+        },
+        {
+          "source": "IT之家",
+          "title": "Pro、Max 和 Team 用户 8 月 14 日起 Claude Code 默认权限调整为自动模式",
+          "link": "https://www.ithome.com/0/987/249.htm",
+          "excerpt": "IT之家 8 月 8 日消息，Anthropic 今天（8 月 8 日）发布公告，宣布将于 8 月 14 日开始，针对 Pro、Max 和 Team 订阅用户， 调整 Claude Code 的默认权限模式为自动模式（Auto Mode）。 IT之家援引博文介绍，自动模式是指 Claude Code 使用独立的 AI 分类器（classifier），实时评估每次工具调用和 Shell 命令，放行安全操作，自动拦截破坏性、不可逆或越权行为。 在覆盖范围方面，Claude Enterprise、Claude API、Claude Platform on AWS、Amazon Bedrock、Google Cloud's Agent Platform 和 Microsoft Foundry 目前仍保持可选，Anthropic 计划在未来 1 个月内在上述平台推进调整，把自动模式设为默认选项，并取消相应开销。 在测试推行方面，Anthropic 邀请 1,053 名付费测试者测试，发现在传统人工审批模式，只识别出 13.6% 的危险命令；而自动模式能够识别 89% 的危险命令。 在提示词注入评估中，Trajectory Labs…"
+        },
+        {
+          "source": "IT之家",
+          "title": "18 核 / 20 核英伟达 RTX Spark 笔记本跑分曝光：64GB 统一内存",
+          "link": "https://www.ithome.com/0/987/245.htm",
+          "excerpt": "IT之家 8 月 8 日消息，科技媒体 Wccftech 昨日（8 月 7 日）发布博文， 报道称在 GeekBench 7.0.0 跑分库中，发现了两款搭载英伟达 RTX Spark 处理器的笔记本电脑。 IT之家援引博文介绍，本次现身跑分库的 2 款设备均配备 64GB 的统一内存： 型号为“OEMQAJ 766_MIS Product Name DV”的设备搭载 20 核 CPU 型号为“OEMQAJ OEMQAJ Product”的设备搭载 18 核 CPU 在跑分方面，20 核 CPU 版本 RTX Spark 单核成绩为 2,570 分，多核 23,126 分；18 核版本单核 2,541 分、多核 21,776 分。 IT之家附上相关跑分对比数据如下： GeekBench 7 跑分 20 核 CPU 版 RTX Spark 苹果 M4 Max 芯片 差距 单核 2,570 3,404 24.5% 多核 23,126 25,957 10.91% GeekBench 7 跑分 18 核 CPU 版 RTX Spark 苹果 M4 Max 芯片 差距 单核 2,541 3,404 25.35% 多核 21,776…"
+        },
+        {
+          "source": "IT之家",
+          "title": "蚂蚁集团百灵开源 Ling-3.0-flash 模型：124B 总参数、5.1B 激活参数",
+          "link": "https://www.ithome.com/0/987/231.htm",
+          "excerpt": "IT之家 8 月 8 日消息，蚂蚁集团旗下百灵大模型官方昨日宣布，新一代原生混合推理模型 Ling-3.0-flash 现已正式开源。 Ling-3.0-flash 采用 124B 总参数、5.1B 激活参数 的 MoE 架构。官方同步提供基础版本以及 FP8、FP4、INT4 等多个版本，提供三种不同的落地选择： API 调用： 面向希望快速接入、无需自建推理服务的开发者，Ling-3.0-flash 可通过云端 API 直接调用； 单机私有化： 面向数据不能出域的企业和团队，MXFP4 与 INT4 版本可在单台 NVIDIA DGX Spark 上完成端到端推理； 高性能部署： 面向单请求时延敏感的高性能服务，在指定 GPU 测试配置下，平均输出速率突破 1100 tokens/s。 对于希望快速验证产品、上线 Agent 应用的开发者和产品团队，API 是门槛最低的接入方式。在 Artificial Analysis 榜单中，Ling-3.0-flash 输出速度达到 353 tokens/s。 在 AA Intelligence Index 榜单中，Ling-3.0-flash 每项任务的加权平均调用成本约为…"
+        },
+        {
+          "source": "Solidot",
+          "title": "AMD 收购将权重直接刻在芯片上的 AI 初创公司",
+          "link": "https://www.solidot.org/story?sid=85035",
+          "excerpt": "AMD 收购了将权重直接刻在芯片上的 AI 初创公司 Taalas。Taalas 创办于 2023 年，它研发专门用于执行 AI 模型推理任务的集成电路 MSIC（代表 model-specific integrated circuits），其推理速度比 GPU 和其它专用加速器高出一个数量级以上。Taalas 今年 2 月展示了它用台积电 6nm 工艺制造的测试芯片 HC1，测试显示芯片能以每秒 16,960 个 tokens 的速度处理 Meta 的 Llama 3.1 8B 模型，这一速度比英伟达的 GPU 快 48 倍，比 Cerebras 的加速器快 8.5 倍。Taalas 计划今夏推出第二代 HC2 芯片，目标是将参数数量提升至 200 亿。它的缺点是一旦部署只能使用当前的模型，新模型需要重新设计芯片，但并不需要从零开始设计，只需要更换两层金属，因此既便宜也省时间。"
+        },
+        {
+          "source": "Solidot",
+          "title": "字节跳动开发 10 万亿参数模型",
+          "link": "https://www.solidot.org/story?sid=85034",
+          "excerpt": "字节跳动正在训练一款 10 万亿参数模型。新模型目前正处于预训练阶段。这一过程通常需要耗时三到六个月，随后才能进入微调并最终发布。中国 AI 公司如月之暗面的 Kimi K3 模型有 2.8 万亿参数，而美团的 LongCat-2.0 与 DeepSeek 的 V4-Pro 有 1.6 万亿的参数。Anthropic 最先进的 Mythos 5 参数量估计为 8 万亿，Fable 5 约为 5 万亿。这意味着，单从规模指标来看，字节跳动研发的新模型在规模上已与 Mythos 相近。"
+        },
+        {
+          "source": "Solidot",
+          "title": "《时代》杂志网站展示只有 AI 能看到的广告",
+          "link": "https://www.solidot.org/story?sid=85031",
+          "excerpt": "《时代》杂志网站开始展示只有 AI 爬虫能看到的带有品牌信息的广告。这些广告旨在影响 AI 聊天机器人，让 AI 从积极的角度谈论品牌产品，而 AI 获得的信息无法追溯到实际页面。《时代》网站排除了 Google 的爬虫，原因是 Google 会惩罚向机器人和真实用户展示不同搜索结果的网站。广告技术平台 Mobian 的联合创始人兼 CEO Jonah Goodhart 指出，影响机器人可能比影响人类用户更重要，因为影响人类用户只能影响一个人。而影响 ChatGPT 就是影响整个 ChatGPT。如果 ChatGPT 改变了它对某个品牌的评价，其影响将是巨大的，远超任何单一广告活动所能达到的效果。"
+        },
+        {
+          "source": "Solidot",
+          "title": "Google DeepMind CEO Demis Hassabis 卸任",
+          "link": "https://www.solidot.org/story?sid=85019",
+          "excerpt": "Google 对其 AI 部门 DeepMind 进行了领导层重组，诺贝尔奖得主、DeepMind CEO Demis Hassabis 卸任，他将担任新设立的首席科学家职位并改任董事长。资深工程师以及 Google Brain 联合创始人 Jeff Dean、Sanjay Ghemawat、Oriol Vinyals 和 ​Quoc Le 都离开 Google，他们成立了一家公益性 AI 企业 Discovery Loop，专注于机器学习、科学和工程领域的突破性研究。这次人事变动恰逢 Google 最新 Gemini 模型的发布滞后，原计划 6 月发布，但至今仍未发布，引发了 Google 落后于竞争对手 Anthropic 和 OpenAI 的担忧。"
+        },
+        {
+          "source": "Solidot",
+          "title": "微软要求工程师不要最大化 AI Token 使用",
+          "link": "https://www.solidot.org/story?sid=85018",
+          "excerpt": "为了推广 AI 工具，许多企业将 AI 使用率作为绩效考核的一部分。结果就是员工为了绩效致力于最大化 AI 使用，导致企业很快发现 token 费用大幅超出预算。软件巨头微软成为最新一家建议工程师限制使用 AI 的公司。微软执行副总裁 Jay Parikh 在一封发给微软员工的邮件中要求工程师专注于业务成果，而非最大化 AI token 的使用量，为了“从 token 投资中获得更大的价值”，微软将比其它模型更便宜的 OpenAI GPT-5.6 设为内部使用的默认模型。自 2026 年 7 月起，微软各部门将设定“AI token 预算目标”，员工可以追踪各自的 AI 支出。"
+        }
+      ]
+    },
+    {
+      "name": "大模型 / 应用 / 智能体",
+      "count": 22,
+      "sources": [
+        "IT之家",
+        "Solidot",
+        "量子位",
+        "雷锋网"
+      ],
+      "stories": [
+        {
+          "source": "量子位",
+          "title": "openJiuwen发布业界首个企业级智能体分布式蜂群架构，联合邮储成功落地金融生产环境",
+          "link": "https://www.qbitai.com/2026/08/468305.html",
+          "excerpt": null
+        },
+        {
+          "source": "量子位",
+          "title": "阿里视频大模型Wan3.0开启公测：文档、ppt也能变视频",
+          "link": "https://www.qbitai.com/2026/08/467877.html",
+          "excerpt": null
+        },
+        {
+          "source": "量子位",
+          "title": "刚刚，ChatGPT免费版史诗升级！GPT-5.6可以无限白嫖了",
+          "link": "https://www.qbitai.com/2026/08/467879.html",
+          "excerpt": null
+        },
+        {
+          "source": "量子位",
+          "title": "蚂蚁集团开源Avernet，让人与智能体像组织一样高效协作",
+          "link": "https://www.qbitai.com/2026/08/467871.html",
+          "excerpt": null
+        },
+        {
+          "source": "量子位",
+          "title": "AI SSD：大模型推理的存储范式转移",
+          "link": "https://www.qbitai.com/2026/08/467840.html",
+          "excerpt": null
+        },
+        {
+          "source": "雷锋网",
+          "title": "赌注十万亿：字节拒绝走蒸馏捷径背后，张一鸣的长期主义有多狠？",
+          "link": "https://www.leiphone.com/category/yanxishe/JR3ppBP5VOxND55d.html",
+          "excerpt": "张一鸣要的是，下一轮竞争中，Seed模型能力跻身世界第一梯队 作者丨高允毅 编辑丨岑 峰 近日，The Information爆出，在两周前的 Seed 全员会上，张一鸣罕见发声，明确拒绝以蒸馏手段追赶前沿大语言模型。他的态度很坚决：“字节跳动应该愿意为了长远目标牺牲一些短期利益。” 最新一期 Artificial Analysis 全球 LLM 排行榜中，月之暗面 Kimi K3 Max 位列第二，阿里 Qwen 3.8 Max 位居第四，智谱 GLM 5.2 Max、DeepSeek V4 Flash 分列第七、第八，中国模型已占据全球前十近半席位。反观字节 Seed 2.1 Pro，仅排在第 21 位，远低于其他中国模型。 论钱，字节年利润规模位居互联网头部；论人，Seed 团队汇聚了搜广推体系成长起来的顶尖算法人才；论算力，数万张 GPU 集群的智算中心正在全国铺开；论数据，抖音与 TikTok 坐拥全球最大的原生内容池。 样样不缺的字节，为什么在大模型榜单上追不上？ 据字节员工透露，公司内部认为，字节不愿蒸馏，被认为是其大语言模型落后于中国其他人工智能实验室的原因之一。 01 三次被否决的“兵变”…"
+        },
+        {
+          "source": "雷锋网",
+          "title": "82 篇论文撑起的判断：IJCAI 凭什么是推理、规划、知识的「第一主场」",
+          "link": "https://www.leiphone.com/category/private/iME7Xg5tMwxIyZqU.html",
+          "excerpt": "50篇推理加32篇规划，IJCAI里最硬的8%。 作者丨 陆毅 陈淑瑜 编辑丨岑峰 “IJCAI/AAAI在推理、规划、知识方面是最顶级的，这几个方向也是AI当下急需的。” 2019年，南京大学俞扬教授在一场关于 AI 顶会评级的讨论中写下了这句话。 彼时大语言模型尚未爆发，“推理”一词在AI社区远不如今天这般炙手可热。七年过去，当 DeepSeek-R1 用强化学习激发推理链、当 AlphaGeometry 用符号引擎超越 IMO选手、当整个行业开始反思“大模型到底会不会推理”时，俞扬教授的判断反而显得更具前瞻性。 IJCAI 是否在推理、规划、知识方面是最顶级的呢？AI科技评论以IJCAI-ECAI 2026的最新论文阵容为证据，从宏观格局和具体论文两个层面，验证“IJCAI在推理、规划、知识方面是最顶级的”这一观点在当下是否仍然成立。 01 为什么IJCAI的“基因”里 写着推理、规划与知识 IJCAI-ECAI 2026将于8月15日至21日在德国不来梅举行，这届IJCAI将与第29届 ECAI 欧洲人工智能会议联合举办。…"
+        },
+        {
+          "source": "雷锋网",
+          "title": "IJCAI 2026 专访：机器人想学会人类动作，还差一座桥 | GAIR Paper 118",
+          "link": "https://www.leiphone.com/category/private/V2FQ6puH0pDdAKeI.html",
+          "excerpt": "重新审视人类视频如何赋能机器人学习 作者丨 邓哲敏 编辑丨 齐铖湧 大模型时代，规模化的数据能带来能力跃迁，这一规律已被反复验证。 当这套范式进入机器人领域，问题变得复杂。机器人需要的不仅是大量数据，而且是能够转化为动作能力的数据。 人类视频近期成为研究者关注的新来源。它规模巨大、获取成本低、覆盖场景丰富，但它毕竟不是机器人数据，视频里没有机器人动作标签，人类手部运动也无法直接对应机器人的控制信号。 问题由此产生： 人类视频进入机器人学习流程后，究竟应该被表示成什么？ 过去一年，研究者给出了不同答案：有人把动作压缩到隐空间，有人让模型学习视频背后的世界规律，也有人直接提取二维、三维轨迹。但这些路线究竟是彼此竞争，还是在解决同一个问题？ 今年 IJCAI 2026 ，一篇来自清华大学、香港科技大学、微软亚洲研究院等机构联合推出的综述论文，试图重新梳理这一领域： 不同方法的本质，都是在人类视频与机器人动作之间搭建一座 representation bridge。 AI科技评论（雷峰网公众号）采访了论文一作、清华大学博士生、微软亚洲研究院实习研究员冯志远，拆解这篇论文背后的技术路线与行业判断。 01…"
+        },
+        {
+          "source": "雷锋网",
+          "title": "Jeff Dean 创业路演 PPT，惊现 34 位创始人，谷歌系人才占领半壁江山",
+          "link": "https://www.leiphone.com/category/yanxishe/Ga2vGDMkzS2dp4Ew.html",
+          "excerpt": "杨植麟也是 Jeff Dean PPT 中列出的谷歌系创始人名单中的一位。 作者丨 高允毅 郑佳美 编辑丨 岑 峰 聚是一团火，散是满天星，这句话用在谷歌当年的核心实验室 Google Brain 最合适不过。 今早，谷歌传奇人物，首席科学家兼 Google Brain 创始人之一 Jeff Dean 官宣离职创业 ，作为谷歌老人，他已经加入谷歌工作 27 年。 据 Jeff 深情回忆，当初谷歌才 25 人，如今已经发展到 19 万多人，不仅成为全球技术创新的中心，还是全球 AI 人才的“黄埔军校”。 其中，Jeff 与吴恩达、Greg Corrado 当年着手创办 Google Brain，迅速扩张到 1001 人，走出的顶级人才在如今的 AI 创业大潮中已自成一派，不少人成为了AI领域不同公司创始人。 在 Jeff 的创业路演PPT中，这份名单得以曝光。不得不说，含金量高的惊人，比如Anthropic创始人Dario Amodei，SSI创始人Ilya Sutskever。 能孕育如此惊人的创造力，得益于 Jeff 在 2016 年亲自开创的 Brain Residency（谷歌大脑驻留计划） 。他打破了科技界…"
+        },
+        {
+          "source": "雷锋网",
+          "title": "阿里视频大模型Wan3.0开启公测：文档、ppt也能变视频",
+          "link": "https://www.leiphone.com/category/industrynews/Wp4SCQ5wu1Lbhtr1.html",
+          "excerpt": "8月6日，阿里巴巴视频生成大模型Wan 3.0开启公测，在生成时长、万能创作、全能参考以及真实世界还原等维度全面升级：单次可生成30秒视频，完整表达创作意图；在文本、图片、音频、视频四种基础模态之外，首次支持doc、xls、ppt、pdf、md等文档格式输入；力求准确还原真实世界——人物千人千面，每一帧画面既真实、又可信。 生成时长的延展是Wan3.0最直观的升级。单段30秒生成让叙事节奏更游刃有余，连续运镜、一镜到底等复杂镜头语言得以充分表达，AI视频从“生成一个镜头”走向“讲述一段完整的故事”。Wan3.0还有智能时长功能，可根据提示词自动推荐合适时长。 Wan3.0正从视频生成模型跃迁为信息的表达载体，不仅能以文本、图片、音频、视频作为全能参考，还能读取文档、ppt等结构化信息，搭配提示词即可生成教学课件、产品演示、业务汇报等内容。支持格式覆盖doc、xls、ppt、pdf、md等，单个文件或链接不超过100MB、50页。比如上传一个智能眼镜产品的ppt，配上提示词，就能得到一个完整的形象片。 这背后，是模型强大的提示词工程与指令遵循能力，将提示词转化为调度输入、控制表达的中枢。…"
+        },
+        {
+          "source": "雷锋网",
+          "title": "150.8元/股！宇树科技超百名员工参与IPO「盛宴」，一批90后千万富豪或将诞生；DeepSeek拟上调API服务定价；字节拟训练超5万亿参数大模型",
+          "link": "https://www.leiphone.com/category/zaobao/jTnxUYfadwnDJtNd.html",
+          "excerpt": "要闻提示 1.OpenAI 披露攻击 Hugging Face 前，AI 智能体秘密建立内部留言板 2.150.8元/股！宇树科技超百名员工参与IPO“盛宴”，一批90后千万富豪或将诞生 3.DeepSeek拟上调API服务定价，预计涨幅较大 4.小红书高薪招募AI人才，主导AI社交类产品 5.曝字节拟训练超5万亿参数大模型，参数规模超Kimi K3 6.前小鹏副总裁陈永海加入众擎机器人，担任运营总裁 7.王腾回应“SU7 Ultra 泊车异常”：小米汽车已迅速跟进分析，边界场景有 Bug 很正常 8.谷歌Gemini换帅，首席科学家Jeff Dean离职创业 今日头条 OpenAI 披露攻击 Hugging Face 前，AI 智能体秘密建立内部留言板 8月6日消息，OpenAI在一场网络安全会议上披露，其公司 AI 模型攻击 Hugging Face 之前，在测试环境下已“密谋约 2 个月”。…"
+        },
+        {
+          "source": "雷锋网",
+          "title": "GPT-Live 底层拆解：OpenAI 如何让 95% 的音频帧不再延迟",
+          "link": "https://www.leiphone.com/category/ai/zYdlF2GT2z5SbNLT.html",
+          "excerpt": "通过重写 Python、魔改 WebRTC 握手，GPT-Live 让Agent从单向对话进入「实时交互」时代。 作者丨 郑佳美 编辑丨 岑 峰 在实时语音交互中，延迟是唯一的“死线”。 文字回答慢几百毫秒，用户顶多觉得体验不佳；但音频只要卡顿一次，那种“非人”的割裂感就会瞬间摧毁信任。为了解决这个工程顽疾，OpenAI 耗时 6 个月重做了整个语音系统。 刚刚，OpenAI 发布了一篇 GPT-Live 工程文章，详细披露了新版 ChatGPT 语音系统背后的架构改造。其中最值得注意的一组数据是：新的媒体系统，其 p95 音频帧延迟已经降到了旧系统 p50 的水平。 这意味着， 新系统中 最慢的 95% 的音频帧， 现在都能跑得和 旧系统中 最快的 50% 音频帧 一样的顺滑 。 虽然 OpenAI 没有公布具体毫秒数，但这个结果说明，改造主要压缩了那些偶发但明显的慢帧。 现在的 GPT-Live 不再等待用户说完一句话再开始工作，而是让声音持续进入模型，模型生成的语音也持续返回用户。搜索、工具调用和复杂推理则被移到另一条异步路径。 01 架构分层和优化，让 AI 的「反射弧」变快了 GPT-Live…"
+        },
+        {
+          "source": "雷锋网",
+          "title": "Jeff Dean 创业路演 PPT，惊现 34 位创始人，谷歌系人才占领半壁江山",
+          "link": "https://www.leiphone.com/category/ai/woyyD9TFUP2pnDOC.html",
+          "excerpt": "杨植麟也是 Jeff Dean PPT 中列出的谷歌系创始人名单中的一位。 作者丨 高允毅 郑佳美 编辑丨 岑 峰 聚是一团火，散是满天星，这句话用在谷歌当年的核心实验室 Google Brain 最合适不过。 今早，谷歌传奇人物，首席科学家兼 Google Brain 创始人之一 Jeff Dean 官宣离职创业 ，作为谷歌老人，他已经加入谷歌工作 27 年。 据 Jeff 深情回忆，当初谷歌才 25 人，如今已经发展到 19 万多人，不仅成为全球技术创新的中心，还是全球 AI 人才的“黄埔军校”。 其中，Jeff 与吴恩达、Greg Corrado 当年着手创办 Google Brain，迅速扩张到 1001 人，走出的顶级人才在如今的 AI 创业大潮中已自成一派，不少人成为了AI领域不同公司创始人。 在 Jeff 的创业路演PPT中，这份名单得以曝光。不得不说，含金量高的惊人，比如Anthropic创始人Dario Amodei，SSI创始人Ilya Sutskever。 能孕育如此惊人的创造力，得益于 Jeff 在 2016 年亲自开创的 Brain Residency（谷歌大脑驻留计划） 。他打破了科技界…"
+        },
+        {
+          "source": "IT之家",
+          "title": "消息称英伟达拟向“星际之门”项目电力服务商 Lancium 投资至多 30 亿美元",
+          "link": "https://www.ithome.com/0/987/266.htm",
+          "excerpt": "IT之家 8 月 8 日消息，据 The Information 消息，英伟达拟向电力基础设施开发商 Lancium 投资 至多 30 亿美元 （现汇率约合 202.79 亿元人民币） 。 Lancium 是由黑石集团支持的电力基础设施企业，其位于得克萨斯州阿比林的“清洁园区”（Clean Campus）正是“星际之门”（Stargate）AI 超算数据中心项目首期所在地。 “星际之门”是由软银、OpenAI 与甲骨文等公司共同筹建数据中心的合资项目， 计划到 2029 年在全美投资高达 5,000 亿美元 （IT之家注：现汇率约合 3.38 万亿元人民币） 建设 AI 数据中心与超级计算基础设施。 知情人士透露， 英伟达将先期投资 20 亿美元 （现汇率约合 135.19 亿元人民币） ，以获取 Lancium 约 20% 的股权；如果 Lancium 能够达成包括电网并网在内的特定指标， 英伟达未来还可能追加 10 亿美元 （现汇率约合 67.6 亿元人民币） 投资。 在此次交易架构下，Lancium 及其拥有的土地与电力资源资产估值约为 100 亿美元 （现汇率约合 675.97 亿元人民币）…"
+        },
+        {
+          "source": "IT之家",
+          "title": "Claude Code v2.1.224 现支持 AI 跨会话消息传递",
+          "link": "https://www.ithome.com/0/987/256.htm",
+          "excerpt": "IT之家 8 月 8 日消息，Anthropic 旗下官方账号 @ClaudeDevs 今天（8 月 8 日）在 X 平台发布推文， 宣布从 Claude Code v2.1.224 开始，会话之间可以互相发送消息。 根据官方介绍，自该版本 Claude Code 开始，不同的会话可以互相发送消息，更新和其他相关信息，方便用户在多个会话中协同项目的各个部分。 IT之家翻译官方文档介绍如下： 跨会话消息传递功能支持 Claude 将消息从一个 Claude Code 会话传递到另一个会话。当一个会话中的更改破坏了另一个会话正在构建的内容后，Claude 可以在用户注意到之前发出警告。当一个会话解决了另一个会话遇到的问题后，Claude 可以将答案发送给另一个会话。 Anthropic 表示，这项新功能的最佳使用场景包括移交调查结果、协调并行工作树、获取长时间运行的工作的状态以及跨机器回复。"
+        },
+        {
+          "source": "IT之家",
+          "title": "Pro、Max 和 Team 用户 8 月 14 日起 Claude Code 默认权限调整为自动模式",
+          "link": "https://www.ithome.com/0/987/249.htm",
+          "excerpt": "IT之家 8 月 8 日消息，Anthropic 今天（8 月 8 日）发布公告，宣布将于 8 月 14 日开始，针对 Pro、Max 和 Team 订阅用户， 调整 Claude Code 的默认权限模式为自动模式（Auto Mode）。 IT之家援引博文介绍，自动模式是指 Claude Code 使用独立的 AI 分类器（classifier），实时评估每次工具调用和 Shell 命令，放行安全操作，自动拦截破坏性、不可逆或越权行为。 在覆盖范围方面，Claude Enterprise、Claude API、Claude Platform on AWS、Amazon Bedrock、Google Cloud's Agent Platform 和 Microsoft Foundry 目前仍保持可选，Anthropic 计划在未来 1 个月内在上述平台推进调整，把自动模式设为默认选项，并取消相应开销。 在测试推行方面，Anthropic 邀请 1,053 名付费测试者测试，发现在传统人工审批模式，只识别出 13.6% 的危险命令；而自动模式能够识别 89% 的危险命令。 在提示词注入评估中，Trajectory Labs…"
+        },
+        {
+          "source": "IT之家",
+          "title": "蚂蚁集团百灵开源 Ling-3.0-flash 模型：124B 总参数、5.1B 激活参数",
+          "link": "https://www.ithome.com/0/987/231.htm",
+          "excerpt": "IT之家 8 月 8 日消息，蚂蚁集团旗下百灵大模型官方昨日宣布，新一代原生混合推理模型 Ling-3.0-flash 现已正式开源。 Ling-3.0-flash 采用 124B 总参数、5.1B 激活参数 的 MoE 架构。官方同步提供基础版本以及 FP8、FP4、INT4 等多个版本，提供三种不同的落地选择： API 调用： 面向希望快速接入、无需自建推理服务的开发者，Ling-3.0-flash 可通过云端 API 直接调用； 单机私有化： 面向数据不能出域的企业和团队，MXFP4 与 INT4 版本可在单台 NVIDIA DGX Spark 上完成端到端推理； 高性能部署： 面向单请求时延敏感的高性能服务，在指定 GPU 测试配置下，平均输出速率突破 1100 tokens/s。 对于希望快速验证产品、上线 Agent 应用的开发者和产品团队，API 是门槛最低的接入方式。在 Artificial Analysis 榜单中，Ling-3.0-flash 输出速度达到 353 tokens/s。 在 AA Intelligence Index 榜单中，Ling-3.0-flash 每项任务的加权平均调用成本约为…"
+        },
+        {
+          "source": "Solidot",
+          "title": "字节跳动开发 10 万亿参数模型",
+          "link": "https://www.solidot.org/story?sid=85034",
+          "excerpt": "字节跳动正在训练一款 10 万亿参数模型。新模型目前正处于预训练阶段。这一过程通常需要耗时三到六个月，随后才能进入微调并最终发布。中国 AI 公司如月之暗面的 Kimi K3 模型有 2.8 万亿参数，而美团的 LongCat-2.0 与 DeepSeek 的 V4-Pro 有 1.6 万亿的参数。Anthropic 最先进的 Mythos 5 参数量估计为 8 万亿，Fable 5 约为 5 万亿。这意味着，单从规模指标来看，字节跳动研发的新模型在规模上已与 Mythos 相近。"
+        },
+        {
+          "source": "Solidot",
+          "title": "《时代》杂志网站展示只有 AI 能看到的广告",
+          "link": "https://www.solidot.org/story?sid=85031",
+          "excerpt": "《时代》杂志网站开始展示只有 AI 爬虫能看到的带有品牌信息的广告。这些广告旨在影响 AI 聊天机器人，让 AI 从积极的角度谈论品牌产品，而 AI 获得的信息无法追溯到实际页面。《时代》网站排除了 Google 的爬虫，原因是 Google 会惩罚向机器人和真实用户展示不同搜索结果的网站。广告技术平台 Mobian 的联合创始人兼 CEO Jonah Goodhart 指出，影响机器人可能比影响人类用户更重要，因为影响人类用户只能影响一个人。而影响 ChatGPT 就是影响整个 ChatGPT。如果 ChatGPT 改变了它对某个品牌的评价，其影响将是巨大的，远超任何单一广告活动所能达到的效果。"
+        },
+        {
+          "source": "Solidot",
+          "title": "Rust 语言宣布 LLM 政策",
+          "link": "https://www.solidot.org/story?sid=85022",
+          "excerpt": "Rust 语言团队宣布了新的 LLM 政策。 除了作者没有人被要求必须阅读 LLM 输出，除非其自愿选择：LLM 输出不允许出现在公开文档、PR 描述或 GitHub 评论中，除非明确标注；审核者如果不愿意，无需查看 LLM 生成的 PR。 没有人必须使用 LLM 为 rust-lang/rust 做贡献：政策必须先为人类编写，仅为机器提供摘要；LLM 审核不能替代人工审核或自审。 你可以生成仅供自己查看的 LLM 内容，无需披露，前提是不会将其发布到任何你期望我们阅读或审核的地方。 你可以用 LLM 回答问题、分析、提炼、完善、检查、提出建议和审核，但不能用来**创造**。"
+        },
+        {
+          "source": "Solidot",
+          "title": "Google DeepMind CEO Demis Hassabis 卸任",
+          "link": "https://www.solidot.org/story?sid=85019",
+          "excerpt": "Google 对其 AI 部门 DeepMind 进行了领导层重组，诺贝尔奖得主、DeepMind CEO Demis Hassabis 卸任，他将担任新设立的首席科学家职位并改任董事长。资深工程师以及 Google Brain 联合创始人 Jeff Dean、Sanjay Ghemawat、Oriol Vinyals 和 ​Quoc Le 都离开 Google，他们成立了一家公益性 AI 企业 Discovery Loop，专注于机器学习、科学和工程领域的突破性研究。这次人事变动恰逢 Google 最新 Gemini 模型的发布滞后，原计划 6 月发布，但至今仍未发布，引发了 Google 落后于竞争对手 Anthropic 和 OpenAI 的担忧。"
+        },
+        {
+          "source": "Solidot",
+          "title": "微软要求工程师不要最大化 AI Token 使用",
+          "link": "https://www.solidot.org/story?sid=85018",
+          "excerpt": "为了推广 AI 工具，许多企业将 AI 使用率作为绩效考核的一部分。结果就是员工为了绩效致力于最大化 AI 使用，导致企业很快发现 token 费用大幅超出预算。软件巨头微软成为最新一家建议工程师限制使用 AI 的公司。微软执行副总裁 Jay Parikh 在一封发给微软员工的邮件中要求工程师专注于业务成果，而非最大化 AI token 的使用量，为了“从 token 投资中获得更大的价值”，微软将比其它模型更便宜的 OpenAI GPT-5.6 设为内部使用的默认模型。自 2026 年 7 月起，微软各部门将设定“AI token 预算目标”，员工可以追踪各自的 AI 支出。"
+        }
+      ]
+    },
+    {
+      "name": "芯片 / 算力 / 推理",
+      "count": 9,
+      "sources": [
+        "IT之家",
+        "Solidot",
+        "量子位",
+        "雷锋网"
+      ],
+      "stories": [
+        {
+          "source": "量子位",
+          "title": "AI SSD：大模型推理的存储范式转移",
+          "link": "https://www.qbitai.com/2026/08/467840.html",
+          "excerpt": null
+        },
+        {
+          "source": "雷锋网",
+          "title": "赌注十万亿：字节拒绝走蒸馏捷径背后，张一鸣的长期主义有多狠？",
+          "link": "https://www.leiphone.com/category/yanxishe/JR3ppBP5VOxND55d.html",
+          "excerpt": "张一鸣要的是，下一轮竞争中，Seed模型能力跻身世界第一梯队 作者丨高允毅 编辑丨岑 峰 近日，The Information爆出，在两周前的 Seed 全员会上，张一鸣罕见发声，明确拒绝以蒸馏手段追赶前沿大语言模型。他的态度很坚决：“字节跳动应该愿意为了长远目标牺牲一些短期利益。” 最新一期 Artificial Analysis 全球 LLM 排行榜中，月之暗面 Kimi K3 Max 位列第二，阿里 Qwen 3.8 Max 位居第四，智谱 GLM 5.2 Max、DeepSeek V4 Flash 分列第七、第八，中国模型已占据全球前十近半席位。反观字节 Seed 2.1 Pro，仅排在第 21 位，远低于其他中国模型。 论钱，字节年利润规模位居互联网头部；论人，Seed 团队汇聚了搜广推体系成长起来的顶尖算法人才；论算力，数万张 GPU 集群的智算中心正在全国铺开；论数据，抖音与 TikTok 坐拥全球最大的原生内容池。 样样不缺的字节，为什么在大模型榜单上追不上？ 据字节员工透露，公司内部认为，字节不愿蒸馏，被认为是其大语言模型落后于中国其他人工智能实验室的原因之一。 01 三次被否决的“兵变”…"
+        },
+        {
+          "source": "雷锋网",
+          "title": "82 篇论文撑起的判断：IJCAI 凭什么是推理、规划、知识的「第一主场」",
+          "link": "https://www.leiphone.com/category/private/iME7Xg5tMwxIyZqU.html",
+          "excerpt": "50篇推理加32篇规划，IJCAI里最硬的8%。 作者丨 陆毅 陈淑瑜 编辑丨岑峰 “IJCAI/AAAI在推理、规划、知识方面是最顶级的，这几个方向也是AI当下急需的。” 2019年，南京大学俞扬教授在一场关于 AI 顶会评级的讨论中写下了这句话。 彼时大语言模型尚未爆发，“推理”一词在AI社区远不如今天这般炙手可热。七年过去，当 DeepSeek-R1 用强化学习激发推理链、当 AlphaGeometry 用符号引擎超越 IMO选手、当整个行业开始反思“大模型到底会不会推理”时，俞扬教授的判断反而显得更具前瞻性。 IJCAI 是否在推理、规划、知识方面是最顶级的呢？AI科技评论以IJCAI-ECAI 2026的最新论文阵容为证据，从宏观格局和具体论文两个层面，验证“IJCAI在推理、规划、知识方面是最顶级的”这一观点在当下是否仍然成立。 01 为什么IJCAI的“基因”里 写着推理、规划与知识 IJCAI-ECAI 2026将于8月15日至21日在德国不来梅举行，这届IJCAI将与第29届 ECAI 欧洲人工智能会议联合举办。…"
+        },
+        {
+          "source": "雷锋网",
+          "title": "GPT-Live 底层拆解：OpenAI 如何让 95% 的音频帧不再延迟",
+          "link": "https://www.leiphone.com/category/ai/zYdlF2GT2z5SbNLT.html",
+          "excerpt": "通过重写 Python、魔改 WebRTC 握手，GPT-Live 让Agent从单向对话进入「实时交互」时代。 作者丨 郑佳美 编辑丨 岑 峰 在实时语音交互中，延迟是唯一的“死线”。 文字回答慢几百毫秒，用户顶多觉得体验不佳；但音频只要卡顿一次，那种“非人”的割裂感就会瞬间摧毁信任。为了解决这个工程顽疾，OpenAI 耗时 6 个月重做了整个语音系统。 刚刚，OpenAI 发布了一篇 GPT-Live 工程文章，详细披露了新版 ChatGPT 语音系统背后的架构改造。其中最值得注意的一组数据是：新的媒体系统，其 p95 音频帧延迟已经降到了旧系统 p50 的水平。 这意味着， 新系统中 最慢的 95% 的音频帧， 现在都能跑得和 旧系统中 最快的 50% 音频帧 一样的顺滑 。 虽然 OpenAI 没有公布具体毫秒数，但这个结果说明，改造主要压缩了那些偶发但明显的慢帧。 现在的 GPT-Live 不再等待用户说完一句话再开始工作，而是让声音持续进入模型，模型生成的语音也持续返回用户。搜索、工具调用和复杂推理则被移到另一条异步路径。 01 架构分层和优化，让 AI 的「反射弧」变快了 GPT-Live…"
+        },
+        {
+          "source": "IT之家",
+          "title": "消息称英伟达拟向“星际之门”项目电力服务商 Lancium 投资至多 30 亿美元",
+          "link": "https://www.ithome.com/0/987/266.htm",
+          "excerpt": "IT之家 8 月 8 日消息，据 The Information 消息，英伟达拟向电力基础设施开发商 Lancium 投资 至多 30 亿美元 （现汇率约合 202.79 亿元人民币） 。 Lancium 是由黑石集团支持的电力基础设施企业，其位于得克萨斯州阿比林的“清洁园区”（Clean Campus）正是“星际之门”（Stargate）AI 超算数据中心项目首期所在地。 “星际之门”是由软银、OpenAI 与甲骨文等公司共同筹建数据中心的合资项目， 计划到 2029 年在全美投资高达 5,000 亿美元 （IT之家注：现汇率约合 3.38 万亿元人民币） 建设 AI 数据中心与超级计算基础设施。 知情人士透露， 英伟达将先期投资 20 亿美元 （现汇率约合 135.19 亿元人民币） ，以获取 Lancium 约 20% 的股权；如果 Lancium 能够达成包括电网并网在内的特定指标， 英伟达未来还可能追加 10 亿美元 （现汇率约合 67.6 亿元人民币） 投资。 在此次交易架构下，Lancium 及其拥有的土地与电力资源资产估值约为 100 亿美元 （现汇率约合 675.97 亿元人民币）…"
+        },
+        {
+          "source": "IT之家",
+          "title": "内存占用约 35MB：网友 AI 自制开源工具，避免华硕 RTX 5080 和 5090 显卡烧熔",
+          "link": "https://www.ithome.com/0/987/262.htm",
+          "excerpt": "IT之家 8 月 8 日消息，科技媒体 NeoWin 昨日（8 月 7 日）发布博文，报道称网友在 AI 编程辅助下，针对华硕的 ROG Astral RTX 5090/5080 显卡， 推出了一款开源工具，避免显卡出现过热烧熔情况。 该开源工具名为 12VHPWR Guard，目前仅适用于华硕 ROG Astral RTX 5080 和 RTX 5090 显卡（主要原因是上述两张显卡配有传感器，可以监测 6 个供电针脚的电流）。 该工具通过显卡的 I2C 总线，借助 NVAPI 直接连接 ITE IT8915FN 传感器芯片，也可把 HWiNFO 作为备用后端。作者称，这一路径是只读，不会向总线写入数据。 在默认设置下，程序每秒轮询 2 次；如果任一针脚连续 15 秒高于 9.5A，就会强制关机。作者表示，用户可以调整阈值和计时，默认值刻意设得保守，用来避开瞬时电流波动。华硕自己的警告阈值是 9.2A。 作者还称，在约 500W 的游戏负载下，他的 RTX 5090 上 6 个针脚各约 6.5A 到 7.1A，而异常场景里，单个针脚可能升至 12A 到 15A。工具在《Forza Horizon 6》和《Alan…"
+        },
+        {
+          "source": "IT之家",
+          "title": "18 核 / 20 核英伟达 RTX Spark 笔记本跑分曝光：64GB 统一内存",
+          "link": "https://www.ithome.com/0/987/245.htm",
+          "excerpt": "IT之家 8 月 8 日消息，科技媒体 Wccftech 昨日（8 月 7 日）发布博文， 报道称在 GeekBench 7.0.0 跑分库中，发现了两款搭载英伟达 RTX Spark 处理器的笔记本电脑。 IT之家援引博文介绍，本次现身跑分库的 2 款设备均配备 64GB 的统一内存： 型号为“OEMQAJ 766_MIS Product Name DV”的设备搭载 20 核 CPU 型号为“OEMQAJ OEMQAJ Product”的设备搭载 18 核 CPU 在跑分方面，20 核 CPU 版本 RTX Spark 单核成绩为 2,570 分，多核 23,126 分；18 核版本单核 2,541 分、多核 21,776 分。 IT之家附上相关跑分对比数据如下： GeekBench 7 跑分 20 核 CPU 版 RTX Spark 苹果 M4 Max 芯片 差距 单核 2,570 3,404 24.5% 多核 23,126 25,957 10.91% GeekBench 7 跑分 18 核 CPU 版 RTX Spark 苹果 M4 Max 芯片 差距 单核 2,541 3,404 25.35% 多核 21,776…"
+        },
+        {
+          "source": "IT之家",
+          "title": "蚂蚁集团百灵开源 Ling-3.0-flash 模型：124B 总参数、5.1B 激活参数",
+          "link": "https://www.ithome.com/0/987/231.htm",
+          "excerpt": "IT之家 8 月 8 日消息，蚂蚁集团旗下百灵大模型官方昨日宣布，新一代原生混合推理模型 Ling-3.0-flash 现已正式开源。 Ling-3.0-flash 采用 124B 总参数、5.1B 激活参数 的 MoE 架构。官方同步提供基础版本以及 FP8、FP4、INT4 等多个版本，提供三种不同的落地选择： API 调用： 面向希望快速接入、无需自建推理服务的开发者，Ling-3.0-flash 可通过云端 API 直接调用； 单机私有化： 面向数据不能出域的企业和团队，MXFP4 与 INT4 版本可在单台 NVIDIA DGX Spark 上完成端到端推理； 高性能部署： 面向单请求时延敏感的高性能服务，在指定 GPU 测试配置下，平均输出速率突破 1100 tokens/s。 对于希望快速验证产品、上线 Agent 应用的开发者和产品团队，API 是门槛最低的接入方式。在 Artificial Analysis 榜单中，Ling-3.0-flash 输出速度达到 353 tokens/s。 在 AA Intelligence Index 榜单中，Ling-3.0-flash 每项任务的加权平均调用成本约为…"
+        },
+        {
+          "source": "Solidot",
+          "title": "AMD 收购将权重直接刻在芯片上的 AI 初创公司",
+          "link": "https://www.solidot.org/story?sid=85035",
+          "excerpt": "AMD 收购了将权重直接刻在芯片上的 AI 初创公司 Taalas。Taalas 创办于 2023 年，它研发专门用于执行 AI 模型推理任务的集成电路 MSIC（代表 model-specific integrated circuits），其推理速度比 GPU 和其它专用加速器高出一个数量级以上。Taalas 今年 2 月展示了它用台积电 6nm 工艺制造的测试芯片 HC1，测试显示芯片能以每秒 16,960 个 tokens 的速度处理 Meta 的 Llama 3.1 8B 模型，这一速度比英伟达的 GPU 快 48 倍，比 Cerebras 的加速器快 8.5 倍。Taalas 计划今夏推出第二代 HC2 芯片，目标是将参数数量提升至 200 亿。它的缺点是一旦部署只能使用当前的模型，新模型需要重新设计芯片，但并不需要从零开始设计，只需要更换两层金属，因此既便宜也省时间。"
+        }
+      ]
+    },
+    {
+      "name": "产业 / 投融资 / 活动",
+      "count": 6,
+      "sources": [
+        "IT之家",
+        "Solidot",
+        "雷锋网"
+      ],
+      "stories": [
+        {
+          "source": "雷锋网",
+          "title": "美团王莆中：将AI融入家庭健康，助力建设“15分钟医疗圈”",
+          "link": "https://www.leiphone.com/category/industrynews/iGjt6GWE2NRHORMU.html",
+          "excerpt": "8月7日，2026全球医疗峰会在香港举行。美团核心本地商业CEO王莆中在会上表示，美团将立足医疗资源连接者角色，与行业伙伴共建“15分钟医疗卫生服务圈”。 “过去，‘15分钟医疗卫生服务圈’的建设重心主要落在基建层面，但物理基础设施总有边界。”王莆中表示，在医疗健康领域，美团扮演的始终是连接者角色，通过数字化能力和AI技术，让医疗资源更高效地触达需要的人，让服务看得到、到得快、用得好。 围绕这一目标，美团构建了广泛的本地化供给与履约网络，打通了“检、医、药、院、养”服务全链条。目前，美团已合作16万家医疗机构、25万家药店，依托数百万骑手及智能调度平台构成的履约网络，累计服务用户已达4.3亿。今年上半年，美团还推出了小团健康管家等AI工具，持续与行业伙伴探索建设智能化的15分钟医疗卫生服务圈。 ▲美团核心本地商业CEO王莆中演讲现场 摄影：刘楠 提高医疗可及性，需进行数字化、智能化的深度建设…"
+        },
+        {
+          "source": "雷锋网",
+          "title": "150.8元/股！宇树科技超百名员工参与IPO「盛宴」，一批90后千万富豪或将诞生；DeepSeek拟上调API服务定价；字节拟训练超5万亿参数大模型",
+          "link": "https://www.leiphone.com/category/zaobao/jTnxUYfadwnDJtNd.html",
+          "excerpt": "要闻提示 1.OpenAI 披露攻击 Hugging Face 前，AI 智能体秘密建立内部留言板 2.150.8元/股！宇树科技超百名员工参与IPO“盛宴”，一批90后千万富豪或将诞生 3.DeepSeek拟上调API服务定价，预计涨幅较大 4.小红书高薪招募AI人才，主导AI社交类产品 5.曝字节拟训练超5万亿参数大模型，参数规模超Kimi K3 6.前小鹏副总裁陈永海加入众擎机器人，担任运营总裁 7.王腾回应“SU7 Ultra 泊车异常”：小米汽车已迅速跟进分析，边界场景有 Bug 很正常 8.谷歌Gemini换帅，首席科学家Jeff Dean离职创业 今日头条 OpenAI 披露攻击 Hugging Face 前，AI 智能体秘密建立内部留言板 8月6日消息，OpenAI在一场网络安全会议上披露，其公司 AI 模型攻击 Hugging Face 之前，在测试环境下已“密谋约 2 个月”。…"
+        },
+        {
+          "source": "IT之家",
+          "title": "消息称英伟达拟向“星际之门”项目电力服务商 Lancium 投资至多 30 亿美元",
+          "link": "https://www.ithome.com/0/987/266.htm",
+          "excerpt": "IT之家 8 月 8 日消息，据 The Information 消息，英伟达拟向电力基础设施开发商 Lancium 投资 至多 30 亿美元 （现汇率约合 202.79 亿元人民币） 。 Lancium 是由黑石集团支持的电力基础设施企业，其位于得克萨斯州阿比林的“清洁园区”（Clean Campus）正是“星际之门”（Stargate）AI 超算数据中心项目首期所在地。 “星际之门”是由软银、OpenAI 与甲骨文等公司共同筹建数据中心的合资项目， 计划到 2029 年在全美投资高达 5,000 亿美元 （IT之家注：现汇率约合 3.38 万亿元人民币） 建设 AI 数据中心与超级计算基础设施。 知情人士透露， 英伟达将先期投资 20 亿美元 （现汇率约合 135.19 亿元人民币） ，以获取 Lancium 约 20% 的股权；如果 Lancium 能够达成包括电网并网在内的特定指标， 英伟达未来还可能追加 10 亿美元 （现汇率约合 67.6 亿元人民币） 投资。 在此次交易架构下，Lancium 及其拥有的土地与电力资源资产估值约为 100 亿美元 （现汇率约合 675.97 亿元人民币）…"
+        },
+        {
+          "source": "IT之家",
+          "title": "微软宣布 Edge 浏览器将逐步取消 Manifest V2 扩展程序支持，影响广告拦截工具 uBlock Origin 等",
+          "link": "https://www.ithome.com/0/987/251.htm",
+          "excerpt": "IT之家 8 月 8 日消息，当地时间 8 月 7 日，微软宣布，自 2026 年 8 月起，Edge 浏览器将启动面向普通消费者的过渡计划， 逐步停止对 MV2 扩展的支持并全面转向 MV3 。目标是在 2026 年底前完成面向普通用户的过渡，并于 2027 年初正式面向企业客户弃用 MV2。 微软表示，Edge 浏览器的 Manifest Version 2（MV2）扩展程序正加速向 MV3 迁移，整个扩展生态已取得实质性进展。 目前 Edge 扩展商店中 95% 的头部 MV2 扩展均已完成升级 。仍拥有实质用户量的 MV2 扩展仅剩 58 个，其中只有 3 个尚未推出公开的 MV3 替代版本。 自 2026 年 8 月起，部分安装了 MV2 扩展的用户将在“管理扩展”页面 (edge://extensions) 及 Edge 浏览器加载项的产品详情页上看到相关提示。仍在维护 MV2 扩展的极少数开发者，将在 Microsoft 合作伙伴中心看到类似通知。 在接下来的几个月中，MV2 扩展将开始默认被逐步禁用。系统会提前通知用户，并引导其使用已上架的推荐 MV3 版本。 IT之家获悉，上述调整将首先在…"
+        },
+        {
+          "source": "Solidot",
+          "title": "AMD 收购将权重直接刻在芯片上的 AI 初创公司",
+          "link": "https://www.solidot.org/story?sid=85035",
+          "excerpt": "AMD 收购了将权重直接刻在芯片上的 AI 初创公司 Taalas。Taalas 创办于 2023 年，它研发专门用于执行 AI 模型推理任务的集成电路 MSIC（代表 model-specific integrated circuits），其推理速度比 GPU 和其它专用加速器高出一个数量级以上。Taalas 今年 2 月展示了它用台积电 6nm 工艺制造的测试芯片 HC1，测试显示芯片能以每秒 16,960 个 tokens 的速度处理 Meta 的 Llama 3.1 8B 模型，这一速度比英伟达的 GPU 快 48 倍，比 Cerebras 的加速器快 8.5 倍。Taalas 计划今夏推出第二代 HC2 芯片，目标是将参数数量提升至 200 亿。它的缺点是一旦部署只能使用当前的模型，新模型需要重新设计芯片，但并不需要从零开始设计，只需要更换两层金属，因此既便宜也省时间。"
+        },
+        {
+          "source": "Solidot",
+          "title": "微软要求工程师不要最大化 AI Token 使用",
+          "link": "https://www.solidot.org/story?sid=85018",
+          "excerpt": "为了推广 AI 工具，许多企业将 AI 使用率作为绩效考核的一部分。结果就是员工为了绩效致力于最大化 AI 使用，导致企业很快发现 token 费用大幅超出预算。软件巨头微软成为最新一家建议工程师限制使用 AI 的公司。微软执行副总裁 Jay Parikh 在一封发给微软员工的邮件中要求工程师专注于业务成果，而非最大化 AI token 的使用量，为了“从 token 投资中获得更大的价值”，微软将比其它模型更便宜的 OpenAI GPT-5.6 设为内部使用的默认模型。自 2026 年 7 月起，微软各部门将设定“AI token 预算目标”，员工可以追踪各自的 AI 支出。"
+        }
+      ]
+    },
+    {
+      "name": "具身 / 机器人 / 智驾",
+      "count": 5,
+      "sources": [
+        "IT之家",
+        "Solidot",
+        "雷锋网"
+      ],
+      "stories": [
+        {
+          "source": "雷锋网",
+          "title": "IJCAI 2026 专访：机器人想学会人类动作，还差一座桥 | GAIR Paper 118",
+          "link": "https://www.leiphone.com/category/private/V2FQ6puH0pDdAKeI.html",
+          "excerpt": "重新审视人类视频如何赋能机器人学习 作者丨 邓哲敏 编辑丨 齐铖湧 大模型时代，规模化的数据能带来能力跃迁，这一规律已被反复验证。 当这套范式进入机器人领域，问题变得复杂。机器人需要的不仅是大量数据，而且是能够转化为动作能力的数据。 人类视频近期成为研究者关注的新来源。它规模巨大、获取成本低、覆盖场景丰富，但它毕竟不是机器人数据，视频里没有机器人动作标签，人类手部运动也无法直接对应机器人的控制信号。 问题由此产生： 人类视频进入机器人学习流程后，究竟应该被表示成什么？ 过去一年，研究者给出了不同答案：有人把动作压缩到隐空间，有人让模型学习视频背后的世界规律，也有人直接提取二维、三维轨迹。但这些路线究竟是彼此竞争，还是在解决同一个问题？ 今年 IJCAI 2026 ，一篇来自清华大学、香港科技大学、微软亚洲研究院等机构联合推出的综述论文，试图重新梳理这一领域： 不同方法的本质，都是在人类视频与机器人动作之间搭建一座 representation bridge。 AI科技评论（雷峰网公众号）采访了论文一作、清华大学博士生、微软亚洲研究院实习研究员冯志远，拆解这篇论文背后的技术路线与行业判断。 01…"
+        },
+        {
+          "source": "雷锋网",
+          "title": "150.8元/股！宇树科技超百名员工参与IPO「盛宴」，一批90后千万富豪或将诞生；DeepSeek拟上调API服务定价；字节拟训练超5万亿参数大模型",
+          "link": "https://www.leiphone.com/category/zaobao/jTnxUYfadwnDJtNd.html",
+          "excerpt": "要闻提示 1.OpenAI 披露攻击 Hugging Face 前，AI 智能体秘密建立内部留言板 2.150.8元/股！宇树科技超百名员工参与IPO“盛宴”，一批90后千万富豪或将诞生 3.DeepSeek拟上调API服务定价，预计涨幅较大 4.小红书高薪招募AI人才，主导AI社交类产品 5.曝字节拟训练超5万亿参数大模型，参数规模超Kimi K3 6.前小鹏副总裁陈永海加入众擎机器人，担任运营总裁 7.王腾回应“SU7 Ultra 泊车异常”：小米汽车已迅速跟进分析，边界场景有 Bug 很正常 8.谷歌Gemini换帅，首席科学家Jeff Dean离职创业 今日头条 OpenAI 披露攻击 Hugging Face 前，AI 智能体秘密建立内部留言板 8月6日消息，OpenAI在一场网络安全会议上披露，其公司 AI 模型攻击 Hugging Face 之前，在测试环境下已“密谋约 2 个月”。…"
+        },
+        {
+          "source": "雷锋网",
+          "title": "频发高温故障！特斯拉FSD升级事故，看清中美智驾监管根本差异",
+          "link": "https://www.leiphone.com/category/industrynews/ZpRxn4ogBqvkrTiE.html",
+          "excerpt": "近期，据海外媒体Electrek报道，海外部分特斯拉HW3老车主遭遇一场OTA升级引发的安全隐患。据报道，特斯拉向400余万辆搭载老 款 HW3自动驾驶硬件的车型推送FSDV14Lite版本更新后，车辆自动驾驶ECU主板满载运行，温度飙升至96℃，频繁弹出过热故障警报，FSD功能强制下线，车主只能靠边停车降温才能恢复辅助驾驶；更有车辆因长期高温直接烧毁自动驾驶计算机， 超出质保周期的车主需自费整套更换该硬件。老车主的烦心事不止于此，OTA升级后的版本还暴露出系统性感知缺陷，倒车时无法识别后方行人、障碍物，多次出现碰撞险情，给道路安全埋下巨大隐患。 本次事故发酵同期，我国先后于今年6月、7月发布两项分别聚焦组合驾驶辅助、高阶自动驾驶的强制性国家标准：《智能网联汽车组合驾驶辅助系统安全要求》（GB47955—2026）、《智能网联汽车自动驾驶系统安全要求》（GB44721—2026），将在2027年正式落地实施，文件针对智能网联汽车OTA升级设置了全流程硬性规范。…"
+        },
+        {
+          "source": "IT之家",
+          "title": "2026 全球智能制造与电子产品博览会 12 月广州举办，特斯拉、蔚来、荣耀、OPPO、vivo 等参展",
+          "link": "https://www.ithome.com/0/987/238.htm",
+          "excerpt": "IT之家 8 月 8 日消息，据央视新闻报道，8 月 7 日，2026 全球智能制造与电子产品博览会（AIE 电子展）新闻发布会在广州举行。 据悉，本届博览会定于 12 月 3 日至 5 日 举办，延续首届“一展双城”办展模式，锚定“中国智造首发平台”定位，聚焦人工智能全产业链，着力打造大湾区智能制造链接全球的重要窗口。本届博览会将在 珠海、澳门 两地同步开展。 在首届展会基础上，第二届 AIE 电子展进一步扩容提质， 预计汇聚超 1000 家科技企业 ，迎来 5 万名海内外专业观众，加速全球新品首发资源落地大湾区。 IT之家查询获悉，截至目前，展会招展面积已超 70%。AI 智能装备与机器人、智慧人居等展区报名踊跃，特装展位、高新技术及专精特新企业占比预计逾 50%。 特斯拉、 TCL 实业 、蔚来、荣耀、OPPO、vivo 等行业龙头企业已确认参展参会。 采购商邀约方面，首批名单已正式发布，品牌企业涵盖 追觅 、TCL 实业、创想三维 等；跨境电商覆盖傲基、千岸科技等；供应链服务商包含神州数码、朗华供应链等，横跨 AI 未来电子与终端应用、智慧人居、跨境分销等多个板块。"
+        },
+        {
+          "source": "Solidot",
+          "title": "《时代》杂志网站展示只有 AI 能看到的广告",
+          "link": "https://www.solidot.org/story?sid=85031",
+          "excerpt": "《时代》杂志网站开始展示只有 AI 爬虫能看到的带有品牌信息的广告。这些广告旨在影响 AI 聊天机器人，让 AI 从积极的角度谈论品牌产品，而 AI 获得的信息无法追溯到实际页面。《时代》网站排除了 Google 的爬虫，原因是 Google 会惩罚向机器人和真实用户展示不同搜索结果的网站。广告技术平台 Mobian 的联合创始人兼 CEO Jonah Goodhart 指出，影响机器人可能比影响人类用户更重要，因为影响人类用户只能影响一个人。而影响 ChatGPT 就是影响整个 ChatGPT。如果 ChatGPT 改变了它对某个品牌的评价，其影响将是巨大的，远超任何单一广告活动所能达到的效果。"
+        }
+      ]
+    },
+    {
+      "name": "数据 / 安全 / 合规 / 社会议题",
+      "count": 3,
+      "sources": [
+        "IT之家",
+        "雷锋网"
+      ],
+      "stories": [
+        {
+          "source": "雷锋网",
+          "title": "150.8元/股！宇树科技超百名员工参与IPO「盛宴」，一批90后千万富豪或将诞生；DeepSeek拟上调API服务定价；字节拟训练超5万亿参数大模型",
+          "link": "https://www.leiphone.com/category/zaobao/jTnxUYfadwnDJtNd.html",
+          "excerpt": "要闻提示 1.OpenAI 披露攻击 Hugging Face 前，AI 智能体秘密建立内部留言板 2.150.8元/股！宇树科技超百名员工参与IPO“盛宴”，一批90后千万富豪或将诞生 3.DeepSeek拟上调API服务定价，预计涨幅较大 4.小红书高薪招募AI人才，主导AI社交类产品 5.曝字节拟训练超5万亿参数大模型，参数规模超Kimi K3 6.前小鹏副总裁陈永海加入众擎机器人，担任运营总裁 7.王腾回应“SU7 Ultra 泊车异常”：小米汽车已迅速跟进分析，边界场景有 Bug 很正常 8.谷歌Gemini换帅，首席科学家Jeff Dean离职创业 今日头条 OpenAI 披露攻击 Hugging Face 前，AI 智能体秘密建立内部留言板 8月6日消息，OpenAI在一场网络安全会议上披露，其公司 AI 模型攻击 Hugging Face 之前，在测试环境下已“密谋约 2 个月”。…"
+        },
+        {
+          "source": "雷锋网",
+          "title": "频发高温故障！特斯拉FSD升级事故，看清中美智驾监管根本差异",
+          "link": "https://www.leiphone.com/category/industrynews/ZpRxn4ogBqvkrTiE.html",
+          "excerpt": "近期，据海外媒体Electrek报道，海外部分特斯拉HW3老车主遭遇一场OTA升级引发的安全隐患。据报道，特斯拉向400余万辆搭载老 款 HW3自动驾驶硬件的车型推送FSDV14Lite版本更新后，车辆自动驾驶ECU主板满载运行，温度飙升至96℃，频繁弹出过热故障警报，FSD功能强制下线，车主只能靠边停车降温才能恢复辅助驾驶；更有车辆因长期高温直接烧毁自动驾驶计算机， 超出质保周期的车主需自费整套更换该硬件。老车主的烦心事不止于此，OTA升级后的版本还暴露出系统性感知缺陷，倒车时无法识别后方行人、障碍物，多次出现碰撞险情，给道路安全埋下巨大隐患。 本次事故发酵同期，我国先后于今年6月、7月发布两项分别聚焦组合驾驶辅助、高阶自动驾驶的强制性国家标准：《智能网联汽车组合驾驶辅助系统安全要求》（GB47955—2026）、《智能网联汽车自动驾驶系统安全要求》（GB44721—2026），将在2027年正式落地实施，文件针对智能网联汽车OTA升级设置了全流程硬性规范。…"
+        },
+        {
+          "source": "IT之家",
+          "title": "Pro、Max 和 Team 用户 8 月 14 日起 Claude Code 默认权限调整为自动模式",
+          "link": "https://www.ithome.com/0/987/249.htm",
+          "excerpt": "IT之家 8 月 8 日消息，Anthropic 今天（8 月 8 日）发布公告，宣布将于 8 月 14 日开始，针对 Pro、Max 和 Team 订阅用户， 调整 Claude Code 的默认权限模式为自动模式（Auto Mode）。 IT之家援引博文介绍，自动模式是指 Claude Code 使用独立的 AI 分类器（classifier），实时评估每次工具调用和 Shell 命令，放行安全操作，自动拦截破坏性、不可逆或越权行为。 在覆盖范围方面，Claude Enterprise、Claude API、Claude Platform on AWS、Amazon Bedrock、Google Cloud's Agent Platform 和 Microsoft Foundry 目前仍保持可选，Anthropic 计划在未来 1 个月内在上述平台推进调整，把自动模式设为默认选项，并取消相应开销。 在测试推行方面，Anthropic 邀请 1,053 名付费测试者测试，发现在传统人工审批模式，只识别出 13.6% 的危险命令；而自动模式能够识别 89% 的危险命令。 在提示词注入评估中，Trajectory Labs…"
+        }
+      ]
+    },
+    {
+      "name": "其他 AI 科技动态",
+      "count": 2,
+      "sources": [
+        "量子位"
+      ],
+      "stories": [
+        {
+          "source": "量子位",
+          "title": "Kimi K3也失控了…学霸AI逃离沙箱只为找答案",
+          "link": "https://www.qbitai.com/2026/08/468338.html",
+          "excerpt": null
+        },
+        {
+          "source": "量子位",
+          "title": "AI圈功能狂卷，付费寥寥，Keep正在试一条新路",
+          "link": "https://www.qbitai.com/2026/08/467878.html",
+          "excerpt": null
+        }
+      ]
+    }
+  ],
+  "stories": [
+    {
+      "section": "量子位",
+      "title": "谷歌急了：AI核心员工全给我搬回硅谷坐班！",
+      "link": "https://www.qbitai.com/2026/08/468398.html",
+      "published_at": "Sat, 08 Aug 2026 02:45:02 +0000",
+      "excerpt": null,
+      "themes": [
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "量子位",
+      "title": "Kimi K3也失控了…学霸AI逃离沙箱只为找答案",
+      "link": "https://www.qbitai.com/2026/08/468338.html",
+      "published_at": "Sat, 08 Aug 2026 02:35:38 +0000",
+      "excerpt": null,
+      "themes": [
+        "其他 AI 科技动态"
+      ]
+    },
+    {
+      "section": "量子位",
+      "title": "阿里推出国内首个AI语音平台CosyVoice Studio，将语义理解融入语音能力",
+      "link": "https://www.qbitai.com/2026/08/468324.html",
+      "published_at": "Fri, 07 Aug 2026 07:43:06 +0000",
+      "excerpt": null,
+      "themes": [
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "量子位",
+      "title": "AI批量轰炸苹果bug赏金计划，审核团队已下线",
+      "link": "https://www.qbitai.com/2026/08/466738.html",
+      "published_at": "Fri, 07 Aug 2026 06:21:05 +0000",
+      "excerpt": null,
+      "themes": [
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "量子位",
+      "title": "openJiuwen发布业界首个企业级智能体分布式蜂群架构，联合邮储成功落地金融生产环境",
+      "link": "https://www.qbitai.com/2026/08/468305.html",
+      "published_at": "Fri, 07 Aug 2026 06:18:51 +0000",
+      "excerpt": null,
+      "themes": [
+        "大模型 / 应用 / 智能体"
+      ]
+    },
+    {
+      "section": "量子位",
+      "title": "AI圈功能狂卷，付费寥寥，Keep正在试一条新路",
+      "link": "https://www.qbitai.com/2026/08/467878.html",
+      "published_at": "Fri, 07 Aug 2026 05:30:08 +0000",
+      "excerpt": null,
+      "themes": [
+        "其他 AI 科技动态"
+      ]
+    },
+    {
+      "section": "量子位",
+      "title": "阿里视频大模型Wan3.0开启公测：文档、ppt也能变视频",
+      "link": "https://www.qbitai.com/2026/08/467877.html",
+      "published_at": "Fri, 07 Aug 2026 03:23:54 +0000",
+      "excerpt": null,
+      "themes": [
+        "大模型 / 应用 / 智能体",
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "量子位",
+      "title": "刚刚，ChatGPT免费版史诗升级！GPT-5.6可以无限白嫖了",
+      "link": "https://www.qbitai.com/2026/08/467879.html",
+      "published_at": "Fri, 07 Aug 2026 03:23:01 +0000",
+      "excerpt": null,
+      "themes": [
+        "大模型 / 应用 / 智能体"
+      ]
+    },
+    {
+      "section": "量子位",
+      "title": "蚂蚁集团开源Avernet，让人与智能体像组织一样高效协作",
+      "link": "https://www.qbitai.com/2026/08/467871.html",
+      "published_at": "Fri, 07 Aug 2026 03:08:51 +0000",
+      "excerpt": null,
+      "themes": [
+        "大模型 / 应用 / 智能体",
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "量子位",
+      "title": "AI SSD：大模型推理的存储范式转移",
+      "link": "https://www.qbitai.com/2026/08/467840.html",
+      "published_at": "Fri, 07 Aug 2026 02:56:46 +0000",
+      "excerpt": null,
+      "themes": [
+        "大模型 / 应用 / 智能体",
+        "芯片 / 算力 / 推理"
+      ]
+    },
+    {
+      "section": "雷锋网",
+      "title": "赌注十万亿：字节拒绝走蒸馏捷径背后，张一鸣的长期主义有多狠？",
+      "link": "https://www.leiphone.com/category/yanxishe/JR3ppBP5VOxND55d.html",
+      "published_at": "Fri, 07 Aug 2026 23:29:00 +0800",
+      "excerpt": "张一鸣要的是，下一轮竞争中，Seed模型能力跻身世界第一梯队 作者丨高允毅 编辑丨岑 峰 近日，The Information爆出，在两周前的 Seed 全员会上，张一鸣罕见发声，明确拒绝以蒸馏手段追赶前沿大语言模型。他的态度很坚决：“字节跳动应该愿意为了长远目标牺牲一些短期利益。” 最新一期 Artificial Analysis 全球 LLM 排行榜中，月之暗面 Kimi K3 Max 位列第二，阿里 Qwen 3.8 Max 位居第四，智谱 GLM 5.2 Max、DeepSeek V4 Flash 分列第七、第八，中国模型已占据全球前十近半席位。反观字节 Seed 2.1 Pro，仅排在第 21 位，远低于其他中国模型。 论钱，字节年利润规模位居互联网头部；论人，Seed 团队汇聚了搜广推体系成长起来的顶尖算法人才；论算力，数万张 GPU 集群的智算中心正在全国铺开；论数据，抖音与 TikTok 坐拥全球最大的原生内容池。 样样不缺的字节，为什么在大模型榜单上追不上？ 据字节员工透露，公司内部认为，字节不愿蒸馏，被认为是其大语言模型落后于中国其他人工智能实验室的原因之一。 01 三次被否决的“兵变”…",
+      "themes": [
+        "大模型 / 应用 / 智能体",
+        "芯片 / 算力 / 推理",
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "雷锋网",
+      "title": "82 篇论文撑起的判断：IJCAI 凭什么是推理、规划、知识的「第一主场」",
+      "link": "https://www.leiphone.com/category/private/iME7Xg5tMwxIyZqU.html",
+      "published_at": "Fri, 07 Aug 2026 18:29:00 +0800",
+      "excerpt": "50篇推理加32篇规划，IJCAI里最硬的8%。 作者丨 陆毅 陈淑瑜 编辑丨岑峰 “IJCAI/AAAI在推理、规划、知识方面是最顶级的，这几个方向也是AI当下急需的。” 2019年，南京大学俞扬教授在一场关于 AI 顶会评级的讨论中写下了这句话。 彼时大语言模型尚未爆发，“推理”一词在AI社区远不如今天这般炙手可热。七年过去，当 DeepSeek-R1 用强化学习激发推理链、当 AlphaGeometry 用符号引擎超越 IMO选手、当整个行业开始反思“大模型到底会不会推理”时，俞扬教授的判断反而显得更具前瞻性。 IJCAI 是否在推理、规划、知识方面是最顶级的呢？AI科技评论以IJCAI-ECAI 2026的最新论文阵容为证据，从宏观格局和具体论文两个层面，验证“IJCAI在推理、规划、知识方面是最顶级的”这一观点在当下是否仍然成立。 01 为什么IJCAI的“基因”里 写着推理、规划与知识 IJCAI-ECAI 2026将于8月15日至21日在德国不来梅举行，这届IJCAI将与第29届 ECAI 欧洲人工智能会议联合举办。…",
+      "themes": [
+        "大模型 / 应用 / 智能体",
+        "芯片 / 算力 / 推理"
+      ]
+    },
+    {
+      "section": "雷锋网",
+      "title": "美团王莆中：将AI融入家庭健康，助力建设“15分钟医疗圈”",
+      "link": "https://www.leiphone.com/category/industrynews/iGjt6GWE2NRHORMU.html",
+      "published_at": "Fri, 07 Aug 2026 18:26:00 +0800",
+      "excerpt": "8月7日，2026全球医疗峰会在香港举行。美团核心本地商业CEO王莆中在会上表示，美团将立足医疗资源连接者角色，与行业伙伴共建“15分钟医疗卫生服务圈”。 “过去，‘15分钟医疗卫生服务圈’的建设重心主要落在基建层面，但物理基础设施总有边界。”王莆中表示，在医疗健康领域，美团扮演的始终是连接者角色，通过数字化能力和AI技术，让医疗资源更高效地触达需要的人，让服务看得到、到得快、用得好。 围绕这一目标，美团构建了广泛的本地化供给与履约网络，打通了“检、医、药、院、养”服务全链条。目前，美团已合作16万家医疗机构、25万家药店，依托数百万骑手及智能调度平台构成的履约网络，累计服务用户已达4.3亿。今年上半年，美团还推出了小团健康管家等AI工具，持续与行业伙伴探索建设智能化的15分钟医疗卫生服务圈。 ▲美团核心本地商业CEO王莆中演讲现场 摄影：刘楠 提高医疗可及性，需进行数字化、智能化的深度建设…",
+      "themes": [
+        "产业 / 投融资 / 活动"
+      ]
+    },
+    {
+      "section": "雷锋网",
+      "title": "IJCAI 2026 专访：机器人想学会人类动作，还差一座桥 | GAIR Paper 118",
+      "link": "https://www.leiphone.com/category/private/V2FQ6puH0pDdAKeI.html",
+      "published_at": "Fri, 07 Aug 2026 14:09:00 +0800",
+      "excerpt": "重新审视人类视频如何赋能机器人学习 作者丨 邓哲敏 编辑丨 齐铖湧 大模型时代，规模化的数据能带来能力跃迁，这一规律已被反复验证。 当这套范式进入机器人领域，问题变得复杂。机器人需要的不仅是大量数据，而且是能够转化为动作能力的数据。 人类视频近期成为研究者关注的新来源。它规模巨大、获取成本低、覆盖场景丰富，但它毕竟不是机器人数据，视频里没有机器人动作标签，人类手部运动也无法直接对应机器人的控制信号。 问题由此产生： 人类视频进入机器人学习流程后，究竟应该被表示成什么？ 过去一年，研究者给出了不同答案：有人把动作压缩到隐空间，有人让模型学习视频背后的世界规律，也有人直接提取二维、三维轨迹。但这些路线究竟是彼此竞争，还是在解决同一个问题？ 今年 IJCAI 2026 ，一篇来自清华大学、香港科技大学、微软亚洲研究院等机构联合推出的综述论文，试图重新梳理这一领域： 不同方法的本质，都是在人类视频与机器人动作之间搭建一座 representation bridge。 AI科技评论（雷峰网公众号）采访了论文一作、清华大学博士生、微软亚洲研究院实习研究员冯志远，拆解这篇论文背后的技术路线与行业判断。 01…",
+      "themes": [
+        "大模型 / 应用 / 智能体",
+        "具身 / 机器人 / 智驾",
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "雷锋网",
+      "title": "Jeff Dean 创业路演 PPT，惊现 34 位创始人，谷歌系人才占领半壁江山",
+      "link": "https://www.leiphone.com/category/yanxishe/Ga2vGDMkzS2dp4Ew.html",
+      "published_at": "Fri, 07 Aug 2026 11:28:00 +0800",
+      "excerpt": "杨植麟也是 Jeff Dean PPT 中列出的谷歌系创始人名单中的一位。 作者丨 高允毅 郑佳美 编辑丨 岑 峰 聚是一团火，散是满天星，这句话用在谷歌当年的核心实验室 Google Brain 最合适不过。 今早，谷歌传奇人物，首席科学家兼 Google Brain 创始人之一 Jeff Dean 官宣离职创业 ，作为谷歌老人，他已经加入谷歌工作 27 年。 据 Jeff 深情回忆，当初谷歌才 25 人，如今已经发展到 19 万多人，不仅成为全球技术创新的中心，还是全球 AI 人才的“黄埔军校”。 其中，Jeff 与吴恩达、Greg Corrado 当年着手创办 Google Brain，迅速扩张到 1001 人，走出的顶级人才在如今的 AI 创业大潮中已自成一派，不少人成为了AI领域不同公司创始人。 在 Jeff 的创业路演PPT中，这份名单得以曝光。不得不说，含金量高的惊人，比如Anthropic创始人Dario Amodei，SSI创始人Ilya Sutskever。 能孕育如此惊人的创造力，得益于 Jeff 在 2016 年亲自开创的 Brain Residency（谷歌大脑驻留计划） 。他打破了科技界…",
+      "themes": [
+        "大模型 / 应用 / 智能体",
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "雷锋网",
+      "title": "阿里视频大模型Wan3.0开启公测：文档、ppt也能变视频",
+      "link": "https://www.leiphone.com/category/industrynews/Wp4SCQ5wu1Lbhtr1.html",
+      "published_at": "Fri, 07 Aug 2026 10:24:00 +0800",
+      "excerpt": "8月6日，阿里巴巴视频生成大模型Wan 3.0开启公测，在生成时长、万能创作、全能参考以及真实世界还原等维度全面升级：单次可生成30秒视频，完整表达创作意图；在文本、图片、音频、视频四种基础模态之外，首次支持doc、xls、ppt、pdf、md等文档格式输入；力求准确还原真实世界——人物千人千面，每一帧画面既真实、又可信。 生成时长的延展是Wan3.0最直观的升级。单段30秒生成让叙事节奏更游刃有余，连续运镜、一镜到底等复杂镜头语言得以充分表达，AI视频从“生成一个镜头”走向“讲述一段完整的故事”。Wan3.0还有智能时长功能，可根据提示词自动推荐合适时长。 Wan3.0正从视频生成模型跃迁为信息的表达载体，不仅能以文本、图片、音频、视频作为全能参考，还能读取文档、ppt等结构化信息，搭配提示词即可生成教学课件、产品演示、业务汇报等内容。支持格式覆盖doc、xls、ppt、pdf、md等，单个文件或链接不超过100MB、50页。比如上传一个智能眼镜产品的ppt，配上提示词，就能得到一个完整的形象片。 这背后，是模型强大的提示词工程与指令遵循能力，将提示词转化为调度输入、控制表达的中枢。…",
+      "themes": [
+        "大模型 / 应用 / 智能体",
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "雷锋网",
+      "title": "150.8元/股！宇树科技超百名员工参与IPO「盛宴」，一批90后千万富豪或将诞生；DeepSeek拟上调API服务定价；字节拟训练超5万亿参数大模型",
+      "link": "https://www.leiphone.com/category/zaobao/jTnxUYfadwnDJtNd.html",
+      "published_at": "Fri, 07 Aug 2026 08:32:00 +0800",
+      "excerpt": "要闻提示 1.OpenAI 披露攻击 Hugging Face 前，AI 智能体秘密建立内部留言板 2.150.8元/股！宇树科技超百名员工参与IPO“盛宴”，一批90后千万富豪或将诞生 3.DeepSeek拟上调API服务定价，预计涨幅较大 4.小红书高薪招募AI人才，主导AI社交类产品 5.曝字节拟训练超5万亿参数大模型，参数规模超Kimi K3 6.前小鹏副总裁陈永海加入众擎机器人，担任运营总裁 7.王腾回应“SU7 Ultra 泊车异常”：小米汽车已迅速跟进分析，边界场景有 Bug 很正常 8.谷歌Gemini换帅，首席科学家Jeff Dean离职创业 今日头条 OpenAI 披露攻击 Hugging Face 前，AI 智能体秘密建立内部留言板 8月6日消息，OpenAI在一场网络安全会议上披露，其公司 AI 模型攻击 Hugging Face 之前，在测试环境下已“密谋约 2 个月”。…",
+      "themes": [
+        "大模型 / 应用 / 智能体",
+        "具身 / 机器人 / 智驾",
+        "云 / 大厂 / 生态",
+        "数据 / 安全 / 合规 / 社会议题",
+        "产业 / 投融资 / 活动"
+      ]
+    },
+    {
+      "section": "雷锋网",
+      "title": "GPT-Live 底层拆解：OpenAI 如何让 95% 的音频帧不再延迟",
+      "link": "https://www.leiphone.com/category/ai/zYdlF2GT2z5SbNLT.html",
+      "published_at": "Thu, 06 Aug 2026 21:47:00 +0800",
+      "excerpt": "通过重写 Python、魔改 WebRTC 握手，GPT-Live 让Agent从单向对话进入「实时交互」时代。 作者丨 郑佳美 编辑丨 岑 峰 在实时语音交互中，延迟是唯一的“死线”。 文字回答慢几百毫秒，用户顶多觉得体验不佳；但音频只要卡顿一次，那种“非人”的割裂感就会瞬间摧毁信任。为了解决这个工程顽疾，OpenAI 耗时 6 个月重做了整个语音系统。 刚刚，OpenAI 发布了一篇 GPT-Live 工程文章，详细披露了新版 ChatGPT 语音系统背后的架构改造。其中最值得注意的一组数据是：新的媒体系统，其 p95 音频帧延迟已经降到了旧系统 p50 的水平。 这意味着， 新系统中 最慢的 95% 的音频帧， 现在都能跑得和 旧系统中 最快的 50% 音频帧 一样的顺滑 。 虽然 OpenAI 没有公布具体毫秒数，但这个结果说明，改造主要压缩了那些偶发但明显的慢帧。 现在的 GPT-Live 不再等待用户说完一句话再开始工作，而是让声音持续进入模型，模型生成的语音也持续返回用户。搜索、工具调用和复杂推理则被移到另一条异步路径。 01 架构分层和优化，让 AI 的「反射弧」变快了 GPT-Live…",
+      "themes": [
+        "大模型 / 应用 / 智能体",
+        "芯片 / 算力 / 推理"
+      ]
+    },
+    {
+      "section": "雷锋网",
+      "title": "Jeff Dean 创业路演 PPT，惊现 34 位创始人，谷歌系人才占领半壁江山",
+      "link": "https://www.leiphone.com/category/ai/woyyD9TFUP2pnDOC.html",
+      "published_at": "Thu, 06 Aug 2026 21:40:00 +0800",
+      "excerpt": "杨植麟也是 Jeff Dean PPT 中列出的谷歌系创始人名单中的一位。 作者丨 高允毅 郑佳美 编辑丨 岑 峰 聚是一团火，散是满天星，这句话用在谷歌当年的核心实验室 Google Brain 最合适不过。 今早，谷歌传奇人物，首席科学家兼 Google Brain 创始人之一 Jeff Dean 官宣离职创业 ，作为谷歌老人，他已经加入谷歌工作 27 年。 据 Jeff 深情回忆，当初谷歌才 25 人，如今已经发展到 19 万多人，不仅成为全球技术创新的中心，还是全球 AI 人才的“黄埔军校”。 其中，Jeff 与吴恩达、Greg Corrado 当年着手创办 Google Brain，迅速扩张到 1001 人，走出的顶级人才在如今的 AI 创业大潮中已自成一派，不少人成为了AI领域不同公司创始人。 在 Jeff 的创业路演PPT中，这份名单得以曝光。不得不说，含金量高的惊人，比如Anthropic创始人Dario Amodei，SSI创始人Ilya Sutskever。 能孕育如此惊人的创造力，得益于 Jeff 在 2016 年亲自开创的 Brain Residency（谷歌大脑驻留计划） 。他打破了科技界…",
+      "themes": [
+        "大模型 / 应用 / 智能体",
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "雷锋网",
+      "title": "频发高温故障！特斯拉FSD升级事故，看清中美智驾监管根本差异",
+      "link": "https://www.leiphone.com/category/industrynews/ZpRxn4ogBqvkrTiE.html",
+      "published_at": "Thu, 06 Aug 2026 20:29:00 +0800",
+      "excerpt": "近期，据海外媒体Electrek报道，海外部分特斯拉HW3老车主遭遇一场OTA升级引发的安全隐患。据报道，特斯拉向400余万辆搭载老 款 HW3自动驾驶硬件的车型推送FSDV14Lite版本更新后，车辆自动驾驶ECU主板满载运行，温度飙升至96℃，频繁弹出过热故障警报，FSD功能强制下线，车主只能靠边停车降温才能恢复辅助驾驶；更有车辆因长期高温直接烧毁自动驾驶计算机， 超出质保周期的车主需自费整套更换该硬件。老车主的烦心事不止于此，OTA升级后的版本还暴露出系统性感知缺陷，倒车时无法识别后方行人、障碍物，多次出现碰撞险情，给道路安全埋下巨大隐患。 本次事故发酵同期，我国先后于今年6月、7月发布两项分别聚焦组合驾驶辅助、高阶自动驾驶的强制性国家标准：《智能网联汽车组合驾驶辅助系统安全要求》（GB47955—2026）、《智能网联汽车自动驾驶系统安全要求》（GB44721—2026），将在2027年正式落地实施，文件针对智能网联汽车OTA升级设置了全流程硬性规范。…",
+      "themes": [
+        "具身 / 机器人 / 智驾",
+        "数据 / 安全 / 合规 / 社会议题"
+      ]
+    },
+    {
+      "section": "36氪",
+      "title": "[解析失败] https://36kr.com/feed",
+      "link": "not well-formed (invalid token): line 9, column 542",
+      "published_at": null,
+      "excerpt": null,
+      "themes": []
+    },
+    {
+      "section": "IT之家",
+      "title": "微软预告 Win10/Win11 经典版 Outlook 更新：基于上下文 AI 解释用户选中文本",
+      "link": "https://www.ithome.com/0/987/274.htm",
+      "published_at": "Sat, 08 Aug 2026 03:39:29 GMT",
+      "excerpt": "IT之家 8 月 8 日消息，科技媒体 Windows Latest 昨日（8 月 7 日）发布博文，报道称面向 Windows 10、Windows 11 经典版 Outlook 应用， 微软开始推送名为 Explain This 的 Copilot AI 功能。 功能方面，用户打开邮件后，只需选中任意文本，Copilot 就会结合整封邮件的内容，给出贴切的上下文解释。 微软在更新说明里写道，这项改进让用户对 Copilot 有更高的控制权，可以决定其在何时、如何协助完成任务，从而在工作流中整合生产力、清晰度和决策能力。 时间表方面，微软预计经典版 Outlook 的 Explain This 功能会在 9 月底前完成推送，大多数用户会在 9 月初看到它。",
+      "themes": [
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "IT之家",
+      "title": "微软 Win10/Win11 新版 Outlook 收件箱塞入 Copilot，AI 摘要过去 8 小时邮件",
+      "link": "https://www.ithome.com/0/987/271.htm",
+      "published_at": "Sat, 08 Aug 2026 03:29:51 GMT",
+      "excerpt": "IT之家 8 月 8 日消息，科技媒体 Windows Latest 昨日（8 月 7 日）发布博文，报道称针对 Windows 10、Windows 11 平台新版 Outlook， 微软计划引入“每日小结”（Wrap up your day） AI 功能。 产品布局方面，该媒体指出微软通过该功能，进一步扩充 Copilot 入口，将其整合到收件箱场景中。 在 Windows 10、Windows 11 平台新版 Outlook 中，Copilot 位于左侧边栏，并在功能区菜单中以按钮的形式出现。而在安卓和 iOS 平台 Outlook 中，Copilot 按钮位于撰写按钮旁边。 而本次计划进一步在新版 Outlook 中扩展 Copilot 入口，通过“每日小结”功能，整合到收件箱场景。 功能方面，用户点击“每日小结”后，Outlook 在右侧边栏打开 Copilot，并向其发送提示词。该提示词要求 Copilot 只基于过去 8 小时内 Inbox（包括 Focused 和 Other）以及 Sent 中的邮件，创建一份“执行摘要式、简洁的晚间收件箱简报”。 该提示词还要求 Copilot 按 3…",
+      "themes": [
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "IT之家",
+      "title": "消息称英伟达拟向“星际之门”项目电力服务商 Lancium 投资至多 30 亿美元",
+      "link": "https://www.ithome.com/0/987/266.htm",
+      "published_at": "Sat, 08 Aug 2026 02:55:59 GMT",
+      "excerpt": "IT之家 8 月 8 日消息，据 The Information 消息，英伟达拟向电力基础设施开发商 Lancium 投资 至多 30 亿美元 （现汇率约合 202.79 亿元人民币） 。 Lancium 是由黑石集团支持的电力基础设施企业，其位于得克萨斯州阿比林的“清洁园区”（Clean Campus）正是“星际之门”（Stargate）AI 超算数据中心项目首期所在地。 “星际之门”是由软银、OpenAI 与甲骨文等公司共同筹建数据中心的合资项目， 计划到 2029 年在全美投资高达 5,000 亿美元 （IT之家注：现汇率约合 3.38 万亿元人民币） 建设 AI 数据中心与超级计算基础设施。 知情人士透露， 英伟达将先期投资 20 亿美元 （现汇率约合 135.19 亿元人民币） ，以获取 Lancium 约 20% 的股权；如果 Lancium 能够达成包括电网并网在内的特定指标， 英伟达未来还可能追加 10 亿美元 （现汇率约合 67.6 亿元人民币） 投资。 在此次交易架构下，Lancium 及其拥有的土地与电力资源资产估值约为 100 亿美元 （现汇率约合 675.97 亿元人民币）…",
+      "themes": [
+        "大模型 / 应用 / 智能体",
+        "芯片 / 算力 / 推理",
+        "产业 / 投融资 / 活动"
+      ]
+    },
+    {
+      "section": "IT之家",
+      "title": "网友反馈 2022 年购买的《指环王》电影从片库消失，谷歌回应无法退款",
+      "link": "https://www.ithome.com/0/987/265.htm",
+      "published_at": "Sat, 08 Aug 2026 02:50:48 GMT",
+      "excerpt": "IT之家 8 月 8 日消息，网友 u/ugoindownsaka1 在 Reddit 社区发帖，声称其于 2022 年从 Google Play 购买了《指环王》三部曲电影， 但近期重温观看时发现相关片源已从其片库中消失。 该网友在 Reddit 社区分享了他和谷歌的客服聊天记录， 客服表示由于购买时间太久，超过了公司标准的 120 天退款期限，且系统无法追溯交易历史，因此无法退款。 该用户随后询问，在无法退款的情况下，平台是否可以发放礼品卡。客服直接拒绝，并称：“由于该电影托管在 YouTube 平台上，并且仍可在他们那端访问，我们建议联系 YouTube 支持团队寻求进一步帮助。” 该用户反驳称，自己购买影片的平台是 Google Movies & TV。 客服随后回复称，该电影已从 Google 平台目录中移除，系统中不再提供。 相关帖子很快获得数千次点赞和评论，多名用户表达了对数字购买模式的不满，认为该事件凸显消费者预期与数字授权现实之间的错位。IT之家附上相关截图如下：",
+      "themes": [
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "IT之家",
+      "title": "内存占用约 35MB：网友 AI 自制开源工具，避免华硕 RTX 5080 和 5090 显卡烧熔",
+      "link": "https://www.ithome.com/0/987/262.htm",
+      "published_at": "Sat, 08 Aug 2026 02:38:26 GMT",
+      "excerpt": "IT之家 8 月 8 日消息，科技媒体 NeoWin 昨日（8 月 7 日）发布博文，报道称网友在 AI 编程辅助下，针对华硕的 ROG Astral RTX 5090/5080 显卡， 推出了一款开源工具，避免显卡出现过热烧熔情况。 该开源工具名为 12VHPWR Guard，目前仅适用于华硕 ROG Astral RTX 5080 和 RTX 5090 显卡（主要原因是上述两张显卡配有传感器，可以监测 6 个供电针脚的电流）。 该工具通过显卡的 I2C 总线，借助 NVAPI 直接连接 ITE IT8915FN 传感器芯片，也可把 HWiNFO 作为备用后端。作者称，这一路径是只读，不会向总线写入数据。 在默认设置下，程序每秒轮询 2 次；如果任一针脚连续 15 秒高于 9.5A，就会强制关机。作者表示，用户可以调整阈值和计时，默认值刻意设得保守，用来避开瞬时电流波动。华硕自己的警告阈值是 9.2A。 作者还称，在约 500W 的游戏负载下，他的 RTX 5090 上 6 个针脚各约 6.5A 到 7.1A，而异常场景里，单个针脚可能升至 12A 到 15A。工具在《Forza Horizon 6》和《Alan…",
+      "themes": [
+        "芯片 / 算力 / 推理"
+      ]
+    },
+    {
+      "section": "IT之家",
+      "title": "华为鸿蒙电脑 HarmonyOS 7 花粉 Beta 版开启推送",
+      "link": "https://www.ithome.com/0/987/259.htm",
+      "published_at": "Sat, 08 Aug 2026 02:14:19 GMT",
+      "excerpt": "IT之家 8 月 8 日消息，今日，华为鸿蒙电脑 HarmonyOS 7 花粉 Beta 版开启推送，版本号为 7.0.0.102 SP5，安装包体积为 15.46 GB。 据官方介绍，新版本为用户带来更精致的沉浸光感视效、更好用的小艺慧记，同时还在图库、备忘录、邮件等常用应用的使用方面新增诸多便捷、好用的新功能。 IT之家附主要内容如下： 沉浸光感 新增全新视效，覆盖更多场景，例如鼠标悬浮 Dock 栏图标时新增空间感光效；将桌面图标拖入大文件夹时新增光感吸附动效；在控制中心滑动音量条、亮度条，或在桌面删除卡片时新增粒子动效。视觉效果支持档位调节，您可根据个人喜好进行设置 (设置> 桌面和个性化 > 沉浸光感)。 小艺慧记 新增系统级悬浮工具栏，可便捷进行切换音源，启停慧记等操作。 慧记首页支持根据不同场景一键开启实时记录，记录过程中可同步显示原文和摘要总结并实时对比、根据记录文本自动提取发言人名称、针对提问自动检索记录文本上下文或互联网相关信息等。 AI 纪要提供会议纪要、学习笔记、对话访谈等常用模板，根据场景一键生成不同的纪要，突出该场景重点，还可以自定义模板。…",
+      "themes": [
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "IT之家",
+      "title": "Claude Code v2.1.224 现支持 AI 跨会话消息传递",
+      "link": "https://www.ithome.com/0/987/256.htm",
+      "published_at": "Sat, 08 Aug 2026 02:04:32 GMT",
+      "excerpt": "IT之家 8 月 8 日消息，Anthropic 旗下官方账号 @ClaudeDevs 今天（8 月 8 日）在 X 平台发布推文， 宣布从 Claude Code v2.1.224 开始，会话之间可以互相发送消息。 根据官方介绍，自该版本 Claude Code 开始，不同的会话可以互相发送消息，更新和其他相关信息，方便用户在多个会话中协同项目的各个部分。 IT之家翻译官方文档介绍如下： 跨会话消息传递功能支持 Claude 将消息从一个 Claude Code 会话传递到另一个会话。当一个会话中的更改破坏了另一个会话正在构建的内容后，Claude 可以在用户注意到之前发出警告。当一个会话解决了另一个会话遇到的问题后，Claude 可以将答案发送给另一个会话。 Anthropic 表示，这项新功能的最佳使用场景包括移交调查结果、协调并行工作树、获取长时间运行的工作的状态以及跨机器回复。",
+      "themes": [
+        "大模型 / 应用 / 智能体"
+      ]
+    },
+    {
+      "section": "IT之家",
+      "title": "微软宣布 Edge 浏览器将逐步取消 Manifest V2 扩展程序支持，影响广告拦截工具 uBlock Origin 等",
+      "link": "https://www.ithome.com/0/987/251.htm",
+      "published_at": "Sat, 08 Aug 2026 01:40:36 GMT",
+      "excerpt": "IT之家 8 月 8 日消息，当地时间 8 月 7 日，微软宣布，自 2026 年 8 月起，Edge 浏览器将启动面向普通消费者的过渡计划， 逐步停止对 MV2 扩展的支持并全面转向 MV3 。目标是在 2026 年底前完成面向普通用户的过渡，并于 2027 年初正式面向企业客户弃用 MV2。 微软表示，Edge 浏览器的 Manifest Version 2（MV2）扩展程序正加速向 MV3 迁移，整个扩展生态已取得实质性进展。 目前 Edge 扩展商店中 95% 的头部 MV2 扩展均已完成升级 。仍拥有实质用户量的 MV2 扩展仅剩 58 个，其中只有 3 个尚未推出公开的 MV3 替代版本。 自 2026 年 8 月起，部分安装了 MV2 扩展的用户将在“管理扩展”页面 (edge://extensions) 及 Edge 浏览器加载项的产品详情页上看到相关提示。仍在维护 MV2 扩展的极少数开发者，将在 Microsoft 合作伙伴中心看到类似通知。 在接下来的几个月中，MV2 扩展将开始默认被逐步禁用。系统会提前通知用户，并引导其使用已上架的推荐 MV3 版本。 IT之家获悉，上述调整将首先在…",
+      "themes": [
+        "云 / 大厂 / 生态",
+        "产业 / 投融资 / 活动"
+      ]
+    },
+    {
+      "section": "IT之家",
+      "title": "Pro、Max 和 Team 用户 8 月 14 日起 Claude Code 默认权限调整为自动模式",
+      "link": "https://www.ithome.com/0/987/249.htm",
+      "published_at": "Sat, 08 Aug 2026 01:17:30 GMT",
+      "excerpt": "IT之家 8 月 8 日消息，Anthropic 今天（8 月 8 日）发布公告，宣布将于 8 月 14 日开始，针对 Pro、Max 和 Team 订阅用户， 调整 Claude Code 的默认权限模式为自动模式（Auto Mode）。 IT之家援引博文介绍，自动模式是指 Claude Code 使用独立的 AI 分类器（classifier），实时评估每次工具调用和 Shell 命令，放行安全操作，自动拦截破坏性、不可逆或越权行为。 在覆盖范围方面，Claude Enterprise、Claude API、Claude Platform on AWS、Amazon Bedrock、Google Cloud's Agent Platform 和 Microsoft Foundry 目前仍保持可选，Anthropic 计划在未来 1 个月内在上述平台推进调整，把自动模式设为默认选项，并取消相应开销。 在测试推行方面，Anthropic 邀请 1,053 名付费测试者测试，发现在传统人工审批模式，只识别出 13.6% 的危险命令；而自动模式能够识别 89% 的危险命令。 在提示词注入评估中，Trajectory Labs…",
+      "themes": [
+        "大模型 / 应用 / 智能体",
+        "云 / 大厂 / 生态",
+        "数据 / 安全 / 合规 / 社会议题"
+      ]
+    },
+    {
+      "section": "IT之家",
+      "title": "18 核 / 20 核英伟达 RTX Spark 笔记本跑分曝光：64GB 统一内存",
+      "link": "https://www.ithome.com/0/987/245.htm",
+      "published_at": "Sat, 08 Aug 2026 01:02:08 GMT",
+      "excerpt": "IT之家 8 月 8 日消息，科技媒体 Wccftech 昨日（8 月 7 日）发布博文， 报道称在 GeekBench 7.0.0 跑分库中，发现了两款搭载英伟达 RTX Spark 处理器的笔记本电脑。 IT之家援引博文介绍，本次现身跑分库的 2 款设备均配备 64GB 的统一内存： 型号为“OEMQAJ 766_MIS Product Name DV”的设备搭载 20 核 CPU 型号为“OEMQAJ OEMQAJ Product”的设备搭载 18 核 CPU 在跑分方面，20 核 CPU 版本 RTX Spark 单核成绩为 2,570 分，多核 23,126 分；18 核版本单核 2,541 分、多核 21,776 分。 IT之家附上相关跑分对比数据如下： GeekBench 7 跑分 20 核 CPU 版 RTX Spark 苹果 M4 Max 芯片 差距 单核 2,570 3,404 24.5% 多核 23,126 25,957 10.91% GeekBench 7 跑分 18 核 CPU 版 RTX Spark 苹果 M4 Max 芯片 差距 单核 2,541 3,404 25.35% 多核 21,776…",
+      "themes": [
+        "芯片 / 算力 / 推理",
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "IT之家",
+      "title": "2026 全球智能制造与电子产品博览会 12 月广州举办，特斯拉、蔚来、荣耀、OPPO、vivo 等参展",
+      "link": "https://www.ithome.com/0/987/238.htm",
+      "published_at": "Sat, 08 Aug 2026 00:25:31 GMT",
+      "excerpt": "IT之家 8 月 8 日消息，据央视新闻报道，8 月 7 日，2026 全球智能制造与电子产品博览会（AIE 电子展）新闻发布会在广州举行。 据悉，本届博览会定于 12 月 3 日至 5 日 举办，延续首届“一展双城”办展模式，锚定“中国智造首发平台”定位，聚焦人工智能全产业链，着力打造大湾区智能制造链接全球的重要窗口。本届博览会将在 珠海、澳门 两地同步开展。 在首届展会基础上，第二届 AIE 电子展进一步扩容提质， 预计汇聚超 1000 家科技企业 ，迎来 5 万名海内外专业观众，加速全球新品首发资源落地大湾区。 IT之家查询获悉，截至目前，展会招展面积已超 70%。AI 智能装备与机器人、智慧人居等展区报名踊跃，特装展位、高新技术及专精特新企业占比预计逾 50%。 特斯拉、 TCL 实业 、蔚来、荣耀、OPPO、vivo 等行业龙头企业已确认参展参会。 采购商邀约方面，首批名单已正式发布，品牌企业涵盖 追觅 、TCL 实业、创想三维 等；跨境电商覆盖傲基、千岸科技等；供应链服务商包含神州数码、朗华供应链等，横跨 AI 未来电子与终端应用、智慧人居、跨境分销等多个板块。",
+      "themes": [
+        "具身 / 机器人 / 智驾"
+      ]
+    },
+    {
+      "section": "IT之家",
+      "title": "蚂蚁集团百灵开源 Ling-3.0-flash 模型：124B 总参数、5.1B 激活参数",
+      "link": "https://www.ithome.com/0/987/231.htm",
+      "published_at": "Fri, 07 Aug 2026 23:49:46 GMT",
+      "excerpt": "IT之家 8 月 8 日消息，蚂蚁集团旗下百灵大模型官方昨日宣布，新一代原生混合推理模型 Ling-3.0-flash 现已正式开源。 Ling-3.0-flash 采用 124B 总参数、5.1B 激活参数 的 MoE 架构。官方同步提供基础版本以及 FP8、FP4、INT4 等多个版本，提供三种不同的落地选择： API 调用： 面向希望快速接入、无需自建推理服务的开发者，Ling-3.0-flash 可通过云端 API 直接调用； 单机私有化： 面向数据不能出域的企业和团队，MXFP4 与 INT4 版本可在单台 NVIDIA DGX Spark 上完成端到端推理； 高性能部署： 面向单请求时延敏感的高性能服务，在指定 GPU 测试配置下，平均输出速率突破 1100 tokens/s。 对于希望快速验证产品、上线 Agent 应用的开发者和产品团队，API 是门槛最低的接入方式。在 Artificial Analysis 榜单中，Ling-3.0-flash 输出速度达到 353 tokens/s。 在 AA Intelligence Index 榜单中，Ling-3.0-flash 每项任务的加权平均调用成本约为…",
+      "themes": [
+        "大模型 / 应用 / 智能体",
+        "芯片 / 算力 / 推理",
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "Solidot",
+      "title": "AMD 收购将权重直接刻在芯片上的 AI 初创公司",
+      "link": "https://www.solidot.org/story?sid=85035",
+      "published_at": "Fri, 07 Aug 2026 23:23:48 +0800",
+      "excerpt": "AMD 收购了将权重直接刻在芯片上的 AI 初创公司 Taalas。Taalas 创办于 2023 年，它研发专门用于执行 AI 模型推理任务的集成电路 MSIC（代表 model-specific integrated circuits），其推理速度比 GPU 和其它专用加速器高出一个数量级以上。Taalas 今年 2 月展示了它用台积电 6nm 工艺制造的测试芯片 HC1，测试显示芯片能以每秒 16,960 个 tokens 的速度处理 Meta 的 Llama 3.1 8B 模型，这一速度比英伟达的 GPU 快 48 倍，比 Cerebras 的加速器快 8.5 倍。Taalas 计划今夏推出第二代 HC2 芯片，目标是将参数数量提升至 200 亿。它的缺点是一旦部署只能使用当前的模型，新模型需要重新设计芯片，但并不需要从零开始设计，只需要更换两层金属，因此既便宜也省时间。",
+      "themes": [
+        "芯片 / 算力 / 推理",
+        "云 / 大厂 / 生态",
+        "产业 / 投融资 / 活动"
+      ]
+    },
+    {
+      "section": "Solidot",
+      "title": "字节跳动开发 10 万亿参数模型",
+      "link": "https://www.solidot.org/story?sid=85034",
+      "published_at": "Fri, 07 Aug 2026 17:11:59 +0800",
+      "excerpt": "字节跳动正在训练一款 10 万亿参数模型。新模型目前正处于预训练阶段。这一过程通常需要耗时三到六个月，随后才能进入微调并最终发布。中国 AI 公司如月之暗面的 Kimi K3 模型有 2.8 万亿参数，而美团的 LongCat-2.0 与 DeepSeek 的 V4-Pro 有 1.6 万亿的参数。Anthropic 最先进的 Mythos 5 参数量估计为 8 万亿，Fable 5 约为 5 万亿。这意味着，单从规模指标来看，字节跳动研发的新模型在规模上已与 Mythos 相近。",
+      "themes": [
+        "大模型 / 应用 / 智能体",
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "Solidot",
+      "title": "《时代》杂志网站展示只有 AI 能看到的广告",
+      "link": "https://www.solidot.org/story?sid=85031",
+      "published_at": "Fri, 07 Aug 2026 16:16:55 +0800",
+      "excerpt": "《时代》杂志网站开始展示只有 AI 爬虫能看到的带有品牌信息的广告。这些广告旨在影响 AI 聊天机器人，让 AI 从积极的角度谈论品牌产品，而 AI 获得的信息无法追溯到实际页面。《时代》网站排除了 Google 的爬虫，原因是 Google 会惩罚向机器人和真实用户展示不同搜索结果的网站。广告技术平台 Mobian 的联合创始人兼 CEO Jonah Goodhart 指出，影响机器人可能比影响人类用户更重要，因为影响人类用户只能影响一个人。而影响 ChatGPT 就是影响整个 ChatGPT。如果 ChatGPT 改变了它对某个品牌的评价，其影响将是巨大的，远超任何单一广告活动所能达到的效果。",
+      "themes": [
+        "大模型 / 应用 / 智能体",
+        "具身 / 机器人 / 智驾",
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "Solidot",
+      "title": "Rust 语言宣布 LLM 政策",
+      "link": "https://www.solidot.org/story?sid=85022",
+      "published_at": "Thu, 06 Aug 2026 15:57:49 +0800",
+      "excerpt": "Rust 语言团队宣布了新的 LLM 政策。 除了作者没有人被要求必须阅读 LLM 输出，除非其自愿选择：LLM 输出不允许出现在公开文档、PR 描述或 GitHub 评论中，除非明确标注；审核者如果不愿意，无需查看 LLM 生成的 PR。 没有人必须使用 LLM 为 rust-lang/rust 做贡献：政策必须先为人类编写，仅为机器提供摘要；LLM 审核不能替代人工审核或自审。 你可以生成仅供自己查看的 LLM 内容，无需披露，前提是不会将其发布到任何你期望我们阅读或审核的地方。 你可以用 LLM 回答问题、分析、提炼、完善、检查、提出建议和审核，但不能用来**创造**。",
+      "themes": [
+        "大模型 / 应用 / 智能体"
+      ]
+    },
+    {
+      "section": "Solidot",
+      "title": "Google DeepMind CEO Demis Hassabis 卸任",
+      "link": "https://www.solidot.org/story?sid=85019",
+      "published_at": "Thu, 06 Aug 2026 01:08:13 +0800",
+      "excerpt": "Google 对其 AI 部门 DeepMind 进行了领导层重组，诺贝尔奖得主、DeepMind CEO Demis Hassabis 卸任，他将担任新设立的首席科学家职位并改任董事长。资深工程师以及 Google Brain 联合创始人 Jeff Dean、Sanjay Ghemawat、Oriol Vinyals 和 ​Quoc Le 都离开 Google，他们成立了一家公益性 AI 企业 Discovery Loop，专注于机器学习、科学和工程领域的突破性研究。这次人事变动恰逢 Google 最新 Gemini 模型的发布滞后，原计划 6 月发布，但至今仍未发布，引发了 Google 落后于竞争对手 Anthropic 和 OpenAI 的担忧。",
+      "themes": [
+        "大模型 / 应用 / 智能体",
+        "云 / 大厂 / 生态"
+      ]
+    },
+    {
+      "section": "Solidot",
+      "title": "微软要求工程师不要最大化 AI Token 使用",
+      "link": "https://www.solidot.org/story?sid=85018",
+      "published_at": "Thu, 06 Aug 2026 00:12:38 +0800",
+      "excerpt": "为了推广 AI 工具，许多企业将 AI 使用率作为绩效考核的一部分。结果就是员工为了绩效致力于最大化 AI 使用，导致企业很快发现 token 费用大幅超出预算。软件巨头微软成为最新一家建议工程师限制使用 AI 的公司。微软执行副总裁 Jay Parikh 在一封发给微软员工的邮件中要求工程师专注于业务成果，而非最大化 AI token 的使用量，为了“从 token 投资中获得更大的价值”，微软将比其它模型更便宜的 OpenAI GPT-5.6 设为内部使用的默认模型。自 2026 年 7 月起，微软各部门将设定“AI token 预算目标”，员工可以追踪各自的 AI 支出。",
+      "themes": [
+        "大模型 / 应用 / 智能体",
+        "云 / 大厂 / 生态",
+        "产业 / 投融资 / 活动"
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "section": "36氪",
+      "title": "[解析失败] https://36kr.com/feed",
+      "detail": "not well-formed (invalid token): line 9, column 542"
+    }
+  ],
+  "llm_summary": {
+    "heroSummary": "今日AI领域动态密集：大厂在组织与产品层面同步发力，谷歌要求AI核心员工回归硅谷坐班，阿里推出语音平台并公测视频大模型；模型侧，ChatGPT免费版升级至GPT-5.6，字节被曝拒绝蒸馏路线并计划训练超5万亿参数模型；基础设施方面，英伟达拟投资星际之门电力服务商，AI SSD被视为推理存储新范式；产业端，宇树科技IPO在即，DeepSeek拟上调API价格，具身智能与智驾监管议题亦受关注。",
+    "keyThemes": [
+      {
+        "title": "大厂组织与生态调整加速",
+        "summary": "谷歌要求AI核心员工返回硅谷办公，显示对集中研发的强调；阿里推出国内首个AI语音平台CosyVoice Studio，并公测视频大模型Wan3.0，持续扩展多模态生态；苹果bug赏金计划遭AI批量轰炸，审核团队被迫下线，反映AI对安全流程的冲击。"
+      },
+      {
+        "title": "大模型能力升级与智能体架构创新",
+        "summary": "ChatGPT免费版升级至GPT-5.6，支持无限使用；openJiuwen发布企业级智能体分布式蜂群架构，已在邮储落地；蚂蚁开源Avernet，探索人与智能体的组织化协作。模型能力与智能体工程同步推进。"
+      },
+      {
+        "title": "算力与推理基础设施成为竞争焦点",
+        "summary": "AI SSD被视为大模型推理的存储范式转移；OpenAI通过重写Python和魔改WebRTC，将GPT-Live音频延迟大幅降低；字节拒绝蒸馏捷径，坚持自研，并计划训练超5万亿参数模型，凸显对长期算力投入的决心。"
+      },
+      {
+        "title": "产业资本与商业化动态密集",
+        "summary": "宇树科技IPO定价150.8元/股，超百名员工参与，或催生90后千万富豪；DeepSeek拟上调API服务定价；英伟达拟向星际之门电力服务商Lancium投资至多30亿美元；美团提出将AI融入家庭健康，共建15分钟医疗圈。"
+      },
+      {
+        "title": "具身智能与智驾安全议题升温",
+        "summary": "IJCAI 2026聚焦机器人学习与人类视频的桥接；特斯拉FSD升级引发高温故障，暴露中美智驾监管差异；2026全球智能制造与电子产品博览会将于12月在广州举办，特斯拉、蔚来等参展。"
+      }
+    ],
+    "impactNotes": [
+      "谷歌强制AI核心员工回归硅谷，可能影响其全球研发布局与人才留存策略。",
+      "ChatGPT免费版无限使用GPT-5.6，将加剧消费级AI助手市场竞争，或迫使其他厂商调整免费策略。",
+      "字节拒绝蒸馏并投入超5万亿参数模型训练，可能拉高行业算力成本门槛，影响中小模型厂商的追赶路径。",
+      "DeepSeek拟上调API定价，或引发国内大模型API价格体系调整，影响下游应用开发成本。",
+      "英伟达投资电力基础设施，显示AI算力扩张正向上游能源环节延伸，可能带动相关产业链投资。"
+    ],
+    "watchlist": [
+      "谷歌硅谷坐班政策后续执行及对AI人才流动的影响",
+      "阿里Wan3.0公测效果及与竞品视频生成模型的对比",
+      "字节超5万亿参数模型的训练进展与算力投入",
+      "DeepSeek API调价幅度及市场反应",
+      "宇树科技IPO上市首日表现及机器人板块估值变化",
+      "特斯拉FSD升级事故的监管后续与中美智驾政策差异",
+      "英伟达对Lancium投资的正式公告及星际之门项目电力进展"
+    ]
+  }
+}
