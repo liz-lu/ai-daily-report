@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-08-16</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a><a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      <a class="toc-link" href="#errors">抓取异常</a>
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-08-16</span>
+          <span>11:26（北京时间）</span>
+          <span>IT之家、Solidot、量子位、雷锋网</span>
+        </div>
+        <p class="hero-copy">今日AI领域动态密集：阿里开源Qwen3.8系列模型，全球下载量突破30亿次，其中27B模型在消费级显卡上即可流畅运行；具身智能赛道迎来商业化突破，索塔无界与欧洲最大商超集团达成千台机器人部署合作，鹿明发布全球首个双臂负载50kg的轮臂式机器人；同时，谷歌对DeepMind进行组织调整，高通完成对Modular的收购，AI基础设施与芯片领域持续升温。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>35</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>4</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>1</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>14</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>12</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>9</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>9</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>7</strong></div><p>基础设施的效率叙事持续升温</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>4</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>IT之家、量子位</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>4</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>IT之家、Solidot、雷锋网</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>大厂动态与生态竞争</h3><p>阿里开源Qwen3.8系列，千问全球下载超30亿次，27B模型性能超越前代Plus版本；谷歌开始将DeepMind数个团队划归总部，组织架构调整引发关注；百度文库网盘GenFlow更名「库库AI」，AI办公MAU超2500万。</p></article><article class="insight-card"><h3>大模型与智能体进展</h3><p>至知研究院提出大模型可解释性新路线，通过拆解权重将数据成本降至1%以下；Qwen3.8-27B在多项榜单反超Claude，支持消费级显卡运行Agent；鹿明发布MOS2机器人，具备50kg双臂负载能力，加速AI Worker进入产业现场。</p></article><article class="insight-card"><h3>具身智能与机器人落地</h3><p>索塔无界成为全球首家将原生物理世界模型落地商超的企业，未来3年部署超千台机器人；鹿明MOS2面向工业场景，实现重载轮臂式操作；浙江人形机器人创新中心将携NAVIAI亮相WRC2026。</p></article><article class="insight-card"><h3>芯片、算力与基础设施</h3><p>商汤大装置首提TPW指标，重新定义AI基础设施效能；谦合益邦完成超20亿元B轮融资，专注3D存算一体芯片；华为昇腾完成小红书dots3-note preview大模型适配；美国加州发生AI数据中心硬件货运抢劫案，损失数百万美元。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>阿里开源Qwen3.8系列进一步降低大模型部署门槛，消费级显卡即可运行，可能加速中小企业和个人开发者的AI应用创新。</li><li>具身智能在商超和工业场景的落地案例增多，显示该领域正从实验室走向商业化，但规模化部署仍需时间验证。</li><li>谷歌对DeepMind的组织调整可能影响其AI研究方向和产品整合，需关注后续技术输出变化。</li><li>高通完成Modular收购，强化AI原生软件平台，或对端云协同AI计算生态产生重要影响。</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>Qwen3.8系列模型的实际应用反馈及生态发展</li><li>谷歌DeepMind组织调整后的研究方向和产品发布</li><li>索塔无界与欧洲商超合作的执行进展及具身智能商业化验证</li><li>鹿明MOS2在工业场景的落地案例与性能表现</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>14 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>7亿年薪留不住！余家辉离职Meta创业</h3><a href="https://www.qbitai.com/2026/08/473261.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>谷歌开始肢解DeepMind，数个团队被划归总部</h3><a href="https://www.qbitai.com/2026/08/473153.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>阿里开源Qwen3.8，千问大模型全球下载超30亿次</h3><p>8月14日晚，阿里千问正式开源Qwen3.8系列模型，所有开发者、科研机构和企业均可自由下载、部署和使用。全新开源的Qwen3.8-27B，系原生多模态稠密（Dense）模型，仅270亿参数规模，整体水平便超越了Qwen3.7-Plus，在编程及办公的真实场景中表现出色。新模型响应速度快，完成质量高，部署便捷，量化后在“消费级”显卡上即可流畅运行，是最受全球AI社区期待的开源模型。Qwen3.8-27B采用宽松的Apache2.0协议开源，有望成为本地部署的主力模型。 此前，旗舰模型Qwen3.8-Max也已开源模型权重。公开数据显示，阿里已累计向全球AI社区开源460余个模型，Qwen模型在全球下载总量超30亿次，衍生模型数超30万个，稳居全球第一开源模型。</p><a href="https://www.leiphone.com/category/industrynews/GJAhmR3wyL91CzjO.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>百度文库网盘GenFlow官宣中文名「库库AI」，推出「库库AI」办公独立端</h3><p>8月14日，在百度AI Day开放日上，百度文库网盘通用智能体GenFlow官宣中文名「库库AI」。早在今年4月，GenFlow月活用户已突破1亿，其中办公用户体量指数级飙升，目前AI办公MAU超过2500万，位居通用AI办公赛道行业第一。 关注到用户在AI办公上的强烈需求和高频互动，文库网盘宣布进一步出击AI办公赛道，上线「库库AI」独立端，包括库库AI办公PC客户端、库库AI网页端、小程序及库库AI企业版等。 文库网盘抢先三年布局，持续出击通用AI办公赛道 三年前，百度文库网盘即在行业率先布局通用AI办公。 2023年，百度文库、百度网盘就进行大模型重构，推出智能PPT、AI研究报告等领先AI办公能力。2024年，百度文库网盘全面融合，打通百度文库18亿专业文档、学术7亿专业内容和网盘私域知识，不断构建数据飞轮；用户在文库网盘全端即可实现一站式AI办公内容创作和消费。 作为最早探索AI办公的通用智能体，「库库AI」在2025年4月正式上线1.0版本，一年迅速迭代到4.0版本，可在文库网盘、Oreate AI等海内外产品全端通用，是在「通用AI办公」赛道的里程碑突破。库库AI可自由调用Office…</p><a href="https://www.leiphone.com/category/industrynews/jlbLtAX6KzW9yYGJ.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为官宣昇腾 0 Day 适配小红书最新开源大模型 dots3-note preview</h3><p>IT之家 8 月 16 日消息，小红书 8 月 14 日正式发布 dots3-note preview 开源大模型。华为官方昨日宣布， 昇腾 Atlas 800 A3、Atlas 900 A3 SuperPoD 超节点已完成 dots3-note preview 的全量适配 ，并基于 vLLM Ascend 开源推理引擎提供完整的部署与推理能力。 据介绍，作为 dots3 系列的首个版本，dots3-note preview 开源大模型以 280B 总参数量、16B 激活参数量 构建能力底座，同时具备文本、视觉、语音全模态感知理解能力。官方表示，该模型在推理、Agent 及多模态感知等能力上进行了全面优化，在多项任务上取得了比肩国内外更大尺寸优秀模型的效果： 另外，华为官方表示，在该模型发布当天，昇腾完成 0 Day 推理部署适配与性能优化，在完整保留模型文本、视觉、语音一体化全模态理解能力的前提下，实现了稳定运行与生成效率提升，为长程复杂任务场景智能落地提供算力支撑。 昇腾此次关键适配及优化点如下： 全模态端到端适配 基于 vLLM Ascend 推理框架，完成 dots3-note preview…</p><a href="https://www.ithome.com/0/990/256.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>广汽启境 GT7 今晚面向 L3 级架构全球首拆，华为靳玉志现场见证</h3><p>IT之家 8 月 16 日消息，广汽集团今日宣布， 启境 GT7 车型面向 L3 级有条件自动驾驶架构的全球首拆今晚 19:00 直播举行。 据官方透露，本次活动由启境汽车 CEO 刘嘉铭、华为公司高级副总裁兼引望公司 CEO 靳玉志共同见证。此外，影视飓风创始人 TIM 也将参与本次活动。 由广汽集团与华为乾崑联合打造的高端智能新能源汽车品牌“启境”旗下首款车型 —— 启境 GT7 今日正式上市。 PART 01：品质工艺全拆解 PART 02：百万级悬架全透视 PART 03：面向 L3 级自动驾驶架构全球首拆 PART 04：电池安全暴力验证 PART 05：玄盾笼式车身实测 IT之家注意到，启境 GT7 是由广汽集团与华为乾崑联合打造的高端智能新能源汽车品牌“启境”旗下首款车型，该车定位中大型智能猎装轿跑， 官方指导价 20.99 万元起 。 启境 GT7 车身长宽高分别为 5050mm、1980mm 和 1470mm， 轴距 3000mm 。启境 GT7 提供普罗旺斯紫、西西里橙、茶卡银、蒙特卡洛红、帕米尔黑、尼斯蓝、梅里白六种标准车色，以及超跑漆、流光漆、镜面漆三种定制漆面。 智能驾驶是启境 GT7…</p><a href="https://www.ithome.com/0/990/247.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>奕境曾清林谈岚图追光 S 隧道 360° 大回环：东风 57 年造车底蕴，绝不是靠 AI 堆出来的</h3><p>IT之家 8 月 16 日消息，奕境汽车品牌总经理曾清林昨晚发文，谈及了岚图追光 S 此次隧道 360° 大回环挑战。针对网友对挑战的质疑，他表示， 岚图的底盘都是用最猛的料，调校也是行业一绝 。从来不会搞“差不多就行”那一套。 曾清林称，东风的技术积累还是很深的，只是这些年，在营销上确实还是保守了点，不会玩“花活儿”。许许多多扎实的技术，默默藏在车子里没有传播好。 而东风 57 年造车底蕴，绝不是靠 AI 堆出来的 。 综合IT之家此前报道，岚图在 8 月 13 日宣布， 追光 S 车型 360° 隧道大回环穿越成功 。然而有网友对此次挑战提出质疑，认为挑战视频采用了 AI 技术。随后， 岚图放出了追光 S 此次挑战多角度实录 + 一镜到底视频回应质 疑。 岚图追光 S 已于昨晚正式上市， 新车全系标配华为乾崑智驾四激光雷达方案 ，22.99 万元起售。</p><a href="https://www.ithome.com/0/990/238.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软 Win11 全面视觉焕新将至，多数传统对话框将用 WinUI 重构</h3><p>IT之家 8 月 16 日消息，Windows 11 似乎即将迎来一轮全面视觉焕新，微软计划替换系统中绝大多数传统对话框与弹窗。而就在此前，微软刚承认 WinUI 的性能表现并不理想，并表示将在把该框架推广至系统外壳（而非仅应用端）的过程中同步优化其性能。 微软官方将流畅设计体系（Fluent Design）作为核心设计语言，该体系主要由 WinUI 框架支撑，后者也是 Windows 11 官方推荐的开发框架之一。此前 WinUI 一度被暂缓推进，直到近期才有新动向；不过微软已明确表态将全力投入该框架，并开始在 Windows 系统外壳层面强制推行 WinUI。 如今，当初的诸多承诺正逐步落地，不再只是“口头表态”或“公关话术”。核心工程与产品团队正直接面向用户沟通，大部分改动已经出现在预览版中；这在微软过往的类似承诺中是从未有过的。 举例来说，微软近日预告，将为自动播放（AutoPlay）对话框推出基于 WinUI 的全新设计，目前预览版中已经能看到这一改动。 据IT之家了解，当用户连接手机、U…</p><a href="https://www.ithome.com/0/990/226.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>《人类：一败涂地》开发商全新 VR 解谜游戏《小小羊群》公布，年内登陆 SteamVR / Meta Quest 平台</h3><p>IT之家 8 月 16 日消息，《Human Fall Flat（人类：一败涂地）》的开发商 No Brakes Games 正式公布了全新 VR 物理解谜游戏《Tiny Flock（小小羊群）》， 本作将于今年内登陆 SteamVR 和 Meta Quest 平台 ，目前游戏已上架 Steam，IT之家附录游戏商品页（ https://store.steampowered.com/app/3133010/Tiny_Flock ?utm_source=impress&amp;utm_medium=presskit ）。 据介绍，玩家将在本作中需要带领一群可爱的绵羊穿越 21 个精美的 3D 立体模型关卡。游戏中的环境和各种物体均具备高度互动性，玩家需要利用物理机制、创造力以及关卡中的各种道具，为自己的小羊群寻找安全通过关卡的方法。 玩家可以搭建道路和桥梁、堆叠或投掷物体，还可以拉动绳索和操作机关，为绵羊创造安全的通行路线。本作并没有规定唯一解法，玩家可以根据周围环境自由尝试，通过物理机制和创造性的方式解决问题，将迷路的小羊安全带到终点。 游戏图赏：</p><a href="https://www.ithome.com/0/990/222.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>年轻美国人日益不信任 AI 及 AI 公司高管</h3><p>对 1088 名年龄在 18-34 岁美国人的调查发现，绝大多数受访者表示不信任投资 AI 的大公司高管，包括 Elon Musk、Sam Altman 和 Mark Zuckerberg。45% 的受访者认为 AI 会对其职业生涯产生负面影响，只有 10% 的人认为 AI 会对他们有帮助。年轻人对 AI 公司高层也日益表达不信任，Palantir CEO Alex Karp 的信任度最低，81% 的受访者表示不信任他，紧随其后的是 Palantir 董事长 Peter Thiel（79%）、Alphabet CEO Sundar Pichai（75%）和 Anthropic CEO Dario Amodei（75%）。OpenAI CEO Sam Altman、Meta CEO Mark Zuckerberg、英伟达 CEO 黄仁勋和 SpaceX CEO Elon Musk 的不信任度都在 70% 左右，微软 CEO Satya Nadella 略好一点，不信任度为 65%。60% 的美国人认为数据中心建设必须放缓，只有 15% 的人表示希望加快建设速度。</p><a href="https://www.solidot.org/story?sid=85103" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>长鑫市值超越腾讯</h3><p>长鑫科技已超过互联网巨头腾讯控股，成为全球市值最大的中国企业，凸显 AI 热潮正推动投资者对存储晶片股的需求。截至周五 A 股收盘，长鑫科技最新市值约 3.58 万亿元人民币。港股方面，由于市场对腾讯不断增加的 AI 投资担忧加剧，腾讯周五最新市值约 4.0 万亿港元。分析认为，这一市值排名的逆转反映出，投资者继续青睐与 AI 相关的硬件企业，而非传统互联网巨头。总部位于安徽合肥的长鑫科技也是全球第四大 DRAM 供应商。DRAM 广泛应用于从手机到先进 AI 服务器等各种设备。</p><a href="https://www.solidot.org/story?sid=85098" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>苹果与阿里巴巴合作为中国市场训练专用大模型</h3><p>苹果与阿里巴巴合作为中国市场训练了一个大模型。此前苹果倾向于使用中国合作伙伴的模型为在中国销售的 iPhone 等设备提供生成式 AI 功能。苹果的 AI 功能 Apple Intelligence 预计将在未来几个月通过 iOS 更新在中国推出。苹果推出专为中国市场定制的 AI 模型，使​​其在竞争最激烈的中国市场更好掌控 AI 体验。苹果在中国已被华为等本土竞争对手蚕食市场份额，竞争对手凭借 AI 手机迅速占据领先地位。网信办已经登记了苹果的生成式 AI 服务，为 Apple Intelligence 服务首次登陆国行 iPhone 铺平道路。</p><a href="https://www.solidot.org/story?sid=85095" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>VLC 因 Microsoft Defender 而启动缓慢</h3><p>《Braid》和《The Witness》作者 Jonathan Blow 在社媒上称，在 Windows 上使用 VLC 启动播放一个 MP3 文件需要 33 秒钟，他因此改用了微软官方的 Microsoft Media Player，批评开源软件问题太多。此事引发了广泛讨论。VLC 官方回应称，核心问题与它无关，是 Windows 11 / Microsoft Defender 的一次更新隔离了 VLC 的插件缓存导致的，重新安装 VLC 或清空缓存可解决该问题。Linux 用户称 VLC 启动播放一个 MP3 文件只需要 1-2 秒。其他 Windows 用户建议在 Microsoft Defender 中排除 vlc.exe 也能解决该问题。</p><a href="https://www.solidot.org/story?sid=85093" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>微软正从中国撤退</h3><p>过去五年，随着中国更倾向于国产软件，微软一直在缩减在华业务，至少关闭了 15 家分支机构和合资企业。美国的出口管制也让微软云计算和 AI 业务的推广更困难，中国市场的经济增长空间变得相对有限。微软最终决定继续留在中国，是因为它开辟了一项盈利的业务，​​为字节跳动等中国企业提供服务，这些企业需要西方技术管理海外业务。微软认为，为了继续获得中国世界一流的工程人才，它需要在中国保留业务。微软前中国区负责人 Alain Crozier 表示微软与中国政府建立了深厚的关系，“由于地缘政治因素……有时情况会比较艰难，但我们从未遇到过危机。”微软发言人表示公司在“适用于所有国际供应商的监管环境”下运营，重申对中国市场的承诺。微软表示，其在中国的业务状况反映了市场竞争、监管要求和技术发展趋势。</p><a href="https://www.solidot.org/story?sid=85090" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>12 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>至知研究院提出大模型可解释性新路线：拆权重，数据成本不到1%</h3><a href="https://www.qbitai.com/2026/08/473876.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>源神启动！一张消费级显卡跑“Opus级”Agent，Qwen3.8-27B多项榜单反超Claude</h3><a href="https://www.qbitai.com/2026/08/473669.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>鹿明发布MOS2：全球首个双臂负载50kg轮臂式机器人，加速AI Worker进入产业现场</h3><p>8月14日，鹿明机器人发布全新重载轮臂式具身智能机器人 Lumos MOS2 。 面向真实工业场景，Lumos MOS2具备 50kg双臂负载能力 ，同时在硬件性能、全向移动能力、多模态感知系统和整机控制架构等方面实现全面升级，胜任真实工业场景高强度、持续性作业任务。 鹿明机器人创始人兼CEO喻超表示，具身智能正在加速进入产业落地阶段，如何让机器人更高效地完成更多真实任务，取决于 数据获取效率、硬件成本及产业交付效率 。 在这一判断下，MOS2被定位为面向工业场景的 重载AI Worker ：既拥有7×24小时不间断工作的强健躯体，也具备环境感知、任务理解与自主操作等能力，是鹿明产业具身理念的产品化实践。 当前工业现场中，仍存在大量同时需要 负载能力、灵活移动和复杂操作 的任务，而这一类场景仍缺少成熟的具身智能机器人解决方案。MOS 2以50kg双臂负载能力切入，融合移动、感知与操作能力， 为重载工业任务提供新的具身智能解决方案， 让具身智能进一步覆盖重载工业作业场景。 图：MOS2在真实生产场景中执行物料搬运任务 产业具身的核心，让机器人执行真实任务…</p><a href="https://www.leiphone.com/category/industrynews/24fbshcNUNahZuQz.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>阿里开源Qwen3.8，千问大模型全球下载超30亿次</h3><p>8月14日晚，阿里千问正式开源Qwen3.8系列模型，所有开发者、科研机构和企业均可自由下载、部署和使用。全新开源的Qwen3.8-27B，系原生多模态稠密（Dense）模型，仅270亿参数规模，整体水平便超越了Qwen3.7-Plus，在编程及办公的真实场景中表现出色。新模型响应速度快，完成质量高，部署便捷，量化后在“消费级”显卡上即可流畅运行，是最受全球AI社区期待的开源模型。Qwen3.8-27B采用宽松的Apache2.0协议开源，有望成为本地部署的主力模型。 此前，旗舰模型Qwen3.8-Max也已开源模型权重。公开数据显示，阿里已累计向全球AI社区开源460余个模型，Qwen模型在全球下载总量超30亿次，衍生模型数超30万个，稳居全球第一开源模型。</p><a href="https://www.leiphone.com/category/industrynews/GJAhmR3wyL91CzjO.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>百度文库网盘GenFlow官宣中文名「库库AI」，推出「库库AI」办公独立端</h3><p>8月14日，在百度AI Day开放日上，百度文库网盘通用智能体GenFlow官宣中文名「库库AI」。早在今年4月，GenFlow月活用户已突破1亿，其中办公用户体量指数级飙升，目前AI办公MAU超过2500万，位居通用AI办公赛道行业第一。 关注到用户在AI办公上的强烈需求和高频互动，文库网盘宣布进一步出击AI办公赛道，上线「库库AI」独立端，包括库库AI办公PC客户端、库库AI网页端、小程序及库库AI企业版等。 文库网盘抢先三年布局，持续出击通用AI办公赛道 三年前，百度文库网盘即在行业率先布局通用AI办公。 2023年，百度文库、百度网盘就进行大模型重构，推出智能PPT、AI研究报告等领先AI办公能力。2024年，百度文库网盘全面融合，打通百度文库18亿专业文档、学术7亿专业内容和网盘私域知识，不断构建数据飞轮；用户在文库网盘全端即可实现一站式AI办公内容创作和消费。 作为最早探索AI办公的通用智能体，「库库AI」在2025年4月正式上线1.0版本，一年迅速迭代到4.0版本，可在文库网盘、Oreate AI等海内外产品全端通用，是在「通用AI办公」赛道的里程碑突破。库库AI可自由调用Office…</p><a href="https://www.leiphone.com/category/industrynews/jlbLtAX6KzW9yYGJ.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>DeepSeek Harness 入选项目疑似曝光，不选万星「花瓶」，死磕 Agent 基建</h3><p>当下刚需的基建方向，全被 DeepSeek Harness 锁定 作者丨 高允毅 编辑丨 岑 峰 昨晚，DeepSeek V4 Pro 正式发布，性能全面逼近 Fable 5 ，价格却只有1/57 ，再次坐实了 “智价比之王” 的美誉。 如果细看官方公布的十项基准测试的话，那些亮眼的数据，其实都表明DeepSeek想全面迈向 “工业级 Agent 生产线” ，比如它补齐了软件开发和工程能力短板，在终端报错、工具调用、长程任务都有不错表现。 另一方面，当模型的智力水平已经无限拔高，即将推出的 DeepSeek Harness，正是它补齐 Agent 落地能力的关键后手。 而今天网上爆出一份 DeepSeek Harness内测入选项目 局部名单， 进一步将DeepSeek的发力方向勾勒清晰。 DeepSeek 的筛选标准很有特色 ：不看名气，70% 的入选项目是几乎零热度的个人或小团队新作，大热的“高星”项目反而落选。 因为很多高星项目做的是通用工具，未必为原生Harness设计。而不少小众项目，本身在做Codex、Claude Code、Pi插件，可以顺势适配DeepSeek Harness。…</p><a href="https://www.leiphone.com/category/yanxishe/RZ78QNjvboOQZhCS.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>完成Modular收购，高通瞄准数据中心、基础设施、个人及工业AI</h3><p>要点： Modular的AI原生软件平台与高通技术公司的解决方案优势互补，加速推动从端到云的生成式与智能体AI技术落地。 高通技术公司与Modular携手打造领先的AI计算平台，可应用于数据中心、边缘基础设施、个人与工业AI等多个高增长领域。 Modular将继续秉持开放生态系统的使命，Mojo、MAX和Modular Cloud也将继续作为产品和品牌运营。 近日，高通技术公司（NASDAQ：QCOM）宣布，公司已完成对AI原生软件基础设施领先创新企业Modular公司的收购。Modular的软件平台帮助开发者以统一方式实现跨异构计算系统，对生成式与智能体AI工作负载进行优化和部署。结合高通技术公司在高性能、高能效计算领域的领先优势，Modular将进一步增强公司交付完整AI解决方案的能力。…</p><a href="https://www.leiphone.com/category/chips/f6iZg80ZvYz2BZmN.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>中国大厂消失在赞助商名单，却在不莱梅重构 AI 的灵魂丨IJCAI 2026</h3><p>2026 年 8 月 15 日至 21 日，第 35 届国际人工智能联合会议（IJCAI 2026）即将在德国“航天之都”不莱梅（Bremen）举行。 作为 AI 领域历史最悠久、最强调理论深度的顶级盛会，IJCAI 在很多从业者眼中是“System 2（慢思考）”的代名词。但在 2026 年，这场远在欧洲的学术聚会，却因为一组特殊的信号，正紧紧牵动着大洋彼岸中国产业界的神经。 这是 CCF（中国计算机学会）评级下调后的第一年“大考”，也是大模型（LLM）从“参数竞赛”转向“逻辑攻坚”的十字路口。 当 Scaling Law 的暴力美学开始触碰边际效应，中国大厂们正试图在不莱梅，寻找解决大模型“幻觉”与“鲁棒性”的理论钥匙。雷峰网及AI科技评论报道团队将飞赴德国现场，为您揭开这层学术与产业交织的底色。 01 评级下调的第一年： 降温的是指标，升温的是“刚需” 去年，CCF 将 IJCAI 从 A 类下调至 B 类，曾在国内学术圈引发不小的震动。很多声音猜测，这会导致中国论文产出的大幅滑坡。 然而，从 IJCAI 2026 的录用数据看， 中国力量依然是不莱梅绝对的主角。 据统计，本届会议共收到超过 6500…</p><a href="https://www.leiphone.com/category/private/s0Uh2zV14wto02c2.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为官宣昇腾 0 Day 适配小红书最新开源大模型 dots3-note preview</h3><p>IT之家 8 月 16 日消息，小红书 8 月 14 日正式发布 dots3-note preview 开源大模型。华为官方昨日宣布， 昇腾 Atlas 800 A3、Atlas 900 A3 SuperPoD 超节点已完成 dots3-note preview 的全量适配 ，并基于 vLLM Ascend 开源推理引擎提供完整的部署与推理能力。 据介绍，作为 dots3 系列的首个版本，dots3-note preview 开源大模型以 280B 总参数量、16B 激活参数量 构建能力底座，同时具备文本、视觉、语音全模态感知理解能力。官方表示，该模型在推理、Agent 及多模态感知等能力上进行了全面优化，在多项任务上取得了比肩国内外更大尺寸优秀模型的效果： 另外，华为官方表示，在该模型发布当天，昇腾完成 0 Day 推理部署适配与性能优化，在完整保留模型文本、视觉、语音一体化全模态理解能力的前提下，实现了稳定运行与生成效率提升，为长程复杂任务场景智能落地提供算力支撑。 昇腾此次关键适配及优化点如下： 全模态端到端适配 基于 vLLM Ascend 推理框架，完成 dots3-note preview…</p><a href="https://www.ithome.com/0/990/256.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称英伟达拟向软银旗下 SB Energy 投资 30 亿美元，助 OpenAI 建设数据中心</h3><p>IT之家 8 月 16 日消息，据科技媒体《The Information》当地时间周六援引知情人士消息，英伟达正洽谈向软银子公司 SB Energy 投资至多 30 亿美元 （IT之家注：现汇率约合 202.82 亿元人民币） 。SB Energy 目前正为 OpenAI 开发俄亥俄州的大型数据中心项目。 报道称，这笔拟议投资是三方磋商的一部分，英伟达正与 OpenAI、SB Energy 商议，为俄亥俄州拟建的数据中心园区提供约 1,000 亿美元 （现汇率约合 6,760.61 亿元人民币） 的信贷支持。 报道称，英伟达的出资方案分为两部分：俄亥俄项目正式签约时支付一半（15 亿美元 （现汇率约合 101.41 亿元人民币） ），剩余一半将在 SB Energy 启动 IPO 时投入。 报道补充，SB Energy 计划最快下月上市，IPO 募资规模至少 50 亿美元 （现汇率约合 338.03 亿元人民币） 。 SB Energy 同时获得 OpenAI 投资，主营大型电力与数据中心基建业务。该公司成立于 2019 年，目前正在建设多座数据中心园区，以承接持续增长的 AI 算力需求。…</p><a href="https://www.ithome.com/0/990/237.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>年轻美国人日益不信任 AI 及 AI 公司高管</h3><p>对 1088 名年龄在 18-34 岁美国人的调查发现，绝大多数受访者表示不信任投资 AI 的大公司高管，包括 Elon Musk、Sam Altman 和 Mark Zuckerberg。45% 的受访者认为 AI 会对其职业生涯产生负面影响，只有 10% 的人认为 AI 会对他们有帮助。年轻人对 AI 公司高层也日益表达不信任，Palantir CEO Alex Karp 的信任度最低，81% 的受访者表示不信任他，紧随其后的是 Palantir 董事长 Peter Thiel（79%）、Alphabet CEO Sundar Pichai（75%）和 Anthropic CEO Dario Amodei（75%）。OpenAI CEO Sam Altman、Meta CEO Mark Zuckerberg、英伟达 CEO 黄仁勋和 SpaceX CEO Elon Musk 的不信任度都在 70% 左右，微软 CEO Satya Nadella 略好一点，不信任度为 65%。60% 的美国人认为数据中心建设必须放缓，只有 15% 的人表示希望加快建设速度。</p><a href="https://www.solidot.org/story?sid=85103" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>苹果与阿里巴巴合作为中国市场训练专用大模型</h3><p>苹果与阿里巴巴合作为中国市场训练了一个大模型。此前苹果倾向于使用中国合作伙伴的模型为在中国销售的 iPhone 等设备提供生成式 AI 功能。苹果的 AI 功能 Apple Intelligence 预计将在未来几个月通过 iOS 更新在中国推出。苹果推出专为中国市场定制的 AI 模型，使​​其在竞争最激烈的中国市场更好掌控 AI 体验。苹果在中国已被华为等本土竞争对手蚕食市场份额，竞争对手凭借 AI 手机迅速占据领先地位。网信办已经登记了苹果的生成式 AI 服务，为 Apple Intelligence 服务首次登陆国行 iPhone 铺平道路。</p><a href="https://www.solidot.org/story?sid=85095" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>9 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>对话郎咸朋：用机器人创业重做一次“百万智驾量产”</h3><a href="https://www.qbitai.com/2026/08/473407.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>索塔无界：全球首家原生物理世界模型落地商超，具身智能迎来“索塔时刻”</h3><p>在 具身智能仍 陷于“资本热、落地冷”之际，成立仅 4 个月的索塔无界，率先以欧洲最大商超 集 团 的 战略合作，打破商业落地僵局。根据规划，双方未来3年将在真实商超场景中部署超过千台具身智能机器人。索塔无界不造硬件，而是为机器人打造 “原生物理大脑”——首次将4D世界动作模型部署于真实商超货架之间 ，开启物理智能的“场景收敛+通用泛化”新路径。 破局：不追 “ 虚拟温床 ” ，直击 “ 物理考场 ” 2026 年的具身智能，融资额屡创新高，但机器人进工厂仍 困于 专机专用 、进家庭 做家务 仍 在 可望难及的远期蓝图 。多数玩家沉迷视频生成或仿真训练，这些 “ 虚拟温床 ” 对具身操作并不实质 。 索塔无界创始人胡德波给出截然不同的判断： “ 跨本体、跨场景的通用大脑 路径过长 ，但让原生物理基模先沉入一类高复杂度场景，垂类跑通通用泛化，再反哺全场景 —— 这是当下最可能走通的路径。 ” 于是， 索塔无界 直接把实验室搬进 欧洲商超 ， 在 真实货架、真实商品、真实人流 中 ，训练机器人的 “ 场景智商 ” 。 技术跃迁：以原生4D世界模型构建机器人的安全决策底座…</p><a href="https://www.leiphone.com/category/industrynews/aEyXlap53PQXDDYJ.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>鹿明发布MOS2：全球首个双臂负载50kg轮臂式机器人，加速AI Worker进入产业现场</h3><p>8月14日，鹿明机器人发布全新重载轮臂式具身智能机器人 Lumos MOS2 。 面向真实工业场景，Lumos MOS2具备 50kg双臂负载能力 ，同时在硬件性能、全向移动能力、多模态感知系统和整机控制架构等方面实现全面升级，胜任真实工业场景高强度、持续性作业任务。 鹿明机器人创始人兼CEO喻超表示，具身智能正在加速进入产业落地阶段，如何让机器人更高效地完成更多真实任务，取决于 数据获取效率、硬件成本及产业交付效率 。 在这一判断下，MOS2被定位为面向工业场景的 重载AI Worker ：既拥有7×24小时不间断工作的强健躯体，也具备环境感知、任务理解与自主操作等能力，是鹿明产业具身理念的产品化实践。 当前工业现场中，仍存在大量同时需要 负载能力、灵活移动和复杂操作 的任务，而这一类场景仍缺少成熟的具身智能机器人解决方案。MOS 2以50kg双臂负载能力切入，融合移动、感知与操作能力， 为重载工业任务提供新的具身智能解决方案， 让具身智能进一步覆盖重载工业作业场景。 图：MOS2在真实生产场景中执行物料搬运任务 产业具身的核心，让机器人执行真实任务…</p><a href="https://www.leiphone.com/category/industrynews/24fbshcNUNahZuQz.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>限量手办 + 实景体验，浙江人行NAVIAI2026WRC 福利提前曝光</h3><p>8 月 19 日至 23 日，2026 世界机器人大会（WRC2026）将在北京亦庄亦创国际会展中心举办。浙江人形机器人创新中心将携旗下 NAVIAI 人形机器人亮相 C-105 展位，集中展示人形机器人在多元场景的落地应用成果。 本次展会上，NAVIAI 将呈现工业制造、智慧零售、家庭服务、遥操数采多场景的实操能力，现场演示拆垛分拣搬运、货品递送、烹饪清洁、远程数据采集等功能，展现多机协同作业、精准泛化的技术特性。另有文娱演绎类场景在 8 月 19 日开展当天作为特别环节限时展示。 大会期间，浙江人形机器人创新中心有限公司首席科学家熊蓉教授将于 8 月 21 日站上主论坛，分享 NAVIAI 的技术演进与未来落地规划，多家产业链合作伙伴也将联合亮相。官方同步开启线上预热活动，转发指定预热推文即可参与抽奖，赢取 NAVIAI i3 限量手办等好礼，展会现场也同步开放该手办的售卖通道。</p><a href="https://www.leiphone.com/category/industrynews/YW6iXkaDum3xwwBJ.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>广汽启境 GT7 今晚面向 L3 级架构全球首拆，华为靳玉志现场见证</h3><p>IT之家 8 月 16 日消息，广汽集团今日宣布， 启境 GT7 车型面向 L3 级有条件自动驾驶架构的全球首拆今晚 19:00 直播举行。 据官方透露，本次活动由启境汽车 CEO 刘嘉铭、华为公司高级副总裁兼引望公司 CEO 靳玉志共同见证。此外，影视飓风创始人 TIM 也将参与本次活动。 由广汽集团与华为乾崑联合打造的高端智能新能源汽车品牌“启境”旗下首款车型 —— 启境 GT7 今日正式上市。 PART 01：品质工艺全拆解 PART 02：百万级悬架全透视 PART 03：面向 L3 级自动驾驶架构全球首拆 PART 04：电池安全暴力验证 PART 05：玄盾笼式车身实测 IT之家注意到，启境 GT7 是由广汽集团与华为乾崑联合打造的高端智能新能源汽车品牌“启境”旗下首款车型，该车定位中大型智能猎装轿跑， 官方指导价 20.99 万元起 。 启境 GT7 车身长宽高分别为 5050mm、1980mm 和 1470mm， 轴距 3000mm 。启境 GT7 提供普罗旺斯紫、西西里橙、茶卡银、蒙特卡洛红、帕米尔黑、尼斯蓝、梅里白六种标准车色，以及超跑漆、流光漆、镜面漆三种定制漆面。 智能驾驶是启境 GT7…</p><a href="https://www.ithome.com/0/990/247.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>奕境曾清林谈岚图追光 S 隧道 360° 大回环：东风 57 年造车底蕴，绝不是靠 AI 堆出来的</h3><p>IT之家 8 月 16 日消息，奕境汽车品牌总经理曾清林昨晚发文，谈及了岚图追光 S 此次隧道 360° 大回环挑战。针对网友对挑战的质疑，他表示， 岚图的底盘都是用最猛的料，调校也是行业一绝 。从来不会搞“差不多就行”那一套。 曾清林称，东风的技术积累还是很深的，只是这些年，在营销上确实还是保守了点，不会玩“花活儿”。许许多多扎实的技术，默默藏在车子里没有传播好。 而东风 57 年造车底蕴，绝不是靠 AI 堆出来的 。 综合IT之家此前报道，岚图在 8 月 13 日宣布， 追光 S 车型 360° 隧道大回环穿越成功 。然而有网友对此次挑战提出质疑，认为挑战视频采用了 AI 技术。随后， 岚图放出了追光 S 此次挑战多角度实录 + 一镜到底视频回应质 疑。 岚图追光 S 已于昨晚正式上市， 新车全系标配华为乾崑智驾四激光雷达方案 ，22.99 万元起售。</p><a href="https://www.ithome.com/0/990/238.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>第二届世界人形机器人运动会新增跳远、举重、拔河等项目，2056 台机器人同台竞技</h3><p>IT之家 8 月 16 日消息，据“北京亦庄”公众号，8 月 13 日，北京市人民政府新闻办公室在国家速滑馆新闻发布厅举行第二届世界人形机器人运动会新闻发布会（第三场）。会上宣布，本届运动会正赛将于 8 月 22 日至 26 日在国家速滑馆“冰丝带”举行， 将举行 51 个项目共 1301 场比赛，吸引 666 支队伍携 2056 台机器人参赛， 竞赛项目、参赛队伍全面提质扩容，并新增跳远、举重、拔河、乒乓球等高强度对抗项目。现场还发布了运动会吉祥物“智宝”。 ▲ 运动会吉祥物“智宝” 从报名情况来看，各路高手将云集赛场。本届赛事吸引了来自六大洲、16 个国家的 666 支队伍，共有 2056 台机器人同台竞技，队伍数量较首届增长 138%， 机器人数量翻了两番 。 国际方面， 美国、德国、日本等机器人传统强国赛队积极参与，巴西还集结了五支机器人足球世界杯队伍，组建起一支国家联队参赛。 国内方面， 157 家企业、200 所院校和科研机构的 641 支队伍、1975 台机器人齐聚赛场。国内第一梯队企业悉数到场，27 所 985 高校踊跃参赛，产学研用各方力量汇聚一堂。 IT之家从官方介绍获悉，今年赛项从首届的 26…</p><a href="https://www.ithome.com/0/990/230.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>女子加入针对 SpaceXAI 的诉讼：继父利用 Grok 将其 11 岁照片加工成 7000 多张色情图像</h3><p>IT之家 8 月 16 日消息，一名以“简 · 多伊 4 号”为匿名代称的女性，已加入美国田纳西州三名青少年对埃隆 · 马斯克旗下 SpaceXAI 公司提起的诉讼，指控该公司聊天机器人 Grok 涉嫌参与制作儿童性虐待材料。 据《华盛顿邮报》报道，该女子称其继父利用 Grok 对她 11 岁时拍摄的一张照片进行加工，生成了 7000 多张她的露骨性虐待图像。执法部门在突击搜查中查获这批图像两天后，其继父被发现自杀身亡。 “这类工具无门槛获取的扩散速度太快了，”这名女子表示，“它正在把日常生活中的影像，转化为儿童性虐待内容。” IT之家注意到，此前发起诉讼的三名青少年指控 SpaceXAI（现已并入 SpaceX）未采取基础防护措施，未能阻止 Grok 被用于生成包含未成年人在内的真人露骨图像。今年早些时候，X 平台上曾涌现数百万张 Grok 生成的色情化图像，一度泛滥成灾。原告方目前正申请将该案列为集体诉讼。</p><a href="https://www.ithome.com/0/990/221.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>2026 世界机器人大会展位图揭晓：8 月 19 日开幕，宇树科技、优必选等参展</h3><p>IT之家 8 月 16 日消息，2026 世界机器人大会将于 8 月 19 日至 23 日在北京经济技术开发区北人亦创国际会展中心举行。近日，2026 世界机器人大会展位图全揭晓。 作为大会展览的重要新增空间， 智创馆面积达 2 万平方米， 拥有更加开阔、通透的展示环境，将进一步提升企业参展和观众观展体验。 宇树科技、星海图、优必选、银河通用、自变量、明略科技、维他动力、智身科技、云深处、傅利叶、越疆、仙工、中科慧灵 等代表性企业，将带来机器人整机、具身智能及人形机器人的最新成果。 北京、上海、浙江、湖北、广东、四川、吉林等地的人形机器人创新中心将齐聚智创馆，集中展示各地的创新成果。央企展区也将在这里亮相，集中展示中央企业在机器人领域的整体布局和应用成果。 京东 将整合物流、零售、工业、家政等应用场景， 打造【未来人机共生新范式】超级展区。 ▲ 智创馆…</p><a href="https://www.ithome.com/0/990/220.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>9 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>索塔无界：全球首家原生物理世界模型落地商超，具身智能迎来“索塔时刻”</h3><p>在 具身智能仍 陷于“资本热、落地冷”之际，成立仅 4 个月的索塔无界，率先以欧洲最大商超 集 团 的 战略合作，打破商业落地僵局。根据规划，双方未来3年将在真实商超场景中部署超过千台具身智能机器人。索塔无界不造硬件，而是为机器人打造 “原生物理大脑”——首次将4D世界动作模型部署于真实商超货架之间 ，开启物理智能的“场景收敛+通用泛化”新路径。 破局：不追 “ 虚拟温床 ” ，直击 “ 物理考场 ” 2026 年的具身智能，融资额屡创新高，但机器人进工厂仍 困于 专机专用 、进家庭 做家务 仍 在 可望难及的远期蓝图 。多数玩家沉迷视频生成或仿真训练，这些 “ 虚拟温床 ” 对具身操作并不实质 。 索塔无界创始人胡德波给出截然不同的判断： “ 跨本体、跨场景的通用大脑 路径过长 ，但让原生物理基模先沉入一类高复杂度场景，垂类跑通通用泛化，再反哺全场景 —— 这是当下最可能走通的路径。 ” 于是， 索塔无界 直接把实验室搬进 欧洲商超 ， 在 真实货架、真实商品、真实人流 中 ，训练机器人的 “ 场景智商 ” 。 技术跃迁：以原生4D世界模型构建机器人的安全决策底座…</p><a href="https://www.leiphone.com/category/industrynews/aEyXlap53PQXDDYJ.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>限量手办 + 实景体验，浙江人行NAVIAI2026WRC 福利提前曝光</h3><p>8 月 19 日至 23 日，2026 世界机器人大会（WRC2026）将在北京亦庄亦创国际会展中心举办。浙江人形机器人创新中心将携旗下 NAVIAI 人形机器人亮相 C-105 展位，集中展示人形机器人在多元场景的落地应用成果。 本次展会上，NAVIAI 将呈现工业制造、智慧零售、家庭服务、遥操数采多场景的实操能力，现场演示拆垛分拣搬运、货品递送、烹饪清洁、远程数据采集等功能，展现多机协同作业、精准泛化的技术特性。另有文娱演绎类场景在 8 月 19 日开展当天作为特别环节限时展示。 大会期间，浙江人形机器人创新中心有限公司首席科学家熊蓉教授将于 8 月 21 日站上主论坛，分享 NAVIAI 的技术演进与未来落地规划，多家产业链合作伙伴也将联合亮相。官方同步开启线上预热活动，转发指定预热推文即可参与抽奖，赢取 NAVIAI i3 限量手办等好礼，展会现场也同步开放该手办的售卖通道。</p><a href="https://www.leiphone.com/category/industrynews/YW6iXkaDum3xwwBJ.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>3D存算一体芯片领军企业谦合益邦完成超20亿元B轮融资</h3><p>近日，3D存算一体芯片领军企业谦合益邦宣布完成超20亿元B轮融资。 在我国加快推进集成电路产业高质量发展、强化关键核心技术自主创新的背景下，具备自主研发能力、探索新型芯片架构的创新企业正成为推动产业升级的重要力量。同时，全球数字经济进入以算力为核心驱动的新阶段，存储技术正面临更高带宽、更低延迟和更大容量的需求挑战。三维集成技术通过突破传统芯片架构限制，实现计算与存储深度融合，成为推动下一代半导体技术创新的重要方向。 谦合益邦成立于2024年1月，是由网易孵化的国内最早专注于3D存算一体、三维集成原生芯片架构和云游戏应用加速的芯片公司。公司核心团队早在2018年便率先启动全球第一款基于3D DRAM存算一体架构芯片的探索研发及量产，并推动了三维集成原生芯片架构在加密算力和应用加速领域的全面应用，是三维集成原生芯片架构和3D DRAM存算一体芯片的开拓者和领导者。 谦合益邦致力于推动三维集成原生芯片架构和3D存算一体芯片的新范式，从底层出发结合系统软件栈与硬件架构的联合创新，通过3D DRAM堆叠在三维空间实现计算与存储的深度融合，率先走出了一条应对当前日益突出的内存墙（Memory…</p><a href="https://www.leiphone.com/category/industrynews/Edo1aa9elrarVNM5.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>完成Modular收购，高通瞄准数据中心、基础设施、个人及工业AI</h3><p>要点： Modular的AI原生软件平台与高通技术公司的解决方案优势互补，加速推动从端到云的生成式与智能体AI技术落地。 高通技术公司与Modular携手打造领先的AI计算平台，可应用于数据中心、边缘基础设施、个人与工业AI等多个高增长领域。 Modular将继续秉持开放生态系统的使命，Mojo、MAX和Modular Cloud也将继续作为产品和品牌运营。 近日，高通技术公司（NASDAQ：QCOM）宣布，公司已完成对AI原生软件基础设施领先创新企业Modular公司的收购。Modular的软件平台帮助开发者以统一方式实现跨异构计算系统，对生成式与智能体AI工作负载进行优化和部署。结合高通技术公司在高性能、高能效计算领域的领先优势，Modular将进一步增强公司交付完整AI解决方案的能力。…</p><a href="https://www.leiphone.com/category/chips/f6iZg80ZvYz2BZmN.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称英伟达拟向软银旗下 SB Energy 投资 30 亿美元，助 OpenAI 建设数据中心</h3><p>IT之家 8 月 16 日消息，据科技媒体《The Information》当地时间周六援引知情人士消息，英伟达正洽谈向软银子公司 SB Energy 投资至多 30 亿美元 （IT之家注：现汇率约合 202.82 亿元人民币） 。SB Energy 目前正为 OpenAI 开发俄亥俄州的大型数据中心项目。 报道称，这笔拟议投资是三方磋商的一部分，英伟达正与 OpenAI、SB Energy 商议，为俄亥俄州拟建的数据中心园区提供约 1,000 亿美元 （现汇率约合 6,760.61 亿元人民币） 的信贷支持。 报道称，英伟达的出资方案分为两部分：俄亥俄项目正式签约时支付一半（15 亿美元 （现汇率约合 101.41 亿元人民币） ），剩余一半将在 SB Energy 启动 IPO 时投入。 报道补充，SB Energy 计划最快下月上市，IPO 募资规模至少 50 亿美元 （现汇率约合 338.03 亿元人民币） 。 SB Energy 同时获得 OpenAI 投资，主营大型电力与数据中心基建业务。该公司成立于 2019 年，目前正在建设多座数据中心园区，以承接持续增长的 AI 算力需求。…</p><a href="https://www.ithome.com/0/990/237.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>2026 世界机器人大会展位图揭晓：8 月 19 日开幕，宇树科技、优必选等参展</h3><p>IT之家 8 月 16 日消息，2026 世界机器人大会将于 8 月 19 日至 23 日在北京经济技术开发区北人亦创国际会展中心举行。近日，2026 世界机器人大会展位图全揭晓。 作为大会展览的重要新增空间， 智创馆面积达 2 万平方米， 拥有更加开阔、通透的展示环境，将进一步提升企业参展和观众观展体验。 宇树科技、星海图、优必选、银河通用、自变量、明略科技、维他动力、智身科技、云深处、傅利叶、越疆、仙工、中科慧灵 等代表性企业，将带来机器人整机、具身智能及人形机器人的最新成果。 北京、上海、浙江、湖北、广东、四川、吉林等地的人形机器人创新中心将齐聚智创馆，集中展示各地的创新成果。央企展区也将在这里亮相，集中展示中央企业在机器人领域的整体布局和应用成果。 京东 将整合物流、零售、工业、家政等应用场景， 打造【未来人机共生新范式】超级展区。 ▲ 智创馆…</p><a href="https://www.ithome.com/0/990/220.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>年轻美国人日益不信任 AI 及 AI 公司高管</h3><p>对 1088 名年龄在 18-34 岁美国人的调查发现，绝大多数受访者表示不信任投资 AI 的大公司高管，包括 Elon Musk、Sam Altman 和 Mark Zuckerberg。45% 的受访者认为 AI 会对其职业生涯产生负面影响，只有 10% 的人认为 AI 会对他们有帮助。年轻人对 AI 公司高层也日益表达不信任，Palantir CEO Alex Karp 的信任度最低，81% 的受访者表示不信任他，紧随其后的是 Palantir 董事长 Peter Thiel（79%）、Alphabet CEO Sundar Pichai（75%）和 Anthropic CEO Dario Amodei（75%）。OpenAI CEO Sam Altman、Meta CEO Mark Zuckerberg、英伟达 CEO 黄仁勋和 SpaceX CEO Elon Musk 的不信任度都在 70% 左右，微软 CEO Satya Nadella 略好一点，不信任度为 65%。60% 的美国人认为数据中心建设必须放缓，只有 15% 的人表示希望加快建设速度。</p><a href="https://www.solidot.org/story?sid=85103" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>长鑫市值超越腾讯</h3><p>长鑫科技已超过互联网巨头腾讯控股，成为全球市值最大的中国企业，凸显 AI 热潮正推动投资者对存储晶片股的需求。截至周五 A 股收盘，长鑫科技最新市值约 3.58 万亿元人民币。港股方面，由于市场对腾讯不断增加的 AI 投资担忧加剧，腾讯周五最新市值约 4.0 万亿港元。分析认为，这一市值排名的逆转反映出，投资者继续青睐与 AI 相关的硬件企业，而非传统互联网巨头。总部位于安徽合肥的长鑫科技也是全球第四大 DRAM 供应商。DRAM 广泛应用于从手机到先进 AI 服务器等各种设备。</p><a href="https://www.solidot.org/story?sid=85098" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>苹果与阿里巴巴合作为中国市场训练专用大模型</h3><p>苹果与阿里巴巴合作为中国市场训练了一个大模型。此前苹果倾向于使用中国合作伙伴的模型为在中国销售的 iPhone 等设备提供生成式 AI 功能。苹果的 AI 功能 Apple Intelligence 预计将在未来几个月通过 iOS 更新在中国推出。苹果推出专为中国市场定制的 AI 模型，使​​其在竞争最激烈的中国市场更好掌控 AI 体验。苹果在中国已被华为等本土竞争对手蚕食市场份额，竞争对手凭借 AI 手机迅速占据领先地位。网信办已经登记了苹果的生成式 AI 服务，为 Apple Intelligence 服务首次登陆国行 iPhone 铺平道路。</p><a href="https://www.solidot.org/story?sid=85095" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>7 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>商汤大装置首提TPW，重新定义AI基础设施效能标尺</h3><p>如何用有限的能源和成本，产出更多Token？这是Token经济时代，AI基础设施面临的新课题。 Token消耗指数级增长，算力需求持续攀升，随之带动的是AIDC用电量在全社会用电结构中的占比快速提高。行业对AIDC关注的焦点不再只是“谁拥有更多算力”，更开始关心“谁能以更低成本、更高效率生产更多高质量Token”。 在商汤大装置智算中心总经理林海看来，Token经济时代，AIDC需要被重新理解为连接电力与Token的价值平台，能把“算力”和“电力”的协同优化做到什么程度，成为决定未来商业竞争力的关键变量。 【商汤大装置智算中心总经理林海】 01 Token经济下，只看PUE为什么走不通了？ AI基础设施的效率，究竟应该如何衡量？又该如何持续提升？很长一段时间里，这个问题的答案是PUE。PUE作为数据中心总能耗与IT设备能耗的比值，长期以来被行业视为衡量数据中心能效的“黄金标准”。过去十几年，行业几乎所有的节能努力都围绕PUE展开，从机房气流组织优化到制冷系统架构革新，从自然冷却利用到液冷技术规模化部署，每一轮的目标都是把PUE压得更低。…</p><a href="https://www.leiphone.com/category/ai/XzQc2DEYciB5M57I.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>3D存算一体芯片领军企业谦合益邦完成超20亿元B轮融资</h3><p>近日，3D存算一体芯片领军企业谦合益邦宣布完成超20亿元B轮融资。 在我国加快推进集成电路产业高质量发展、强化关键核心技术自主创新的背景下，具备自主研发能力、探索新型芯片架构的创新企业正成为推动产业升级的重要力量。同时，全球数字经济进入以算力为核心驱动的新阶段，存储技术正面临更高带宽、更低延迟和更大容量的需求挑战。三维集成技术通过突破传统芯片架构限制，实现计算与存储深度融合，成为推动下一代半导体技术创新的重要方向。 谦合益邦成立于2024年1月，是由网易孵化的国内最早专注于3D存算一体、三维集成原生芯片架构和云游戏应用加速的芯片公司。公司核心团队早在2018年便率先启动全球第一款基于3D DRAM存算一体架构芯片的探索研发及量产，并推动了三维集成原生芯片架构在加密算力和应用加速领域的全面应用，是三维集成原生芯片架构和3D DRAM存算一体芯片的开拓者和领导者。 谦合益邦致力于推动三维集成原生芯片架构和3D存算一体芯片的新范式，从底层出发结合系统软件栈与硬件架构的联合创新，通过3D DRAM堆叠在三维空间实现计算与存储的深度融合，率先走出了一条应对当前日益突出的内存墙（Memory…</p><a href="https://www.leiphone.com/category/industrynews/Edo1aa9elrarVNM5.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>美国加州货运抢劫案频发，AI 数据中心硬件成目标</h3><p>IT之家 8 月 16 日消息，据《连线》杂志调查，近几个月美国加州公路接连发生两起货运抢劫案：窃贼先逼停负责押运的私人安保车辆，使其失去行动能力，随后卷走车上价值数百万美元的 AI 数据中心硬件。两批货物均从硅谷运往南加州，涉事卡车至今下落不明。 这两起案件发生的大背景是：2026 年第二季度，美国和加拿大的货运盗窃损失同比翻倍，达到 3.046 亿美元 （IT之家注：现汇率约合 20.59 亿元人民币） ；而受出口管制的英伟达服务器在黑市的售价，几乎是美国零售价的两倍。 前洛杉矶县治安官办公室探员赫拉尔多 · 帕丘卡如今从事货运犯罪咨询工作，他向《连线》披露了作案细节：其中一起案件里，押运车被后车追尾，肇事司机当场逃逸；另一起中，窃贼使用了警方追捕车辆时常用的 PIT 精准逼停战术，直接把押运车撞出了路面。安保车辆失去行动能力后，货运卡车便径直开走，不知所踪。 调查人员判断，卡车司机是内部同谋。两起案件都用到了近期刚易主的货运企业资质编号，这是一种典型的诈骗手法：犯罪分子冒用正规公司的联邦注册资质承接货运订单，得手后直接卷货。“这是我见过全国范围内最猖獗的货运盗窃乱象。”帕丘卡说。…</p><a href="https://www.ithome.com/0/990/259.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为官宣昇腾 0 Day 适配小红书最新开源大模型 dots3-note preview</h3><p>IT之家 8 月 16 日消息，小红书 8 月 14 日正式发布 dots3-note preview 开源大模型。华为官方昨日宣布， 昇腾 Atlas 800 A3、Atlas 900 A3 SuperPoD 超节点已完成 dots3-note preview 的全量适配 ，并基于 vLLM Ascend 开源推理引擎提供完整的部署与推理能力。 据介绍，作为 dots3 系列的首个版本，dots3-note preview 开源大模型以 280B 总参数量、16B 激活参数量 构建能力底座，同时具备文本、视觉、语音全模态感知理解能力。官方表示，该模型在推理、Agent 及多模态感知等能力上进行了全面优化，在多项任务上取得了比肩国内外更大尺寸优秀模型的效果： 另外，华为官方表示，在该模型发布当天，昇腾完成 0 Day 推理部署适配与性能优化，在完整保留模型文本、视觉、语音一体化全模态理解能力的前提下，实现了稳定运行与生成效率提升，为长程复杂任务场景智能落地提供算力支撑。 昇腾此次关键适配及优化点如下： 全模态端到端适配 基于 vLLM Ascend 推理框架，完成 dots3-note preview…</p><a href="https://www.ithome.com/0/990/256.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称英伟达拟向软银旗下 SB Energy 投资 30 亿美元，助 OpenAI 建设数据中心</h3><p>IT之家 8 月 16 日消息，据科技媒体《The Information》当地时间周六援引知情人士消息，英伟达正洽谈向软银子公司 SB Energy 投资至多 30 亿美元 （IT之家注：现汇率约合 202.82 亿元人民币） 。SB Energy 目前正为 OpenAI 开发俄亥俄州的大型数据中心项目。 报道称，这笔拟议投资是三方磋商的一部分，英伟达正与 OpenAI、SB Energy 商议，为俄亥俄州拟建的数据中心园区提供约 1,000 亿美元 （现汇率约合 6,760.61 亿元人民币） 的信贷支持。 报道称，英伟达的出资方案分为两部分：俄亥俄项目正式签约时支付一半（15 亿美元 （现汇率约合 101.41 亿元人民币） ），剩余一半将在 SB Energy 启动 IPO 时投入。 报道补充，SB Energy 计划最快下月上市，IPO 募资规模至少 50 亿美元 （现汇率约合 338.03 亿元人民币） 。 SB Energy 同时获得 OpenAI 投资，主营大型电力与数据中心基建业务。该公司成立于 2019 年，目前正在建设多座数据中心园区，以承接持续增长的 AI 算力需求。…</p><a href="https://www.ithome.com/0/990/237.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>俄罗斯导弹使用了英伟达的 Jetson Orin</h3><p>俄罗斯新型 S-71“Monochrome”巡航航空被发现使用了英伟达的 Jetson Orin 计算模块。俄罗斯使用的是 2023 年推出的 Jetson Orin NX 16GB 模块，而英伟达则在 2022 年初就退出了俄罗斯市场，这意味俄罗斯是通过其它渠道获得英伟达芯片的。英伟达表示，Jetson 是消费级产品，军事应用不在其预期设计范围内，但它的销售没有什么限制，因此俄罗斯有很多方法获取该芯片。英伟达表示，“虽然我们无法在产品售出后对其进行追踪，但如果我们确定任何客户违反了美国出口管制，我们将采取适当的行动。”</p><a href="https://www.solidot.org/story?sid=85104" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>年轻美国人日益不信任 AI 及 AI 公司高管</h3><p>对 1088 名年龄在 18-34 岁美国人的调查发现，绝大多数受访者表示不信任投资 AI 的大公司高管，包括 Elon Musk、Sam Altman 和 Mark Zuckerberg。45% 的受访者认为 AI 会对其职业生涯产生负面影响，只有 10% 的人认为 AI 会对他们有帮助。年轻人对 AI 公司高层也日益表达不信任，Palantir CEO Alex Karp 的信任度最低，81% 的受访者表示不信任他，紧随其后的是 Palantir 董事长 Peter Thiel（79%）、Alphabet CEO Sundar Pichai（75%）和 Anthropic CEO Dario Amodei（75%）。OpenAI CEO Sam Altman、Meta CEO Mark Zuckerberg、英伟达 CEO 黄仁勋和 SpaceX CEO Elon Musk 的不信任度都在 70% 左右，微软 CEO Satya Nadella 略好一点，不信任度为 65%。60% 的美国人认为数据中心建设必须放缓，只有 15% 的人表示希望加快建设速度。</p><a href="https://www.solidot.org/story?sid=85103" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>4 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>根治AI音乐通病！这家国产音乐模型正面挑战SUNO</h3><a href="https://www.qbitai.com/2026/08/473866.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>太初元碁助力国家级“AI+教育”大赛 “AI+加速卡模型适配赛道”开启招募</h3><a href="https://www.qbitai.com/2026/08/473149.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>卢伟冰发文庆祝小米手机 15 周岁生日，称未来全面拥抱 AI</h3><p>IT之家 8 月 16 日消息，小米集团合伙人 / 总裁、手机部总裁、小米品牌总经理卢伟冰刚刚发文庆祝小米手机 15 周岁生日。 从“为发烧而生”到“让全球每个人都能享受科技带来的美好生活”； 从应用创新，到目标成为全球硬核科技领导者； 从中国到全球； 未来全面拥抱 AI 。 IT之家注：北京小米科技有限公司于 2010 年 4 月 6 日正式成立，最初办公地点位于银谷大厦。同年 8 月，小米推出内测版 MIUI 系统；2011 年 8 月 16 日，初代小米手机在北京发布，售价 1999 元。 目前，小米已最新推出澎湃 HyperOS 4 系统，并开启了 Beta 版内测，第一阶段已陆续推送，对应机型如下： 手机端： Xiaomi 17 Ultra / Xiaomi 17 Ultra 徕卡版 、Xiaomi 17 Pro Max、Xiaomi 17 Pro、Xiaomi 17、 REDMI K90 Pro Max / REDMI K90 Pro Max 冠军版、 REDMI K90 ； 平板端： Xiaomi Pad 8 Pro、Xiaomi Pad 8。 延伸阅读 初代小米手机于 2011 年 8 月 16…</p><a href="https://www.ithome.com/0/990/250.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>撤离冒险射击游戏《ARC Raiders》全球销量已达到 1630 万份，累计收入超过 880 亿日元</h3><p>IT之家 8 月 16 日消息，发行商 NEXON 在财报中透露，由瑞典 Embark Studios 开发的科幻题材第三人称 PvPvE 撤离射击游戏《ARC Raiders（弧光猎人）》在 PlayStation 5、XBOX Series X|S、以及 PC 平台的累计销量已达到 1,630 万份。 相比于 2026 年 3 月，游戏销量增加了 80 万份。自 2025 年 10 月 30 日发售后，《ARC Raiders》累计收入超过了 880 亿日元 （IT之家注：现汇率约合 37.34 亿元人民币） 。 NEXON 对《ARC Raiders》的表现很满意，已经将其视为如何在西方游戏市场获得成功的典范，计划将经验应用到未来其他游戏的发布中。随着旗下部分老牌系列游戏收入下降，NEXON 越来越依赖于像《ARC Raiders》这样新的热门游戏，以驱动其业务的增长。 此外，NEXON 计划于今年 10 月为《ARC Raiders》提供名为“Frozen Trail”的更新，这将是自游戏发售以来最大规模的一次更新行动，包括免费和付费内容，希望可以吸引那些离开游戏的玩家回归。</p><a href="https://www.ithome.com/0/990/242.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>4 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>索塔无界：全球首家原生物理世界模型落地商超，具身智能迎来“索塔时刻”</h3><p>在 具身智能仍 陷于“资本热、落地冷”之际，成立仅 4 个月的索塔无界，率先以欧洲最大商超 集 团 的 战略合作，打破商业落地僵局。根据规划，双方未来3年将在真实商超场景中部署超过千台具身智能机器人。索塔无界不造硬件，而是为机器人打造 “原生物理大脑”——首次将4D世界动作模型部署于真实商超货架之间 ，开启物理智能的“场景收敛+通用泛化”新路径。 破局：不追 “ 虚拟温床 ” ，直击 “ 物理考场 ” 2026 年的具身智能，融资额屡创新高，但机器人进工厂仍 困于 专机专用 、进家庭 做家务 仍 在 可望难及的远期蓝图 。多数玩家沉迷视频生成或仿真训练，这些 “ 虚拟温床 ” 对具身操作并不实质 。 索塔无界创始人胡德波给出截然不同的判断： “ 跨本体、跨场景的通用大脑 路径过长 ，但让原生物理基模先沉入一类高复杂度场景，垂类跑通通用泛化，再反哺全场景 —— 这是当下最可能走通的路径。 ” 于是， 索塔无界 直接把实验室搬进 欧洲商超 ， 在 真实货架、真实商品、真实人流 中 ，训练机器人的 “ 场景智商 ” 。 技术跃迁：以原生4D世界模型构建机器人的安全决策底座…</p><a href="https://www.leiphone.com/category/industrynews/aEyXlap53PQXDDYJ.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>广汽启境 GT7 今晚面向 L3 级架构全球首拆，华为靳玉志现场见证</h3><p>IT之家 8 月 16 日消息，广汽集团今日宣布， 启境 GT7 车型面向 L3 级有条件自动驾驶架构的全球首拆今晚 19:00 直播举行。 据官方透露，本次活动由启境汽车 CEO 刘嘉铭、华为公司高级副总裁兼引望公司 CEO 靳玉志共同见证。此外，影视飓风创始人 TIM 也将参与本次活动。 由广汽集团与华为乾崑联合打造的高端智能新能源汽车品牌“启境”旗下首款车型 —— 启境 GT7 今日正式上市。 PART 01：品质工艺全拆解 PART 02：百万级悬架全透视 PART 03：面向 L3 级自动驾驶架构全球首拆 PART 04：电池安全暴力验证 PART 05：玄盾笼式车身实测 IT之家注意到，启境 GT7 是由广汽集团与华为乾崑联合打造的高端智能新能源汽车品牌“启境”旗下首款车型，该车定位中大型智能猎装轿跑， 官方指导价 20.99 万元起 。 启境 GT7 车身长宽高分别为 5050mm、1980mm 和 1470mm， 轴距 3000mm 。启境 GT7 提供普罗旺斯紫、西西里橙、茶卡银、蒙特卡洛红、帕米尔黑、尼斯蓝、梅里白六种标准车色，以及超跑漆、流光漆、镜面漆三种定制漆面。 智能驾驶是启境 GT7…</p><a href="https://www.ithome.com/0/990/247.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>《人类：一败涂地》开发商全新 VR 解谜游戏《小小羊群》公布，年内登陆 SteamVR / Meta Quest 平台</h3><p>IT之家 8 月 16 日消息，《Human Fall Flat（人类：一败涂地）》的开发商 No Brakes Games 正式公布了全新 VR 物理解谜游戏《Tiny Flock（小小羊群）》， 本作将于今年内登陆 SteamVR 和 Meta Quest 平台 ，目前游戏已上架 Steam，IT之家附录游戏商品页（ https://store.steampowered.com/app/3133010/Tiny_Flock ?utm_source=impress&amp;utm_medium=presskit ）。 据介绍，玩家将在本作中需要带领一群可爱的绵羊穿越 21 个精美的 3D 立体模型关卡。游戏中的环境和各种物体均具备高度互动性，玩家需要利用物理机制、创造力以及关卡中的各种道具，为自己的小羊群寻找安全通过关卡的方法。 玩家可以搭建道路和桥梁、堆叠或投掷物体，还可以拉动绳索和操作机关，为绵羊创造安全的通行路线。本作并没有规定唯一解法，玩家可以根据周围环境自由尝试，通过物理机制和创造性的方式解决问题，将迷路的小羊安全带到终点。 游戏图赏：</p><a href="https://www.ithome.com/0/990/222.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>微软正从中国撤退</h3><p>过去五年，随着中国更倾向于国产软件，微软一直在缩减在华业务，至少关闭了 15 家分支机构和合资企业。美国的出口管制也让微软云计算和 AI 业务的推广更困难，中国市场的经济增长空间变得相对有限。微软最终决定继续留在中国，是因为它开辟了一项盈利的业务，​​为字节跳动等中国企业提供服务，这些企业需要西方技术管理海外业务。微软认为，为了继续获得中国世界一流的工程人才，它需要在中国保留业务。微软前中国区负责人 Alain Crozier 表示微软与中国政府建立了深厚的关系，“由于地缘政治因素……有时情况会比较艰难，但我们从未遇到过危机。”微软发言人表示公司在“适用于所有国际供应商的监管环境”下运营，重申对中国市场的承诺。微软表示，其在中国的业务状况反映了市场竞争、监管要求和技术发展趋势。</p><a href="https://www.solidot.org/story?sid=85090" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 15 Aug 2026 06:42:23 +0000</div><h3>至知研究院提出大模型可解释性新路线：拆权重，数据成本不到1%</h3><a href="https://www.qbitai.com/2026/08/473876.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 15 Aug 2026 06:36:05 +0000</div><h3>根治AI音乐通病！这家国产音乐模型正面挑战SUNO</h3><a href="https://www.qbitai.com/2026/08/473866.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 15 Aug 2026 06:05:31 +0000</div><h3>源神启动！一张消费级显卡跑“Opus级”Agent，Qwen3.8-27B多项榜单反超Claude</h3><a href="https://www.qbitai.com/2026/08/473669.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 15 Aug 2026 04:21:09 +0000</div><h3>对话郎咸朋：用机器人创业重做一次“百万智驾量产”</h3><a href="https://www.qbitai.com/2026/08/473407.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 14 Aug 2026 14:59:25 +0000</div><h3>7亿年薪留不住！余家辉离职Meta创业</h3><a href="https://www.qbitai.com/2026/08/473261.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 14 Aug 2026 14:51:48 +0000</div><h3>谷歌开始肢解DeepMind，数个团队被划归总部</h3><a href="https://www.qbitai.com/2026/08/473153.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 14 Aug 2026 10:25:36 +0000</div><h3>太初元碁助力国家级“AI+教育”大赛 “AI+加速卡模型适配赛道”开启招募</h3><a href="https://www.qbitai.com/2026/08/473149.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 15 Aug 2026 12:07:00 +0800</div><h3>索塔无界：全球首家原生物理世界模型落地商超，具身智能迎来“索塔时刻”</h3><p>在 具身智能仍 陷于“资本热、落地冷”之际，成立仅 4 个月的索塔无界，率先以欧洲最大商超 集 团 的 战略合作，打破商业落地僵局。根据规划，双方未来3年将在真实商超场景中部署超过千台具身智能机器人。索塔无界不造硬件，而是为机器人打造 “原生物理大脑”——首次将4D世界动作模型部署于真实商超货架之间 ，开启物理智能的“场景收敛+通用泛化”新路径。 破局：不追 “ 虚拟温床 ” ，直击 “ 物理考场 ” 2026 年的具身智能，融资额屡创新高，但机器人进工厂仍 困于 专机专用 、进家庭 做家务 仍 在 可望难及的远期蓝图 。多数玩家沉迷视频生成或仿真训练，这些 “ 虚拟温床 ” 对具身操作并不实质 。 索塔无界创始人胡德波给出截然不同的判断： “ 跨本体、跨场景的通用大脑 路径过长 ，但让原生物理基模先沉入一类高复杂度场景，垂类跑通通用泛化，再反哺全场景 —— 这是当下最可能走通的路径。 ” 于是， 索塔无界 直接把实验室搬进 欧洲商超 ， 在 真实货架、真实商品、真实人流 中 ，训练机器人的 “ 场景智商 ” 。 技术跃迁：以原生4D世界模型构建机器人的安全决策底座…</p><a href="https://www.leiphone.com/category/industrynews/aEyXlap53PQXDDYJ.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 15 Aug 2026 12:01:00 +0800</div><h3>鹿明发布MOS2：全球首个双臂负载50kg轮臂式机器人，加速AI Worker进入产业现场</h3><p>8月14日，鹿明机器人发布全新重载轮臂式具身智能机器人 Lumos MOS2 。 面向真实工业场景，Lumos MOS2具备 50kg双臂负载能力 ，同时在硬件性能、全向移动能力、多模态感知系统和整机控制架构等方面实现全面升级，胜任真实工业场景高强度、持续性作业任务。 鹿明机器人创始人兼CEO喻超表示，具身智能正在加速进入产业落地阶段，如何让机器人更高效地完成更多真实任务，取决于 数据获取效率、硬件成本及产业交付效率 。 在这一判断下，MOS2被定位为面向工业场景的 重载AI Worker ：既拥有7×24小时不间断工作的强健躯体，也具备环境感知、任务理解与自主操作等能力，是鹿明产业具身理念的产品化实践。 当前工业现场中，仍存在大量同时需要 负载能力、灵活移动和复杂操作 的任务，而这一类场景仍缺少成熟的具身智能机器人解决方案。MOS 2以50kg双臂负载能力切入，融合移动、感知与操作能力， 为重载工业任务提供新的具身智能解决方案， 让具身智能进一步覆盖重载工业作业场景。 图：MOS2在真实生产场景中执行物料搬运任务 产业具身的核心，让机器人执行真实任务…</p><a href="https://www.leiphone.com/category/industrynews/24fbshcNUNahZuQz.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 15 Aug 2026 09:12:00 +0800</div><h3>限量手办 + 实景体验，浙江人行NAVIAI2026WRC 福利提前曝光</h3><p>8 月 19 日至 23 日，2026 世界机器人大会（WRC2026）将在北京亦庄亦创国际会展中心举办。浙江人形机器人创新中心将携旗下 NAVIAI 人形机器人亮相 C-105 展位，集中展示人形机器人在多元场景的落地应用成果。 本次展会上，NAVIAI 将呈现工业制造、智慧零售、家庭服务、遥操数采多场景的实操能力，现场演示拆垛分拣搬运、货品递送、烹饪清洁、远程数据采集等功能，展现多机协同作业、精准泛化的技术特性。另有文娱演绎类场景在 8 月 19 日开展当天作为特别环节限时展示。 大会期间，浙江人形机器人创新中心有限公司首席科学家熊蓉教授将于 8 月 21 日站上主论坛，分享 NAVIAI 的技术演进与未来落地规划，多家产业链合作伙伴也将联合亮相。官方同步开启线上预热活动，转发指定预热推文即可参与抽奖，赢取 NAVIAI i3 限量手办等好礼，展会现场也同步开放该手办的售卖通道。</p><a href="https://www.leiphone.com/category/industrynews/YW6iXkaDum3xwwBJ.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 14 Aug 2026 23:08:00 +0800</div><h3>阿里开源Qwen3.8，千问大模型全球下载超30亿次</h3><p>8月14日晚，阿里千问正式开源Qwen3.8系列模型，所有开发者、科研机构和企业均可自由下载、部署和使用。全新开源的Qwen3.8-27B，系原生多模态稠密（Dense）模型，仅270亿参数规模，整体水平便超越了Qwen3.7-Plus，在编程及办公的真实场景中表现出色。新模型响应速度快，完成质量高，部署便捷，量化后在“消费级”显卡上即可流畅运行，是最受全球AI社区期待的开源模型。Qwen3.8-27B采用宽松的Apache2.0协议开源，有望成为本地部署的主力模型。 此前，旗舰模型Qwen3.8-Max也已开源模型权重。公开数据显示，阿里已累计向全球AI社区开源460余个模型，Qwen模型在全球下载总量超30亿次，衍生模型数超30万个，稳居全球第一开源模型。</p><a href="https://www.leiphone.com/category/industrynews/GJAhmR3wyL91CzjO.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 14 Aug 2026 21:09:00 +0800</div><h3>商汤大装置首提TPW，重新定义AI基础设施效能标尺</h3><p>如何用有限的能源和成本，产出更多Token？这是Token经济时代，AI基础设施面临的新课题。 Token消耗指数级增长，算力需求持续攀升，随之带动的是AIDC用电量在全社会用电结构中的占比快速提高。行业对AIDC关注的焦点不再只是“谁拥有更多算力”，更开始关心“谁能以更低成本、更高效率生产更多高质量Token”。 在商汤大装置智算中心总经理林海看来，Token经济时代，AIDC需要被重新理解为连接电力与Token的价值平台，能把“算力”和“电力”的协同优化做到什么程度，成为决定未来商业竞争力的关键变量。 【商汤大装置智算中心总经理林海】 01 Token经济下，只看PUE为什么走不通了？ AI基础设施的效率，究竟应该如何衡量？又该如何持续提升？很长一段时间里，这个问题的答案是PUE。PUE作为数据中心总能耗与IT设备能耗的比值，长期以来被行业视为衡量数据中心能效的“黄金标准”。过去十几年，行业几乎所有的节能努力都围绕PUE展开，从机房气流组织优化到制冷系统架构革新，从自然冷却利用到液冷技术规模化部署，每一轮的目标都是把PUE压得更低。…</p><a href="https://www.leiphone.com/category/ai/XzQc2DEYciB5M57I.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 14 Aug 2026 20:01:00 +0800</div><h3>百度文库网盘GenFlow官宣中文名「库库AI」，推出「库库AI」办公独立端</h3><p>8月14日，在百度AI Day开放日上，百度文库网盘通用智能体GenFlow官宣中文名「库库AI」。早在今年4月，GenFlow月活用户已突破1亿，其中办公用户体量指数级飙升，目前AI办公MAU超过2500万，位居通用AI办公赛道行业第一。 关注到用户在AI办公上的强烈需求和高频互动，文库网盘宣布进一步出击AI办公赛道，上线「库库AI」独立端，包括库库AI办公PC客户端、库库AI网页端、小程序及库库AI企业版等。 文库网盘抢先三年布局，持续出击通用AI办公赛道 三年前，百度文库网盘即在行业率先布局通用AI办公。 2023年，百度文库、百度网盘就进行大模型重构，推出智能PPT、AI研究报告等领先AI办公能力。2024年，百度文库网盘全面融合，打通百度文库18亿专业文档、学术7亿专业内容和网盘私域知识，不断构建数据飞轮；用户在文库网盘全端即可实现一站式AI办公内容创作和消费。 作为最早探索AI办公的通用智能体，「库库AI」在2025年4月正式上线1.0版本，一年迅速迭代到4.0版本，可在文库网盘、Oreate AI等海内外产品全端通用，是在「通用AI办公」赛道的里程碑突破。库库AI可自由调用Office…</p><a href="https://www.leiphone.com/category/industrynews/jlbLtAX6KzW9yYGJ.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 14 Aug 2026 12:35:00 +0800</div><h3>3D存算一体芯片领军企业谦合益邦完成超20亿元B轮融资</h3><p>近日，3D存算一体芯片领军企业谦合益邦宣布完成超20亿元B轮融资。 在我国加快推进集成电路产业高质量发展、强化关键核心技术自主创新的背景下，具备自主研发能力、探索新型芯片架构的创新企业正成为推动产业升级的重要力量。同时，全球数字经济进入以算力为核心驱动的新阶段，存储技术正面临更高带宽、更低延迟和更大容量的需求挑战。三维集成技术通过突破传统芯片架构限制，实现计算与存储深度融合，成为推动下一代半导体技术创新的重要方向。 谦合益邦成立于2024年1月，是由网易孵化的国内最早专注于3D存算一体、三维集成原生芯片架构和云游戏应用加速的芯片公司。公司核心团队早在2018年便率先启动全球第一款基于3D DRAM存算一体架构芯片的探索研发及量产，并推动了三维集成原生芯片架构在加密算力和应用加速领域的全面应用，是三维集成原生芯片架构和3D DRAM存算一体芯片的开拓者和领导者。 谦合益邦致力于推动三维集成原生芯片架构和3D存算一体芯片的新范式，从底层出发结合系统软件栈与硬件架构的联合创新，通过3D DRAM堆叠在三维空间实现计算与存储的深度融合，率先走出了一条应对当前日益突出的内存墙（Memory…</p><a href="https://www.leiphone.com/category/industrynews/Edo1aa9elrarVNM5.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 13 Aug 2026 18:16:00 +0800</div><h3>DeepSeek Harness 入选项目疑似曝光，不选万星「花瓶」，死磕 Agent 基建</h3><p>当下刚需的基建方向，全被 DeepSeek Harness 锁定 作者丨 高允毅 编辑丨 岑 峰 昨晚，DeepSeek V4 Pro 正式发布，性能全面逼近 Fable 5 ，价格却只有1/57 ，再次坐实了 “智价比之王” 的美誉。 如果细看官方公布的十项基准测试的话，那些亮眼的数据，其实都表明DeepSeek想全面迈向 “工业级 Agent 生产线” ，比如它补齐了软件开发和工程能力短板，在终端报错、工具调用、长程任务都有不错表现。 另一方面，当模型的智力水平已经无限拔高，即将推出的 DeepSeek Harness，正是它补齐 Agent 落地能力的关键后手。 而今天网上爆出一份 DeepSeek Harness内测入选项目 局部名单， 进一步将DeepSeek的发力方向勾勒清晰。 DeepSeek 的筛选标准很有特色 ：不看名气，70% 的入选项目是几乎零热度的个人或小团队新作，大热的“高星”项目反而落选。 因为很多高星项目做的是通用工具，未必为原生Harness设计。而不少小众项目，本身在做Codex、Claude Code、Pi插件，可以顺势适配DeepSeek Harness。…</p><a href="https://www.leiphone.com/category/yanxishe/RZ78QNjvboOQZhCS.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 13 Aug 2026 17:49:00 +0800</div><h3>完成Modular收购，高通瞄准数据中心、基础设施、个人及工业AI</h3><p>要点： Modular的AI原生软件平台与高通技术公司的解决方案优势互补，加速推动从端到云的生成式与智能体AI技术落地。 高通技术公司与Modular携手打造领先的AI计算平台，可应用于数据中心、边缘基础设施、个人与工业AI等多个高增长领域。 Modular将继续秉持开放生态系统的使命，Mojo、MAX和Modular Cloud也将继续作为产品和品牌运营。 近日，高通技术公司（NASDAQ：QCOM）宣布，公司已完成对AI原生软件基础设施领先创新企业Modular公司的收购。Modular的软件平台帮助开发者以统一方式实现跨异构计算系统，对生成式与智能体AI工作负载进行优化和部署。结合高通技术公司在高性能、高能效计算领域的领先优势，Modular将进一步增强公司交付完整AI解决方案的能力。…</p><a href="https://www.leiphone.com/category/chips/f6iZg80ZvYz2BZmN.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 13 Aug 2026 17:07:00 +0800</div><h3>中国大厂消失在赞助商名单，却在不莱梅重构 AI 的灵魂丨IJCAI 2026</h3><p>2026 年 8 月 15 日至 21 日，第 35 届国际人工智能联合会议（IJCAI 2026）即将在德国“航天之都”不莱梅（Bremen）举行。 作为 AI 领域历史最悠久、最强调理论深度的顶级盛会，IJCAI 在很多从业者眼中是“System 2（慢思考）”的代名词。但在 2026 年，这场远在欧洲的学术聚会，却因为一组特殊的信号，正紧紧牵动着大洋彼岸中国产业界的神经。 这是 CCF（中国计算机学会）评级下调后的第一年“大考”，也是大模型（LLM）从“参数竞赛”转向“逻辑攻坚”的十字路口。 当 Scaling Law 的暴力美学开始触碰边际效应，中国大厂们正试图在不莱梅，寻找解决大模型“幻觉”与“鲁棒性”的理论钥匙。雷峰网及AI科技评论报道团队将飞赴德国现场，为您揭开这层学术与产业交织的底色。 01 评级下调的第一年： 降温的是指标，升温的是“刚需” 去年，CCF 将 IJCAI 从 A 类下调至 B 类，曾在国内学术圈引发不小的震动。很多声音猜测，这会导致中国论文产出的大幅滑坡。 然而，从 IJCAI 2026 的录用数据看， 中国力量依然是不莱梅绝对的主角。 据统计，本届会议共收到超过 6500…</p><a href="https://www.leiphone.com/category/private/s0Uh2zV14wto02c2.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><h3>[解析失败] https://36kr.com/feed</h3><p>not well-formed (invalid token): line 9, column 542</p></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sun, 16 Aug 2026 03:26:58 GMT</div><h3>美国加州货运抢劫案频发，AI 数据中心硬件成目标</h3><p>IT之家 8 月 16 日消息，据《连线》杂志调查，近几个月美国加州公路接连发生两起货运抢劫案：窃贼先逼停负责押运的私人安保车辆，使其失去行动能力，随后卷走车上价值数百万美元的 AI 数据中心硬件。两批货物均从硅谷运往南加州，涉事卡车至今下落不明。 这两起案件发生的大背景是：2026 年第二季度，美国和加拿大的货运盗窃损失同比翻倍，达到 3.046 亿美元 （IT之家注：现汇率约合 20.59 亿元人民币） ；而受出口管制的英伟达服务器在黑市的售价，几乎是美国零售价的两倍。 前洛杉矶县治安官办公室探员赫拉尔多 · 帕丘卡如今从事货运犯罪咨询工作，他向《连线》披露了作案细节：其中一起案件里，押运车被后车追尾，肇事司机当场逃逸；另一起中，窃贼使用了警方追捕车辆时常用的 PIT 精准逼停战术，直接把押运车撞出了路面。安保车辆失去行动能力后，货运卡车便径直开走，不知所踪。 调查人员判断，卡车司机是内部同谋。两起案件都用到了近期刚易主的货运企业资质编号，这是一种典型的诈骗手法：犯罪分子冒用正规公司的联邦注册资质承接货运订单，得手后直接卷货。“这是我见过全国范围内最猖獗的货运盗窃乱象。”帕丘卡说。…</p><a href="https://www.ithome.com/0/990/259.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 16 Aug 2026 03:10:19 GMT</div><h3>华为官宣昇腾 0 Day 适配小红书最新开源大模型 dots3-note preview</h3><p>IT之家 8 月 16 日消息，小红书 8 月 14 日正式发布 dots3-note preview 开源大模型。华为官方昨日宣布， 昇腾 Atlas 800 A3、Atlas 900 A3 SuperPoD 超节点已完成 dots3-note preview 的全量适配 ，并基于 vLLM Ascend 开源推理引擎提供完整的部署与推理能力。 据介绍，作为 dots3 系列的首个版本，dots3-note preview 开源大模型以 280B 总参数量、16B 激活参数量 构建能力底座，同时具备文本、视觉、语音全模态感知理解能力。官方表示，该模型在推理、Agent 及多模态感知等能力上进行了全面优化，在多项任务上取得了比肩国内外更大尺寸优秀模型的效果： 另外，华为官方表示，在该模型发布当天，昇腾完成 0 Day 推理部署适配与性能优化，在完整保留模型文本、视觉、语音一体化全模态理解能力的前提下，实现了稳定运行与生成效率提升，为长程复杂任务场景智能落地提供算力支撑。 昇腾此次关键适配及优化点如下： 全模态端到端适配 基于 vLLM Ascend 推理框架，完成 dots3-note preview…</p><a href="https://www.ithome.com/0/990/256.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 16 Aug 2026 02:36:14 GMT</div><h3>卢伟冰发文庆祝小米手机 15 周岁生日，称未来全面拥抱 AI</h3><p>IT之家 8 月 16 日消息，小米集团合伙人 / 总裁、手机部总裁、小米品牌总经理卢伟冰刚刚发文庆祝小米手机 15 周岁生日。 从“为发烧而生”到“让全球每个人都能享受科技带来的美好生活”； 从应用创新，到目标成为全球硬核科技领导者； 从中国到全球； 未来全面拥抱 AI 。 IT之家注：北京小米科技有限公司于 2010 年 4 月 6 日正式成立，最初办公地点位于银谷大厦。同年 8 月，小米推出内测版 MIUI 系统；2011 年 8 月 16 日，初代小米手机在北京发布，售价 1999 元。 目前，小米已最新推出澎湃 HyperOS 4 系统，并开启了 Beta 版内测，第一阶段已陆续推送，对应机型如下： 手机端： Xiaomi 17 Ultra / Xiaomi 17 Ultra 徕卡版 、Xiaomi 17 Pro Max、Xiaomi 17 Pro、Xiaomi 17、 REDMI K90 Pro Max / REDMI K90 Pro Max 冠军版、 REDMI K90 ； 平板端： Xiaomi Pad 8 Pro、Xiaomi Pad 8。 延伸阅读 初代小米手机于 2011 年 8 月 16…</p><a href="https://www.ithome.com/0/990/250.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 16 Aug 2026 02:20:51 GMT</div><h3>广汽启境 GT7 今晚面向 L3 级架构全球首拆，华为靳玉志现场见证</h3><p>IT之家 8 月 16 日消息，广汽集团今日宣布， 启境 GT7 车型面向 L3 级有条件自动驾驶架构的全球首拆今晚 19:00 直播举行。 据官方透露，本次活动由启境汽车 CEO 刘嘉铭、华为公司高级副总裁兼引望公司 CEO 靳玉志共同见证。此外，影视飓风创始人 TIM 也将参与本次活动。 由广汽集团与华为乾崑联合打造的高端智能新能源汽车品牌“启境”旗下首款车型 —— 启境 GT7 今日正式上市。 PART 01：品质工艺全拆解 PART 02：百万级悬架全透视 PART 03：面向 L3 级自动驾驶架构全球首拆 PART 04：电池安全暴力验证 PART 05：玄盾笼式车身实测 IT之家注意到，启境 GT7 是由广汽集团与华为乾崑联合打造的高端智能新能源汽车品牌“启境”旗下首款车型，该车定位中大型智能猎装轿跑， 官方指导价 20.99 万元起 。 启境 GT7 车身长宽高分别为 5050mm、1980mm 和 1470mm， 轴距 3000mm 。启境 GT7 提供普罗旺斯紫、西西里橙、茶卡银、蒙特卡洛红、帕米尔黑、尼斯蓝、梅里白六种标准车色，以及超跑漆、流光漆、镜面漆三种定制漆面。 智能驾驶是启境 GT7…</p><a href="https://www.ithome.com/0/990/247.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 16 Aug 2026 02:07:59 GMT</div><h3>撤离冒险射击游戏《ARC Raiders》全球销量已达到 1630 万份，累计收入超过 880 亿日元</h3><p>IT之家 8 月 16 日消息，发行商 NEXON 在财报中透露，由瑞典 Embark Studios 开发的科幻题材第三人称 PvPvE 撤离射击游戏《ARC Raiders（弧光猎人）》在 PlayStation 5、XBOX Series X|S、以及 PC 平台的累计销量已达到 1,630 万份。 相比于 2026 年 3 月，游戏销量增加了 80 万份。自 2025 年 10 月 30 日发售后，《ARC Raiders》累计收入超过了 880 亿日元 （IT之家注：现汇率约合 37.34 亿元人民币） 。 NEXON 对《ARC Raiders》的表现很满意，已经将其视为如何在西方游戏市场获得成功的典范，计划将经验应用到未来其他游戏的发布中。随着旗下部分老牌系列游戏收入下降，NEXON 越来越依赖于像《ARC Raiders》这样新的热门游戏，以驱动其业务的增长。 此外，NEXON 计划于今年 10 月为《ARC Raiders》提供名为“Frozen Trail”的更新，这将是自游戏发售以来最大规模的一次更新行动，包括免费和付费内容，希望可以吸引那些离开游戏的玩家回归。</p><a href="https://www.ithome.com/0/990/242.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 16 Aug 2026 01:53:22 GMT</div><h3>奕境曾清林谈岚图追光 S 隧道 360° 大回环：东风 57 年造车底蕴，绝不是靠 AI 堆出来的</h3><p>IT之家 8 月 16 日消息，奕境汽车品牌总经理曾清林昨晚发文，谈及了岚图追光 S 此次隧道 360° 大回环挑战。针对网友对挑战的质疑，他表示， 岚图的底盘都是用最猛的料，调校也是行业一绝 。从来不会搞“差不多就行”那一套。 曾清林称，东风的技术积累还是很深的，只是这些年，在营销上确实还是保守了点，不会玩“花活儿”。许许多多扎实的技术，默默藏在车子里没有传播好。 而东风 57 年造车底蕴，绝不是靠 AI 堆出来的 。 综合IT之家此前报道，岚图在 8 月 13 日宣布， 追光 S 车型 360° 隧道大回环穿越成功 。然而有网友对此次挑战提出质疑，认为挑战视频采用了 AI 技术。随后， 岚图放出了追光 S 此次挑战多角度实录 + 一镜到底视频回应质 疑。 岚图追光 S 已于昨晚正式上市， 新车全系标配华为乾崑智驾四激光雷达方案 ，22.99 万元起售。</p><a href="https://www.ithome.com/0/990/238.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 16 Aug 2026 01:48:13 GMT</div><h3>消息称英伟达拟向软银旗下 SB Energy 投资 30 亿美元，助 OpenAI 建设数据中心</h3><p>IT之家 8 月 16 日消息，据科技媒体《The Information》当地时间周六援引知情人士消息，英伟达正洽谈向软银子公司 SB Energy 投资至多 30 亿美元 （IT之家注：现汇率约合 202.82 亿元人民币） 。SB Energy 目前正为 OpenAI 开发俄亥俄州的大型数据中心项目。 报道称，这笔拟议投资是三方磋商的一部分，英伟达正与 OpenAI、SB Energy 商议，为俄亥俄州拟建的数据中心园区提供约 1,000 亿美元 （现汇率约合 6,760.61 亿元人民币） 的信贷支持。 报道称，英伟达的出资方案分为两部分：俄亥俄项目正式签约时支付一半（15 亿美元 （现汇率约合 101.41 亿元人民币） ），剩余一半将在 SB Energy 启动 IPO 时投入。 报道补充，SB Energy 计划最快下月上市，IPO 募资规模至少 50 亿美元 （现汇率约合 338.03 亿元人民币） 。 SB Energy 同时获得 OpenAI 投资，主营大型电力与数据中心基建业务。该公司成立于 2019 年，目前正在建设多座数据中心园区，以承接持续增长的 AI 算力需求。…</p><a href="https://www.ithome.com/0/990/237.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 16 Aug 2026 01:04:44 GMT</div><h3>第二届世界人形机器人运动会新增跳远、举重、拔河等项目，2056 台机器人同台竞技</h3><p>IT之家 8 月 16 日消息，据“北京亦庄”公众号，8 月 13 日，北京市人民政府新闻办公室在国家速滑馆新闻发布厅举行第二届世界人形机器人运动会新闻发布会（第三场）。会上宣布，本届运动会正赛将于 8 月 22 日至 26 日在国家速滑馆“冰丝带”举行， 将举行 51 个项目共 1301 场比赛，吸引 666 支队伍携 2056 台机器人参赛， 竞赛项目、参赛队伍全面提质扩容，并新增跳远、举重、拔河、乒乓球等高强度对抗项目。现场还发布了运动会吉祥物“智宝”。 ▲ 运动会吉祥物“智宝” 从报名情况来看，各路高手将云集赛场。本届赛事吸引了来自六大洲、16 个国家的 666 支队伍，共有 2056 台机器人同台竞技，队伍数量较首届增长 138%， 机器人数量翻了两番 。 国际方面， 美国、德国、日本等机器人传统强国赛队积极参与，巴西还集结了五支机器人足球世界杯队伍，组建起一支国家联队参赛。 国内方面， 157 家企业、200 所院校和科研机构的 641 支队伍、1975 台机器人齐聚赛场。国内第一梯队企业悉数到场，27 所 985 高校踊跃参赛，产学研用各方力量汇聚一堂。 IT之家从官方介绍获悉，今年赛项从首届的 26…</p><a href="https://www.ithome.com/0/990/230.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 16 Aug 2026 00:46:34 GMT</div><h3>微软 Win11 全面视觉焕新将至，多数传统对话框将用 WinUI 重构</h3><p>IT之家 8 月 16 日消息，Windows 11 似乎即将迎来一轮全面视觉焕新，微软计划替换系统中绝大多数传统对话框与弹窗。而就在此前，微软刚承认 WinUI 的性能表现并不理想，并表示将在把该框架推广至系统外壳（而非仅应用端）的过程中同步优化其性能。 微软官方将流畅设计体系（Fluent Design）作为核心设计语言，该体系主要由 WinUI 框架支撑，后者也是 Windows 11 官方推荐的开发框架之一。此前 WinUI 一度被暂缓推进，直到近期才有新动向；不过微软已明确表态将全力投入该框架，并开始在 Windows 系统外壳层面强制推行 WinUI。 如今，当初的诸多承诺正逐步落地，不再只是“口头表态”或“公关话术”。核心工程与产品团队正直接面向用户沟通，大部分改动已经出现在预览版中；这在微软过往的类似承诺中是从未有过的。 举例来说，微软近日预告，将为自动播放（AutoPlay）对话框推出基于 WinUI 的全新设计，目前预览版中已经能看到这一改动。 据IT之家了解，当用户连接手机、U…</p><a href="https://www.ithome.com/0/990/226.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 16 Aug 2026 00:16:09 GMT</div><h3>《人类：一败涂地》开发商全新 VR 解谜游戏《小小羊群》公布，年内登陆 SteamVR / Meta Quest 平台</h3><p>IT之家 8 月 16 日消息，《Human Fall Flat（人类：一败涂地）》的开发商 No Brakes Games 正式公布了全新 VR 物理解谜游戏《Tiny Flock（小小羊群）》， 本作将于今年内登陆 SteamVR 和 Meta Quest 平台 ，目前游戏已上架 Steam，IT之家附录游戏商品页（ https://store.steampowered.com/app/3133010/Tiny_Flock ?utm_source=impress&amp;utm_medium=presskit ）。 据介绍，玩家将在本作中需要带领一群可爱的绵羊穿越 21 个精美的 3D 立体模型关卡。游戏中的环境和各种物体均具备高度互动性，玩家需要利用物理机制、创造力以及关卡中的各种道具，为自己的小羊群寻找安全通过关卡的方法。 玩家可以搭建道路和桥梁、堆叠或投掷物体，还可以拉动绳索和操作机关，为绵羊创造安全的通行路线。本作并没有规定唯一解法，玩家可以根据周围环境自由尝试，通过物理机制和创造性的方式解决问题，将迷路的小羊安全带到终点。 游戏图赏：</p><a href="https://www.ithome.com/0/990/222.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 16 Aug 2026 00:13:02 GMT</div><h3>女子加入针对 SpaceXAI 的诉讼：继父利用 Grok 将其 11 岁照片加工成 7000 多张色情图像</h3><p>IT之家 8 月 16 日消息，一名以“简 · 多伊 4 号”为匿名代称的女性，已加入美国田纳西州三名青少年对埃隆 · 马斯克旗下 SpaceXAI 公司提起的诉讼，指控该公司聊天机器人 Grok 涉嫌参与制作儿童性虐待材料。 据《华盛顿邮报》报道，该女子称其继父利用 Grok 对她 11 岁时拍摄的一张照片进行加工，生成了 7000 多张她的露骨性虐待图像。执法部门在突击搜查中查获这批图像两天后，其继父被发现自杀身亡。 “这类工具无门槛获取的扩散速度太快了，”这名女子表示，“它正在把日常生活中的影像，转化为儿童性虐待内容。” IT之家注意到，此前发起诉讼的三名青少年指控 SpaceXAI（现已并入 SpaceX）未采取基础防护措施，未能阻止 Grok 被用于生成包含未成年人在内的真人露骨图像。今年早些时候，X 平台上曾涌现数百万张 Grok 生成的色情化图像，一度泛滥成灾。原告方目前正申请将该案列为集体诉讼。</p><a href="https://www.ithome.com/0/990/221.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 16 Aug 2026 00:11:35 GMT</div><h3>2026 世界机器人大会展位图揭晓：8 月 19 日开幕，宇树科技、优必选等参展</h3><p>IT之家 8 月 16 日消息，2026 世界机器人大会将于 8 月 19 日至 23 日在北京经济技术开发区北人亦创国际会展中心举行。近日，2026 世界机器人大会展位图全揭晓。 作为大会展览的重要新增空间， 智创馆面积达 2 万平方米， 拥有更加开阔、通透的展示环境，将进一步提升企业参展和观众观展体验。 宇树科技、星海图、优必选、银河通用、自变量、明略科技、维他动力、智身科技、云深处、傅利叶、越疆、仙工、中科慧灵 等代表性企业，将带来机器人整机、具身智能及人形机器人的最新成果。 北京、上海、浙江、湖北、广东、四川、吉林等地的人形机器人创新中心将齐聚智创馆，集中展示各地的创新成果。央企展区也将在这里亮相，集中展示中央企业在机器人领域的整体布局和应用成果。 京东 将整合物流、零售、工业、家政等应用场景， 打造【未来人机共生新范式】超级展区。 ▲ 智创馆…</p><a href="https://www.ithome.com/0/990/220.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 15 Aug 2026 23:53:42 +0800</div><h3>俄罗斯导弹使用了英伟达的 Jetson Orin</h3><p>俄罗斯新型 S-71“Monochrome”巡航航空被发现使用了英伟达的 Jetson Orin 计算模块。俄罗斯使用的是 2023 年推出的 Jetson Orin NX 16GB 模块，而英伟达则在 2022 年初就退出了俄罗斯市场，这意味俄罗斯是通过其它渠道获得英伟达芯片的。英伟达表示，Jetson 是消费级产品，军事应用不在其预期设计范围内，但它的销售没有什么限制，因此俄罗斯有很多方法获取该芯片。英伟达表示，“虽然我们无法在产品售出后对其进行追踪，但如果我们确定任何客户违反了美国出口管制，我们将采取适当的行动。”</p><a href="https://www.solidot.org/story?sid=85104" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 15 Aug 2026 23:40:41 +0800</div><h3>年轻美国人日益不信任 AI 及 AI 公司高管</h3><p>对 1088 名年龄在 18-34 岁美国人的调查发现，绝大多数受访者表示不信任投资 AI 的大公司高管，包括 Elon Musk、Sam Altman 和 Mark Zuckerberg。45% 的受访者认为 AI 会对其职业生涯产生负面影响，只有 10% 的人认为 AI 会对他们有帮助。年轻人对 AI 公司高层也日益表达不信任，Palantir CEO Alex Karp 的信任度最低，81% 的受访者表示不信任他，紧随其后的是 Palantir 董事长 Peter Thiel（79%）、Alphabet CEO Sundar Pichai（75%）和 Anthropic CEO Dario Amodei（75%）。OpenAI CEO Sam Altman、Meta CEO Mark Zuckerberg、英伟达 CEO 黄仁勋和 SpaceX CEO Elon Musk 的不信任度都在 70% 左右，微软 CEO Satya Nadella 略好一点，不信任度为 65%。60% 的美国人认为数据中心建设必须放缓，只有 15% 的人表示希望加快建设速度。</p><a href="https://www.solidot.org/story?sid=85103" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 14 Aug 2026 17:41:40 +0800</div><h3>长鑫市值超越腾讯</h3><p>长鑫科技已超过互联网巨头腾讯控股，成为全球市值最大的中国企业，凸显 AI 热潮正推动投资者对存储晶片股的需求。截至周五 A 股收盘，长鑫科技最新市值约 3.58 万亿元人民币。港股方面，由于市场对腾讯不断增加的 AI 投资担忧加剧，腾讯周五最新市值约 4.0 万亿港元。分析认为，这一市值排名的逆转反映出，投资者继续青睐与 AI 相关的硬件企业，而非传统互联网巨头。总部位于安徽合肥的长鑫科技也是全球第四大 DRAM 供应商。DRAM 广泛应用于从手机到先进 AI 服务器等各种设备。</p><a href="https://www.solidot.org/story?sid=85098" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 14 Aug 2026 15:28:21 +0800</div><h3>苹果与阿里巴巴合作为中国市场训练专用大模型</h3><p>苹果与阿里巴巴合作为中国市场训练了一个大模型。此前苹果倾向于使用中国合作伙伴的模型为在中国销售的 iPhone 等设备提供生成式 AI 功能。苹果的 AI 功能 Apple Intelligence 预计将在未来几个月通过 iOS 更新在中国推出。苹果推出专为中国市场定制的 AI 模型，使​​其在竞争最激烈的中国市场更好掌控 AI 体验。苹果在中国已被华为等本土竞争对手蚕食市场份额，竞争对手凭借 AI 手机迅速占据领先地位。网信办已经登记了苹果的生成式 AI 服务，为 Apple Intelligence 服务首次登陆国行 iPhone 铺平道路。</p><a href="https://www.solidot.org/story?sid=85095" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 14 Aug 2026 14:24:44 +0800</div><h3>VLC 因 Microsoft Defender 而启动缓慢</h3><p>《Braid》和《The Witness》作者 Jonathan Blow 在社媒上称，在 Windows 上使用 VLC 启动播放一个 MP3 文件需要 33 秒钟，他因此改用了微软官方的 Microsoft Media Player，批评开源软件问题太多。此事引发了广泛讨论。VLC 官方回应称，核心问题与它无关，是 Windows 11 / Microsoft Defender 的一次更新隔离了 VLC 的插件缓存导致的，重新安装 VLC 或清空缓存可解决该问题。Linux 用户称 VLC 启动播放一个 MP3 文件只需要 1-2 秒。其他 Windows 用户建议在 Microsoft Defender 中排除 vlc.exe 也能解决该问题。</p><a href="https://www.solidot.org/story?sid=85093" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 14 Aug 2026 11:57:52 +0800</div><h3>微软正从中国撤退</h3><p>过去五年，随着中国更倾向于国产软件，微软一直在缩减在华业务，至少关闭了 15 家分支机构和合资企业。美国的出口管制也让微软云计算和 AI 业务的推广更困难，中国市场的经济增长空间变得相对有限。微软最终决定继续留在中国，是因为它开辟了一项盈利的业务，​​为字节跳动等中国企业提供服务，这些企业需要西方技术管理海外业务。微软认为，为了继续获得中国世界一流的工程人才，它需要在中国保留业务。微软前中国区负责人 Alain Crozier 表示微软与中国政府建立了深厚的关系，“由于地缘政治因素……有时情况会比较艰难，但我们从未遇到过危机。”微软发言人表示公司在“适用于所有国际供应商的监管环境”下运营，重申对中国市场的承诺。微软表示，其在中国的业务状况反映了市场竞争、监管要求和技术发展趋势。</p><a href="https://www.solidot.org/story?sid=85090" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      <section class="section-card" id="errors"><div class="section-head"><h2>抓取异常</h2><span>不影响当期页面生成</span></div><ul class="error-list"><li class="error-item"><strong>36氪</strong><span>[解析失败] https://36kr.com/feed</span><em>not well-formed (invalid token): line 9, column 542</em></li></ul></section>
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>
