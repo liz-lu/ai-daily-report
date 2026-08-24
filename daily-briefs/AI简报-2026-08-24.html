@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-08-24</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a><a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a><a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      <a class="toc-link" href="#errors">抓取异常</a>
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-08-24</span>
+          <span>11:31（北京时间）</span>
+          <span>IT之家、Solidot、雷锋网</span>
+        </div>
+        <p class="hero-copy">今日AI领域动态密集：世界机器人大会集中展示具身智能从展示走向实战的进展，银河通用人形机器人网球对抗、伽利略发布陆行具身系统等成为焦点；大厂层面，阿里拟配售800亿港元新股全部投入AI建设，阿里云发布视频生成模型Wan3.0；英伟达被曝考虑向Perplexity AI投资数十亿美元，AI算力与推理成本优化成为行业关注重点。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>26</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>3</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>2</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>10</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>9</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>5</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>IT之家、雷锋网</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>5</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>IT之家、雷锋网</small></article><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>4</strong></div><p>基础设施的效率叙事持续升温</p><small>IT之家、雷锋网</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>3</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>IT之家、Solidot</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>2</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>IT之家</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>具身智能加速落地：从展示到实战</h3><p>2026世界机器人大会（WRC）于8月19日至23日在北京举行，多家企业展示具身智能最新进展。银河通用人形机器人在真实网球对抗中实现毫秒级判断与挥拍，被视为具身智能融合大脑、小脑与数据闭环的标志性时刻；浙江人形携NAVIAI展示&#x27;一脑多机&#x27;方案；伽利略发布全新品类&#x27;陆行具身系统&#x27;Galileo X；上纬新材旗下启元机器人开启Q1、T1双产品预订，个人机器人开始进入家庭消费市场。</p></article><article class="insight-card"><h3>大厂加码AI基础设施与模型能力</h3><p>阿里巴巴拟配售800亿港元新股，资金全部投入AI建设；阿里云视频生成模型Wan3.0正式上线，支持单次生成30秒视频及文档格式输入；腾讯发布2026年科学探索奖，50位科学家各获300万元奖金；联想与海尔签署战略合作，推动AI PC与智慧家庭场景融合。</p></article><article class="insight-card"><h3>AI应用与智能体向垂直场景渗透</h3><p>万兴科技发布面向商业电视广告人群的AI画布工作台Filmora.TV；凯度推出厨电AI智能体&#x27;小紫&#x27;，行业竞争从参数转向体验；英伟达被曝考虑向Perplexity AI投资数十亿美元，并可能达成技术授权协议，显示AI搜索与推理应用的战略价值提升。</p></article><article class="insight-card"><h3>算力与推理成本优化成为行业焦点</h3><p>摩尔线程发布《MTT S5000 Prefill-as-a-Service技术白皮书》，针对长上下文推理场景提出新范式，旨在破解成本瓶颈；微软放宽Win11智能应用控制启用限制，降低用户开启门槛；英伟达对Perplexity AI的潜在投资也指向推理算力需求的增长。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>具身智能从实验室走向真实场景的速度加快，机器人运动控制与决策闭环的突破可能重塑制造业、服务业及家庭应用。</li><li>阿里800亿港元AI投入将显著提升国内AI算力与模型训练能力，可能加剧云服务市场竞争。</li><li>英伟达对Perplexity AI的数十亿美元投资若达成，将强化AI搜索领域的算力绑定，影响AI应用生态格局。</li><li>摩尔线程Prefill-as-a-Service白皮书发布，或推动长上下文推理成本下降，利好AI Agent与文档分析类应用。</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>银河通用人形机器人后续商业化进展及数据闭环能力验证</li><li>阿里配售新股资金到位后AI基础设施投资的具体方向</li><li>英伟达与Perplexity AI投资谈判结果及技术授权细节</li><li>启元机器人Q1、T1预订市场反馈与交付情况</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>10 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>机器人首秀网球场，银河通用突破具身智能「AstraTennis时刻」</h3><p>银河通用用一场真实对抗证明：大脑、小脑与数据闭环正在融合。 作者丨邓哲敏 编辑丨 董子博 8 月 22 日，北京国家速滑馆“冰丝带”，第二届世界人形机器人运动会开幕，中央广播电视总台把镜头切向一片真实的网球场。 一台人形机器人站在场内，对面来球时速超过 50 公里，它几毫秒内判断落点、移动脚步、扭转身体、挥拍——球擦着网带划过去，落在界内。 发球、正手、反手、底线调动、网前截击，一路打下来，没有掉链子。 热身赛双打环节，它和人类队友配合，会补位、会换战术。高速攻防里，它上演了一次极限救球，然后重重摔倒，又自己撑着地面站起来，接着打。 完成全球首次全自主网球对打的人形机器人，来自银河通用。 十年前，AlphaGo 证明了 AI 会想；而如 今， 银河通用 要证明的，是 AI 会做。从会想到会做，人类等了整整十年。 这正是我们（雷峰网）愿意把它看成一个标志性时刻的原因：它刷新了一个单项指标，更把人形机器人第一次推到了思考与行动同时在线的真实赛场上。 银河通用给这个时刻起了个名字： AstraTennis 时刻 。 01 大脑想怎么打， 小脑负责打得漂亮 今天赛场 上 银河通用人形机器人 打网球的…</p><a href="https://www.leiphone.com/category/ai/DtuJryomWlykalLZ.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>浙江人形携 NAVIAI 亮相 2026 世界机器人大会， 一脑多机方案落地多场景</h3><p>2026世界机器人大会（WRC）于8月19日在北京亦创国际会展中心燃情启幕。相较往届，这场全球机器人领域规格最高、规模最大的行业盛会，已从“机器人秀场”进阶为人机共生、产需共融的“实战考场”。 浙江人形机器人创新中心有限公司（下称“浙江人形”）携NAVIAI核心机器人矩阵亮相智创馆C－105展位，集中展示同一技术基座下的产品体系与多场景泛化落地成果。展期吸引多批客户深度洽谈，获行业专家、媒体及观众高度关注。 多场景泛化落地的背后，是SPIRE技术体系对世界模型与具身模型的深度融合：世界模型构建环境认知、预测状态变化，具身模型动态适配、输出精准动作，两者协同让机器人完成从“听懂语义”到“做对动作”的跨越。正是基于这一技术底座，浙江人形在工业、商业、家庭、数采等多场景全面开花。 工业场景中，浙江人形率先跨越“单机演示”阶段，由3台NAVIAI轮臂机器人协同展现任务级全链路集群作业范式，统一拆解装配任务、分配工序，保障0．03毫米级操作精度，完整覆盖拆垛、分拣、搬运、装配全链路。 该方案是在汽车产线、海外工厂等多场景实践的能力复刻，印证了人形机器人从“单机负责单一功能”跃升为“集群重构柔性产线”的产业新可能。…</p><a href="https://www.leiphone.com/category/industrynews/5PmgwJZ7NFR6jvie.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>伽利略全新Galileo X亮相WRC：锚定 “全域移动”，重构陆行具身移动行业逻辑</h3><p>在2026世界机器人大会（WRC2026）现场，伽利略正式发布全新产品Galileo X，推出“陆行具身系统”全新品类。该产品并非现有产品迭代，而是企业从零立项、自主定义，完成全流程研发与工程化验证的原创成果。 长期以来，地面移动机器人行业面临突出的场景适配难题。市面上主流轮式AGV、越野轮履底盘、四足机器人各有所长，但现实业务大多是室内作业、户外长途行进、复杂地形通行交织的复合工况。各类机器人硬件架构互不兼容、控制体系相互割裂，行业只能依靠多台设备搭配完成作业，直接推高采购、运维、项目落地的综合成本。 针对这一行业痛点，Galileo X打破不同移动形态之间的技术藩篱，把轮式高精度转运、车辆级长距离越野、足式高适应性越障三大能力无损集成在同一台本体之上，重构下一代地面移动机器人底层逻辑与产品范式。 AGV、越野车和四足机器人“合三为一” 全球地面移动装备被物理形态分割成三条独立赛道，每类产品都存在能力天花板。传统四足机器人擅长复杂地形越障，但重载、平地效率、作业精度存在短板；轮式AGV室内转运精度高，无法适应户外复杂环境；越野轮履底盘能够长途行驶，却难以翻越台阶、碎石、陡坡等障碍。 Galileo…</p><a href="https://www.leiphone.com/category/robot/bEBmOtCixChK0hrX.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>上纬新材“启元机器人”正式开启预订，个人机器人叩开家庭新消费大门</h3><p>8月23日，上纬新材料科技股份有限公司（下称“上纬新材”）旗下启元机器人，正式开启启元Q1、启元T1双产品预订，用户可通过上纬启元官方小程序、天猫、抖音、B站官方店铺，以及线下体验活动参与预订。预订用户可享受现金优惠、首发限定及专属服务等多重权益。 本次预订，预计首发发货时间为2026年9月。 此次双产品正式开启预订，意味着启元机器人从此前的产品展示、线下体验，进一步迈向大众消费阶段。对于持续探索落地路径的具身智能行业而言，这也标志消费级人形机器人加速走出“样品体验”试点周期，完成从“被体验”到“被购买”的关键跨越，行业正式进入C端商业落地与真实市场验证的关键窗口期，机器人走进家庭的时代加速到来。 告别样品展示时代 启元机器人迎来商业化关键跨越 本次预订释放多重用户权益：用户支付1000元订金即可抵扣2000元购机尾款；购机后30天内，可享受Care保障套装、官方配件及周边产品7折选购权益。预订用户可获得全套首发珍藏礼盒，内含稚晖君亲签信、创始用户收藏卡、首发限定机器人手办，并可优先解锁启元Q1外壳定制权益。此外，预订用户还可额外获赠半年整机质保，享受1V1专属客服优先响应通道。…</p><a href="https://www.leiphone.com/category/robot/0EXwdtr2oaxj5hv0.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>智身科技亮相2026世界机器人大会，定义&quot;真正干活的机器人&quot;</h3><p>北京，2026年8月19日—23日，2026世界机器人大会（WRC）在北京举行。 本届大会， 智身科技以&quot;真正干活的机器人&quot;为核心定位 ，通过五大展区集中展示从核心关节、整机本体、机械臂到运动控制（小脑）、智能决策（大脑）的全栈技术能力，回答行业之问：机器人什么时候能真正创造社会价值？ 01.展台即现场：从零件到整机，从表演到干活 走进智身科技展台，五大区域构成一条清晰的&quot;干活能力&quot;展示链路。 表演舞台区三大亮点集中呈现：智身银毅NE01人形机器人上演《功夫女足》多机协同舞蹈，单关节峰值扭矩达 180N・m；智身钢镚 L2 四足机器人展示镂空楼梯感控一体通行与 7:1 极限负载自重比。 台面操作演示区，智身科技带来首款行业级可组装教育四足机器人，从通识启蒙、专业实训到工程应用，支撑不同阶段的具身智能教育建设；MATRiX 2.0开放世界仿真训练平台提供手柄虚拟对战体验，打通从虚拟训练到真实部署的链路，现已开源。 地面操作演示区，智身铜锤M1搭载铁臂TA01机械臂展示VLA操作能力，即使智身铜锤M1腿部、本体持续运动时，智身铁臂 TA01…</p><a href="https://www.leiphone.com/category/robot/O75vTRkVrLMfVEON.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>工业具身智能的 &quot;最后一公里&quot;，为什么是埃夫特&amp;启智在走？</h3><p>一、90% 的工厂，机器人还进不去 具身智能这两年很热，但热的地方大多不在工厂。 人形机器人在展会上跳舞、倒酒、叠衣服，视频传播量惊人；可一旦走进真实的工业车间，话题就迅速冷下来。原因 很简单， 工业现场不是实验室，它要求机器人在油污、粉尘、温差和来料不一致的环境里，连续、稳定、可核算地干活。而这恰恰是当前具身智能最薄弱的环节。 传统工业机器人其实已经很强了。高速、高精、大负载，在汽车焊装线、3C 装配线上可以做到毫秒级节拍；在防爆、喷涂等特种场景也有成熟方案。但它的强，是 &quot;确定性&quot; 的强 —— 程序写死、轨迹固定、来料一致，一旦条件发生变化，它就无所适从。 这正是问题所在。全球工业机械臂年增量大约五十万台，听起来不少，但放在整个制造业体量里只是一小部分。在汽车和 3C 之外的通用制造领域，工业机器人的渗透率至今不到百分之二十。剩下那八成以上的场景，不是不需要自动化，而是 &quot;用不起&quot;。 这些场景有一个共同特征：多品种、小批量、高度差异化。工件每一批都不太一样，焊缝位置会变，喷涂件的姿态会变，物流分拣的物料种类上百种。传统机器人的应对方式是 ，…</p><a href="https://www.leiphone.com/category/robot/UL2Q8ihgr90Dy85f.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>WRC 2026 风向标：具身智能下半场，比「大脑」更比「账本」</h3><p>展台不再比谁花活多，开始比谁能稳定干满8小时。 作者丨邓哲敏 齐铖湧 编辑丨 齐铖湧 上海 WAIC 结束不到一个月，北京 WRC 2026 接棒开启。 短短几十天，谁也不可能把模型推倒重来。想看到什么颠覆性突破，是不现实的。 所以这篇现场观察不单看 WRC 上的展台花活，AI科技评论（雷峰网公众号）会结合几个月来各家综合表现，看“具身大脑”究竟走到哪一步。 先说首日逛展的最大感受： 和 WAIC 比，场景变化很直观。 做咖啡的变多了（现场能看到无界动力、仙工等，做咖啡/递杯成了高频演示）； 包裹分拣场景继续发力（自变量速度很突出，原力灵机势头很猛，星动纪元仍在深耕）； 办公、零售场景明显增多（后面会写到星海图、银河通用等）。 而最大的一个特点是，专业观众们的注意力，已经从研究本体欣赏 demo，转为考量大脑能不能稳定干活、能不能算过账。 01 在分拣这个兵家必争之地，泛化是硬通货 先来聊聊这届 WRC 上主打展示分拣的厂商。…</p><a href="https://www.leiphone.com/category/ai/rUNBvF7Iq6C3UtyR.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>“绝世高手”之“太极宗师”：智元远征 A3 夺得第二届世界人形机器人运动会“武术-太极拳”金牌</h3><p>IT之家 8 月 24 日消息，智元机器人官方微博刚刚发文宣布，智元远征 A3 化身“太极宗师”，夺得第二届世界人形机器人运动会“武术-太极拳”金牌。 目前奖牌总数升至 3 金 3 银 2 铜，居奖牌榜首位 。 据IT之家昨日报道，第二届世界人形机器人运动会正式开赛，智元核心产品精灵 G2、灵犀 X2、远征 A3 悉数参加。在已经完赛的“场景赛”部分项目中， 智元精灵 G2 取得了两金三银两铜的好成绩 。 远征 A3 采用了新一代架构的自研关节 ，总峰值电流 150A，瞬时功率 12kW；机身大幅减重至 55 公斤，综合推重比可达 0.218 kW / kg，宣称与百万超跑相当。 远征 A3 支持空翻、空中漫步，原生适配智元灵创平台，让每个人都能随时随地创造新动作，一键上传下载，共享内容生态；标称续航可达 10 小时，刷新行业纪录；支持 10 秒快速换电，24 小时连续运行。 值得一提的是，今年 6 月，智元远征 A3 官宣成功实现自主打乒乓球，成为全球首个全程自主决策、完成乒乓球对抗的全尺寸双足人形机器人。</p><a href="https://www.ithome.com/0/993/384.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>填补国产空白：东南大学手术机器人具备接近人手的精细力觉感知能力，跨越 2400 公里成功完成 3 例手术</h3><p>IT之家 8 月 24 日消息，东南大学 8 月 23 日宣布，由东南大学宋爱国教授牵头的国家重点研发计划项目取得重大临床突破。 学校联合企业共同研发的 力交互腔镜手术机器人 ，在郑州大学第一附属医院与新疆医科大学第一附属医院泌尿外科团队的密切协同下，成功完成两例肾部分切除术与 1 例前列腺癌根治术。 东南大学官方表示，此次临床试验充分验证了力反馈技术在腔镜手术机器人超远距离远程手术场景下的稳定性、操作精准度与实时响应能力。 团队针对腹腔镜手术器械操作空间狭小、力觉感知要求高的特点，基于电阻应变原理自主研发了新型结构的三维力手术提拉力传感器和夹持力传感器，攻克了小型手术器械内集成多维力感知的难题。这套小型化、高精度、低耦合多维力传感器， 让手术机器人具备了接近人手的精细力觉感知能力，填补了国产腔镜机器人力感知领域的技术空白 。 在此基础上，团队进一步 攻克了 力反馈控制技术与力觉临场感遥操作关键技术 ，相关成果已通过型式检验和多轮动物实验。 临床试验中，主刀医生坐于控制台前，借助荧光影像系统将患者体内组织放大 10 至 20 倍，远隔 2,400…</p><a href="https://www.ithome.com/0/993/363.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>机器人短跑超越人类，但刹住是问题</h3><p>为期五天的世界人形机器人运动会于周六在北京开幕。运动会共设 51 个项目，包括 30 项体育竞技和 21 项场景化竞赛。超过 40% 的项目要求机器人完全自主运行。在 8 月 22 日的首日赛事中，两台机器人跑出了比人类百米世界纪录(9.58秒)保持者博尔特(Usain Bolt)更快的成绩，相比去年百米短跑仍然耗时 20 秒以上的机器人，可谓进步巨大。另一台机器人则在 400 米短跑中实现了 39.7 秒的成绩，超越了南非运动员 Wayde van Niekerk 43.03 秒的世界纪录。不过，在冲过终点线后，这些机器人的制动能力依然存在很大缺陷。现场画面显示，机器人纷纷撞向十几米开外的巨大软垫，然后跌倒在地，多台机器人翻倒后甚至出现了明显损坏。这次运动会还设置了在模拟工厂、餐厅、办公室及紧急情况场景下测试机器人性能的比赛项目。比如人形机器人能否在处理包装和仓储作业的同时，可靠地完成诸如线缆连接等精密任务？它们能否应对角度不当的线缆、刚好够不到的物体、发生位移的包裹等工厂中常见的困难？这些任务旨在评估它们在那些不那么引人注目的岗位上像人类一样工作的能力。</p><a href="https://www.solidot.org/story?sid=85169" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>9 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>阿里拟配售800亿港元新股，全部投入AI建设；网友造谣「小红书因遭举报上市失败」被行拘；李斌：中国汽车行业三五年后玩家基本确定</h3><p>要闻提示 1.“我们大学硕士不就白读了吗”，上市公司被曝要求应届生离职与“打螺丝”二选一 2.阿里巴巴拟配售800亿港元新股，全部投入AI建设 3.网友造谣“小红书因遭举报上市失败”被行拘 4.李斌：中国汽车行业三五年后玩家基本确定 5.雷军：十车PK，小米SU7 Pro续航CLTC排第四、实测排第一 6.马斯克母亲谈儿子推荐大家来中国：埃隆发自内心喜爱中国，中国人非常智慧 7.董宇辉等主播走后东方甄选扭亏为盈：从亏1.10亿到盈利6.63亿 8.外媒：英伟达搭载人工智能芯片的服务器价格将上涨超15% 今日头条 “我们大学硕士不就白读了吗”，上市公司被曝要求应届生离职与“打螺丝”二选一 8月23日消息，据媒体近日报道，有应届硕士毕业生在上市公司星宇股份管理类岗位入职一个多月后，被公司约谈要求其提交离职申请。同时设置明确条件，离职证明必须标注为“个人原因离职”；如若拒绝主动离职，企业将单方把其调至车间一线操作岗位，即“离职”“打螺丝”二选一。…</p><a href="https://www.leiphone.com/category/zaobao/Vqz97pOeMU2EkowJ.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>腾讯发布 2026 年科学探索奖获奖名单：50 位科学家入选，每人获 300 万元自由支配奖金</h3><p>IT之家 8 月 24 日消息，腾讯今日发布了 2026 年科学探索奖获奖名单， 共有 50 位科学家入选 。 IT之家注：科学探索奖于 2018 年设立， 由杨振宁、饶毅、施一公、潘建伟、高文等十余位知名科学家与马化腾共同发起，新基石科学基金会出资 。 科学探索奖面向在中国内地及港澳地区全职工作的青年科技工作者（男性 45 周岁及以下，女性 48 周岁及以下），聚焦基础科学和前沿技术，每年资助不超过 50 人， 每人 300 万元自由支配奖金，分 5 年发放 。 今年，科学探索奖继续在每个资助领域提供 1 个“新星名额”机会，在满足宁缺毋滥的评审原则下，奖励年轻科学家（男性 35 周岁及以下，女性 38 周岁及以下）。 同时，同行评审阶段的国际评审比例提高到 40%，让评价标准进一步与国际接轨。 今年的获奖名单里，不仅有 10 位年轻科学家， 更是诞生了奖项史上第一位“95 后”获奖人 —— 来自前沿交叉领域、北京理工大学的周天贶，获奖时年仅 30 岁。 10 位女性科学家榜上有名，占比 20%， 这是科学探索奖 8 年来女性获奖人数首次达到两位数 。更多女性开始在基础科学和工程技术领域发光发热。 50 位获奖人来自…</p><a href="https://www.ithome.com/0/993/401.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>阿里云视频生成模型 Wan3.0 正式上线，支持单次生成 30 秒视频、文档输入</h3><p>IT之家 8 月 24 日消息，阿里云消息，今天，视频生成模型 Wan3.0 正式上线。官方称，Wan3.0 在生成时长、万能创作、全能参考以及真实世界还原等维度全面升级，单次可生成 30 秒视频，并首次支持 doc、xls、ppt、pdf、md 等文档格式输入，力求准确还原真实世界。 官方称，公测至今的十余天里，Wan3.0 也以天为单位持续进化，在指令遵循、跨镜头一致性、音频质感以及视频编辑等方面有进一步的提升。 今天，Wan3.0 正式上线，用户可在阿里云百炼、万相官网、万镜一刻、千问 AI 平台、千问创作 PC 端、千问 App、堆友和 IF STUDIO 体验。IT之家注意到，480P/720P/1080P 的 API 价格分别为 0.3/0.6/1.2 元 / 秒，8 月 24 日至 9 月 23 日，阿里云百炼和千问 AI 平台开启 API 限时 7 折优惠。 同时，麦芽旗下跳跃视界、Deevid、剧火、京东灵境平台、美图、井萌等也已接入 Wan3.0。</p><a href="https://www.ithome.com/0/993/396.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软放宽 Win11 智能应用控制启用限制，无需全新安装系统即可开启</h3><p>IT之家 8 月 24 日消息，想要轻松从电脑中榨取更多性能的 Windows 11 用户，如今不再需要面对微软智能应用控制（Smart App Control）功能最令人头疼的硬性要求之一。 据IT之家了解，智能应用控制是微软随 Windows 11 22H2 推出的 Windows 11 专属安全功能，其利用微软基于云端的智能和代码签名信息，来判断某个应用程序是否应被允许运行，并在不可信或可能有害的软件获得执行机会之前将其拦截。 正是由于这种运作方式，微软此前在智能应用控制显而易见的安全优势之外，还特别强调了它的另一项好处 —— 相比传统杀毒软件，它对系统性能的影响更小。微软解释称，由于智能应用控制会在有害应用运行前将其拦截，因此无需持续扫描活动文件，从而可能减轻电脑的负担。该功能对于入门级或 CPU 性能较弱的系统尤其有帮助。 在很长一段时间里，微软要求智能应用控制必须在全新安装的 Windows 11 上才能启用。这意味着用户无法在现有安装上直接开启该功能。这一情况在今年早些时候发生了变化，微软开始推送一项更新，允许用户无需全新重装 Windows 即可开启或关闭智能应用控制。 这一变化首先出现在微软 2026…</p><a href="https://www.ithome.com/0/993/368.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>全新华为 FreeBuds 7 悦彰耳机官宣今日开启预售：半入耳主动降噪、4 色可选</h3><p>IT之家 8 月 24 日消息，华为终端刚刚宣布，全新华为 FreeBuds 7 悦彰耳机 将在 8 月 24 日 10:08 正式开启预售 ，主打半入耳主动降噪。 据IT之家今日早些时候报道， 华为终端 BG CEO 何刚正式官宣了 FreeBuds 7 悦彰耳机 。该耳机作为一款半入耳式耳机，单只耳机轻至 4.3g，主动降噪能力全面升级， 即使在机舱、地铁等高噪场景下，也能减少噪音干扰 。新耳机 9 月将和大家见面。 目前， 华为 FreeBuds 7 已通过星闪联盟认证 ，证书编号为 iSLA012026003-0000008，接入模式为星闪 E2.0（支持星闪音频）。根据官方描述，星闪音频物理层传输速率可达 16Mbps，带宽能力超传统技术，充足的通道容量能够承载 48kHz/24bit Hi-Fi 音频无损传输。</p><a href="https://www.ithome.com/0/993/362.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为鸿蒙智家秋季升级：新增 6 类快捷指令操控、智慧生活 App 支持灯具 24 小时未关提醒等</h3><p>IT之家 8 月 24 日消息，华为智慧生活官方今日宣布，鸿蒙智家迎来秋季焕新升级，新增 多款鸿蒙智选新品、6 类快捷指令随心操控、智慧生活 App 支持灯具 24 小时未关提醒 等功能。 据IT之家此前报道，在今年 6 月的华为 nova 16 系列及全场景新品发布会上， 华为终端 BG CEO 何刚发布了新一代华为鸿蒙智家 。据介绍，华为鸿蒙智家连续四年精装房市场占有率第一，而此次新一代鸿蒙智家带来了“1+3+N”解决方案的全新升级： “1”指家庭大脑：计算中枢 | 连接中枢。 “3”指交互方式：包括触控交互（智能中控屏）、语音交互（小艺管家 6.0）、无感交互（传感器）。 “N”指子系统：包括网络、影音娱乐、安防方面，具体覆盖照明、遮阳、用水、能耗、家电、家具家私、冷暖新风等系统。</p><a href="https://www.ithome.com/0/993/351.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Rockstar 向微软和 Discord 发去法庭传票以识别 GTA6 泄密者身份</h3><p>2022 年 9 月一名黑客泄漏了当时尚未宣布的 GTA6 的图片和视频，此事促使开发商 Rockstar Games 加强了安全措施。然而到了 2026 年 8 月游戏还有 3 个月即将发售时，自称 Cyber​​Leek 的个人或组织发布了 GTA6 的一系列新视频，视频显示泄密者手中可能有一个可运行的版本，也就是游戏本体被盗了。彭博社援引知情人士的消息称，Rockstar 尚未确定泄密者身份，也不知道游戏本体是如何泄漏出去的。该公司目前正全力查明泄露源头并追踪泄密者。为了识别泄密者，Rockstar 母公司 Take-Two 的律师正向法院申请传票，要求微软和 Discord 提供信息帮助识别泄密者身份。Take-Two 要求微软在 9 月 4 日前提供信息，要求 Discord 在相同的截止日期前提供 CYBERLEEK、CINEMATICROCKSTAR 和 Surfer24k™ 等账号的信息。</p><a href="https://www.solidot.org/story?sid=85164" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>微软隐藏 OneDrive Photos，但该应用并未删除</h3><p>微软最近被发现悄悄向 Windows 11 用户推送了一款新的照片应用 OneDrive Photos，与 OneDrive 位于同一文件夹内，无法单独卸载。事情曝光之后，微软表示这是一次意外，他们原本无意如此大范围的推送 OneDrive Photos。为了减少对用户的“曝光”，微软在开始菜单应用列表或 Windows 搜索中移除了“OneDrive Photos”，但它本身并没有删除，只是不让用户发现。</p><a href="https://www.solidot.org/story?sid=85159" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>微软调查部分用户在安装 Windows 11 八月安全更新后遭遇游戏崩溃的报告</h3><p>微软正在调查部分用户在安装 Windows 11 八月例行安全更新后遭遇游戏崩溃的报告。根据发布在 Release Health 上的声明，受影响的游戏可能会失去响应、意外关闭、引发“EXCEPTION_ACCESS_VIOLATION”错误或触发设备意外重启。不是所有游戏都受到影响，微软列出的受影响游戏包括了《ARC Raiders》、《MARVEL Tōkon: Fighting Souls》和《The Finals》。微软表示正在调查问题是否由它引起的，它请求受影响用户提供反馈。</p><a href="https://www.solidot.org/story?sid=85158" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>5 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>万兴科技全新推出AI画布工作台</h3><p>近日，AIGC软件A股上市公司万兴科技（300624.SZ） 加码 AI视频创意与品牌营销赛道 ，正式全球发布 TVC（商业电视广告）专业人群 的 AI画布工作台Filmora.TV。 该产品基 于 风靡全球的 视频 创意软件 Wondershare Filmora 全新打造 ，以AI原生工作流 融合 无限画布、脚本与分镜生成、多轨剪辑、团队协同及成片交付 等能力，打通品牌广告从创意预演到后期制作的全链路。同时，万兴科技携手知名茶饮品 牌茶颜 悦色，重磅发布由Filmora.TV赋能创作的新品“冷香凝”品牌视频，展现其在TVC品牌广告场景中的应用能力。 当前，全球广告市场持续扩容。据WARC数据，2024年全球广告市场规模首次突破1 万亿 美元，视频内容已成为品牌营销的重要载体。随着生成式AI加速渗透脚本策划、分镜设计、视觉生成及后期制作等环节，AI视频正从大众内容创作向专业商业生产延伸。TVC及品牌广告因制作投入高、专业要求高、商业价值高，正成为AI视频技术深化应用的重要场景 。 此次新品发布，是万兴科技持续推进AI视频创意业务、拓展专业商业内容生产场景的重要举措。依托 Wondershare Filmora…</p><a href="https://www.leiphone.com/category/industrynews/YsrKuxqEsqebPdN5.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>凯度发布幂境套系与AI智能体“小紫”，厨电竞争从参数转向体验</h3><p>当前的厨电行业正在经历一场静默的转折。 奥维云网数据显示，2025年厨房大电市场规模同比下滑，传统品类进入存量争夺，而蒸烤箱、洗碗机、净饮机等新兴品类的渗透率仍徘徊在个位数。冰火之间，品牌面临一个共同命题：当增量红利消退，靠什么驱动增长？ 8月22日，凯度电器在深圳举行的2026品牌发布会上，试图给出自己的答案。从自研AI智能体“小紫”的实景演示，到幂境全隐嵌套系的正式亮相，这家成立十余年的企业，正在以一套区别于参数竞赛的“紫科技”体系，回应一个更根本的问题，当“堆参数”走到尽头，厨电品牌还能为用户创造什么价值？ 白皮书揭示转折：从“参数定义好”到“感知定义好” 发布会现场，凯度电器联合Kantar凯度咨询发布《2026中国高端新厨电白皮书》。这份报告揭示了一个结构性转折：在蒸烤箱、洗碗机、净饮机、咖啡机四大品类中，消费者决策时最看重的已变为感知维度，传统功率、温度范围等参数指标反而退居末位。…</p><a href="https://www.leiphone.com/category/smarthome/6sQrmL2F02SURvr4.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称 NVIDIA 考虑向 Perplexity AI 投资“数十亿美元”</h3><p>IT之家 8 月 24 日消息，外媒 The Information 稍早前报道称，NVIDIA（英伟达）考虑在 Perplexity AI 的最新融资轮中向这家人工智能初创企业投资“数十亿美元”。双方正就该交易展开磋商， 还可能达成技术授权协议 。 报道指出， Perplexity AI 计划以超过 300 亿美元 （IT之家注：现汇率约合 2,018.73 亿元人民币） 的估值进行新一轮融资 ，这一金额相较 去年 7 月的 180 亿美元 上涨超过六成。 Perplexity AI 估值的显著提升得益于其 Perplexity Computer 工作流自动化智能体的快速发展 。该企业的年化营收规模已从 2026 年初的不到 2.5 亿美元迅速增长至 7.5 亿美元以上。 相关阅读： 《 人工智能企业 Perplexity：无论 Anthropic 与 OpenAI 表现如何，公司计划 2028 年 IPO 》 《 英伟达砸 60 亿美元投资 Poolside，意图打造中国开源 AI 竞争对手 》 《 消息称 NVIDIA 与韩国 AI 芯片企业 Rebellions 展开合作初步讨论 》</p><a href="https://www.ithome.com/0/993/418.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>阿里云视频生成模型 Wan3.0 正式上线，支持单次生成 30 秒视频、文档输入</h3><p>IT之家 8 月 24 日消息，阿里云消息，今天，视频生成模型 Wan3.0 正式上线。官方称，Wan3.0 在生成时长、万能创作、全能参考以及真实世界还原等维度全面升级，单次可生成 30 秒视频，并首次支持 doc、xls、ppt、pdf、md 等文档格式输入，力求准确还原真实世界。 官方称，公测至今的十余天里，Wan3.0 也以天为单位持续进化，在指令遵循、跨镜头一致性、音频质感以及视频编辑等方面有进一步的提升。 今天，Wan3.0 正式上线，用户可在阿里云百炼、万相官网、万镜一刻、千问 AI 平台、千问创作 PC 端、千问 App、堆友和 IF STUDIO 体验。IT之家注意到，480P/720P/1080P 的 API 价格分别为 0.3/0.6/1.2 元 / 秒，8 月 24 日至 9 月 23 日，阿里云百炼和千问 AI 平台开启 API 限时 7 折优惠。 同时，麦芽旗下跳跃视界、Deevid、剧火、京东灵境平台、美图、井萌等也已接入 Wan3.0。</p><a href="https://www.ithome.com/0/993/396.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>摩尔线程发布《MTT S5000 Prefill-as-a-Service 技术白皮书》，破解长上下文推理成本瓶颈</h3><p>IT之家 8 月 24 日消息，摩尔线程正式发布《MTT S5000 Prefill-as-a-Service 技术白皮书》，宣布基于旗舰级 AI 训推一体智算卡 MTT S5000 构建“Prefill As a Service”新范式， 面向 AI Agent、代码生成、超长文档分析等长上下文推理场景 ，为行业提供兼顾推理效率、成本控制与算力变现的可落地路径。 据摩尔线程介绍，随着大模型输入上下文规模快速迈入数百 K 到 1M 级别，长文本输入带来的算力消耗与首字时延压力持续攀升，正日益成为制约企业推理服务效率与总拥有成本（TCO）的关键瓶颈。传统同构集群的算力部署模式，已难以应对不同计算阶段对硬件资源的差异化需求。 核心痛点在于结构性错配：在大模型在线推理中，输入阶段的 Prefill（预填充）属计算密集型任务 ，受浮点算力约束；输出阶段的 Decode（解码）属访存密集型任务 ，受显存带宽约束。 两者在同一物理资源池中混跑，必然导致双向浪费 —— 按 Decode 带宽选型，则 Prefill 的大容量显存长期低效；按 Prefill 算力选型，则 Decode…</p><a href="https://www.ithome.com/0/993/370.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>5 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>浙江人形携 NAVIAI 亮相 2026 世界机器人大会， 一脑多机方案落地多场景</h3><p>2026世界机器人大会（WRC）于8月19日在北京亦创国际会展中心燃情启幕。相较往届，这场全球机器人领域规格最高、规模最大的行业盛会，已从“机器人秀场”进阶为人机共生、产需共融的“实战考场”。 浙江人形机器人创新中心有限公司（下称“浙江人形”）携NAVIAI核心机器人矩阵亮相智创馆C－105展位，集中展示同一技术基座下的产品体系与多场景泛化落地成果。展期吸引多批客户深度洽谈，获行业专家、媒体及观众高度关注。 多场景泛化落地的背后，是SPIRE技术体系对世界模型与具身模型的深度融合：世界模型构建环境认知、预测状态变化，具身模型动态适配、输出精准动作，两者协同让机器人完成从“听懂语义”到“做对动作”的跨越。正是基于这一技术底座，浙江人形在工业、商业、家庭、数采等多场景全面开花。 工业场景中，浙江人形率先跨越“单机演示”阶段，由3台NAVIAI轮臂机器人协同展现任务级全链路集群作业范式，统一拆解装配任务、分配工序，保障0．03毫米级操作精度，完整覆盖拆垛、分拣、搬运、装配全链路。 该方案是在汽车产线、海外工厂等多场景实践的能力复刻，印证了人形机器人从“单机负责单一功能”跃升为“集群重构柔性产线”的产业新可能。…</p><a href="https://www.leiphone.com/category/industrynews/5PmgwJZ7NFR6jvie.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>伽利略全新Galileo X亮相WRC：锚定 “全域移动”，重构陆行具身移动行业逻辑</h3><p>在2026世界机器人大会（WRC2026）现场，伽利略正式发布全新产品Galileo X，推出“陆行具身系统”全新品类。该产品并非现有产品迭代，而是企业从零立项、自主定义，完成全流程研发与工程化验证的原创成果。 长期以来，地面移动机器人行业面临突出的场景适配难题。市面上主流轮式AGV、越野轮履底盘、四足机器人各有所长，但现实业务大多是室内作业、户外长途行进、复杂地形通行交织的复合工况。各类机器人硬件架构互不兼容、控制体系相互割裂，行业只能依靠多台设备搭配完成作业，直接推高采购、运维、项目落地的综合成本。 针对这一行业痛点，Galileo X打破不同移动形态之间的技术藩篱，把轮式高精度转运、车辆级长距离越野、足式高适应性越障三大能力无损集成在同一台本体之上，重构下一代地面移动机器人底层逻辑与产品范式。 AGV、越野车和四足机器人“合三为一” 全球地面移动装备被物理形态分割成三条独立赛道，每类产品都存在能力天花板。传统四足机器人擅长复杂地形越障，但重载、平地效率、作业精度存在短板；轮式AGV室内转运精度高，无法适应户外复杂环境；越野轮履底盘能够长途行驶，却难以翻越台阶、碎石、陡坡等障碍。 Galileo…</p><a href="https://www.leiphone.com/category/robot/bEBmOtCixChK0hrX.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>智身科技亮相2026世界机器人大会，定义&quot;真正干活的机器人&quot;</h3><p>北京，2026年8月19日—23日，2026世界机器人大会（WRC）在北京举行。 本届大会， 智身科技以&quot;真正干活的机器人&quot;为核心定位 ，通过五大展区集中展示从核心关节、整机本体、机械臂到运动控制（小脑）、智能决策（大脑）的全栈技术能力，回答行业之问：机器人什么时候能真正创造社会价值？ 01.展台即现场：从零件到整机，从表演到干活 走进智身科技展台，五大区域构成一条清晰的&quot;干活能力&quot;展示链路。 表演舞台区三大亮点集中呈现：智身银毅NE01人形机器人上演《功夫女足》多机协同舞蹈，单关节峰值扭矩达 180N・m；智身钢镚 L2 四足机器人展示镂空楼梯感控一体通行与 7:1 极限负载自重比。 台面操作演示区，智身科技带来首款行业级可组装教育四足机器人，从通识启蒙、专业实训到工程应用，支撑不同阶段的具身智能教育建设；MATRiX 2.0开放世界仿真训练平台提供手柄虚拟对战体验，打通从虚拟训练到真实部署的链路，现已开源。 地面操作演示区，智身铜锤M1搭载铁臂TA01机械臂展示VLA操作能力，即使智身铜锤M1腿部、本体持续运动时，智身铁臂 TA01…</p><a href="https://www.leiphone.com/category/robot/O75vTRkVrLMfVEON.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称 NVIDIA 考虑向 Perplexity AI 投资“数十亿美元”</h3><p>IT之家 8 月 24 日消息，外媒 The Information 稍早前报道称，NVIDIA（英伟达）考虑在 Perplexity AI 的最新融资轮中向这家人工智能初创企业投资“数十亿美元”。双方正就该交易展开磋商， 还可能达成技术授权协议 。 报道指出， Perplexity AI 计划以超过 300 亿美元 （IT之家注：现汇率约合 2,018.73 亿元人民币） 的估值进行新一轮融资 ，这一金额相较 去年 7 月的 180 亿美元 上涨超过六成。 Perplexity AI 估值的显著提升得益于其 Perplexity Computer 工作流自动化智能体的快速发展 。该企业的年化营收规模已从 2026 年初的不到 2.5 亿美元迅速增长至 7.5 亿美元以上。 相关阅读： 《 人工智能企业 Perplexity：无论 Anthropic 与 OpenAI 表现如何，公司计划 2028 年 IPO 》 《 英伟达砸 60 亿美元投资 Poolside，意图打造中国开源 AI 竞争对手 》 《 消息称 NVIDIA 与韩国 AI 芯片企业 Rebellions 展开合作初步讨论 》</p><a href="https://www.ithome.com/0/993/418.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>联想集团与海尔集团签署战略合作协议，推动联想 AI PC 等与海尔智慧家庭场景融合</h3><p>IT之家 8 月 24 日消息，联想集团与海尔集团上周在北京联想全球总部签署战略合作协议。 随着 AI 加速从技术突破走向产业落地，双方将发挥各自在技术、供应链和产业生态等方面的优势， 推动算力与场景深度融合，共同探索 AI 赋能实体经济高质量发展新路径 。 联想集团董事长兼 CEO 杨元庆，执行副总裁兼中国区总裁刘军；海尔集团董事局主席、首席执行官周云杰，董事局副主席、执行副总裁谭丽霞共同见证签约。联想集团副总裁、中国政企业务群总经理王立平，海尔集团政企事务总经理徐志博分别代表双方签署战略合作协议。 根据协议，双方将以“算力赋能实体、场景反哺技术”为主线，围绕算力基础设施共建、核心技术联合攻关、产业场景共创、供应链双向赋能、行业标准协同共建等领域展开深度合作，打造可复制、可推广的产业合作样板，共同助力数字中国建设与“双碳”目标实现。IT之家附具体合作内容如下： 一是共建数据中心与算力基础设施。 双方将面向用户提供“算-电-冷”端到端一体化解决方案，并在液冷节能、智能运维、边缘计算等前沿技术领域深化合作。 二是深化全球供应链协同。 双方将加强全球供应链能力协同，共享具有成本竞争力的渠道资源，推动降本增效。…</p><a href="https://www.ithome.com/0/993/353.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>4 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>阿里拟配售800亿港元新股，全部投入AI建设；网友造谣「小红书因遭举报上市失败」被行拘；李斌：中国汽车行业三五年后玩家基本确定</h3><p>要闻提示 1.“我们大学硕士不就白读了吗”，上市公司被曝要求应届生离职与“打螺丝”二选一 2.阿里巴巴拟配售800亿港元新股，全部投入AI建设 3.网友造谣“小红书因遭举报上市失败”被行拘 4.李斌：中国汽车行业三五年后玩家基本确定 5.雷军：十车PK，小米SU7 Pro续航CLTC排第四、实测排第一 6.马斯克母亲谈儿子推荐大家来中国：埃隆发自内心喜爱中国，中国人非常智慧 7.董宇辉等主播走后东方甄选扭亏为盈：从亏1.10亿到盈利6.63亿 8.外媒：英伟达搭载人工智能芯片的服务器价格将上涨超15% 今日头条 “我们大学硕士不就白读了吗”，上市公司被曝要求应届生离职与“打螺丝”二选一 8月23日消息，据媒体近日报道，有应届硕士毕业生在上市公司星宇股份管理类岗位入职一个多月后，被公司约谈要求其提交离职申请。同时设置明确条件，离职证明必须标注为“个人原因离职”；如若拒绝主动离职，企业将单方把其调至车间一线操作岗位，即“离职”“打螺丝”二选一。…</p><a href="https://www.leiphone.com/category/zaobao/Vqz97pOeMU2EkowJ.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称 NVIDIA 考虑向 Perplexity AI 投资“数十亿美元”</h3><p>IT之家 8 月 24 日消息，外媒 The Information 稍早前报道称，NVIDIA（英伟达）考虑在 Perplexity AI 的最新融资轮中向这家人工智能初创企业投资“数十亿美元”。双方正就该交易展开磋商， 还可能达成技术授权协议 。 报道指出， Perplexity AI 计划以超过 300 亿美元 （IT之家注：现汇率约合 2,018.73 亿元人民币） 的估值进行新一轮融资 ，这一金额相较 去年 7 月的 180 亿美元 上涨超过六成。 Perplexity AI 估值的显著提升得益于其 Perplexity Computer 工作流自动化智能体的快速发展 。该企业的年化营收规模已从 2026 年初的不到 2.5 亿美元迅速增长至 7.5 亿美元以上。 相关阅读： 《 人工智能企业 Perplexity：无论 Anthropic 与 OpenAI 表现如何，公司计划 2028 年 IPO 》 《 英伟达砸 60 亿美元投资 Poolside，意图打造中国开源 AI 竞争对手 》 《 消息称 NVIDIA 与韩国 AI 芯片企业 Rebellions 展开合作初步讨论 》</p><a href="https://www.ithome.com/0/993/418.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>摩尔线程发布《MTT S5000 Prefill-as-a-Service 技术白皮书》，破解长上下文推理成本瓶颈</h3><p>IT之家 8 月 24 日消息，摩尔线程正式发布《MTT S5000 Prefill-as-a-Service 技术白皮书》，宣布基于旗舰级 AI 训推一体智算卡 MTT S5000 构建“Prefill As a Service”新范式， 面向 AI Agent、代码生成、超长文档分析等长上下文推理场景 ，为行业提供兼顾推理效率、成本控制与算力变现的可落地路径。 据摩尔线程介绍，随着大模型输入上下文规模快速迈入数百 K 到 1M 级别，长文本输入带来的算力消耗与首字时延压力持续攀升，正日益成为制约企业推理服务效率与总拥有成本（TCO）的关键瓶颈。传统同构集群的算力部署模式，已难以应对不同计算阶段对硬件资源的差异化需求。 核心痛点在于结构性错配：在大模型在线推理中，输入阶段的 Prefill（预填充）属计算密集型任务 ，受浮点算力约束；输出阶段的 Decode（解码）属访存密集型任务 ，受显存带宽约束。 两者在同一物理资源池中混跑，必然导致双向浪费 —— 按 Decode 带宽选型，则 Prefill 的大容量显存长期低效；按 Prefill 算力选型，则 Decode…</p><a href="https://www.ithome.com/0/993/370.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>联想集团与海尔集团签署战略合作协议，推动联想 AI PC 等与海尔智慧家庭场景融合</h3><p>IT之家 8 月 24 日消息，联想集团与海尔集团上周在北京联想全球总部签署战略合作协议。 随着 AI 加速从技术突破走向产业落地，双方将发挥各自在技术、供应链和产业生态等方面的优势， 推动算力与场景深度融合，共同探索 AI 赋能实体经济高质量发展新路径 。 联想集团董事长兼 CEO 杨元庆，执行副总裁兼中国区总裁刘军；海尔集团董事局主席、首席执行官周云杰，董事局副主席、执行副总裁谭丽霞共同见证签约。联想集团副总裁、中国政企业务群总经理王立平，海尔集团政企事务总经理徐志博分别代表双方签署战略合作协议。 根据协议，双方将以“算力赋能实体、场景反哺技术”为主线，围绕算力基础设施共建、核心技术联合攻关、产业场景共创、供应链双向赋能、行业标准协同共建等领域展开深度合作，打造可复制、可推广的产业合作样板，共同助力数字中国建设与“双碳”目标实现。IT之家附具体合作内容如下： 一是共建数据中心与算力基础设施。 双方将面向用户提供“算-电-冷”端到端一体化解决方案，并在液冷节能、智能运维、边缘计算等前沿技术领域深化合作。 二是深化全球供应链协同。 双方将加强全球供应链能力协同，共享具有成本竞争力的渠道资源，推动降本增效。…</p><a href="https://www.ithome.com/0/993/353.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>3 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软放宽 Win11 智能应用控制启用限制，无需全新安装系统即可开启</h3><p>IT之家 8 月 24 日消息，想要轻松从电脑中榨取更多性能的 Windows 11 用户，如今不再需要面对微软智能应用控制（Smart App Control）功能最令人头疼的硬性要求之一。 据IT之家了解，智能应用控制是微软随 Windows 11 22H2 推出的 Windows 11 专属安全功能，其利用微软基于云端的智能和代码签名信息，来判断某个应用程序是否应被允许运行，并在不可信或可能有害的软件获得执行机会之前将其拦截。 正是由于这种运作方式，微软此前在智能应用控制显而易见的安全优势之外，还特别强调了它的另一项好处 —— 相比传统杀毒软件，它对系统性能的影响更小。微软解释称，由于智能应用控制会在有害应用运行前将其拦截，因此无需持续扫描活动文件，从而可能减轻电脑的负担。该功能对于入门级或 CPU 性能较弱的系统尤其有帮助。 在很长一段时间里，微软要求智能应用控制必须在全新安装的 Windows 11 上才能启用。这意味着用户无法在现有安装上直接开启该功能。这一情况在今年早些时候发生了变化，微软开始推送一项更新，允许用户无需全新重装 Windows 即可开启或关闭智能应用控制。 这一变化首先出现在微软 2026…</p><a href="https://www.ithome.com/0/993/368.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Rockstar 向微软和 Discord 发去法庭传票以识别 GTA6 泄密者身份</h3><p>2022 年 9 月一名黑客泄漏了当时尚未宣布的 GTA6 的图片和视频，此事促使开发商 Rockstar Games 加强了安全措施。然而到了 2026 年 8 月游戏还有 3 个月即将发售时，自称 Cyber​​Leek 的个人或组织发布了 GTA6 的一系列新视频，视频显示泄密者手中可能有一个可运行的版本，也就是游戏本体被盗了。彭博社援引知情人士的消息称，Rockstar 尚未确定泄密者身份，也不知道游戏本体是如何泄漏出去的。该公司目前正全力查明泄露源头并追踪泄密者。为了识别泄密者，Rockstar 母公司 Take-Two 的律师正向法院申请传票，要求微软和 Discord 提供信息帮助识别泄密者身份。Take-Two 要求微软在 9 月 4 日前提供信息，要求 Discord 在相同的截止日期前提供 CYBERLEEK、CINEMATICROCKSTAR 和 Surfer24k™ 等账号的信息。</p><a href="https://www.solidot.org/story?sid=85164" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>微软调查部分用户在安装 Windows 11 八月安全更新后遭遇游戏崩溃的报告</h3><p>微软正在调查部分用户在安装 Windows 11 八月例行安全更新后遭遇游戏崩溃的报告。根据发布在 Release Health 上的声明，受影响的游戏可能会失去响应、意外关闭、引发“EXCEPTION_ACCESS_VIOLATION”错误或触发设备意外重启。不是所有游戏都受到影响，微软列出的受影响游戏包括了《ARC Raiders》、《MARVEL Tōkon: Fighting Souls》和《The Finals》。微软表示正在调查问题是否由它引起的，它请求受影响用户提供反馈。</p><a href="https://www.solidot.org/story?sid=85158" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>2 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">IT之家</div><h3>荣耀 HONOR Life FlyClip 3i 耳夹耳机开启预售：单耳重约 5.2g、双轨锁音系统，国补价 199.75 元</h3><p>IT之家 8 月 24 日消息，荣耀 HONOR Life FlyClip 3i 耳夹耳机今日官宣开启预售。该耳机单耳重约 5.2g、双轨锁音系统， 定价 235 元、国补后 199.75 元 。 京东 HONOR LIFE FlyClip 3i 耳夹蓝牙耳机 国补后 199.75 元 直达链接 据介绍，荣耀 HONOR Life FlyClip 3i 提供星云紫、幻夜黑、极光银三种配色， 单耳重量 5.2g，机身支持 IP55 级防尘防水标准 ，整体采用“360 度闪耀水滴环”设计，呈现流线型水滴曲面效果。 耳机结构主要由发声球、舒压舱及 C 形环构成，其中 C 形环内部采用 0.5mm 钛丝，外部包裹 TPU 亲肤材质，具备一定的柔韧性。 新耳机搭载 10.8mm 双磁发声单元，并支持 AAC 与 SBC 音频编码格式。 针对开放式耳机的漏音现象，其采用双轨锁音系统，利用定向传音与反向声波抵消技术控制声音外漏 。通话方面，耳机内置 AI 通话降噪算法，能够动态识别并削弱环境噪音，保障复杂环境下的语音拾取清晰度。 荣耀 HONOR Life FlyClip 3i 耳夹耳机提供了 AI…</p><a href="https://www.ithome.com/0/993/399.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>联想来酷 Air 16 酷睿 5 315 开启预约：12GB + 512GB，国补后 3739.15 元</h3><p>IT之家 8 月 24 日消息，联想 (Lenovo) 来酷 (Lecoo) 今日宣布，搭载英特尔酷睿 5 处理器 315 的来酷 Air 16 现已开启预约，8 月 27 日 10:00 发售。 这款 &quot;Wildcat Lake&quot; 轻薄笔记本电脑板载 12GB LPDDR5-5600 内存，拥有 512GB PCIe NVMe SSD，平台补贴价 4399 元，叠加国家补贴后 最终到手价低至 3739.15 元 。 来酷 Air 16（酷睿 5 315）整体呈“凝霜银”配色，拥有一体式铝合金机身和极简防尘底面。其集成 60Wh 电池，标配 65W 氮化镓 (GaN) 电源适配器， 办公续航可达 17.8hr ； 轻约 1.28kg 、薄至 13.3mm。 这款笔电 搭载 1920×1200 60Hz 300nits 屏幕 ，支持 100% sRGB 色域；配套 1.2mm 键程、3 档背光调节键盘；外部提供 2 个全功能 USB-C 5Gbps、1 个 USB-C 5Gbps、1 个 3.5mm 二合一音频插孔， 无 USB-A 。</p><a href="https://www.ithome.com/0/993/376.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><h3>[抓取失败] https://www.qbitai.com/feed</h3><p>Remote end closed connection without response</p></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Mon, 24 Aug 2026 08:39:00 +0800</div><h3>阿里拟配售800亿港元新股，全部投入AI建设；网友造谣「小红书因遭举报上市失败」被行拘；李斌：中国汽车行业三五年后玩家基本确定</h3><p>要闻提示 1.“我们大学硕士不就白读了吗”，上市公司被曝要求应届生离职与“打螺丝”二选一 2.阿里巴巴拟配售800亿港元新股，全部投入AI建设 3.网友造谣“小红书因遭举报上市失败”被行拘 4.李斌：中国汽车行业三五年后玩家基本确定 5.雷军：十车PK，小米SU7 Pro续航CLTC排第四、实测排第一 6.马斯克母亲谈儿子推荐大家来中国：埃隆发自内心喜爱中国，中国人非常智慧 7.董宇辉等主播走后东方甄选扭亏为盈：从亏1.10亿到盈利6.63亿 8.外媒：英伟达搭载人工智能芯片的服务器价格将上涨超15% 今日头条 “我们大学硕士不就白读了吗”，上市公司被曝要求应届生离职与“打螺丝”二选一 8月23日消息，据媒体近日报道，有应届硕士毕业生在上市公司星宇股份管理类岗位入职一个多月后，被公司约谈要求其提交离职申请。同时设置明确条件，离职证明必须标注为“个人原因离职”；如若拒绝主动离职，企业将单方把其调至车间一线操作岗位，即“离职”“打螺丝”二选一。…</p><a href="https://www.leiphone.com/category/zaobao/Vqz97pOeMU2EkowJ.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 24 Aug 2026 03:46:00 +0800</div><h3>万兴科技全新推出AI画布工作台</h3><p>近日，AIGC软件A股上市公司万兴科技（300624.SZ） 加码 AI视频创意与品牌营销赛道 ，正式全球发布 TVC（商业电视广告）专业人群 的 AI画布工作台Filmora.TV。 该产品基 于 风靡全球的 视频 创意软件 Wondershare Filmora 全新打造 ，以AI原生工作流 融合 无限画布、脚本与分镜生成、多轨剪辑、团队协同及成片交付 等能力，打通品牌广告从创意预演到后期制作的全链路。同时，万兴科技携手知名茶饮品 牌茶颜 悦色，重磅发布由Filmora.TV赋能创作的新品“冷香凝”品牌视频，展现其在TVC品牌广告场景中的应用能力。 当前，全球广告市场持续扩容。据WARC数据，2024年全球广告市场规模首次突破1 万亿 美元，视频内容已成为品牌营销的重要载体。随着生成式AI加速渗透脚本策划、分镜设计、视觉生成及后期制作等环节，AI视频正从大众内容创作向专业商业生产延伸。TVC及品牌广告因制作投入高、专业要求高、商业价值高，正成为AI视频技术深化应用的重要场景 。 此次新品发布，是万兴科技持续推进AI视频创意业务、拓展专业商业内容生产场景的重要举措。依托 Wondershare Filmora…</p><a href="https://www.leiphone.com/category/industrynews/YsrKuxqEsqebPdN5.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 23 Aug 2026 22:35:00 +0800</div><h3>凯度发布幂境套系与AI智能体“小紫”，厨电竞争从参数转向体验</h3><p>当前的厨电行业正在经历一场静默的转折。 奥维云网数据显示，2025年厨房大电市场规模同比下滑，传统品类进入存量争夺，而蒸烤箱、洗碗机、净饮机等新兴品类的渗透率仍徘徊在个位数。冰火之间，品牌面临一个共同命题：当增量红利消退，靠什么驱动增长？ 8月22日，凯度电器在深圳举行的2026品牌发布会上，试图给出自己的答案。从自研AI智能体“小紫”的实景演示，到幂境全隐嵌套系的正式亮相，这家成立十余年的企业，正在以一套区别于参数竞赛的“紫科技”体系，回应一个更根本的问题，当“堆参数”走到尽头，厨电品牌还能为用户创造什么价值？ 白皮书揭示转折：从“参数定义好”到“感知定义好” 发布会现场，凯度电器联合Kantar凯度咨询发布《2026中国高端新厨电白皮书》。这份报告揭示了一个结构性转折：在蒸烤箱、洗碗机、净饮机、咖啡机四大品类中，消费者决策时最看重的已变为感知维度，传统功率、温度范围等参数指标反而退居末位。…</p><a href="https://www.leiphone.com/category/smarthome/6sQrmL2F02SURvr4.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 23 Aug 2026 19:19:00 +0800</div><h3>机器人首秀网球场，银河通用突破具身智能「AstraTennis时刻」</h3><p>银河通用用一场真实对抗证明：大脑、小脑与数据闭环正在融合。 作者丨邓哲敏 编辑丨 董子博 8 月 22 日，北京国家速滑馆“冰丝带”，第二届世界人形机器人运动会开幕，中央广播电视总台把镜头切向一片真实的网球场。 一台人形机器人站在场内，对面来球时速超过 50 公里，它几毫秒内判断落点、移动脚步、扭转身体、挥拍——球擦着网带划过去，落在界内。 发球、正手、反手、底线调动、网前截击，一路打下来，没有掉链子。 热身赛双打环节，它和人类队友配合，会补位、会换战术。高速攻防里，它上演了一次极限救球，然后重重摔倒，又自己撑着地面站起来，接着打。 完成全球首次全自主网球对打的人形机器人，来自银河通用。 十年前，AlphaGo 证明了 AI 会想；而如 今， 银河通用 要证明的，是 AI 会做。从会想到会做，人类等了整整十年。 这正是我们（雷峰网）愿意把它看成一个标志性时刻的原因：它刷新了一个单项指标，更把人形机器人第一次推到了思考与行动同时在线的真实赛场上。 银河通用给这个时刻起了个名字： AstraTennis 时刻 。 01 大脑想怎么打， 小脑负责打得漂亮 今天赛场 上 银河通用人形机器人 打网球的…</p><a href="https://www.leiphone.com/category/ai/DtuJryomWlykalLZ.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 23 Aug 2026 17:37:00 +0800</div><h3>浙江人形携 NAVIAI 亮相 2026 世界机器人大会， 一脑多机方案落地多场景</h3><p>2026世界机器人大会（WRC）于8月19日在北京亦创国际会展中心燃情启幕。相较往届，这场全球机器人领域规格最高、规模最大的行业盛会，已从“机器人秀场”进阶为人机共生、产需共融的“实战考场”。 浙江人形机器人创新中心有限公司（下称“浙江人形”）携NAVIAI核心机器人矩阵亮相智创馆C－105展位，集中展示同一技术基座下的产品体系与多场景泛化落地成果。展期吸引多批客户深度洽谈，获行业专家、媒体及观众高度关注。 多场景泛化落地的背后，是SPIRE技术体系对世界模型与具身模型的深度融合：世界模型构建环境认知、预测状态变化，具身模型动态适配、输出精准动作，两者协同让机器人完成从“听懂语义”到“做对动作”的跨越。正是基于这一技术底座，浙江人形在工业、商业、家庭、数采等多场景全面开花。 工业场景中，浙江人形率先跨越“单机演示”阶段，由3台NAVIAI轮臂机器人协同展现任务级全链路集群作业范式，统一拆解装配任务、分配工序，保障0．03毫米级操作精度，完整覆盖拆垛、分拣、搬运、装配全链路。 该方案是在汽车产线、海外工厂等多场景实践的能力复刻，印证了人形机器人从“单机负责单一功能”跃升为“集群重构柔性产线”的产业新可能。…</p><a href="https://www.leiphone.com/category/industrynews/5PmgwJZ7NFR6jvie.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 23 Aug 2026 15:31:00 +0800</div><h3>伽利略全新Galileo X亮相WRC：锚定 “全域移动”，重构陆行具身移动行业逻辑</h3><p>在2026世界机器人大会（WRC2026）现场，伽利略正式发布全新产品Galileo X，推出“陆行具身系统”全新品类。该产品并非现有产品迭代，而是企业从零立项、自主定义，完成全流程研发与工程化验证的原创成果。 长期以来，地面移动机器人行业面临突出的场景适配难题。市面上主流轮式AGV、越野轮履底盘、四足机器人各有所长，但现实业务大多是室内作业、户外长途行进、复杂地形通行交织的复合工况。各类机器人硬件架构互不兼容、控制体系相互割裂，行业只能依靠多台设备搭配完成作业，直接推高采购、运维、项目落地的综合成本。 针对这一行业痛点，Galileo X打破不同移动形态之间的技术藩篱，把轮式高精度转运、车辆级长距离越野、足式高适应性越障三大能力无损集成在同一台本体之上，重构下一代地面移动机器人底层逻辑与产品范式。 AGV、越野车和四足机器人“合三为一” 全球地面移动装备被物理形态分割成三条独立赛道，每类产品都存在能力天花板。传统四足机器人擅长复杂地形越障，但重载、平地效率、作业精度存在短板；轮式AGV室内转运精度高，无法适应户外复杂环境；越野轮履底盘能够长途行驶，却难以翻越台阶、碎石、陡坡等障碍。 Galileo…</p><a href="https://www.leiphone.com/category/robot/bEBmOtCixChK0hrX.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 23 Aug 2026 10:36:00 +0800</div><h3>上纬新材“启元机器人”正式开启预订，个人机器人叩开家庭新消费大门</h3><p>8月23日，上纬新材料科技股份有限公司（下称“上纬新材”）旗下启元机器人，正式开启启元Q1、启元T1双产品预订，用户可通过上纬启元官方小程序、天猫、抖音、B站官方店铺，以及线下体验活动参与预订。预订用户可享受现金优惠、首发限定及专属服务等多重权益。 本次预订，预计首发发货时间为2026年9月。 此次双产品正式开启预订，意味着启元机器人从此前的产品展示、线下体验，进一步迈向大众消费阶段。对于持续探索落地路径的具身智能行业而言，这也标志消费级人形机器人加速走出“样品体验”试点周期，完成从“被体验”到“被购买”的关键跨越，行业正式进入C端商业落地与真实市场验证的关键窗口期，机器人走进家庭的时代加速到来。 告别样品展示时代 启元机器人迎来商业化关键跨越 本次预订释放多重用户权益：用户支付1000元订金即可抵扣2000元购机尾款；购机后30天内，可享受Care保障套装、官方配件及周边产品7折选购权益。预订用户可获得全套首发珍藏礼盒，内含稚晖君亲签信、创始用户收藏卡、首发限定机器人手办，并可优先解锁启元Q1外壳定制权益。此外，预订用户还可额外获赠半年整机质保，享受1V1专属客服优先响应通道。…</p><a href="https://www.leiphone.com/category/robot/0EXwdtr2oaxj5hv0.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 23 Aug 2026 10:00:00 +0800</div><h3>智身科技亮相2026世界机器人大会，定义&quot;真正干活的机器人&quot;</h3><p>北京，2026年8月19日—23日，2026世界机器人大会（WRC）在北京举行。 本届大会， 智身科技以&quot;真正干活的机器人&quot;为核心定位 ，通过五大展区集中展示从核心关节、整机本体、机械臂到运动控制（小脑）、智能决策（大脑）的全栈技术能力，回答行业之问：机器人什么时候能真正创造社会价值？ 01.展台即现场：从零件到整机，从表演到干活 走进智身科技展台，五大区域构成一条清晰的&quot;干活能力&quot;展示链路。 表演舞台区三大亮点集中呈现：智身银毅NE01人形机器人上演《功夫女足》多机协同舞蹈，单关节峰值扭矩达 180N・m；智身钢镚 L2 四足机器人展示镂空楼梯感控一体通行与 7:1 极限负载自重比。 台面操作演示区，智身科技带来首款行业级可组装教育四足机器人，从通识启蒙、专业实训到工程应用，支撑不同阶段的具身智能教育建设；MATRiX 2.0开放世界仿真训练平台提供手柄虚拟对战体验，打通从虚拟训练到真实部署的链路，现已开源。 地面操作演示区，智身铜锤M1搭载铁臂TA01机械臂展示VLA操作能力，即使智身铜锤M1腿部、本体持续运动时，智身铁臂 TA01…</p><a href="https://www.leiphone.com/category/robot/O75vTRkVrLMfVEON.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 22 Aug 2026 20:07:00 +0800</div><h3>工业具身智能的 &quot;最后一公里&quot;，为什么是埃夫特&amp;启智在走？</h3><p>一、90% 的工厂，机器人还进不去 具身智能这两年很热，但热的地方大多不在工厂。 人形机器人在展会上跳舞、倒酒、叠衣服，视频传播量惊人；可一旦走进真实的工业车间，话题就迅速冷下来。原因 很简单， 工业现场不是实验室，它要求机器人在油污、粉尘、温差和来料不一致的环境里，连续、稳定、可核算地干活。而这恰恰是当前具身智能最薄弱的环节。 传统工业机器人其实已经很强了。高速、高精、大负载，在汽车焊装线、3C 装配线上可以做到毫秒级节拍；在防爆、喷涂等特种场景也有成熟方案。但它的强，是 &quot;确定性&quot; 的强 —— 程序写死、轨迹固定、来料一致，一旦条件发生变化，它就无所适从。 这正是问题所在。全球工业机械臂年增量大约五十万台，听起来不少，但放在整个制造业体量里只是一小部分。在汽车和 3C 之外的通用制造领域，工业机器人的渗透率至今不到百分之二十。剩下那八成以上的场景，不是不需要自动化，而是 &quot;用不起&quot;。 这些场景有一个共同特征：多品种、小批量、高度差异化。工件每一批都不太一样，焊缝位置会变，喷涂件的姿态会变，物流分拣的物料种类上百种。传统机器人的应对方式是 ，…</p><a href="https://www.leiphone.com/category/robot/UL2Q8ihgr90Dy85f.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 22 Aug 2026 19:40:00 +0800</div><h3>WRC 2026 风向标：具身智能下半场，比「大脑」更比「账本」</h3><p>展台不再比谁花活多，开始比谁能稳定干满8小时。 作者丨邓哲敏 齐铖湧 编辑丨 齐铖湧 上海 WAIC 结束不到一个月，北京 WRC 2026 接棒开启。 短短几十天，谁也不可能把模型推倒重来。想看到什么颠覆性突破，是不现实的。 所以这篇现场观察不单看 WRC 上的展台花活，AI科技评论（雷峰网公众号）会结合几个月来各家综合表现，看“具身大脑”究竟走到哪一步。 先说首日逛展的最大感受： 和 WAIC 比，场景变化很直观。 做咖啡的变多了（现场能看到无界动力、仙工等，做咖啡/递杯成了高频演示）； 包裹分拣场景继续发力（自变量速度很突出，原力灵机势头很猛，星动纪元仍在深耕）； 办公、零售场景明显增多（后面会写到星海图、银河通用等）。 而最大的一个特点是，专业观众们的注意力，已经从研究本体欣赏 demo，转为考量大脑能不能稳定干活、能不能算过账。 01 在分拣这个兵家必争之地，泛化是硬通货 先来聊聊这届 WRC 上主打展示分拣的厂商。…</p><a href="https://www.leiphone.com/category/ai/rUNBvF7Iq6C3UtyR.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><h3>[解析失败] https://36kr.com/feed</h3><p>not well-formed (invalid token): line 9, column 542</p></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Mon, 24 Aug 2026 03:30:56 GMT</div><h3>消息称 NVIDIA 考虑向 Perplexity AI 投资“数十亿美元”</h3><p>IT之家 8 月 24 日消息，外媒 The Information 稍早前报道称，NVIDIA（英伟达）考虑在 Perplexity AI 的最新融资轮中向这家人工智能初创企业投资“数十亿美元”。双方正就该交易展开磋商， 还可能达成技术授权协议 。 报道指出， Perplexity AI 计划以超过 300 亿美元 （IT之家注：现汇率约合 2,018.73 亿元人民币） 的估值进行新一轮融资 ，这一金额相较 去年 7 月的 180 亿美元 上涨超过六成。 Perplexity AI 估值的显著提升得益于其 Perplexity Computer 工作流自动化智能体的快速发展 。该企业的年化营收规模已从 2026 年初的不到 2.5 亿美元迅速增长至 7.5 亿美元以上。 相关阅读： 《 人工智能企业 Perplexity：无论 Anthropic 与 OpenAI 表现如何，公司计划 2028 年 IPO 》 《 英伟达砸 60 亿美元投资 Poolside，意图打造中国开源 AI 竞争对手 》 《 消息称 NVIDIA 与韩国 AI 芯片企业 Rebellions 展开合作初步讨论 》</p><a href="https://www.ithome.com/0/993/418.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 24 Aug 2026 03:21:24 GMT</div><h3>腾讯发布 2026 年科学探索奖获奖名单：50 位科学家入选，每人获 300 万元自由支配奖金</h3><p>IT之家 8 月 24 日消息，腾讯今日发布了 2026 年科学探索奖获奖名单， 共有 50 位科学家入选 。 IT之家注：科学探索奖于 2018 年设立， 由杨振宁、饶毅、施一公、潘建伟、高文等十余位知名科学家与马化腾共同发起，新基石科学基金会出资 。 科学探索奖面向在中国内地及港澳地区全职工作的青年科技工作者（男性 45 周岁及以下，女性 48 周岁及以下），聚焦基础科学和前沿技术，每年资助不超过 50 人， 每人 300 万元自由支配奖金，分 5 年发放 。 今年，科学探索奖继续在每个资助领域提供 1 个“新星名额”机会，在满足宁缺毋滥的评审原则下，奖励年轻科学家（男性 35 周岁及以下，女性 38 周岁及以下）。 同时，同行评审阶段的国际评审比例提高到 40%，让评价标准进一步与国际接轨。 今年的获奖名单里，不仅有 10 位年轻科学家， 更是诞生了奖项史上第一位“95 后”获奖人 —— 来自前沿交叉领域、北京理工大学的周天贶，获奖时年仅 30 岁。 10 位女性科学家榜上有名，占比 20%， 这是科学探索奖 8 年来女性获奖人数首次达到两位数 。更多女性开始在基础科学和工程技术领域发光发热。 50 位获奖人来自…</p><a href="https://www.ithome.com/0/993/401.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 24 Aug 2026 03:18:50 GMT</div><h3>荣耀 HONOR Life FlyClip 3i 耳夹耳机开启预售：单耳重约 5.2g、双轨锁音系统，国补价 199.75 元</h3><p>IT之家 8 月 24 日消息，荣耀 HONOR Life FlyClip 3i 耳夹耳机今日官宣开启预售。该耳机单耳重约 5.2g、双轨锁音系统， 定价 235 元、国补后 199.75 元 。 京东 HONOR LIFE FlyClip 3i 耳夹蓝牙耳机 国补后 199.75 元 直达链接 据介绍，荣耀 HONOR Life FlyClip 3i 提供星云紫、幻夜黑、极光银三种配色， 单耳重量 5.2g，机身支持 IP55 级防尘防水标准 ，整体采用“360 度闪耀水滴环”设计，呈现流线型水滴曲面效果。 耳机结构主要由发声球、舒压舱及 C 形环构成，其中 C 形环内部采用 0.5mm 钛丝，外部包裹 TPU 亲肤材质，具备一定的柔韧性。 新耳机搭载 10.8mm 双磁发声单元，并支持 AAC 与 SBC 音频编码格式。 针对开放式耳机的漏音现象，其采用双轨锁音系统，利用定向传音与反向声波抵消技术控制声音外漏 。通话方面，耳机内置 AI 通话降噪算法，能够动态识别并削弱环境噪音，保障复杂环境下的语音拾取清晰度。 荣耀 HONOR Life FlyClip 3i 耳夹耳机提供了 AI…</p><a href="https://www.ithome.com/0/993/399.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 24 Aug 2026 03:17:59 GMT</div><h3>阿里云视频生成模型 Wan3.0 正式上线，支持单次生成 30 秒视频、文档输入</h3><p>IT之家 8 月 24 日消息，阿里云消息，今天，视频生成模型 Wan3.0 正式上线。官方称，Wan3.0 在生成时长、万能创作、全能参考以及真实世界还原等维度全面升级，单次可生成 30 秒视频，并首次支持 doc、xls、ppt、pdf、md 等文档格式输入，力求准确还原真实世界。 官方称，公测至今的十余天里，Wan3.0 也以天为单位持续进化，在指令遵循、跨镜头一致性、音频质感以及视频编辑等方面有进一步的提升。 今天，Wan3.0 正式上线，用户可在阿里云百炼、万相官网、万镜一刻、千问 AI 平台、千问创作 PC 端、千问 App、堆友和 IF STUDIO 体验。IT之家注意到，480P/720P/1080P 的 API 价格分别为 0.3/0.6/1.2 元 / 秒，8 月 24 日至 9 月 23 日，阿里云百炼和千问 AI 平台开启 API 限时 7 折优惠。 同时，麦芽旗下跳跃视界、Deevid、剧火、京东灵境平台、美图、井萌等也已接入 Wan3.0。</p><a href="https://www.ithome.com/0/993/396.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 24 Aug 2026 02:40:35 GMT</div><h3>“绝世高手”之“太极宗师”：智元远征 A3 夺得第二届世界人形机器人运动会“武术-太极拳”金牌</h3><p>IT之家 8 月 24 日消息，智元机器人官方微博刚刚发文宣布，智元远征 A3 化身“太极宗师”，夺得第二届世界人形机器人运动会“武术-太极拳”金牌。 目前奖牌总数升至 3 金 3 银 2 铜，居奖牌榜首位 。 据IT之家昨日报道，第二届世界人形机器人运动会正式开赛，智元核心产品精灵 G2、灵犀 X2、远征 A3 悉数参加。在已经完赛的“场景赛”部分项目中， 智元精灵 G2 取得了两金三银两铜的好成绩 。 远征 A3 采用了新一代架构的自研关节 ，总峰值电流 150A，瞬时功率 12kW；机身大幅减重至 55 公斤，综合推重比可达 0.218 kW / kg，宣称与百万超跑相当。 远征 A3 支持空翻、空中漫步，原生适配智元灵创平台，让每个人都能随时随地创造新动作，一键上传下载，共享内容生态；标称续航可达 10 小时，刷新行业纪录；支持 10 秒快速换电，24 小时连续运行。 值得一提的是，今年 6 月，智元远征 A3 官宣成功实现自主打乒乓球，成为全球首个全程自主决策、完成乒乓球对抗的全尺寸双足人形机器人。</p><a href="https://www.ithome.com/0/993/384.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 24 Aug 2026 02:22:48 GMT</div><h3>联想来酷 Air 16 酷睿 5 315 开启预约：12GB + 512GB，国补后 3739.15 元</h3><p>IT之家 8 月 24 日消息，联想 (Lenovo) 来酷 (Lecoo) 今日宣布，搭载英特尔酷睿 5 处理器 315 的来酷 Air 16 现已开启预约，8 月 27 日 10:00 发售。 这款 &quot;Wildcat Lake&quot; 轻薄笔记本电脑板载 12GB LPDDR5-5600 内存，拥有 512GB PCIe NVMe SSD，平台补贴价 4399 元，叠加国家补贴后 最终到手价低至 3739.15 元 。 来酷 Air 16（酷睿 5 315）整体呈“凝霜银”配色，拥有一体式铝合金机身和极简防尘底面。其集成 60Wh 电池，标配 65W 氮化镓 (GaN) 电源适配器， 办公续航可达 17.8hr ； 轻约 1.28kg 、薄至 13.3mm。 这款笔电 搭载 1920×1200 60Hz 300nits 屏幕 ，支持 100% sRGB 色域；配套 1.2mm 键程、3 档背光调节键盘；外部提供 2 个全功能 USB-C 5Gbps、1 个 USB-C 5Gbps、1 个 3.5mm 二合一音频插孔， 无 USB-A 。</p><a href="https://www.ithome.com/0/993/376.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 24 Aug 2026 02:09:11 GMT</div><h3>摩尔线程发布《MTT S5000 Prefill-as-a-Service 技术白皮书》，破解长上下文推理成本瓶颈</h3><p>IT之家 8 月 24 日消息，摩尔线程正式发布《MTT S5000 Prefill-as-a-Service 技术白皮书》，宣布基于旗舰级 AI 训推一体智算卡 MTT S5000 构建“Prefill As a Service”新范式， 面向 AI Agent、代码生成、超长文档分析等长上下文推理场景 ，为行业提供兼顾推理效率、成本控制与算力变现的可落地路径。 据摩尔线程介绍，随着大模型输入上下文规模快速迈入数百 K 到 1M 级别，长文本输入带来的算力消耗与首字时延压力持续攀升，正日益成为制约企业推理服务效率与总拥有成本（TCO）的关键瓶颈。传统同构集群的算力部署模式，已难以应对不同计算阶段对硬件资源的差异化需求。 核心痛点在于结构性错配：在大模型在线推理中，输入阶段的 Prefill（预填充）属计算密集型任务 ，受浮点算力约束；输出阶段的 Decode（解码）属访存密集型任务 ，受显存带宽约束。 两者在同一物理资源池中混跑，必然导致双向浪费 —— 按 Decode 带宽选型，则 Prefill 的大容量显存长期低效；按 Prefill 算力选型，则 Decode…</p><a href="https://www.ithome.com/0/993/370.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 24 Aug 2026 02:08:12 GMT</div><h3>微软放宽 Win11 智能应用控制启用限制，无需全新安装系统即可开启</h3><p>IT之家 8 月 24 日消息，想要轻松从电脑中榨取更多性能的 Windows 11 用户，如今不再需要面对微软智能应用控制（Smart App Control）功能最令人头疼的硬性要求之一。 据IT之家了解，智能应用控制是微软随 Windows 11 22H2 推出的 Windows 11 专属安全功能，其利用微软基于云端的智能和代码签名信息，来判断某个应用程序是否应被允许运行，并在不可信或可能有害的软件获得执行机会之前将其拦截。 正是由于这种运作方式，微软此前在智能应用控制显而易见的安全优势之外，还特别强调了它的另一项好处 —— 相比传统杀毒软件，它对系统性能的影响更小。微软解释称，由于智能应用控制会在有害应用运行前将其拦截，因此无需持续扫描活动文件，从而可能减轻电脑的负担。该功能对于入门级或 CPU 性能较弱的系统尤其有帮助。 在很长一段时间里，微软要求智能应用控制必须在全新安装的 Windows 11 上才能启用。这意味着用户无法在现有安装上直接开启该功能。这一情况在今年早些时候发生了变化，微软开始推送一项更新，允许用户无需全新重装 Windows 即可开启或关闭智能应用控制。 这一变化首先出现在微软 2026…</p><a href="https://www.ithome.com/0/993/368.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 24 Aug 2026 01:43:02 GMT</div><h3>填补国产空白：东南大学手术机器人具备接近人手的精细力觉感知能力，跨越 2400 公里成功完成 3 例手术</h3><p>IT之家 8 月 24 日消息，东南大学 8 月 23 日宣布，由东南大学宋爱国教授牵头的国家重点研发计划项目取得重大临床突破。 学校联合企业共同研发的 力交互腔镜手术机器人 ，在郑州大学第一附属医院与新疆医科大学第一附属医院泌尿外科团队的密切协同下，成功完成两例肾部分切除术与 1 例前列腺癌根治术。 东南大学官方表示，此次临床试验充分验证了力反馈技术在腔镜手术机器人超远距离远程手术场景下的稳定性、操作精准度与实时响应能力。 团队针对腹腔镜手术器械操作空间狭小、力觉感知要求高的特点，基于电阻应变原理自主研发了新型结构的三维力手术提拉力传感器和夹持力传感器，攻克了小型手术器械内集成多维力感知的难题。这套小型化、高精度、低耦合多维力传感器， 让手术机器人具备了接近人手的精细力觉感知能力，填补了国产腔镜机器人力感知领域的技术空白 。 在此基础上，团队进一步 攻克了 力反馈控制技术与力觉临场感遥操作关键技术 ，相关成果已通过型式检验和多轮动物实验。 临床试验中，主刀医生坐于控制台前，借助荧光影像系统将患者体内组织放大 10 至 20 倍，远隔 2,400…</p><a href="https://www.ithome.com/0/993/363.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 24 Aug 2026 01:35:28 GMT</div><h3>全新华为 FreeBuds 7 悦彰耳机官宣今日开启预售：半入耳主动降噪、4 色可选</h3><p>IT之家 8 月 24 日消息，华为终端刚刚宣布，全新华为 FreeBuds 7 悦彰耳机 将在 8 月 24 日 10:08 正式开启预售 ，主打半入耳主动降噪。 据IT之家今日早些时候报道， 华为终端 BG CEO 何刚正式官宣了 FreeBuds 7 悦彰耳机 。该耳机作为一款半入耳式耳机，单只耳机轻至 4.3g，主动降噪能力全面升级， 即使在机舱、地铁等高噪场景下，也能减少噪音干扰 。新耳机 9 月将和大家见面。 目前， 华为 FreeBuds 7 已通过星闪联盟认证 ，证书编号为 iSLA012026003-0000008，接入模式为星闪 E2.0（支持星闪音频）。根据官方描述，星闪音频物理层传输速率可达 16Mbps，带宽能力超传统技术，充足的通道容量能够承载 48kHz/24bit Hi-Fi 音频无损传输。</p><a href="https://www.ithome.com/0/993/362.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 24 Aug 2026 01:08:58 GMT</div><h3>联想集团与海尔集团签署战略合作协议，推动联想 AI PC 等与海尔智慧家庭场景融合</h3><p>IT之家 8 月 24 日消息，联想集团与海尔集团上周在北京联想全球总部签署战略合作协议。 随着 AI 加速从技术突破走向产业落地，双方将发挥各自在技术、供应链和产业生态等方面的优势， 推动算力与场景深度融合，共同探索 AI 赋能实体经济高质量发展新路径 。 联想集团董事长兼 CEO 杨元庆，执行副总裁兼中国区总裁刘军；海尔集团董事局主席、首席执行官周云杰，董事局副主席、执行副总裁谭丽霞共同见证签约。联想集团副总裁、中国政企业务群总经理王立平，海尔集团政企事务总经理徐志博分别代表双方签署战略合作协议。 根据协议，双方将以“算力赋能实体、场景反哺技术”为主线，围绕算力基础设施共建、核心技术联合攻关、产业场景共创、供应链双向赋能、行业标准协同共建等领域展开深度合作，打造可复制、可推广的产业合作样板，共同助力数字中国建设与“双碳”目标实现。IT之家附具体合作内容如下： 一是共建数据中心与算力基础设施。 双方将面向用户提供“算-电-冷”端到端一体化解决方案，并在液冷节能、智能运维、边缘计算等前沿技术领域深化合作。 二是深化全球供应链协同。 双方将加强全球供应链能力协同，共享具有成本竞争力的渠道资源，推动降本增效。…</p><a href="https://www.ithome.com/0/993/353.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 24 Aug 2026 01:04:50 GMT</div><h3>华为鸿蒙智家秋季升级：新增 6 类快捷指令操控、智慧生活 App 支持灯具 24 小时未关提醒等</h3><p>IT之家 8 月 24 日消息，华为智慧生活官方今日宣布，鸿蒙智家迎来秋季焕新升级，新增 多款鸿蒙智选新品、6 类快捷指令随心操控、智慧生活 App 支持灯具 24 小时未关提醒 等功能。 据IT之家此前报道，在今年 6 月的华为 nova 16 系列及全场景新品发布会上， 华为终端 BG CEO 何刚发布了新一代华为鸿蒙智家 。据介绍，华为鸿蒙智家连续四年精装房市场占有率第一，而此次新一代鸿蒙智家带来了“1+3+N”解决方案的全新升级： “1”指家庭大脑：计算中枢 | 连接中枢。 “3”指交互方式：包括触控交互（智能中控屏）、语音交互（小艺管家 6.0）、无感交互（传感器）。 “N”指子系统：包括网络、影音娱乐、安防方面，具体覆盖照明、遮阳、用水、能耗、家电、家具家私、冷暖新风等系统。</p><a href="https://www.ithome.com/0/993/351.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sun, 23 Aug 2026 23:48:05 +0800</div><h3>机器人短跑超越人类，但刹住是问题</h3><p>为期五天的世界人形机器人运动会于周六在北京开幕。运动会共设 51 个项目，包括 30 项体育竞技和 21 项场景化竞赛。超过 40% 的项目要求机器人完全自主运行。在 8 月 22 日的首日赛事中，两台机器人跑出了比人类百米世界纪录(9.58秒)保持者博尔特(Usain Bolt)更快的成绩，相比去年百米短跑仍然耗时 20 秒以上的机器人，可谓进步巨大。另一台机器人则在 400 米短跑中实现了 39.7 秒的成绩，超越了南非运动员 Wayde van Niekerk 43.03 秒的世界纪录。不过，在冲过终点线后，这些机器人的制动能力依然存在很大缺陷。现场画面显示，机器人纷纷撞向十几米开外的巨大软垫，然后跌倒在地，多台机器人翻倒后甚至出现了明显损坏。这次运动会还设置了在模拟工厂、餐厅、办公室及紧急情况场景下测试机器人性能的比赛项目。比如人形机器人能否在处理包装和仓储作业的同时，可靠地完成诸如线缆连接等精密任务？它们能否应对角度不当的线缆、刚好够不到的物体、发生位移的包裹等工厂中常见的困难？这些任务旨在评估它们在那些不那么引人注目的岗位上像人类一样工作的能力。</p><a href="https://www.solidot.org/story?sid=85169" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 22 Aug 2026 23:30:51 +0800</div><h3>Rockstar 向微软和 Discord 发去法庭传票以识别 GTA6 泄密者身份</h3><p>2022 年 9 月一名黑客泄漏了当时尚未宣布的 GTA6 的图片和视频，此事促使开发商 Rockstar Games 加强了安全措施。然而到了 2026 年 8 月游戏还有 3 个月即将发售时，自称 Cyber​​Leek 的个人或组织发布了 GTA6 的一系列新视频，视频显示泄密者手中可能有一个可运行的版本，也就是游戏本体被盗了。彭博社援引知情人士的消息称，Rockstar 尚未确定泄密者身份，也不知道游戏本体是如何泄漏出去的。该公司目前正全力查明泄露源头并追踪泄密者。为了识别泄密者，Rockstar 母公司 Take-Two 的律师正向法院申请传票，要求微软和 Discord 提供信息帮助识别泄密者身份。Take-Two 要求微软在 9 月 4 日前提供信息，要求 Discord 在相同的截止日期前提供 CYBERLEEK、CINEMATICROCKSTAR 和 Surfer24k™ 等账号的信息。</p><a href="https://www.solidot.org/story?sid=85164" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 21 Aug 2026 18:08:10 +0800</div><h3>微软隐藏 OneDrive Photos，但该应用并未删除</h3><p>微软最近被发现悄悄向 Windows 11 用户推送了一款新的照片应用 OneDrive Photos，与 OneDrive 位于同一文件夹内，无法单独卸载。事情曝光之后，微软表示这是一次意外，他们原本无意如此大范围的推送 OneDrive Photos。为了减少对用户的“曝光”，微软在开始菜单应用列表或 Windows 搜索中移除了“OneDrive Photos”，但它本身并没有删除，只是不让用户发现。</p><a href="https://www.solidot.org/story?sid=85159" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 21 Aug 2026 16:37:03 +0800</div><h3>微软调查部分用户在安装 Windows 11 八月安全更新后遭遇游戏崩溃的报告</h3><p>微软正在调查部分用户在安装 Windows 11 八月例行安全更新后遭遇游戏崩溃的报告。根据发布在 Release Health 上的声明，受影响的游戏可能会失去响应、意外关闭、引发“EXCEPTION_ACCESS_VIOLATION”错误或触发设备意外重启。不是所有游戏都受到影响，微软列出的受影响游戏包括了《ARC Raiders》、《MARVEL Tōkon: Fighting Souls》和《The Finals》。微软表示正在调查问题是否由它引起的，它请求受影响用户提供反馈。</p><a href="https://www.solidot.org/story?sid=85158" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      <section class="section-card" id="errors"><div class="section-head"><h2>抓取异常</h2><span>不影响当期页面生成</span></div><ul class="error-list"><li class="error-item"><strong>量子位</strong><span>[抓取失败] https://www.qbitai.com/feed</span><em>Remote end closed connection without response</em></li><li class="error-item"><strong>36氪</strong><span>[解析失败] https://36kr.com/feed</span><em>not well-formed (invalid token): line 9, column 542</em></li></ul></section>
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>
