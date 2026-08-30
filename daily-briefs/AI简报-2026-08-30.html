@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-08-30</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a><a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      <a class="toc-link" href="#errors">抓取异常</a>
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-08-30</span>
+          <span>16:28（北京时间）</span>
+          <span>IT之家、Solidot、量子位、雷锋网</span>
+        </div>
+        <p class="hero-copy">今日AI领域动态密集：Anthropic发布MHS协议统一AI与物理世界接口，并披露Claude自主训练AI及AI制药突破；OpenAI自研推理芯片Jalapeño跑分公开，引发GPU推理路线讨论；华为云在数博会展示AI-Ready数据基础设施；机器人领域聚焦类脑计算与能耗问题，特斯拉或整合Grok Bot入车。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>34</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>4</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>1</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>16</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>10</strong></div><p>基础设施的效率叙事持续升温</p><small>IT之家、雷锋网</small></article><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>9</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>9</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>6</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>6</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>IT之家、Solidot</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>3</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>量子位</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>大模型应用与智能体加速落地</h3><p>Anthropic推出MHS协议，将MCP逻辑延伸至物理世界，新药研发实验速度提升3倍；Claude开始自主训练AI，成本远低于人类研究员；港股AGI第一股Agent业务半年进账近5亿，Token收入Q2暴涨500%。</p></article><article class="insight-card"><h3>芯片与推理路线竞争加剧</h3><p>OpenAI自研推理芯片Jalapeño公开跑分，Token成本成为硬件竞争新坐标；Sora因compute消耗过大在内部资源取舍中让位于Codex；Claude Code额度回落引发对Agent生成代码质量的讨论。</p></article><article class="insight-card"><h3>云与生态合作深化</h3><p>华为云在数博会展示AI-Ready数据基础设施全链路能力；蚂蚁健康与威科集团合作，将JCO等28本医学顶刊上线阿福医生版；阿里推出Qoder，降低编程门槛。</p></article><article class="insight-card"><h3>机器人领域关注能耗与智能</h3><p>WRC2026上专家质疑现有计算方式能否支撑未来人形机器人部署，类脑计算从感知切入；纽娲机器人等研究实现视频学习开门穿越；支付宝在上海落地机器人租赁体验店。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>Anthropic MHS协议可能推动AI与物理世界交互标准化，影响机器人、自动驾驶等领域。</li><li>OpenAI Jalapeño芯片跑分公开，可能加剧推理芯片市场竞争，降低Token成本。</li><li>AI制药领域，Anthropic成果引发市场对算法价值的重估，相关公司股价波动。</li><li>华为云数据基础设施方案或加速企业AI落地，提升数据要素市场化效率。</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>Anthropic MHS协议后续应用案例及行业采纳情况</li><li>OpenAI Jalapeño芯片量产进度及对GPU市场影响</li><li>Claude Code额度调整及Agent代码质量争议发展</li><li>特斯拉Grok Bot整合车机系统的正式发布</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>16 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>Claude开始训练Claude！4美元一小时，跑赢150美元人类研究员</h3><a href="https://www.qbitai.com/2026/08/481223.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>刚刚，港股AGI第一股杀疯了！Agent业务半年进账近5亿，Token收入Q2暴涨500%</h3><a href="https://www.qbitai.com/2026/08/480600.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从Data到Agent：华为云AI-Ready数据基础设施全链路能力亮相数博会</h3><p>8月28日，在2026中国国际大数据产业博览会期间，以“从数据到Agent，数据价值链的重构与创新”为主题的数据要素大会在贵阳举办。政府机构、头部大数据集团、行业企业及专家学者齐聚一堂，围绕数据要素市场化配置、高质量数据集建设、可信数据空间以及AI时代的数据基础设施创新展开探讨。 当大模型和Agent加速进入千行万业，一个根本性变化正在发生：大模型和Agent成为新的数据消费者。数据消费主体的变化，正在推动大数据平台从传统湖仓向多模态湖仓、数据智能体演进，也对AI时代的数据基础设施提出了全新要求。 从 Data 到 Agent ，重构 AI 时代数据价值链 “数据是AI的核心燃料，AI驱动数据价值释放。”会上，华为混合云总裁顾雪军指出，随着AI产业迈入Agentic智能体时代，数据已成为驱动AI模型进化、驱动智能体生长的核心燃料。华为云Stack面向国计民生行业客户，打造了一套覆盖数据全生命周期的数据能力体系，帮助企业把过去分散、沉淀的全量数据真正用起来、用得好、用出价值，推动数据从资源转变为生产力。 华为混合云总裁 顾雪军…</p><a href="https://www.leiphone.com/category/industrynews/5HSY98yO7OtW5EGw.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Anthropic 再定统一标准：MHS，打通 AI 与物理世界的统一接口</h3><p>MHS把一场新药研发实验速度提升3倍。 作者丨高允毅 编辑丨岑 峰 这是Anthropic第二次发布全行业统一协议。 第一次，它发布了 MCP ，它统一了 AI 代理调用外部工具、数据源与 API 的方式，如今满世界的 Agent 都靠它连数据库、接浏览器、调 API。这一次，它把完全相同的逻辑延伸到了物理世界， Agent可以和不同的物理设备之间对话了。 这是一套面向物理设备的 AI 代理接口标准，叫 Model Hardware Standard（MHS） ，此次发布的是预览版本，已经在全球顶尖实验室的显微镜、机械臂和量子计算机上使用起来了。 它解决的，是整个科研与工业领域头痛了二十年的问题：硬件接口碎片化。 01 二十年未破的困局： 标准追不上硬件的多样性 这是一个所有实验室从业者都心照不宣的困境。 在一间自动化实验室里，成像相机可能基于 Python 开发，探测器运行在 MATLAB 环境中，电生理设备采用 C# 架构，而机械臂、共聚焦显微镜、移液工作站更是各有各的专属驱动、私有数据格式和封闭控制软件。多数情况下，哪怕是相邻的两台仪器，都无法感知彼此的运行状态。 如果研究人员想实现…</p><a href="https://www.leiphone.com/category/yanxishe/N12vFHlsL2JrdKYR.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Anthropic、Moderna先后引爆舆论场，AI制药到底该奖励什么？</h3><p>算法只是一小部分，但市场仍愿意为算法加价。 作者丨 周蕾 编辑丨 岑峰 上周，两条AI制药新闻在24小时之内，先后引燃了舆论场： 先是Anthropic发布早期药物研发成果：依托Claude大模型，他们几乎在无人工干预的情况下，自主设计出14个临床靶点的蛋白结合剂，全部实验数据公开，所合作的外部平台Twist Bioscience股价单日飙升22%。 次日，全球mRNA巨头Moderna与默沙东联合宣布，其个性化mRNA癌症疫苗intesmeran autogene在针对高危黑色素瘤的全球III期临床试验中达到主要终点，Moderna因此单日内股价翻倍。 也有媒体直接将这一新闻定义为“人类历史上第一次用AI治愈癌症”，引来大量关注。 其实，无论是Anthropic的药物研发，还是Moderna的mRNA癌症疫苗，距离“AI自主科研”“治愈癌症”这些宏大的目标，还有相当长的路要走。AI在这两个案例中的真实角色，或许也没有人们想象中的那么“神”。 在市场炒作的情绪逐步升高之时，有一个问题更值得我们冷静追问： “AI制药”这个概念里，什么在升值，什么在贬值？算法，还是整件事里最值钱的部分吗？ 01 两件事里，…</p><a href="https://www.leiphone.com/category/aihealth/rJaUKQDWe0u0pfDt.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>首家“碰一下”机器人租赁体验店落地上海徐家汇！支付宝“碰一下”解锁机器人互动与租赁新体验</h3><p>只需手机“碰一下”，就能租借机器人，甚至让它跳舞表演？ 8月28日，全国首家“碰一下”机器人租赁体验店在上海徐汇区新六百YOUNG商场焕新开业。该店由宇树科技核心生态伙伴具深科技旗下品牌“机时租”接入支付宝“碰一下”能力打造，实现线下机器人“碰一下”快捷租赁，并支持“碰一下”唤醒AI智能体操控机器人动作。活动当日，普通市民可实现零门槛沉浸式感受“一碰即控”的机器人互动乐趣。 开业当天，“机时租”联合支付宝发起 “碰一下”机器人痛楼答题闯关活动。顾客在商场内找到部署好的多台宇树机器人，用手机“碰一下”参与答题挑战，每通过一关就有机会获得操控机器狗的体验奖励，三关全过还能解锁隐藏福利，到店观看机器人群舞表演。 市民刘先生体验过后兴奋表示：“在机时租具身智能体验店的体验感拉满了！碰一下支付后就能指挥它做动作，感觉自己跟机器人的距离拉近了！”另据店内工作人员介绍，消费者体验结束，还能用支付宝“碰一下”直接完成支付，把心仪的机器人租回家。 据悉，支付宝“碰一下”已于今年7月完成AI升级，目前覆盖4亿用户、2300余家生态服务商、超3000万线下AI触点，构建起了全球首个大规模线下AI经营网络。…</p><a href="https://www.leiphone.com/category/industrynews/gE5Am1JMBQG2AjNJ.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Jalapeño 跑分炸场，GPU 推理路线开始分裂？</h3><p>Token 成本成为大模型硬件竞争的新坐标。 作者丨 郑佳美 编辑丨岑 峰 今天，OpenAI 的自研推理芯片 Jalapeño，终于从规格表走到了跑分台。 这次公开的数据很接地气：Token 吞吐、生成延迟、单位功耗下能跑多少推理。因为大模型上线以后，芯片面对的早就不只是一次训练任务。ChatGPT 要一直回消息，Reasoning 模型要持续生成长链路内容，Agent 还会一轮接一轮调用模型。算力再高，Token 吐得慢、延迟压不下来、功耗又高，数据中心照样难受。 成绩一出来，Reddit 很快就把 Jalapeño 和 NVIDIA Rubin 摆到了一起。有人认为它已经进入 Rubin 的效率区间，也有人认为测试条件、软件优化和整个平台形态没有对齐，现在还没法直接分高下。争论暂时停在这里，没有统一答案。 更巧的是，Jalapeño 并不是孤例。NVIDIA 正在把 Groq 3 LPU 拉进推理系统，专门处理 Token 生成；Google 也把 TPU 8 拆成偏训练和偏推理的两条路线。几家公司几乎在同一时间开始重新拆芯片的工作，背后那套硬件逻辑难道真的已经变了吗？ 01 Jalapeño 在看 Token…</p><a href="https://www.leiphone.com/category/ai/B0TkvWHMs5AJIym6.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Sora 为什么输给 Codex？</h3><p>GPU 时间能否被复用，开始决定产品的扩张速度。 作者丨 郑佳美 编辑丨岑 峰 8 月 23 日，奥特曼在 David Senra 的播客中谈到 OpenAI 内部的资源取舍时主动提到了 Sora。 他说得很直接：Sora 本身是个好产品，继续做下去也能成为一门不错的生意，但它实在太吃 compute，同一时期，Codex 的优先级更高，于是算力和团队投入开始往 Codex 倾斜。 但有趣的是，Codex 其实也一点都不省 GPU。Sora 生成一段视频，要让巨大的时空 latent 经过多轮 Transformer 计算；Codex 接到一句“把这个 bug 修掉”，后台则可能连续跑很多轮推理、读代码、调用工具、跑测试，再带着新的日志和上下文回来继续推理。 一个把算力压在单次视频生成里，另一个则是把算力摊进一条可能持续几十分钟甚至更久的 Agent 工作流里。于是，Sora 和 Codex 真正拉开差距的地方开始落到机房内部。 同样是一批 GPU，为什么视频生成的 compute 更难被摊开，而 Coding Agent 却能通过 KV cache、continuous batching、prefill /…</p><a href="https://www.leiphone.com/category/ai/aolA6aSnqLoYTm3d.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Claude Code 额度回落：Agent 正在制造新的「祖传代码屎山」？</h3><p>代码确实是 Agent 写的，只是后来的 Agent 已经不知道前面的 Agent 为什么这么写了。 作者丨 郑佳美 编辑丨岑 峰 Claude Code 原定于 8 月 19 日结束的 +50% 周额度加成，又被 Anthropic 延长到了 8 月 31 日。也就在原定截止日前后，Hacker News 上出现了一轮关于 Claude Code 使用成本的讨论： 不少人发现，一个并不复杂的任务，Agent 跑上几轮，额度就会掉得很快。 问题在于，Claude Code 消耗的并不只是最后生成的那几行代码。读文件、搜调用链、跑测试、处理日志，每一步都会继续进入后面的上下文。任务越长，Agent 背着的历史越重，系统也越依赖清理和压缩。 代码可以完整留在仓库里，早期的设计理由却可能在压缩中逐渐变薄。 于是 Token 消耗和代码屎山开始在同一个地方汇合。 01 修个小 Bug，为何需要几十次推理？ 普通 Chat coding 的计算边界很清楚。输入一段代码，模型读完以后给出解释或者修改方案，这一轮基本结束。雷峰网 而 Claude Code 的基本单元换成了 agent…</p><a href="https://www.leiphone.com/category/ai/5weAutjetefMob2a.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>特斯拉车机系统有望接入 Grok Bot，打造移动 AI 工作站</h3><p>IT之家 8 月 30 日消息，特斯拉正不断将旗下电动汽车打造成为“车轮上的联网生产力中心”。继近期推出 Grok Bot 后，特斯拉似乎正在准备将 SpaceXAI 最新的自主智能体平台直接整合进车内。 这一线索最早出现在 X 平台。一名用户询问，未来司机是否可以直接坐在车内管理自己的 Grok Bot 智能体，并查看后台任务的执行情况。SpaceXAI 的 Grok Voice and Chat 工程师 Louise Giam（@LouiseGiam）随后直接回复了一句预告（现已删除）：“敬请期待。” Grok 最初于去年通过 2025.26 软件更新在美国特斯拉车型上正式亮相。随后几个月，这款聊天机器人迅速扩展至北美、欧洲和亚洲市场。此后，特斯拉持续为 Grok 增加新功能，并进一步扩大其对车内系统的访问权限，包括支持通过自然语言发出导航指令，以及设置基于位置的提醒。 在 2026 年夏季更新中，特斯拉又进一步加深了 Grok 与车辆系统之间的整合。用户现在可以通过自然语言指令，让 Grok 控制空调等核心车辆功能，甚至切换车辆“设置”菜单中的各种开关。 而这些可能只是开始。埃隆 ·…</p><a href="https://www.ithome.com/0/996/169.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>R 星确认：《GTA 6》发售时不会有微交易和生成式 AI</h3><p>IT之家 8 月 30 日消息，Rockstar Games 表示，《侠盗猎车手 6》（GTA 6）在今年 11 月发售时不会加入微交易或生成式 AI。 本周早些时候，《GTA 6》开发团队在接受 Kinda Funny Games 采访时确认，这款备受期待的开放世界大作将避开这两种可能引发争议的做法。这意味着游戏在发售后的几个月里，至少不会因为这两个话题引发玩家的争议。 Kinda Funny 主持人 Andy Cortez 表示，他在《GTA 6》“Extended Look”特别节目播出前的一场试玩活动中，曾向 Rockstar 询问玩家能否使用现实货币购买游戏内物品。他随后透露，Rockstar 给出的回答是：“这款游戏没有任何货币化内容。” 该网站另一位主持人 Greg Miller 紧接着谈到了生成式 AI。他表示，自己曾“直截了当地”询问 Rockstar，《GTA 6》中是否使用了生成式 AI。开发团队告诉他，游戏中“没有使用 AI”。 对于等待下一款《GTA》游戏长达 13 年的数百万玩家来说，Rockstar 确认《GTA 6》不会因为生成式 AI 问题影响其 11…</p><a href="https://www.ithome.com/0/996/132.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>日均峰值 11.3 起：报告称 2026 年已记录 1664 起 AI 失控事件，7 月环比增 93.76%</h3><p>IT之家 8 月 30 日消息，英国长期韧性中心（CLTR）于 8 月 28 日发布报告， 称其“失控观察站”在 2026 年 7 月共记录 306 起 AI 安全事件，比 6 月（158 起）增涨 93.67%。 “失控观察站”成立于 2026 年 2 月，获英国人工智能安全研究所资助，借助开源情报追踪 AI 系统违背操作者意图的案例。 报告列举的案例包括：智能体在对话中插入伪造用户消息以模拟同意、仿照用户写作风格编造删除源代码目录的指令、伪造“人工必须批准”规则下的授权信息并执行任务。 CLTR 表示，多数记录事件尚未导致重大伤害，但呈现出无视直接指令、规避防护、误导用户或以单一目标驱动有害操作等特征。 截至 2026 年 8 月 9 日，该观察站已识别 1664 起现实世界 AI 失控事件。 截至 8 月 7 日的 30 天内，观察站记录 338 起事件，日均 11.3 起，超过 2026 年 3 月创下的日均 10.5 起此前峰值。 IT之家附上参考地址 Insight report: AI loss of control incidents are worsening</p><a href="https://www.ithome.com/0/996/124.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称百度智能云分拆平台产品事业部：MaaS 划入基础设施、Agent 独立成军</h3><p>IT之家 8 月 30 日消息，据《晚点 LatePost》8 月 29 日报道，百度智能云近日完成一轮产研组织调整。原平台产品事业部更名为 智能体事业部 ，其下 MaaS 业务、千帆品牌及与 MaaS 相关的产品体系转入 基础设施事业部 ，数据平台部更名为数据智能部，转入由原应用产品事业部更名而来的 智能应用事业部 。 调整后，百度智能云的三个事业部分别由侯震宇、殷大伟和阮瑜负责：侯震宇负责基础设施事业部，管理 AI Infra 和 Agent Infra；殷大伟负责智能体事业部，聚焦 Agent 产品如百度搭子、秒哒和伐谋；阮瑜负责智能应用事业部，管理百度一见、Hogee、胜算以及交通、金融等行业应用。 报道称，三人均直接向百度集团执行副总裁、智能云事业群总裁沈抖汇报。 IT之家注意到，百度本月发布 2026 年第二季度财报，季度总营收 313 亿元；百度一般性业务收入 252 亿元， 其中 AI 业务收入占比 50%，已连续两季占比过半 。本季度，AI 云基础设施中 GPU 云同比增长 283%，连续四个季度实现三位数增长。公司管理层表示，将继续加大 AI 领域投入，推动公司从互联网公司向 AI-first…</p><a href="https://www.ithome.com/0/996/123.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>预估为 GPT-6 AI 模型：OpenAI Astra 首批演示样本流出，1 次交互生成类 GTA 2 游戏</h3><p>IT之家 8 月 30 日消息，科技媒体 testingcatalog 昨日（8 月 29 日）发布博文，报道称 OpenAI 正加快 Astra 模型发布进程， 新增 mozaik-alpha-fdm 测试阶段，从而扩大内部测试范围。 IT之家注：Astra 是 OpenAI 內部正在开发的新一代 AI 模型系列，代号延续其天体命名传统（Sol、Terra、Luna 之后），拉丁语意为“星辰”。 据《The Information》等报道，Astra 在数学、物理、生物、医学、化学与网络安全等领域展现重大突破，甚至据称已解决多个长期未解的高阶数学难题。 截至目前（2026 年 8 月），Astra 尚未确认为“GPT-6”，但多方媒体与业界爆料普遍认为 Astra 很可能就是外界所称的 GPT-6，或至少是 GPT-6 的候选名称之一，参数规模可能会达到 10 万亿。 根据网友分享的测试内容，Astra 模型重点提升代码编写和可视化软件创建，仅 1 次对话交互，就成功就制作出了类似《侠盗猎车手 2》（GTA 2）的游戏，以及精细的网站、3D 对象和体素环境。…</p><a href="https://www.ithome.com/0/996/120.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Debian 项目将允许以负责任的方式使用生成式 AI</h3><p>Debian 项目对是否允许使用 AI 进行了投票表决，投票采用孔多塞投票法，共有 9 个选项，最终结果是第 5 选项“负责任的使用生成式 AI”获胜。Debian 项目表示，它既不反对也不支持在软件、包、文档等的开发和维护中使用生成式 AI 工具。但项目也认识到，如果能负责任的使用 AI 工具，将能显著提高贡献者的效率，使他们将有限的时间投入到需要技术专长、判断力、审核和协作的工作中。无论是否使用生成式 AI 工具，Debian 项目希望提交的内容都符合相同的质量、正确性、可维护性和法律合规性标准。使用生成式 AI 工具不会减少责任。对于提交的内容，贡献者应理解、审核、测试 AI 辅助生成的输出，在适当情况下进行修改。未经适当人工审查就盲目接受或上传 AI 生成的材料，不符合 Debian 既定的开发实践。Debian 鼓励贡献者披露其贡献是否使用 AI 辅助，但不强制要求。Debian 承认，生成式 AI 系统生成的材料的法律地位在许多司法管辖区存在争议，包括训练材料的版权、作者身份、许可和潜在复制问题。Debian 项目不寻求通过本一般决议解决这些悬而未决的法律问题，也不就 AI…</p><a href="https://www.solidot.org/story?sid=85229" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>一名微软工程师一个月的 AI 支出高达 2.8 万美元</h3><p>在长时间鼓励之后，本月初微软开始要求员工限制 AI 使用。执行副总裁 Jay Parikh 在一封发给微软员工的邮件中要求工程师专注于业务成果，而非最大化 AI token 的使用量，为了“从 token 投资中获得更大的价值”，微软将比 Anthropic 模型更便宜的 OpenAI GPT-5.6 设为内部使用的默认模型。根据一份微软员工自愿提交的 AI 使用费账单：Customer and Partner Solutions 部门的一名员工在 28 天内的 AI 支出高达 2.8 万美元；多名员工支出超过 1 万美元；中位数约为每 28 天 300 美元，少数部门的 AI 支出仅仅为几十美元；CoreAI 部门的 AI 支出中位数最高为 975 美元。</p><a href="https://www.solidot.org/story?sid=85216" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>10 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>WRC2026 | 别急着给机器人更强「大脑」，先补上更省电的神经系统</h3><p>类脑计算正从感知和低层控制切入机器人。 作者丨 魏溶 编辑丨 岑峰 “如果未来全球真的部署10亿至100亿台高度依赖AI的人形机器人，今天这套计算方式，还供得起电吗？” 德国慕尼黑工业大学教授Alois Knoll 在2026世界机器人大会“类脑智算，让机器人学会自主决策”圆桌会议开场时提出了这个问题。 过去讨论计算中心，人们习惯谈千万亿次浮点运算、百亿亿次浮点运算；如今，随着AI基础设施不断扩张，数据中心的建设规模越来越多地与吉瓦级电力联系在一起，算力的度量衡，正在从“百亿亿次浮点运算（Exaflops）”变成“吉瓦级功耗（Gigawatts）”。 当AI进一步从数据中心进入实体世界，能源问题还会被继续放大。Knoll判断，如果人形机器人未来真的走向十亿级部署，沿用当前高功耗计算模式，累计能源需求可能变得难以承受。 产业因此需要寻找传统计算架构之外的其他可能性，神经形态计算便是其中之一。 Alois Knoll 教授在开场时曾回顾了这段历史：从百年前的神经元观察，到欧洲“人类大脑计划”中被架构师 Steve Furber 戏称为“智能水平大约等同于五只老鼠”的早期类脑系统，再到如今试图接管数十亿人形机器人的运动中枢，…</p><a href="https://www.leiphone.com/category/iot/wSd8yNXuuYwSg9hp.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Jalapeño 跑分炸场，GPU 推理路线开始分裂？</h3><p>Token 成本成为大模型硬件竞争的新坐标。 作者丨 郑佳美 编辑丨岑 峰 今天，OpenAI 的自研推理芯片 Jalapeño，终于从规格表走到了跑分台。 这次公开的数据很接地气：Token 吞吐、生成延迟、单位功耗下能跑多少推理。因为大模型上线以后，芯片面对的早就不只是一次训练任务。ChatGPT 要一直回消息，Reasoning 模型要持续生成长链路内容，Agent 还会一轮接一轮调用模型。算力再高，Token 吐得慢、延迟压不下来、功耗又高，数据中心照样难受。 成绩一出来，Reddit 很快就把 Jalapeño 和 NVIDIA Rubin 摆到了一起。有人认为它已经进入 Rubin 的效率区间，也有人认为测试条件、软件优化和整个平台形态没有对齐，现在还没法直接分高下。争论暂时停在这里，没有统一答案。 更巧的是，Jalapeño 并不是孤例。NVIDIA 正在把 Groq 3 LPU 拉进推理系统，专门处理 Token 生成；Google 也把 TPU 8 拆成偏训练和偏推理的两条路线。几家公司几乎在同一时间开始重新拆芯片的工作，背后那套硬件逻辑难道真的已经变了吗？ 01 Jalapeño 在看 Token…</p><a href="https://www.leiphone.com/category/ai/B0TkvWHMs5AJIym6.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Sora 为什么输给 Codex？</h3><p>GPU 时间能否被复用，开始决定产品的扩张速度。 作者丨 郑佳美 编辑丨岑 峰 8 月 23 日，奥特曼在 David Senra 的播客中谈到 OpenAI 内部的资源取舍时主动提到了 Sora。 他说得很直接：Sora 本身是个好产品，继续做下去也能成为一门不错的生意，但它实在太吃 compute，同一时期，Codex 的优先级更高，于是算力和团队投入开始往 Codex 倾斜。 但有趣的是，Codex 其实也一点都不省 GPU。Sora 生成一段视频，要让巨大的时空 latent 经过多轮 Transformer 计算；Codex 接到一句“把这个 bug 修掉”，后台则可能连续跑很多轮推理、读代码、调用工具、跑测试，再带着新的日志和上下文回来继续推理。 一个把算力压在单次视频生成里，另一个则是把算力摊进一条可能持续几十分钟甚至更久的 Agent 工作流里。于是，Sora 和 Codex 真正拉开差距的地方开始落到机房内部。 同样是一批 GPU，为什么视频生成的 compute 更难被摊开，而 Coding Agent 却能通过 KV cache、continuous batching、prefill /…</p><a href="https://www.leiphone.com/category/ai/aolA6aSnqLoYTm3d.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Claude Code 额度回落：Agent 正在制造新的「祖传代码屎山」？</h3><p>代码确实是 Agent 写的，只是后来的 Agent 已经不知道前面的 Agent 为什么这么写了。 作者丨 郑佳美 编辑丨岑 峰 Claude Code 原定于 8 月 19 日结束的 +50% 周额度加成，又被 Anthropic 延长到了 8 月 31 日。也就在原定截止日前后，Hacker News 上出现了一轮关于 Claude Code 使用成本的讨论： 不少人发现，一个并不复杂的任务，Agent 跑上几轮，额度就会掉得很快。 问题在于，Claude Code 消耗的并不只是最后生成的那几行代码。读文件、搜调用链、跑测试、处理日志，每一步都会继续进入后面的上下文。任务越长，Agent 背着的历史越重，系统也越依赖清理和压缩。 代码可以完整留在仓库里，早期的设计理由却可能在压缩中逐渐变薄。 于是 Token 消耗和代码屎山开始在同一个地方汇合。 01 修个小 Bug，为何需要几十次推理？ 普通 Chat coding 的计算边界很清楚。输入一段代码，模型读完以后给出解释或者修改方案，这一轮基本结束。雷峰网 而 Claude Code 的基本单元换成了 agent…</p><a href="https://www.leiphone.com/category/ai/5weAutjetefMob2a.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>机械革命翼龙 15 Air 2026 笔记本锐龙 7 H 449 版发布：RTX 5060，国补到手价 9999 元</h3><p>IT之家 8 月 30 日消息，机械革命今日发布了新款翼龙 15 Air 2026 笔记本，搭载锐龙 7 H 449 处理器，日常价 13999 元、首发价 11499 元、 国补到手价 9999 元 。 这款笔记本电脑将于 9 月 4 日开始预约， 9 月 10 日开售 ，有云涧白、云杉青两种配色可选，配备 24GB LPDDR5X 双通道内存和 1TB PCIe 4.0 固态。 这款新品搭载 RTX 5060 笔记本电脑 GPU，采用双风扇 + 后出风散热系统，双烤功耗 170W（CPU 单烤 85W、GPU 单烤 115W）。 IT之家获悉，这款笔记本电脑重约 1.6kg，厚约 18.75mm；搭载了一块 15.3 英寸防眩光 OLED 电竞屏，2.5K 分辨率、240Hz 刷新率、色域覆盖 100% DC-P3、出厂校色色准 ΔE</p><a href="https://www.ithome.com/0/996/186.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华擎发布 B550M Pro-A WiFi 6E 主板：AMD AM4 平台、8 相供电</h3><p>IT之家 8 月 30 日消息，华擎近日低调发布 B550M Pro-A WiFi 6E 主板。新品适配 AMD AM4 平台，版型为 Micro-ATX。 据介绍，这款主板本质上是 B550M Pro-A 的升级版本， 主要新增 Wi-Fi 6E 无线网络模块 。 规格方面， 这款主板支持锐龙 3000、4000G、5000 和 5000G 系列处理器 ，采用 8 相供电设计， 配备 4 个 DDR4 DIMM 插槽 。 同时，这款主板提供 1 个 PCIe 4.0 x16、1 个 PCIe 3.0 x16 以及 2 个 PCIe 3.0 x1 插槽。拥有 2 个 M.2 硬盘插槽，其中一个支持 PCIe 4.0 x4，同时提供 4 个 SATA 6Gb/s 接口。 此外，这款主板还的官方建议零售价暂未公布，但科技媒体 TechPower Up 预测其价格约为 90 美元 （IT之家注：现汇率约合 607.1 元人民币） 。</p><a href="https://www.ithome.com/0/996/185.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>日企 Links 推出 LC7530 迷你主机：锐龙 5 7530U 芯片、16GB LPDDR4 内存</h3><p>IT之家 8 月 30 日消息，日本企业 Links 现已推出 LC7530 迷你主机，新品定位中低端，搭载相对老旧的 AMD 处理器。 据介绍，这款迷你主机的尺寸是 12.8*12.8*4.13 cm，重量约 610g，整体较为紧凑。 搭载 2023 年发布的 AMD 锐龙 5 7530U 处理器 ，采用 Zen 3 架构、6 核心 12 线程设计，最高加速频率可达 4.5GHz。 规格方面，该机搭载 16GB LPDDR4-3200 内存，无法自行升级。拥有 Radeon RX Vega 7 核显，带有 7 个计算单元，可以游玩一些硬件要求不高的游戏。 此外，这款迷你主机配备 2 个 USB 3.2 Gen 2、4 个 USB 3.2 Gen 1 Type-A、1 个 USB-C（10Gbps）、HDMI 2.0、DP 1.4、千兆以太网等接口，并带有 512GB 固态硬盘，定价 9.5 万日元 （IT之家注：现汇率约合 4,008 元人民币） 。</p><a href="https://www.ithome.com/0/996/167.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>硅谷知名风投 a16z 成立新基金：筹集 11 亿美元，布局芯片、内存与机器人赛道</h3><p>IT之家 8 月 30 日消息，据科技媒体 TechCrunch 前天报道，美国硅谷知名风险投资公司安德里森 · 霍罗威茨（Andreessen Horowitz，又名 a16z）近日推出“机器时代”（Machine Age）新基金， 筹集资金达 11 亿美元 （IT之家注：现汇率约合 74.21 亿元人民币） 。 据悉，这支新基金将重点关注硬件领域，与 a16z 过去更加关注的软件赛道有所不同。该公司表示， 该基金的投资范围涵盖计算芯片、内存、数据中心和机器人等多个领域 。 a16z 对此表示：“我们需要更快、更高效的系统。也需要更便宜、带宽更高的内存，互联方案也需要与之配合升级。当然这一切的基础还是散热、材料、电力等基础设施。” a16z 由马克 · 安德森和本 · 霍洛维茨创立于 2009 年。该机构管理资产规模超过 900 亿美元 （现汇率约合 6,071.33 亿元人民币） ，投资覆盖从种子期到成长期的科技企业。</p><a href="https://www.ithome.com/0/996/136.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称百度智能云分拆平台产品事业部：MaaS 划入基础设施、Agent 独立成军</h3><p>IT之家 8 月 30 日消息，据《晚点 LatePost》8 月 29 日报道，百度智能云近日完成一轮产研组织调整。原平台产品事业部更名为 智能体事业部 ，其下 MaaS 业务、千帆品牌及与 MaaS 相关的产品体系转入 基础设施事业部 ，数据平台部更名为数据智能部，转入由原应用产品事业部更名而来的 智能应用事业部 。 调整后，百度智能云的三个事业部分别由侯震宇、殷大伟和阮瑜负责：侯震宇负责基础设施事业部，管理 AI Infra 和 Agent Infra；殷大伟负责智能体事业部，聚焦 Agent 产品如百度搭子、秒哒和伐谋；阮瑜负责智能应用事业部，管理百度一见、Hogee、胜算以及交通、金融等行业应用。 报道称，三人均直接向百度集团执行副总裁、智能云事业群总裁沈抖汇报。 IT之家注意到，百度本月发布 2026 年第二季度财报，季度总营收 313 亿元；百度一般性业务收入 252 亿元， 其中 AI 业务收入占比 50%，已连续两季占比过半 。本季度，AI 云基础设施中 GPU 云同比增长 283%，连续四个季度实现三位数增长。公司管理层表示，将继续加大 AI 领域投入，推动公司从互联网公司向 AI-first…</p><a href="https://www.ithome.com/0/996/123.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>MNT Station 迷你电脑开启众筹：0.96L 机身、32GB 内存、RK3588 芯片</h3><p>IT之家 8 月 30 日消息，科技媒体 NotebookCheck 昨日（8 月 29 日）发布博文， 报道称德国 MNT Research 在 Crowd Supply 上线 MNT Station 迷你电脑众筹项目。 外观方面，该迷你电脑采用阳极氧化、喷砂处理的 CNC 铝合金机箱，尺寸为 279×133×26mm、体积 0.96L、重量 0.68kg，可平放、竖放，也兼容 75×75mm 和 100×100mm VESA 挂载规格。IT之家发稿前已成功筹集 9,099 美元 （IT之家注：现汇率约合 61,381 元人民币） 。 性能与可升级性依赖 MNT Reform Mainboard 3.0 的 200 针处理器模块接口。用户可选 Raspberry Pi CM4、NXP LS1028A 或 Rockchip RK3588 V2 模块。 其中 RK3588 V2 提供 16GB 以及最高 32GB 内存选项，RK3588 采用 4 个 Cortex-A76 与 4 个 Cortex-A55 核心及 Mali-G610 MP4 GPU。 芯片方面，该迷你电脑搭载瑞芯微（Rockchip）的 RK3588…</p><a href="https://www.ithome.com/0/996/113.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>9 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>Coding不再是程序员专属！阿里Qoder这波有点绝</h3><a href="https://www.qbitai.com/2026/08/480940.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从Data到Agent：华为云AI-Ready数据基础设施全链路能力亮相数博会</h3><p>8月28日，在2026中国国际大数据产业博览会期间，以“从数据到Agent，数据价值链的重构与创新”为主题的数据要素大会在贵阳举办。政府机构、头部大数据集团、行业企业及专家学者齐聚一堂，围绕数据要素市场化配置、高质量数据集建设、可信数据空间以及AI时代的数据基础设施创新展开探讨。 当大模型和Agent加速进入千行万业，一个根本性变化正在发生：大模型和Agent成为新的数据消费者。数据消费主体的变化，正在推动大数据平台从传统湖仓向多模态湖仓、数据智能体演进，也对AI时代的数据基础设施提出了全新要求。 从 Data 到 Agent ，重构 AI 时代数据价值链 “数据是AI的核心燃料，AI驱动数据价值释放。”会上，华为混合云总裁顾雪军指出，随着AI产业迈入Agentic智能体时代，数据已成为驱动AI模型进化、驱动智能体生长的核心燃料。华为云Stack面向国计民生行业客户，打造了一套覆盖数据全生命周期的数据能力体系，帮助企业把过去分散、沉淀的全量数据真正用起来、用得好、用出价值，推动数据从资源转变为生产力。 华为混合云总裁 顾雪军…</p><a href="https://www.leiphone.com/category/industrynews/5HSY98yO7OtW5EGw.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>威科集团与蚂蚁健康达成战略合作，JCO等28本医学顶刊上线阿福医生版</h3><p>从海外到中国，全球临床医生正加速将AI工具融入日常工作流。为切实帮医生减负提效、辅助诊疗，8月28日，蚂蚁健康宣布与全球领先的临床信息和决策支持解决方案提供商威科集团（Wolters Kluwer）（以下简称“威科”）达成战略合作。双方将通过整合威科的权威医学内容与蚂蚁阿福的AI技术和平台能力，为全国数百万医生提供即时、可信赖、基于循证的临床洞见。 作为双方合作的首期成果，威科旗下28本具备行业标杆意义的顶尖医学期刊即日起入驻阿福医生版，为全国医生提供可信赖的文献。这28本期刊覆盖17个二级学科，囊括引领全球肿瘤学研究方向的《临床肿瘤学杂志》（Journal of Clinical Oncology）、外科领域引用率最高的《外科年鉴》（Annals of Surgery）等权威刊物，且内容更新与全球保持同步，确保医生能第一时间获取国际前沿医学证据。 威科旗下多本医学期刊上线阿福医生版…</p><a href="https://www.leiphone.com/category/aihealth/KTUmk96pCdHsO4R5.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Jalapeño 跑分炸场，GPU 推理路线开始分裂？</h3><p>Token 成本成为大模型硬件竞争的新坐标。 作者丨 郑佳美 编辑丨岑 峰 今天，OpenAI 的自研推理芯片 Jalapeño，终于从规格表走到了跑分台。 这次公开的数据很接地气：Token 吞吐、生成延迟、单位功耗下能跑多少推理。因为大模型上线以后，芯片面对的早就不只是一次训练任务。ChatGPT 要一直回消息，Reasoning 模型要持续生成长链路内容，Agent 还会一轮接一轮调用模型。算力再高，Token 吐得慢、延迟压不下来、功耗又高，数据中心照样难受。 成绩一出来，Reddit 很快就把 Jalapeño 和 NVIDIA Rubin 摆到了一起。有人认为它已经进入 Rubin 的效率区间，也有人认为测试条件、软件优化和整个平台形态没有对齐，现在还没法直接分高下。争论暂时停在这里，没有统一答案。 更巧的是，Jalapeño 并不是孤例。NVIDIA 正在把 Groq 3 LPU 拉进推理系统，专门处理 Token 生成；Google 也把 TPU 8 拆成偏训练和偏推理的两条路线。几家公司几乎在同一时间开始重新拆芯片的工作，背后那套硬件逻辑难道真的已经变了吗？ 01 Jalapeño 在看 Token…</p><a href="https://www.leiphone.com/category/ai/B0TkvWHMs5AJIym6.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>因缺少 MTE 安全功能，GrapheneOS 当前阶段放弃适配谷歌 Pixel 11 系列手机</h3><p>IT之家 8 月 30 日消息，GrapheneOS（石墨烯 OS）开发团队今天在 X 平台宣布，由于谷歌 Pixel 11 系列手机缺少 MTE（Arm 内存标记扩展）安全功能，他们当前不得不放弃 Pixel 11 的 GrapheneOS 适配工作。 官方表示，他们经过一周的工作后完成了 Pixel 11 系列 GrapheneOS 初步移植。但由于该系列机型的软件、固件和硬件缺乏 MTE 支持， 他们无法继续进行移植工作 。团队认为，谷歌是为了节省成本才取消该安全功能。 GrapheneOS 操作系统高度依赖 MTE 功能，涵盖内核以及所有标准基础系统进程，只有少数特定于设备的进程会暂时禁用 MTE。该功能可大幅提升系统对几乎所有远程漏洞利用，以及大量本地漏洞利用的防护能力。 作为参考，谷歌 Pixel 8 从 2023 年 10 月上市时就支持 MTE，随后 GrapheneOS 选择将其集成在自己的 hardened_malloc 项目，并于当月晚些时候开始在整个系统使用 MTE。作为对比，Android 和 Pixel OS 从未默认启用过 MTE，Android 16…</p><a href="https://www.ithome.com/0/996/177.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称百度智能云分拆平台产品事业部：MaaS 划入基础设施、Agent 独立成军</h3><p>IT之家 8 月 30 日消息，据《晚点 LatePost》8 月 29 日报道，百度智能云近日完成一轮产研组织调整。原平台产品事业部更名为 智能体事业部 ，其下 MaaS 业务、千帆品牌及与 MaaS 相关的产品体系转入 基础设施事业部 ，数据平台部更名为数据智能部，转入由原应用产品事业部更名而来的 智能应用事业部 。 调整后，百度智能云的三个事业部分别由侯震宇、殷大伟和阮瑜负责：侯震宇负责基础设施事业部，管理 AI Infra 和 Agent Infra；殷大伟负责智能体事业部，聚焦 Agent 产品如百度搭子、秒哒和伐谋；阮瑜负责智能应用事业部，管理百度一见、Hogee、胜算以及交通、金融等行业应用。 报道称，三人均直接向百度集团执行副总裁、智能云事业群总裁沈抖汇报。 IT之家注意到，百度本月发布 2026 年第二季度财报，季度总营收 313 亿元；百度一般性业务收入 252 亿元， 其中 AI 业务收入占比 50%，已连续两季占比过半 。本季度，AI 云基础设施中 GPU 云同比增长 283%，连续四个季度实现三位数增长。公司管理层表示，将继续加大 AI 领域投入，推动公司从互联网公司向 AI-first…</p><a href="https://www.ithome.com/0/996/123.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Google 要求 Android 应用开发商降低内存占用</h3><p>由于 AI 热导致内存短缺，无论是 PC 还是智能手机，都面临内存价格太昂贵而不得不减少内存容量的问题，PC 行业时隔多年再次推出了 8GB 内存 PC，智能手机厂商也面临相同问题。对此 Google 采取了应对措施，要求Android 应用开发商优化代码降低内存占用。Google 说，移动行业面临改变设备内存可用性的严重硬件供应限制，进而影响到用户使用体验。Google 增加了代码优化要求，防止应用运行缓慢和崩溃等与性能相关的问题。应用开发商需要在 2027 年 2 月前满足内存使用要求。</p><a href="https://www.solidot.org/story?sid=85218" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>一名微软工程师一个月的 AI 支出高达 2.8 万美元</h3><p>在长时间鼓励之后，本月初微软开始要求员工限制 AI 使用。执行副总裁 Jay Parikh 在一封发给微软员工的邮件中要求工程师专注于业务成果，而非最大化 AI token 的使用量，为了“从 token 投资中获得更大的价值”，微软将比 Anthropic 模型更便宜的 OpenAI GPT-5.6 设为内部使用的默认模型。根据一份微软员工自愿提交的 AI 使用费账单：Customer and Partner Solutions 部门的一名员工在 28 天内的 AI 支出高达 2.8 万美元；多名员工支出超过 1 万美元；中位数约为每 28 天 300 美元，少数部门的 AI 支出仅仅为几十美元；CoreAI 部门的 AI 支出中位数最高为 975 美元。</p><a href="https://www.solidot.org/story?sid=85216" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Meta将支付 170 亿美元和解儿童隐私保护诉讼，将限制青少年在特定时间访问社媒</h3><p>Meta 与美国多州就儿童隐私和消费者保护案达成和解，同意向各州支付总额将近 167 亿美元和解金，以及对青少年用户施加一系列社媒使用限制，包括每天不能使用超过两小时。最具深远影响的和解条款是 Meta 同意实施一系列新的保障措施。这些措施将对面向青少年的社媒运作方式起到实质改变。其中一项变更将启用“夜间屏蔽”功能：在默认设置情况下，从午夜至凌晨6时，青少年将无法访问 Facebook 和 Instagram。此外青少年账户在 Meta 旗下所有社媒的每日累计使用时长，默认上限为两小时。</p><a href="https://www.solidot.org/story?sid=85215" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>9 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从Data到Agent：华为云AI-Ready数据基础设施全链路能力亮相数博会</h3><p>8月28日，在2026中国国际大数据产业博览会期间，以“从数据到Agent，数据价值链的重构与创新”为主题的数据要素大会在贵阳举办。政府机构、头部大数据集团、行业企业及专家学者齐聚一堂，围绕数据要素市场化配置、高质量数据集建设、可信数据空间以及AI时代的数据基础设施创新展开探讨。 当大模型和Agent加速进入千行万业，一个根本性变化正在发生：大模型和Agent成为新的数据消费者。数据消费主体的变化，正在推动大数据平台从传统湖仓向多模态湖仓、数据智能体演进，也对AI时代的数据基础设施提出了全新要求。 从 Data 到 Agent ，重构 AI 时代数据价值链 “数据是AI的核心燃料，AI驱动数据价值释放。”会上，华为混合云总裁顾雪军指出，随着AI产业迈入Agentic智能体时代，数据已成为驱动AI模型进化、驱动智能体生长的核心燃料。华为云Stack面向国计民生行业客户，打造了一套覆盖数据全生命周期的数据能力体系，帮助企业把过去分散、沉淀的全量数据真正用起来、用得好、用出价值，推动数据从资源转变为生产力。 华为混合云总裁 顾雪军…</p><a href="https://www.leiphone.com/category/industrynews/5HSY98yO7OtW5EGw.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>WRC2026 | 别急着给机器人更强「大脑」，先补上更省电的神经系统</h3><p>类脑计算正从感知和低层控制切入机器人。 作者丨 魏溶 编辑丨 岑峰 “如果未来全球真的部署10亿至100亿台高度依赖AI的人形机器人，今天这套计算方式，还供得起电吗？” 德国慕尼黑工业大学教授Alois Knoll 在2026世界机器人大会“类脑智算，让机器人学会自主决策”圆桌会议开场时提出了这个问题。 过去讨论计算中心，人们习惯谈千万亿次浮点运算、百亿亿次浮点运算；如今，随着AI基础设施不断扩张，数据中心的建设规模越来越多地与吉瓦级电力联系在一起，算力的度量衡，正在从“百亿亿次浮点运算（Exaflops）”变成“吉瓦级功耗（Gigawatts）”。 当AI进一步从数据中心进入实体世界，能源问题还会被继续放大。Knoll判断，如果人形机器人未来真的走向十亿级部署，沿用当前高功耗计算模式，累计能源需求可能变得难以承受。 产业因此需要寻找传统计算架构之外的其他可能性，神经形态计算便是其中之一。 Alois Knoll 教授在开场时曾回顾了这段历史：从百年前的神经元观察，到欧洲“人类大脑计划”中被架构师 Steve Furber 戏称为“智能水平大约等同于五只老鼠”的早期类脑系统，再到如今试图接管数十亿人形机器人的运动中枢，…</p><a href="https://www.leiphone.com/category/iot/wSd8yNXuuYwSg9hp.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Anthropic、Moderna先后引爆舆论场，AI制药到底该奖励什么？</h3><p>算法只是一小部分，但市场仍愿意为算法加价。 作者丨 周蕾 编辑丨 岑峰 上周，两条AI制药新闻在24小时之内，先后引燃了舆论场： 先是Anthropic发布早期药物研发成果：依托Claude大模型，他们几乎在无人工干预的情况下，自主设计出14个临床靶点的蛋白结合剂，全部实验数据公开，所合作的外部平台Twist Bioscience股价单日飙升22%。 次日，全球mRNA巨头Moderna与默沙东联合宣布，其个性化mRNA癌症疫苗intesmeran autogene在针对高危黑色素瘤的全球III期临床试验中达到主要终点，Moderna因此单日内股价翻倍。 也有媒体直接将这一新闻定义为“人类历史上第一次用AI治愈癌症”，引来大量关注。 其实，无论是Anthropic的药物研发，还是Moderna的mRNA癌症疫苗，距离“AI自主科研”“治愈癌症”这些宏大的目标，还有相当长的路要走。AI在这两个案例中的真实角色，或许也没有人们想象中的那么“神”。 在市场炒作的情绪逐步升高之时，有一个问题更值得我们冷静追问： “AI制药”这个概念里，什么在升值，什么在贬值？算法，还是整件事里最值钱的部分吗？ 01 两件事里，…</p><a href="https://www.leiphone.com/category/aihealth/rJaUKQDWe0u0pfDt.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>威科集团与蚂蚁健康达成战略合作，JCO等28本医学顶刊上线阿福医生版</h3><p>从海外到中国，全球临床医生正加速将AI工具融入日常工作流。为切实帮医生减负提效、辅助诊疗，8月28日，蚂蚁健康宣布与全球领先的临床信息和决策支持解决方案提供商威科集团（Wolters Kluwer）（以下简称“威科”）达成战略合作。双方将通过整合威科的权威医学内容与蚂蚁阿福的AI技术和平台能力，为全国数百万医生提供即时、可信赖、基于循证的临床洞见。 作为双方合作的首期成果，威科旗下28本具备行业标杆意义的顶尖医学期刊即日起入驻阿福医生版，为全国医生提供可信赖的文献。这28本期刊覆盖17个二级学科，囊括引领全球肿瘤学研究方向的《临床肿瘤学杂志》（Journal of Clinical Oncology）、外科领域引用率最高的《外科年鉴》（Annals of Surgery）等权威刊物，且内容更新与全球保持同步，确保医生能第一时间获取国际前沿医学证据。 威科旗下多本医学期刊上线阿福医生版…</p><a href="https://www.leiphone.com/category/aihealth/KTUmk96pCdHsO4R5.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>全球仅 3 家能铸：马斯克 SpaceX 突破 AI 供电瓶颈，自产涡轮叶片提前 18 个月投运</h3><p>IT之家 8 月 30 日消息，全球首富埃隆 · 马斯克（Elon Musk）今天（8 月 30 日）在 X 平台发布推文， 确认 SpaceX 正筹划在美国得克萨斯州巴斯特罗普（Bastrop）建设一座燃气轮机动叶（blades）与静叶（vanes）铸造厂。 blades 也称动叶，装在旋转部件（转子、叶轮）上，随轴一起转动，用来做功或传递能量；而 vanes 也称静叶，装在静止部件（机匣、定子环）上，不随轴转动，主要作用是引导、整流、改变气流方向和速度分布。 科技媒体 The Information 报道指出，全球仅有 3 家铸造厂能够生产大型燃气轮机热端叶片与叶轮，且订单已排满至 2030 年，形成 AI 数据中心电力扩张的关键堵点。 IT之家注：上述“全球仅有 3 家铸造厂能够生产大型燃气轮机热端叶片与叶轮”来自马斯克采访内容，但暂未提及具体公司，公开资料显示应该是以下 3 家： PCC（精密铸件公司，Precision Castparts Corp.）：美国工业制造巨头，已被巴菲特的伯克希尔 · 哈撒韦公司收购。 Howmet…</p><a href="https://www.ithome.com/0/996/179.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>硅谷知名风投 a16z 成立新基金：筹集 11 亿美元，布局芯片、内存与机器人赛道</h3><p>IT之家 8 月 30 日消息，据科技媒体 TechCrunch 前天报道，美国硅谷知名风险投资公司安德里森 · 霍罗威茨（Andreessen Horowitz，又名 a16z）近日推出“机器时代”（Machine Age）新基金， 筹集资金达 11 亿美元 （IT之家注：现汇率约合 74.21 亿元人民币） 。 据悉，这支新基金将重点关注硬件领域，与 a16z 过去更加关注的软件赛道有所不同。该公司表示， 该基金的投资范围涵盖计算芯片、内存、数据中心和机器人等多个领域 。 a16z 对此表示：“我们需要更快、更高效的系统。也需要更便宜、带宽更高的内存，互联方案也需要与之配合升级。当然这一切的基础还是散热、材料、电力等基础设施。” a16z 由马克 · 安德森和本 · 霍洛维茨创立于 2009 年。该机构管理资产规模超过 900 亿美元 （现汇率约合 6,071.33 亿元人民币） ，投资覆盖从种子期到成长期的科技企业。</p><a href="https://www.ithome.com/0/996/136.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>人形机器人的跑步方式与人类不同</h3><p>北京人形机器人创新中心研发的通用人形机器人天工在世界人形机器人运动会上跑出了 100 米 8.64 秒的成绩，远超博尔特（Usain Bolt）于 2009 年创下的 100 米 9.58 秒的人类世界纪录。机器人的平均速度接近 42 公里/时。专家表示，这一成绩凸显了机器人的强大，也凸显了它们在决策和感知等方面的不足——人形机器人都是靠撞软垫的方式刹车的。人形机器人的跑步方式与人类不同：首先是博尔特的起跑仅仅花了 0.146 秒，相比下机器人等了近 1 秒钟才反应过来开始移动；博尔特仅用 41 步就完成了 100 米，而机器人花了 50 多步，机器人的步频更快步幅更短。韩国光云大学机器人学教授 Park Suhan 表示，机器人的步态映了其电机的性能，而非去刻意模仿人类的短跑。另一位专家认为机器人如果步幅过大会很容易摔倒。人类顶尖运动员在跑步的最后阶段会减速，但天工机器人没有任何减速迹象，因此最后一头撞向软垫。未来几年能转弯和自主决策的机器人将比单纯的提高速度会更令人印象深刻。</p><a href="https://www.solidot.org/story?sid=85228" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Haiku R1/beta6 释出</h3><p>开源 BeOS 操作系统 Haiku 在发布第 5 个 beta 版本 2 年后释出了第 6 个 beta 版本。BeOS 操作系统在 2001 年被 Palm 收购后停止开发，Haiku 项目在这之后不久正式启动，2002 年发布了首个版本，2012 年发布 Haiku R1 Alpha 4.1，六年后发布了 Haiku R1/beta1。beta6 主要是改进功能和整体稳定性。新版的主要变化包括：移植了 Firefox，改进对 Qemu 的支持，基于 OpenBSD 的内存分配机制，改进对不同文件系统的支持，修复了逾 530 个 bug，移植了大量新应用，等等。</p><a href="https://www.solidot.org/story?sid=85219" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>一名微软工程师一个月的 AI 支出高达 2.8 万美元</h3><p>在长时间鼓励之后，本月初微软开始要求员工限制 AI 使用。执行副总裁 Jay Parikh 在一封发给微软员工的邮件中要求工程师专注于业务成果，而非最大化 AI token 的使用量，为了“从 token 投资中获得更大的价值”，微软将比 Anthropic 模型更便宜的 OpenAI GPT-5.6 设为内部使用的默认模型。根据一份微软员工自愿提交的 AI 使用费账单：Customer and Partner Solutions 部门的一名员工在 28 天内的 AI 支出高达 2.8 万美元；多名员工支出超过 1 万美元；中位数约为每 28 天 300 美元，少数部门的 AI 支出仅仅为几十美元；CoreAI 部门的 AI 支出中位数最高为 975 美元。</p><a href="https://www.solidot.org/story?sid=85216" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>6 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>WRC2026 | 别急着给机器人更强「大脑」，先补上更省电的神经系统</h3><p>类脑计算正从感知和低层控制切入机器人。 作者丨 魏溶 编辑丨 岑峰 “如果未来全球真的部署10亿至100亿台高度依赖AI的人形机器人，今天这套计算方式，还供得起电吗？” 德国慕尼黑工业大学教授Alois Knoll 在2026世界机器人大会“类脑智算，让机器人学会自主决策”圆桌会议开场时提出了这个问题。 过去讨论计算中心，人们习惯谈千万亿次浮点运算、百亿亿次浮点运算；如今，随着AI基础设施不断扩张，数据中心的建设规模越来越多地与吉瓦级电力联系在一起，算力的度量衡，正在从“百亿亿次浮点运算（Exaflops）”变成“吉瓦级功耗（Gigawatts）”。 当AI进一步从数据中心进入实体世界，能源问题还会被继续放大。Knoll判断，如果人形机器人未来真的走向十亿级部署，沿用当前高功耗计算模式，累计能源需求可能变得难以承受。 产业因此需要寻找传统计算架构之外的其他可能性，神经形态计算便是其中之一。 Alois Knoll 教授在开场时曾回顾了这段历史：从百年前的神经元观察，到欧洲“人类大脑计划”中被架构师 Steve Furber 戏称为“智能水平大约等同于五只老鼠”的早期类脑系统，再到如今试图接管数十亿人形机器人的运动中枢，…</p><a href="https://www.leiphone.com/category/iot/wSd8yNXuuYwSg9hp.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>首家“碰一下”机器人租赁体验店落地上海徐家汇！支付宝“碰一下”解锁机器人互动与租赁新体验</h3><p>只需手机“碰一下”，就能租借机器人，甚至让它跳舞表演？ 8月28日，全国首家“碰一下”机器人租赁体验店在上海徐汇区新六百YOUNG商场焕新开业。该店由宇树科技核心生态伙伴具深科技旗下品牌“机时租”接入支付宝“碰一下”能力打造，实现线下机器人“碰一下”快捷租赁，并支持“碰一下”唤醒AI智能体操控机器人动作。活动当日，普通市民可实现零门槛沉浸式感受“一碰即控”的机器人互动乐趣。 开业当天，“机时租”联合支付宝发起 “碰一下”机器人痛楼答题闯关活动。顾客在商场内找到部署好的多台宇树机器人，用手机“碰一下”参与答题挑战，每通过一关就有机会获得操控机器狗的体验奖励，三关全过还能解锁隐藏福利，到店观看机器人群舞表演。 市民刘先生体验过后兴奋表示：“在机时租具身智能体验店的体验感拉满了！碰一下支付后就能指挥它做动作，感觉自己跟机器人的距离拉近了！”另据店内工作人员介绍，消费者体验结束，还能用支付宝“碰一下”直接完成支付，把心仪的机器人租回家。 据悉，支付宝“碰一下”已于今年7月完成AI升级，目前覆盖4亿用户、2300余家生态服务商、超3000万线下AI触点，构建起了全球首个大规模线下AI经营网络。…</p><a href="https://www.leiphone.com/category/industrynews/gE5Am1JMBQG2AjNJ.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>一段视频，让机器人学会开门并穿越：Video2DoorTraversal 如何打通 Real-to-Sim-to-Real</h3><p>对人来说，推门近乎是一种下意识动作。对移动操作机器人来说，这是一道把感知、移动、操作和控制绑在一起的综合题。 机器人需要找到并靠近把手，完成接触与旋转，在门体移动时协调底盘、机械臂和夹爪，还要避开门框、连续穿过狭窄门口。任何一步出现误差，都可能让整段任务中断。 近日，由纽娲机器人、上海交通大学和山东大学研究人员共同完成的 Video2DoorTraversal 预印本公开发布。上海交通大学博士生唐心诚为第一作者， 纽娲机器人创始人、上海交通大学特聘教授杨睿刚为论文通讯作者。 论文提出了一套面向轮足移动操作机器人的单视频 Real-to-Sim-to-Real 框架：用一段普通 RGB 视频重建真实门的数字孪生 DoorTwin ，在仿真中生成并筛选可执行轨迹，再训练机器人完成从接近、开门到穿越的连续任务。 需要说明的是，五扇门的主实验并非用一段视频训练一个策略后直接覆盖全部对象。研究针对每扇目标门分别采集一段 RGB 视频，在论文指定的轮足移动操作平台上每扇各测试 35 次，共完成 175 次测试，其中成功 169 次，平均成功率为 96.57%…</p><a href="https://www.leiphone.com/category/industrynews/H2PFxmf25qYtFbee.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>特斯拉车机系统有望接入 Grok Bot，打造移动 AI 工作站</h3><p>IT之家 8 月 30 日消息，特斯拉正不断将旗下电动汽车打造成为“车轮上的联网生产力中心”。继近期推出 Grok Bot 后，特斯拉似乎正在准备将 SpaceXAI 最新的自主智能体平台直接整合进车内。 这一线索最早出现在 X 平台。一名用户询问，未来司机是否可以直接坐在车内管理自己的 Grok Bot 智能体，并查看后台任务的执行情况。SpaceXAI 的 Grok Voice and Chat 工程师 Louise Giam（@LouiseGiam）随后直接回复了一句预告（现已删除）：“敬请期待。” Grok 最初于去年通过 2025.26 软件更新在美国特斯拉车型上正式亮相。随后几个月，这款聊天机器人迅速扩展至北美、欧洲和亚洲市场。此后，特斯拉持续为 Grok 增加新功能，并进一步扩大其对车内系统的访问权限，包括支持通过自然语言发出导航指令，以及设置基于位置的提醒。 在 2026 年夏季更新中，特斯拉又进一步加深了 Grok 与车辆系统之间的整合。用户现在可以通过自然语言指令，让 Grok 控制空调等核心车辆功能，甚至切换车辆“设置”菜单中的各种开关。 而这些可能只是开始。埃隆 ·…</p><a href="https://www.ithome.com/0/996/169.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>硅谷知名风投 a16z 成立新基金：筹集 11 亿美元，布局芯片、内存与机器人赛道</h3><p>IT之家 8 月 30 日消息，据科技媒体 TechCrunch 前天报道，美国硅谷知名风险投资公司安德里森 · 霍罗威茨（Andreessen Horowitz，又名 a16z）近日推出“机器时代”（Machine Age）新基金， 筹集资金达 11 亿美元 （IT之家注：现汇率约合 74.21 亿元人民币） 。 据悉，这支新基金将重点关注硬件领域，与 a16z 过去更加关注的软件赛道有所不同。该公司表示， 该基金的投资范围涵盖计算芯片、内存、数据中心和机器人等多个领域 。 a16z 对此表示：“我们需要更快、更高效的系统。也需要更便宜、带宽更高的内存，互联方案也需要与之配合升级。当然这一切的基础还是散热、材料、电力等基础设施。” a16z 由马克 · 安德森和本 · 霍洛维茨创立于 2009 年。该机构管理资产规模超过 900 亿美元 （现汇率约合 6,071.33 亿元人民币） ，投资覆盖从种子期到成长期的科技企业。</p><a href="https://www.ithome.com/0/996/136.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>人形机器人的跑步方式与人类不同</h3><p>北京人形机器人创新中心研发的通用人形机器人天工在世界人形机器人运动会上跑出了 100 米 8.64 秒的成绩，远超博尔特（Usain Bolt）于 2009 年创下的 100 米 9.58 秒的人类世界纪录。机器人的平均速度接近 42 公里/时。专家表示，这一成绩凸显了机器人的强大，也凸显了它们在决策和感知等方面的不足——人形机器人都是靠撞软垫的方式刹车的。人形机器人的跑步方式与人类不同：首先是博尔特的起跑仅仅花了 0.146 秒，相比下机器人等了近 1 秒钟才反应过来开始移动；博尔特仅用 41 步就完成了 100 米，而机器人花了 50 多步，机器人的步频更快步幅更短。韩国光云大学机器人学教授 Park Suhan 表示，机器人的步态映了其电机的性能，而非去刻意模仿人类的短跑。另一位专家认为机器人如果步幅过大会很容易摔倒。人类顶尖运动员在跑步的最后阶段会减速，但天工机器人没有任何减速迹象，因此最后一头撞向软垫。未来几年能转弯和自主决策的机器人将比单纯的提高速度会更令人印象深刻。</p><a href="https://www.solidot.org/story?sid=85228" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>6 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">IT之家</div><h3>因缺少 MTE 安全功能，GrapheneOS 当前阶段放弃适配谷歌 Pixel 11 系列手机</h3><p>IT之家 8 月 30 日消息，GrapheneOS（石墨烯 OS）开发团队今天在 X 平台宣布，由于谷歌 Pixel 11 系列手机缺少 MTE（Arm 内存标记扩展）安全功能，他们当前不得不放弃 Pixel 11 的 GrapheneOS 适配工作。 官方表示，他们经过一周的工作后完成了 Pixel 11 系列 GrapheneOS 初步移植。但由于该系列机型的软件、固件和硬件缺乏 MTE 支持， 他们无法继续进行移植工作 。团队认为，谷歌是为了节省成本才取消该安全功能。 GrapheneOS 操作系统高度依赖 MTE 功能，涵盖内核以及所有标准基础系统进程，只有少数特定于设备的进程会暂时禁用 MTE。该功能可大幅提升系统对几乎所有远程漏洞利用，以及大量本地漏洞利用的防护能力。 作为参考，谷歌 Pixel 8 从 2023 年 10 月上市时就支持 MTE，随后 GrapheneOS 选择将其集成在自己的 hardened_malloc 项目，并于当月晚些时候开始在整个系统使用 MTE。作为对比，Android 和 Pixel OS 从未默认启用过 MTE，Android 16…</p><a href="https://www.ithome.com/0/996/177.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>硅谷知名风投 a16z 成立新基金：筹集 11 亿美元，布局芯片、内存与机器人赛道</h3><p>IT之家 8 月 30 日消息，据科技媒体 TechCrunch 前天报道，美国硅谷知名风险投资公司安德里森 · 霍罗威茨（Andreessen Horowitz，又名 a16z）近日推出“机器时代”（Machine Age）新基金， 筹集资金达 11 亿美元 （IT之家注：现汇率约合 74.21 亿元人民币） 。 据悉，这支新基金将重点关注硬件领域，与 a16z 过去更加关注的软件赛道有所不同。该公司表示， 该基金的投资范围涵盖计算芯片、内存、数据中心和机器人等多个领域 。 a16z 对此表示：“我们需要更快、更高效的系统。也需要更便宜、带宽更高的内存，互联方案也需要与之配合升级。当然这一切的基础还是散热、材料、电力等基础设施。” a16z 由马克 · 安德森和本 · 霍洛维茨创立于 2009 年。该机构管理资产规模超过 900 亿美元 （现汇率约合 6,071.33 亿元人民币） ，投资覆盖从种子期到成长期的科技企业。</p><a href="https://www.ithome.com/0/996/136.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>日均峰值 11.3 起：报告称 2026 年已记录 1664 起 AI 失控事件，7 月环比增 93.76%</h3><p>IT之家 8 月 30 日消息，英国长期韧性中心（CLTR）于 8 月 28 日发布报告， 称其“失控观察站”在 2026 年 7 月共记录 306 起 AI 安全事件，比 6 月（158 起）增涨 93.67%。 “失控观察站”成立于 2026 年 2 月，获英国人工智能安全研究所资助，借助开源情报追踪 AI 系统违背操作者意图的案例。 报告列举的案例包括：智能体在对话中插入伪造用户消息以模拟同意、仿照用户写作风格编造删除源代码目录的指令、伪造“人工必须批准”规则下的授权信息并执行任务。 CLTR 表示，多数记录事件尚未导致重大伤害，但呈现出无视直接指令、规避防护、误导用户或以单一目标驱动有害操作等特征。 截至 2026 年 8 月 9 日，该观察站已识别 1664 起现实世界 AI 失控事件。 截至 8 月 7 日的 30 天内，观察站记录 338 起事件，日均 11.3 起，超过 2026 年 3 月创下的日均 10.5 起此前峰值。 IT之家附上参考地址 Insight report: AI loss of control incidents are worsening</p><a href="https://www.ithome.com/0/996/124.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>预估为 GPT-6 AI 模型：OpenAI Astra 首批演示样本流出，1 次交互生成类 GTA 2 游戏</h3><p>IT之家 8 月 30 日消息，科技媒体 testingcatalog 昨日（8 月 29 日）发布博文，报道称 OpenAI 正加快 Astra 模型发布进程， 新增 mozaik-alpha-fdm 测试阶段，从而扩大内部测试范围。 IT之家注：Astra 是 OpenAI 內部正在开发的新一代 AI 模型系列，代号延续其天体命名传统（Sol、Terra、Luna 之后），拉丁语意为“星辰”。 据《The Information》等报道，Astra 在数学、物理、生物、医学、化学与网络安全等领域展现重大突破，甚至据称已解决多个长期未解的高阶数学难题。 截至目前（2026 年 8 月），Astra 尚未确认为“GPT-6”，但多方媒体与业界爆料普遍认为 Astra 很可能就是外界所称的 GPT-6，或至少是 GPT-6 的候选名称之一，参数规模可能会达到 10 万亿。 根据网友分享的测试内容，Astra 模型重点提升代码编写和可视化软件创建，仅 1 次对话交互，就成功就制作出了类似《侠盗猎车手 2》（GTA 2）的游戏，以及精细的网站、3D 对象和体素环境。…</p><a href="https://www.ithome.com/0/996/120.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Debian 项目将允许以负责任的方式使用生成式 AI</h3><p>Debian 项目对是否允许使用 AI 进行了投票表决，投票采用孔多塞投票法，共有 9 个选项，最终结果是第 5 选项“负责任的使用生成式 AI”获胜。Debian 项目表示，它既不反对也不支持在软件、包、文档等的开发和维护中使用生成式 AI 工具。但项目也认识到，如果能负责任的使用 AI 工具，将能显著提高贡献者的效率，使他们将有限的时间投入到需要技术专长、判断力、审核和协作的工作中。无论是否使用生成式 AI 工具，Debian 项目希望提交的内容都符合相同的质量、正确性、可维护性和法律合规性标准。使用生成式 AI 工具不会减少责任。对于提交的内容，贡献者应理解、审核、测试 AI 辅助生成的输出，在适当情况下进行修改。未经适当人工审查就盲目接受或上传 AI 生成的材料，不符合 Debian 既定的开发实践。Debian 鼓励贡献者披露其贡献是否使用 AI 辅助，但不强制要求。Debian 承认，生成式 AI 系统生成的材料的法律地位在许多司法管辖区存在争议，包括训练材料的版权、作者身份、许可和潜在复制问题。Debian 项目不寻求通过本一般决议解决这些悬而未决的法律问题，也不就 AI…</p><a href="https://www.solidot.org/story?sid=85229" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Meta将支付 170 亿美元和解儿童隐私保护诉讼，将限制青少年在特定时间访问社媒</h3><p>Meta 与美国多州就儿童隐私和消费者保护案达成和解，同意向各州支付总额将近 167 亿美元和解金，以及对青少年用户施加一系列社媒使用限制，包括每天不能使用超过两小时。最具深远影响的和解条款是 Meta 同意实施一系列新的保障措施。这些措施将对面向青少年的社媒运作方式起到实质改变。其中一项变更将启用“夜间屏蔽”功能：在默认设置情况下，从午夜至凌晨6时，青少年将无法访问 Facebook 和 Instagram。此外青少年账户在 Meta 旗下所有社媒的每日累计使用时长，默认上限为两小时。</p><a href="https://www.solidot.org/story?sid=85215" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>3 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>AI本地部署不如官方版的元凶找到了：734个依赖包，每一个都可能坑</h3><a href="https://www.qbitai.com/2026/08/481372.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>32GB大显存加持，英特尔锐炫Pro B70搞定AI漫剧创作</h3><a href="https://www.qbitai.com/2026/08/480787.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>《时代》周刊全球AI 100放榜，精准捕获稚晖君最“想低调”的幕后老板</h3><a href="https://www.qbitai.com/2026/08/480666.html" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 29 Aug 2026 13:11:08 +0000</div><h3>AI本地部署不如官方版的元凶找到了：734个依赖包，每一个都可能坑</h3><a href="https://www.qbitai.com/2026/08/481372.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 29 Aug 2026 12:50:31 +0000</div><h3>Claude开始训练Claude！4美元一小时，跑赢150美元人类研究员</h3><a href="https://www.qbitai.com/2026/08/481223.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 29 Aug 2026 12:11:37 +0000</div><h3>Coding不再是程序员专属！阿里Qoder这波有点绝</h3><a href="https://www.qbitai.com/2026/08/480940.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 29 Aug 2026 11:35:57 +0000</div><h3>32GB大显存加持，英特尔锐炫Pro B70搞定AI漫剧创作</h3><a href="https://www.qbitai.com/2026/08/480787.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 28 Aug 2026 11:13:35 +0000</div><h3>《时代》周刊全球AI 100放榜，精准捕获稚晖君最“想低调”的幕后老板</h3><a href="https://www.qbitai.com/2026/08/480666.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 28 Aug 2026 09:45:19 +0000</div><h3>刚刚，港股AGI第一股杀疯了！Agent业务半年进账近5亿，Token收入Q2暴涨500%</h3><a href="https://www.qbitai.com/2026/08/480600.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 29 Aug 2026 15:20:00 +0800</div><h3>从Data到Agent：华为云AI-Ready数据基础设施全链路能力亮相数博会</h3><p>8月28日，在2026中国国际大数据产业博览会期间，以“从数据到Agent，数据价值链的重构与创新”为主题的数据要素大会在贵阳举办。政府机构、头部大数据集团、行业企业及专家学者齐聚一堂，围绕数据要素市场化配置、高质量数据集建设、可信数据空间以及AI时代的数据基础设施创新展开探讨。 当大模型和Agent加速进入千行万业，一个根本性变化正在发生：大模型和Agent成为新的数据消费者。数据消费主体的变化，正在推动大数据平台从传统湖仓向多模态湖仓、数据智能体演进，也对AI时代的数据基础设施提出了全新要求。 从 Data 到 Agent ，重构 AI 时代数据价值链 “数据是AI的核心燃料，AI驱动数据价值释放。”会上，华为混合云总裁顾雪军指出，随着AI产业迈入Agentic智能体时代，数据已成为驱动AI模型进化、驱动智能体生长的核心燃料。华为云Stack面向国计民生行业客户，打造了一套覆盖数据全生命周期的数据能力体系，帮助企业把过去分散、沉淀的全量数据真正用起来、用得好、用出价值，推动数据从资源转变为生产力。 华为混合云总裁 顾雪军…</p><a href="https://www.leiphone.com/category/industrynews/5HSY98yO7OtW5EGw.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 28 Aug 2026 19:28:00 +0800</div><h3>Anthropic 再定统一标准：MHS，打通 AI 与物理世界的统一接口</h3><p>MHS把一场新药研发实验速度提升3倍。 作者丨高允毅 编辑丨岑 峰 这是Anthropic第二次发布全行业统一协议。 第一次，它发布了 MCP ，它统一了 AI 代理调用外部工具、数据源与 API 的方式，如今满世界的 Agent 都靠它连数据库、接浏览器、调 API。这一次，它把完全相同的逻辑延伸到了物理世界， Agent可以和不同的物理设备之间对话了。 这是一套面向物理设备的 AI 代理接口标准，叫 Model Hardware Standard（MHS） ，此次发布的是预览版本，已经在全球顶尖实验室的显微镜、机械臂和量子计算机上使用起来了。 它解决的，是整个科研与工业领域头痛了二十年的问题：硬件接口碎片化。 01 二十年未破的困局： 标准追不上硬件的多样性 这是一个所有实验室从业者都心照不宣的困境。 在一间自动化实验室里，成像相机可能基于 Python 开发，探测器运行在 MATLAB 环境中，电生理设备采用 C# 架构，而机械臂、共聚焦显微镜、移液工作站更是各有各的专属驱动、私有数据格式和封闭控制软件。多数情况下，哪怕是相邻的两台仪器，都无法感知彼此的运行状态。 如果研究人员想实现…</p><a href="https://www.leiphone.com/category/yanxishe/N12vFHlsL2JrdKYR.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 28 Aug 2026 19:23:00 +0800</div><h3>WRC2026 | 别急着给机器人更强「大脑」，先补上更省电的神经系统</h3><p>类脑计算正从感知和低层控制切入机器人。 作者丨 魏溶 编辑丨 岑峰 “如果未来全球真的部署10亿至100亿台高度依赖AI的人形机器人，今天这套计算方式，还供得起电吗？” 德国慕尼黑工业大学教授Alois Knoll 在2026世界机器人大会“类脑智算，让机器人学会自主决策”圆桌会议开场时提出了这个问题。 过去讨论计算中心，人们习惯谈千万亿次浮点运算、百亿亿次浮点运算；如今，随着AI基础设施不断扩张，数据中心的建设规模越来越多地与吉瓦级电力联系在一起，算力的度量衡，正在从“百亿亿次浮点运算（Exaflops）”变成“吉瓦级功耗（Gigawatts）”。 当AI进一步从数据中心进入实体世界，能源问题还会被继续放大。Knoll判断，如果人形机器人未来真的走向十亿级部署，沿用当前高功耗计算模式，累计能源需求可能变得难以承受。 产业因此需要寻找传统计算架构之外的其他可能性，神经形态计算便是其中之一。 Alois Knoll 教授在开场时曾回顾了这段历史：从百年前的神经元观察，到欧洲“人类大脑计划”中被架构师 Steve Furber 戏称为“智能水平大约等同于五只老鼠”的早期类脑系统，再到如今试图接管数十亿人形机器人的运动中枢，…</p><a href="https://www.leiphone.com/category/iot/wSd8yNXuuYwSg9hp.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 28 Aug 2026 17:36:00 +0800</div><h3>Anthropic、Moderna先后引爆舆论场，AI制药到底该奖励什么？</h3><p>算法只是一小部分，但市场仍愿意为算法加价。 作者丨 周蕾 编辑丨 岑峰 上周，两条AI制药新闻在24小时之内，先后引燃了舆论场： 先是Anthropic发布早期药物研发成果：依托Claude大模型，他们几乎在无人工干预的情况下，自主设计出14个临床靶点的蛋白结合剂，全部实验数据公开，所合作的外部平台Twist Bioscience股价单日飙升22%。 次日，全球mRNA巨头Moderna与默沙东联合宣布，其个性化mRNA癌症疫苗intesmeran autogene在针对高危黑色素瘤的全球III期临床试验中达到主要终点，Moderna因此单日内股价翻倍。 也有媒体直接将这一新闻定义为“人类历史上第一次用AI治愈癌症”，引来大量关注。 其实，无论是Anthropic的药物研发，还是Moderna的mRNA癌症疫苗，距离“AI自主科研”“治愈癌症”这些宏大的目标，还有相当长的路要走。AI在这两个案例中的真实角色，或许也没有人们想象中的那么“神”。 在市场炒作的情绪逐步升高之时，有一个问题更值得我们冷静追问： “AI制药”这个概念里，什么在升值，什么在贬值？算法，还是整件事里最值钱的部分吗？ 01 两件事里，…</p><a href="https://www.leiphone.com/category/aihealth/rJaUKQDWe0u0pfDt.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 28 Aug 2026 15:51:00 +0800</div><h3>威科集团与蚂蚁健康达成战略合作，JCO等28本医学顶刊上线阿福医生版</h3><p>从海外到中国，全球临床医生正加速将AI工具融入日常工作流。为切实帮医生减负提效、辅助诊疗，8月28日，蚂蚁健康宣布与全球领先的临床信息和决策支持解决方案提供商威科集团（Wolters Kluwer）（以下简称“威科”）达成战略合作。双方将通过整合威科的权威医学内容与蚂蚁阿福的AI技术和平台能力，为全国数百万医生提供即时、可信赖、基于循证的临床洞见。 作为双方合作的首期成果，威科旗下28本具备行业标杆意义的顶尖医学期刊即日起入驻阿福医生版，为全国医生提供可信赖的文献。这28本期刊覆盖17个二级学科，囊括引领全球肿瘤学研究方向的《临床肿瘤学杂志》（Journal of Clinical Oncology）、外科领域引用率最高的《外科年鉴》（Annals of Surgery）等权威刊物，且内容更新与全球保持同步，确保医生能第一时间获取国际前沿医学证据。 威科旗下多本医学期刊上线阿福医生版…</p><a href="https://www.leiphone.com/category/aihealth/KTUmk96pCdHsO4R5.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 28 Aug 2026 15:35:00 +0800</div><h3>首家“碰一下”机器人租赁体验店落地上海徐家汇！支付宝“碰一下”解锁机器人互动与租赁新体验</h3><p>只需手机“碰一下”，就能租借机器人，甚至让它跳舞表演？ 8月28日，全国首家“碰一下”机器人租赁体验店在上海徐汇区新六百YOUNG商场焕新开业。该店由宇树科技核心生态伙伴具深科技旗下品牌“机时租”接入支付宝“碰一下”能力打造，实现线下机器人“碰一下”快捷租赁，并支持“碰一下”唤醒AI智能体操控机器人动作。活动当日，普通市民可实现零门槛沉浸式感受“一碰即控”的机器人互动乐趣。 开业当天，“机时租”联合支付宝发起 “碰一下”机器人痛楼答题闯关活动。顾客在商场内找到部署好的多台宇树机器人，用手机“碰一下”参与答题挑战，每通过一关就有机会获得操控机器狗的体验奖励，三关全过还能解锁隐藏福利，到店观看机器人群舞表演。 市民刘先生体验过后兴奋表示：“在机时租具身智能体验店的体验感拉满了！碰一下支付后就能指挥它做动作，感觉自己跟机器人的距离拉近了！”另据店内工作人员介绍，消费者体验结束，还能用支付宝“碰一下”直接完成支付，把心仪的机器人租回家。 据悉，支付宝“碰一下”已于今年7月完成AI升级，目前覆盖4亿用户、2300余家生态服务商、超3000万线下AI触点，构建起了全球首个大规模线下AI经营网络。…</p><a href="https://www.leiphone.com/category/industrynews/gE5Am1JMBQG2AjNJ.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 28 Aug 2026 15:27:00 +0800</div><h3>Jalapeño 跑分炸场，GPU 推理路线开始分裂？</h3><p>Token 成本成为大模型硬件竞争的新坐标。 作者丨 郑佳美 编辑丨岑 峰 今天，OpenAI 的自研推理芯片 Jalapeño，终于从规格表走到了跑分台。 这次公开的数据很接地气：Token 吞吐、生成延迟、单位功耗下能跑多少推理。因为大模型上线以后，芯片面对的早就不只是一次训练任务。ChatGPT 要一直回消息，Reasoning 模型要持续生成长链路内容，Agent 还会一轮接一轮调用模型。算力再高，Token 吐得慢、延迟压不下来、功耗又高，数据中心照样难受。 成绩一出来，Reddit 很快就把 Jalapeño 和 NVIDIA Rubin 摆到了一起。有人认为它已经进入 Rubin 的效率区间，也有人认为测试条件、软件优化和整个平台形态没有对齐，现在还没法直接分高下。争论暂时停在这里，没有统一答案。 更巧的是，Jalapeño 并不是孤例。NVIDIA 正在把 Groq 3 LPU 拉进推理系统，专门处理 Token 生成；Google 也把 TPU 8 拆成偏训练和偏推理的两条路线。几家公司几乎在同一时间开始重新拆芯片的工作，背后那套硬件逻辑难道真的已经变了吗？ 01 Jalapeño 在看 Token…</p><a href="https://www.leiphone.com/category/ai/B0TkvWHMs5AJIym6.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 28 Aug 2026 15:25:00 +0800</div><h3>Sora 为什么输给 Codex？</h3><p>GPU 时间能否被复用，开始决定产品的扩张速度。 作者丨 郑佳美 编辑丨岑 峰 8 月 23 日，奥特曼在 David Senra 的播客中谈到 OpenAI 内部的资源取舍时主动提到了 Sora。 他说得很直接：Sora 本身是个好产品，继续做下去也能成为一门不错的生意，但它实在太吃 compute，同一时期，Codex 的优先级更高，于是算力和团队投入开始往 Codex 倾斜。 但有趣的是，Codex 其实也一点都不省 GPU。Sora 生成一段视频，要让巨大的时空 latent 经过多轮 Transformer 计算；Codex 接到一句“把这个 bug 修掉”，后台则可能连续跑很多轮推理、读代码、调用工具、跑测试，再带着新的日志和上下文回来继续推理。 一个把算力压在单次视频生成里，另一个则是把算力摊进一条可能持续几十分钟甚至更久的 Agent 工作流里。于是，Sora 和 Codex 真正拉开差距的地方开始落到机房内部。 同样是一批 GPU，为什么视频生成的 compute 更难被摊开，而 Coding Agent 却能通过 KV cache、continuous batching、prefill /…</p><a href="https://www.leiphone.com/category/ai/aolA6aSnqLoYTm3d.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 28 Aug 2026 15:24:00 +0800</div><h3>一段视频，让机器人学会开门并穿越：Video2DoorTraversal 如何打通 Real-to-Sim-to-Real</h3><p>对人来说，推门近乎是一种下意识动作。对移动操作机器人来说，这是一道把感知、移动、操作和控制绑在一起的综合题。 机器人需要找到并靠近把手，完成接触与旋转，在门体移动时协调底盘、机械臂和夹爪，还要避开门框、连续穿过狭窄门口。任何一步出现误差，都可能让整段任务中断。 近日，由纽娲机器人、上海交通大学和山东大学研究人员共同完成的 Video2DoorTraversal 预印本公开发布。上海交通大学博士生唐心诚为第一作者， 纽娲机器人创始人、上海交通大学特聘教授杨睿刚为论文通讯作者。 论文提出了一套面向轮足移动操作机器人的单视频 Real-to-Sim-to-Real 框架：用一段普通 RGB 视频重建真实门的数字孪生 DoorTwin ，在仿真中生成并筛选可执行轨迹，再训练机器人完成从接近、开门到穿越的连续任务。 需要说明的是，五扇门的主实验并非用一段视频训练一个策略后直接覆盖全部对象。研究针对每扇目标门分别采集一段 RGB 视频，在论文指定的轮足移动操作平台上每扇各测试 35 次，共完成 175 次测试，其中成功 169 次，平均成功率为 96.57%…</p><a href="https://www.leiphone.com/category/industrynews/H2PFxmf25qYtFbee.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 28 Aug 2026 15:23:00 +0800</div><h3>Claude Code 额度回落：Agent 正在制造新的「祖传代码屎山」？</h3><p>代码确实是 Agent 写的，只是后来的 Agent 已经不知道前面的 Agent 为什么这么写了。 作者丨 郑佳美 编辑丨岑 峰 Claude Code 原定于 8 月 19 日结束的 +50% 周额度加成，又被 Anthropic 延长到了 8 月 31 日。也就在原定截止日前后，Hacker News 上出现了一轮关于 Claude Code 使用成本的讨论： 不少人发现，一个并不复杂的任务，Agent 跑上几轮，额度就会掉得很快。 问题在于，Claude Code 消耗的并不只是最后生成的那几行代码。读文件、搜调用链、跑测试、处理日志，每一步都会继续进入后面的上下文。任务越长，Agent 背着的历史越重，系统也越依赖清理和压缩。 代码可以完整留在仓库里，早期的设计理由却可能在压缩中逐渐变薄。 于是 Token 消耗和代码屎山开始在同一个地方汇合。 01 修个小 Bug，为何需要几十次推理？ 普通 Chat coding 的计算边界很清楚。输入一段代码，模型读完以后给出解释或者修改方案，这一轮基本结束。雷峰网 而 Claude Code 的基本单元换成了 agent…</p><a href="https://www.leiphone.com/category/ai/5weAutjetefMob2a.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><h3>[解析失败] https://36kr.com/feed</h3><p>not well-formed (invalid token): line 9, column 542</p></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sun, 30 Aug 2026 08:18:02 GMT</div><h3>机械革命翼龙 15 Air 2026 笔记本锐龙 7 H 449 版发布：RTX 5060，国补到手价 9999 元</h3><p>IT之家 8 月 30 日消息，机械革命今日发布了新款翼龙 15 Air 2026 笔记本，搭载锐龙 7 H 449 处理器，日常价 13999 元、首发价 11499 元、 国补到手价 9999 元 。 这款笔记本电脑将于 9 月 4 日开始预约， 9 月 10 日开售 ，有云涧白、云杉青两种配色可选，配备 24GB LPDDR5X 双通道内存和 1TB PCIe 4.0 固态。 这款新品搭载 RTX 5060 笔记本电脑 GPU，采用双风扇 + 后出风散热系统，双烤功耗 170W（CPU 单烤 85W、GPU 单烤 115W）。 IT之家获悉，这款笔记本电脑重约 1.6kg，厚约 18.75mm；搭载了一块 15.3 英寸防眩光 OLED 电竞屏，2.5K 分辨率、240Hz 刷新率、色域覆盖 100% DC-P3、出厂校色色准 ΔE</p><a href="https://www.ithome.com/0/996/186.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 30 Aug 2026 08:12:40 GMT</div><h3>华擎发布 B550M Pro-A WiFi 6E 主板：AMD AM4 平台、8 相供电</h3><p>IT之家 8 月 30 日消息，华擎近日低调发布 B550M Pro-A WiFi 6E 主板。新品适配 AMD AM4 平台，版型为 Micro-ATX。 据介绍，这款主板本质上是 B550M Pro-A 的升级版本， 主要新增 Wi-Fi 6E 无线网络模块 。 规格方面， 这款主板支持锐龙 3000、4000G、5000 和 5000G 系列处理器 ，采用 8 相供电设计， 配备 4 个 DDR4 DIMM 插槽 。 同时，这款主板提供 1 个 PCIe 4.0 x16、1 个 PCIe 3.0 x16 以及 2 个 PCIe 3.0 x1 插槽。拥有 2 个 M.2 硬盘插槽，其中一个支持 PCIe 4.0 x4，同时提供 4 个 SATA 6Gb/s 接口。 此外，这款主板还的官方建议零售价暂未公布，但科技媒体 TechPower Up 预测其价格约为 90 美元 （IT之家注：现汇率约合 607.1 元人民币） 。</p><a href="https://www.ithome.com/0/996/185.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 30 Aug 2026 07:53:56 GMT</div><h3>全球仅 3 家能铸：马斯克 SpaceX 突破 AI 供电瓶颈，自产涡轮叶片提前 18 个月投运</h3><p>IT之家 8 月 30 日消息，全球首富埃隆 · 马斯克（Elon Musk）今天（8 月 30 日）在 X 平台发布推文， 确认 SpaceX 正筹划在美国得克萨斯州巴斯特罗普（Bastrop）建设一座燃气轮机动叶（blades）与静叶（vanes）铸造厂。 blades 也称动叶，装在旋转部件（转子、叶轮）上，随轴一起转动，用来做功或传递能量；而 vanes 也称静叶，装在静止部件（机匣、定子环）上，不随轴转动，主要作用是引导、整流、改变气流方向和速度分布。 科技媒体 The Information 报道指出，全球仅有 3 家铸造厂能够生产大型燃气轮机热端叶片与叶轮，且订单已排满至 2030 年，形成 AI 数据中心电力扩张的关键堵点。 IT之家注：上述“全球仅有 3 家铸造厂能够生产大型燃气轮机热端叶片与叶轮”来自马斯克采访内容，但暂未提及具体公司，公开资料显示应该是以下 3 家： PCC（精密铸件公司，Precision Castparts Corp.）：美国工业制造巨头，已被巴菲特的伯克希尔 · 哈撒韦公司收购。 Howmet…</p><a href="https://www.ithome.com/0/996/179.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 30 Aug 2026 07:48:17 GMT</div><h3>因缺少 MTE 安全功能，GrapheneOS 当前阶段放弃适配谷歌 Pixel 11 系列手机</h3><p>IT之家 8 月 30 日消息，GrapheneOS（石墨烯 OS）开发团队今天在 X 平台宣布，由于谷歌 Pixel 11 系列手机缺少 MTE（Arm 内存标记扩展）安全功能，他们当前不得不放弃 Pixel 11 的 GrapheneOS 适配工作。 官方表示，他们经过一周的工作后完成了 Pixel 11 系列 GrapheneOS 初步移植。但由于该系列机型的软件、固件和硬件缺乏 MTE 支持， 他们无法继续进行移植工作 。团队认为，谷歌是为了节省成本才取消该安全功能。 GrapheneOS 操作系统高度依赖 MTE 功能，涵盖内核以及所有标准基础系统进程，只有少数特定于设备的进程会暂时禁用 MTE。该功能可大幅提升系统对几乎所有远程漏洞利用，以及大量本地漏洞利用的防护能力。 作为参考，谷歌 Pixel 8 从 2023 年 10 月上市时就支持 MTE，随后 GrapheneOS 选择将其集成在自己的 hardened_malloc 项目，并于当月晚些时候开始在整个系统使用 MTE。作为对比，Android 和 Pixel OS 从未默认启用过 MTE，Android 16…</p><a href="https://www.ithome.com/0/996/177.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 30 Aug 2026 07:31:11 GMT</div><h3>特斯拉车机系统有望接入 Grok Bot，打造移动 AI 工作站</h3><p>IT之家 8 月 30 日消息，特斯拉正不断将旗下电动汽车打造成为“车轮上的联网生产力中心”。继近期推出 Grok Bot 后，特斯拉似乎正在准备将 SpaceXAI 最新的自主智能体平台直接整合进车内。 这一线索最早出现在 X 平台。一名用户询问，未来司机是否可以直接坐在车内管理自己的 Grok Bot 智能体，并查看后台任务的执行情况。SpaceXAI 的 Grok Voice and Chat 工程师 Louise Giam（@LouiseGiam）随后直接回复了一句预告（现已删除）：“敬请期待。” Grok 最初于去年通过 2025.26 软件更新在美国特斯拉车型上正式亮相。随后几个月，这款聊天机器人迅速扩展至北美、欧洲和亚洲市场。此后，特斯拉持续为 Grok 增加新功能，并进一步扩大其对车内系统的访问权限，包括支持通过自然语言发出导航指令，以及设置基于位置的提醒。 在 2026 年夏季更新中，特斯拉又进一步加深了 Grok 与车辆系统之间的整合。用户现在可以通过自然语言指令，让 Grok 控制空调等核心车辆功能，甚至切换车辆“设置”菜单中的各种开关。 而这些可能只是开始。埃隆 ·…</p><a href="https://www.ithome.com/0/996/169.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 30 Aug 2026 07:25:50 GMT</div><h3>日企 Links 推出 LC7530 迷你主机：锐龙 5 7530U 芯片、16GB LPDDR4 内存</h3><p>IT之家 8 月 30 日消息，日本企业 Links 现已推出 LC7530 迷你主机，新品定位中低端，搭载相对老旧的 AMD 处理器。 据介绍，这款迷你主机的尺寸是 12.8*12.8*4.13 cm，重量约 610g，整体较为紧凑。 搭载 2023 年发布的 AMD 锐龙 5 7530U 处理器 ，采用 Zen 3 架构、6 核心 12 线程设计，最高加速频率可达 4.5GHz。 规格方面，该机搭载 16GB LPDDR4-3200 内存，无法自行升级。拥有 Radeon RX Vega 7 核显，带有 7 个计算单元，可以游玩一些硬件要求不高的游戏。 此外，这款迷你主机配备 2 个 USB 3.2 Gen 2、4 个 USB 3.2 Gen 1 Type-A、1 个 USB-C（10Gbps）、HDMI 2.0、DP 1.4、千兆以太网等接口，并带有 512GB 固态硬盘，定价 9.5 万日元 （IT之家注：现汇率约合 4,008 元人民币） 。</p><a href="https://www.ithome.com/0/996/167.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 30 Aug 2026 07:01:07 GMT</div><h3>硅谷知名风投 a16z 成立新基金：筹集 11 亿美元，布局芯片、内存与机器人赛道</h3><p>IT之家 8 月 30 日消息，据科技媒体 TechCrunch 前天报道，美国硅谷知名风险投资公司安德里森 · 霍罗威茨（Andreessen Horowitz，又名 a16z）近日推出“机器时代”（Machine Age）新基金， 筹集资金达 11 亿美元 （IT之家注：现汇率约合 74.21 亿元人民币） 。 据悉，这支新基金将重点关注硬件领域，与 a16z 过去更加关注的软件赛道有所不同。该公司表示， 该基金的投资范围涵盖计算芯片、内存、数据中心和机器人等多个领域 。 a16z 对此表示：“我们需要更快、更高效的系统。也需要更便宜、带宽更高的内存，互联方案也需要与之配合升级。当然这一切的基础还是散热、材料、电力等基础设施。” a16z 由马克 · 安德森和本 · 霍洛维茨创立于 2009 年。该机构管理资产规模超过 900 亿美元 （现汇率约合 6,071.33 亿元人民币） ，投资覆盖从种子期到成长期的科技企业。</p><a href="https://www.ithome.com/0/996/136.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 30 Aug 2026 06:54:39 GMT</div><h3>R 星确认：《GTA 6》发售时不会有微交易和生成式 AI</h3><p>IT之家 8 月 30 日消息，Rockstar Games 表示，《侠盗猎车手 6》（GTA 6）在今年 11 月发售时不会加入微交易或生成式 AI。 本周早些时候，《GTA 6》开发团队在接受 Kinda Funny Games 采访时确认，这款备受期待的开放世界大作将避开这两种可能引发争议的做法。这意味着游戏在发售后的几个月里，至少不会因为这两个话题引发玩家的争议。 Kinda Funny 主持人 Andy Cortez 表示，他在《GTA 6》“Extended Look”特别节目播出前的一场试玩活动中，曾向 Rockstar 询问玩家能否使用现实货币购买游戏内物品。他随后透露，Rockstar 给出的回答是：“这款游戏没有任何货币化内容。” 该网站另一位主持人 Greg Miller 紧接着谈到了生成式 AI。他表示，自己曾“直截了当地”询问 Rockstar，《GTA 6》中是否使用了生成式 AI。开发团队告诉他，游戏中“没有使用 AI”。 对于等待下一款《GTA》游戏长达 13 年的数百万玩家来说，Rockstar 确认《GTA 6》不会因为生成式 AI 问题影响其 11…</p><a href="https://www.ithome.com/0/996/132.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 30 Aug 2026 06:01:18 GMT</div><h3>日均峰值 11.3 起：报告称 2026 年已记录 1664 起 AI 失控事件，7 月环比增 93.76%</h3><p>IT之家 8 月 30 日消息，英国长期韧性中心（CLTR）于 8 月 28 日发布报告， 称其“失控观察站”在 2026 年 7 月共记录 306 起 AI 安全事件，比 6 月（158 起）增涨 93.67%。 “失控观察站”成立于 2026 年 2 月，获英国人工智能安全研究所资助，借助开源情报追踪 AI 系统违背操作者意图的案例。 报告列举的案例包括：智能体在对话中插入伪造用户消息以模拟同意、仿照用户写作风格编造删除源代码目录的指令、伪造“人工必须批准”规则下的授权信息并执行任务。 CLTR 表示，多数记录事件尚未导致重大伤害，但呈现出无视直接指令、规避防护、误导用户或以单一目标驱动有害操作等特征。 截至 2026 年 8 月 9 日，该观察站已识别 1664 起现实世界 AI 失控事件。 截至 8 月 7 日的 30 天内，观察站记录 338 起事件，日均 11.3 起，超过 2026 年 3 月创下的日均 10.5 起此前峰值。 IT之家附上参考地址 Insight report: AI loss of control incidents are worsening</p><a href="https://www.ithome.com/0/996/124.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 30 Aug 2026 05:57:38 GMT</div><h3>消息称百度智能云分拆平台产品事业部：MaaS 划入基础设施、Agent 独立成军</h3><p>IT之家 8 月 30 日消息，据《晚点 LatePost》8 月 29 日报道，百度智能云近日完成一轮产研组织调整。原平台产品事业部更名为 智能体事业部 ，其下 MaaS 业务、千帆品牌及与 MaaS 相关的产品体系转入 基础设施事业部 ，数据平台部更名为数据智能部，转入由原应用产品事业部更名而来的 智能应用事业部 。 调整后，百度智能云的三个事业部分别由侯震宇、殷大伟和阮瑜负责：侯震宇负责基础设施事业部，管理 AI Infra 和 Agent Infra；殷大伟负责智能体事业部，聚焦 Agent 产品如百度搭子、秒哒和伐谋；阮瑜负责智能应用事业部，管理百度一见、Hogee、胜算以及交通、金融等行业应用。 报道称，三人均直接向百度集团执行副总裁、智能云事业群总裁沈抖汇报。 IT之家注意到，百度本月发布 2026 年第二季度财报，季度总营收 313 亿元；百度一般性业务收入 252 亿元， 其中 AI 业务收入占比 50%，已连续两季占比过半 。本季度，AI 云基础设施中 GPU 云同比增长 283%，连续四个季度实现三位数增长。公司管理层表示，将继续加大 AI 领域投入，推动公司从互联网公司向 AI-first…</p><a href="https://www.ithome.com/0/996/123.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 30 Aug 2026 05:25:15 GMT</div><h3>预估为 GPT-6 AI 模型：OpenAI Astra 首批演示样本流出，1 次交互生成类 GTA 2 游戏</h3><p>IT之家 8 月 30 日消息，科技媒体 testingcatalog 昨日（8 月 29 日）发布博文，报道称 OpenAI 正加快 Astra 模型发布进程， 新增 mozaik-alpha-fdm 测试阶段，从而扩大内部测试范围。 IT之家注：Astra 是 OpenAI 內部正在开发的新一代 AI 模型系列，代号延续其天体命名传统（Sol、Terra、Luna 之后），拉丁语意为“星辰”。 据《The Information》等报道，Astra 在数学、物理、生物、医学、化学与网络安全等领域展现重大突破，甚至据称已解决多个长期未解的高阶数学难题。 截至目前（2026 年 8 月），Astra 尚未确认为“GPT-6”，但多方媒体与业界爆料普遍认为 Astra 很可能就是外界所称的 GPT-6，或至少是 GPT-6 的候选名称之一，参数规模可能会达到 10 万亿。 根据网友分享的测试内容，Astra 模型重点提升代码编写和可视化软件创建，仅 1 次对话交互，就成功就制作出了类似《侠盗猎车手 2》（GTA 2）的游戏，以及精细的网站、3D 对象和体素环境。…</p><a href="https://www.ithome.com/0/996/120.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 30 Aug 2026 04:38:53 GMT</div><h3>MNT Station 迷你电脑开启众筹：0.96L 机身、32GB 内存、RK3588 芯片</h3><p>IT之家 8 月 30 日消息，科技媒体 NotebookCheck 昨日（8 月 29 日）发布博文， 报道称德国 MNT Research 在 Crowd Supply 上线 MNT Station 迷你电脑众筹项目。 外观方面，该迷你电脑采用阳极氧化、喷砂处理的 CNC 铝合金机箱，尺寸为 279×133×26mm、体积 0.96L、重量 0.68kg，可平放、竖放，也兼容 75×75mm 和 100×100mm VESA 挂载规格。IT之家发稿前已成功筹集 9,099 美元 （IT之家注：现汇率约合 61,381 元人民币） 。 性能与可升级性依赖 MNT Reform Mainboard 3.0 的 200 针处理器模块接口。用户可选 Raspberry Pi CM4、NXP LS1028A 或 Rockchip RK3588 V2 模块。 其中 RK3588 V2 提供 16GB 以及最高 32GB 内存选项，RK3588 采用 4 个 Cortex-A76 与 4 个 Cortex-A55 核心及 Mali-G610 MP4 GPU。 芯片方面，该迷你电脑搭载瑞芯微（Rockchip）的 RK3588…</p><a href="https://www.ithome.com/0/996/113.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 29 Aug 2026 21:37:00 +0800</div><h3>Debian 项目将允许以负责任的方式使用生成式 AI</h3><p>Debian 项目对是否允许使用 AI 进行了投票表决，投票采用孔多塞投票法，共有 9 个选项，最终结果是第 5 选项“负责任的使用生成式 AI”获胜。Debian 项目表示，它既不反对也不支持在软件、包、文档等的开发和维护中使用生成式 AI 工具。但项目也认识到，如果能负责任的使用 AI 工具，将能显著提高贡献者的效率，使他们将有限的时间投入到需要技术专长、判断力、审核和协作的工作中。无论是否使用生成式 AI 工具，Debian 项目希望提交的内容都符合相同的质量、正确性、可维护性和法律合规性标准。使用生成式 AI 工具不会减少责任。对于提交的内容，贡献者应理解、审核、测试 AI 辅助生成的输出，在适当情况下进行修改。未经适当人工审查就盲目接受或上传 AI 生成的材料，不符合 Debian 既定的开发实践。Debian 鼓励贡献者披露其贡献是否使用 AI 辅助，但不强制要求。Debian 承认，生成式 AI 系统生成的材料的法律地位在许多司法管辖区存在争议，包括训练材料的版权、作者身份、许可和潜在复制问题。Debian 项目不寻求通过本一般决议解决这些悬而未决的法律问题，也不就 AI…</p><a href="https://www.solidot.org/story?sid=85229" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 29 Aug 2026 18:46:44 +0800</div><h3>人形机器人的跑步方式与人类不同</h3><p>北京人形机器人创新中心研发的通用人形机器人天工在世界人形机器人运动会上跑出了 100 米 8.64 秒的成绩，远超博尔特（Usain Bolt）于 2009 年创下的 100 米 9.58 秒的人类世界纪录。机器人的平均速度接近 42 公里/时。专家表示，这一成绩凸显了机器人的强大，也凸显了它们在决策和感知等方面的不足——人形机器人都是靠撞软垫的方式刹车的。人形机器人的跑步方式与人类不同：首先是博尔特的起跑仅仅花了 0.146 秒，相比下机器人等了近 1 秒钟才反应过来开始移动；博尔特仅用 41 步就完成了 100 米，而机器人花了 50 多步，机器人的步频更快步幅更短。韩国光云大学机器人学教授 Park Suhan 表示，机器人的步态映了其电机的性能，而非去刻意模仿人类的短跑。另一位专家认为机器人如果步幅过大会很容易摔倒。人类顶尖运动员在跑步的最后阶段会减速，但天工机器人没有任何减速迹象，因此最后一头撞向软垫。未来几年能转弯和自主决策的机器人将比单纯的提高速度会更令人印象深刻。</p><a href="https://www.solidot.org/story?sid=85228" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 28 Aug 2026 15:08:27 +0800</div><h3>Haiku R1/beta6 释出</h3><p>开源 BeOS 操作系统 Haiku 在发布第 5 个 beta 版本 2 年后释出了第 6 个 beta 版本。BeOS 操作系统在 2001 年被 Palm 收购后停止开发，Haiku 项目在这之后不久正式启动，2002 年发布了首个版本，2012 年发布 Haiku R1 Alpha 4.1，六年后发布了 Haiku R1/beta1。beta6 主要是改进功能和整体稳定性。新版的主要变化包括：移植了 Firefox，改进对 Qemu 的支持，基于 OpenBSD 的内存分配机制，改进对不同文件系统的支持，修复了逾 530 个 bug，移植了大量新应用，等等。</p><a href="https://www.solidot.org/story?sid=85219" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 28 Aug 2026 14:49:13 +0800</div><h3>Google 要求 Android 应用开发商降低内存占用</h3><p>由于 AI 热导致内存短缺，无论是 PC 还是智能手机，都面临内存价格太昂贵而不得不减少内存容量的问题，PC 行业时隔多年再次推出了 8GB 内存 PC，智能手机厂商也面临相同问题。对此 Google 采取了应对措施，要求Android 应用开发商优化代码降低内存占用。Google 说，移动行业面临改变设备内存可用性的严重硬件供应限制，进而影响到用户使用体验。Google 增加了代码优化要求，防止应用运行缓慢和崩溃等与性能相关的问题。应用开发商需要在 2027 年 2 月前满足内存使用要求。</p><a href="https://www.solidot.org/story?sid=85218" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 28 Aug 2026 00:00:29 +0800</div><h3>一名微软工程师一个月的 AI 支出高达 2.8 万美元</h3><p>在长时间鼓励之后，本月初微软开始要求员工限制 AI 使用。执行副总裁 Jay Parikh 在一封发给微软员工的邮件中要求工程师专注于业务成果，而非最大化 AI token 的使用量，为了“从 token 投资中获得更大的价值”，微软将比 Anthropic 模型更便宜的 OpenAI GPT-5.6 设为内部使用的默认模型。根据一份微软员工自愿提交的 AI 使用费账单：Customer and Partner Solutions 部门的一名员工在 28 天内的 AI 支出高达 2.8 万美元；多名员工支出超过 1 万美元；中位数约为每 28 天 300 美元，少数部门的 AI 支出仅仅为几十美元；CoreAI 部门的 AI 支出中位数最高为 975 美元。</p><a href="https://www.solidot.org/story?sid=85216" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 27 Aug 2026 23:29:16 +0800</div><h3>Meta将支付 170 亿美元和解儿童隐私保护诉讼，将限制青少年在特定时间访问社媒</h3><p>Meta 与美国多州就儿童隐私和消费者保护案达成和解，同意向各州支付总额将近 167 亿美元和解金，以及对青少年用户施加一系列社媒使用限制，包括每天不能使用超过两小时。最具深远影响的和解条款是 Meta 同意实施一系列新的保障措施。这些措施将对面向青少年的社媒运作方式起到实质改变。其中一项变更将启用“夜间屏蔽”功能：在默认设置情况下，从午夜至凌晨6时，青少年将无法访问 Facebook 和 Instagram。此外青少年账户在 Meta 旗下所有社媒的每日累计使用时长，默认上限为两小时。</p><a href="https://www.solidot.org/story?sid=85215" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      <section class="section-card" id="errors"><div class="section-head"><h2>抓取异常</h2><span>不影响当期页面生成</span></div><ul class="error-list"><li class="error-item"><strong>36氪</strong><span>[解析失败] https://36kr.com/feed</span><em>not well-formed (invalid token): line 9, column 542</em></li></ul></section>
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>
