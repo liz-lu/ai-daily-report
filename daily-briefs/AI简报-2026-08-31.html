@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-08-31</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a><a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a><a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      <a class="toc-link" href="#errors">抓取异常</a>
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-08-31</span>
+          <span>16:49（北京时间）</span>
+          <span>IT之家、Solidot、量子位、雷锋网</span>
+        </div>
+        <p class="hero-copy">今日AI领域动态密集：OpenAI被曝采购数万台Mac用于强化训练，并传出GPT-6灰测消息；范式与华为达成算力战略合作，拥抱国产高端算力；小鹏机器人研发预算超20亿，估值超400亿；滴滴自动驾驶新一代Robotaxi开启载客测试。行业呈现大模型竞争白热化、国产算力生态加速、具身智能商业化落地三大主线。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>34</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>4</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>1</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>16</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>13</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>11</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>9</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>9</strong></div><p>基础设施的效率叙事持续升温</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>7</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>IT之家、Solidot</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>3</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>IT之家、量子位、雷锋网</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>大模型竞争白热化，OpenAI动作频频</h3><p>OpenAI被曝购买数万台Mac用于强化训练，引发对训练架构变化的讨论；同时GPT-6灰测demo刷屏，市场预期周四发布。Claude开始训练Claude，以4美元/小时成本跑赢150美元/小时的人类研究员，显示AI自我进化能力提升。</p></article><article class="insight-card"><h3>国产算力生态加速，范式与华为战略合作</h3><p>范式与华为达成重磅算力战略合作，成为首批拥抱国产最高端算力底座的AI企业。这一合作标志着国产算力在AI领域的应用进一步深化，或将对行业格局产生重要影响。</p></article><article class="insight-card"><h3>具身智能与机器人赛道升温，商业化提速</h3><p>小鹏机器人研发预算超20亿，估值超400亿；滴滴自动驾驶新一代Robotaxi开启载客测试；昂首EV1智能出行机器人在深圳湾首发。具身智能从概念走向落地，多家企业加速商业化进程。</p></article><article class="insight-card"><h3>AI重塑芯片设计，效率提升显著</h3><p>OpenAI自研推理芯片Jalapeño从设计到tapeout仅用9个月，AI深度参与设计流程。Cadence高管表示AI有望让芯片设计时间减半，但资深工程师仍是核心竞争力。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>OpenAI采购Mac进行强化训练，可能改变AI训练硬件格局，对英伟达GPU需求构成潜在影响。</li><li>范式与华为合作，或推动国产算力在AI训练和推理中的采用率提升，降低对进口芯片依赖。</li><li>小鹏机器人高研发投入和高估值，反映资本市场对具身智能赛道信心增强，可能吸引更多玩家入局。</li><li>AI参与芯片设计缩短开发周期，可能加速芯片迭代，提升行业整体效率。</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>GPT-6正式发布及性能表现，关注其对大模型竞争格局的影响。</li><li>OpenAI与苹果在训练硬件上的合作进展，是否形成长期趋势。</li><li>范式与华为合作的具体落地项目及对国产算力生态的带动效应。</li><li>小鹏机器人IRON的量产进度及市场反馈。</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>16 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>「GPT-6」灰测demo刷屏！周四发布在即</h3><a href="https://www.qbitai.com/2026/08/481893.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>OpenAI买几万台Mac搞强化训练！英伟达的活被苹果抢了</h3><a href="https://www.qbitai.com/2026/08/481759.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>AQuA：让量化研究 Agent 持续进化，也让回测结果经得起检验</h3><p>自主研究系统的上限，不只取决于模型有多聪明，也取决于系统能否分辨什么是新证据，什么只是一次偶然的高分。</p><a href="https://www.qbitai.com/2026/08/481475.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>Claude开始训练Claude！4美元一小时，跑赢150美元人类研究员</h3><a href="https://www.qbitai.com/2026/08/481223.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Cadence滕晋庆：AI有望让芯片设计时间减半，但资深工程师仍是核心竞争力</h3><p>OpenAI公布了首款自研推理芯片Jalapeño的首批实测结果引发了巨大的关注，比性能更值得关注的是，AI直接参与了这颗芯片的开发。 根据OpenAI的披露，AI被用于探索不同实现方案，缩短设计、测量和验证循环，并优化芯片中的部分算术电路。Jalapeño从初始设计到tapeout只用了9个月。 这并非“AI独立设计了一颗完整芯片”，Jalapeño由OpenAI与Broadcom共同开发。这个“不完整”，恰好把一个被讨论多年的问题推到了台前： 从AI参与芯片设计，到AI独立完成一颗芯片，中间还隔着什么？ 在近日举行的CadenceLIVE 2026期间，Cadence资深副总裁兼数字与签核事业部总经理滕晋庆给出了两个看似矛盾的判断： AI EDA短期内有可能让芯片设计效率接近翻倍，但至少未来五年，他仍看不到只凭AI就能生成一颗可用芯片。 Cadence资深副总裁兼数字与签核事业部总经理滕晋庆 这意味着，AI EDA的拐点可能不会以“无人设计芯片”的方式出现。更早发生的变化，是芯片设计开始从“工程师操作一组EDA工具”，转向“工程师定义目标，让Agent调用整套工具链”。 这也将同时改变工程师的价值和EDA公司的生意。…</p><a href="https://www.leiphone.com/category/chips/ARHh6hZXIzvBZq5z.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>定义物理 AI 新纪元：昂首 EV1 智能出行机器人落地深圳湾 INNO100，开启中国市场线下首发</h3><p>2026 年 8 月 29 日，全球领先的物理 AI 与机器人创新企业若创科技（昂首 Strutt）于深圳湾 INNO100 全球创新旗舰店正式举行中国线下首发仪式，展示旗下旗舰产品——昂首 EV1 智能出行机器人。 作为累计完成近亿美元融资的硬科技领军者，昂首 Strutt 以前瞻性的个人移动体验为切入点，正加速推动“物理 AI”技术走向消费级规模化应用。 以端到端架构，重构个人移动体验 雷峰网了解到，昂首团队拒绝将个人出行设备降维定义为传统的辅助代步工具，而是将其打造为集“感知、决策、控制与动力”于一体的全新智能终端。 • 双核心工程架构 ： EV1 深度融合了自研的伴行智驾系统与凌波底盘系统。依托 360 度多模态传感器阵列与激光雷达，实现全场景智能避障与自主领航；车规级四驱底盘结合柔性悬挂，使其具备穿行各类复杂地形的卓越能力。 • 国际权威设计认可 ： 凭借颠覆性的设计理念与工程实现，昂首 EV1 已包揽 2025 红点奖“至尊荣誉奖”（Red Dot: Luminary）、2026 CES 最佳创新奖（Best of Innovation） 及 2026 iF 设计奖 等全球顶尖工业设计荣誉。 • 原生进化能力…</p><a href="https://www.leiphone.com/category/weiwu/XIbqyD3TWrDeuFCh.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>真香！特斯拉在港澳推出更便宜的Model 3，起售价不足18万元；字节豆包大模型2.2将推迟发布，原计划8月推出；官方回应「网友呼吁取消ETC」</h3><p>要闻提示 1.特斯拉在港澳推出更便宜的Model 3，起售价不足18万元！ 2.奔驰回应星宇劝退应届生：严重道德和劳动失当行为 3.月薪1万到手仅5千？曝浪潮云强制推行“五五开”绩效 4.官方回应“网友呼吁取消ETC”！博主也给出看法：车牌识别存在不少漏洞 5.字节跳动豆包大模型 2.2 将推迟发布，原计划 8 月推出 6.雷军祝贺长鑫实现LPDDR6内存量产：非常了不起，相信还会有更多中国科技企业能够出人头地 7.网友反馈上海电信发生大面积断网故障，宽带及手机信号均受影响 8.刚花600亿美元收购Cursor两周，OpenAI就断供模型！马斯克：我不在意 今日头条 特斯拉在港澳推出更便宜的Model 3，起售价不足18万元！ 8月30日，媒体查阅特斯拉香港和特斯拉澳门官网发现，特斯拉已正式在两地推出配置简化、售价更低的Model 3车型版本。 该款车型在中国香港的起售价为20.5万港元（约合人民币17.59万元），比此前在售的基础版车型售价降低8.5%；在中国澳门的起售价为25.2万澳门元（约合人民币20.98万元）。…</p><a href="https://www.leiphone.com/category/zaobao/3X5Iht5o0zblV5d9.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从Data到Agent：华为云AI-Ready数据基础设施全链路能力亮相数博会</h3><p>8月28日，在2026中国国际大数据产业博览会期间，以“从数据到Agent，数据价值链的重构与创新”为主题的数据要素大会在贵阳举办。政府机构、头部大数据集团、行业企业及专家学者齐聚一堂，围绕数据要素市场化配置、高质量数据集建设、可信数据空间以及AI时代的数据基础设施创新展开探讨。 当大模型和Agent加速进入千行万业，一个根本性变化正在发生：大模型和Agent成为新的数据消费者。数据消费主体的变化，正在推动大数据平台从传统湖仓向多模态湖仓、数据智能体演进，也对AI时代的数据基础设施提出了全新要求。 从 Data 到 Agent ，重构 AI 时代数据价值链 “数据是AI的核心燃料，AI驱动数据价值释放。”会上，华为混合云总裁顾雪军指出，随着AI产业迈入Agentic智能体时代，数据已成为驱动AI模型进化、驱动智能体生长的核心燃料。华为云Stack面向国计民生行业客户，打造了一套覆盖数据全生命周期的数据能力体系，帮助企业把过去分散、沉淀的全量数据真正用起来、用得好、用出价值，推动数据从资源转变为生产力。 华为混合云总裁 顾雪军…</p><a href="https://www.leiphone.com/category/industrynews/5HSY98yO7OtW5EGw.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Anthropic 再定统一标准：MHS，打通 AI 与物理世界的统一接口</h3><p>MHS把一场新药研发实验速度提升3倍。 作者丨高允毅 编辑丨岑 峰 这是Anthropic第二次发布全行业统一协议。 第一次，它发布了 MCP ，它统一了 AI 代理调用外部工具、数据源与 API 的方式，如今满世界的 Agent 都靠它连数据库、接浏览器、调 API。这一次，它把完全相同的逻辑延伸到了物理世界， Agent可以和不同的物理设备之间对话了。 这是一套面向物理设备的 AI 代理接口标准，叫 Model Hardware Standard（MHS） ，此次发布的是预览版本，已经在全球顶尖实验室的显微镜、机械臂和量子计算机上使用起来了。 它解决的，是整个科研与工业领域头痛了二十年的问题：硬件接口碎片化。 01 二十年未破的困局： 标准追不上硬件的多样性 这是一个所有实验室从业者都心照不宣的困境。 在一间自动化实验室里，成像相机可能基于 Python 开发，探测器运行在 MATLAB 环境中，电生理设备采用 C# 架构，而机械臂、共聚焦显微镜、移液工作站更是各有各的专属驱动、私有数据格式和封闭控制软件。多数情况下，哪怕是相邻的两台仪器，都无法感知彼此的运行状态。 如果研究人员想实现…</p><a href="https://www.leiphone.com/category/yanxishe/N12vFHlsL2JrdKYR.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称 OpenAI 购入数万台苹果 Mac mini / Studio，用于训练 AI 智能体操作计算机</h3><p>IT之家 8 月 31 日消息，据 The Information 报道，OpenAI 近几个月购买了数万台苹果 Mac mini 和 Mac Studio 电脑，用于训练能够操作计算机的 AI 系统。 这些 Mac 并非用于 OpenAI 基础模型的大规模预训练，而是主要承担强化学习任务。在这一训练过程中，AI 智能体需要在真实计算机环境中反复练习完成各种操作任务。 据了解，OpenAI 购买的主要是配备大容量统一内存的 Mac 产品，并利用这些设备运行与“计算机操作型 AI 智能体”相关的模型和训练工作负载。 这类硬件能够为 AI 模型提供真实的计算机操作环境，使其学习如何浏览软件界面、与应用程序互动以及完成各种电脑任务。通过这样的环境，AI 智能体可以反复进行训练和评估。 OpenAI 如此大规模采购 Mac，也反映出整个 AI 行业对于大内存苹果电脑的需求正在快速增长。 目前，配备大容量内存的 Mac mini 和 Mac Studio 已经变得较难购买，部分型号甚至连续数月处于缺货状态。AI 公司尤其看重这些配置，原因在于苹果的统一内存架构允许 CPU 和 GPU 访问同一个大容量内存池。 苹果并不会公布单个…</p><a href="https://www.ithome.com/0/996/556.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>亚马逊 AWS 加码政府 AI 赛道，OpenAI、Meta、Anthropic 等大模型集体登陆 GovCloud</h3><p>IT之家 8 月 31 日消息，亚马逊云服务（AWS）昨天宣布，公司已扩大 GovCloudAI 模型可用范围， 美国的政府机构可通过 Amazon Bedrock 渠道 ， 使用 Anthropic、OpenAI、Meta 等公司旗下 AI 大模型 ，以及亚马逊自家的 Nova 模型。 据悉，AWS GovCloud 专门面向美国政府机构，旨在提供符合政府监管、安全和外部隔离的云计算环境。 亚马逊对此表示：“我们欣然宣布，AWS GovCloud（美国）现可以通过 Amazon Bedrock 提供多种 AI 模型，为政府客户、国防工业和技术合作伙伴提供各种 AI 模型。” 亚马逊 AWS 业务当今正保持强势增长。2026 年第二季度，AWS 营业利润同比增长 63%，营收同比增长 37%，AI 和芯片业务的强劲表现是推动增长的重要因素。 亚马逊管理层预计，AWS 的营收最终可能达到 1 万亿美元 （IT之家注：现汇率约合 6.74 万亿元人民币） 。目前全球约 85% 的 IT 支出仍用于本地部署（on-premises）环境，这意味着云计算市场仍拥有较大的增长空间。</p><a href="https://www.ithome.com/0/996/554.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>工信部：加大大模型、智能体、Token 等服务采购力度</h3><p>IT之家 8 月 31 日消息，今日，工业和信息化部办公厅发布关于开展人工智能应用服务商培育专项行动的通知。 IT之家附全文如下： 人工智能应用服务商（以下简称服务商）是指围绕用户单位智能化需求，提供人工智能解决方案咨询规划、交付实施、运营管理、安全治理等服务的企业或机构。为深入贯彻党中央、国务院决策部署，落实《国务院关于深入实施“人工智能 +”行动的意见》中“培育人工智能应用服务商”“打造人工智能应用服务链”相关工作安排，现组织开展人工智能应用服务商培育专项行动。有关事项通知如下： 一、行动目标 以专项行动为牵引，建立服务商资源池，靶向提升服务商技术创新、集成交付、安全合规能力，锻造一批懂行业痛点、通技术机理、知安全风险、善交付运营的人工智能应用服务商队伍。到 2026 年底，全国服务商资源池内服务商数量突破 2000 家，形成结构合理、分工有序、协同创新的多层次梯队，复杂场景交付能力显著增强。到 2027 年底，全国服务商资源池内服务商数量不少于 3000 家，支撑形成全要素协同、全链条贯通、全场景覆盖的人工智能应用服务生态。 二、重点任务 任务一：建立服务商资源池…</p><a href="https://www.ithome.com/0/996/543.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>行业首个家庭智能伴侣级 AIOS：海信电视 JUOS 发布，桌面随人变化、首创 AI 搜索片段</h3><p>IT之家 8 月 31 日消息，在今日的海信视像 AI 战略暨 JUOS 发布会上，海信发布行业首个家庭智能伴侣级 AIOS —— JUOS 。 据介绍，海信 JUOS 实现了 从指令驱动到意图驱动 ： 因人、因时、因境，内容和服务各有不同； 懂语境、懂情绪，交流自然更像人与人； 跨屏接着看，家电一句管，生活服务轻松办。 海信 JUOS 搭载行业首个家庭智能伴侣级 AIOS 技术架构， 配备星海大模型 ，搭配四大引擎。 海信 JUOS 的灵犀家庭情境引擎支持通过摄像头、声纹等感知家庭人物、内容、空间、环境、设备，并进行家庭情境和意图理解。 小聚多 Agent 协同引擎则可以统一用户意图、根据用户需求编排内容，最后输出个性化方案。 星海语境智能引擎带来连续语境理解与自然交互，可读懂情绪、看懂屏幕内容和环境。 全域行动闭环引擎 首发大屏 AI 任务闭环执行能力 ，从用户提出需求开始，可自主调度最合适的智能体，进行任务执行并给出反馈，完成行动闭环。 海信自研的星海大模型可选 7B/32B/72B 版本，支持多模态理解、意图理解、推理规划、工具执行。 安全方面，JUOS 支持敏感操作确认、权限随时可控、记忆可管理。 JUOS…</p><a href="https://www.ithome.com/0/996/499.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>索尼华纳起诉 Anthropic 侵犯版权</h3><p>全球唱片巨头索尼和华纳对 Anthropic 提起诉讼，指控其犯下了历史上规模最大、最明目张胆的知识产权盗窃罪行之一。诉讼指控 Anthropic 非法利用数万首版权音乐作品训练其模型。Anthropic 及其创始人 Dario Amodei 和 Benjamin Mann 被控肆无忌惮的大规模非法下载、抓取和传播受版权保护的作品，目的是开发、运营该公司的 Claude 系列 AI 模型，并从中牟取暴利。唱片公司要求为每部侵权作品索赔最高 15 万美元，每次可识别版权信息被删除的情况则追加最高 2.5 万美元赔偿。如果法院裁决唱片公司胜诉并判决最高赔偿金额，总赔偿金额可能高达数十亿美元。诉讼还指控 Mann 使用 BitTorrent下载了逾 500 万本盗版图书，Anthropic 员工还从 Pirate Library Mirror 网站下载了逾 200 万本盗版图书，从付费获得唱片公司授权的 MusixMatch 和 LyricFind 等网站抓取歌词。</p><a href="https://www.solidot.org/story?sid=85234" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Debian 项目将允许以负责任的方式使用生成式 AI</h3><p>Debian 项目对是否允许使用 AI 进行了投票表决，投票采用孔多塞投票法，共有 9 个选项，最终结果是第 5 选项“负责任的使用生成式 AI”获胜。Debian 项目表示，它既不反对也不支持在软件、包、文档等的开发和维护中使用生成式 AI 工具。但项目也认识到，如果能负责任的使用 AI 工具，将能显著提高贡献者的效率，使他们将有限的时间投入到需要技术专长、判断力、审核和协作的工作中。无论是否使用生成式 AI 工具，Debian 项目希望提交的内容都符合相同的质量、正确性、可维护性和法律合规性标准。使用生成式 AI 工具不会减少责任。对于提交的内容，贡献者应理解、审核、测试 AI 辅助生成的输出，在适当情况下进行修改。未经适当人工审查就盲目接受或上传 AI 生成的材料，不符合 Debian 既定的开发实践。Debian 鼓励贡献者披露其贡献是否使用 AI 辅助，但不强制要求。Debian 承认，生成式 AI 系统生成的材料的法律地位在许多司法管辖区存在争议，包括训练材料的版权、作者身份、许可和潜在复制问题。Debian 项目不寻求通过本一般决议解决这些悬而未决的法律问题，也不就 AI…</p><a href="https://www.solidot.org/story?sid=85229" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>一名微软工程师一个月的 AI 支出高达 2.8 万美元</h3><p>在长时间鼓励之后，本月初微软开始要求员工限制 AI 使用。执行副总裁 Jay Parikh 在一封发给微软员工的邮件中要求工程师专注于业务成果，而非最大化 AI token 的使用量，为了“从 token 投资中获得更大的价值”，微软将比 Anthropic 模型更便宜的 OpenAI GPT-5.6 设为内部使用的默认模型。根据一份微软员工自愿提交的 AI 使用费账单：Customer and Partner Solutions 部门的一名员工在 28 天内的 AI 支出高达 2.8 万美元；多名员工支出超过 1 万美元；中位数约为每 28 天 300 美元，少数部门的 AI 支出仅仅为几十美元；CoreAI 部门的 AI 支出中位数最高为 975 美元。</p><a href="https://www.solidot.org/story?sid=85216" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>13 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>范式与华为达成重磅算力战略合作，成为首批拥抱国产最高端算力底座的AI企业</h3><a href="https://www.qbitai.com/2026/08/481919.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>OpenAI买几万台Mac搞强化训练！英伟达的活被苹果抢了</h3><a href="https://www.qbitai.com/2026/08/481759.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>今年的研发预算将超20亿，小鹏机器人凭什么值400多亿？</h3><p>8月24日，小鹏公布二季度财报。 财报显示，今年上半年，小鹏研发投入达到58.2亿元，同比增长39%。据了解，小鹏今年全年研发预算约为120亿元，其中约50亿元投入汽车业务，另外70亿元投向物理AI相关领域，人形机器人IRON正是其中的重要投入方向。 雷峰网了解到，在机器人这一单一业务上，小鹏今年的投入预计就将超过20亿元。这笔钱主要投向机器人研发人员、高质量数据采集以及物理AI模型训练。我们还了解到，小鹏为机器人业务单独配置了万卡级算力集群，用于AI大脑训练。 相比之下，目前国内多数具身智能公司的算力规模仍在数百卡至数千卡之间。小鹏正在把机器人AI训练的算力投入，推向了一个新的量级。 就在同一天，小鹏又为机器人业务拿到了另一笔巨额“弹药”。 8月24日，小鹏集团正式宣布，旗下机器人业务完成首轮超过9亿美元融资，投后估值超过63亿美元，约合430亿人民币，刷新中国具身智能行业单轮私募融资纪录。本轮融资由IDG资本领投，高榕创投参投，腾讯、阿里巴巴作为战略投资者参与，小鹏集团继续保持控股。 这也解释了为什么，小鹏机器人暂时并不急于上市。…</p><a href="https://www.leiphone.com/category/transportation/EJrElOTA0bHDOd60.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>真香！特斯拉在港澳推出更便宜的Model 3，起售价不足18万元；字节豆包大模型2.2将推迟发布，原计划8月推出；官方回应「网友呼吁取消ETC」</h3><p>要闻提示 1.特斯拉在港澳推出更便宜的Model 3，起售价不足18万元！ 2.奔驰回应星宇劝退应届生：严重道德和劳动失当行为 3.月薪1万到手仅5千？曝浪潮云强制推行“五五开”绩效 4.官方回应“网友呼吁取消ETC”！博主也给出看法：车牌识别存在不少漏洞 5.字节跳动豆包大模型 2.2 将推迟发布，原计划 8 月推出 6.雷军祝贺长鑫实现LPDDR6内存量产：非常了不起，相信还会有更多中国科技企业能够出人头地 7.网友反馈上海电信发生大面积断网故障，宽带及手机信号均受影响 8.刚花600亿美元收购Cursor两周，OpenAI就断供模型！马斯克：我不在意 今日头条 特斯拉在港澳推出更便宜的Model 3，起售价不足18万元！ 8月30日，媒体查阅特斯拉香港和特斯拉澳门官网发现，特斯拉已正式在两地推出配置简化、售价更低的Model 3车型版本。 该款车型在中国香港的起售价为20.5万港元（约合人民币17.59万元），比此前在售的基础版车型售价降低8.5%；在中国澳门的起售价为25.2万澳门元（约合人民币20.98万元）。…</p><a href="https://www.leiphone.com/category/zaobao/3X5Iht5o0zblV5d9.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从Data到Agent：华为云AI-Ready数据基础设施全链路能力亮相数博会</h3><p>8月28日，在2026中国国际大数据产业博览会期间，以“从数据到Agent，数据价值链的重构与创新”为主题的数据要素大会在贵阳举办。政府机构、头部大数据集团、行业企业及专家学者齐聚一堂，围绕数据要素市场化配置、高质量数据集建设、可信数据空间以及AI时代的数据基础设施创新展开探讨。 当大模型和Agent加速进入千行万业，一个根本性变化正在发生：大模型和Agent成为新的数据消费者。数据消费主体的变化，正在推动大数据平台从传统湖仓向多模态湖仓、数据智能体演进，也对AI时代的数据基础设施提出了全新要求。 从 Data 到 Agent ，重构 AI 时代数据价值链 “数据是AI的核心燃料，AI驱动数据价值释放。”会上，华为混合云总裁顾雪军指出，随着AI产业迈入Agentic智能体时代，数据已成为驱动AI模型进化、驱动智能体生长的核心燃料。华为云Stack面向国计民生行业客户，打造了一套覆盖数据全生命周期的数据能力体系，帮助企业把过去分散、沉淀的全量数据真正用起来、用得好、用出价值，推动数据从资源转变为生产力。 华为混合云总裁 顾雪军…</p><a href="https://www.leiphone.com/category/industrynews/5HSY98yO7OtW5EGw.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称 OpenAI 购入数万台苹果 Mac mini / Studio，用于训练 AI 智能体操作计算机</h3><p>IT之家 8 月 31 日消息，据 The Information 报道，OpenAI 近几个月购买了数万台苹果 Mac mini 和 Mac Studio 电脑，用于训练能够操作计算机的 AI 系统。 这些 Mac 并非用于 OpenAI 基础模型的大规模预训练，而是主要承担强化学习任务。在这一训练过程中，AI 智能体需要在真实计算机环境中反复练习完成各种操作任务。 据了解，OpenAI 购买的主要是配备大容量统一内存的 Mac 产品，并利用这些设备运行与“计算机操作型 AI 智能体”相关的模型和训练工作负载。 这类硬件能够为 AI 模型提供真实的计算机操作环境，使其学习如何浏览软件界面、与应用程序互动以及完成各种电脑任务。通过这样的环境，AI 智能体可以反复进行训练和评估。 OpenAI 如此大规模采购 Mac，也反映出整个 AI 行业对于大内存苹果电脑的需求正在快速增长。 目前，配备大容量内存的 Mac mini 和 Mac Studio 已经变得较难购买，部分型号甚至连续数月处于缺货状态。AI 公司尤其看重这些配置，原因在于苹果的统一内存架构允许 CPU 和 GPU 访问同一个大容量内存池。 苹果并不会公布单个…</p><a href="https://www.ithome.com/0/996/556.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>亚马逊 AWS 加码政府 AI 赛道，OpenAI、Meta、Anthropic 等大模型集体登陆 GovCloud</h3><p>IT之家 8 月 31 日消息，亚马逊云服务（AWS）昨天宣布，公司已扩大 GovCloudAI 模型可用范围， 美国的政府机构可通过 Amazon Bedrock 渠道 ， 使用 Anthropic、OpenAI、Meta 等公司旗下 AI 大模型 ，以及亚马逊自家的 Nova 模型。 据悉，AWS GovCloud 专门面向美国政府机构，旨在提供符合政府监管、安全和外部隔离的云计算环境。 亚马逊对此表示：“我们欣然宣布，AWS GovCloud（美国）现可以通过 Amazon Bedrock 提供多种 AI 模型，为政府客户、国防工业和技术合作伙伴提供各种 AI 模型。” 亚马逊 AWS 业务当今正保持强势增长。2026 年第二季度，AWS 营业利润同比增长 63%，营收同比增长 37%，AI 和芯片业务的强劲表现是推动增长的重要因素。 亚马逊管理层预计，AWS 的营收最终可能达到 1 万亿美元 （IT之家注：现汇率约合 6.74 万亿元人民币） 。目前全球约 85% 的 IT 支出仍用于本地部署（on-premises）环境，这意味着云计算市场仍拥有较大的增长空间。</p><a href="https://www.ithome.com/0/996/554.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>Dbrand 为苹果 AirPods Pro 3 入耳式 TWS 耳机推出 Tank 保护壳</h3><p>IT之家 8 月 31 日消息，数码配件制造商 Dbrand 近日为苹果 AirPods Pro 3 入耳式 TWS 耳机推出 Tank Case 保护壳。这是 该产品家族目前唯一一款为非智能手机设备开发的型号 ，定价 29.95 美元 （IT之家注：现汇率约合 201.7 元人民币） 。 AirPods Pro 3 款 Tank Case 延续了该家族一贯的“硬核”设计风格，能给予设备良好保护， 丰富的凸起、凹陷、纹理便于用户握持 ，可牢牢贴合设备本身，还提供了配套的拆卸工具。 此外，该保护壳并未影响 AirPods Pro 3 的无线充电功能；挖孔设计为 AirPods 充电盒的触摸传感器提供不间断的电容式信号传输，简化了配对流程；另有挂绳孔位。</p><a href="https://www.ithome.com/0/996/546.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>鸿蒙智行智界 RX 轿跑 SUV 官宣开展 L3 级自动驾驶准入测试</h3><p>IT之家 8 月 31 日消息，在鸿蒙智行智界汽车的智界 RX 安全科技全解读直播活动中，智界汽车产品经理李鑫悦透露， 智界 RX 已开展 L3 级自动驾驶准入测试 。 在 8 月 20 日的享界 G9 及鸿蒙智行新品发布会上，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东宣布， 智界 RX 搭载面向未来的 L3 级自动驾驶架构设计 。 据IT之家了解，该车定位全新轿跑 SUV， 基于华为途灵平台打造 ，提供单电机后驱与双电机四驱两种布局，车身尺寸为 5020×2007×1585mm，轴距 3000mm， 首发华为智擎新一代高性能电驱 。 新车搭载了 38 个融合感知传感器，包括 896 线双光路图像级激光雷达、3 颗高精度固态激光雷达。此外，还有双目后视镜、智能环抱座椅等“黑科技”加持。智界 RX 预售价 29.98 万元起。</p><a href="https://www.ithome.com/0/996/545.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>更简洁、更快速，微软 Win11 八月可选更新 KB5120998 带来新版搜索功能</h3><p>IT之家 8 月 31 日消息，Windows 11 的 8 月可选更新带来了不少用户期待已久的改进，其中包括全新的搜索功能。用户终于可以摆脱 Bing 和 Copilot 搜索结果，现在界面更简洁，速度也更快。 不过，对于大多数用户来说，这项功能不会在安装更新后立即启用。微软目前正在分阶段推送，而由于这本身还是一次可选更新，很多用户甚至不会主动安装它。 如何获得更简洁、更快速的新版 Windows 11 搜索 首先，进入“设置 &gt; Windows 更新”，安装 KB5120998，也就是 Windows 11 的 2026 年 8 月可选更新。 安装后，Windows 11 25H2 将升级至 Build 26200.9278，24H2 则升级至 Build 26100.9278。更新完成后重启电脑。 重启后，打开 Windows 搜索，看看新版界面是否已经出现。不过，大多数电脑此时可能仍然看不到变化，因为微软通过“受控功能推出”机制分阶段启用这类新功能。 实际上，只要你已经安装了更新，新功能的相关代码就已经存在于系统中，只是微软尚未通过服务器端开关为你的设备启用它。 用户也可以通过 ViVeTool…</p><a href="https://www.ithome.com/0/996/541.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>美国用户发现谷歌地图已将安大略湖改名“美国湖”，引发争议</h3><p>IT之家 8 月 31 日消息，据 Business Insider 报道，谷歌地图更改了安大略湖的名称，美国用户看到的是“美国湖”，这一变化迅速在互联网上引发了争议。 IT之家注意到，当地时间上周四，美国总统唐纳德 · 特朗普签署行政命令，将横跨加拿大和美国边境的安大略湖（Lake Ontario）更名为“美国湖”（Lake America）。美国地名信息系统随后正式修改了这片水域的名称。 周日，谷歌表示，谷歌地图会根据政府官方来源更新地图数据。这意味着，美国用户看到的名称将是“Lake America”，加拿大用户仍会看到“Lake Ontario”，而其他国家和地区的用户则会看到“Lake Ontario (Lake America)”。 谷歌地图的这一改动很快引发大量批评。 一些 X 平台用户称这一变化“可悲”，并指责谷歌此举是在“传播错误信息”。还有用户认为，这一事件暴露了谷歌的软弱，称该公司是在“向特朗普低头”。另一名 X 平台用户则发挥创意，将这项服务戏称为“Google Craps”。 这一变化也遭到了加拿大政界人士的批评。 安大略省省议会议员 Stephen Crawford…</p><a href="https://www.ithome.com/0/996/509.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Google 要求 Android 应用开发商降低内存占用</h3><p>由于 AI 热导致内存短缺，无论是 PC 还是智能手机，都面临内存价格太昂贵而不得不减少内存容量的问题，PC 行业时隔多年再次推出了 8GB 内存 PC，智能手机厂商也面临相同问题。对此 Google 采取了应对措施，要求Android 应用开发商优化代码降低内存占用。Google 说，移动行业面临改变设备内存可用性的严重硬件供应限制，进而影响到用户使用体验。Google 增加了代码优化要求，防止应用运行缓慢和崩溃等与性能相关的问题。应用开发商需要在 2027 年 2 月前满足内存使用要求。</p><a href="https://www.solidot.org/story?sid=85218" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>一名微软工程师一个月的 AI 支出高达 2.8 万美元</h3><p>在长时间鼓励之后，本月初微软开始要求员工限制 AI 使用。执行副总裁 Jay Parikh 在一封发给微软员工的邮件中要求工程师专注于业务成果，而非最大化 AI token 的使用量，为了“从 token 投资中获得更大的价值”，微软将比 Anthropic 模型更便宜的 OpenAI GPT-5.6 设为内部使用的默认模型。根据一份微软员工自愿提交的 AI 使用费账单：Customer and Partner Solutions 部门的一名员工在 28 天内的 AI 支出高达 2.8 万美元；多名员工支出超过 1 万美元；中位数约为每 28 天 300 美元，少数部门的 AI 支出仅仅为几十美元；CoreAI 部门的 AI 支出中位数最高为 975 美元。</p><a href="https://www.solidot.org/story?sid=85216" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>11 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>范式与华为达成重磅算力战略合作，成为首批拥抱国产最高端算力底座的AI企业</h3><a href="https://www.qbitai.com/2026/08/481919.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>今年的研发预算将超20亿，小鹏机器人凭什么值400多亿？</h3><p>8月24日，小鹏公布二季度财报。 财报显示，今年上半年，小鹏研发投入达到58.2亿元，同比增长39%。据了解，小鹏今年全年研发预算约为120亿元，其中约50亿元投入汽车业务，另外70亿元投向物理AI相关领域，人形机器人IRON正是其中的重要投入方向。 雷峰网了解到，在机器人这一单一业务上，小鹏今年的投入预计就将超过20亿元。这笔钱主要投向机器人研发人员、高质量数据采集以及物理AI模型训练。我们还了解到，小鹏为机器人业务单独配置了万卡级算力集群，用于AI大脑训练。 相比之下，目前国内多数具身智能公司的算力规模仍在数百卡至数千卡之间。小鹏正在把机器人AI训练的算力投入，推向了一个新的量级。 就在同一天，小鹏又为机器人业务拿到了另一笔巨额“弹药”。 8月24日，小鹏集团正式宣布，旗下机器人业务完成首轮超过9亿美元融资，投后估值超过63亿美元，约合430亿人民币，刷新中国具身智能行业单轮私募融资纪录。本轮融资由IDG资本领投，高榕创投参投，腾讯、阿里巴巴作为战略投资者参与，小鹏集团继续保持控股。 这也解释了为什么，小鹏机器人暂时并不急于上市。…</p><a href="https://www.leiphone.com/category/transportation/EJrElOTA0bHDOd60.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>定义物理 AI 新纪元：昂首 EV1 智能出行机器人落地深圳湾 INNO100，开启中国市场线下首发</h3><p>2026 年 8 月 29 日，全球领先的物理 AI 与机器人创新企业若创科技（昂首 Strutt）于深圳湾 INNO100 全球创新旗舰店正式举行中国线下首发仪式，展示旗下旗舰产品——昂首 EV1 智能出行机器人。 作为累计完成近亿美元融资的硬科技领军者，昂首 Strutt 以前瞻性的个人移动体验为切入点，正加速推动“物理 AI”技术走向消费级规模化应用。 以端到端架构，重构个人移动体验 雷峰网了解到，昂首团队拒绝将个人出行设备降维定义为传统的辅助代步工具，而是将其打造为集“感知、决策、控制与动力”于一体的全新智能终端。 • 双核心工程架构 ： EV1 深度融合了自研的伴行智驾系统与凌波底盘系统。依托 360 度多模态传感器阵列与激光雷达，实现全场景智能避障与自主领航；车规级四驱底盘结合柔性悬挂，使其具备穿行各类复杂地形的卓越能力。 • 国际权威设计认可 ： 凭借颠覆性的设计理念与工程实现，昂首 EV1 已包揽 2025 红点奖“至尊荣誉奖”（Red Dot: Luminary）、2026 CES 最佳创新奖（Best of Innovation） 及 2026 iF 设计奖 等全球顶尖工业设计荣誉。 • 原生进化能力…</p><a href="https://www.leiphone.com/category/weiwu/XIbqyD3TWrDeuFCh.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>真香！特斯拉在港澳推出更便宜的Model 3，起售价不足18万元；字节豆包大模型2.2将推迟发布，原计划8月推出；官方回应「网友呼吁取消ETC」</h3><p>要闻提示 1.特斯拉在港澳推出更便宜的Model 3，起售价不足18万元！ 2.奔驰回应星宇劝退应届生：严重道德和劳动失当行为 3.月薪1万到手仅5千？曝浪潮云强制推行“五五开”绩效 4.官方回应“网友呼吁取消ETC”！博主也给出看法：车牌识别存在不少漏洞 5.字节跳动豆包大模型 2.2 将推迟发布，原计划 8 月推出 6.雷军祝贺长鑫实现LPDDR6内存量产：非常了不起，相信还会有更多中国科技企业能够出人头地 7.网友反馈上海电信发生大面积断网故障，宽带及手机信号均受影响 8.刚花600亿美元收购Cursor两周，OpenAI就断供模型！马斯克：我不在意 今日头条 特斯拉在港澳推出更便宜的Model 3，起售价不足18万元！ 8月30日，媒体查阅特斯拉香港和特斯拉澳门官网发现，特斯拉已正式在两地推出配置简化、售价更低的Model 3车型版本。 该款车型在中国香港的起售价为20.5万港元（约合人民币17.59万元），比此前在售的基础版车型售价降低8.5%；在中国澳门的起售价为25.2万澳门元（约合人民币20.98万元）。…</p><a href="https://www.leiphone.com/category/zaobao/3X5Iht5o0zblV5d9.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从Data到Agent：华为云AI-Ready数据基础设施全链路能力亮相数博会</h3><p>8月28日，在2026中国国际大数据产业博览会期间，以“从数据到Agent，数据价值链的重构与创新”为主题的数据要素大会在贵阳举办。政府机构、头部大数据集团、行业企业及专家学者齐聚一堂，围绕数据要素市场化配置、高质量数据集建设、可信数据空间以及AI时代的数据基础设施创新展开探讨。 当大模型和Agent加速进入千行万业，一个根本性变化正在发生：大模型和Agent成为新的数据消费者。数据消费主体的变化，正在推动大数据平台从传统湖仓向多模态湖仓、数据智能体演进，也对AI时代的数据基础设施提出了全新要求。 从 Data 到 Agent ，重构 AI 时代数据价值链 “数据是AI的核心燃料，AI驱动数据价值释放。”会上，华为混合云总裁顾雪军指出，随着AI产业迈入Agentic智能体时代，数据已成为驱动AI模型进化、驱动智能体生长的核心燃料。华为云Stack面向国计民生行业客户，打造了一套覆盖数据全生命周期的数据能力体系，帮助企业把过去分散、沉淀的全量数据真正用起来、用得好、用出价值，推动数据从资源转变为生产力。 华为混合云总裁 顾雪军…</p><a href="https://www.leiphone.com/category/industrynews/5HSY98yO7OtW5EGw.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>WRC2026 | 别急着给机器人更强「大脑」，先补上更省电的神经系统</h3><p>类脑计算正从感知和低层控制切入机器人。 作者丨 魏溶 编辑丨 岑峰 “如果未来全球真的部署10亿至100亿台高度依赖AI的人形机器人，今天这套计算方式，还供得起电吗？” 德国慕尼黑工业大学教授Alois Knoll 在2026世界机器人大会“类脑智算，让机器人学会自主决策”圆桌会议开场时提出了这个问题。 过去讨论计算中心，人们习惯谈千万亿次浮点运算、百亿亿次浮点运算；如今，随着AI基础设施不断扩张，数据中心的建设规模越来越多地与吉瓦级电力联系在一起，算力的度量衡，正在从“百亿亿次浮点运算（Exaflops）”变成“吉瓦级功耗（Gigawatts）”。 当AI进一步从数据中心进入实体世界，能源问题还会被继续放大。Knoll判断，如果人形机器人未来真的走向十亿级部署，沿用当前高功耗计算模式，累计能源需求可能变得难以承受。 产业因此需要寻找传统计算架构之外的其他可能性，神经形态计算便是其中之一。 Alois Knoll 教授在开场时曾回顾了这段历史：从百年前的神经元观察，到欧洲“人类大脑计划”中被架构师 Steve Furber 戏称为“智能水平大约等同于五只老鼠”的早期类脑系统，再到如今试图接管数十亿人形机器人的运动中枢，…</p><a href="https://www.leiphone.com/category/iot/wSd8yNXuuYwSg9hp.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>亚马逊 AWS 加码政府 AI 赛道，OpenAI、Meta、Anthropic 等大模型集体登陆 GovCloud</h3><p>IT之家 8 月 31 日消息，亚马逊云服务（AWS）昨天宣布，公司已扩大 GovCloudAI 模型可用范围， 美国的政府机构可通过 Amazon Bedrock 渠道 ， 使用 Anthropic、OpenAI、Meta 等公司旗下 AI 大模型 ，以及亚马逊自家的 Nova 模型。 据悉，AWS GovCloud 专门面向美国政府机构，旨在提供符合政府监管、安全和外部隔离的云计算环境。 亚马逊对此表示：“我们欣然宣布，AWS GovCloud（美国）现可以通过 Amazon Bedrock 提供多种 AI 模型，为政府客户、国防工业和技术合作伙伴提供各种 AI 模型。” 亚马逊 AWS 业务当今正保持强势增长。2026 年第二季度，AWS 营业利润同比增长 63%，营收同比增长 37%，AI 和芯片业务的强劲表现是推动增长的重要因素。 亚马逊管理层预计，AWS 的营收最终可能达到 1 万亿美元 （IT之家注：现汇率约合 6.74 万亿元人民币） 。目前全球约 85% 的 IT 支出仍用于本地部署（on-premises）环境，这意味着云计算市场仍拥有较大的增长空间。</p><a href="https://www.ithome.com/0/996/554.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>鸿蒙智行智界 RX 轿跑 SUV 官宣开展 L3 级自动驾驶准入测试</h3><p>IT之家 8 月 31 日消息，在鸿蒙智行智界汽车的智界 RX 安全科技全解读直播活动中，智界汽车产品经理李鑫悦透露， 智界 RX 已开展 L3 级自动驾驶准入测试 。 在 8 月 20 日的享界 G9 及鸿蒙智行新品发布会上，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东宣布， 智界 RX 搭载面向未来的 L3 级自动驾驶架构设计 。 据IT之家了解，该车定位全新轿跑 SUV， 基于华为途灵平台打造 ，提供单电机后驱与双电机四驱两种布局，车身尺寸为 5020×2007×1585mm，轴距 3000mm， 首发华为智擎新一代高性能电驱 。 新车搭载了 38 个融合感知传感器，包括 896 线双光路图像级激光雷达、3 颗高精度固态激光雷达。此外，还有双目后视镜、智能环抱座椅等“黑科技”加持。智界 RX 预售价 29.98 万元起。</p><a href="https://www.ithome.com/0/996/545.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>人形机器人的跑步方式与人类不同</h3><p>北京人形机器人创新中心研发的通用人形机器人天工在世界人形机器人运动会上跑出了 100 米 8.64 秒的成绩，远超博尔特（Usain Bolt）于 2009 年创下的 100 米 9.58 秒的人类世界纪录。机器人的平均速度接近 42 公里/时。专家表示，这一成绩凸显了机器人的强大，也凸显了它们在决策和感知等方面的不足——人形机器人都是靠撞软垫的方式刹车的。人形机器人的跑步方式与人类不同：首先是博尔特的起跑仅仅花了 0.146 秒，相比下机器人等了近 1 秒钟才反应过来开始移动；博尔特仅用 41 步就完成了 100 米，而机器人花了 50 多步，机器人的步频更快步幅更短。韩国光云大学机器人学教授 Park Suhan 表示，机器人的步态映了其电机的性能，而非去刻意模仿人类的短跑。另一位专家认为机器人如果步幅过大会很容易摔倒。人类顶尖运动员在跑步的最后阶段会减速，但天工机器人没有任何减速迹象，因此最后一头撞向软垫。未来几年能转弯和自主决策的机器人将比单纯的提高速度会更令人印象深刻。</p><a href="https://www.solidot.org/story?sid=85228" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Haiku R1/beta6 释出</h3><p>开源 BeOS 操作系统 Haiku 在发布第 5 个 beta 版本 2 年后释出了第 6 个 beta 版本。BeOS 操作系统在 2001 年被 Palm 收购后停止开发，Haiku 项目在这之后不久正式启动，2002 年发布了首个版本，2012 年发布 Haiku R1 Alpha 4.1，六年后发布了 Haiku R1/beta1。beta6 主要是改进功能和整体稳定性。新版的主要变化包括：移植了 Firefox，改进对 Qemu 的支持，基于 OpenBSD 的内存分配机制，改进对不同文件系统的支持，修复了逾 530 个 bug，移植了大量新应用，等等。</p><a href="https://www.solidot.org/story?sid=85219" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>一名微软工程师一个月的 AI 支出高达 2.8 万美元</h3><p>在长时间鼓励之后，本月初微软开始要求员工限制 AI 使用。执行副总裁 Jay Parikh 在一封发给微软员工的邮件中要求工程师专注于业务成果，而非最大化 AI token 的使用量，为了“从 token 投资中获得更大的价值”，微软将比 Anthropic 模型更便宜的 OpenAI GPT-5.6 设为内部使用的默认模型。根据一份微软员工自愿提交的 AI 使用费账单：Customer and Partner Solutions 部门的一名员工在 28 天内的 AI 支出高达 2.8 万美元；多名员工支出超过 1 万美元；中位数约为每 28 天 300 美元，少数部门的 AI 支出仅仅为几十美元；CoreAI 部门的 AI 支出中位数最高为 975 美元。</p><a href="https://www.solidot.org/story?sid=85216" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>9 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>滴滴自动驾驶新一代车型开启载客测试服务</h3><p>近期，滴滴自动驾驶新一代 Robotaxi R2正式开启无人载客测试服务</p><a href="https://www.qbitai.com/2026/08/481923.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>全国第三，公司第二，“初创黑马”灵犀智涌用ROSS Harness把机器人送进工业具身智能第一梯队</h3><p>灵犀智涌用一台由Demo级本体组装而成的机器人，成为工业场景赛除行业头部企业外唯一获奖的机器人公司。</p><a href="https://www.qbitai.com/2026/08/481750.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>今年的研发预算将超20亿，小鹏机器人凭什么值400多亿？</h3><p>8月24日，小鹏公布二季度财报。 财报显示，今年上半年，小鹏研发投入达到58.2亿元，同比增长39%。据了解，小鹏今年全年研发预算约为120亿元，其中约50亿元投入汽车业务，另外70亿元投向物理AI相关领域，人形机器人IRON正是其中的重要投入方向。 雷峰网了解到，在机器人这一单一业务上，小鹏今年的投入预计就将超过20亿元。这笔钱主要投向机器人研发人员、高质量数据采集以及物理AI模型训练。我们还了解到，小鹏为机器人业务单独配置了万卡级算力集群，用于AI大脑训练。 相比之下，目前国内多数具身智能公司的算力规模仍在数百卡至数千卡之间。小鹏正在把机器人AI训练的算力投入，推向了一个新的量级。 就在同一天，小鹏又为机器人业务拿到了另一笔巨额“弹药”。 8月24日，小鹏集团正式宣布，旗下机器人业务完成首轮超过9亿美元融资，投后估值超过63亿美元，约合430亿人民币，刷新中国具身智能行业单轮私募融资纪录。本轮融资由IDG资本领投，高榕创投参投，腾讯、阿里巴巴作为战略投资者参与，小鹏集团继续保持控股。 这也解释了为什么，小鹏机器人暂时并不急于上市。…</p><a href="https://www.leiphone.com/category/transportation/EJrElOTA0bHDOd60.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>定义物理 AI 新纪元：昂首 EV1 智能出行机器人落地深圳湾 INNO100，开启中国市场线下首发</h3><p>2026 年 8 月 29 日，全球领先的物理 AI 与机器人创新企业若创科技（昂首 Strutt）于深圳湾 INNO100 全球创新旗舰店正式举行中国线下首发仪式，展示旗下旗舰产品——昂首 EV1 智能出行机器人。 作为累计完成近亿美元融资的硬科技领军者，昂首 Strutt 以前瞻性的个人移动体验为切入点，正加速推动“物理 AI”技术走向消费级规模化应用。 以端到端架构，重构个人移动体验 雷峰网了解到，昂首团队拒绝将个人出行设备降维定义为传统的辅助代步工具，而是将其打造为集“感知、决策、控制与动力”于一体的全新智能终端。 • 双核心工程架构 ： EV1 深度融合了自研的伴行智驾系统与凌波底盘系统。依托 360 度多模态传感器阵列与激光雷达，实现全场景智能避障与自主领航；车规级四驱底盘结合柔性悬挂，使其具备穿行各类复杂地形的卓越能力。 • 国际权威设计认可 ： 凭借颠覆性的设计理念与工程实现，昂首 EV1 已包揽 2025 红点奖“至尊荣誉奖”（Red Dot: Luminary）、2026 CES 最佳创新奖（Best of Innovation） 及 2026 iF 设计奖 等全球顶尖工业设计荣誉。 • 原生进化能力…</p><a href="https://www.leiphone.com/category/weiwu/XIbqyD3TWrDeuFCh.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>WRC2026 | 别急着给机器人更强「大脑」，先补上更省电的神经系统</h3><p>类脑计算正从感知和低层控制切入机器人。 作者丨 魏溶 编辑丨 岑峰 “如果未来全球真的部署10亿至100亿台高度依赖AI的人形机器人，今天这套计算方式，还供得起电吗？” 德国慕尼黑工业大学教授Alois Knoll 在2026世界机器人大会“类脑智算，让机器人学会自主决策”圆桌会议开场时提出了这个问题。 过去讨论计算中心，人们习惯谈千万亿次浮点运算、百亿亿次浮点运算；如今，随着AI基础设施不断扩张，数据中心的建设规模越来越多地与吉瓦级电力联系在一起，算力的度量衡，正在从“百亿亿次浮点运算（Exaflops）”变成“吉瓦级功耗（Gigawatts）”。 当AI进一步从数据中心进入实体世界，能源问题还会被继续放大。Knoll判断，如果人形机器人未来真的走向十亿级部署，沿用当前高功耗计算模式，累计能源需求可能变得难以承受。 产业因此需要寻找传统计算架构之外的其他可能性，神经形态计算便是其中之一。 Alois Knoll 教授在开场时曾回顾了这段历史：从百年前的神经元观察，到欧洲“人类大脑计划”中被架构师 Steve Furber 戏称为“智能水平大约等同于五只老鼠”的早期类脑系统，再到如今试图接管数十亿人形机器人的运动中枢，…</p><a href="https://www.leiphone.com/category/iot/wSd8yNXuuYwSg9hp.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>首次海外亮相：小米机器人 CyberOne 将现身 IFA 国际消费电子展</h3><p>IT之家 8 月 31 日消息，小米集团总裁卢伟冰今日在社交平台发文透露小米首次参加 IFA 国际消费电子展的展会亮点。 卢伟冰称，本次展会小米拥有超过 3300 平米展台、近 400 款展品，实现“人车家全生态”海外最大规模参展。 卢伟冰透露，9 月 4 日-8 日，小米 SU7 Max、小米 SU7 Ultra 与小米 Vision GT，三款车齐聚 IFA；小米机器人 CyberOne 也将首次海外亮相。 据IT之家了解，CyberOne（中文名：铁大）是小米集团于 2022 年 8 月 11 日发布的首款全尺寸人形仿生机器人，由雷军在年度演讲中正式推出，主要应用于家庭护理与陪伴场景。该机器人身高 177 厘米，体重 52 千克，采用银白色主体与金属黑色关节配色，行走速度达 3.6 公里 / 小时。CyberOne 搭载小米自研的仿生感知认知技术、生机电融合技术与人工智能技术集群，配备 21 个自由度关节模组，实现 0.5 毫秒级实时响应。其 Mi-Sense 视觉空间系统由小米与欧菲光协同开发，支持三维重建真实世界，可感知 45 种人类语义情绪及分辨 85 种环境语义。髋关节驱动电机峰值扭矩达 300 牛 ·…</p><a href="https://www.ithome.com/0/996/553.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>鸿蒙智行智界 RX 轿跑 SUV 官宣开展 L3 级自动驾驶准入测试</h3><p>IT之家 8 月 31 日消息，在鸿蒙智行智界汽车的智界 RX 安全科技全解读直播活动中，智界汽车产品经理李鑫悦透露， 智界 RX 已开展 L3 级自动驾驶准入测试 。 在 8 月 20 日的享界 G9 及鸿蒙智行新品发布会上，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东宣布， 智界 RX 搭载面向未来的 L3 级自动驾驶架构设计 。 据IT之家了解，该车定位全新轿跑 SUV， 基于华为途灵平台打造 ，提供单电机后驱与双电机四驱两种布局，车身尺寸为 5020×2007×1585mm，轴距 3000mm， 首发华为智擎新一代高性能电驱 。 新车搭载了 38 个融合感知传感器，包括 896 线双光路图像级激光雷达、3 颗高精度固态激光雷达。此外，还有双目后视镜、智能环抱座椅等“黑科技”加持。智界 RX 预售价 29.98 万元起。</p><a href="https://www.ithome.com/0/996/545.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>我国 L3 / L4 自动驾驶强制国标正式文件发布，2027 年 7 月 1 日实施</h3><p>IT之家 8 月 31 日消息，全国标准信息公共服务平台显示，国家标准《 智能网联汽车 自动驾驶系统安全要求 》 （GB 44721-2026）正式文件已出炉。 这也是我国首部 L3 / L4 智能网联汽车自动驾驶系统安全要求强制性国标 。 相关页面显示，该标准是对 2024 年发布的推荐性国家标准 GB/T 44721—2024《智能网联汽车自动驾驶系统通用技术要求》的系统性升级，从推荐性转为强制性，适用于搭载 L3 级、L4 级（高度自动驾驶）系统的 M 类（载客）和 N 类（载货）车辆， 拟于 2027 年 7 月 1 日起正式实施 。 标准规定了自动驾驶系统动态驾驶任务执行、人机交互、用户告知等通用技术要求；规定了车辆制造商的安全保障要求和试验条件。L3 级自动驾驶功能的接管能力监测技术要求规定了安全带监测、在位监测、执行动态驾驶任务能力监测要求。L4 级自动驾驶功能具体技术要求规定了动态驾驶任务执行、远程协助、人机交互具体要求。 IT之家附工信部强制性国家标准 GB 44721—2026《 智能网联汽车 自动驾驶系统安全要求 》一图知如下： 相关阅读： 《 我国首部 L3/L4…</p><a href="https://www.ithome.com/0/996/526.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>人形机器人的跑步方式与人类不同</h3><p>北京人形机器人创新中心研发的通用人形机器人天工在世界人形机器人运动会上跑出了 100 米 8.64 秒的成绩，远超博尔特（Usain Bolt）于 2009 年创下的 100 米 9.58 秒的人类世界纪录。机器人的平均速度接近 42 公里/时。专家表示，这一成绩凸显了机器人的强大，也凸显了它们在决策和感知等方面的不足——人形机器人都是靠撞软垫的方式刹车的。人形机器人的跑步方式与人类不同：首先是博尔特的起跑仅仅花了 0.146 秒，相比下机器人等了近 1 秒钟才反应过来开始移动；博尔特仅用 41 步就完成了 100 米，而机器人花了 50 多步，机器人的步频更快步幅更短。韩国光云大学机器人学教授 Park Suhan 表示，机器人的步态映了其电机的性能，而非去刻意模仿人类的短跑。另一位专家认为机器人如果步幅过大会很容易摔倒。人类顶尖运动员在跑步的最后阶段会减速，但天工机器人没有任何减速迹象，因此最后一头撞向软垫。未来几年能转弯和自主决策的机器人将比单纯的提高速度会更令人印象深刻。</p><a href="https://www.solidot.org/story?sid=85228" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>9 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>范式与华为达成重磅算力战略合作，成为首批拥抱国产最高端算力底座的AI企业</h3><a href="https://www.qbitai.com/2026/08/481919.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>OpenAI买几万台Mac搞强化训练！英伟达的活被苹果抢了</h3><a href="https://www.qbitai.com/2026/08/481759.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Cadence滕晋庆：AI有望让芯片设计时间减半，但资深工程师仍是核心竞争力</h3><p>OpenAI公布了首款自研推理芯片Jalapeño的首批实测结果引发了巨大的关注，比性能更值得关注的是，AI直接参与了这颗芯片的开发。 根据OpenAI的披露，AI被用于探索不同实现方案，缩短设计、测量和验证循环，并优化芯片中的部分算术电路。Jalapeño从初始设计到tapeout只用了9个月。 这并非“AI独立设计了一颗完整芯片”，Jalapeño由OpenAI与Broadcom共同开发。这个“不完整”，恰好把一个被讨论多年的问题推到了台前： 从AI参与芯片设计，到AI独立完成一颗芯片，中间还隔着什么？ 在近日举行的CadenceLIVE 2026期间，Cadence资深副总裁兼数字与签核事业部总经理滕晋庆给出了两个看似矛盾的判断： AI EDA短期内有可能让芯片设计效率接近翻倍，但至少未来五年，他仍看不到只凭AI就能生成一颗可用芯片。 Cadence资深副总裁兼数字与签核事业部总经理滕晋庆 这意味着，AI EDA的拐点可能不会以“无人设计芯片”的方式出现。更早发生的变化，是芯片设计开始从“工程师操作一组EDA工具”，转向“工程师定义目标，让Agent调用整套工具链”。 这也将同时改变工程师的价值和EDA公司的生意。…</p><a href="https://www.leiphone.com/category/chips/ARHh6hZXIzvBZq5z.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>今年的研发预算将超20亿，小鹏机器人凭什么值400多亿？</h3><p>8月24日，小鹏公布二季度财报。 财报显示，今年上半年，小鹏研发投入达到58.2亿元，同比增长39%。据了解，小鹏今年全年研发预算约为120亿元，其中约50亿元投入汽车业务，另外70亿元投向物理AI相关领域，人形机器人IRON正是其中的重要投入方向。 雷峰网了解到，在机器人这一单一业务上，小鹏今年的投入预计就将超过20亿元。这笔钱主要投向机器人研发人员、高质量数据采集以及物理AI模型训练。我们还了解到，小鹏为机器人业务单独配置了万卡级算力集群，用于AI大脑训练。 相比之下，目前国内多数具身智能公司的算力规模仍在数百卡至数千卡之间。小鹏正在把机器人AI训练的算力投入，推向了一个新的量级。 就在同一天，小鹏又为机器人业务拿到了另一笔巨额“弹药”。 8月24日，小鹏集团正式宣布，旗下机器人业务完成首轮超过9亿美元融资，投后估值超过63亿美元，约合430亿人民币，刷新中国具身智能行业单轮私募融资纪录。本轮融资由IDG资本领投，高榕创投参投，腾讯、阿里巴巴作为战略投资者参与，小鹏集团继续保持控股。 这也解释了为什么，小鹏机器人暂时并不急于上市。…</p><a href="https://www.leiphone.com/category/transportation/EJrElOTA0bHDOd60.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>WRC2026 | 别急着给机器人更强「大脑」，先补上更省电的神经系统</h3><p>类脑计算正从感知和低层控制切入机器人。 作者丨 魏溶 编辑丨 岑峰 “如果未来全球真的部署10亿至100亿台高度依赖AI的人形机器人，今天这套计算方式，还供得起电吗？” 德国慕尼黑工业大学教授Alois Knoll 在2026世界机器人大会“类脑智算，让机器人学会自主决策”圆桌会议开场时提出了这个问题。 过去讨论计算中心，人们习惯谈千万亿次浮点运算、百亿亿次浮点运算；如今，随着AI基础设施不断扩张，数据中心的建设规模越来越多地与吉瓦级电力联系在一起，算力的度量衡，正在从“百亿亿次浮点运算（Exaflops）”变成“吉瓦级功耗（Gigawatts）”。 当AI进一步从数据中心进入实体世界，能源问题还会被继续放大。Knoll判断，如果人形机器人未来真的走向十亿级部署，沿用当前高功耗计算模式，累计能源需求可能变得难以承受。 产业因此需要寻找传统计算架构之外的其他可能性，神经形态计算便是其中之一。 Alois Knoll 教授在开场时曾回顾了这段历史：从百年前的神经元观察，到欧洲“人类大脑计划”中被架构师 Steve Furber 戏称为“智能水平大约等同于五只老鼠”的早期类脑系统，再到如今试图接管数十亿人形机器人的运动中枢，…</p><a href="https://www.leiphone.com/category/iot/wSd8yNXuuYwSg9hp.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称 OpenAI 购入数万台苹果 Mac mini / Studio，用于训练 AI 智能体操作计算机</h3><p>IT之家 8 月 31 日消息，据 The Information 报道，OpenAI 近几个月购买了数万台苹果 Mac mini 和 Mac Studio 电脑，用于训练能够操作计算机的 AI 系统。 这些 Mac 并非用于 OpenAI 基础模型的大规模预训练，而是主要承担强化学习任务。在这一训练过程中，AI 智能体需要在真实计算机环境中反复练习完成各种操作任务。 据了解，OpenAI 购买的主要是配备大容量统一内存的 Mac 产品，并利用这些设备运行与“计算机操作型 AI 智能体”相关的模型和训练工作负载。 这类硬件能够为 AI 模型提供真实的计算机操作环境，使其学习如何浏览软件界面、与应用程序互动以及完成各种电脑任务。通过这样的环境，AI 智能体可以反复进行训练和评估。 OpenAI 如此大规模采购 Mac，也反映出整个 AI 行业对于大内存苹果电脑的需求正在快速增长。 目前，配备大容量内存的 Mac mini 和 Mac Studio 已经变得较难购买，部分型号甚至连续数月处于缺货状态。AI 公司尤其看重这些配置，原因在于苹果的统一内存架构允许 CPU 和 GPU 访问同一个大容量内存池。 苹果并不会公布单个…</p><a href="https://www.ithome.com/0/996/556.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>亚马逊 AWS 加码政府 AI 赛道，OpenAI、Meta、Anthropic 等大模型集体登陆 GovCloud</h3><p>IT之家 8 月 31 日消息，亚马逊云服务（AWS）昨天宣布，公司已扩大 GovCloudAI 模型可用范围， 美国的政府机构可通过 Amazon Bedrock 渠道 ， 使用 Anthropic、OpenAI、Meta 等公司旗下 AI 大模型 ，以及亚马逊自家的 Nova 模型。 据悉，AWS GovCloud 专门面向美国政府机构，旨在提供符合政府监管、安全和外部隔离的云计算环境。 亚马逊对此表示：“我们欣然宣布，AWS GovCloud（美国）现可以通过 Amazon Bedrock 提供多种 AI 模型，为政府客户、国防工业和技术合作伙伴提供各种 AI 模型。” 亚马逊 AWS 业务当今正保持强势增长。2026 年第二季度，AWS 营业利润同比增长 63%，营收同比增长 37%，AI 和芯片业务的强劲表现是推动增长的重要因素。 亚马逊管理层预计，AWS 的营收最终可能达到 1 万亿美元 （IT之家注：现汇率约合 6.74 万亿元人民币） 。目前全球约 85% 的 IT 支出仍用于本地部署（on-premises）环境，这意味着云计算市场仍拥有较大的增长空间。</p><a href="https://www.ithome.com/0/996/554.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>安伯尼克 Anbernic RG 55G1 掌机发布：骁龙 G1 Gen 2 芯片，899 元起</h3><p>IT之家 8 月 31 日消息，安伯尼克 Anbernic 现已推出 RG 55G1 掌机， 新机 4GB+64GB 版本首发售价 899 元 ，8GB+128GB 版首发到手价 1049 元。 从外观来看，这款掌机明显致敬了任天堂 Switch Lite。新机搭载骁龙 G1 Gen 2 芯片，并配备主动散热系统。 规格方面，这款掌机配备 5.5 英寸 IPS 面板，采用 16:9 比例，分辨率为 1080P。拥有 6000mAh 电池，支持 18W 有线充电。 IT之家了解到，这款掌机提供双霍尔效应摇杆、十字方向键及 ABXY 按键，顶部拥有四个肩键，其中两个为霍尔扳机键。该机还搭载安卓 14 系统，拥有蓝牙 5.0、Wi-Fi 5、microSD 卡槽、3.5mm 耳机接口等外围配置。</p><a href="https://www.ithome.com/0/996/536.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>行业首个家庭智能伴侣级 AIOS：海信电视 JUOS 发布，桌面随人变化、首创 AI 搜索片段</h3><p>IT之家 8 月 31 日消息，在今日的海信视像 AI 战略暨 JUOS 发布会上，海信发布行业首个家庭智能伴侣级 AIOS —— JUOS 。 据介绍，海信 JUOS 实现了 从指令驱动到意图驱动 ： 因人、因时、因境，内容和服务各有不同； 懂语境、懂情绪，交流自然更像人与人； 跨屏接着看，家电一句管，生活服务轻松办。 海信 JUOS 搭载行业首个家庭智能伴侣级 AIOS 技术架构， 配备星海大模型 ，搭配四大引擎。 海信 JUOS 的灵犀家庭情境引擎支持通过摄像头、声纹等感知家庭人物、内容、空间、环境、设备，并进行家庭情境和意图理解。 小聚多 Agent 协同引擎则可以统一用户意图、根据用户需求编排内容，最后输出个性化方案。 星海语境智能引擎带来连续语境理解与自然交互，可读懂情绪、看懂屏幕内容和环境。 全域行动闭环引擎 首发大屏 AI 任务闭环执行能力 ，从用户提出需求开始，可自主调度最合适的智能体，进行任务执行并给出反馈，完成行动闭环。 海信自研的星海大模型可选 7B/32B/72B 版本，支持多模态理解、意图理解、推理规划、工具执行。 安全方面，JUOS 支持敏感操作确认、权限随时可控、记忆可管理。 JUOS…</p><a href="https://www.ithome.com/0/996/499.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>7 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">IT之家</div><h3>亚马逊 AWS 加码政府 AI 赛道，OpenAI、Meta、Anthropic 等大模型集体登陆 GovCloud</h3><p>IT之家 8 月 31 日消息，亚马逊云服务（AWS）昨天宣布，公司已扩大 GovCloudAI 模型可用范围， 美国的政府机构可通过 Amazon Bedrock 渠道 ， 使用 Anthropic、OpenAI、Meta 等公司旗下 AI 大模型 ，以及亚马逊自家的 Nova 模型。 据悉，AWS GovCloud 专门面向美国政府机构，旨在提供符合政府监管、安全和外部隔离的云计算环境。 亚马逊对此表示：“我们欣然宣布，AWS GovCloud（美国）现可以通过 Amazon Bedrock 提供多种 AI 模型，为政府客户、国防工业和技术合作伙伴提供各种 AI 模型。” 亚马逊 AWS 业务当今正保持强势增长。2026 年第二季度，AWS 营业利润同比增长 63%，营收同比增长 37%，AI 和芯片业务的强劲表现是推动增长的重要因素。 亚马逊管理层预计，AWS 的营收最终可能达到 1 万亿美元 （IT之家注：现汇率约合 6.74 万亿元人民币） 。目前全球约 85% 的 IT 支出仍用于本地部署（on-premises）环境，这意味着云计算市场仍拥有较大的增长空间。</p><a href="https://www.ithome.com/0/996/554.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>鸿蒙智行智界 RX 轿跑 SUV 官宣开展 L3 级自动驾驶准入测试</h3><p>IT之家 8 月 31 日消息，在鸿蒙智行智界汽车的智界 RX 安全科技全解读直播活动中，智界汽车产品经理李鑫悦透露， 智界 RX 已开展 L3 级自动驾驶准入测试 。 在 8 月 20 日的享界 G9 及鸿蒙智行新品发布会上，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东宣布， 智界 RX 搭载面向未来的 L3 级自动驾驶架构设计 。 据IT之家了解，该车定位全新轿跑 SUV， 基于华为途灵平台打造 ，提供单电机后驱与双电机四驱两种布局，车身尺寸为 5020×2007×1585mm，轴距 3000mm， 首发华为智擎新一代高性能电驱 。 新车搭载了 38 个融合感知传感器，包括 896 线双光路图像级激光雷达、3 颗高精度固态激光雷达。此外，还有双目后视镜、智能环抱座椅等“黑科技”加持。智界 RX 预售价 29.98 万元起。</p><a href="https://www.ithome.com/0/996/545.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>工信部：加大大模型、智能体、Token 等服务采购力度</h3><p>IT之家 8 月 31 日消息，今日，工业和信息化部办公厅发布关于开展人工智能应用服务商培育专项行动的通知。 IT之家附全文如下： 人工智能应用服务商（以下简称服务商）是指围绕用户单位智能化需求，提供人工智能解决方案咨询规划、交付实施、运营管理、安全治理等服务的企业或机构。为深入贯彻党中央、国务院决策部署，落实《国务院关于深入实施“人工智能 +”行动的意见》中“培育人工智能应用服务商”“打造人工智能应用服务链”相关工作安排，现组织开展人工智能应用服务商培育专项行动。有关事项通知如下： 一、行动目标 以专项行动为牵引，建立服务商资源池，靶向提升服务商技术创新、集成交付、安全合规能力，锻造一批懂行业痛点、通技术机理、知安全风险、善交付运营的人工智能应用服务商队伍。到 2026 年底，全国服务商资源池内服务商数量突破 2000 家，形成结构合理、分工有序、协同创新的多层次梯队，复杂场景交付能力显著增强。到 2027 年底，全国服务商资源池内服务商数量不少于 3000 家，支撑形成全要素协同、全链条贯通、全场景覆盖的人工智能应用服务生态。 二、重点任务 任务一：建立服务商资源池…</p><a href="https://www.ithome.com/0/996/543.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>我国 L3 / L4 自动驾驶强制国标正式文件发布，2027 年 7 月 1 日实施</h3><p>IT之家 8 月 31 日消息，全国标准信息公共服务平台显示，国家标准《 智能网联汽车 自动驾驶系统安全要求 》 （GB 44721-2026）正式文件已出炉。 这也是我国首部 L3 / L4 智能网联汽车自动驾驶系统安全要求强制性国标 。 相关页面显示，该标准是对 2024 年发布的推荐性国家标准 GB/T 44721—2024《智能网联汽车自动驾驶系统通用技术要求》的系统性升级，从推荐性转为强制性，适用于搭载 L3 级、L4 级（高度自动驾驶）系统的 M 类（载客）和 N 类（载货）车辆， 拟于 2027 年 7 月 1 日起正式实施 。 标准规定了自动驾驶系统动态驾驶任务执行、人机交互、用户告知等通用技术要求；规定了车辆制造商的安全保障要求和试验条件。L3 级自动驾驶功能的接管能力监测技术要求规定了安全带监测、在位监测、执行动态驾驶任务能力监测要求。L4 级自动驾驶功能具体技术要求规定了动态驾驶任务执行、远程协助、人机交互具体要求。 IT之家附工信部强制性国家标准 GB 44721—2026《 智能网联汽车 自动驾驶系统安全要求 》一图知如下： 相关阅读： 《 我国首部 L3/L4…</p><a href="https://www.ithome.com/0/996/526.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>行业首个家庭智能伴侣级 AIOS：海信电视 JUOS 发布，桌面随人变化、首创 AI 搜索片段</h3><p>IT之家 8 月 31 日消息，在今日的海信视像 AI 战略暨 JUOS 发布会上，海信发布行业首个家庭智能伴侣级 AIOS —— JUOS 。 据介绍，海信 JUOS 实现了 从指令驱动到意图驱动 ： 因人、因时、因境，内容和服务各有不同； 懂语境、懂情绪，交流自然更像人与人； 跨屏接着看，家电一句管，生活服务轻松办。 海信 JUOS 搭载行业首个家庭智能伴侣级 AIOS 技术架构， 配备星海大模型 ，搭配四大引擎。 海信 JUOS 的灵犀家庭情境引擎支持通过摄像头、声纹等感知家庭人物、内容、空间、环境、设备，并进行家庭情境和意图理解。 小聚多 Agent 协同引擎则可以统一用户意图、根据用户需求编排内容，最后输出个性化方案。 星海语境智能引擎带来连续语境理解与自然交互，可读懂情绪、看懂屏幕内容和环境。 全域行动闭环引擎 首发大屏 AI 任务闭环执行能力 ，从用户提出需求开始，可自主调度最合适的智能体，进行任务执行并给出反馈，完成行动闭环。 海信自研的星海大模型可选 7B/32B/72B 版本，支持多模态理解、意图理解、推理规划、工具执行。 安全方面，JUOS 支持敏感操作确认、权限随时可控、记忆可管理。 JUOS…</p><a href="https://www.ithome.com/0/996/499.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>索尼华纳起诉 Anthropic 侵犯版权</h3><p>全球唱片巨头索尼和华纳对 Anthropic 提起诉讼，指控其犯下了历史上规模最大、最明目张胆的知识产权盗窃罪行之一。诉讼指控 Anthropic 非法利用数万首版权音乐作品训练其模型。Anthropic 及其创始人 Dario Amodei 和 Benjamin Mann 被控肆无忌惮的大规模非法下载、抓取和传播受版权保护的作品，目的是开发、运营该公司的 Claude 系列 AI 模型，并从中牟取暴利。唱片公司要求为每部侵权作品索赔最高 15 万美元，每次可识别版权信息被删除的情况则追加最高 2.5 万美元赔偿。如果法院裁决唱片公司胜诉并判决最高赔偿金额，总赔偿金额可能高达数十亿美元。诉讼还指控 Mann 使用 BitTorrent下载了逾 500 万本盗版图书，Anthropic 员工还从 Pirate Library Mirror 网站下载了逾 200 万本盗版图书，从付费获得唱片公司授权的 MusixMatch 和 LyricFind 等网站抓取歌词。</p><a href="https://www.solidot.org/story?sid=85234" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Debian 项目将允许以负责任的方式使用生成式 AI</h3><p>Debian 项目对是否允许使用 AI 进行了投票表决，投票采用孔多塞投票法，共有 9 个选项，最终结果是第 5 选项“负责任的使用生成式 AI”获胜。Debian 项目表示，它既不反对也不支持在软件、包、文档等的开发和维护中使用生成式 AI 工具。但项目也认识到，如果能负责任的使用 AI 工具，将能显著提高贡献者的效率，使他们将有限的时间投入到需要技术专长、判断力、审核和协作的工作中。无论是否使用生成式 AI 工具，Debian 项目希望提交的内容都符合相同的质量、正确性、可维护性和法律合规性标准。使用生成式 AI 工具不会减少责任。对于提交的内容，贡献者应理解、审核、测试 AI 辅助生成的输出，在适当情况下进行修改。未经适当人工审查就盲目接受或上传 AI 生成的材料，不符合 Debian 既定的开发实践。Debian 鼓励贡献者披露其贡献是否使用 AI 辅助，但不强制要求。Debian 承认，生成式 AI 系统生成的材料的法律地位在许多司法管辖区存在争议，包括训练材料的版权、作者身份、许可和潜在复制问题。Debian 项目不寻求通过本一般决议解决这些悬而未决的法律问题，也不就 AI…</p><a href="https://www.solidot.org/story?sid=85229" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>3 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>AI本地部署不如官方版的元凶找到了：734个依赖包，每一个都可能坑</h3><a href="https://www.qbitai.com/2026/08/481372.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>极米海外众筹被叫停背后：AI 眼镜的「撞脸」之战，谁能留到最后？</h3><p>从朋友圈骂战到美国法院，极米和逸文的三年恩怨。 作者丨 黄艳冰 编辑丨姚单 董子博 8 月 27 日，本应是 MemoMind One 众筹顺利收官的日子。 但就在收官前最后一晚，MemoMind One 项目突然被 Kickstarter 暂停，页面显示为&quot;涉及知识产权争议，目前无法使用”。不少支持者收到 Kickstarter 平台邮件，显示原本支付的支持金额将自动退回，不会产生扣款。 MemoMind One 是投影厂商极米科技旗下 AI 眼镜项目的首款产品。 此 前，这款眼镜已经在 Kickstarter 上筹得超过 120 万美元，吸引 了 2000 多名支持者。 项目下架后，MemoMind 团队回应，正在与 Kickstarter 沟通解决，表示如果平台无法解决，将通过向支持者发送链接等形式，尽力确保用户收货。 次日，MemoMind 团队再次回应表示，将继续推进 MemoMind One 的交付，并为原 Kickstarter 支持者保留额外 100 美元优惠。根据其最新公布的安排，首批约 1000 台产品，将优先面向此前的官网订金用户和 Kickstarter 支持者发货，预计发货时间为 2026 年…</p><a href="https://www.leiphone.com/category/weiwu/NPnRM0Yr6NLyQjRS.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>马斯克提出新计划：靠 AI 卫星让地球在未来大约 10 亿年内保持宜居</h3><p>IT之家 8 月 31 日消息，埃隆 · 马斯克在周末描述了一项旨在让地球在未来大约 10 亿年内保持宜居的计划，而这一计划的起点，是一批能够自主思考的卫星。 马斯克在 X 平台发文称，仅仅用太阳能和风能取代化石燃料，并不足以让人类躲过他所说的“极其严重的灭绝事件”。这类事件大约每 1 亿年发生一次。 他的解决方案是部署所谓的“有感知能力的卫星”，也就是由太阳能供电、由 AI 控制的卫星。这些卫星将在发射升空后，被安置在地球与太阳之间的固定位置。 与传统火箭发射不同，马斯克设想利用一台巨型电磁弹射器，从月球表面将这些卫星发射到太空。 卫星搭载的 AI 将持续自主运行，对卫星轨道和位置进行微小调整，而不是等待人类发出指令后再采取行动。 马斯克认为，电磁质量投射器（mass driver）可以以更低的成本将制造卫星所需的原材料送入太空。他设想在月球上建设一条电磁发射轨道。由于月球重力远低于地球，而且没有大气层，从月球将货物抛射到太空会比从地球发射容易得多。 马斯克还分享了一份由 Grok 生成的估算结果。数据显示，在高海平面上升情景下，到 2070 年，佛罗里达州大约 5% 的土地，也就是约 168…</p><a href="https://www.ithome.com/0/996/490.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 07:53:12 +0000</div><h3>滴滴自动驾驶新一代车型开启载客测试服务</h3><p>近期，滴滴自动驾驶新一代 Robotaxi R2正式开启无人载客测试服务</p><a href="https://www.qbitai.com/2026/08/481923.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 07:34:02 +0000</div><h3>范式与华为达成重磅算力战略合作，成为首批拥抱国产最高端算力底座的AI企业</h3><a href="https://www.qbitai.com/2026/08/481919.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 04:47:26 +0000</div><h3>「GPT-6」灰测demo刷屏！周四发布在即</h3><a href="https://www.qbitai.com/2026/08/481893.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 03:24:34 +0000</div><h3>OpenAI买几万台Mac搞强化训练！英伟达的活被苹果抢了</h3><a href="https://www.qbitai.com/2026/08/481759.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 03:11:46 +0000</div><h3>全国第三，公司第二，“初创黑马”灵犀智涌用ROSS Harness把机器人送进工业具身智能第一梯队</h3><p>灵犀智涌用一台由Demo级本体组装而成的机器人，成为工业场景赛除行业头部企业外唯一获奖的机器人公司。</p><a href="https://www.qbitai.com/2026/08/481750.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 03:01:29 +0000</div><h3>AQuA：让量化研究 Agent 持续进化，也让回测结果经得起检验</h3><p>自主研究系统的上限，不只取决于模型有多聪明，也取决于系统能否分辨什么是新证据，什么只是一次偶然的高分。</p><a href="https://www.qbitai.com/2026/08/481475.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 29 Aug 2026 13:11:08 +0000</div><h3>AI本地部署不如官方版的元凶找到了：734个依赖包，每一个都可能坑</h3><a href="https://www.qbitai.com/2026/08/481372.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 29 Aug 2026 12:50:31 +0000</div><h3>Claude开始训练Claude！4美元一小时，跑赢150美元人类研究员</h3><a href="https://www.qbitai.com/2026/08/481223.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 13:54:00 +0800</div><h3>Cadence滕晋庆：AI有望让芯片设计时间减半，但资深工程师仍是核心竞争力</h3><p>OpenAI公布了首款自研推理芯片Jalapeño的首批实测结果引发了巨大的关注，比性能更值得关注的是，AI直接参与了这颗芯片的开发。 根据OpenAI的披露，AI被用于探索不同实现方案，缩短设计、测量和验证循环，并优化芯片中的部分算术电路。Jalapeño从初始设计到tapeout只用了9个月。 这并非“AI独立设计了一颗完整芯片”，Jalapeño由OpenAI与Broadcom共同开发。这个“不完整”，恰好把一个被讨论多年的问题推到了台前： 从AI参与芯片设计，到AI独立完成一颗芯片，中间还隔着什么？ 在近日举行的CadenceLIVE 2026期间，Cadence资深副总裁兼数字与签核事业部总经理滕晋庆给出了两个看似矛盾的判断： AI EDA短期内有可能让芯片设计效率接近翻倍，但至少未来五年，他仍看不到只凭AI就能生成一颗可用芯片。 Cadence资深副总裁兼数字与签核事业部总经理滕晋庆 这意味着，AI EDA的拐点可能不会以“无人设计芯片”的方式出现。更早发生的变化，是芯片设计开始从“工程师操作一组EDA工具”，转向“工程师定义目标，让Agent调用整套工具链”。 这也将同时改变工程师的价值和EDA公司的生意。…</p><a href="https://www.leiphone.com/category/chips/ARHh6hZXIzvBZq5z.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 11:36:00 +0800</div><h3>今年的研发预算将超20亿，小鹏机器人凭什么值400多亿？</h3><p>8月24日，小鹏公布二季度财报。 财报显示，今年上半年，小鹏研发投入达到58.2亿元，同比增长39%。据了解，小鹏今年全年研发预算约为120亿元，其中约50亿元投入汽车业务，另外70亿元投向物理AI相关领域，人形机器人IRON正是其中的重要投入方向。 雷峰网了解到，在机器人这一单一业务上，小鹏今年的投入预计就将超过20亿元。这笔钱主要投向机器人研发人员、高质量数据采集以及物理AI模型训练。我们还了解到，小鹏为机器人业务单独配置了万卡级算力集群，用于AI大脑训练。 相比之下，目前国内多数具身智能公司的算力规模仍在数百卡至数千卡之间。小鹏正在把机器人AI训练的算力投入，推向了一个新的量级。 就在同一天，小鹏又为机器人业务拿到了另一笔巨额“弹药”。 8月24日，小鹏集团正式宣布，旗下机器人业务完成首轮超过9亿美元融资，投后估值超过63亿美元，约合430亿人民币，刷新中国具身智能行业单轮私募融资纪录。本轮融资由IDG资本领投，高榕创投参投，腾讯、阿里巴巴作为战略投资者参与，小鹏集团继续保持控股。 这也解释了为什么，小鹏机器人暂时并不急于上市。…</p><a href="https://www.leiphone.com/category/transportation/EJrElOTA0bHDOd60.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 11:12:00 +0800</div><h3>定义物理 AI 新纪元：昂首 EV1 智能出行机器人落地深圳湾 INNO100，开启中国市场线下首发</h3><p>2026 年 8 月 29 日，全球领先的物理 AI 与机器人创新企业若创科技（昂首 Strutt）于深圳湾 INNO100 全球创新旗舰店正式举行中国线下首发仪式，展示旗下旗舰产品——昂首 EV1 智能出行机器人。 作为累计完成近亿美元融资的硬科技领军者，昂首 Strutt 以前瞻性的个人移动体验为切入点，正加速推动“物理 AI”技术走向消费级规模化应用。 以端到端架构，重构个人移动体验 雷峰网了解到，昂首团队拒绝将个人出行设备降维定义为传统的辅助代步工具，而是将其打造为集“感知、决策、控制与动力”于一体的全新智能终端。 • 双核心工程架构 ： EV1 深度融合了自研的伴行智驾系统与凌波底盘系统。依托 360 度多模态传感器阵列与激光雷达，实现全场景智能避障与自主领航；车规级四驱底盘结合柔性悬挂，使其具备穿行各类复杂地形的卓越能力。 • 国际权威设计认可 ： 凭借颠覆性的设计理念与工程实现，昂首 EV1 已包揽 2025 红点奖“至尊荣誉奖”（Red Dot: Luminary）、2026 CES 最佳创新奖（Best of Innovation） 及 2026 iF 设计奖 等全球顶尖工业设计荣誉。 • 原生进化能力…</p><a href="https://www.leiphone.com/category/weiwu/XIbqyD3TWrDeuFCh.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 10:18:00 +0800</div><h3>极米海外众筹被叫停背后：AI 眼镜的「撞脸」之战，谁能留到最后？</h3><p>从朋友圈骂战到美国法院，极米和逸文的三年恩怨。 作者丨 黄艳冰 编辑丨姚单 董子博 8 月 27 日，本应是 MemoMind One 众筹顺利收官的日子。 但就在收官前最后一晚，MemoMind One 项目突然被 Kickstarter 暂停，页面显示为&quot;涉及知识产权争议，目前无法使用”。不少支持者收到 Kickstarter 平台邮件，显示原本支付的支持金额将自动退回，不会产生扣款。 MemoMind One 是投影厂商极米科技旗下 AI 眼镜项目的首款产品。 此 前，这款眼镜已经在 Kickstarter 上筹得超过 120 万美元，吸引 了 2000 多名支持者。 项目下架后，MemoMind 团队回应，正在与 Kickstarter 沟通解决，表示如果平台无法解决，将通过向支持者发送链接等形式，尽力确保用户收货。 次日，MemoMind 团队再次回应表示，将继续推进 MemoMind One 的交付，并为原 Kickstarter 支持者保留额外 100 美元优惠。根据其最新公布的安排，首批约 1000 台产品，将优先面向此前的官网订金用户和 Kickstarter 支持者发货，预计发货时间为 2026 年…</p><a href="https://www.leiphone.com/category/weiwu/NPnRM0Yr6NLyQjRS.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 09:03:00 +0800</div><h3>真香！特斯拉在港澳推出更便宜的Model 3，起售价不足18万元；字节豆包大模型2.2将推迟发布，原计划8月推出；官方回应「网友呼吁取消ETC」</h3><p>要闻提示 1.特斯拉在港澳推出更便宜的Model 3，起售价不足18万元！ 2.奔驰回应星宇劝退应届生：严重道德和劳动失当行为 3.月薪1万到手仅5千？曝浪潮云强制推行“五五开”绩效 4.官方回应“网友呼吁取消ETC”！博主也给出看法：车牌识别存在不少漏洞 5.字节跳动豆包大模型 2.2 将推迟发布，原计划 8 月推出 6.雷军祝贺长鑫实现LPDDR6内存量产：非常了不起，相信还会有更多中国科技企业能够出人头地 7.网友反馈上海电信发生大面积断网故障，宽带及手机信号均受影响 8.刚花600亿美元收购Cursor两周，OpenAI就断供模型！马斯克：我不在意 今日头条 特斯拉在港澳推出更便宜的Model 3，起售价不足18万元！ 8月30日，媒体查阅特斯拉香港和特斯拉澳门官网发现，特斯拉已正式在两地推出配置简化、售价更低的Model 3车型版本。 该款车型在中国香港的起售价为20.5万港元（约合人民币17.59万元），比此前在售的基础版车型售价降低8.5%；在中国澳门的起售价为25.2万澳门元（约合人民币20.98万元）。…</p><a href="https://www.leiphone.com/category/zaobao/3X5Iht5o0zblV5d9.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 29 Aug 2026 15:20:00 +0800</div><h3>从Data到Agent：华为云AI-Ready数据基础设施全链路能力亮相数博会</h3><p>8月28日，在2026中国国际大数据产业博览会期间，以“从数据到Agent，数据价值链的重构与创新”为主题的数据要素大会在贵阳举办。政府机构、头部大数据集团、行业企业及专家学者齐聚一堂，围绕数据要素市场化配置、高质量数据集建设、可信数据空间以及AI时代的数据基础设施创新展开探讨。 当大模型和Agent加速进入千行万业，一个根本性变化正在发生：大模型和Agent成为新的数据消费者。数据消费主体的变化，正在推动大数据平台从传统湖仓向多模态湖仓、数据智能体演进，也对AI时代的数据基础设施提出了全新要求。 从 Data 到 Agent ，重构 AI 时代数据价值链 “数据是AI的核心燃料，AI驱动数据价值释放。”会上，华为混合云总裁顾雪军指出，随着AI产业迈入Agentic智能体时代，数据已成为驱动AI模型进化、驱动智能体生长的核心燃料。华为云Stack面向国计民生行业客户，打造了一套覆盖数据全生命周期的数据能力体系，帮助企业把过去分散、沉淀的全量数据真正用起来、用得好、用出价值，推动数据从资源转变为生产力。 华为混合云总裁 顾雪军…</p><a href="https://www.leiphone.com/category/industrynews/5HSY98yO7OtW5EGw.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 28 Aug 2026 19:28:00 +0800</div><h3>Anthropic 再定统一标准：MHS，打通 AI 与物理世界的统一接口</h3><p>MHS把一场新药研发实验速度提升3倍。 作者丨高允毅 编辑丨岑 峰 这是Anthropic第二次发布全行业统一协议。 第一次，它发布了 MCP ，它统一了 AI 代理调用外部工具、数据源与 API 的方式，如今满世界的 Agent 都靠它连数据库、接浏览器、调 API。这一次，它把完全相同的逻辑延伸到了物理世界， Agent可以和不同的物理设备之间对话了。 这是一套面向物理设备的 AI 代理接口标准，叫 Model Hardware Standard（MHS） ，此次发布的是预览版本，已经在全球顶尖实验室的显微镜、机械臂和量子计算机上使用起来了。 它解决的，是整个科研与工业领域头痛了二十年的问题：硬件接口碎片化。 01 二十年未破的困局： 标准追不上硬件的多样性 这是一个所有实验室从业者都心照不宣的困境。 在一间自动化实验室里，成像相机可能基于 Python 开发，探测器运行在 MATLAB 环境中，电生理设备采用 C# 架构，而机械臂、共聚焦显微镜、移液工作站更是各有各的专属驱动、私有数据格式和封闭控制软件。多数情况下，哪怕是相邻的两台仪器，都无法感知彼此的运行状态。 如果研究人员想实现…</p><a href="https://www.leiphone.com/category/yanxishe/N12vFHlsL2JrdKYR.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 28 Aug 2026 19:23:00 +0800</div><h3>WRC2026 | 别急着给机器人更强「大脑」，先补上更省电的神经系统</h3><p>类脑计算正从感知和低层控制切入机器人。 作者丨 魏溶 编辑丨 岑峰 “如果未来全球真的部署10亿至100亿台高度依赖AI的人形机器人，今天这套计算方式，还供得起电吗？” 德国慕尼黑工业大学教授Alois Knoll 在2026世界机器人大会“类脑智算，让机器人学会自主决策”圆桌会议开场时提出了这个问题。 过去讨论计算中心，人们习惯谈千万亿次浮点运算、百亿亿次浮点运算；如今，随着AI基础设施不断扩张，数据中心的建设规模越来越多地与吉瓦级电力联系在一起，算力的度量衡，正在从“百亿亿次浮点运算（Exaflops）”变成“吉瓦级功耗（Gigawatts）”。 当AI进一步从数据中心进入实体世界，能源问题还会被继续放大。Knoll判断，如果人形机器人未来真的走向十亿级部署，沿用当前高功耗计算模式，累计能源需求可能变得难以承受。 产业因此需要寻找传统计算架构之外的其他可能性，神经形态计算便是其中之一。 Alois Knoll 教授在开场时曾回顾了这段历史：从百年前的神经元观察，到欧洲“人类大脑计划”中被架构师 Steve Furber 戏称为“智能水平大约等同于五只老鼠”的早期类脑系统，再到如今试图接管数十亿人形机器人的运动中枢，…</p><a href="https://www.leiphone.com/category/iot/wSd8yNXuuYwSg9hp.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><h3>[解析失败] https://36kr.com/feed</h3><p>not well-formed (invalid token): line 9, column 542</p></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 08:45:36 GMT</div><h3>消息称 OpenAI 购入数万台苹果 Mac mini / Studio，用于训练 AI 智能体操作计算机</h3><p>IT之家 8 月 31 日消息，据 The Information 报道，OpenAI 近几个月购买了数万台苹果 Mac mini 和 Mac Studio 电脑，用于训练能够操作计算机的 AI 系统。 这些 Mac 并非用于 OpenAI 基础模型的大规模预训练，而是主要承担强化学习任务。在这一训练过程中，AI 智能体需要在真实计算机环境中反复练习完成各种操作任务。 据了解，OpenAI 购买的主要是配备大容量统一内存的 Mac 产品，并利用这些设备运行与“计算机操作型 AI 智能体”相关的模型和训练工作负载。 这类硬件能够为 AI 模型提供真实的计算机操作环境，使其学习如何浏览软件界面、与应用程序互动以及完成各种电脑任务。通过这样的环境，AI 智能体可以反复进行训练和评估。 OpenAI 如此大规模采购 Mac，也反映出整个 AI 行业对于大内存苹果电脑的需求正在快速增长。 目前，配备大容量内存的 Mac mini 和 Mac Studio 已经变得较难购买，部分型号甚至连续数月处于缺货状态。AI 公司尤其看重这些配置，原因在于苹果的统一内存架构允许 CPU 和 GPU 访问同一个大容量内存池。 苹果并不会公布单个…</p><a href="https://www.ithome.com/0/996/556.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 08:40:13 GMT</div><h3>亚马逊 AWS 加码政府 AI 赛道，OpenAI、Meta、Anthropic 等大模型集体登陆 GovCloud</h3><p>IT之家 8 月 31 日消息，亚马逊云服务（AWS）昨天宣布，公司已扩大 GovCloudAI 模型可用范围， 美国的政府机构可通过 Amazon Bedrock 渠道 ， 使用 Anthropic、OpenAI、Meta 等公司旗下 AI 大模型 ，以及亚马逊自家的 Nova 模型。 据悉，AWS GovCloud 专门面向美国政府机构，旨在提供符合政府监管、安全和外部隔离的云计算环境。 亚马逊对此表示：“我们欣然宣布，AWS GovCloud（美国）现可以通过 Amazon Bedrock 提供多种 AI 模型，为政府客户、国防工业和技术合作伙伴提供各种 AI 模型。” 亚马逊 AWS 业务当今正保持强势增长。2026 年第二季度，AWS 营业利润同比增长 63%，营收同比增长 37%，AI 和芯片业务的强劲表现是推动增长的重要因素。 亚马逊管理层预计，AWS 的营收最终可能达到 1 万亿美元 （IT之家注：现汇率约合 6.74 万亿元人民币） 。目前全球约 85% 的 IT 支出仍用于本地部署（on-premises）环境，这意味着云计算市场仍拥有较大的增长空间。</p><a href="https://www.ithome.com/0/996/554.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 08:32:08 GMT</div><h3>首次海外亮相：小米机器人 CyberOne 将现身 IFA 国际消费电子展</h3><p>IT之家 8 月 31 日消息，小米集团总裁卢伟冰今日在社交平台发文透露小米首次参加 IFA 国际消费电子展的展会亮点。 卢伟冰称，本次展会小米拥有超过 3300 平米展台、近 400 款展品，实现“人车家全生态”海外最大规模参展。 卢伟冰透露，9 月 4 日-8 日，小米 SU7 Max、小米 SU7 Ultra 与小米 Vision GT，三款车齐聚 IFA；小米机器人 CyberOne 也将首次海外亮相。 据IT之家了解，CyberOne（中文名：铁大）是小米集团于 2022 年 8 月 11 日发布的首款全尺寸人形仿生机器人，由雷军在年度演讲中正式推出，主要应用于家庭护理与陪伴场景。该机器人身高 177 厘米，体重 52 千克，采用银白色主体与金属黑色关节配色，行走速度达 3.6 公里 / 小时。CyberOne 搭载小米自研的仿生感知认知技术、生机电融合技术与人工智能技术集群，配备 21 个自由度关节模组，实现 0.5 毫秒级实时响应。其 Mi-Sense 视觉空间系统由小米与欧菲光协同开发，支持三维重建真实世界，可感知 45 种人类语义情绪及分辨 85 种环境语义。髋关节驱动电机峰值扭矩达 300 牛 ·…</p><a href="https://www.ithome.com/0/996/553.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 08:07:31 GMT</div><h3>Dbrand 为苹果 AirPods Pro 3 入耳式 TWS 耳机推出 Tank 保护壳</h3><p>IT之家 8 月 31 日消息，数码配件制造商 Dbrand 近日为苹果 AirPods Pro 3 入耳式 TWS 耳机推出 Tank Case 保护壳。这是 该产品家族目前唯一一款为非智能手机设备开发的型号 ，定价 29.95 美元 （IT之家注：现汇率约合 201.7 元人民币） 。 AirPods Pro 3 款 Tank Case 延续了该家族一贯的“硬核”设计风格，能给予设备良好保护， 丰富的凸起、凹陷、纹理便于用户握持 ，可牢牢贴合设备本身，还提供了配套的拆卸工具。 此外，该保护壳并未影响 AirPods Pro 3 的无线充电功能；挖孔设计为 AirPods 充电盒的触摸传感器提供不间断的电容式信号传输，简化了配对流程；另有挂绳孔位。</p><a href="https://www.ithome.com/0/996/546.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 08:05:36 GMT</div><h3>鸿蒙智行智界 RX 轿跑 SUV 官宣开展 L3 级自动驾驶准入测试</h3><p>IT之家 8 月 31 日消息，在鸿蒙智行智界汽车的智界 RX 安全科技全解读直播活动中，智界汽车产品经理李鑫悦透露， 智界 RX 已开展 L3 级自动驾驶准入测试 。 在 8 月 20 日的享界 G9 及鸿蒙智行新品发布会上，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东宣布， 智界 RX 搭载面向未来的 L3 级自动驾驶架构设计 。 据IT之家了解，该车定位全新轿跑 SUV， 基于华为途灵平台打造 ，提供单电机后驱与双电机四驱两种布局，车身尺寸为 5020×2007×1585mm，轴距 3000mm， 首发华为智擎新一代高性能电驱 。 新车搭载了 38 个融合感知传感器，包括 896 线双光路图像级激光雷达、3 颗高精度固态激光雷达。此外，还有双目后视镜、智能环抱座椅等“黑科技”加持。智界 RX 预售价 29.98 万元起。</p><a href="https://www.ithome.com/0/996/545.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 08:05:21 GMT</div><h3>工信部：加大大模型、智能体、Token 等服务采购力度</h3><p>IT之家 8 月 31 日消息，今日，工业和信息化部办公厅发布关于开展人工智能应用服务商培育专项行动的通知。 IT之家附全文如下： 人工智能应用服务商（以下简称服务商）是指围绕用户单位智能化需求，提供人工智能解决方案咨询规划、交付实施、运营管理、安全治理等服务的企业或机构。为深入贯彻党中央、国务院决策部署，落实《国务院关于深入实施“人工智能 +”行动的意见》中“培育人工智能应用服务商”“打造人工智能应用服务链”相关工作安排，现组织开展人工智能应用服务商培育专项行动。有关事项通知如下： 一、行动目标 以专项行动为牵引，建立服务商资源池，靶向提升服务商技术创新、集成交付、安全合规能力，锻造一批懂行业痛点、通技术机理、知安全风险、善交付运营的人工智能应用服务商队伍。到 2026 年底，全国服务商资源池内服务商数量突破 2000 家，形成结构合理、分工有序、协同创新的多层次梯队，复杂场景交付能力显著增强。到 2027 年底，全国服务商资源池内服务商数量不少于 3000 家，支撑形成全要素协同、全链条贯通、全场景覆盖的人工智能应用服务生态。 二、重点任务 任务一：建立服务商资源池…</p><a href="https://www.ithome.com/0/996/543.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 08:02:50 GMT</div><h3>更简洁、更快速，微软 Win11 八月可选更新 KB5120998 带来新版搜索功能</h3><p>IT之家 8 月 31 日消息，Windows 11 的 8 月可选更新带来了不少用户期待已久的改进，其中包括全新的搜索功能。用户终于可以摆脱 Bing 和 Copilot 搜索结果，现在界面更简洁，速度也更快。 不过，对于大多数用户来说，这项功能不会在安装更新后立即启用。微软目前正在分阶段推送，而由于这本身还是一次可选更新，很多用户甚至不会主动安装它。 如何获得更简洁、更快速的新版 Windows 11 搜索 首先，进入“设置 &gt; Windows 更新”，安装 KB5120998，也就是 Windows 11 的 2026 年 8 月可选更新。 安装后，Windows 11 25H2 将升级至 Build 26200.9278，24H2 则升级至 Build 26100.9278。更新完成后重启电脑。 重启后，打开 Windows 搜索，看看新版界面是否已经出现。不过，大多数电脑此时可能仍然看不到变化，因为微软通过“受控功能推出”机制分阶段启用这类新功能。 实际上，只要你已经安装了更新，新功能的相关代码就已经存在于系统中，只是微软尚未通过服务器端开关为你的设备启用它。 用户也可以通过 ViVeTool…</p><a href="https://www.ithome.com/0/996/541.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 07:57:17 GMT</div><h3>安伯尼克 Anbernic RG 55G1 掌机发布：骁龙 G1 Gen 2 芯片，899 元起</h3><p>IT之家 8 月 31 日消息，安伯尼克 Anbernic 现已推出 RG 55G1 掌机， 新机 4GB+64GB 版本首发售价 899 元 ，8GB+128GB 版首发到手价 1049 元。 从外观来看，这款掌机明显致敬了任天堂 Switch Lite。新机搭载骁龙 G1 Gen 2 芯片，并配备主动散热系统。 规格方面，这款掌机配备 5.5 英寸 IPS 面板，采用 16:9 比例，分辨率为 1080P。拥有 6000mAh 电池，支持 18W 有线充电。 IT之家了解到，这款掌机提供双霍尔效应摇杆、十字方向键及 ABXY 按键，顶部拥有四个肩键，其中两个为霍尔扳机键。该机还搭载安卓 14 系统，拥有蓝牙 5.0、Wi-Fi 5、microSD 卡槽、3.5mm 耳机接口等外围配置。</p><a href="https://www.ithome.com/0/996/536.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 07:50:26 GMT</div><h3>我国 L3 / L4 自动驾驶强制国标正式文件发布，2027 年 7 月 1 日实施</h3><p>IT之家 8 月 31 日消息，全国标准信息公共服务平台显示，国家标准《 智能网联汽车 自动驾驶系统安全要求 》 （GB 44721-2026）正式文件已出炉。 这也是我国首部 L3 / L4 智能网联汽车自动驾驶系统安全要求强制性国标 。 相关页面显示，该标准是对 2024 年发布的推荐性国家标准 GB/T 44721—2024《智能网联汽车自动驾驶系统通用技术要求》的系统性升级，从推荐性转为强制性，适用于搭载 L3 级、L4 级（高度自动驾驶）系统的 M 类（载客）和 N 类（载货）车辆， 拟于 2027 年 7 月 1 日起正式实施 。 标准规定了自动驾驶系统动态驾驶任务执行、人机交互、用户告知等通用技术要求；规定了车辆制造商的安全保障要求和试验条件。L3 级自动驾驶功能的接管能力监测技术要求规定了安全带监测、在位监测、执行动态驾驶任务能力监测要求。L4 级自动驾驶功能具体技术要求规定了动态驾驶任务执行、远程协助、人机交互具体要求。 IT之家附工信部强制性国家标准 GB 44721—2026《 智能网联汽车 自动驾驶系统安全要求 》一图知如下： 相关阅读： 《 我国首部 L3/L4…</p><a href="https://www.ithome.com/0/996/526.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 07:25:52 GMT</div><h3>美国用户发现谷歌地图已将安大略湖改名“美国湖”，引发争议</h3><p>IT之家 8 月 31 日消息，据 Business Insider 报道，谷歌地图更改了安大略湖的名称，美国用户看到的是“美国湖”，这一变化迅速在互联网上引发了争议。 IT之家注意到，当地时间上周四，美国总统唐纳德 · 特朗普签署行政命令，将横跨加拿大和美国边境的安大略湖（Lake Ontario）更名为“美国湖”（Lake America）。美国地名信息系统随后正式修改了这片水域的名称。 周日，谷歌表示，谷歌地图会根据政府官方来源更新地图数据。这意味着，美国用户看到的名称将是“Lake America”，加拿大用户仍会看到“Lake Ontario”，而其他国家和地区的用户则会看到“Lake Ontario (Lake America)”。 谷歌地图的这一改动很快引发大量批评。 一些 X 平台用户称这一变化“可悲”，并指责谷歌此举是在“传播错误信息”。还有用户认为，这一事件暴露了谷歌的软弱，称该公司是在“向特朗普低头”。另一名 X 平台用户则发挥创意，将这项服务戏称为“Google Craps”。 这一变化也遭到了加拿大政界人士的批评。 安大略省省议会议员 Stephen Crawford…</p><a href="https://www.ithome.com/0/996/509.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 07:20:42 GMT</div><h3>行业首个家庭智能伴侣级 AIOS：海信电视 JUOS 发布，桌面随人变化、首创 AI 搜索片段</h3><p>IT之家 8 月 31 日消息，在今日的海信视像 AI 战略暨 JUOS 发布会上，海信发布行业首个家庭智能伴侣级 AIOS —— JUOS 。 据介绍，海信 JUOS 实现了 从指令驱动到意图驱动 ： 因人、因时、因境，内容和服务各有不同； 懂语境、懂情绪，交流自然更像人与人； 跨屏接着看，家电一句管，生活服务轻松办。 海信 JUOS 搭载行业首个家庭智能伴侣级 AIOS 技术架构， 配备星海大模型 ，搭配四大引擎。 海信 JUOS 的灵犀家庭情境引擎支持通过摄像头、声纹等感知家庭人物、内容、空间、环境、设备，并进行家庭情境和意图理解。 小聚多 Agent 协同引擎则可以统一用户意图、根据用户需求编排内容，最后输出个性化方案。 星海语境智能引擎带来连续语境理解与自然交互，可读懂情绪、看懂屏幕内容和环境。 全域行动闭环引擎 首发大屏 AI 任务闭环执行能力 ，从用户提出需求开始，可自主调度最合适的智能体，进行任务执行并给出反馈，完成行动闭环。 海信自研的星海大模型可选 7B/32B/72B 版本，支持多模态理解、意图理解、推理规划、工具执行。 安全方面，JUOS 支持敏感操作确认、权限随时可控、记忆可管理。 JUOS…</p><a href="https://www.ithome.com/0/996/499.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 07:13:13 GMT</div><h3>马斯克提出新计划：靠 AI 卫星让地球在未来大约 10 亿年内保持宜居</h3><p>IT之家 8 月 31 日消息，埃隆 · 马斯克在周末描述了一项旨在让地球在未来大约 10 亿年内保持宜居的计划，而这一计划的起点，是一批能够自主思考的卫星。 马斯克在 X 平台发文称，仅仅用太阳能和风能取代化石燃料，并不足以让人类躲过他所说的“极其严重的灭绝事件”。这类事件大约每 1 亿年发生一次。 他的解决方案是部署所谓的“有感知能力的卫星”，也就是由太阳能供电、由 AI 控制的卫星。这些卫星将在发射升空后，被安置在地球与太阳之间的固定位置。 与传统火箭发射不同，马斯克设想利用一台巨型电磁弹射器，从月球表面将这些卫星发射到太空。 卫星搭载的 AI 将持续自主运行，对卫星轨道和位置进行微小调整，而不是等待人类发出指令后再采取行动。 马斯克认为，电磁质量投射器（mass driver）可以以更低的成本将制造卫星所需的原材料送入太空。他设想在月球上建设一条电磁发射轨道。由于月球重力远低于地球，而且没有大气层，从月球将货物抛射到太空会比从地球发射容易得多。 马斯克还分享了一份由 Grok 生成的估算结果。数据显示，在高海平面上升情景下，到 2070 年，佛罗里达州大约 5% 的土地，也就是约 168…</p><a href="https://www.ithome.com/0/996/490.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sun, 30 Aug 2026 20:50:42 +0800</div><h3>索尼华纳起诉 Anthropic 侵犯版权</h3><p>全球唱片巨头索尼和华纳对 Anthropic 提起诉讼，指控其犯下了历史上规模最大、最明目张胆的知识产权盗窃罪行之一。诉讼指控 Anthropic 非法利用数万首版权音乐作品训练其模型。Anthropic 及其创始人 Dario Amodei 和 Benjamin Mann 被控肆无忌惮的大规模非法下载、抓取和传播受版权保护的作品，目的是开发、运营该公司的 Claude 系列 AI 模型，并从中牟取暴利。唱片公司要求为每部侵权作品索赔最高 15 万美元，每次可识别版权信息被删除的情况则追加最高 2.5 万美元赔偿。如果法院裁决唱片公司胜诉并判决最高赔偿金额，总赔偿金额可能高达数十亿美元。诉讼还指控 Mann 使用 BitTorrent下载了逾 500 万本盗版图书，Anthropic 员工还从 Pirate Library Mirror 网站下载了逾 200 万本盗版图书，从付费获得唱片公司授权的 MusixMatch 和 LyricFind 等网站抓取歌词。</p><a href="https://www.solidot.org/story?sid=85234" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 29 Aug 2026 21:37:00 +0800</div><h3>Debian 项目将允许以负责任的方式使用生成式 AI</h3><p>Debian 项目对是否允许使用 AI 进行了投票表决，投票采用孔多塞投票法，共有 9 个选项，最终结果是第 5 选项“负责任的使用生成式 AI”获胜。Debian 项目表示，它既不反对也不支持在软件、包、文档等的开发和维护中使用生成式 AI 工具。但项目也认识到，如果能负责任的使用 AI 工具，将能显著提高贡献者的效率，使他们将有限的时间投入到需要技术专长、判断力、审核和协作的工作中。无论是否使用生成式 AI 工具，Debian 项目希望提交的内容都符合相同的质量、正确性、可维护性和法律合规性标准。使用生成式 AI 工具不会减少责任。对于提交的内容，贡献者应理解、审核、测试 AI 辅助生成的输出，在适当情况下进行修改。未经适当人工审查就盲目接受或上传 AI 生成的材料，不符合 Debian 既定的开发实践。Debian 鼓励贡献者披露其贡献是否使用 AI 辅助，但不强制要求。Debian 承认，生成式 AI 系统生成的材料的法律地位在许多司法管辖区存在争议，包括训练材料的版权、作者身份、许可和潜在复制问题。Debian 项目不寻求通过本一般决议解决这些悬而未决的法律问题，也不就 AI…</p><a href="https://www.solidot.org/story?sid=85229" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 29 Aug 2026 18:46:44 +0800</div><h3>人形机器人的跑步方式与人类不同</h3><p>北京人形机器人创新中心研发的通用人形机器人天工在世界人形机器人运动会上跑出了 100 米 8.64 秒的成绩，远超博尔特（Usain Bolt）于 2009 年创下的 100 米 9.58 秒的人类世界纪录。机器人的平均速度接近 42 公里/时。专家表示，这一成绩凸显了机器人的强大，也凸显了它们在决策和感知等方面的不足——人形机器人都是靠撞软垫的方式刹车的。人形机器人的跑步方式与人类不同：首先是博尔特的起跑仅仅花了 0.146 秒，相比下机器人等了近 1 秒钟才反应过来开始移动；博尔特仅用 41 步就完成了 100 米，而机器人花了 50 多步，机器人的步频更快步幅更短。韩国光云大学机器人学教授 Park Suhan 表示，机器人的步态映了其电机的性能，而非去刻意模仿人类的短跑。另一位专家认为机器人如果步幅过大会很容易摔倒。人类顶尖运动员在跑步的最后阶段会减速，但天工机器人没有任何减速迹象，因此最后一头撞向软垫。未来几年能转弯和自主决策的机器人将比单纯的提高速度会更令人印象深刻。</p><a href="https://www.solidot.org/story?sid=85228" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 28 Aug 2026 15:08:27 +0800</div><h3>Haiku R1/beta6 释出</h3><p>开源 BeOS 操作系统 Haiku 在发布第 5 个 beta 版本 2 年后释出了第 6 个 beta 版本。BeOS 操作系统在 2001 年被 Palm 收购后停止开发，Haiku 项目在这之后不久正式启动，2002 年发布了首个版本，2012 年发布 Haiku R1 Alpha 4.1，六年后发布了 Haiku R1/beta1。beta6 主要是改进功能和整体稳定性。新版的主要变化包括：移植了 Firefox，改进对 Qemu 的支持，基于 OpenBSD 的内存分配机制，改进对不同文件系统的支持，修复了逾 530 个 bug，移植了大量新应用，等等。</p><a href="https://www.solidot.org/story?sid=85219" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 28 Aug 2026 14:49:13 +0800</div><h3>Google 要求 Android 应用开发商降低内存占用</h3><p>由于 AI 热导致内存短缺，无论是 PC 还是智能手机，都面临内存价格太昂贵而不得不减少内存容量的问题，PC 行业时隔多年再次推出了 8GB 内存 PC，智能手机厂商也面临相同问题。对此 Google 采取了应对措施，要求Android 应用开发商优化代码降低内存占用。Google 说，移动行业面临改变设备内存可用性的严重硬件供应限制，进而影响到用户使用体验。Google 增加了代码优化要求，防止应用运行缓慢和崩溃等与性能相关的问题。应用开发商需要在 2027 年 2 月前满足内存使用要求。</p><a href="https://www.solidot.org/story?sid=85218" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 28 Aug 2026 00:00:29 +0800</div><h3>一名微软工程师一个月的 AI 支出高达 2.8 万美元</h3><p>在长时间鼓励之后，本月初微软开始要求员工限制 AI 使用。执行副总裁 Jay Parikh 在一封发给微软员工的邮件中要求工程师专注于业务成果，而非最大化 AI token 的使用量，为了“从 token 投资中获得更大的价值”，微软将比 Anthropic 模型更便宜的 OpenAI GPT-5.6 设为内部使用的默认模型。根据一份微软员工自愿提交的 AI 使用费账单：Customer and Partner Solutions 部门的一名员工在 28 天内的 AI 支出高达 2.8 万美元；多名员工支出超过 1 万美元；中位数约为每 28 天 300 美元，少数部门的 AI 支出仅仅为几十美元；CoreAI 部门的 AI 支出中位数最高为 975 美元。</p><a href="https://www.solidot.org/story?sid=85216" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      <section class="section-card" id="errors"><div class="section-head"><h2>抓取异常</h2><span>不影响当期页面生成</span></div><ul class="error-list"><li class="error-item"><strong>36氪</strong><span>[解析失败] https://36kr.com/feed</span><em>not well-formed (invalid token): line 9, column 542</em></li></ul></section>
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>
