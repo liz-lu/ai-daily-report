@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-09-01</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a><a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      <a class="toc-link" href="#errors">抓取异常</a>
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-09-01</span>
+          <span>15:56（北京时间）</span>
+          <span>IT之家、Solidot、量子位、雷锋网</span>
+        </div>
+        <p class="hero-copy">今日AI领域动态密集：国产算力生态加速成型，范式与华为达成战略合作；壁仞科技中期业绩大幅增长，营收同比增近20倍；OpenAI被曝采购数万台Mac用于强化训练，引发算力路径讨论；具身智能与机器人赛道持续升温，多家公司发布新品或获得进展。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>38</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>4</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>1</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>14</strong></div><p>基础设施的效率叙事持续升温</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>14</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>13</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>11</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>6</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>4</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>IT之家、Solidot</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>3</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>量子位</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>芯片/算力/推理</h3><p>国产GPU企业壁仞科技发布中期业绩，营收12.36亿元，同比增长约1997.6%，亏损大幅收窄。范式与华为达成算力战略合作，成为首批拥抱国产高端算力底座的AI企业。另有报道称OpenAI采购数万台Mac用于强化训练，引发对算力路径的讨论。</p></article><article class="insight-card"><h3>大模型/应用/智能体</h3><p>GPT-6灰测demo刷屏，市场关注其即将发布。AQuA系统聚焦量化研究Agent的持续进化与回测可靠性。Ropedia发布HOMIE Gen2，强调为具身智能补充物理世界经验。</p></article><article class="insight-card"><h3>具身/机器人/智驾</h3><p>滴滴自动驾驶新一代Robotaxi R2开启无人载客测试。清华AIR提出具身In-Context Causal Learning方法。灵犀智涌凭借ROSS Harness进入工业具身智能第一梯队。Ropedia发布HOMIE Gen2，强调为具身智能补充物理世界经验。</p></article><article class="insight-card"><h3>云/大厂/生态</h3><p>范式与华为合作，强化国产算力生态。地瓜机器人扩招NPU研发团队，或强化下一代芯片布局。筷子科技推出KP钱包，帮助企业平衡AI调用成本与效果。</p></article><article class="insight-card"><h3>产业/投融资/活动</h3><p>李飞飞、吴佳俊联合发布论文《TrAct》，探索视觉轨迹连接世界模型与机器人动作。无界动力在2026世界机器人大会展示物理AI落地应用。地瓜机器人芯片人才招聘引发关注。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>壁仞科技业绩大幅增长，显示国产GPU在商业化上取得阶段性突破，可能加速国产算力替代进程。</li><li>OpenAI使用Mac进行强化训练，可能改变AI算力基础设施的采购思路，对英伟达等传统GPU供应商构成潜在影响。</li><li>具身智能领域多篇论文与产品发布，表明该赛道正从概念走向实际应用，工业场景成为重要落地方向。</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>GPT-6正式发布及后续应用表现</li><li>范式与华为合作的具体落地进展</li><li>壁仞科技后续季度业绩能否持续高增长</li><li>地瓜机器人NPU自研芯片的进展</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>14 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>范式与华为达成重磅算力战略合作，成为首批拥抱国产最高端算力底座的AI企业</h3><a href="https://www.qbitai.com/2026/08/481919.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>OpenAI买几万台Mac搞强化训练！英伟达的活被苹果抢了</h3><a href="https://www.qbitai.com/2026/08/481759.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>业绩连跳20级，这家芯片公司做对了什么？</h3><p>8月28日晚间，国产GPU企业壁仞科技（06082.HK）披露2026年中期业绩。2026年上半年，壁仞科技实现营业收入12.36亿元，较上年同期增长约1997.6%；期内亏损大幅收窄至3.77亿元，同比大幅减亏76.4%；经调整期内亏损（非国际财务报告准则计量）收窄至3.37亿元，同比减亏38.9%，亏损收窄速度明显加快。 作为国内领先的通用智能计算解决方案提供商，壁仞科技围绕“芯片－软件－系统－供应链”全栈体系快速发展，在商业拓展、产品迭代、软硬协同与量产能力建设上均取得显著进展。展望未来，壁仞科技将持续加速下一代芯片的量产与导入，坚持高质量、前瞻性的研发投入，深化与客户及生态伙伴的协同，以扎实的产品与交付能力，为国产算力基础设施建设和全球人工智能产业发展贡献壁仞力量。 01 上半年营收超越去年全年 互联网大客户导入开启放量周期 2026年上半年，Agentic应用加速落地，token消耗量呈指数级增长，强劲市场需求驱动之下，壁仞科技步入高速发展通道，上半年营收超越去年全年，商业化达成里程碑式突破。…</p><a href="https://www.leiphone.com/category/chips/toaKlXrYMYi6MRsq.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>AI 应用进入“算账”时代，筷子科技为什么要做一个 KP 钱包？</h3><p>过去两年，大模型的能力边界不断向外扩展。文本、图片、视频、语音模型快速迭代，Agent也开始进入企业生产流程。对于企业来说，可选的AI能力越来越丰富，但实际使用时需要处理的问题也随之增加：一项任务应该调用哪个模型，如何平衡生成效果和成本，不同部门如何管理AI预算，生成后的内容资产又该如何沉淀。 尤其在视频商业场景中，一条内容从创意到最终产生效果，通常会经历脚本、图片、视频生成、数字人、配音、剪辑、分发等多个环节，背后可能连接不同模型、算力和工具。过去分散使用几款AI产品还算容易，当应用规模扩大到多个团队、品牌、门店和市场之后，模型调用、账户体系和预算管理开始成为企业AI落地中的实际问题。 近日，筷子科技Kuaizi.ai正式发布视频商业AI能力统一价值单位“KP”及企业“KP钱包”。按照其公布的方案，一个Kuaizi企业账户对应一个KP钱包，可以使用丽帧引擎、Kuaizi主平台、Kuaizi国际版、“推你”及企业级FDE服务，覆盖模型调用、内容生产、分发传播、资产管理以及企业级部署等环节。 多模型时代，企业需要更简单的调用方式 模型生态的丰富已经带来明显变化。OpenAI、Anthropic、Google…</p><a href="https://www.leiphone.com/category/industrynews/LbCpQmYtAXGpD1Ob.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>卖B70显卡，只是英特尔本地AIGC生意的开始</h3><p>一张显卡，开始被越来越多创作者当成生产资料重新算账。 过去，要把AI视频真正搬到本地，首先卡在模型。效果更好的视频模型大多通过云端服务提供，能够下载到本地的开源模型，距离稳定生产往往还有一段距离。 但 今年夏天发生了变化。在MiniMax开放新一代视频模型H3权重的同一天，英特尔宣布锐炫Pro B70完成H3的Day 0适配。这张几个月前才发布的32GB专业显卡，由此有了一个更加具体的本地视频生成负载。 当模型能下载，显卡也能跑，本地AI视频的创作和生成也迎来新的挑战。 日前，英特尔联合MiniMax、数字折叠举办AIGC创作研讨会。现场 的讨论 并没有 局限 于显存和峰值算力，而是更关注一套贴近实际生产的本地算力：它究竟能完成多少工作、如何支持多人共享，以及新模型出来后能否及时跟进等。 英特尔想抓住的，正是这个变化。 多卡开工，本地AI有了「生产线」 AI视频工具正在变成创作者的常用助手。 Adobe针对384名美国视频内容创作者的调查显示，71%的受访者已经使用过AI视频生成或编辑工具，其中41%的使用者每周都会使用。 使用频率上升，也让云端模式原本不明显的成本被放大。…</p><a href="https://www.leiphone.com/category/chips/KkkOnq0B7sxuvkyo.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家丨地瓜机器人扩招NPU研发团队，或将强化下一代芯片布局</h3><p>雷峰网独家获悉，机器人通用底座厂商地瓜机器人近期积极招聘芯片人才，全面补齐自研NPU芯片研发能力，在猎聘等招聘软件搜索地瓜机器人芯片关键词，亦可查询到大量招聘信息。 地瓜机器人的发展与CEO王丛深度绑定。公开履历显示，王丛本科毕业于北京工业大学，后赴美取得莱特州立大学博士学位；职业初期入职阿里巴巴，随后联合创办文因互联。2018年王丛正式加入地平线，2022年，王丛带领团队切入尚处蓝海的机器人赛道，原AIoT部门升级为机器人事业部，王丛出任事业部总经理；2024年该业务板块完成独立拆分，地瓜机器人正式独立运营。 长期以来，地瓜始终遵循“不碰终端硬件本体”的延伸战略，芯片自研环节尚在起步阶段，机器人算力方案此前以外部采购为主。 有知情人士表示，地瓜此举或意味着其后续产品的算力选择将更加多元及自主。 此前雷峰网独家报道，前海思鲲鹏总经理、地平线芯片总裁、征程6系列总设计师陈鹏已于今年4月从地平线离职创业，成立新公司深圳市九万里未来科技有限公司（简称“九万里”），短短两月完成高额种子轮融资，公司整体保密级别极高，并有部分地平线老兵加入。 结合陈鹏创业前的履历，当前产品需求，以及未来计算技术趋势，…</p><a href="https://www.leiphone.com/category/yanxishe/lCoT3AFJymcnxZVR.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从一颗芯片到万卡集群，燧原的八年算力长跑</h3><p>过去几年， AI芯片行业最容易比较的是一张卡。 雷峰网 雷峰网 峰值算力多少、显存多大、带宽多高，几组参数放在一起，似乎就能迅速分出高下。但当大模型进入规模化训练与推理，尤其是 MoE 、 Agent 等新型负载不断拉高算力需求后，单卡性能正在变得越来越不够用。 真正进入数据中心，一张卡能跑多快只是第一关。数十张、数百张乃至上万张芯片如何高速互联，软件能否把硬件能力释放出来，集群能否在高负载下长期稳定运行，正在共同决定一套算力系统最终能够交付多少有效算力。 AI 芯片的竞争，正在从 “ 造一颗更快的芯片 ” ，变成一场芯片、模组、互联、软件和集群共同参与的系统战。 这也让燧原科技过去八年的一条技术路线，开始显出不同的价值。 从 2018 年成立开始，燧原选择的就不是一条只围绕单颗芯片展开的道路。四代架构、 5 款云端 AI 芯片之外，它逐步向 AI 加速卡及模组、编程软件平台、智算系统和大规模算力集群延伸，最终搭起了一套覆盖芯片、硬件、软件与集群的核心技术体系。 这套体系也已经越过实验室阶段。燧原多代产品进入大型互联网公司的真实业务，在国民级应用中实现规模化部署；与此同时，千卡、万卡级智算项目也已经走向商业化。…</p><a href="https://www.leiphone.com/category/chipdesign/MKHeALfWYSjLwG6X.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软 XBOX CEO 夏尔马谈 AI 导致主机涨价：GPU 能在游戏以外领域应用，这是好事啊</h3><p>IT之家 9 月 1 日消息，目前 XBOX 主机价格已升至历史最高水平，而微软大举投入 AI，某种程度上也是推高成本的原因之一。XBOX 首席执行官阿莎 · 夏尔马在接受 BBC 采访时，回应了这种颇具讽刺意味的局面。 她认为，即使 XBOX 主机因此变得前所未有地昂贵，GPU 能够被广泛用于游戏之外的技术领域仍值得肯定。“游戏一直是 GPU 的试验场。我认为，这项技术能够在全世界拥有更多用途是 一件非常好的事情 。AI 正在从根本上改变很多东西。因此，在 XBOX 推进下一代产品的过程中，我们需要考虑整个行业和市场正在发生什么，然后为玩家打造最好的体验。” 经过多轮涨价后，目前最便宜的新主机 XBOX Series S 也已经卖到 500 美元 （IT之家注：现汇率约合 3,368 元人民币） ，比 2020 年首发时 高出 200 美元 （现汇率约合 1,347 元人民币） 。 夏尔马表示，当前硬件和零部件市场面临的“危机” 迫使微软寻找新的解法 ，让玩家在如何使用、如何购买 XBOX 方面拥有更多选择。 最近一次提高 XBOX 价格后，微软甚至明确建议消费者 考虑使用“先用后付”服务 ，或者选择提供 0%…</p><a href="https://www.ithome.com/0/996/987.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>美国五角大楼部署定制版 ChatGPT 和 Grok AI 助手</h3><p>IT之家 9 月 1 日消息，五角大楼本周开始将定制版 ChatGPT 和 Grok 人工智能助手加入其内网，让数百万军人和文职人员能够使用 AI 工具，处理日常非机密任务。 美国国防部本周在其 GenAI.mil 内网门户加入 OpenAI 开发的 ChatGPT Mil，以及 Starshield AI 开发的 Grok for Government。国防部希望为工作人员提供更多 AI 模型选择，根据具体工作需求选择合适的 AI 工具。 国防部官员表示，ChatGPT Mil 主要针对大量文档阅读和写作任务，工作人员可以使用该工具进行物流规划、处理日常事务等。Grok for Government 提供不同推理模式，主要针对供应链跟踪和研究工作。 IT之家从美国国防部官网了解到，上述所有模型收集的数据均会锁定在内网环境中，OpenAI 和 xAI 不会利用政府数据训练 AI 模型， 并且两款模型均不允许用于战斗行动或实施目标锁定任务 。</p><a href="https://www.ithome.com/0/996/972.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华硕 ProArt GR1X 英伟达 RTX Spark 迷你主机 2026Q4 上市</h3><p>IT之家 9 月 1 日消息，华硕 (ASUS) ProArt 官方近日表示，其基于 NVIDIA（英伟达）RTX Spark 超级芯片的 ProArt GR1X 迷你主机即将于 2026 年第 4 季度上市 。 ProArt GR1X 延续了该产品家族一贯的内敛优雅设计，三维 150×150×51 (mm)。其至高配备 20 核 CPU、6144 核 &quot;Blackwell&quot; GPU、128GB 共享高速内存， FP4（稀疏）AI 算力可达 1 Petaflop 。 该设备提供 PCIe Gen5 / Gen4 的 M.2 NVMe SSD 盘位、1 个 10GbE 网口，搭载基于联发科技 MT7925 的无线网卡模块；其它 I/O 包括 4 个 USB-C 20Gbps、1 个 HDMI 2.1。</p><a href="https://www.ithome.com/0/996/960.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为、小米、荣耀手机今日集体涨价，魅族科技宣布再坚持一个月、十一后涨价</h3><p>IT之家 9 月 1 日消息，华为、小米、荣耀等品牌手机 今日（9 月 1 日）凌晨迎来集体涨价 ，涨价产品覆盖多个机型。 对此，魅族科技今日发文称：涨价是全行业都在面临的情况，我们已经坚持到最后一刻了。 经公司讨论，我们再坚持一个月，十一后涨价 。 综合IT之家此前报道，今年 2 月 27 日，魅族发布战略转型公告， 宣布暂停国内手机新产品自研硬件项目 ，并在积极接洽第三方硬件合作伙伴，同时原有业务不受任何影响。 魅族科技也承诺，用户的权益将得到持续保障 ： 放心买：魅族手机、AI 眼镜、PANDAER 等相关产品将正常销售，魅族在营店铺内的服务及权益不变； 放心用：Flyme 及售后服务团队将持续守护现有用户的官方售后、维修和系统安全更新服务，保障所有用户权益。 今年 8 月， 魅族手机宣布维持京东原价销售 。公告称，近期，内存芯片价格持续上涨，行业内多款机型已调整售价。魅族将继续坚持在售机型诚意不涨价：魅族 Note16 、魅族 22 、魅族 22 归航限定版维持原价销售，且可叠加国家购机补贴。</p><a href="https://www.ithome.com/0/996/959.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>韩国公布史上最大规模财政支出计划：2027 年预算达 821 万亿韩元，押注 AI 与芯片产业</h3><p>IT之家 9 月 1 日消息，据路透社报道，韩国政府周二公布了迄今规模最大的财政支出计划，将 2027 年政府总支出设定为 821 万亿韩元 （IT之家注：现汇率约合 4.01 万亿元人民币） ，希望在全球人工智能竞赛中进一步巩固韩国的科技优势。 韩国预算部门在年度预算案中表示，2027 年政府支出将较 2026 年增加 12.8%，创下韩国历史上最高的年度增幅。 这份预算案也体现出，在总统李在明领导下，韩国这个亚洲第四大经济体正在调整财政政策方向。李在明自去年 6 月上任以来一直主张采取扩张性财政政策，与前任政府持续三年的紧缩政策形成明显对比。 此次创纪录的财政支出增长，很大程度上得益于韩国半导体产业带来的巨额税收。 随着全球 AI 热潮推动高带宽内存（HBM）芯片需求持续增长，三星电子和 SK 海力士正在获得前所未有的利润。 韩国政府预计，明年税收总额将增长 40.7%，达到 584.4 万亿韩元 （现汇率约合 2.86 万亿元人民币） 。其中，企业税收入预计将增长一倍以上，达到 216.7 万亿韩元 （现汇率约合 1.06 万亿元人民币） 。 税收大幅增加预计将帮助韩国降低债务负担。韩国政府预计，明年政府债务与…</p><a href="https://www.ithome.com/0/996/950.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>比亚迪新一代 4D 毫米波雷达芯片量产：可覆盖 L2-L4 级智能驾驶应用</h3><p>IT之家 9 月 1 日消息，比亚迪半导体今天（1 日）通过公众号发文宣布，以璇玑 A3 为算力中心的 新一代卫星架构 4D 毫米波雷达芯片 已量产。 该芯片基于 28nm 车规工艺，专为满足汽车市场对高分辨率雷达系统需求设计，可无缝对接多款主流智驾芯片平台。同时，该芯片针对卫星架构设计配置了 MIPI CSI-2 高速接口，兼容多款主流串行加串器（SerDes），已完成与“璇玑 A3”智驾芯片的联调适配，满足 Tier1 模组厂家对探测性能的要求。 基于该芯片的解决方案，可全面覆盖 L2-L4 级智能驾驶应用 ，包括高速领航、城市道路驾驶、自动泊车、盲区监测等。 IT之家查询获悉，该芯片可实现如下功能： 400m+ 超远距离稳定探测： 提前感知前方多车道车辆的速度与位置变化，支撑自适应巡航、自动紧急制动、车道变更辅助等功能，为高速行驶预留充足反应时间，从容应对突发工况。 0.8° 水平角度区分： 大幅提升车道与护栏、车辆与行人的区分能力以及车辆窄道通行的能力。 0.05m 泊车级距离区分： 可精准识别地锁、石墩、雪糕筒等低矮细小及弱反射障碍物，支持与 360° 全景泊车系统融合来实现自动泊入泊出，避免剐蹭风险。…</p><a href="https://www.ithome.com/0/996/949.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>韩国准备向所有民众提供免费 AI 服务</h3><p>韩国准备向所有民众提供免费 AI 服务 AI for All。该服务计划从下月起进行 beta 测试，计划今年晚些时候推出。服务由韩国两家最大的电信公司以及 Kakao 牵头的三个联盟提供，政府提供部分算力，包括提供最多 512 块英伟达 B200 芯片和支付部分运营费用。AI 服务预计将与政府系统连接，而不只是作为独立的聊天机器人运行。居民将能使用这些服务预约医生、搜索公寓和获取税务指导。小型企业将能计算税款和查询是否符合政府补贴资格。家长将收到教育内容的推荐。每个联盟都计划推出自己的 AI 应用，在现有产品中加入生成式 AI 功能。在政府支持的计划下，用户可以无限次访问，没有 token 限制。</p><a href="https://www.solidot.org/story?sid=85238" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>14 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>「GPT-6」灰测demo刷屏！周四发布在即</h3><a href="https://www.qbitai.com/2026/08/481893.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>OpenAI买几万台Mac搞强化训练！英伟达的活被苹果抢了</h3><a href="https://www.qbitai.com/2026/08/481759.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>AQuA：让量化研究 Agent 持续进化，也让回测结果经得起检验</h3><p>自主研究系统的上限，不只取决于模型有多聪明，也取决于系统能否分辨什么是新证据，什么只是一次偶然的高分。</p><a href="https://www.qbitai.com/2026/08/481475.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>AI 读过一切，却没经历过任何事：Ropedia 发布 HOMIE Gen2，给具身智能补「经验」这一课</h3><p>8 月中旬，新加坡的一场公开演讲上，南洋理工大学副教授、Ropedia 首席科学家刘子纬抛出了一个问题：为什么读过整个互联网的 AI，进了物理世界，却连一杯咖啡都冲不好？ 他的回答是：“AI 读过一切，却几乎没有经历过任何事情。它从未真正冲过一杯咖啡，自然也不知道该怎么做。” 刘子纬教授在新加坡演讲的现场照片 这种分裂在今天的 AI 身上随处可见：感知模型能把冲咖啡的教程讲得头头是道，生成式模型能合成一段以假乱真的冲咖啡视频；可一旦真的伸出机械臂，同样的智能常常连一次可靠的抓取都完成不了。能听懂，能想象，就是做不好。这道裂缝，此刻正卡着整个具身智能行业。 AI 科技评论了解到，就在这场演讲之后不久，由联合创始人兼 CEO 陈昭熹与联合创始人兼 CTO洪方舟共同创办的 Physical AI 公司Ropedia，正式发布了新一代多模态采集系统HOMIE Gen2。这套关于“经验”的判断，最终落到了一台约 380g 的头戴设备上：让 AI 从人类真实行为中，补上它缺失已久的“经验”这一课。对于这台设备要做的事，CEO…</p><a href="https://www.leiphone.com/category/ai/ztrF1BywGGvrxQHt.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>业绩连跳20级，这家芯片公司做对了什么？</h3><p>8月28日晚间，国产GPU企业壁仞科技（06082.HK）披露2026年中期业绩。2026年上半年，壁仞科技实现营业收入12.36亿元，较上年同期增长约1997.6%；期内亏损大幅收窄至3.77亿元，同比大幅减亏76.4%；经调整期内亏损（非国际财务报告准则计量）收窄至3.37亿元，同比减亏38.9%，亏损收窄速度明显加快。 作为国内领先的通用智能计算解决方案提供商，壁仞科技围绕“芯片－软件－系统－供应链”全栈体系快速发展，在商业拓展、产品迭代、软硬协同与量产能力建设上均取得显著进展。展望未来，壁仞科技将持续加速下一代芯片的量产与导入，坚持高质量、前瞻性的研发投入，深化与客户及生态伙伴的协同，以扎实的产品与交付能力，为国产算力基础设施建设和全球人工智能产业发展贡献壁仞力量。 01 上半年营收超越去年全年 互联网大客户导入开启放量周期 2026年上半年，Agentic应用加速落地，token消耗量呈指数级增长，强劲市场需求驱动之下，壁仞科技步入高速发展通道，上半年营收超越去年全年，商业化达成里程碑式突破。…</p><a href="https://www.leiphone.com/category/chips/toaKlXrYMYi6MRsq.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>AI 应用进入“算账”时代，筷子科技为什么要做一个 KP 钱包？</h3><p>过去两年，大模型的能力边界不断向外扩展。文本、图片、视频、语音模型快速迭代，Agent也开始进入企业生产流程。对于企业来说，可选的AI能力越来越丰富，但实际使用时需要处理的问题也随之增加：一项任务应该调用哪个模型，如何平衡生成效果和成本，不同部门如何管理AI预算，生成后的内容资产又该如何沉淀。 尤其在视频商业场景中，一条内容从创意到最终产生效果，通常会经历脚本、图片、视频生成、数字人、配音、剪辑、分发等多个环节，背后可能连接不同模型、算力和工具。过去分散使用几款AI产品还算容易，当应用规模扩大到多个团队、品牌、门店和市场之后，模型调用、账户体系和预算管理开始成为企业AI落地中的实际问题。 近日，筷子科技Kuaizi.ai正式发布视频商业AI能力统一价值单位“KP”及企业“KP钱包”。按照其公布的方案，一个Kuaizi企业账户对应一个KP钱包，可以使用丽帧引擎、Kuaizi主平台、Kuaizi国际版、“推你”及企业级FDE服务，覆盖模型调用、内容生产、分发传播、资产管理以及企业级部署等环节。 多模型时代，企业需要更简单的调用方式 模型生态的丰富已经带来明显变化。OpenAI、Anthropic、Google…</p><a href="https://www.leiphone.com/category/industrynews/LbCpQmYtAXGpD1Ob.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>TUM 黎子玥：模型这么大这么强，为什么还是「上不了路」？| IJCAI 2026</h3><p>学术数据和真实数据完全是两回事；可解释性成落地“生死线”。 作者丨 幸丽娟 编辑丨岑 峰 三年前，正值大模型爆发之年，麦肯锡就曾对全球交通与工业领域的从业者做了一项调研，问题很朴素：距离真正的智能化，还有多远？ 答案出乎意料地悲观：还要10到20年。 而把时间线拉到现在，模型越来越大、智能体越来越多、时空数据挖掘的论文层出不穷。 现实依旧是，全球没有一座城市长期部署了基于强化学习的交通信号控制系统。那些在顶会上“超越所有SOTA”的预测模型，真正到了城市交通部门手里，他们的答案往往是：“这个方案，我不敢放手用。” 问题的症结在哪里？ 在刚刚结束的 IJCAI 2026 Early Career Spotlight（早期职业焦点）演讲中，慕尼黑工业大学 (TUM) W2 教授黎子玥（Ziyue Li）给出了他的答案： 第一，学术研究长期停留在“干净数据”的舒适区，而公共部门面对的，永远是不完整、不规整、不可控的真实数据； 第二，可解释性不是论文里的加分项，而是从实验室走向城市落地的“生死线”。…</p><a href="https://www.leiphone.com/category/academic/CvDmFZhq2DCqxOh8.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>卖B70显卡，只是英特尔本地AIGC生意的开始</h3><p>一张显卡，开始被越来越多创作者当成生产资料重新算账。 过去，要把AI视频真正搬到本地，首先卡在模型。效果更好的视频模型大多通过云端服务提供，能够下载到本地的开源模型，距离稳定生产往往还有一段距离。 但 今年夏天发生了变化。在MiniMax开放新一代视频模型H3权重的同一天，英特尔宣布锐炫Pro B70完成H3的Day 0适配。这张几个月前才发布的32GB专业显卡，由此有了一个更加具体的本地视频生成负载。 当模型能下载，显卡也能跑，本地AI视频的创作和生成也迎来新的挑战。 日前，英特尔联合MiniMax、数字折叠举办AIGC创作研讨会。现场 的讨论 并没有 局限 于显存和峰值算力，而是更关注一套贴近实际生产的本地算力：它究竟能完成多少工作、如何支持多人共享，以及新模型出来后能否及时跟进等。 英特尔想抓住的，正是这个变化。 多卡开工，本地AI有了「生产线」 AI视频工具正在变成创作者的常用助手。 Adobe针对384名美国视频内容创作者的调查显示，71%的受访者已经使用过AI视频生成或编辑工具，其中41%的使用者每周都会使用。 使用频率上升，也让云端模式原本不明显的成本被放大。…</p><a href="https://www.leiphone.com/category/chips/KkkOnq0B7sxuvkyo.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从一颗芯片到万卡集群，燧原的八年算力长跑</h3><p>过去几年， AI芯片行业最容易比较的是一张卡。 雷峰网 雷峰网 峰值算力多少、显存多大、带宽多高，几组参数放在一起，似乎就能迅速分出高下。但当大模型进入规模化训练与推理，尤其是 MoE 、 Agent 等新型负载不断拉高算力需求后，单卡性能正在变得越来越不够用。 真正进入数据中心，一张卡能跑多快只是第一关。数十张、数百张乃至上万张芯片如何高速互联，软件能否把硬件能力释放出来，集群能否在高负载下长期稳定运行，正在共同决定一套算力系统最终能够交付多少有效算力。 AI 芯片的竞争，正在从 “ 造一颗更快的芯片 ” ，变成一场芯片、模组、互联、软件和集群共同参与的系统战。 这也让燧原科技过去八年的一条技术路线，开始显出不同的价值。 从 2018 年成立开始，燧原选择的就不是一条只围绕单颗芯片展开的道路。四代架构、 5 款云端 AI 芯片之外，它逐步向 AI 加速卡及模组、编程软件平台、智算系统和大规模算力集群延伸，最终搭起了一套覆盖芯片、硬件、软件与集群的核心技术体系。 这套体系也已经越过实验室阶段。燧原多代产品进入大型互联网公司的真实业务，在国民级应用中实现规模化部署；与此同时，千卡、万卡级智算项目也已经走向商业化。…</p><a href="https://www.leiphone.com/category/chipdesign/MKHeALfWYSjLwG6X.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>美国五角大楼部署定制版 ChatGPT 和 Grok AI 助手</h3><p>IT之家 9 月 1 日消息，五角大楼本周开始将定制版 ChatGPT 和 Grok 人工智能助手加入其内网，让数百万军人和文职人员能够使用 AI 工具，处理日常非机密任务。 美国国防部本周在其 GenAI.mil 内网门户加入 OpenAI 开发的 ChatGPT Mil，以及 Starshield AI 开发的 Grok for Government。国防部希望为工作人员提供更多 AI 模型选择，根据具体工作需求选择合适的 AI 工具。 国防部官员表示，ChatGPT Mil 主要针对大量文档阅读和写作任务，工作人员可以使用该工具进行物流规划、处理日常事务等。Grok for Government 提供不同推理模式，主要针对供应链跟踪和研究工作。 IT之家从美国国防部官网了解到，上述所有模型收集的数据均会锁定在内网环境中，OpenAI 和 xAI 不会利用政府数据训练 AI 模型， 并且两款模型均不允许用于战斗行动或实施目标锁定任务 。</p><a href="https://www.ithome.com/0/996/972.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>机智连接推出 AI 纪要 TWS 耳机 Plaud One，内置 eSIM</h3><p>IT之家 9 月 1 日消息，深圳 AI 纪要硬件企业机智连接 (Plaud) 上周宣布推出 Plaud One 耳机。这一设备 主打随时随地的人工智能体验 ，内置 4G LTE eSIM，定价 249.99 美元 （IT之家注：现汇率约合 1,684 元人民币） ，限量 2000 台。 Plaud One 录制距离可达 5m，可记录用户的每一次对话，支持无缝调用智能体， 为人工智能提供流畅连贯的上下文场景 ，在使用者不经意间就做好后续工作的准备。用户还可将其与兼容 MCP 的服务链接，实现日常工作流自动化。 而在音频方面，Plaud One 耳塞搭载 12mm 驱动单元，支持蓝牙 5.4 规范，配备 SBC、LDAC 编解码器，混合降噪深度可达 40dB；音频播放续航可达 36 小时、连续录音续航可达 25 小时。</p><a href="https://www.ithome.com/0/996/945.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>韩国准备向所有民众提供免费 AI 服务</h3><p>韩国准备向所有民众提供免费 AI 服务 AI for All。该服务计划从下月起进行 beta 测试，计划今年晚些时候推出。服务由韩国两家最大的电信公司以及 Kakao 牵头的三个联盟提供，政府提供部分算力，包括提供最多 512 块英伟达 B200 芯片和支付部分运营费用。AI 服务预计将与政府系统连接，而不只是作为独立的聊天机器人运行。居民将能使用这些服务预约医生、搜索公寓和获取税务指导。小型企业将能计算税款和查询是否符合政府补贴资格。家长将收到教育内容的推荐。每个联盟都计划推出自己的 AI 应用，在现有产品中加入生成式 AI 功能。在政府支持的计划下，用户可以无限次访问，没有 token 限制。</p><a href="https://www.solidot.org/story?sid=85238" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>索尼华纳起诉 Anthropic 侵犯版权</h3><p>全球唱片巨头索尼和华纳对 Anthropic 提起诉讼，指控其犯下了历史上规模最大、最明目张胆的知识产权盗窃罪行之一。诉讼指控 Anthropic 非法利用数万首版权音乐作品训练其模型。Anthropic 及其创始人 Dario Amodei 和 Benjamin Mann 被控肆无忌惮的大规模非法下载、抓取和传播受版权保护的作品，目的是开发、运营该公司的 Claude 系列 AI 模型，并从中牟取暴利。唱片公司要求为每部侵权作品索赔最高 15 万美元，每次可识别版权信息被删除的情况则追加最高 2.5 万美元赔偿。如果法院裁决唱片公司胜诉并判决最高赔偿金额，总赔偿金额可能高达数十亿美元。诉讼还指控 Mann 使用 BitTorrent下载了逾 500 万本盗版图书，Anthropic 员工还从 Pirate Library Mirror 网站下载了逾 200 万本盗版图书，从付费获得唱片公司授权的 MusixMatch 和 LyricFind 等网站抓取歌词。</p><a href="https://www.solidot.org/story?sid=85234" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Debian 项目将允许以负责任的方式使用生成式 AI</h3><p>Debian 项目对是否允许使用 AI 进行了投票表决，投票采用孔多塞投票法，共有 9 个选项，最终结果是第 5 选项“负责任的使用生成式 AI”获胜。Debian 项目表示，它既不反对也不支持在软件、包、文档等的开发和维护中使用生成式 AI 工具。但项目也认识到，如果能负责任的使用 AI 工具，将能显著提高贡献者的效率，使他们将有限的时间投入到需要技术专长、判断力、审核和协作的工作中。无论是否使用生成式 AI 工具，Debian 项目希望提交的内容都符合相同的质量、正确性、可维护性和法律合规性标准。使用生成式 AI 工具不会减少责任。对于提交的内容，贡献者应理解、审核、测试 AI 辅助生成的输出，在适当情况下进行修改。未经适当人工审查就盲目接受或上传 AI 生成的材料，不符合 Debian 既定的开发实践。Debian 鼓励贡献者披露其贡献是否使用 AI 辅助，但不强制要求。Debian 承认，生成式 AI 系统生成的材料的法律地位在许多司法管辖区存在争议，包括训练材料的版权、作者身份、许可和潜在复制问题。Debian 项目不寻求通过本一般决议解决这些悬而未决的法律问题，也不就 AI…</p><a href="https://www.solidot.org/story?sid=85229" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>13 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>自进化WAM来了！清华AIR联手域变换提出具身In-Context Causal Learning</h3><a href="https://www.qbitai.com/2026/09/482337.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>滴滴自动驾驶新一代车型开启载客测试服务</h3><p>近期，滴滴自动驾驶新一代 Robotaxi R2正式开启无人载客测试服务</p><a href="https://www.qbitai.com/2026/08/481923.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>全国第三，公司第二，“初创黑马”灵犀智涌用ROSS Harness把机器人送进工业具身智能第一梯队</h3><p>灵犀智涌用一台由Demo级本体组装而成的机器人，成为工业场景赛除行业头部企业外唯一获奖的机器人公司。</p><a href="https://www.qbitai.com/2026/08/481750.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>AI 读过一切，却没经历过任何事：Ropedia 发布 HOMIE Gen2，给具身智能补「经验」这一课</h3><p>8 月中旬，新加坡的一场公开演讲上，南洋理工大学副教授、Ropedia 首席科学家刘子纬抛出了一个问题：为什么读过整个互联网的 AI，进了物理世界，却连一杯咖啡都冲不好？ 他的回答是：“AI 读过一切，却几乎没有经历过任何事情。它从未真正冲过一杯咖啡，自然也不知道该怎么做。” 刘子纬教授在新加坡演讲的现场照片 这种分裂在今天的 AI 身上随处可见：感知模型能把冲咖啡的教程讲得头头是道，生成式模型能合成一段以假乱真的冲咖啡视频；可一旦真的伸出机械臂，同样的智能常常连一次可靠的抓取都完成不了。能听懂，能想象，就是做不好。这道裂缝，此刻正卡着整个具身智能行业。 AI 科技评论了解到，就在这场演讲之后不久，由联合创始人兼 CEO 陈昭熹与联合创始人兼 CTO洪方舟共同创办的 Physical AI 公司Ropedia，正式发布了新一代多模态采集系统HOMIE Gen2。这套关于“经验”的判断，最终落到了一台约 380g 的头戴设备上：让 AI 从人类真实行为中，补上它缺失已久的“经验”这一课。对于这台设备要做的事，CEO…</p><a href="https://www.leiphone.com/category/ai/ztrF1BywGGvrxQHt.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>李飞飞、吴佳俊再联手，打破世界模型和机器人动作的「巴别塔」</h3><p>视觉轨迹充当“同声传译”，让世界模型和机器人动作真正“同频对话”。 作者丨 幸丽娟 编辑丨岑 峰 日前，一篇叫做《TrAct: Bridging Robot Control and Visual Prediction with Visual Tracks》的论文悄然上线 arXiv。论文署名中出现了两个大家很熟悉的名字——李飞飞、吴佳俊。 论文链接：https://arxiv.org/html/2608.24101v1 熟悉具身智能圈的人都知道，这两个名字放在一起，分量不轻。 李飞飞是世界模型“空间智能”方向的旗帜人物，而刚刚领完 IJCAI 2026 计算机与思想奖的吴佳俊，则是这一领域最核心的研究者之一。 这两位长期合作的学术战友，最近在具身智能领域动作频频。就在一个月前，他们刚与 ControlNet 作者张吕敏等十余位学者共同发表了《Masked Visual Actions for Unified World Modeling》，把机器人动作渲染成像素轨迹，喂给视频世界模型。 但对于他们而言，之前的尝试或许还不够彻底。…</p><a href="https://www.leiphone.com/category/academic/LF4mbUTko5bRYDky.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家丨地瓜机器人扩招NPU研发团队，或将强化下一代芯片布局</h3><p>雷峰网独家获悉，机器人通用底座厂商地瓜机器人近期积极招聘芯片人才，全面补齐自研NPU芯片研发能力，在猎聘等招聘软件搜索地瓜机器人芯片关键词，亦可查询到大量招聘信息。 地瓜机器人的发展与CEO王丛深度绑定。公开履历显示，王丛本科毕业于北京工业大学，后赴美取得莱特州立大学博士学位；职业初期入职阿里巴巴，随后联合创办文因互联。2018年王丛正式加入地平线，2022年，王丛带领团队切入尚处蓝海的机器人赛道，原AIoT部门升级为机器人事业部，王丛出任事业部总经理；2024年该业务板块完成独立拆分，地瓜机器人正式独立运营。 长期以来，地瓜始终遵循“不碰终端硬件本体”的延伸战略，芯片自研环节尚在起步阶段，机器人算力方案此前以外部采购为主。 有知情人士表示，地瓜此举或意味着其后续产品的算力选择将更加多元及自主。 此前雷峰网独家报道，前海思鲲鹏总经理、地平线芯片总裁、征程6系列总设计师陈鹏已于今年4月从地平线离职创业，成立新公司深圳市九万里未来科技有限公司（简称“九万里”），短短两月完成高额种子轮融资，公司整体保密级别极高，并有部分地平线老兵加入。 结合陈鹏创业前的履历，当前产品需求，以及未来计算技术趋势，…</p><a href="https://www.leiphone.com/category/yanxishe/lCoT3AFJymcnxZVR.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>MWA™霸榜全球第一后：无界动力用真实咖啡厅展现物理AI的落地之径</h3><p>从 “出片”到“出海”，无界动力即将奔赴下一个考场。 作者丨郭 思 编辑丨董子博 没有刻意的社交氛围，一人静坐或几个好友相聚，手捧一杯咖啡，在音乐与咖啡的交汇中，暂时剥离工作与生活的琐碎，获得片刻放松与灵感回响。这是平日里我们对于休闲时刻美好画面的印象， 也是 2026世界机器人大会现场最反差的一幕。 与去年以及今年上半年以来出现争奇斗艳、跳舞翻跟头的喧闹不同，今年 WRC，记者探展一圈发现，展会上出现了很多垂直场景的机器人，有专门针对人的心脑血管做手术的医疗机器人，也有分拣物品进行归类的各种家庭机器人，还有一些特别关注手关节折纸动作的机器人…… 在其中， 无界动力与韩国 HOLLYS 联手打造的人机共生沉浸式机器人咖啡空间，则是一块与众不同的“闲暇之地”。 整体空间被绿植围绕，北欧风的白色小栅栏打开，客人可以坐下来点单自由选择自己爱喝的拿铁或者美式，也可以点一杯大师级别的手冲。 接收订单后，咖啡师在吧台后制作大师级咖啡或其他饮品，递放至出餐区，机器人则负责端送到桌，并顺手收走隔壁桌的垃圾、推回座椅。大象无形，大音希声，给人一种不会打扰你，但是在你有需要的时候随时出现的陪伴感与交互感。 &quot;机器人…</p><a href="https://www.leiphone.com/category/robot/vHAwtD32AVVe2W9V.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>对话纬钛机器人CEO李瑞：具身智能仅靠视觉容易到天花板，触觉是未来必选项</h3><p>上触觉已经不是一个「yes or no」的问题，而是「when」的问题。 作者丨 向 欣 编辑丨 高景辉 雷峰网：瑞典科学家做过一个经典的实验：给受试者的手指尖注射麻醉剂，让他去完成一个再简单不过的动作：从火柴盒里取出一根火柴，然后划亮它。 正常情况下，这个动作几秒钟就能完成。但在手指失去触觉后，受试者的整个动作变得像提线木偶一样笨拙，取火柴时反复调整却拿不稳，划火柴时用力不均、方向歪斜，花了很长时间才勉强完成。 「这就是现在整个具身智能的现状。」纬钛机器人 CEO 李瑞说。 所谓现状是，当下的具身智能拥有越来越聪明的「大脑」和越来越灵活的「肢体」，但唯独缺了触觉反馈，就像手指打了麻醉剂的人，能看见、能动作，却很难做好需要精细感知的操作。 要改变这种状况，关键在于让机器人拥有「接触智能」：让机器人以接近人类的方式理解「接触」的本质，不仅能感知物体的存在，更能根据接触反馈实时调整动作、控制力度并稳定执行。 在李瑞看来， 具身智能仅靠视觉很容易到达天花板 ， 下一步必须加上触觉 。在 人能做的 90% 以上的任务中，都需要触觉参与。上触觉已经不是一个「yes or no」的问题，而是「when」的问题。…</p><a href="https://www.leiphone.com/category/robot/fzha6bzWq2qyX28O.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>人工智能交互新研究：AI 更“像人”、用户更“像机器”</h3><p>IT之家 9 月 1 日消息，英国伯明翰大学、丹麦奥胡斯大学和瑞典林奈大学研究人员上月（2026 年 8 月）发布研究称， 用户长期与具备类人行为的客服 AI 互动，可能逐渐调整语言和行为模式，并影响重塑自我认知。 相关论文于 8 月 19 日发表于开放期刊《AI 与社会》（AI &amp; SOCIETY），研究者提出“类机器人人性”（robotoid humanness）概念，指出在 AI 交互过程中， AI 变得更“像人”，而用户可能因持续接触而表现得更“像机器”。 研究聚焦零售、酒店、旅游和医疗等 4 类服务场景。团队指出，自适应学习、个性化沟通和共情回应会让机器人更像人；而用户也可能为了获得更顺畅、更积极的算法反馈，模仿机器的表达方式。 在形成机制方面，客服机器人会模拟人的手势、语音和情感线索。系统还会利用机器学习，根据用户输入调整回应方式。其目标通常是建立信任，并提高用户参与度。 人类在社交中存在“镜像”倾向，人们常会无意识模仿对方的动作、表情和表达方式，并指出了三阶段镜像机制：…</p><a href="https://www.ithome.com/0/996/982.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>我国专家牵头制定，全球首个腿式机器人国际标准正式发布</h3><p>IT之家 9 月 1 日消息，据央视新闻援引国家标准委，由我国专家牵头制定的全球首个腿式机器人国际标准《机器人 —— 服务机器人性能规范及其试验方法第 5 部分：腿式机器人运动》近日正式发布。 “腿式机器人”就是靠“腿”行走、跑跳、爬坡、越障的一类机器人（IT之家注：例如人形机器人、机器狗）。目前，这类机器人已开始承担 表演、巡检、搬运、搜救等实际工作 。然而，如何评价它们“走得好不好”“干得巧不巧”，长期以来缺乏统一的国际标尺。这次发布的国际标准，将首次在全球建立统一评价体系。 标准的一大亮点就是面向真实场景评价运动性能： 不只看“能不能动”，更看“动得好不好” 。报道指出，同一台机器人在平地上走得很好，并不意味着它面对楼梯、坡面或者障碍物时也同样表现出色。 这项标准将 楼梯、坡面、障碍等真实作业场景 纳入评价体系，建立多维度的表征和评测方法。这意味着评价结果更贴近实际应用，真正反映机器人在复杂环境中的实战能力。 这一国际标准另外一个亮点就是，不仅比“腿脚快慢”，更比“ 任务完成度 ”。机器人进入真实世界，光有一双灵活的“腿”还不够。既要 走得稳，也要看得清、判得准、干得好…</p><a href="https://www.ithome.com/0/996/961.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>比亚迪新一代 4D 毫米波雷达芯片量产：可覆盖 L2-L4 级智能驾驶应用</h3><p>IT之家 9 月 1 日消息，比亚迪半导体今天（1 日）通过公众号发文宣布，以璇玑 A3 为算力中心的 新一代卫星架构 4D 毫米波雷达芯片 已量产。 该芯片基于 28nm 车规工艺，专为满足汽车市场对高分辨率雷达系统需求设计，可无缝对接多款主流智驾芯片平台。同时，该芯片针对卫星架构设计配置了 MIPI CSI-2 高速接口，兼容多款主流串行加串器（SerDes），已完成与“璇玑 A3”智驾芯片的联调适配，满足 Tier1 模组厂家对探测性能的要求。 基于该芯片的解决方案，可全面覆盖 L2-L4 级智能驾驶应用 ，包括高速领航、城市道路驾驶、自动泊车、盲区监测等。 IT之家查询获悉，该芯片可实现如下功能： 400m+ 超远距离稳定探测： 提前感知前方多车道车辆的速度与位置变化，支撑自适应巡航、自动紧急制动、车道变更辅助等功能，为高速行驶预留充足反应时间，从容应对突发工况。 0.8° 水平角度区分： 大幅提升车道与护栏、车辆与行人的区分能力以及车辆窄道通行的能力。 0.05m 泊车级距离区分： 可精准识别地锁、石墩、雪糕筒等低矮细小及弱反射障碍物，支持与 360° 全景泊车系统融合来实现自动泊入泊出，避免剐蹭风险。…</p><a href="https://www.ithome.com/0/996/949.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>韩国准备向所有民众提供免费 AI 服务</h3><p>韩国准备向所有民众提供免费 AI 服务 AI for All。该服务计划从下月起进行 beta 测试，计划今年晚些时候推出。服务由韩国两家最大的电信公司以及 Kakao 牵头的三个联盟提供，政府提供部分算力，包括提供最多 512 块英伟达 B200 芯片和支付部分运营费用。AI 服务预计将与政府系统连接，而不只是作为独立的聊天机器人运行。居民将能使用这些服务预约医生、搜索公寓和获取税务指导。小型企业将能计算税款和查询是否符合政府补贴资格。家长将收到教育内容的推荐。每个联盟都计划推出自己的 AI 应用，在现有产品中加入生成式 AI 功能。在政府支持的计划下，用户可以无限次访问，没有 token 限制。</p><a href="https://www.solidot.org/story?sid=85238" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>人形机器人的跑步方式与人类不同</h3><p>北京人形机器人创新中心研发的通用人形机器人天工在世界人形机器人运动会上跑出了 100 米 8.64 秒的成绩，远超博尔特（Usain Bolt）于 2009 年创下的 100 米 9.58 秒的人类世界纪录。机器人的平均速度接近 42 公里/时。专家表示，这一成绩凸显了机器人的强大，也凸显了它们在决策和感知等方面的不足——人形机器人都是靠撞软垫的方式刹车的。人形机器人的跑步方式与人类不同：首先是博尔特的起跑仅仅花了 0.146 秒，相比下机器人等了近 1 秒钟才反应过来开始移动；博尔特仅用 41 步就完成了 100 米，而机器人花了 50 多步，机器人的步频更快步幅更短。韩国光云大学机器人学教授 Park Suhan 表示，机器人的步态映了其电机的性能，而非去刻意模仿人类的短跑。另一位专家认为机器人如果步幅过大会很容易摔倒。人类顶尖运动员在跑步的最后阶段会减速，但天工机器人没有任何减速迹象，因此最后一头撞向软垫。未来几年能转弯和自主决策的机器人将比单纯的提高速度会更令人印象深刻。</p><a href="https://www.solidot.org/story?sid=85228" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>11 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>范式与华为达成重磅算力战略合作，成为首批拥抱国产最高端算力底座的AI企业</h3><a href="https://www.qbitai.com/2026/08/481919.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>OpenAI买几万台Mac搞强化训练！英伟达的活被苹果抢了</h3><a href="https://www.qbitai.com/2026/08/481759.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>AI 应用进入“算账”时代，筷子科技为什么要做一个 KP 钱包？</h3><p>过去两年，大模型的能力边界不断向外扩展。文本、图片、视频、语音模型快速迭代，Agent也开始进入企业生产流程。对于企业来说，可选的AI能力越来越丰富，但实际使用时需要处理的问题也随之增加：一项任务应该调用哪个模型，如何平衡生成效果和成本，不同部门如何管理AI预算，生成后的内容资产又该如何沉淀。 尤其在视频商业场景中，一条内容从创意到最终产生效果，通常会经历脚本、图片、视频生成、数字人、配音、剪辑、分发等多个环节，背后可能连接不同模型、算力和工具。过去分散使用几款AI产品还算容易，当应用规模扩大到多个团队、品牌、门店和市场之后，模型调用、账户体系和预算管理开始成为企业AI落地中的实际问题。 近日，筷子科技Kuaizi.ai正式发布视频商业AI能力统一价值单位“KP”及企业“KP钱包”。按照其公布的方案，一个Kuaizi企业账户对应一个KP钱包，可以使用丽帧引擎、Kuaizi主平台、Kuaizi国际版、“推你”及企业级FDE服务，覆盖模型调用、内容生产、分发传播、资产管理以及企业级部署等环节。 多模型时代，企业需要更简单的调用方式 模型生态的丰富已经带来明显变化。OpenAI、Anthropic、Google…</p><a href="https://www.leiphone.com/category/industrynews/LbCpQmYtAXGpD1Ob.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家丨地瓜机器人扩招NPU研发团队，或将强化下一代芯片布局</h3><p>雷峰网独家获悉，机器人通用底座厂商地瓜机器人近期积极招聘芯片人才，全面补齐自研NPU芯片研发能力，在猎聘等招聘软件搜索地瓜机器人芯片关键词，亦可查询到大量招聘信息。 地瓜机器人的发展与CEO王丛深度绑定。公开履历显示，王丛本科毕业于北京工业大学，后赴美取得莱特州立大学博士学位；职业初期入职阿里巴巴，随后联合创办文因互联。2018年王丛正式加入地平线，2022年，王丛带领团队切入尚处蓝海的机器人赛道，原AIoT部门升级为机器人事业部，王丛出任事业部总经理；2024年该业务板块完成独立拆分，地瓜机器人正式独立运营。 长期以来，地瓜始终遵循“不碰终端硬件本体”的延伸战略，芯片自研环节尚在起步阶段，机器人算力方案此前以外部采购为主。 有知情人士表示，地瓜此举或意味着其后续产品的算力选择将更加多元及自主。 此前雷峰网独家报道，前海思鲲鹏总经理、地平线芯片总裁、征程6系列总设计师陈鹏已于今年4月从地平线离职创业，成立新公司深圳市九万里未来科技有限公司（简称“九万里”），短短两月完成高额种子轮融资，公司整体保密级别极高，并有部分地平线老兵加入。 结合陈鹏创业前的履历，当前产品需求，以及未来计算技术趋势，…</p><a href="https://www.leiphone.com/category/yanxishe/lCoT3AFJymcnxZVR.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软首次细化 Linux 版 Edge 浏览器支持的发行版，比谷歌 Chrome 晚约 7 年</h3><p>IT之家 9 月 1 日消息，科技媒体 NeoWin 今天（9 月 1 日）发布博文，报道称微软 Microsoft Edge 浏览器更新支持文档， 首次明确列出经过官方测试和验证的 Linux 发行版。 IT之家查询公开资料，微软于 2019 年 11 月确认开发 Chromium 版 Edge for Linux，并于 2020 年 10 月 20 日推出了 Linux 版的首个公开预览版本，稳定版于 2021 年 11 月正式上线。 在此前的更新文档中，微软只是简单提及“Microsoft Edge 支持 Linux”，而在最新更新日志中，微软详细罗列了支持 Edge 浏览器的 Linux 发行版： Microsoft Edge 支持以下 64 位 Linux 发行版： Ubuntu 18.04 或更高版本 Debian 10 或更高版本 openSUSE 15.5 或更高版本 Fedora Linux 39 或更高版本。 其他 Linux 发行版可能也能支持运行 Microsoft Edge，但并未获得官方支持。 该媒体指出，谷歌在 2019 年 8 月已发布并维护 Chrome 的 Linux…</p><a href="https://www.ithome.com/0/996/992.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌发布 TimesFM-3，3.3 亿参数即可进行零样本多变量时间序列预测</h3><p>IT之家 9 月 1 日消息，谷歌今天发布 TimesFM-3 模型，这是该公司时间序列基础模型系列的第三代产品。拥有原生多变量预测、双注意力机制、连续补丁掩码等特性，可进行零样本多变量时间序列预测。 IT之家从谷歌官方了解到， TimesFM-3 拥有 3.3 亿个参数 ，并在包含超 1 万亿个时间点的真实世界和合成时间序列语料库进行预训练。 TimesFM-3 继承前代的高效性和零样本泛化能力 ，以零样本形式增强复杂多元场景支持。 同时，该模型可联合预测多个共同演化的时间序列，捕捉其中的依赖关系，提升整体准确率，无需针对特定任务微调，该模型原生支持特性如下： 多目标预测：同时预测多个相关时间序列（例如联合预测不同品牌的冰淇淋）。该模型支持所有目标的点预测和分位数预测。 过去协变量：纳入仅从历史角度已知的特征（例如过去人流量）。 过去-未来（动态）协变量：利用已知的未来事件来指导预测（例如计划促销活动或天气预报）。 参考： TimesFM-3: A zero-shot foundation model for multivariate forecasting</p><a href="https://www.ithome.com/0/996/988.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软 XBOX CEO 夏尔马谈 AI 导致主机涨价：GPU 能在游戏以外领域应用，这是好事啊</h3><p>IT之家 9 月 1 日消息，目前 XBOX 主机价格已升至历史最高水平，而微软大举投入 AI，某种程度上也是推高成本的原因之一。XBOX 首席执行官阿莎 · 夏尔马在接受 BBC 采访时，回应了这种颇具讽刺意味的局面。 她认为，即使 XBOX 主机因此变得前所未有地昂贵，GPU 能够被广泛用于游戏之外的技术领域仍值得肯定。“游戏一直是 GPU 的试验场。我认为，这项技术能够在全世界拥有更多用途是 一件非常好的事情 。AI 正在从根本上改变很多东西。因此，在 XBOX 推进下一代产品的过程中，我们需要考虑整个行业和市场正在发生什么，然后为玩家打造最好的体验。” 经过多轮涨价后，目前最便宜的新主机 XBOX Series S 也已经卖到 500 美元 （IT之家注：现汇率约合 3,368 元人民币） ，比 2020 年首发时 高出 200 美元 （现汇率约合 1,347 元人民币） 。 夏尔马表示，当前硬件和零部件市场面临的“危机” 迫使微软寻找新的解法 ，让玩家在如何使用、如何购买 XBOX 方面拥有更多选择。 最近一次提高 XBOX 价格后，微软甚至明确建议消费者 考虑使用“先用后付”服务 ，或者选择提供 0%…</p><a href="https://www.ithome.com/0/996/987.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>约 4 年迁移收尾完成：谷歌 Chrome 应用商店已移除所有 MV2 扩展程序</h3><p>IT之家 9 月 1 日消息，根据官网公布信息，谷歌已于昨日（8 月 31 日）完成 Chrome 浏览器网上应用商店调整， 移除剩余的所有 Manifest V2 扩展。 IT之家附上谷歌官方更新日志内容如下： 从 Chrome 应用商店中移除所有剩余的 Manifest V2 扩展程序。安装在 Chrome 138 或更早版本上的 Manifest V2 扩展程序将保留安装状态，但无法接收任何更新，并且从 Chrome 中移除后无法从 Chrome 应用商店重新安装。 Chrome 浏览器网上应用商店是 Chromium 浏览器（例如微软的 Edge 等）的主要扩展来源，因此即便部分浏览器依然兼容 MV2 扩展程序， 自今天（9 月 1 日）开始也无法通过该商店搜索和安装相关扩展。 其中最具代表性的 MV2 扩展程序就是 uBlock Origin，IT之家发稿前访问已无法访问： 不过 Brave 浏览器则宣布在自有后端保留 4 款 MV2 扩展，包括 AdGuard、uBlock Origin、uMatrix 和 NoScript。 IT之家查询公开资料，谷歌积极推进 Chrome 扩展程序从 Manifest…</p><a href="https://www.ithome.com/0/996/968.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为、小米、荣耀手机今日集体涨价，魅族科技宣布再坚持一个月、十一后涨价</h3><p>IT之家 9 月 1 日消息，华为、小米、荣耀等品牌手机 今日（9 月 1 日）凌晨迎来集体涨价 ，涨价产品覆盖多个机型。 对此，魅族科技今日发文称：涨价是全行业都在面临的情况，我们已经坚持到最后一刻了。 经公司讨论，我们再坚持一个月，十一后涨价 。 综合IT之家此前报道，今年 2 月 27 日，魅族发布战略转型公告， 宣布暂停国内手机新产品自研硬件项目 ，并在积极接洽第三方硬件合作伙伴，同时原有业务不受任何影响。 魅族科技也承诺，用户的权益将得到持续保障 ： 放心买：魅族手机、AI 眼镜、PANDAER 等相关产品将正常销售，魅族在营店铺内的服务及权益不变； 放心用：Flyme 及售后服务团队将持续守护现有用户的官方售后、维修和系统安全更新服务，保障所有用户权益。 今年 8 月， 魅族手机宣布维持京东原价销售 。公告称，近期，内存芯片价格持续上涨，行业内多款机型已调整售价。魅族将继续坚持在售机型诚意不涨价：魅族 Note16 、魅族 22 、魅族 22 归航限定版维持原价销售，且可叠加国家购机补贴。</p><a href="https://www.ithome.com/0/996/959.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Google 改变了其搜索结果的展示方式</h3><p>Google 过去一年对其搜索结果的展示方式进行了两次重大改变。其一是搜索结果链接，以前你将鼠标悬停在搜索结果上会在浏览器底部看到网站链接，现在显示的是 google.com/goto + 一串看起来随机的字符串。搜索结果中的 AI Overview 引用的链接也是采用此类展示方式。其二是用户以前可以在搜索词末尾添加 &amp;num=100，可以在一个页面上显示前 100 个搜索结果，如今这一快捷方式被取消了，Google 强制只展示最多 10 个搜索结果，意味着你想要看前 100 个结果需要点击 10 次。</p><a href="https://www.solidot.org/story?sid=85242" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Google Maps 在美国将安大略湖更名为美国湖</h3><p>在墨西哥湾之后，Google 宣布其地图服务 Google Maps 将安大略湖（Lake Ontario）更名为美国湖（Lake America）——这一更改主要针对美国用户，加拿大用户仍然看到的是安大略湖，而世界其他地方的用户则会看到两个名字。另一家美国地图服务 MapQuest 表示不会改名，但会提供一款工具，允许用户根据自己的意愿随便改名字。</p><a href="https://www.solidot.org/story?sid=85236" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>6 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>范式与华为达成重磅算力战略合作，成为首批拥抱国产最高端算力底座的AI企业</h3><a href="https://www.qbitai.com/2026/08/481919.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>李飞飞、吴佳俊再联手，打破世界模型和机器人动作的「巴别塔」</h3><p>视觉轨迹充当“同声传译”，让世界模型和机器人动作真正“同频对话”。 作者丨 幸丽娟 编辑丨岑 峰 日前，一篇叫做《TrAct: Bridging Robot Control and Visual Prediction with Visual Tracks》的论文悄然上线 arXiv。论文署名中出现了两个大家很熟悉的名字——李飞飞、吴佳俊。 论文链接：https://arxiv.org/html/2608.24101v1 熟悉具身智能圈的人都知道，这两个名字放在一起，分量不轻。 李飞飞是世界模型“空间智能”方向的旗帜人物，而刚刚领完 IJCAI 2026 计算机与思想奖的吴佳俊，则是这一领域最核心的研究者之一。 这两位长期合作的学术战友，最近在具身智能领域动作频频。就在一个月前，他们刚与 ControlNet 作者张吕敏等十余位学者共同发表了《Masked Visual Actions for Unified World Modeling》，把机器人动作渲染成像素轨迹，喂给视频世界模型。 但对于他们而言，之前的尝试或许还不够彻底。…</p><a href="https://www.leiphone.com/category/academic/LF4mbUTko5bRYDky.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家丨地瓜机器人扩招NPU研发团队，或将强化下一代芯片布局</h3><p>雷峰网独家获悉，机器人通用底座厂商地瓜机器人近期积极招聘芯片人才，全面补齐自研NPU芯片研发能力，在猎聘等招聘软件搜索地瓜机器人芯片关键词，亦可查询到大量招聘信息。 地瓜机器人的发展与CEO王丛深度绑定。公开履历显示，王丛本科毕业于北京工业大学，后赴美取得莱特州立大学博士学位；职业初期入职阿里巴巴，随后联合创办文因互联。2018年王丛正式加入地平线，2022年，王丛带领团队切入尚处蓝海的机器人赛道，原AIoT部门升级为机器人事业部，王丛出任事业部总经理；2024年该业务板块完成独立拆分，地瓜机器人正式独立运营。 长期以来，地瓜始终遵循“不碰终端硬件本体”的延伸战略，芯片自研环节尚在起步阶段，机器人算力方案此前以外部采购为主。 有知情人士表示，地瓜此举或意味着其后续产品的算力选择将更加多元及自主。 此前雷峰网独家报道，前海思鲲鹏总经理、地平线芯片总裁、征程6系列总设计师陈鹏已于今年4月从地平线离职创业，成立新公司深圳市九万里未来科技有限公司（简称“九万里”），短短两月完成高额种子轮融资，公司整体保密级别极高，并有部分地平线老兵加入。 结合陈鹏创业前的履历，当前产品需求，以及未来计算技术趋势，…</p><a href="https://www.leiphone.com/category/yanxishe/lCoT3AFJymcnxZVR.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>MWA™霸榜全球第一后：无界动力用真实咖啡厅展现物理AI的落地之径</h3><p>从 “出片”到“出海”，无界动力即将奔赴下一个考场。 作者丨郭 思 编辑丨董子博 没有刻意的社交氛围，一人静坐或几个好友相聚，手捧一杯咖啡，在音乐与咖啡的交汇中，暂时剥离工作与生活的琐碎，获得片刻放松与灵感回响。这是平日里我们对于休闲时刻美好画面的印象， 也是 2026世界机器人大会现场最反差的一幕。 与去年以及今年上半年以来出现争奇斗艳、跳舞翻跟头的喧闹不同，今年 WRC，记者探展一圈发现，展会上出现了很多垂直场景的机器人，有专门针对人的心脑血管做手术的医疗机器人，也有分拣物品进行归类的各种家庭机器人，还有一些特别关注手关节折纸动作的机器人…… 在其中， 无界动力与韩国 HOLLYS 联手打造的人机共生沉浸式机器人咖啡空间，则是一块与众不同的“闲暇之地”。 整体空间被绿植围绕，北欧风的白色小栅栏打开，客人可以坐下来点单自由选择自己爱喝的拿铁或者美式，也可以点一杯大师级别的手冲。 接收订单后，咖啡师在吧台后制作大师级咖啡或其他饮品，递放至出餐区，机器人则负责端送到桌，并顺手收走隔壁桌的垃圾、推回座椅。大象无形，大音希声，给人一种不会打扰你，但是在你有需要的时候随时出现的陪伴感与交互感。 &quot;机器人…</p><a href="https://www.leiphone.com/category/robot/vHAwtD32AVVe2W9V.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为、小米、荣耀手机今日集体涨价，魅族科技宣布再坚持一个月、十一后涨价</h3><p>IT之家 9 月 1 日消息，华为、小米、荣耀等品牌手机 今日（9 月 1 日）凌晨迎来集体涨价 ，涨价产品覆盖多个机型。 对此，魅族科技今日发文称：涨价是全行业都在面临的情况，我们已经坚持到最后一刻了。 经公司讨论，我们再坚持一个月，十一后涨价 。 综合IT之家此前报道，今年 2 月 27 日，魅族发布战略转型公告， 宣布暂停国内手机新产品自研硬件项目 ，并在积极接洽第三方硬件合作伙伴，同时原有业务不受任何影响。 魅族科技也承诺，用户的权益将得到持续保障 ： 放心买：魅族手机、AI 眼镜、PANDAER 等相关产品将正常销售，魅族在营店铺内的服务及权益不变； 放心用：Flyme 及售后服务团队将持续守护现有用户的官方售后、维修和系统安全更新服务，保障所有用户权益。 今年 8 月， 魅族手机宣布维持京东原价销售 。公告称，近期，内存芯片价格持续上涨，行业内多款机型已调整售价。魅族将继续坚持在售机型诚意不涨价：魅族 Note16 、魅族 22 、魅族 22 归航限定版维持原价销售，且可叠加国家购机补贴。</p><a href="https://www.ithome.com/0/996/959.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>人形机器人的跑步方式与人类不同</h3><p>北京人形机器人创新中心研发的通用人形机器人天工在世界人形机器人运动会上跑出了 100 米 8.64 秒的成绩，远超博尔特（Usain Bolt）于 2009 年创下的 100 米 9.58 秒的人类世界纪录。机器人的平均速度接近 42 公里/时。专家表示，这一成绩凸显了机器人的强大，也凸显了它们在决策和感知等方面的不足——人形机器人都是靠撞软垫的方式刹车的。人形机器人的跑步方式与人类不同：首先是博尔特的起跑仅仅花了 0.146 秒，相比下机器人等了近 1 秒钟才反应过来开始移动；博尔特仅用 41 步就完成了 100 米，而机器人花了 50 多步，机器人的步频更快步幅更短。韩国光云大学机器人学教授 Park Suhan 表示，机器人的步态映了其电机的性能，而非去刻意模仿人类的短跑。另一位专家认为机器人如果步幅过大会很容易摔倒。人类顶尖运动员在跑步的最后阶段会减速，但天工机器人没有任何减速迹象，因此最后一头撞向软垫。未来几年能转弯和自主决策的机器人将比单纯的提高速度会更令人印象深刻。</p><a href="https://www.solidot.org/story?sid=85228" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>4 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为、小米、荣耀手机今日集体涨价，魅族科技宣布再坚持一个月、十一后涨价</h3><p>IT之家 9 月 1 日消息，华为、小米、荣耀等品牌手机 今日（9 月 1 日）凌晨迎来集体涨价 ，涨价产品覆盖多个机型。 对此，魅族科技今日发文称：涨价是全行业都在面临的情况，我们已经坚持到最后一刻了。 经公司讨论，我们再坚持一个月，十一后涨价 。 综合IT之家此前报道，今年 2 月 27 日，魅族发布战略转型公告， 宣布暂停国内手机新产品自研硬件项目 ，并在积极接洽第三方硬件合作伙伴，同时原有业务不受任何影响。 魅族科技也承诺，用户的权益将得到持续保障 ： 放心买：魅族手机、AI 眼镜、PANDAER 等相关产品将正常销售，魅族在营店铺内的服务及权益不变； 放心用：Flyme 及售后服务团队将持续守护现有用户的官方售后、维修和系统安全更新服务，保障所有用户权益。 今年 8 月， 魅族手机宣布维持京东原价销售 。公告称，近期，内存芯片价格持续上涨，行业内多款机型已调整售价。魅族将继续坚持在售机型诚意不涨价：魅族 Note16 、魅族 22 、魅族 22 归航限定版维持原价销售，且可叠加国家购机补贴。</p><a href="https://www.ithome.com/0/996/959.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>比亚迪新一代 4D 毫米波雷达芯片量产：可覆盖 L2-L4 级智能驾驶应用</h3><p>IT之家 9 月 1 日消息，比亚迪半导体今天（1 日）通过公众号发文宣布，以璇玑 A3 为算力中心的 新一代卫星架构 4D 毫米波雷达芯片 已量产。 该芯片基于 28nm 车规工艺，专为满足汽车市场对高分辨率雷达系统需求设计，可无缝对接多款主流智驾芯片平台。同时，该芯片针对卫星架构设计配置了 MIPI CSI-2 高速接口，兼容多款主流串行加串器（SerDes），已完成与“璇玑 A3”智驾芯片的联调适配，满足 Tier1 模组厂家对探测性能的要求。 基于该芯片的解决方案，可全面覆盖 L2-L4 级智能驾驶应用 ，包括高速领航、城市道路驾驶、自动泊车、盲区监测等。 IT之家查询获悉，该芯片可实现如下功能： 400m+ 超远距离稳定探测： 提前感知前方多车道车辆的速度与位置变化，支撑自适应巡航、自动紧急制动、车道变更辅助等功能，为高速行驶预留充足反应时间，从容应对突发工况。 0.8° 水平角度区分： 大幅提升车道与护栏、车辆与行人的区分能力以及车辆窄道通行的能力。 0.05m 泊车级距离区分： 可精准识别地锁、石墩、雪糕筒等低矮细小及弱反射障碍物，支持与 360° 全景泊车系统融合来实现自动泊入泊出，避免剐蹭风险。…</p><a href="https://www.ithome.com/0/996/949.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>索尼华纳起诉 Anthropic 侵犯版权</h3><p>全球唱片巨头索尼和华纳对 Anthropic 提起诉讼，指控其犯下了历史上规模最大、最明目张胆的知识产权盗窃罪行之一。诉讼指控 Anthropic 非法利用数万首版权音乐作品训练其模型。Anthropic 及其创始人 Dario Amodei 和 Benjamin Mann 被控肆无忌惮的大规模非法下载、抓取和传播受版权保护的作品，目的是开发、运营该公司的 Claude 系列 AI 模型，并从中牟取暴利。唱片公司要求为每部侵权作品索赔最高 15 万美元，每次可识别版权信息被删除的情况则追加最高 2.5 万美元赔偿。如果法院裁决唱片公司胜诉并判决最高赔偿金额，总赔偿金额可能高达数十亿美元。诉讼还指控 Mann 使用 BitTorrent下载了逾 500 万本盗版图书，Anthropic 员工还从 Pirate Library Mirror 网站下载了逾 200 万本盗版图书，从付费获得唱片公司授权的 MusixMatch 和 LyricFind 等网站抓取歌词。</p><a href="https://www.solidot.org/story?sid=85234" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Debian 项目将允许以负责任的方式使用生成式 AI</h3><p>Debian 项目对是否允许使用 AI 进行了投票表决，投票采用孔多塞投票法，共有 9 个选项，最终结果是第 5 选项“负责任的使用生成式 AI”获胜。Debian 项目表示，它既不反对也不支持在软件、包、文档等的开发和维护中使用生成式 AI 工具。但项目也认识到，如果能负责任的使用 AI 工具，将能显著提高贡献者的效率，使他们将有限的时间投入到需要技术专长、判断力、审核和协作的工作中。无论是否使用生成式 AI 工具，Debian 项目希望提交的内容都符合相同的质量、正确性、可维护性和法律合规性标准。使用生成式 AI 工具不会减少责任。对于提交的内容，贡献者应理解、审核、测试 AI 辅助生成的输出，在适当情况下进行修改。未经适当人工审查就盲目接受或上传 AI 生成的材料，不符合 Debian 既定的开发实践。Debian 鼓励贡献者披露其贡献是否使用 AI 辅助，但不强制要求。Debian 承认，生成式 AI 系统生成的材料的法律地位在许多司法管辖区存在争议，包括训练材料的版权、作者身份、许可和潜在复制问题。Debian 项目不寻求通过本一般决议解决这些悬而未决的法律问题，也不就 AI…</p><a href="https://www.solidot.org/story?sid=85229" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>3 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>AIVC只是前菜！复旦提出生命算子，统一生命建模</h3><a href="https://www.qbitai.com/2026/09/482300.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>VC疯了！200万现金冠军奖，又花4000万造了一座AI「创业乌托邦」</h3><a href="https://www.qbitai.com/2026/08/481928.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>AI本地部署不如官方版的元凶找到了：734个依赖包，每一个都可能坑</h3><a href="https://www.qbitai.com/2026/08/481372.html" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 05:12:30 +0000</div><h3>自进化WAM来了！清华AIR联手域变换提出具身In-Context Causal Learning</h3><a href="https://www.qbitai.com/2026/09/482337.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 04:12:49 +0000</div><h3>AIVC只是前菜！复旦提出生命算子，统一生命建模</h3><a href="https://www.qbitai.com/2026/09/482300.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 13:20:29 +0000</div><h3>VC疯了！200万现金冠军奖，又花4000万造了一座AI「创业乌托邦」</h3><a href="https://www.qbitai.com/2026/08/481928.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 07:53:12 +0000</div><h3>滴滴自动驾驶新一代车型开启载客测试服务</h3><p>近期，滴滴自动驾驶新一代 Robotaxi R2正式开启无人载客测试服务</p><a href="https://www.qbitai.com/2026/08/481923.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 07:34:02 +0000</div><h3>范式与华为达成重磅算力战略合作，成为首批拥抱国产最高端算力底座的AI企业</h3><a href="https://www.qbitai.com/2026/08/481919.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 04:47:26 +0000</div><h3>「GPT-6」灰测demo刷屏！周四发布在即</h3><a href="https://www.qbitai.com/2026/08/481893.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 03:24:34 +0000</div><h3>OpenAI买几万台Mac搞强化训练！英伟达的活被苹果抢了</h3><a href="https://www.qbitai.com/2026/08/481759.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 03:11:46 +0000</div><h3>全国第三，公司第二，“初创黑马”灵犀智涌用ROSS Harness把机器人送进工业具身智能第一梯队</h3><p>灵犀智涌用一台由Demo级本体组装而成的机器人，成为工业场景赛除行业头部企业外唯一获奖的机器人公司。</p><a href="https://www.qbitai.com/2026/08/481750.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 03:01:29 +0000</div><h3>AQuA：让量化研究 Agent 持续进化，也让回测结果经得起检验</h3><p>自主研究系统的上限，不只取决于模型有多聪明，也取决于系统能否分辨什么是新证据，什么只是一次偶然的高分。</p><a href="https://www.qbitai.com/2026/08/481475.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 29 Aug 2026 13:11:08 +0000</div><h3>AI本地部署不如官方版的元凶找到了：734个依赖包，每一个都可能坑</h3><a href="https://www.qbitai.com/2026/08/481372.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 12:34:00 +0800</div><h3>AI 读过一切，却没经历过任何事：Ropedia 发布 HOMIE Gen2，给具身智能补「经验」这一课</h3><p>8 月中旬，新加坡的一场公开演讲上，南洋理工大学副教授、Ropedia 首席科学家刘子纬抛出了一个问题：为什么读过整个互联网的 AI，进了物理世界，却连一杯咖啡都冲不好？ 他的回答是：“AI 读过一切，却几乎没有经历过任何事情。它从未真正冲过一杯咖啡，自然也不知道该怎么做。” 刘子纬教授在新加坡演讲的现场照片 这种分裂在今天的 AI 身上随处可见：感知模型能把冲咖啡的教程讲得头头是道，生成式模型能合成一段以假乱真的冲咖啡视频；可一旦真的伸出机械臂，同样的智能常常连一次可靠的抓取都完成不了。能听懂，能想象，就是做不好。这道裂缝，此刻正卡着整个具身智能行业。 AI 科技评论了解到，就在这场演讲之后不久，由联合创始人兼 CEO 陈昭熹与联合创始人兼 CTO洪方舟共同创办的 Physical AI 公司Ropedia，正式发布了新一代多模态采集系统HOMIE Gen2。这套关于“经验”的判断，最终落到了一台约 380g 的头戴设备上：让 AI 从人类真实行为中，补上它缺失已久的“经验”这一课。对于这台设备要做的事，CEO…</p><a href="https://www.leiphone.com/category/ai/ztrF1BywGGvrxQHt.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 12:25:00 +0800</div><h3>业绩连跳20级，这家芯片公司做对了什么？</h3><p>8月28日晚间，国产GPU企业壁仞科技（06082.HK）披露2026年中期业绩。2026年上半年，壁仞科技实现营业收入12.36亿元，较上年同期增长约1997.6%；期内亏损大幅收窄至3.77亿元，同比大幅减亏76.4%；经调整期内亏损（非国际财务报告准则计量）收窄至3.37亿元，同比减亏38.9%，亏损收窄速度明显加快。 作为国内领先的通用智能计算解决方案提供商，壁仞科技围绕“芯片－软件－系统－供应链”全栈体系快速发展，在商业拓展、产品迭代、软硬协同与量产能力建设上均取得显著进展。展望未来，壁仞科技将持续加速下一代芯片的量产与导入，坚持高质量、前瞻性的研发投入，深化与客户及生态伙伴的协同，以扎实的产品与交付能力，为国产算力基础设施建设和全球人工智能产业发展贡献壁仞力量。 01 上半年营收超越去年全年 互联网大客户导入开启放量周期 2026年上半年，Agentic应用加速落地，token消耗量呈指数级增长，强劲市场需求驱动之下，壁仞科技步入高速发展通道，上半年营收超越去年全年，商业化达成里程碑式突破。…</p><a href="https://www.leiphone.com/category/chips/toaKlXrYMYi6MRsq.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 12:03:00 +0800</div><h3>AI 应用进入“算账”时代，筷子科技为什么要做一个 KP 钱包？</h3><p>过去两年，大模型的能力边界不断向外扩展。文本、图片、视频、语音模型快速迭代，Agent也开始进入企业生产流程。对于企业来说，可选的AI能力越来越丰富，但实际使用时需要处理的问题也随之增加：一项任务应该调用哪个模型，如何平衡生成效果和成本，不同部门如何管理AI预算，生成后的内容资产又该如何沉淀。 尤其在视频商业场景中，一条内容从创意到最终产生效果，通常会经历脚本、图片、视频生成、数字人、配音、剪辑、分发等多个环节，背后可能连接不同模型、算力和工具。过去分散使用几款AI产品还算容易，当应用规模扩大到多个团队、品牌、门店和市场之后，模型调用、账户体系和预算管理开始成为企业AI落地中的实际问题。 近日，筷子科技Kuaizi.ai正式发布视频商业AI能力统一价值单位“KP”及企业“KP钱包”。按照其公布的方案，一个Kuaizi企业账户对应一个KP钱包，可以使用丽帧引擎、Kuaizi主平台、Kuaizi国际版、“推你”及企业级FDE服务，覆盖模型调用、内容生产、分发传播、资产管理以及企业级部署等环节。 多模型时代，企业需要更简单的调用方式 模型生态的丰富已经带来明显变化。OpenAI、Anthropic、Google…</p><a href="https://www.leiphone.com/category/industrynews/LbCpQmYtAXGpD1Ob.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 10:56:00 +0800</div><h3>李飞飞、吴佳俊再联手，打破世界模型和机器人动作的「巴别塔」</h3><p>视觉轨迹充当“同声传译”，让世界模型和机器人动作真正“同频对话”。 作者丨 幸丽娟 编辑丨岑 峰 日前，一篇叫做《TrAct: Bridging Robot Control and Visual Prediction with Visual Tracks》的论文悄然上线 arXiv。论文署名中出现了两个大家很熟悉的名字——李飞飞、吴佳俊。 论文链接：https://arxiv.org/html/2608.24101v1 熟悉具身智能圈的人都知道，这两个名字放在一起，分量不轻。 李飞飞是世界模型“空间智能”方向的旗帜人物，而刚刚领完 IJCAI 2026 计算机与思想奖的吴佳俊，则是这一领域最核心的研究者之一。 这两位长期合作的学术战友，最近在具身智能领域动作频频。就在一个月前，他们刚与 ControlNet 作者张吕敏等十余位学者共同发表了《Masked Visual Actions for Unified World Modeling》，把机器人动作渲染成像素轨迹，喂给视频世界模型。 但对于他们而言，之前的尝试或许还不够彻底。…</p><a href="https://www.leiphone.com/category/academic/LF4mbUTko5bRYDky.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 10:54:00 +0800</div><h3>TUM 黎子玥：模型这么大这么强，为什么还是「上不了路」？| IJCAI 2026</h3><p>学术数据和真实数据完全是两回事；可解释性成落地“生死线”。 作者丨 幸丽娟 编辑丨岑 峰 三年前，正值大模型爆发之年，麦肯锡就曾对全球交通与工业领域的从业者做了一项调研，问题很朴素：距离真正的智能化，还有多远？ 答案出乎意料地悲观：还要10到20年。 而把时间线拉到现在，模型越来越大、智能体越来越多、时空数据挖掘的论文层出不穷。 现实依旧是，全球没有一座城市长期部署了基于强化学习的交通信号控制系统。那些在顶会上“超越所有SOTA”的预测模型，真正到了城市交通部门手里，他们的答案往往是：“这个方案，我不敢放手用。” 问题的症结在哪里？ 在刚刚结束的 IJCAI 2026 Early Career Spotlight（早期职业焦点）演讲中，慕尼黑工业大学 (TUM) W2 教授黎子玥（Ziyue Li）给出了他的答案： 第一，学术研究长期停留在“干净数据”的舒适区，而公共部门面对的，永远是不完整、不规整、不可控的真实数据； 第二，可解释性不是论文里的加分项，而是从实验室走向城市落地的“生死线”。…</p><a href="https://www.leiphone.com/category/academic/CvDmFZhq2DCqxOh8.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 10:49:00 +0800</div><h3>卖B70显卡，只是英特尔本地AIGC生意的开始</h3><p>一张显卡，开始被越来越多创作者当成生产资料重新算账。 过去，要把AI视频真正搬到本地，首先卡在模型。效果更好的视频模型大多通过云端服务提供，能够下载到本地的开源模型，距离稳定生产往往还有一段距离。 但 今年夏天发生了变化。在MiniMax开放新一代视频模型H3权重的同一天，英特尔宣布锐炫Pro B70完成H3的Day 0适配。这张几个月前才发布的32GB专业显卡，由此有了一个更加具体的本地视频生成负载。 当模型能下载，显卡也能跑，本地AI视频的创作和生成也迎来新的挑战。 日前，英特尔联合MiniMax、数字折叠举办AIGC创作研讨会。现场 的讨论 并没有 局限 于显存和峰值算力，而是更关注一套贴近实际生产的本地算力：它究竟能完成多少工作、如何支持多人共享，以及新模型出来后能否及时跟进等。 英特尔想抓住的，正是这个变化。 多卡开工，本地AI有了「生产线」 AI视频工具正在变成创作者的常用助手。 Adobe针对384名美国视频内容创作者的调查显示，71%的受访者已经使用过AI视频生成或编辑工具，其中41%的使用者每周都会使用。 使用频率上升，也让云端模式原本不明显的成本被放大。…</p><a href="https://www.leiphone.com/category/chips/KkkOnq0B7sxuvkyo.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 10:27:00 +0800</div><h3>独家丨地瓜机器人扩招NPU研发团队，或将强化下一代芯片布局</h3><p>雷峰网独家获悉，机器人通用底座厂商地瓜机器人近期积极招聘芯片人才，全面补齐自研NPU芯片研发能力，在猎聘等招聘软件搜索地瓜机器人芯片关键词，亦可查询到大量招聘信息。 地瓜机器人的发展与CEO王丛深度绑定。公开履历显示，王丛本科毕业于北京工业大学，后赴美取得莱特州立大学博士学位；职业初期入职阿里巴巴，随后联合创办文因互联。2018年王丛正式加入地平线，2022年，王丛带领团队切入尚处蓝海的机器人赛道，原AIoT部门升级为机器人事业部，王丛出任事业部总经理；2024年该业务板块完成独立拆分，地瓜机器人正式独立运营。 长期以来，地瓜始终遵循“不碰终端硬件本体”的延伸战略，芯片自研环节尚在起步阶段，机器人算力方案此前以外部采购为主。 有知情人士表示，地瓜此举或意味着其后续产品的算力选择将更加多元及自主。 此前雷峰网独家报道，前海思鲲鹏总经理、地平线芯片总裁、征程6系列总设计师陈鹏已于今年4月从地平线离职创业，成立新公司深圳市九万里未来科技有限公司（简称“九万里”），短短两月完成高额种子轮融资，公司整体保密级别极高，并有部分地平线老兵加入。 结合陈鹏创业前的履历，当前产品需求，以及未来计算技术趋势，…</p><a href="https://www.leiphone.com/category/yanxishe/lCoT3AFJymcnxZVR.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 10:23:00 +0800</div><h3>MWA™霸榜全球第一后：无界动力用真实咖啡厅展现物理AI的落地之径</h3><p>从 “出片”到“出海”，无界动力即将奔赴下一个考场。 作者丨郭 思 编辑丨董子博 没有刻意的社交氛围，一人静坐或几个好友相聚，手捧一杯咖啡，在音乐与咖啡的交汇中，暂时剥离工作与生活的琐碎，获得片刻放松与灵感回响。这是平日里我们对于休闲时刻美好画面的印象， 也是 2026世界机器人大会现场最反差的一幕。 与去年以及今年上半年以来出现争奇斗艳、跳舞翻跟头的喧闹不同，今年 WRC，记者探展一圈发现，展会上出现了很多垂直场景的机器人，有专门针对人的心脑血管做手术的医疗机器人，也有分拣物品进行归类的各种家庭机器人，还有一些特别关注手关节折纸动作的机器人…… 在其中， 无界动力与韩国 HOLLYS 联手打造的人机共生沉浸式机器人咖啡空间，则是一块与众不同的“闲暇之地”。 整体空间被绿植围绕，北欧风的白色小栅栏打开，客人可以坐下来点单自由选择自己爱喝的拿铁或者美式，也可以点一杯大师级别的手冲。 接收订单后，咖啡师在吧台后制作大师级咖啡或其他饮品，递放至出餐区，机器人则负责端送到桌，并顺手收走隔壁桌的垃圾、推回座椅。大象无形，大音希声，给人一种不会打扰你，但是在你有需要的时候随时出现的陪伴感与交互感。 &quot;机器人…</p><a href="https://www.leiphone.com/category/robot/vHAwtD32AVVe2W9V.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 10:19:00 +0800</div><h3>从一颗芯片到万卡集群，燧原的八年算力长跑</h3><p>过去几年， AI芯片行业最容易比较的是一张卡。 雷峰网 雷峰网 峰值算力多少、显存多大、带宽多高，几组参数放在一起，似乎就能迅速分出高下。但当大模型进入规模化训练与推理，尤其是 MoE 、 Agent 等新型负载不断拉高算力需求后，单卡性能正在变得越来越不够用。 真正进入数据中心，一张卡能跑多快只是第一关。数十张、数百张乃至上万张芯片如何高速互联，软件能否把硬件能力释放出来，集群能否在高负载下长期稳定运行，正在共同决定一套算力系统最终能够交付多少有效算力。 AI 芯片的竞争，正在从 “ 造一颗更快的芯片 ” ，变成一场芯片、模组、互联、软件和集群共同参与的系统战。 这也让燧原科技过去八年的一条技术路线，开始显出不同的价值。 从 2018 年成立开始，燧原选择的就不是一条只围绕单颗芯片展开的道路。四代架构、 5 款云端 AI 芯片之外，它逐步向 AI 加速卡及模组、编程软件平台、智算系统和大规模算力集群延伸，最终搭起了一套覆盖芯片、硬件、软件与集群的核心技术体系。 这套体系也已经越过实验室阶段。燧原多代产品进入大型互联网公司的真实业务，在国民级应用中实现规模化部署；与此同时，千卡、万卡级智算项目也已经走向商业化。…</p><a href="https://www.leiphone.com/category/chipdesign/MKHeALfWYSjLwG6X.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 20:49:00 +0800</div><h3>对话纬钛机器人CEO李瑞：具身智能仅靠视觉容易到天花板，触觉是未来必选项</h3><p>上触觉已经不是一个「yes or no」的问题，而是「when」的问题。 作者丨 向 欣 编辑丨 高景辉 雷峰网：瑞典科学家做过一个经典的实验：给受试者的手指尖注射麻醉剂，让他去完成一个再简单不过的动作：从火柴盒里取出一根火柴，然后划亮它。 正常情况下，这个动作几秒钟就能完成。但在手指失去触觉后，受试者的整个动作变得像提线木偶一样笨拙，取火柴时反复调整却拿不稳，划火柴时用力不均、方向歪斜，花了很长时间才勉强完成。 「这就是现在整个具身智能的现状。」纬钛机器人 CEO 李瑞说。 所谓现状是，当下的具身智能拥有越来越聪明的「大脑」和越来越灵活的「肢体」，但唯独缺了触觉反馈，就像手指打了麻醉剂的人，能看见、能动作，却很难做好需要精细感知的操作。 要改变这种状况，关键在于让机器人拥有「接触智能」：让机器人以接近人类的方式理解「接触」的本质，不仅能感知物体的存在，更能根据接触反馈实时调整动作、控制力度并稳定执行。 在李瑞看来， 具身智能仅靠视觉很容易到达天花板 ， 下一步必须加上触觉 。在 人能做的 90% 以上的任务中，都需要触觉参与。上触觉已经不是一个「yes or no」的问题，而是「when」的问题。…</p><a href="https://www.leiphone.com/category/robot/fzha6bzWq2qyX28O.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><h3>[解析失败] https://36kr.com/feed</h3><p>not well-formed (invalid token): line 9, column 542</p></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 07:53:50 GMT</div><h3>微软首次细化 Linux 版 Edge 浏览器支持的发行版，比谷歌 Chrome 晚约 7 年</h3><p>IT之家 9 月 1 日消息，科技媒体 NeoWin 今天（9 月 1 日）发布博文，报道称微软 Microsoft Edge 浏览器更新支持文档， 首次明确列出经过官方测试和验证的 Linux 发行版。 IT之家查询公开资料，微软于 2019 年 11 月确认开发 Chromium 版 Edge for Linux，并于 2020 年 10 月 20 日推出了 Linux 版的首个公开预览版本，稳定版于 2021 年 11 月正式上线。 在此前的更新文档中，微软只是简单提及“Microsoft Edge 支持 Linux”，而在最新更新日志中，微软详细罗列了支持 Edge 浏览器的 Linux 发行版： Microsoft Edge 支持以下 64 位 Linux 发行版： Ubuntu 18.04 或更高版本 Debian 10 或更高版本 openSUSE 15.5 或更高版本 Fedora Linux 39 或更高版本。 其他 Linux 发行版可能也能支持运行 Microsoft Edge，但并未获得官方支持。 该媒体指出，谷歌在 2019 年 8 月已发布并维护 Chrome 的 Linux…</p><a href="https://www.ithome.com/0/996/992.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 07:46:40 GMT</div><h3>谷歌发布 TimesFM-3，3.3 亿参数即可进行零样本多变量时间序列预测</h3><p>IT之家 9 月 1 日消息，谷歌今天发布 TimesFM-3 模型，这是该公司时间序列基础模型系列的第三代产品。拥有原生多变量预测、双注意力机制、连续补丁掩码等特性，可进行零样本多变量时间序列预测。 IT之家从谷歌官方了解到， TimesFM-3 拥有 3.3 亿个参数 ，并在包含超 1 万亿个时间点的真实世界和合成时间序列语料库进行预训练。 TimesFM-3 继承前代的高效性和零样本泛化能力 ，以零样本形式增强复杂多元场景支持。 同时，该模型可联合预测多个共同演化的时间序列，捕捉其中的依赖关系，提升整体准确率，无需针对特定任务微调，该模型原生支持特性如下： 多目标预测：同时预测多个相关时间序列（例如联合预测不同品牌的冰淇淋）。该模型支持所有目标的点预测和分位数预测。 过去协变量：纳入仅从历史角度已知的特征（例如过去人流量）。 过去-未来（动态）协变量：利用已知的未来事件来指导预测（例如计划促销活动或天气预报）。 参考： TimesFM-3: A zero-shot foundation model for multivariate forecasting</p><a href="https://www.ithome.com/0/996/988.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 07:45:24 GMT</div><h3>微软 XBOX CEO 夏尔马谈 AI 导致主机涨价：GPU 能在游戏以外领域应用，这是好事啊</h3><p>IT之家 9 月 1 日消息，目前 XBOX 主机价格已升至历史最高水平，而微软大举投入 AI，某种程度上也是推高成本的原因之一。XBOX 首席执行官阿莎 · 夏尔马在接受 BBC 采访时，回应了这种颇具讽刺意味的局面。 她认为，即使 XBOX 主机因此变得前所未有地昂贵，GPU 能够被广泛用于游戏之外的技术领域仍值得肯定。“游戏一直是 GPU 的试验场。我认为，这项技术能够在全世界拥有更多用途是 一件非常好的事情 。AI 正在从根本上改变很多东西。因此，在 XBOX 推进下一代产品的过程中，我们需要考虑整个行业和市场正在发生什么，然后为玩家打造最好的体验。” 经过多轮涨价后，目前最便宜的新主机 XBOX Series S 也已经卖到 500 美元 （IT之家注：现汇率约合 3,368 元人民币） ，比 2020 年首发时 高出 200 美元 （现汇率约合 1,347 元人民币） 。 夏尔马表示，当前硬件和零部件市场面临的“危机” 迫使微软寻找新的解法 ，让玩家在如何使用、如何购买 XBOX 方面拥有更多选择。 最近一次提高 XBOX 价格后，微软甚至明确建议消费者 考虑使用“先用后付”服务 ，或者选择提供 0%…</p><a href="https://www.ithome.com/0/996/987.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 07:41:08 GMT</div><h3>人工智能交互新研究：AI 更“像人”、用户更“像机器”</h3><p>IT之家 9 月 1 日消息，英国伯明翰大学、丹麦奥胡斯大学和瑞典林奈大学研究人员上月（2026 年 8 月）发布研究称， 用户长期与具备类人行为的客服 AI 互动，可能逐渐调整语言和行为模式，并影响重塑自我认知。 相关论文于 8 月 19 日发表于开放期刊《AI 与社会》（AI &amp; SOCIETY），研究者提出“类机器人人性”（robotoid humanness）概念，指出在 AI 交互过程中， AI 变得更“像人”，而用户可能因持续接触而表现得更“像机器”。 研究聚焦零售、酒店、旅游和医疗等 4 类服务场景。团队指出，自适应学习、个性化沟通和共情回应会让机器人更像人；而用户也可能为了获得更顺畅、更积极的算法反馈，模仿机器的表达方式。 在形成机制方面，客服机器人会模拟人的手势、语音和情感线索。系统还会利用机器学习，根据用户输入调整回应方式。其目标通常是建立信任，并提高用户参与度。 人类在社交中存在“镜像”倾向，人们常会无意识模仿对方的动作、表情和表达方式，并指出了三阶段镜像机制：…</p><a href="https://www.ithome.com/0/996/982.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 07:30:47 GMT</div><h3>美国五角大楼部署定制版 ChatGPT 和 Grok AI 助手</h3><p>IT之家 9 月 1 日消息，五角大楼本周开始将定制版 ChatGPT 和 Grok 人工智能助手加入其内网，让数百万军人和文职人员能够使用 AI 工具，处理日常非机密任务。 美国国防部本周在其 GenAI.mil 内网门户加入 OpenAI 开发的 ChatGPT Mil，以及 Starshield AI 开发的 Grok for Government。国防部希望为工作人员提供更多 AI 模型选择，根据具体工作需求选择合适的 AI 工具。 国防部官员表示，ChatGPT Mil 主要针对大量文档阅读和写作任务，工作人员可以使用该工具进行物流规划、处理日常事务等。Grok for Government 提供不同推理模式，主要针对供应链跟踪和研究工作。 IT之家从美国国防部官网了解到，上述所有模型收集的数据均会锁定在内网环境中，OpenAI 和 xAI 不会利用政府数据训练 AI 模型， 并且两款模型均不允许用于战斗行动或实施目标锁定任务 。</p><a href="https://www.ithome.com/0/996/972.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 07:26:26 GMT</div><h3>约 4 年迁移收尾完成：谷歌 Chrome 应用商店已移除所有 MV2 扩展程序</h3><p>IT之家 9 月 1 日消息，根据官网公布信息，谷歌已于昨日（8 月 31 日）完成 Chrome 浏览器网上应用商店调整， 移除剩余的所有 Manifest V2 扩展。 IT之家附上谷歌官方更新日志内容如下： 从 Chrome 应用商店中移除所有剩余的 Manifest V2 扩展程序。安装在 Chrome 138 或更早版本上的 Manifest V2 扩展程序将保留安装状态，但无法接收任何更新，并且从 Chrome 中移除后无法从 Chrome 应用商店重新安装。 Chrome 浏览器网上应用商店是 Chromium 浏览器（例如微软的 Edge 等）的主要扩展来源，因此即便部分浏览器依然兼容 MV2 扩展程序， 自今天（9 月 1 日）开始也无法通过该商店搜索和安装相关扩展。 其中最具代表性的 MV2 扩展程序就是 uBlock Origin，IT之家发稿前访问已无法访问： 不过 Brave 浏览器则宣布在自有后端保留 4 款 MV2 扩展，包括 AdGuard、uBlock Origin、uMatrix 和 NoScript。 IT之家查询公开资料，谷歌积极推进 Chrome 扩展程序从 Manifest…</p><a href="https://www.ithome.com/0/996/968.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 07:11:39 GMT</div><h3>我国专家牵头制定，全球首个腿式机器人国际标准正式发布</h3><p>IT之家 9 月 1 日消息，据央视新闻援引国家标准委，由我国专家牵头制定的全球首个腿式机器人国际标准《机器人 —— 服务机器人性能规范及其试验方法第 5 部分：腿式机器人运动》近日正式发布。 “腿式机器人”就是靠“腿”行走、跑跳、爬坡、越障的一类机器人（IT之家注：例如人形机器人、机器狗）。目前，这类机器人已开始承担 表演、巡检、搬运、搜救等实际工作 。然而，如何评价它们“走得好不好”“干得巧不巧”，长期以来缺乏统一的国际标尺。这次发布的国际标准，将首次在全球建立统一评价体系。 标准的一大亮点就是面向真实场景评价运动性能： 不只看“能不能动”，更看“动得好不好” 。报道指出，同一台机器人在平地上走得很好，并不意味着它面对楼梯、坡面或者障碍物时也同样表现出色。 这项标准将 楼梯、坡面、障碍等真实作业场景 纳入评价体系，建立多维度的表征和评测方法。这意味着评价结果更贴近实际应用，真正反映机器人在复杂环境中的实战能力。 这一国际标准另外一个亮点就是，不仅比“腿脚快慢”，更比“ 任务完成度 ”。机器人进入真实世界，光有一双灵活的“腿”还不够。既要 走得稳，也要看得清、判得准、干得好…</p><a href="https://www.ithome.com/0/996/961.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 07:07:34 GMT</div><h3>华硕 ProArt GR1X 英伟达 RTX Spark 迷你主机 2026Q4 上市</h3><p>IT之家 9 月 1 日消息，华硕 (ASUS) ProArt 官方近日表示，其基于 NVIDIA（英伟达）RTX Spark 超级芯片的 ProArt GR1X 迷你主机即将于 2026 年第 4 季度上市 。 ProArt GR1X 延续了该产品家族一贯的内敛优雅设计，三维 150×150×51 (mm)。其至高配备 20 核 CPU、6144 核 &quot;Blackwell&quot; GPU、128GB 共享高速内存， FP4（稀疏）AI 算力可达 1 Petaflop 。 该设备提供 PCIe Gen5 / Gen4 的 M.2 NVMe SSD 盘位、1 个 10GbE 网口，搭载基于联发科技 MT7925 的无线网卡模块；其它 I/O 包括 4 个 USB-C 20Gbps、1 个 HDMI 2.1。</p><a href="https://www.ithome.com/0/996/960.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 07:07:11 GMT</div><h3>华为、小米、荣耀手机今日集体涨价，魅族科技宣布再坚持一个月、十一后涨价</h3><p>IT之家 9 月 1 日消息，华为、小米、荣耀等品牌手机 今日（9 月 1 日）凌晨迎来集体涨价 ，涨价产品覆盖多个机型。 对此，魅族科技今日发文称：涨价是全行业都在面临的情况，我们已经坚持到最后一刻了。 经公司讨论，我们再坚持一个月，十一后涨价 。 综合IT之家此前报道，今年 2 月 27 日，魅族发布战略转型公告， 宣布暂停国内手机新产品自研硬件项目 ，并在积极接洽第三方硬件合作伙伴，同时原有业务不受任何影响。 魅族科技也承诺，用户的权益将得到持续保障 ： 放心买：魅族手机、AI 眼镜、PANDAER 等相关产品将正常销售，魅族在营店铺内的服务及权益不变； 放心用：Flyme 及售后服务团队将持续守护现有用户的官方售后、维修和系统安全更新服务，保障所有用户权益。 今年 8 月， 魅族手机宣布维持京东原价销售 。公告称，近期，内存芯片价格持续上涨，行业内多款机型已调整售价。魅族将继续坚持在售机型诚意不涨价：魅族 Note16 、魅族 22 、魅族 22 归航限定版维持原价销售，且可叠加国家购机补贴。</p><a href="https://www.ithome.com/0/996/959.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 06:57:06 GMT</div><h3>韩国公布史上最大规模财政支出计划：2027 年预算达 821 万亿韩元，押注 AI 与芯片产业</h3><p>IT之家 9 月 1 日消息，据路透社报道，韩国政府周二公布了迄今规模最大的财政支出计划，将 2027 年政府总支出设定为 821 万亿韩元 （IT之家注：现汇率约合 4.01 万亿元人民币） ，希望在全球人工智能竞赛中进一步巩固韩国的科技优势。 韩国预算部门在年度预算案中表示，2027 年政府支出将较 2026 年增加 12.8%，创下韩国历史上最高的年度增幅。 这份预算案也体现出，在总统李在明领导下，韩国这个亚洲第四大经济体正在调整财政政策方向。李在明自去年 6 月上任以来一直主张采取扩张性财政政策，与前任政府持续三年的紧缩政策形成明显对比。 此次创纪录的财政支出增长，很大程度上得益于韩国半导体产业带来的巨额税收。 随着全球 AI 热潮推动高带宽内存（HBM）芯片需求持续增长，三星电子和 SK 海力士正在获得前所未有的利润。 韩国政府预计，明年税收总额将增长 40.7%，达到 584.4 万亿韩元 （现汇率约合 2.86 万亿元人民币） 。其中，企业税收入预计将增长一倍以上，达到 216.7 万亿韩元 （现汇率约合 1.06 万亿元人民币） 。 税收大幅增加预计将帮助韩国降低债务负担。韩国政府预计，明年政府债务与…</p><a href="https://www.ithome.com/0/996/950.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 06:56:39 GMT</div><h3>比亚迪新一代 4D 毫米波雷达芯片量产：可覆盖 L2-L4 级智能驾驶应用</h3><p>IT之家 9 月 1 日消息，比亚迪半导体今天（1 日）通过公众号发文宣布，以璇玑 A3 为算力中心的 新一代卫星架构 4D 毫米波雷达芯片 已量产。 该芯片基于 28nm 车规工艺，专为满足汽车市场对高分辨率雷达系统需求设计，可无缝对接多款主流智驾芯片平台。同时，该芯片针对卫星架构设计配置了 MIPI CSI-2 高速接口，兼容多款主流串行加串器（SerDes），已完成与“璇玑 A3”智驾芯片的联调适配，满足 Tier1 模组厂家对探测性能的要求。 基于该芯片的解决方案，可全面覆盖 L2-L4 级智能驾驶应用 ，包括高速领航、城市道路驾驶、自动泊车、盲区监测等。 IT之家查询获悉，该芯片可实现如下功能： 400m+ 超远距离稳定探测： 提前感知前方多车道车辆的速度与位置变化，支撑自适应巡航、自动紧急制动、车道变更辅助等功能，为高速行驶预留充足反应时间，从容应对突发工况。 0.8° 水平角度区分： 大幅提升车道与护栏、车辆与行人的区分能力以及车辆窄道通行的能力。 0.05m 泊车级距离区分： 可精准识别地锁、石墩、雪糕筒等低矮细小及弱反射障碍物，支持与 360° 全景泊车系统融合来实现自动泊入泊出，避免剐蹭风险。…</p><a href="https://www.ithome.com/0/996/949.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 01 Sep 2026 06:52:05 GMT</div><h3>机智连接推出 AI 纪要 TWS 耳机 Plaud One，内置 eSIM</h3><p>IT之家 9 月 1 日消息，深圳 AI 纪要硬件企业机智连接 (Plaud) 上周宣布推出 Plaud One 耳机。这一设备 主打随时随地的人工智能体验 ，内置 4G LTE eSIM，定价 249.99 美元 （IT之家注：现汇率约合 1,684 元人民币） ，限量 2000 台。 Plaud One 录制距离可达 5m，可记录用户的每一次对话，支持无缝调用智能体， 为人工智能提供流畅连贯的上下文场景 ，在使用者不经意间就做好后续工作的准备。用户还可将其与兼容 MCP 的服务链接，实现日常工作流自动化。 而在音频方面，Plaud One 耳塞搭载 12mm 驱动单元，支持蓝牙 5.4 规范，配备 SBC、LDAC 编解码器，混合降噪深度可达 40dB；音频播放续航可达 36 小时、连续录音续航可达 25 小时。</p><a href="https://www.ithome.com/0/996/945.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 19:35:03 +0800</div><h3>Google 改变了其搜索结果的展示方式</h3><p>Google 过去一年对其搜索结果的展示方式进行了两次重大改变。其一是搜索结果链接，以前你将鼠标悬停在搜索结果上会在浏览器底部看到网站链接，现在显示的是 google.com/goto + 一串看起来随机的字符串。搜索结果中的 AI Overview 引用的链接也是采用此类展示方式。其二是用户以前可以在搜索词末尾添加 &amp;num=100，可以在一个页面上显示前 100 个搜索结果，如今这一快捷方式被取消了，Google 强制只展示最多 10 个搜索结果，意味着你想要看前 100 个结果需要点击 10 次。</p><a href="https://www.solidot.org/story?sid=85242" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 15:08:15 +0800</div><h3>韩国准备向所有民众提供免费 AI 服务</h3><p>韩国准备向所有民众提供免费 AI 服务 AI for All。该服务计划从下月起进行 beta 测试，计划今年晚些时候推出。服务由韩国两家最大的电信公司以及 Kakao 牵头的三个联盟提供，政府提供部分算力，包括提供最多 512 块英伟达 B200 芯片和支付部分运营费用。AI 服务预计将与政府系统连接，而不只是作为独立的聊天机器人运行。居民将能使用这些服务预约医生、搜索公寓和获取税务指导。小型企业将能计算税款和查询是否符合政府补贴资格。家长将收到教育内容的推荐。每个联盟都计划推出自己的 AI 应用，在现有产品中加入生成式 AI 功能。在政府支持的计划下，用户可以无限次访问，没有 token 限制。</p><a href="https://www.solidot.org/story?sid=85238" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 31 Aug 2026 14:11:49 +0800</div><h3>Google Maps 在美国将安大略湖更名为美国湖</h3><p>在墨西哥湾之后，Google 宣布其地图服务 Google Maps 将安大略湖（Lake Ontario）更名为美国湖（Lake America）——这一更改主要针对美国用户，加拿大用户仍然看到的是安大略湖，而世界其他地方的用户则会看到两个名字。另一家美国地图服务 MapQuest 表示不会改名，但会提供一款工具，允许用户根据自己的意愿随便改名字。</p><a href="https://www.solidot.org/story?sid=85236" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 30 Aug 2026 20:50:42 +0800</div><h3>索尼华纳起诉 Anthropic 侵犯版权</h3><p>全球唱片巨头索尼和华纳对 Anthropic 提起诉讼，指控其犯下了历史上规模最大、最明目张胆的知识产权盗窃罪行之一。诉讼指控 Anthropic 非法利用数万首版权音乐作品训练其模型。Anthropic 及其创始人 Dario Amodei 和 Benjamin Mann 被控肆无忌惮的大规模非法下载、抓取和传播受版权保护的作品，目的是开发、运营该公司的 Claude 系列 AI 模型，并从中牟取暴利。唱片公司要求为每部侵权作品索赔最高 15 万美元，每次可识别版权信息被删除的情况则追加最高 2.5 万美元赔偿。如果法院裁决唱片公司胜诉并判决最高赔偿金额，总赔偿金额可能高达数十亿美元。诉讼还指控 Mann 使用 BitTorrent下载了逾 500 万本盗版图书，Anthropic 员工还从 Pirate Library Mirror 网站下载了逾 200 万本盗版图书，从付费获得唱片公司授权的 MusixMatch 和 LyricFind 等网站抓取歌词。</p><a href="https://www.solidot.org/story?sid=85234" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 29 Aug 2026 21:37:00 +0800</div><h3>Debian 项目将允许以负责任的方式使用生成式 AI</h3><p>Debian 项目对是否允许使用 AI 进行了投票表决，投票采用孔多塞投票法，共有 9 个选项，最终结果是第 5 选项“负责任的使用生成式 AI”获胜。Debian 项目表示，它既不反对也不支持在软件、包、文档等的开发和维护中使用生成式 AI 工具。但项目也认识到，如果能负责任的使用 AI 工具，将能显著提高贡献者的效率，使他们将有限的时间投入到需要技术专长、判断力、审核和协作的工作中。无论是否使用生成式 AI 工具，Debian 项目希望提交的内容都符合相同的质量、正确性、可维护性和法律合规性标准。使用生成式 AI 工具不会减少责任。对于提交的内容，贡献者应理解、审核、测试 AI 辅助生成的输出，在适当情况下进行修改。未经适当人工审查就盲目接受或上传 AI 生成的材料，不符合 Debian 既定的开发实践。Debian 鼓励贡献者披露其贡献是否使用 AI 辅助，但不强制要求。Debian 承认，生成式 AI 系统生成的材料的法律地位在许多司法管辖区存在争议，包括训练材料的版权、作者身份、许可和潜在复制问题。Debian 项目不寻求通过本一般决议解决这些悬而未决的法律问题，也不就 AI…</p><a href="https://www.solidot.org/story?sid=85229" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 29 Aug 2026 18:46:44 +0800</div><h3>人形机器人的跑步方式与人类不同</h3><p>北京人形机器人创新中心研发的通用人形机器人天工在世界人形机器人运动会上跑出了 100 米 8.64 秒的成绩，远超博尔特（Usain Bolt）于 2009 年创下的 100 米 9.58 秒的人类世界纪录。机器人的平均速度接近 42 公里/时。专家表示，这一成绩凸显了机器人的强大，也凸显了它们在决策和感知等方面的不足——人形机器人都是靠撞软垫的方式刹车的。人形机器人的跑步方式与人类不同：首先是博尔特的起跑仅仅花了 0.146 秒，相比下机器人等了近 1 秒钟才反应过来开始移动；博尔特仅用 41 步就完成了 100 米，而机器人花了 50 多步，机器人的步频更快步幅更短。韩国光云大学机器人学教授 Park Suhan 表示，机器人的步态映了其电机的性能，而非去刻意模仿人类的短跑。另一位专家认为机器人如果步幅过大会很容易摔倒。人类顶尖运动员在跑步的最后阶段会减速，但天工机器人没有任何减速迹象，因此最后一头撞向软垫。未来几年能转弯和自主决策的机器人将比单纯的提高速度会更令人印象深刻。</p><a href="https://www.solidot.org/story?sid=85228" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      <section class="section-card" id="errors"><div class="section-head"><h2>抓取异常</h2><span>不影响当期页面生成</span></div><ul class="error-list"><li class="error-item"><strong>36氪</strong><span>[解析失败] https://36kr.com/feed</span><em>not well-formed (invalid token): line 9, column 542</em></li></ul></section>
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>
