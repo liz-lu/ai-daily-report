@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-09-08</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      <a class="toc-link" href="#errors">抓取异常</a>
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-09-08</span>
+          <span>15:22（北京时间）</span>
+          <span>IT之家、Solidot、量子位、雷锋网</span>
+        </div>
+        <p class="hero-copy">今日AI新闻聚合显示，行业焦点集中在云厂商组织调整、国产AI芯片资本化加速、以及AI人才从预训练向推理与Agent方向迁移三大主线。微软亚太云业务拆分、燧原科技科创板募资61.19亿元、以及GOSIM Shenzhen 2026大会的临近，共同勾勒出产业生态的活跃图景。同时，具身智能与机器人领域迎来关键演讲与产品动态，预示技术落地与商业化进入新阶段。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>32</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>4</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>1</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>14</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>11</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>11</strong></div><p>基础设施的效率叙事持续升温</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>7</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>4</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>IT之家、量子位</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>4</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>3</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>IT之家、Solidot</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>云与大厂生态调整：微软亚太拆分，人才流向推理与Agent</h3><p>微软通过内部邮件宣布亚太区云业务一分为二，大中华区、东盟与印度市场由侯阳负责，日韩澳新由津坂美树掌管，此为亚太区总裁调任后的连锁调整。国内AI人才经历三波大迁徙，从预训练人才争夺转向推理、Agent等后训练人才，百度、六小虎、腾讯等成为主要人才流动节点。</p></article><article class="insight-card"><h3>国产AI芯片资本化提速：燧原科技科创板募资61.19亿元</h3><p>燧原科技公布科创板发行结果，发行价142.18元/股，募资总额61.19亿元，网上有效申购户数达703.20万，中签率0.0246%，市场认购火热。此举标志国产AI芯片龙头正式登陆资本市场，有望进一步推动算力自主可控进程。</p></article><article class="insight-card"><h3>具身智能与机器人商业化信号：宇树科技创始人谈爆发条件</h3><p>宇树科技创始人王兴兴在上市后首次公开演讲中提出，机器人真正爆发需等待两个&#x27;80%时刻&#x27;，并强调物理AI机器人的自进化路径，即利用基础大模型串联论文检索、代码生成、仿真训练等环节，降低人工依赖。另有合体机器人产品已销往全球50国。</p></article><article class="insight-card"><h3>大模型应用与智能体生态：GPT-6衍生模型与办公Agent报告发布</h3><p>GPT-6相关动态密集，包括用户用其生成3D内容、Sol内测速度提升6倍等。国内首份办公Agent用户行为报告显示北京用户量居首，海外用户占比超12%，反映智能体应用正从概念走向规模化落地。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>微软亚太云业务拆分将影响区域云市场竞争格局，大中华区与东南亚、印度市场的战略优先级可能调整，合作伙伴需关注侯阳领导下的新策略。</li><li>燧原科技上市募资61.19亿元，将增强国产AI芯片研发与产能扩张能力，可能加速替代进口芯片在云端推理场景的应用。</li><li>AI人才向推理与Agent方向迁移，预示企业招聘与培训重点将转向后训练技术，预训练人才需求可能相对降温。</li><li>GOSIM Shenzhen 2026大会汇聚英伟达、微软、HuggingFace等150+技术领袖，或催生新的开源协作与生态合作机会。</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>微软亚太区组织调整后，侯阳在大中华区、东盟与印度市场的具体战略动作及云业务营收变化。</li><li>燧原科技科创板上市后股价表现及募资投向，是否带动国产AI芯片板块整体估值提升。</li><li>宇树科技王兴兴提出的两个&#x27;80%时刻&#x27;具体指代，以及机器人自进化技术路线的实际进展。</li><li>GPT-6衍生模型（如Sol）的内测结果与正式发布计划，对AI应用生态的潜在影响。</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>14 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>DHH领衔，英伟达、微软、HuggingFace等150+全球技术大咖集结，GOSIM Shenzhen 2026全议程公布</h3><p>10 月 16–17 日，面向全球开发者的开源技术大会 GOSIM 将首次来到深圳，举办 GOSIM Shenzhen 2026。</p><a href="https://www.qbitai.com/2026/09/485154.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>高端智能手表怎么选，华为WATCH Ultimate 2 非凡探索雪域白、迪桑特联名款发布</h3><p>高端腕表市场正在悄然生变——越来越多消费者不再满足于单纯的机械美学，而是希望一枚手表，既能撑起商务通勤场合的高级质感，又能陪伴潜水、高尔夫、滑雪等专业运动场景。 这种“商务通勤与专业运动并重”的双重诉求， 让 主打全场景运动能力的华为WATCH Ultimate 2 非凡探索 系列 受到消费者追捧。 9月7日，这款“华为全能表王” 迎来 雪域白与迪桑特联名款两款全新配色， 同步升级六大滑雪模式、新增三大健康指标研究，为追求智慧生活方式的中产人群、鸿蒙智行车主等用户，提供了高端手表新选择。 新色亮相：雪域白纯净破冰，迪桑特联名诠释专业运动美学 延续 该系列 的 专业运动 主题设计基因，华为WATCH Ultimate 2 非凡探索 雪域白以冰雪运动为设计灵感，表壳采用非晶锆合金材质，配合八边镂空设计与纳米微晶陶瓷表圈，兼顾轻量化与防护性能；搭配浅灰色尼龙编织回环表带，透气舒适，从雪山到日常通勤均可从容切换。 迪桑特 × 华为WATCH Ultimate 2 非凡探索 联名款则聚焦专业运动 美学…</p><a href="https://www.leiphone.com/category/industrynews/j0Vn5Zjbs3tKiA2k.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家丨微软云亚太「一拆为二」，侯阳接掌东南亚、印度与大中华区</h3><p>雷峰网独家获悉，今天早上，微软通过内部邮件宣布了一项组织调整：微软亚太区业务（主要是云业务）“一分为二”，日本、韩国、澳大利亚与新西兰市场由微软日本负责人津坂美树负责，大中华区、东盟与印度市场由微软大中华区原一把手侯阳负责。 这次变动，是此前微软亚太区总裁 Rodrigo Kede Lima 调任后引发的连锁调整。 今年 7 月初，微软成立了新的内部事业部 Microsoft Frontier Company，专注把“前线部署工程师”（FDE）这套模式推向市场，将 AI 嵌进客户的核心业务流中。Rodrigo Kede Lima 随即调任该部门，其原职位出现空缺，进而促成了此次“一拆二”的重组。 雷峰网雷峰网 关于此次人事调整背后的博弈故事，可添加作者微信 xf123a 交流。 ▼ 推荐阅读 ▼ AI人才3次大迁徙：百度先行、六小虎分化、腾讯「腾笼换鸟」 2026-08-25 独家丨从飞书火山整合，看阿里「云钉一体」踩过的坑 2026-08-05</p><a href="https://www.leiphone.com/category/industrycloud/UUg7N19pHCCMjnMD.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>AI人才3次大迁徙：百度先行、六小虎分化、腾讯「腾笼换鸟」</h3><p>“大模型浪潮狂飙三年半，国内AI人才也经历了三波大迁移。”资深科技猎头赵捷告诉雷峰网。 前两年，大家抢的是预训练人才，先是百度文心团队被疯抢，然后是AI六小虎人才遭遇瓜分，紧接着又是阿里、DeepSeek、字节、腾讯之间的人才大混战。 而现在，大家又开始抢推理、Agent等后训练人才；最近一年不少预训练人才，如Qwen Code负责人惠彬原、混元大语言模型预训练负责人姚星丞、混元多模态理解预训练负责人彭厚文，字节Seed核心专家顾全全等陆续离职，要么创业，要么流向更纯粹的AI研究团队。 是什么促成了这一轮轮AI人才大迁徙？这背后又藏着哪些AI行业更深层的逻辑转变？ 01 打响第一枪后，百度文心“人才被疯抢” 要理解这波人才迁徙，得从百度说起。 “百度可以说是国内科技圈‘黄埔军校’。移动互联网时代的搜广推算法人才流出后，很多被字节吸纳；后来自动驾驶浪潮来了，百度又向行业输送了大量人才；到了这一轮大模型时代，最先大规模人才流出的还是百度。”专做AI算法类人才的猎头张尧表示。 2022年11月30日ChatGPT上线后，百度反应最快，2023年3月率先发布“文心一言”，打响了国内大模型第一枪。…</p><a href="https://www.leiphone.com/category/industrynews/IfTsnhdqbaxeTEu6.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>看见与被看见：AFAC2026总决赛的AI金融群像</h3><p>2026年的AFAC金融智能创新大赛总决赛路演于近日落下帷幕。从5027支队伍、近2万名选手中“杀出重围”的46支入围队中，最终有24支“挑战组”队伍的赛题解法脱颖而出，6支“初创组”队伍的创业项目获得了比赛奖项。 比赛虽然落幕，选手们技术和商业的历程才刚刚开始。AI比赛本质上是资本和产业筛选好的人才与项目、后者又向前者寻求资源支持的“双向奔赴”。作为AI金融领域中颇具影响力的比赛，已行至第四年的AFAC大赛目前采用解题的“挑战组”与展示创业项目的“初创组”双轨赛制，选手除了奖金之外，能够通过蚂蚁集团联合政府、创投、孵化器等机构搭建的生态圈，获得资本对接、媒体曝光等资源。 今年，大赛在组织结构、资本规模、海外联动和赋能周期上都有所升级。“对于创业者来说，最关键的就是‘被看见’。而被看见这件事情没有办法透过一个人或者一个单独的企业和机构完成，它需要有人提供场景、资本、空间和政策，融合在一起，才能把创业的概率从万一变成确定。”蚂蚁集团财富保险事业群项目管理总监、AFAC大赛执委会主席李晖在初创组路演上说。…</p><a href="https://www.leiphone.com/category/industrynews/zby4Nbb3zEvFldyT.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>俞敏洪：我这几年特别不安分，弄得名声比较大；传DeepSeek将采购16万颗华为AI芯片；特斯拉无人驾驶出租车，将24小时全天候运营丨雷峰早报</h3><p>要闻提示 1.特斯拉无人驾驶出租车，将24小时全天候运营 2.“打价格战没前途”！俞敏洪：我这几年特别不安分，弄得名声比较大 3.传DeepSeek将采购16万颗华为AI芯片 4.何庭波公开麒麟2026实测：密度暴涨55%，NPU功耗反降66% 5.雷军谈“增程汽车大有可为”：同行已不断证明，用户愿意为优秀增程车买单 6.阿里千问开源 Qwen-Drive-1.0-4B：首个面向自动驾驶的视觉语言基础模型 7.黑芝麻智能杨宇欣离职，小鹏“新兵”接棒 8.GPT-6 Astra登顶Code Arena，OpenAI被曝多次改动基准数据 今日头条 特斯拉无人驾驶出租车，将24小时全天候运营 9月6日消息，据外媒报道，特斯拉 AI 负责人阿肖克・埃卢斯瓦米日前表示，Robotaxi 全天候 24 小时服务即将落地。有网友在 X 平台留言，希望 Cybercab 可以提供夜间出行服务，他回复称，待 “v15 方案中下一阶段技术完成整合” 后，该功能大概下个月上线。 这条评论发布于 9 月 4 日，就在特斯拉在奥斯汀开放 Cybercab…</p><a href="https://www.leiphone.com/category/zaobao/Ah6u3x7hPpOKsqIc.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软 Xbox Series X 游戏机远程串流体验悄悄升级，支持 1440P 分辨率</h3><p>IT之家 9 月 8 日消息，微软 Xbox 系列游戏机的远程串流体验近期迎来悄无声息的升级。一名参与了 Xbox Alpha Ring Insider 测试计划的 Reddit 用户近期发文称， 他的 Xbox Series X 游戏机如今可以用 1440P 分辨率进行 Remote Play 远程串流 。 与此同时，许多参与了 Xbox Alpha Ring Insider 测试计划的用户也在同一时间发文称，他们的游戏机也能够以 1440P 分辨率串流。 据IT之家了解，微软的 Remote Play 功能可将玩家远程游玩自己的 Xbox 主机，支持各种手机、平板，以及 PC 等设备。 不过需要注意的是， 微软官方目前尚未正式宣布本次升级 ，也没有公布普通 Xbox 用户何时能使用 1440P 分辨率串流。</p><a href="https://www.ithome.com/0/999/740.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>百度小度智能摄像机 C1500 变焦三摄版发布，首发限时价 386 元</h3><p>IT之家 9 月 8 日消息，在今日的百度 AI 开放日“2026 小度新品发布会”上，小度智能摄像机 C1500 变焦三摄版发布， 首发限时价 386 元 。 这款摄像机定位 超能小度 × 看护智能体 ，主打双画面 10 倍变焦、自定义看护、大模型语音助手、AI 监控报告，实现全方位家庭智能看护。 它配备三个长短焦镜头，云台视角包含 8mm 长焦镜头与 4mm 短焦镜头，支持 10 倍光学混合变焦；底部固定视角为 2.8mm 短焦超广角镜头，实现看得既广又远。 小度智能摄像机 C1500 变焦三摄版支持 双画面智能联动 ，固定超广角拥有 130° 视场角，移动云台视角支持水平 360° 、垂直 102° ，实现 360° 全景看护，可同时查看两个不同区域画面。 产品搭载视觉大模型识别， 支持 AI 随心自定义看护 ，用户关心什么场景，摄像机就针对性进行提醒，比如孩子坐姿不正、离开座位、玩手机，宠物抓沙发、进食等场景都可以自定义设置，满足不同家庭看护需求。 针对宠物饲养家庭， 它支持 AI 宠物身份识别 ，可以区分每只宠物的身份，为不同宠物提供专属化看护，异常行为及时推送提醒。 它支持 AI 看护总结功能…</p><a href="https://www.ithome.com/0/999/739.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌为移动平台版本 Gmail / Google Docs / Keep 应用整合 Gemini 语音搜索能力，支持利用自然语言交互</h3><p>IT之家 9 月 8 日消息，谷歌宣布为移动平台版本 Gmail、Google Docs 和 Google Keep 应用整合 Gemini 语音搜索能力（Live 模式），用户在订阅 Google AI Plus / Pro / Ultra 会员后，即可利用自然语言进行对话式搜索，不过目前仅支持英语。 例如，用户可以在 Gmail 中直接询问“我的航班登机口是多少？”或者“孩子的学校这周有什么安排？”，应用会自动扫描收件箱中的相关信息，并快速给出答案。 而在 Google Docs 中，用户可以利用语音快速创建文档草稿，用户可以直接说出自己的想法，系统即可自动从用户邮箱 / 备忘录及互联网中提取相关信息，进而整合为结构清晰、内容更加完整的页面。 在 Google Keep 方面，用户可以快速使用语音记录备忘录，或为现有备忘录加上新内容，例如在制作购物清单时，用户直接说“把制作我著名的酿土豆所需的食材加入购物清单”，系统便能根据语音指令将酿土豆所需的食材加入购物清单内。</p><a href="https://www.ithome.com/0/999/733.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>芯片架构从平面变 3D，专家解读华为麒麟 9050 Pro 新突破</h3><p>IT之家 9 月 8 日消息，在昨天的 HarmonyOS 7 | HUAWEI Mate XT 2 及全场景新品发布会上，华为 Mate XT 2 非凡大师全新展翼三折叠手机正式发布，首发麒麟 9050 Pro 芯片、首搭硬件级防窥，19999 元起。 据央视财经今日报道，华为新一代三折叠手机 Mate XT 2 整机性能较上一代提升 42%。这是首款在新原则下采用逻辑折叠技术的芯片，也是华为在半导体领域的一次重要探索。 关于新芯片背后的指导原则和技术，以及具体落地后将带来怎样的产业影响。华为半导体首席科学家廖恒近期对外介绍，关键是在上下两层裸芯片之间形成了高密度的垂直互联。他以麒麟 2026 芯片为例， 两层裸芯片之间有约 5000 万个连接，其中约 500 万到 1000 万个被用于信号通信，远高于 3D 封装中两个裸芯片之间几万至几十万个连接的量级 。 相当于两座城市之间，从通常几万部电梯连接，变成了拥有 500 万到 1000 万部真正运送信息的电梯。 中国科学院院士、半导体物理专家褚君浩认为， 相关理论和技术为中国乃至全球集成电路产业发展打开了新思路…</p><a href="https://www.ithome.com/0/999/716.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>百度小度智能屏 X9 Ultra 发布：云台摄像头 AI 主动看护，首销限时价 629 元</h3><p>IT之家 9 月 8 日消息，在今日的百度 AI 开放日“2026 小度新品发布会”上， 小度智能屏 X9 Ultra 正式发布。 小度智能屏 X9 Ultra 支持 AI 主动看护， 顶部搭载 1/2.9 英寸 2MP 宽动态图像传感器 ，支持红外夜视，可主动感知视野外的动态，通过云台自动转向追踪拍摄，实现全天候看护。 小度智能屏 X9 Ultra 采用 8 英寸全贴合屏，搭载四核处理器、32GB 存储，支持 Wi-Fi 6 和蓝牙 5.4，可红外遥控家电。 IT之家从发布会获悉，小度智能屏 X9 Ultra 上市价 839 元，首销优惠券叠加国补到手价 699 元， 首发限时 629 元 ，今日起现货开售，首销送小度超级会员月卡。 京东 小度智能屏 X9 Ultra 629.1 元 直达链接</p><a href="https://www.ithome.com/0/999/707.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息人士透露 Anthropic 放弃收购 Decart，60 亿美元交易告吹</h3><p>IT之家 9 月 8 日消息，彭博社在美国当地时间昨日的报道中表示，Anthropic 已放弃收购人工智能实验室 Decart。 这笔被取消的交易价值本有望达到 60 亿美元 （IT之家注：现汇率约合 403.71 亿元人民币） 。 消息人士透露，Anthropic 此前已对 Decart 进行了尽职调查，但最终放弃了该收购。 两家公司或许仍会寻求其他合作机会 。 Decart 由三位以色列工程师于 2023 年创立，提供跨算力硬件类型的人工智能堆栈优化服务，同时也自主开发世界模型。该企业在今年 5 月完成了总额 3 亿美元 （现汇率约合 20.19 亿元人民币） 的 B 轮融资，吸引了亚马逊、英伟达、Adobe、丰田、eBay 等的投资。</p><a href="https://www.ithome.com/0/999/704.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>瑞士政府试点用开源软件取代 Microsoft 365</h3><p>瑞士联邦政府启动了一项试点项目，将 3000 名联邦雇员工作站上的 Microsoft 365 用开源办公软件替代，该项目计划在 2027 年底完成迁移。瑞士政府此前完成了名为 PoC BOSS 的可行性概念验证，有 172 名联邦雇员参与测试了德国开源协作平台 openDesk 套件，结果显示文档处理和电子邮件等核心办公任务表现良好，但大规模视频会议还存在技术局限性。如果最新的试点成功，那么瑞士政府所有 54,000 个工作站可能都将进行迁移。军方的网络安全部门则不继续进行测试直接迁移到 openDesk。此举旨在维持数据主权独立性，过度依赖微软的软件被广泛认为存在风险。</p><a href="https://www.solidot.org/story?sid=85304" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Chrome 的网站数据设置再次豁免了 Google 网站</h3><p>2020 年一位扩展开发者注意到，在 Chrome 的“Cookie 和网站数据”设置中，用户可以启用“关闭 Chrome 时删除 Cookie 与网站数据”。但在启用该选项之后，Google 旗下网站如搜索和 YouTube 的数据在关闭之后并没有删除。他对其进行了一番测试，在没有登陆 Chrome 或任何 Google 服务的情况下 YouTube 等 Google 服务的数据在浏览器关闭之后仍然保留了，也就是说 Google 旗下网站默认豁免于用户设置。Google 此举引发了广泛关注，它后来修复了这一 bug。然而六年后同样的“bug”再次出现了，调查显示，www.google.com 是 Chrome 唯一豁免的网站。</p><a href="https://www.solidot.org/story?sid=85303" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>11 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>感谢用GPT-6搓3D的！燃烧自己的token换来一次全体重置</h3><a href="https://www.qbitai.com/2026/09/485854.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>GPT-6不只Astra！Sol内测结果曝光，速度快6倍</h3><a href="https://www.qbitai.com/2026/09/485431.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>菲尔兹奖得主入局大模型！4B手机Qwen+云端GLM刷爆ARC-AGI 3</h3><a href="https://www.qbitai.com/2026/09/485108.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>国内首份办公Agent用户行为报告发布：北京用户量全国居首，海外用户占比超12%</h3><a href="https://www.qbitai.com/2026/09/485064.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>AI人才3次大迁徙：百度先行、六小虎分化、腾讯「腾笼换鸟」</h3><p>“大模型浪潮狂飙三年半，国内AI人才也经历了三波大迁移。”资深科技猎头赵捷告诉雷峰网。 前两年，大家抢的是预训练人才，先是百度文心团队被疯抢，然后是AI六小虎人才遭遇瓜分，紧接着又是阿里、DeepSeek、字节、腾讯之间的人才大混战。 而现在，大家又开始抢推理、Agent等后训练人才；最近一年不少预训练人才，如Qwen Code负责人惠彬原、混元大语言模型预训练负责人姚星丞、混元多模态理解预训练负责人彭厚文，字节Seed核心专家顾全全等陆续离职，要么创业，要么流向更纯粹的AI研究团队。 是什么促成了这一轮轮AI人才大迁徙？这背后又藏着哪些AI行业更深层的逻辑转变？ 01 打响第一枪后，百度文心“人才被疯抢” 要理解这波人才迁徙，得从百度说起。 “百度可以说是国内科技圈‘黄埔军校’。移动互联网时代的搜广推算法人才流出后，很多被字节吸纳；后来自动驾驶浪潮来了，百度又向行业输送了大量人才；到了这一轮大模型时代，最先大规模人才流出的还是百度。”专做AI算法类人才的猎头张尧表示。 2022年11月30日ChatGPT上线后，百度反应最快，2023年3月率先发布“文心一言”，打响了国内大模型第一枪。…</p><a href="https://www.leiphone.com/category/industrynews/IfTsnhdqbaxeTEu6.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>王兴兴上市后首次公开演讲：机器人真正爆发要等两个「80%时刻」丨WRC 2026</h3><p>8月19日，宇树科技正式登陆科创板。上市后的答谢午宴上，宇树科技创始人王兴兴首次提出“物理AI机器人的自进化”，希望利用基础大模型，将论文检索、代码生成、仿真训练、真机测试和评价反馈串成闭环，让机器人研发逐步从高度依赖人工转向持续自我迭代。 一天后的2026世界机器人大会主论坛上，王兴兴再次谈到了这一方向。相比说明机器人跑得多快、跳得多高，他把更多时间留给了一个没那么“炫技”、却更决定具身智能产业胜似的问题——机器人什么时候才能真正走进工厂和家庭？ 在王兴兴看来，答案的关键已经不是本体能否完成一个动作，而是“换一个房间、物体、任务之后，它还能不能完成”的泛化能力。 基于此，他不仅给出了具身智能行业大爆发的量化临界点，即两个80%（在80%的陌生场景中，通过语音或文字指令，机器人能够顺利完成约80%任务），更给出了一个明确的路径：物理AI机器人的自进化——与其让人类工程师微调机器人的“最后一厘米”，不如把研发、仿真、测试的闭环交给AI。 以下为王兴兴在WRC 2026上的演讲精编，雷峰网在不改变原意的基础上进行编辑和整理。 01 泛化能力：真正的关键点…</p><a href="https://www.leiphone.com/category/robot/qtdF8IhMqe2oNmH0.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>俞敏洪：我这几年特别不安分，弄得名声比较大；传DeepSeek将采购16万颗华为AI芯片；特斯拉无人驾驶出租车，将24小时全天候运营丨雷峰早报</h3><p>要闻提示 1.特斯拉无人驾驶出租车，将24小时全天候运营 2.“打价格战没前途”！俞敏洪：我这几年特别不安分，弄得名声比较大 3.传DeepSeek将采购16万颗华为AI芯片 4.何庭波公开麒麟2026实测：密度暴涨55%，NPU功耗反降66% 5.雷军谈“增程汽车大有可为”：同行已不断证明，用户愿意为优秀增程车买单 6.阿里千问开源 Qwen-Drive-1.0-4B：首个面向自动驾驶的视觉语言基础模型 7.黑芝麻智能杨宇欣离职，小鹏“新兵”接棒 8.GPT-6 Astra登顶Code Arena，OpenAI被曝多次改动基准数据 今日头条 特斯拉无人驾驶出租车，将24小时全天候运营 9月6日消息，据外媒报道，特斯拉 AI 负责人阿肖克・埃卢斯瓦米日前表示，Robotaxi 全天候 24 小时服务即将落地。有网友在 X 平台留言，希望 Cybercab 可以提供夜间出行服务，他回复称，待 “v15 方案中下一阶段技术完成整合” 后，该功能大概下个月上线。 这条评论发布于 9 月 4 日，就在特斯拉在奥斯汀开放 Cybercab…</p><a href="https://www.leiphone.com/category/zaobao/Ah6u3x7hPpOKsqIc.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>百度小度智能摄像机 C1500 变焦三摄版发布，首发限时价 386 元</h3><p>IT之家 9 月 8 日消息，在今日的百度 AI 开放日“2026 小度新品发布会”上，小度智能摄像机 C1500 变焦三摄版发布， 首发限时价 386 元 。 这款摄像机定位 超能小度 × 看护智能体 ，主打双画面 10 倍变焦、自定义看护、大模型语音助手、AI 监控报告，实现全方位家庭智能看护。 它配备三个长短焦镜头，云台视角包含 8mm 长焦镜头与 4mm 短焦镜头，支持 10 倍光学混合变焦；底部固定视角为 2.8mm 短焦超广角镜头，实现看得既广又远。 小度智能摄像机 C1500 变焦三摄版支持 双画面智能联动 ，固定超广角拥有 130° 视场角，移动云台视角支持水平 360° 、垂直 102° ，实现 360° 全景看护，可同时查看两个不同区域画面。 产品搭载视觉大模型识别， 支持 AI 随心自定义看护 ，用户关心什么场景，摄像机就针对性进行提醒，比如孩子坐姿不正、离开座位、玩手机，宠物抓沙发、进食等场景都可以自定义设置，满足不同家庭看护需求。 针对宠物饲养家庭， 它支持 AI 宠物身份识别 ，可以区分每只宠物的身份，为不同宠物提供专属化看护，异常行为及时推送提醒。 它支持 AI 看护总结功能…</p><a href="https://www.ithome.com/0/999/739.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌为移动平台版本 Gmail / Google Docs / Keep 应用整合 Gemini 语音搜索能力，支持利用自然语言交互</h3><p>IT之家 9 月 8 日消息，谷歌宣布为移动平台版本 Gmail、Google Docs 和 Google Keep 应用整合 Gemini 语音搜索能力（Live 模式），用户在订阅 Google AI Plus / Pro / Ultra 会员后，即可利用自然语言进行对话式搜索，不过目前仅支持英语。 例如，用户可以在 Gmail 中直接询问“我的航班登机口是多少？”或者“孩子的学校这周有什么安排？”，应用会自动扫描收件箱中的相关信息，并快速给出答案。 而在 Google Docs 中，用户可以利用语音快速创建文档草稿，用户可以直接说出自己的想法，系统即可自动从用户邮箱 / 备忘录及互联网中提取相关信息，进而整合为结构清晰、内容更加完整的页面。 在 Google Keep 方面，用户可以快速使用语音记录备忘录，或为现有备忘录加上新内容，例如在制作购物清单时，用户直接说“把制作我著名的酿土豆所需的食材加入购物清单”，系统便能根据语音指令将酿土豆所需的食材加入购物清单内。</p><a href="https://www.ithome.com/0/999/733.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>豆包成为湖北省博物馆“官方 AI 讲解员”，支持 12 种方言解说</h3><p>IT之家 9 月 8 日消息，据“豆包”公众号，豆包现有成为湖北省博物馆“官方 AI 讲解员”，为近期特展“克里姆林宫的瑰宝”担任解说，提供“从彼得一世到叶卡捷琳娜二世”的个性化 AI 讲解服务。 豆包“博物馆讲解”模式同步升级，支持 12 种方言解说，包括粤语、闽南语、上海话、客家话、武汉话、天津话、陕西话、四川话、河南话、济南话、东北话、北京话。 官方表示，在湖北省博物馆，本地游客可打开 &quot; 博物馆讲解 &quot; 按钮，用武汉话向豆包提问并要求用武汉话讲解，豆包即可采用方言交流。</p><a href="https://www.ithome.com/0/999/719.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息人士透露 Anthropic 放弃收购 Decart，60 亿美元交易告吹</h3><p>IT之家 9 月 8 日消息，彭博社在美国当地时间昨日的报道中表示，Anthropic 已放弃收购人工智能实验室 Decart。 这笔被取消的交易价值本有望达到 60 亿美元 （IT之家注：现汇率约合 403.71 亿元人民币） 。 消息人士透露，Anthropic 此前已对 Decart 进行了尽职调查，但最终放弃了该收购。 两家公司或许仍会寻求其他合作机会 。 Decart 由三位以色列工程师于 2023 年创立，提供跨算力硬件类型的人工智能堆栈优化服务，同时也自主开发世界模型。该企业在今年 5 月完成了总额 3 亿美元 （现汇率约合 20.19 亿元人民币） 的 B 轮融资，吸引了亚马逊、英伟达、Adobe、丰田、eBay 等的投资。</p><a href="https://www.ithome.com/0/999/704.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>11 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>深度智控获宁德时代、沙特阿美战投等重磅加码，加速打造物理AI时代算力与能源底座</h3><a href="https://www.qbitai.com/2026/09/485784.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>DHH领衔，英伟达、微软、HuggingFace等150+全球技术大咖集结，GOSIM Shenzhen 2026全议程公布</h3><p>10 月 16–17 日，面向全球开发者的开源技术大会 GOSIM 将首次来到深圳，举办 GOSIM Shenzhen 2026。</p><a href="https://www.qbitai.com/2026/09/485154.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>燧原科技发行结果出炉！募资61.19亿元，国产AI芯片龙头即将登陆科创板</h3><p>9月7日晚间，燧原科技（688801.SH）正式公布发行结果。本次发行价格为142.18元/股，发行数量为4303.5173万股，募集资金总额为61.19亿元。网上投资者认购数量为1031.1626万股，网下投资者认购数量为2409.9639万股。此前，燧原科技网上发行有效申购户数达703.20万户，最终中签率为0.02455315%，市场认购火热。 燧原科技长期专注于云端AI芯片及相关产品研发，经过多年技术积累和产品迭代，已形成覆盖AI芯片、AI加速卡及模组、智算系统及集群以及AI计算与编程软件平台的完整产品体系。目前，公司已自主研发迭代四代架构、五款云端AI芯片，并围绕芯片、硬件、软件及系统持续构建全栈技术能力。 技术研发是燧原科技持续成长的重要支撑。公司采用自主可控的DSA架构，围绕GCU-CARE计算加速单元、GCU-LARE芯片互联等核心技术持续迭代，并打造了包括驱动程序、编译语言与编译器、算子库、工具链的全栈AI计算及编程软件平台“驭算TopsRider”。截至2025年末，公司研发人员占比达到76.73%。2023年至2025年，累计研发投入达到36.76亿元。…</p><a href="https://www.leiphone.com/category/chips/tt18KRcmh53DjhLO.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>AI人才3次大迁徙：百度先行、六小虎分化、腾讯「腾笼换鸟」</h3><p>“大模型浪潮狂飙三年半，国内AI人才也经历了三波大迁移。”资深科技猎头赵捷告诉雷峰网。 前两年，大家抢的是预训练人才，先是百度文心团队被疯抢，然后是AI六小虎人才遭遇瓜分，紧接着又是阿里、DeepSeek、字节、腾讯之间的人才大混战。 而现在，大家又开始抢推理、Agent等后训练人才；最近一年不少预训练人才，如Qwen Code负责人惠彬原、混元大语言模型预训练负责人姚星丞、混元多模态理解预训练负责人彭厚文，字节Seed核心专家顾全全等陆续离职，要么创业，要么流向更纯粹的AI研究团队。 是什么促成了这一轮轮AI人才大迁徙？这背后又藏着哪些AI行业更深层的逻辑转变？ 01 打响第一枪后，百度文心“人才被疯抢” 要理解这波人才迁徙，得从百度说起。 “百度可以说是国内科技圈‘黄埔军校’。移动互联网时代的搜广推算法人才流出后，很多被字节吸纳；后来自动驾驶浪潮来了，百度又向行业输送了大量人才；到了这一轮大模型时代，最先大规模人才流出的还是百度。”专做AI算法类人才的猎头张尧表示。 2022年11月30日ChatGPT上线后，百度反应最快，2023年3月率先发布“文心一言”，打响了国内大模型第一枪。…</p><a href="https://www.leiphone.com/category/industrynews/IfTsnhdqbaxeTEu6.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>芯思杰400Gbps PIN PD支撑全球AI算力光互联向3.2T光收发模块迭代</h3><p>深圳，2026 年 9 月 6 日（今日消息） —— 第 27 届中国国际光电博览会（CIOE） 将于下周（9 月 9 - 11 日） 在深圳国际会展中心拉开帷幕。全球领先的光电探测器芯片企业芯思杰（PHOGRAIN）将亮相 11 号馆 11B33 展位，现场将正式发布400Gbps背照式PIN型光电探测器（PIN PD）芯片。在AI算力驱动光收发模块加速向1.6T、3.2T速率迭代的行业关口，这款兼具性能突破与工艺创新的高端芯片，不仅为下一代高速光收发模块提供了核心接收端支撑，也进一步拓展了芯思杰参与全球前沿光芯片布局的技术版图。把握全球算力基础设施持续升级的产业机遇，芯思杰正加速融入全球光互联产业链。 此前在2026年美国光通讯展览会（OFC）上，芯思杰已向行业首次展示400Gbps PIN PD芯片；本次CIOE展会，该产品以完整样品形态正式面向全球客户发布。从技术展示走向产品发布，从前沿研发走向客户验证与应用导入，芯思杰正依托持续的自主研发、IDM全链能力与全球化布局，与产业链上下游伙伴共同推进400Gbps PIN PD的技术迭代、产品验证及规模化应用，持续深化在下一代光互联产业生态中的协同与连接。…</p><a href="https://www.leiphone.com/category/industrynews/uTYlVwazKU12Bj95.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>俞敏洪：我这几年特别不安分，弄得名声比较大；传DeepSeek将采购16万颗华为AI芯片；特斯拉无人驾驶出租车，将24小时全天候运营丨雷峰早报</h3><p>要闻提示 1.特斯拉无人驾驶出租车，将24小时全天候运营 2.“打价格战没前途”！俞敏洪：我这几年特别不安分，弄得名声比较大 3.传DeepSeek将采购16万颗华为AI芯片 4.何庭波公开麒麟2026实测：密度暴涨55%，NPU功耗反降66% 5.雷军谈“增程汽车大有可为”：同行已不断证明，用户愿意为优秀增程车买单 6.阿里千问开源 Qwen-Drive-1.0-4B：首个面向自动驾驶的视觉语言基础模型 7.黑芝麻智能杨宇欣离职，小鹏“新兵”接棒 8.GPT-6 Astra登顶Code Arena，OpenAI被曝多次改动基准数据 今日头条 特斯拉无人驾驶出租车，将24小时全天候运营 9月6日消息，据外媒报道，特斯拉 AI 负责人阿肖克・埃卢斯瓦米日前表示，Robotaxi 全天候 24 小时服务即将落地。有网友在 X 平台留言，希望 Cybercab 可以提供夜间出行服务，他回复称，待 “v15 方案中下一阶段技术完成整合” 后，该功能大概下个月上线。 这条评论发布于 9 月 4 日，就在特斯拉在奥斯汀开放 Cybercab…</p><a href="https://www.leiphone.com/category/zaobao/Ah6u3x7hPpOKsqIc.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>2027 上海车展定档明年 4 月 23 日-5 月 2 日，将推出具身智能展区</h3><p>IT之家 9 月 8 日消息，在今天（8 日）召开的第 22 届上海国际汽车工业展览会上，组委会宣布，2027 上海车展将于 2027 年 4 月 23 日至 5 月 2 日 在国家会展中心（上海）举办，整体展出规模预计达 40 万平方米，持续打造全球顶级汽车行业交流展示平台。 2027 上海车展将确立“共建生态，智领未来”的主题，聚焦 智能新赛道、技术新创新、产业新生态 ，升级展会运营模式，创新打造场景化、互动式首发首展形态，打破传统的单次展品发布模式。同时，2027 上海车展将探索性地布局多个前沿赛道，推出 具身智能展区 ，打造物理 AI、高端芯片等前沿技术落地应用场景，以此丰富智能汽车的产品定义、技术架构和产业格局，着力推动世界汽车工业从“传统制造”向“高级智造”的跃升。 按照以往惯例，上海车展通常在 单数年 4 月 举办，双数年 4 月则是留给北京车展。 今年 6 月，北京车展官网却放出了 2027 年办展信息，将于 2027 年 3 月 27 日至 4 月 5 日在北京中国国际展览中心（顺义馆）和首都国际会展中心（新国展二期）举行，与 2027 上海车展仅隔约半月，引发业界质疑。…</p><a href="https://www.ithome.com/0/999/737.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>芯片架构从平面变 3D，专家解读华为麒麟 9050 Pro 新突破</h3><p>IT之家 9 月 8 日消息，在昨天的 HarmonyOS 7 | HUAWEI Mate XT 2 及全场景新品发布会上，华为 Mate XT 2 非凡大师全新展翼三折叠手机正式发布，首发麒麟 9050 Pro 芯片、首搭硬件级防窥，19999 元起。 据央视财经今日报道，华为新一代三折叠手机 Mate XT 2 整机性能较上一代提升 42%。这是首款在新原则下采用逻辑折叠技术的芯片，也是华为在半导体领域的一次重要探索。 关于新芯片背后的指导原则和技术，以及具体落地后将带来怎样的产业影响。华为半导体首席科学家廖恒近期对外介绍，关键是在上下两层裸芯片之间形成了高密度的垂直互联。他以麒麟 2026 芯片为例， 两层裸芯片之间有约 5000 万个连接，其中约 500 万到 1000 万个被用于信号通信，远高于 3D 封装中两个裸芯片之间几万至几十万个连接的量级 。 相当于两座城市之间，从通常几万部电梯连接，变成了拥有 500 万到 1000 万部真正运送信息的电梯。 中国科学院院士、半导体物理专家褚君浩认为， 相关理论和技术为中国乃至全球集成电路产业发展打开了新思路…</p><a href="https://www.ithome.com/0/999/716.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>Arm CEO 哈斯：AI 将帮助人类攻克癌症，但算力供应是瓶颈</h3><p>IT之家 9 月 8 日消息，Arm 首席执行官表示，人工智能或许能够帮助人类在我们这一代人的有生之年攻克癌症。不过，在实现这一目标之前，整个行业首先需要解决一个现实问题：生产出足够多的芯片，为 AI 提供所需的算力。 “我一直认为，AI 真正具有颠覆性的应用领域就是医疗健康。”Arm CEO 雷内 · 哈斯（Rene Haas）在当地时间周二公布的一段接受 BBC 采访的视频中表示，“AI 不仅能够缩短药物研发所需的时间，还能缩短药物测试所需的时间。” 哈斯自 2013 年加入这家英国芯片设计公司，并于 2022 年 2 月出任 Arm CEO。在加入 Arm 之前，他曾在英伟达工作 7 年，担任计算产品业务副总裁。 在采访中，哈斯表示，AI 有可能解决一些仅凭人类自身难以攻克的问题。他说：“我相信，在我们有生之年，AI 将帮助人类攻克癌症。” 不过，哈斯指出，要实现这一目标，需要海量计算能力。目前，癌症研究以及人形机器人研发所需的芯片，正在被计划建设数吉瓦级数据中心的 AI 公司大量消耗。…</p><a href="https://www.ithome.com/0/999/715.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息人士透露 Anthropic 放弃收购 Decart，60 亿美元交易告吹</h3><p>IT之家 9 月 8 日消息，彭博社在美国当地时间昨日的报道中表示，Anthropic 已放弃收购人工智能实验室 Decart。 这笔被取消的交易价值本有望达到 60 亿美元 （IT之家注：现汇率约合 403.71 亿元人民币） 。 消息人士透露，Anthropic 此前已对 Decart 进行了尽职调查，但最终放弃了该收购。 两家公司或许仍会寻求其他合作机会 。 Decart 由三位以色列工程师于 2023 年创立，提供跨算力硬件类型的人工智能堆栈优化服务，同时也自主开发世界模型。该企业在今年 5 月完成了总额 3 亿美元 （现汇率约合 20.19 亿元人民币） 的 B 轮融资，吸引了亚马逊、英伟达、Adobe、丰田、eBay 等的投资。</p><a href="https://www.ithome.com/0/999/704.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>三星 Galaxy A08 渲染图曝光：联发科 Helio G99 芯片、6000mAh 电池</h3><p>IT之家 9 月 8 日消息，消息源 The Cipher Project 昨日（9 月 7 日）在 Telegram 频道爆料，分享了三星 Galaxy A08 手机的渲染图， 并称外观沿用 Galaxy A07 设计，屏幕周围边框较厚，屏幕采用水滴屏设计。 IT之家此前报道，三星 Galaxy A08 4G 型号为 SM-A085F，将会搭载联发科 Helio G99 芯片，ARM Mali G57 GPU，配备 8GB 运行内存。 发布日期方面，三星有望 2026 年 10 月发布 4G 网络版三星 Galaxy A08 手机，明年 2 月发布 5G 版，其中两个版本都可能配备 6000mAh 容量电池。 延伸阅读 作为三星 A0 系列入门机型，前代 Galaxy A07 4G 于 2025 年 8 月 25 日发布，采用 6.7 英寸 720×1600 分辨率屏幕、5000mAh 电池、50MP 主摄，支持最高 25W 充电，出厂预装 Android 15 系统，官方承诺提供 6 次操作系统升级和 6 年安全更新。 Galaxy A07 5G 则于 2026 年 2 月起在部分市场开售，配备 6000mAh…</p><a href="https://www.ithome.com/0/999/684.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>7 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>3秒变身！会合体的机器人，卖到全球50国</h3><a href="https://www.qbitai.com/2026/09/485525.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>AI人才3次大迁徙：百度先行、六小虎分化、腾讯「腾笼换鸟」</h3><p>“大模型浪潮狂飙三年半，国内AI人才也经历了三波大迁移。”资深科技猎头赵捷告诉雷峰网。 前两年，大家抢的是预训练人才，先是百度文心团队被疯抢，然后是AI六小虎人才遭遇瓜分，紧接着又是阿里、DeepSeek、字节、腾讯之间的人才大混战。 而现在，大家又开始抢推理、Agent等后训练人才；最近一年不少预训练人才，如Qwen Code负责人惠彬原、混元大语言模型预训练负责人姚星丞、混元多模态理解预训练负责人彭厚文，字节Seed核心专家顾全全等陆续离职，要么创业，要么流向更纯粹的AI研究团队。 是什么促成了这一轮轮AI人才大迁徙？这背后又藏着哪些AI行业更深层的逻辑转变？ 01 打响第一枪后，百度文心“人才被疯抢” 要理解这波人才迁徙，得从百度说起。 “百度可以说是国内科技圈‘黄埔军校’。移动互联网时代的搜广推算法人才流出后，很多被字节吸纳；后来自动驾驶浪潮来了，百度又向行业输送了大量人才；到了这一轮大模型时代，最先大规模人才流出的还是百度。”专做AI算法类人才的猎头张尧表示。 2022年11月30日ChatGPT上线后，百度反应最快，2023年3月率先发布“文心一言”，打响了国内大模型第一枪。…</p><a href="https://www.leiphone.com/category/industrynews/IfTsnhdqbaxeTEu6.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>王兴兴上市后首次公开演讲：机器人真正爆发要等两个「80%时刻」丨WRC 2026</h3><p>8月19日，宇树科技正式登陆科创板。上市后的答谢午宴上，宇树科技创始人王兴兴首次提出“物理AI机器人的自进化”，希望利用基础大模型，将论文检索、代码生成、仿真训练、真机测试和评价反馈串成闭环，让机器人研发逐步从高度依赖人工转向持续自我迭代。 一天后的2026世界机器人大会主论坛上，王兴兴再次谈到了这一方向。相比说明机器人跑得多快、跳得多高，他把更多时间留给了一个没那么“炫技”、却更决定具身智能产业胜似的问题——机器人什么时候才能真正走进工厂和家庭？ 在王兴兴看来，答案的关键已经不是本体能否完成一个动作，而是“换一个房间、物体、任务之后，它还能不能完成”的泛化能力。 基于此，他不仅给出了具身智能行业大爆发的量化临界点，即两个80%（在80%的陌生场景中，通过语音或文字指令，机器人能够顺利完成约80%任务），更给出了一个明确的路径：物理AI机器人的自进化——与其让人类工程师微调机器人的“最后一厘米”，不如把研发、仿真、测试的闭环交给AI。 以下为王兴兴在WRC 2026上的演讲精编，雷峰网在不改变原意的基础上进行编辑和整理。 01 泛化能力：真正的关键点…</p><a href="https://www.leiphone.com/category/robot/qtdF8IhMqe2oNmH0.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>俞敏洪：我这几年特别不安分，弄得名声比较大；传DeepSeek将采购16万颗华为AI芯片；特斯拉无人驾驶出租车，将24小时全天候运营丨雷峰早报</h3><p>要闻提示 1.特斯拉无人驾驶出租车，将24小时全天候运营 2.“打价格战没前途”！俞敏洪：我这几年特别不安分，弄得名声比较大 3.传DeepSeek将采购16万颗华为AI芯片 4.何庭波公开麒麟2026实测：密度暴涨55%，NPU功耗反降66% 5.雷军谈“增程汽车大有可为”：同行已不断证明，用户愿意为优秀增程车买单 6.阿里千问开源 Qwen-Drive-1.0-4B：首个面向自动驾驶的视觉语言基础模型 7.黑芝麻智能杨宇欣离职，小鹏“新兵”接棒 8.GPT-6 Astra登顶Code Arena，OpenAI被曝多次改动基准数据 今日头条 特斯拉无人驾驶出租车，将24小时全天候运营 9月6日消息，据外媒报道，特斯拉 AI 负责人阿肖克・埃卢斯瓦米日前表示，Robotaxi 全天候 24 小时服务即将落地。有网友在 X 平台留言，希望 Cybercab 可以提供夜间出行服务，他回复称，待 “v15 方案中下一阶段技术完成整合” 后，该功能大概下个月上线。 这条评论发布于 9 月 4 日，就在特斯拉在奥斯汀开放 Cybercab…</p><a href="https://www.leiphone.com/category/zaobao/Ah6u3x7hPpOKsqIc.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>2027 上海车展定档明年 4 月 23 日-5 月 2 日，将推出具身智能展区</h3><p>IT之家 9 月 8 日消息，在今天（8 日）召开的第 22 届上海国际汽车工业展览会上，组委会宣布，2027 上海车展将于 2027 年 4 月 23 日至 5 月 2 日 在国家会展中心（上海）举办，整体展出规模预计达 40 万平方米，持续打造全球顶级汽车行业交流展示平台。 2027 上海车展将确立“共建生态，智领未来”的主题，聚焦 智能新赛道、技术新创新、产业新生态 ，升级展会运营模式，创新打造场景化、互动式首发首展形态，打破传统的单次展品发布模式。同时，2027 上海车展将探索性地布局多个前沿赛道，推出 具身智能展区 ，打造物理 AI、高端芯片等前沿技术落地应用场景，以此丰富智能汽车的产品定义、技术架构和产业格局，着力推动世界汽车工业从“传统制造”向“高级智造”的跃升。 按照以往惯例，上海车展通常在 单数年 4 月 举办，双数年 4 月则是留给北京车展。 今年 6 月，北京车展官网却放出了 2027 年办展信息，将于 2027 年 3 月 27 日至 4 月 5 日在北京中国国际展览中心（顺义馆）和首都国际会展中心（新国展二期）举行，与 2027 上海车展仅隔约半月，引发业界质疑。…</p><a href="https://www.ithome.com/0/999/737.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>Arm CEO 哈斯：AI 将帮助人类攻克癌症，但算力供应是瓶颈</h3><p>IT之家 9 月 8 日消息，Arm 首席执行官表示，人工智能或许能够帮助人类在我们这一代人的有生之年攻克癌症。不过，在实现这一目标之前，整个行业首先需要解决一个现实问题：生产出足够多的芯片，为 AI 提供所需的算力。 “我一直认为，AI 真正具有颠覆性的应用领域就是医疗健康。”Arm CEO 雷内 · 哈斯（Rene Haas）在当地时间周二公布的一段接受 BBC 采访的视频中表示，“AI 不仅能够缩短药物研发所需的时间，还能缩短药物测试所需的时间。” 哈斯自 2013 年加入这家英国芯片设计公司，并于 2022 年 2 月出任 Arm CEO。在加入 Arm 之前，他曾在英伟达工作 7 年，担任计算产品业务副总裁。 在采访中，哈斯表示，AI 有可能解决一些仅凭人类自身难以攻克的问题。他说：“我相信，在我们有生之年，AI 将帮助人类攻克癌症。” 不过，哈斯指出，要实现这一目标，需要海量计算能力。目前，癌症研究以及人形机器人研发所需的芯片，正在被计划建设数吉瓦级数据中心的 AI 公司大量消耗。…</p><a href="https://www.ithome.com/0/999/715.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息人士透露 Anthropic 放弃收购 Decart，60 亿美元交易告吹</h3><p>IT之家 9 月 8 日消息，彭博社在美国当地时间昨日的报道中表示，Anthropic 已放弃收购人工智能实验室 Decart。 这笔被取消的交易价值本有望达到 60 亿美元 （IT之家注：现汇率约合 403.71 亿元人民币） 。 消息人士透露，Anthropic 此前已对 Decart 进行了尽职调查，但最终放弃了该收购。 两家公司或许仍会寻求其他合作机会 。 Decart 由三位以色列工程师于 2023 年创立，提供跨算力硬件类型的人工智能堆栈优化服务，同时也自主开发世界模型。该企业在今年 5 月完成了总额 3 亿美元 （现汇率约合 20.19 亿元人民币） 的 B 轮融资，吸引了亚马逊、英伟达、Adobe、丰田、eBay 等的投资。</p><a href="https://www.ithome.com/0/999/704.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>4 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>现场围观金融AI决赛，大厂挑人的逻辑我悟了</h3><a href="https://www.qbitai.com/2026/09/485794.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>深入马来西亚AI现场！WAIC CONNECT MALAYSIA首日亮点全速递</h3><a href="https://www.qbitai.com/2026/09/485630.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>王云鹤创业后交出首个模型</h3><a href="https://www.qbitai.com/2026/09/485555.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>联想来酷斗战者预热 AI 私有云主机，搭载第三代英特尔酷睿 Ultra 处理器</h3><p>IT之家 9 月 8 日消息，联想 (Lenovo) 来酷 (Lecoo) 斗战者 (BELLATOR) 今日宣布将推出斗战者 AI 私有云主机。 IT之家获悉，这款设备 基于第三代英特尔酷睿 Ultra 处理器 &quot;Panther Lake&quot; ，至高板载集成 64GB LPDDR5 (X) 内存，提供双 USB-C、双 2.5GbE RJ-45、HDMI、DisplayPort 在内的一系列 I/O 端口。</p><a href="https://www.ithome.com/0/999/724.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>4 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>DHH领衔，英伟达、微软、HuggingFace等150+全球技术大咖集结，GOSIM Shenzhen 2026全议程公布</h3><p>10 月 16–17 日，面向全球开发者的开源技术大会 GOSIM 将首次来到深圳，举办 GOSIM Shenzhen 2026。</p><a href="https://www.qbitai.com/2026/09/485154.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>燧原科技发行结果出炉！募资61.19亿元，国产AI芯片龙头即将登陆科创板</h3><p>9月7日晚间，燧原科技（688801.SH）正式公布发行结果。本次发行价格为142.18元/股，发行数量为4303.5173万股，募集资金总额为61.19亿元。网上投资者认购数量为1031.1626万股，网下投资者认购数量为2409.9639万股。此前，燧原科技网上发行有效申购户数达703.20万户，最终中签率为0.02455315%，市场认购火热。 燧原科技长期专注于云端AI芯片及相关产品研发，经过多年技术积累和产品迭代，已形成覆盖AI芯片、AI加速卡及模组、智算系统及集群以及AI计算与编程软件平台的完整产品体系。目前，公司已自主研发迭代四代架构、五款云端AI芯片，并围绕芯片、硬件、软件及系统持续构建全栈技术能力。 技术研发是燧原科技持续成长的重要支撑。公司采用自主可控的DSA架构，围绕GCU-CARE计算加速单元、GCU-LARE芯片互联等核心技术持续迭代，并打造了包括驱动程序、编译语言与编译器、算子库、工具链的全栈AI计算及编程软件平台“驭算TopsRider”。截至2025年末，公司研发人员占比达到76.73%。2023年至2025年，累计研发投入达到36.76亿元。…</p><a href="https://www.leiphone.com/category/chips/tt18KRcmh53DjhLO.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>王兴兴上市后首次公开演讲：机器人真正爆发要等两个「80%时刻」丨WRC 2026</h3><p>8月19日，宇树科技正式登陆科创板。上市后的答谢午宴上，宇树科技创始人王兴兴首次提出“物理AI机器人的自进化”，希望利用基础大模型，将论文检索、代码生成、仿真训练、真机测试和评价反馈串成闭环，让机器人研发逐步从高度依赖人工转向持续自我迭代。 一天后的2026世界机器人大会主论坛上，王兴兴再次谈到了这一方向。相比说明机器人跑得多快、跳得多高，他把更多时间留给了一个没那么“炫技”、却更决定具身智能产业胜似的问题——机器人什么时候才能真正走进工厂和家庭？ 在王兴兴看来，答案的关键已经不是本体能否完成一个动作，而是“换一个房间、物体、任务之后，它还能不能完成”的泛化能力。 基于此，他不仅给出了具身智能行业大爆发的量化临界点，即两个80%（在80%的陌生场景中，通过语音或文字指令，机器人能够顺利完成约80%任务），更给出了一个明确的路径：物理AI机器人的自进化——与其让人类工程师微调机器人的“最后一厘米”，不如把研发、仿真、测试的闭环交给AI。 以下为王兴兴在WRC 2026上的演讲精编，雷峰网在不改变原意的基础上进行编辑和整理。 01 泛化能力：真正的关键点…</p><a href="https://www.leiphone.com/category/robot/qtdF8IhMqe2oNmH0.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息人士透露 Anthropic 放弃收购 Decart，60 亿美元交易告吹</h3><p>IT之家 9 月 8 日消息，彭博社在美国当地时间昨日的报道中表示，Anthropic 已放弃收购人工智能实验室 Decart。 这笔被取消的交易价值本有望达到 60 亿美元 （IT之家注：现汇率约合 403.71 亿元人民币） 。 消息人士透露，Anthropic 此前已对 Decart 进行了尽职调查，但最终放弃了该收购。 两家公司或许仍会寻求其他合作机会 。 Decart 由三位以色列工程师于 2023 年创立，提供跨算力硬件类型的人工智能堆栈优化服务，同时也自主开发世界模型。该企业在今年 5 月完成了总额 3 亿美元 （现汇率约合 20.19 亿元人民币） 的 B 轮融资，吸引了亚马逊、英伟达、Adobe、丰田、eBay 等的投资。</p><a href="https://www.ithome.com/0/999/704.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>3 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">IT之家</div><h3>澳大利亚提出社交媒体新法草案：用户可自主选择是否关闭算法推荐信息流</h3><p>IT之家 9 月 8 日消息，澳大利亚政府当地时间周二提出一项新计划，拟赋予社交媒体用户更多对信息流的选择权，允许用户自行决定是否接收算法推荐内容。这是澳大利亚政府在推出全球首个社交媒体未成年人禁令后，进一步加强网络安全监管的最新举措。 根据澳大利亚中左翼工党政府公布的法律草案，社交媒体平台将被要求向用户发出通知，并让用户自行选择默认信息流的内容形式。 用户可以选择开启算法推荐，让默认信息流中包含根据个人兴趣推荐的内容； 也可以选择关闭算法推荐，只查看自己主动关注的好友和内容创作者发布的信息。 澳大利亚总理安东尼 · 阿尔巴尼斯在接受记者采访时表示：“这是一项合理、务实且具有可操作性的改革。它赋予用户选择权，如果大型科技公司不遵守我们的法律，也将为自己的不作为承担责任。” 澳大利亚的这一举措与欧盟《数字服务法案》的监管方向类似。欧盟自 2024 年以来要求相关平台向用户提供关闭基于用户画像进行内容推荐的选项。不过，这项规定在实施初期并不顺利，监管机构曾批评部分平台没有让用户能够方便、直接地关闭相关功能。…</p><a href="https://www.ithome.com/0/999/697.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>三星 Galaxy A08 渲染图曝光：联发科 Helio G99 芯片、6000mAh 电池</h3><p>IT之家 9 月 8 日消息，消息源 The Cipher Project 昨日（9 月 7 日）在 Telegram 频道爆料，分享了三星 Galaxy A08 手机的渲染图， 并称外观沿用 Galaxy A07 设计，屏幕周围边框较厚，屏幕采用水滴屏设计。 IT之家此前报道，三星 Galaxy A08 4G 型号为 SM-A085F，将会搭载联发科 Helio G99 芯片，ARM Mali G57 GPU，配备 8GB 运行内存。 发布日期方面，三星有望 2026 年 10 月发布 4G 网络版三星 Galaxy A08 手机，明年 2 月发布 5G 版，其中两个版本都可能配备 6000mAh 容量电池。 延伸阅读 作为三星 A0 系列入门机型，前代 Galaxy A07 4G 于 2025 年 8 月 25 日发布，采用 6.7 英寸 720×1600 分辨率屏幕、5000mAh 电池、50MP 主摄，支持最高 25W 充电，出厂预装 Android 15 系统，官方承诺提供 6 次操作系统升级和 6 年安全更新。 Galaxy A07 5G 则于 2026 年 2 月起在部分市场开售，配备 6000mAh…</p><a href="https://www.ithome.com/0/999/684.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>瑞士政府试点用开源软件取代 Microsoft 365</h3><p>瑞士联邦政府启动了一项试点项目，将 3000 名联邦雇员工作站上的 Microsoft 365 用开源办公软件替代，该项目计划在 2027 年底完成迁移。瑞士政府此前完成了名为 PoC BOSS 的可行性概念验证，有 172 名联邦雇员参与测试了德国开源协作平台 openDesk 套件，结果显示文档处理和电子邮件等核心办公任务表现良好，但大规模视频会议还存在技术局限性。如果最新的试点成功，那么瑞士政府所有 54,000 个工作站可能都将进行迁移。军方的网络安全部门则不继续进行测试直接迁移到 openDesk。此举旨在维持数据主权独立性，过度依赖微软的软件被广泛认为存在风险。</p><a href="https://www.solidot.org/story?sid=85304" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Tue, 08 Sep 2026 06:05:30 +0000</div><h3>感谢用GPT-6搓3D的！燃烧自己的token换来一次全体重置</h3><a href="https://www.qbitai.com/2026/09/485854.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 08 Sep 2026 05:05:03 +0000</div><h3>现场围观金融AI决赛，大厂挑人的逻辑我悟了</h3><a href="https://www.qbitai.com/2026/09/485794.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 08 Sep 2026 03:22:17 +0000</div><h3>深度智控获宁德时代、沙特阿美战投等重磅加码，加速打造物理AI时代算力与能源底座</h3><a href="https://www.qbitai.com/2026/09/485784.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 08 Sep 2026 02:42:24 +0000</div><h3>深入马来西亚AI现场！WAIC CONNECT MALAYSIA首日亮点全速递</h3><a href="https://www.qbitai.com/2026/09/485630.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 08 Sep 2026 02:14:47 +0000</div><h3>王云鹤创业后交出首个模型</h3><a href="https://www.qbitai.com/2026/09/485555.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 07 Sep 2026 09:34:06 +0000</div><h3>3秒变身！会合体的机器人，卖到全球50国</h3><a href="https://www.qbitai.com/2026/09/485525.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 07 Sep 2026 09:04:06 +0000</div><h3>GPT-6不只Astra！Sol内测结果曝光，速度快6倍</h3><a href="https://www.qbitai.com/2026/09/485431.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 07 Sep 2026 08:51:30 +0000</div><h3>DHH领衔，英伟达、微软、HuggingFace等150+全球技术大咖集结，GOSIM Shenzhen 2026全议程公布</h3><p>10 月 16–17 日，面向全球开发者的开源技术大会 GOSIM 将首次来到深圳，举办 GOSIM Shenzhen 2026。</p><a href="https://www.qbitai.com/2026/09/485154.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 07 Sep 2026 08:36:30 +0000</div><h3>菲尔兹奖得主入局大模型！4B手机Qwen+云端GLM刷爆ARC-AGI 3</h3><a href="https://www.qbitai.com/2026/09/485108.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 07 Sep 2026 06:53:26 +0000</div><h3>国内首份办公Agent用户行为报告发布：北京用户量全国居首，海外用户占比超12%</h3><a href="https://www.qbitai.com/2026/09/485064.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Mon, 07 Sep 2026 20:43:00 +0800</div><h3>燧原科技发行结果出炉！募资61.19亿元，国产AI芯片龙头即将登陆科创板</h3><p>9月7日晚间，燧原科技（688801.SH）正式公布发行结果。本次发行价格为142.18元/股，发行数量为4303.5173万股，募集资金总额为61.19亿元。网上投资者认购数量为1031.1626万股，网下投资者认购数量为2409.9639万股。此前，燧原科技网上发行有效申购户数达703.20万户，最终中签率为0.02455315%，市场认购火热。 燧原科技长期专注于云端AI芯片及相关产品研发，经过多年技术积累和产品迭代，已形成覆盖AI芯片、AI加速卡及模组、智算系统及集群以及AI计算与编程软件平台的完整产品体系。目前，公司已自主研发迭代四代架构、五款云端AI芯片，并围绕芯片、硬件、软件及系统持续构建全栈技术能力。 技术研发是燧原科技持续成长的重要支撑。公司采用自主可控的DSA架构，围绕GCU-CARE计算加速单元、GCU-LARE芯片互联等核心技术持续迭代，并打造了包括驱动程序、编译语言与编译器、算子库、工具链的全栈AI计算及编程软件平台“驭算TopsRider”。截至2025年末，公司研发人员占比达到76.73%。2023年至2025年，累计研发投入达到36.76亿元。…</p><a href="https://www.leiphone.com/category/chips/tt18KRcmh53DjhLO.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 07 Sep 2026 17:11:00 +0800</div><h3>高端智能手表怎么选，华为WATCH Ultimate 2 非凡探索雪域白、迪桑特联名款发布</h3><p>高端腕表市场正在悄然生变——越来越多消费者不再满足于单纯的机械美学，而是希望一枚手表，既能撑起商务通勤场合的高级质感，又能陪伴潜水、高尔夫、滑雪等专业运动场景。 这种“商务通勤与专业运动并重”的双重诉求， 让 主打全场景运动能力的华为WATCH Ultimate 2 非凡探索 系列 受到消费者追捧。 9月7日，这款“华为全能表王” 迎来 雪域白与迪桑特联名款两款全新配色， 同步升级六大滑雪模式、新增三大健康指标研究，为追求智慧生活方式的中产人群、鸿蒙智行车主等用户，提供了高端手表新选择。 新色亮相：雪域白纯净破冰，迪桑特联名诠释专业运动美学 延续 该系列 的 专业运动 主题设计基因，华为WATCH Ultimate 2 非凡探索 雪域白以冰雪运动为设计灵感，表壳采用非晶锆合金材质，配合八边镂空设计与纳米微晶陶瓷表圈，兼顾轻量化与防护性能；搭配浅灰色尼龙编织回环表带，透气舒适，从雪山到日常通勤均可从容切换。 迪桑特 × 华为WATCH Ultimate 2 非凡探索 联名款则聚焦专业运动 美学…</p><a href="https://www.leiphone.com/category/industrynews/j0Vn5Zjbs3tKiA2k.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 07 Sep 2026 14:07:00 +0800</div><h3>独家丨微软云亚太「一拆为二」，侯阳接掌东南亚、印度与大中华区</h3><p>雷峰网独家获悉，今天早上，微软通过内部邮件宣布了一项组织调整：微软亚太区业务（主要是云业务）“一分为二”，日本、韩国、澳大利亚与新西兰市场由微软日本负责人津坂美树负责，大中华区、东盟与印度市场由微软大中华区原一把手侯阳负责。 这次变动，是此前微软亚太区总裁 Rodrigo Kede Lima 调任后引发的连锁调整。 今年 7 月初，微软成立了新的内部事业部 Microsoft Frontier Company，专注把“前线部署工程师”（FDE）这套模式推向市场，将 AI 嵌进客户的核心业务流中。Rodrigo Kede Lima 随即调任该部门，其原职位出现空缺，进而促成了此次“一拆二”的重组。 雷峰网雷峰网 关于此次人事调整背后的博弈故事，可添加作者微信 xf123a 交流。 ▼ 推荐阅读 ▼ AI人才3次大迁徙：百度先行、六小虎分化、腾讯「腾笼换鸟」 2026-08-25 独家丨从飞书火山整合，看阿里「云钉一体」踩过的坑 2026-08-05</p><a href="https://www.leiphone.com/category/industrycloud/UUg7N19pHCCMjnMD.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 07 Sep 2026 14:04:00 +0800</div><h3>AI人才3次大迁徙：百度先行、六小虎分化、腾讯「腾笼换鸟」</h3><p>“大模型浪潮狂飙三年半，国内AI人才也经历了三波大迁移。”资深科技猎头赵捷告诉雷峰网。 前两年，大家抢的是预训练人才，先是百度文心团队被疯抢，然后是AI六小虎人才遭遇瓜分，紧接着又是阿里、DeepSeek、字节、腾讯之间的人才大混战。 而现在，大家又开始抢推理、Agent等后训练人才；最近一年不少预训练人才，如Qwen Code负责人惠彬原、混元大语言模型预训练负责人姚星丞、混元多模态理解预训练负责人彭厚文，字节Seed核心专家顾全全等陆续离职，要么创业，要么流向更纯粹的AI研究团队。 是什么促成了这一轮轮AI人才大迁徙？这背后又藏着哪些AI行业更深层的逻辑转变？ 01 打响第一枪后，百度文心“人才被疯抢” 要理解这波人才迁徙，得从百度说起。 “百度可以说是国内科技圈‘黄埔军校’。移动互联网时代的搜广推算法人才流出后，很多被字节吸纳；后来自动驾驶浪潮来了，百度又向行业输送了大量人才；到了这一轮大模型时代，最先大规模人才流出的还是百度。”专做AI算法类人才的猎头张尧表示。 2022年11月30日ChatGPT上线后，百度反应最快，2023年3月率先发布“文心一言”，打响了国内大模型第一枪。…</p><a href="https://www.leiphone.com/category/industrynews/IfTsnhdqbaxeTEu6.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 07 Sep 2026 10:55:00 +0800</div><h3>王兴兴上市后首次公开演讲：机器人真正爆发要等两个「80%时刻」丨WRC 2026</h3><p>8月19日，宇树科技正式登陆科创板。上市后的答谢午宴上，宇树科技创始人王兴兴首次提出“物理AI机器人的自进化”，希望利用基础大模型，将论文检索、代码生成、仿真训练、真机测试和评价反馈串成闭环，让机器人研发逐步从高度依赖人工转向持续自我迭代。 一天后的2026世界机器人大会主论坛上，王兴兴再次谈到了这一方向。相比说明机器人跑得多快、跳得多高，他把更多时间留给了一个没那么“炫技”、却更决定具身智能产业胜似的问题——机器人什么时候才能真正走进工厂和家庭？ 在王兴兴看来，答案的关键已经不是本体能否完成一个动作，而是“换一个房间、物体、任务之后，它还能不能完成”的泛化能力。 基于此，他不仅给出了具身智能行业大爆发的量化临界点，即两个80%（在80%的陌生场景中，通过语音或文字指令，机器人能够顺利完成约80%任务），更给出了一个明确的路径：物理AI机器人的自进化——与其让人类工程师微调机器人的“最后一厘米”，不如把研发、仿真、测试的闭环交给AI。 以下为王兴兴在WRC 2026上的演讲精编，雷峰网在不改变原意的基础上进行编辑和整理。 01 泛化能力：真正的关键点…</p><a href="https://www.leiphone.com/category/robot/qtdF8IhMqe2oNmH0.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 07 Sep 2026 09:59:00 +0800</div><h3>看见与被看见：AFAC2026总决赛的AI金融群像</h3><p>2026年的AFAC金融智能创新大赛总决赛路演于近日落下帷幕。从5027支队伍、近2万名选手中“杀出重围”的46支入围队中，最终有24支“挑战组”队伍的赛题解法脱颖而出，6支“初创组”队伍的创业项目获得了比赛奖项。 比赛虽然落幕，选手们技术和商业的历程才刚刚开始。AI比赛本质上是资本和产业筛选好的人才与项目、后者又向前者寻求资源支持的“双向奔赴”。作为AI金融领域中颇具影响力的比赛，已行至第四年的AFAC大赛目前采用解题的“挑战组”与展示创业项目的“初创组”双轨赛制，选手除了奖金之外，能够通过蚂蚁集团联合政府、创投、孵化器等机构搭建的生态圈，获得资本对接、媒体曝光等资源。 今年，大赛在组织结构、资本规模、海外联动和赋能周期上都有所升级。“对于创业者来说，最关键的就是‘被看见’。而被看见这件事情没有办法透过一个人或者一个单独的企业和机构完成，它需要有人提供场景、资本、空间和政策，融合在一起，才能把创业的概率从万一变成确定。”蚂蚁集团财富保险事业群项目管理总监、AFAC大赛执委会主席李晖在初创组路演上说。…</p><a href="https://www.leiphone.com/category/industrynews/zby4Nbb3zEvFldyT.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 07 Sep 2026 09:36:00 +0800</div><h3>芯思杰400Gbps PIN PD支撑全球AI算力光互联向3.2T光收发模块迭代</h3><p>深圳，2026 年 9 月 6 日（今日消息） —— 第 27 届中国国际光电博览会（CIOE） 将于下周（9 月 9 - 11 日） 在深圳国际会展中心拉开帷幕。全球领先的光电探测器芯片企业芯思杰（PHOGRAIN）将亮相 11 号馆 11B33 展位，现场将正式发布400Gbps背照式PIN型光电探测器（PIN PD）芯片。在AI算力驱动光收发模块加速向1.6T、3.2T速率迭代的行业关口，这款兼具性能突破与工艺创新的高端芯片，不仅为下一代高速光收发模块提供了核心接收端支撑，也进一步拓展了芯思杰参与全球前沿光芯片布局的技术版图。把握全球算力基础设施持续升级的产业机遇，芯思杰正加速融入全球光互联产业链。 此前在2026年美国光通讯展览会（OFC）上，芯思杰已向行业首次展示400Gbps PIN PD芯片；本次CIOE展会，该产品以完整样品形态正式面向全球客户发布。从技术展示走向产品发布，从前沿研发走向客户验证与应用导入，芯思杰正依托持续的自主研发、IDM全链能力与全球化布局，与产业链上下游伙伴共同推进400Gbps PIN PD的技术迭代、产品验证及规模化应用，持续深化在下一代光互联产业生态中的协同与连接。…</p><a href="https://www.leiphone.com/category/industrynews/uTYlVwazKU12Bj95.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 07 Sep 2026 08:35:00 +0800</div><h3>俞敏洪：我这几年特别不安分，弄得名声比较大；传DeepSeek将采购16万颗华为AI芯片；特斯拉无人驾驶出租车，将24小时全天候运营丨雷峰早报</h3><p>要闻提示 1.特斯拉无人驾驶出租车，将24小时全天候运营 2.“打价格战没前途”！俞敏洪：我这几年特别不安分，弄得名声比较大 3.传DeepSeek将采购16万颗华为AI芯片 4.何庭波公开麒麟2026实测：密度暴涨55%，NPU功耗反降66% 5.雷军谈“增程汽车大有可为”：同行已不断证明，用户愿意为优秀增程车买单 6.阿里千问开源 Qwen-Drive-1.0-4B：首个面向自动驾驶的视觉语言基础模型 7.黑芝麻智能杨宇欣离职，小鹏“新兵”接棒 8.GPT-6 Astra登顶Code Arena，OpenAI被曝多次改动基准数据 今日头条 特斯拉无人驾驶出租车，将24小时全天候运营 9月6日消息，据外媒报道，特斯拉 AI 负责人阿肖克・埃卢斯瓦米日前表示，Robotaxi 全天候 24 小时服务即将落地。有网友在 X 平台留言，希望 Cybercab 可以提供夜间出行服务，他回复称，待 “v15 方案中下一阶段技术完成整合” 后，该功能大概下个月上线。 这条评论发布于 9 月 4 日，就在特斯拉在奥斯汀开放 Cybercab…</p><a href="https://www.leiphone.com/category/zaobao/Ah6u3x7hPpOKsqIc.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><h3>[解析失败] https://36kr.com/feed</h3><p>not well-formed (invalid token): line 9, column 542</p></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Tue, 08 Sep 2026 07:19:30 GMT</div><h3>微软 Xbox Series X 游戏机远程串流体验悄悄升级，支持 1440P 分辨率</h3><p>IT之家 9 月 8 日消息，微软 Xbox 系列游戏机的远程串流体验近期迎来悄无声息的升级。一名参与了 Xbox Alpha Ring Insider 测试计划的 Reddit 用户近期发文称， 他的 Xbox Series X 游戏机如今可以用 1440P 分辨率进行 Remote Play 远程串流 。 与此同时，许多参与了 Xbox Alpha Ring Insider 测试计划的用户也在同一时间发文称，他们的游戏机也能够以 1440P 分辨率串流。 据IT之家了解，微软的 Remote Play 功能可将玩家远程游玩自己的 Xbox 主机，支持各种手机、平板，以及 PC 等设备。 不过需要注意的是， 微软官方目前尚未正式宣布本次升级 ，也没有公布普通 Xbox 用户何时能使用 1440P 分辨率串流。</p><a href="https://www.ithome.com/0/999/740.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 08 Sep 2026 07:17:44 GMT</div><h3>百度小度智能摄像机 C1500 变焦三摄版发布，首发限时价 386 元</h3><p>IT之家 9 月 8 日消息，在今日的百度 AI 开放日“2026 小度新品发布会”上，小度智能摄像机 C1500 变焦三摄版发布， 首发限时价 386 元 。 这款摄像机定位 超能小度 × 看护智能体 ，主打双画面 10 倍变焦、自定义看护、大模型语音助手、AI 监控报告，实现全方位家庭智能看护。 它配备三个长短焦镜头，云台视角包含 8mm 长焦镜头与 4mm 短焦镜头，支持 10 倍光学混合变焦；底部固定视角为 2.8mm 短焦超广角镜头，实现看得既广又远。 小度智能摄像机 C1500 变焦三摄版支持 双画面智能联动 ，固定超广角拥有 130° 视场角，移动云台视角支持水平 360° 、垂直 102° ，实现 360° 全景看护，可同时查看两个不同区域画面。 产品搭载视觉大模型识别， 支持 AI 随心自定义看护 ，用户关心什么场景，摄像机就针对性进行提醒，比如孩子坐姿不正、离开座位、玩手机，宠物抓沙发、进食等场景都可以自定义设置，满足不同家庭看护需求。 针对宠物饲养家庭， 它支持 AI 宠物身份识别 ，可以区分每只宠物的身份，为不同宠物提供专属化看护，异常行为及时推送提醒。 它支持 AI 看护总结功能…</p><a href="https://www.ithome.com/0/999/739.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 08 Sep 2026 07:15:55 GMT</div><h3>2027 上海车展定档明年 4 月 23 日-5 月 2 日，将推出具身智能展区</h3><p>IT之家 9 月 8 日消息，在今天（8 日）召开的第 22 届上海国际汽车工业展览会上，组委会宣布，2027 上海车展将于 2027 年 4 月 23 日至 5 月 2 日 在国家会展中心（上海）举办，整体展出规模预计达 40 万平方米，持续打造全球顶级汽车行业交流展示平台。 2027 上海车展将确立“共建生态，智领未来”的主题，聚焦 智能新赛道、技术新创新、产业新生态 ，升级展会运营模式，创新打造场景化、互动式首发首展形态，打破传统的单次展品发布模式。同时，2027 上海车展将探索性地布局多个前沿赛道，推出 具身智能展区 ，打造物理 AI、高端芯片等前沿技术落地应用场景，以此丰富智能汽车的产品定义、技术架构和产业格局，着力推动世界汽车工业从“传统制造”向“高级智造”的跃升。 按照以往惯例，上海车展通常在 单数年 4 月 举办，双数年 4 月则是留给北京车展。 今年 6 月，北京车展官网却放出了 2027 年办展信息，将于 2027 年 3 月 27 日至 4 月 5 日在北京中国国际展览中心（顺义馆）和首都国际会展中心（新国展二期）举行，与 2027 上海车展仅隔约半月，引发业界质疑。…</p><a href="https://www.ithome.com/0/999/737.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 08 Sep 2026 07:11:35 GMT</div><h3>谷歌为移动平台版本 Gmail / Google Docs / Keep 应用整合 Gemini 语音搜索能力，支持利用自然语言交互</h3><p>IT之家 9 月 8 日消息，谷歌宣布为移动平台版本 Gmail、Google Docs 和 Google Keep 应用整合 Gemini 语音搜索能力（Live 模式），用户在订阅 Google AI Plus / Pro / Ultra 会员后，即可利用自然语言进行对话式搜索，不过目前仅支持英语。 例如，用户可以在 Gmail 中直接询问“我的航班登机口是多少？”或者“孩子的学校这周有什么安排？”，应用会自动扫描收件箱中的相关信息，并快速给出答案。 而在 Google Docs 中，用户可以利用语音快速创建文档草稿，用户可以直接说出自己的想法，系统即可自动从用户邮箱 / 备忘录及互联网中提取相关信息，进而整合为结构清晰、内容更加完整的页面。 在 Google Keep 方面，用户可以快速使用语音记录备忘录，或为现有备忘录加上新内容，例如在制作购物清单时，用户直接说“把制作我著名的酿土豆所需的食材加入购物清单”，系统便能根据语音指令将酿土豆所需的食材加入购物清单内。</p><a href="https://www.ithome.com/0/999/733.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 08 Sep 2026 07:05:34 GMT</div><h3>联想来酷斗战者预热 AI 私有云主机，搭载第三代英特尔酷睿 Ultra 处理器</h3><p>IT之家 9 月 8 日消息，联想 (Lenovo) 来酷 (Lecoo) 斗战者 (BELLATOR) 今日宣布将推出斗战者 AI 私有云主机。 IT之家获悉，这款设备 基于第三代英特尔酷睿 Ultra 处理器 &quot;Panther Lake&quot; ，至高板载集成 64GB LPDDR5 (X) 内存，提供双 USB-C、双 2.5GbE RJ-45、HDMI、DisplayPort 在内的一系列 I/O 端口。</p><a href="https://www.ithome.com/0/999/724.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 08 Sep 2026 07:00:51 GMT</div><h3>豆包成为湖北省博物馆“官方 AI 讲解员”，支持 12 种方言解说</h3><p>IT之家 9 月 8 日消息，据“豆包”公众号，豆包现有成为湖北省博物馆“官方 AI 讲解员”，为近期特展“克里姆林宫的瑰宝”担任解说，提供“从彼得一世到叶卡捷琳娜二世”的个性化 AI 讲解服务。 豆包“博物馆讲解”模式同步升级，支持 12 种方言解说，包括粤语、闽南语、上海话、客家话、武汉话、天津话、陕西话、四川话、河南话、济南话、东北话、北京话。 官方表示，在湖北省博物馆，本地游客可打开 &quot; 博物馆讲解 &quot; 按钮，用武汉话向豆包提问并要求用武汉话讲解，豆包即可采用方言交流。</p><a href="https://www.ithome.com/0/999/719.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 08 Sep 2026 06:59:42 GMT</div><h3>芯片架构从平面变 3D，专家解读华为麒麟 9050 Pro 新突破</h3><p>IT之家 9 月 8 日消息，在昨天的 HarmonyOS 7 | HUAWEI Mate XT 2 及全场景新品发布会上，华为 Mate XT 2 非凡大师全新展翼三折叠手机正式发布，首发麒麟 9050 Pro 芯片、首搭硬件级防窥，19999 元起。 据央视财经今日报道，华为新一代三折叠手机 Mate XT 2 整机性能较上一代提升 42%。这是首款在新原则下采用逻辑折叠技术的芯片，也是华为在半导体领域的一次重要探索。 关于新芯片背后的指导原则和技术，以及具体落地后将带来怎样的产业影响。华为半导体首席科学家廖恒近期对外介绍，关键是在上下两层裸芯片之间形成了高密度的垂直互联。他以麒麟 2026 芯片为例， 两层裸芯片之间有约 5000 万个连接，其中约 500 万到 1000 万个被用于信号通信，远高于 3D 封装中两个裸芯片之间几万至几十万个连接的量级 。 相当于两座城市之间，从通常几万部电梯连接，变成了拥有 500 万到 1000 万部真正运送信息的电梯。 中国科学院院士、半导体物理专家褚君浩认为， 相关理论和技术为中国乃至全球集成电路产业发展打开了新思路…</p><a href="https://www.ithome.com/0/999/716.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 08 Sep 2026 06:59:23 GMT</div><h3>Arm CEO 哈斯：AI 将帮助人类攻克癌症，但算力供应是瓶颈</h3><p>IT之家 9 月 8 日消息，Arm 首席执行官表示，人工智能或许能够帮助人类在我们这一代人的有生之年攻克癌症。不过，在实现这一目标之前，整个行业首先需要解决一个现实问题：生产出足够多的芯片，为 AI 提供所需的算力。 “我一直认为，AI 真正具有颠覆性的应用领域就是医疗健康。”Arm CEO 雷内 · 哈斯（Rene Haas）在当地时间周二公布的一段接受 BBC 采访的视频中表示，“AI 不仅能够缩短药物研发所需的时间，还能缩短药物测试所需的时间。” 哈斯自 2013 年加入这家英国芯片设计公司，并于 2022 年 2 月出任 Arm CEO。在加入 Arm 之前，他曾在英伟达工作 7 年，担任计算产品业务副总裁。 在采访中，哈斯表示，AI 有可能解决一些仅凭人类自身难以攻克的问题。他说：“我相信，在我们有生之年，AI 将帮助人类攻克癌症。” 不过，哈斯指出，要实现这一目标，需要海量计算能力。目前，癌症研究以及人形机器人研发所需的芯片，正在被计划建设数吉瓦级数据中心的 AI 公司大量消耗。…</p><a href="https://www.ithome.com/0/999/715.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 08 Sep 2026 06:54:31 GMT</div><h3>百度小度智能屏 X9 Ultra 发布：云台摄像头 AI 主动看护，首销限时价 629 元</h3><p>IT之家 9 月 8 日消息，在今日的百度 AI 开放日“2026 小度新品发布会”上， 小度智能屏 X9 Ultra 正式发布。 小度智能屏 X9 Ultra 支持 AI 主动看护， 顶部搭载 1/2.9 英寸 2MP 宽动态图像传感器 ，支持红外夜视，可主动感知视野外的动态，通过云台自动转向追踪拍摄，实现全天候看护。 小度智能屏 X9 Ultra 采用 8 英寸全贴合屏，搭载四核处理器、32GB 存储，支持 Wi-Fi 6 和蓝牙 5.4，可红外遥控家电。 IT之家从发布会获悉，小度智能屏 X9 Ultra 上市价 839 元，首销优惠券叠加国补到手价 699 元， 首发限时 629 元 ，今日起现货开售，首销送小度超级会员月卡。 京东 小度智能屏 X9 Ultra 629.1 元 直达链接</p><a href="https://www.ithome.com/0/999/707.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 08 Sep 2026 06:51:33 GMT</div><h3>消息人士透露 Anthropic 放弃收购 Decart，60 亿美元交易告吹</h3><p>IT之家 9 月 8 日消息，彭博社在美国当地时间昨日的报道中表示，Anthropic 已放弃收购人工智能实验室 Decart。 这笔被取消的交易价值本有望达到 60 亿美元 （IT之家注：现汇率约合 403.71 亿元人民币） 。 消息人士透露，Anthropic 此前已对 Decart 进行了尽职调查，但最终放弃了该收购。 两家公司或许仍会寻求其他合作机会 。 Decart 由三位以色列工程师于 2023 年创立，提供跨算力硬件类型的人工智能堆栈优化服务，同时也自主开发世界模型。该企业在今年 5 月完成了总额 3 亿美元 （现汇率约合 20.19 亿元人民币） 的 B 轮融资，吸引了亚马逊、英伟达、Adobe、丰田、eBay 等的投资。</p><a href="https://www.ithome.com/0/999/704.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 08 Sep 2026 06:46:16 GMT</div><h3>澳大利亚提出社交媒体新法草案：用户可自主选择是否关闭算法推荐信息流</h3><p>IT之家 9 月 8 日消息，澳大利亚政府当地时间周二提出一项新计划，拟赋予社交媒体用户更多对信息流的选择权，允许用户自行决定是否接收算法推荐内容。这是澳大利亚政府在推出全球首个社交媒体未成年人禁令后，进一步加强网络安全监管的最新举措。 根据澳大利亚中左翼工党政府公布的法律草案，社交媒体平台将被要求向用户发出通知，并让用户自行选择默认信息流的内容形式。 用户可以选择开启算法推荐，让默认信息流中包含根据个人兴趣推荐的内容； 也可以选择关闭算法推荐，只查看自己主动关注的好友和内容创作者发布的信息。 澳大利亚总理安东尼 · 阿尔巴尼斯在接受记者采访时表示：“这是一项合理、务实且具有可操作性的改革。它赋予用户选择权，如果大型科技公司不遵守我们的法律，也将为自己的不作为承担责任。” 澳大利亚的这一举措与欧盟《数字服务法案》的监管方向类似。欧盟自 2024 年以来要求相关平台向用户提供关闭基于用户画像进行内容推荐的选项。不过，这项规定在实施初期并不顺利，监管机构曾批评部分平台没有让用户能够方便、直接地关闭相关功能。…</p><a href="https://www.ithome.com/0/999/697.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 08 Sep 2026 06:39:28 GMT</div><h3>三星 Galaxy A08 渲染图曝光：联发科 Helio G99 芯片、6000mAh 电池</h3><p>IT之家 9 月 8 日消息，消息源 The Cipher Project 昨日（9 月 7 日）在 Telegram 频道爆料，分享了三星 Galaxy A08 手机的渲染图， 并称外观沿用 Galaxy A07 设计，屏幕周围边框较厚，屏幕采用水滴屏设计。 IT之家此前报道，三星 Galaxy A08 4G 型号为 SM-A085F，将会搭载联发科 Helio G99 芯片，ARM Mali G57 GPU，配备 8GB 运行内存。 发布日期方面，三星有望 2026 年 10 月发布 4G 网络版三星 Galaxy A08 手机，明年 2 月发布 5G 版，其中两个版本都可能配备 6000mAh 容量电池。 延伸阅读 作为三星 A0 系列入门机型，前代 Galaxy A07 4G 于 2025 年 8 月 25 日发布，采用 6.7 英寸 720×1600 分辨率屏幕、5000mAh 电池、50MP 主摄，支持最高 25W 充电，出厂预装 Android 15 系统，官方承诺提供 6 次操作系统升级和 6 年安全更新。 Galaxy A07 5G 则于 2026 年 2 月起在部分市场开售，配备 6000mAh…</p><a href="https://www.ithome.com/0/999/684.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Mon, 07 Sep 2026 14:50:24 +0800</div><h3>瑞士政府试点用开源软件取代 Microsoft 365</h3><p>瑞士联邦政府启动了一项试点项目，将 3000 名联邦雇员工作站上的 Microsoft 365 用开源办公软件替代，该项目计划在 2027 年底完成迁移。瑞士政府此前完成了名为 PoC BOSS 的可行性概念验证，有 172 名联邦雇员参与测试了德国开源协作平台 openDesk 套件，结果显示文档处理和电子邮件等核心办公任务表现良好，但大规模视频会议还存在技术局限性。如果最新的试点成功，那么瑞士政府所有 54,000 个工作站可能都将进行迁移。军方的网络安全部门则不继续进行测试直接迁移到 openDesk。此举旨在维持数据主权独立性，过度依赖微软的软件被广泛认为存在风险。</p><a href="https://www.solidot.org/story?sid=85304" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 07 Sep 2026 14:11:37 +0800</div><h3>Chrome 的网站数据设置再次豁免了 Google 网站</h3><p>2020 年一位扩展开发者注意到，在 Chrome 的“Cookie 和网站数据”设置中，用户可以启用“关闭 Chrome 时删除 Cookie 与网站数据”。但在启用该选项之后，Google 旗下网站如搜索和 YouTube 的数据在关闭之后并没有删除。他对其进行了一番测试，在没有登陆 Chrome 或任何 Google 服务的情况下 YouTube 等 Google 服务的数据在浏览器关闭之后仍然保留了，也就是说 Google 旗下网站默认豁免于用户设置。Google 此举引发了广泛关注，它后来修复了这一 bug。然而六年后同样的“bug”再次出现了，调查显示，www.google.com 是 Chrome 唯一豁免的网站。</p><a href="https://www.solidot.org/story?sid=85303" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      <section class="section-card" id="errors"><div class="section-head"><h2>抓取异常</h2><span>不影响当期页面生成</span></div><ul class="error-list"><li class="error-item"><strong>36氪</strong><span>[解析失败] https://36kr.com/feed</span><em>not well-formed (invalid token): line 9, column 542</em></li></ul></section>
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>
