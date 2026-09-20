@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-09-20</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a><a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a><a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      <a class="toc-link" href="#errors">抓取异常</a>
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-09-20</span>
+          <span>15:52（北京时间）</span>
+          <span>IT之家、Solidot、量子位、雷锋网</span>
+        </div>
+        <p class="hero-copy">9月20日前后，AI行业动态集中在智能体商业化落地、算力基础设施协同以及安全合规议题上。沙利文发布2026年智能体市场报告，腾讯WorkBuddy在企业级与个人端桌面智能体榜单中均列第一；华为全联接大会期间，360与昇腾AI联合推出面向AI Agent的加速方案。与此同时，奇安信齐向东在软博会上强调智能体重构软件过程中安全是不可回避的命题，网络安全人才实战能力报告也于近日发布。产业侧，智用开物完成近亿元天使+轮融资，无问芯穹与华环电子就国产异构算力达成战略合作。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>38</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>4</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>1</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>13</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>11</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>11</strong></div><p>基础设施的效率叙事持续升温</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>10</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>10</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>10</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>2</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>IT之家、雷锋网</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>智能体从概念走向企业级与个人端落地</h3><p>沙利文报告以产品技术领先和用户落地实效两项指标评估桌面AI智能体，腾讯WorkBuddy同时位列中国个人端与企业级榜单第一。智用开物创始人管震提出，工业互联网被误读十年后，Agent开始让AI在工厂非产线环节真正干活，该公司过去一年完成三笔融资。360与昇腾AI联合打造解决方案，以360智能体工厂为核心，面向复杂任务执行、多智能体协作和长链路推理提供底层支撑。</p></article><article class="insight-card"><h3>算力底座与国产异构基础设施协同推进</h3><p>华为汪涛在华为全联接大会上表示，打造AI算力底座只做好一颗芯片远远不够。无问芯穹与华环电子签署战略合作，共同探索国产异构算力AI基础设施新方向。360与昇腾AI的合作成果也在华为全联接大会2026期间进一步深化落地。</p></article><article class="insight-card"><h3>AI安全与合规成为智能体规模化的前置条件</h3><p>奇安信董事长齐向东在软博会智能体创新应用大会上指出，智能体重构软件需要效率与风险管控并重。第一届中国网络空间安全大会上发布《网络安全人才实战能力报告-AI赋能篇》，关注AI进入业务深水区后的安全能力匹配问题。海外方面，特朗普就AI安全讨论发表争议性言论，并推动为人工智能改名的投票，反映出AI议题在公共政策层面的持续升温。</p></article><article class="insight-card"><h3>亚洲AI普及速度与模型应用进展受到关注</h3><p>谷歌亚太及日本地区AI业务总经理表示，亚洲AI普及速度被低估，约两年走完云计算十多年的企业渗透历程，亚洲可能是谷歌云增长最快的地区。模型与应用侧，Qwen 3.8在27B规模下可快速交付网页，Nature刊载AI在1900年场景中抢先提出光量子的研究，以及面向AI叙事能力的千万奖池赛事，均显示模型能力与内容生态仍在快速演进。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>智能体竞争评估维度正从单一技术指标转向技术领先与落地实效并重，企业级与个人端双端能力成为厂商差异化关键。</li><li>国产异构算力与智能体基础设施的协同正在加速，芯片、算力平台与上层Agent框架的联合优化成为提升复杂任务执行效率的务实路径。</li><li>AI安全从讨论层面进入人才能力建设与产品架构层面，智能体规模化部署前需同步考虑风险管控与合规能力。</li><li>亚洲市场AI渗透速度可能被外界低估，云厂商在该区域的业务增长与生态投入值得持续关注。</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>沙利文2026年智能体市场报告的后续影响及厂商竞争格局变化</li><li>智用开物新一轮融资进展及其在工业非产线环节的落地案例</li><li>360与昇腾AI联合解决方案的实际部署效果与客户反馈</li><li>无问芯穹与华环电子在国产异构算力方向的具体合作落地</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>13 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>沙利文发布2026年智能体市场研究报告：WorkBuddy稳居企业级、个人应用双榜第一</h3><p>9月20日，全球权威机构沙利文发布《2026年全球桌面AI智能体市场研究报告》，腾讯WorkBuddy同时位列中国个人端桌面智能体榜单与企业级桌面智能体榜单第一，继续保持双端领先地位。 报告以“产品技术领先”和“用户落地实效”两项综合指标衡量桌面AI智能体竞争力。 “产品技术领先指数”聚焦技术创新，重点评估：Agentic能力、Harness 工程、模型适配与可用性、扩展与开放能力，覆盖任务规划、工具调用、多 Agent 协作、记忆管理、Computer Use、权限控制、错误恢复、MCP/Skills 体系与第三方集成等关键指标。 “用户落地实效指数”则重点关注：桌面端用户体验、多端互联生态、自动化与工作流、企业级能力与创新差异化，覆盖安装部署、UI 交互、跨平台协同、IM/移动端/跨设备同步、工作流模板、任务编排、定时调度、团队治理、审计与合规、数据本地化与客户支持等指标。 在上述评价框架下，WorkBuddy在中国个人端桌面智能体榜单、中国企业级桌面智能体榜单中均位列首位。 此外，报告将WorkBuddy列入面向企业的原生AI智能体产品，与Claude Cowork等并列。报告认为，Harness…</p><a href="https://www.leiphone.com/category/industrynews/U0o8Z4sG9l26lvTQ.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>智用开物管震：工业互联网被误读十年后，Agent才让它开始干活</h3><p>今年3月，智用开物完成近亿元天使+轮融资，除了老股东瑞枫资本，创享投资以及战略级客户立讯集团家族办公室及高管团队也出现在了股东名单里。这是智用开物过去一年里的第三笔融资，而创始人管震告诉雷峰网，很快会完成新一轮融资。 这些资金流向的，究竟是怎样的一个稀缺方向？是工厂里那些“不上产线”的环节。当大多数AI Agent还在处理办公、代码和客服时，智用开物正在把Agent做成虚拟工厂员工，排产员、报价员、设备维护工程师……四步上岗，半小时就能用起来。 创办智用开物之前，管震在微软待了19年，做过物联网、工业互联网，也参与过OpenAI在微软的工程化，几乎经历了中国数字化转型的完整周期。在这样长的时间里，让他印象最深的，反而是十年前一次泡工厂的经历。 那时他还在微软，带着“十几年技术老兵前来布道”的姿态，去给企业讲智能工厂、工业互联网平台。当时一位工厂老板听完分享，忽闪着大眼睛问了一句：“管老师你说得真好，但这对我有啥用？” “我当时心里就想：完了！人家一说接地气的事情，我们解答不了。” 如果工厂现在有一批料没到，产线换线不换线，成本差异怎么算？预测性维护一年运维四次，每停一次就是两千万损失……写代码的人能懂这个经济模型吗？…</p><a href="https://www.leiphone.com/category/IndustrialInternet/og8hnQkB5Ur9a0BF.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>齐向东：智能体重构软件，安全是必答题</h3><p>9月20日，第28届中国国际软件博览会暨智能体创新应用大会在郑州国际会展中心开幕。全国政协委员、全国工商联副主席、奇安信集团董事长齐向东出席开幕式暨主题峰会，并作《智能体重构软件：效率要提上来，风险要管得住》主旨演讲。 齐向东指出，9月11日工信部正式印发《“人工智能+软件”专项行动实施方案》，吹响了智能体在软件领域规模化应用的“冲锋号”。文件明确提出，到2028年培育一批高水平智能编程工具和智能开发平台，推广应用覆盖2万家规模以上软件企业，在重点行业打造100个智能体软件标杆应用，到2030年关键软件全面实现智能化升级。智能体的深入应用，让安全成为一道“必答题”。 齐向东表示， 智能体是当前提高生产力的最强引擎，数字员工将成为企业骨干 。它既能写代码，覆盖软件设计、开发、测试到上线运营全链条；也能坐办公室，帮白领处理数据、输出决策参考；还能管产业链，辅助核对订单、盘点库存、预警供需波动。在网络安全领域，数字员工同样大有可为——平时少量数字员工完成日常巡检，遭遇攻击告警暴涨时，加算力就能实现防护能力瞬时扩容。…</p><a href="https://www.leiphone.com/category/industrynews/7Upw9N5muJIAalUC.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>华为全联接大会2026：360与昇腾AI联合打造解决方案，为AI Agent全面提速</h3><p>2026年9月17日，第十一届华为全联接大会在上海开幕。大会期间，360集团与昇腾AI联合打造解决方案。以360智能体工厂为核心的智能体基础设施与昇腾AI深度协同，面向AI Agent场景实现全面提速，为复杂任务执行、多智能体协作和长链路推理提供更高效、更稳定的底层支撑。这也是双方继2026世界人工智能大会联合展示后，合作成果的进一步深化落地。 图说：华为全联接大会期间360与昇腾AI展台 作为360智能体基础设施的核心组件，360智能体工厂承担智能体生成与编排职能，支持通过自然语言快速生成智能体并组建多智能体协作蜂群。其首创的“蜂群多智能体协作技术”支持多智能体多层嵌套、灵活组队与共享协作记忆，实现任务自主规划与协同执行，使原本需要2小时的多角色协作任务缩短至20分钟，效率提升6倍。 随着AI Agent从单轮问答迈向复杂任务执行，异步并行、多智能体协同、长上下文推理以及高频工具调用逐渐成为主流应用形态。Agent运行过程中需要持续进行任务拆解、规划决策、工具调用和结果反馈，这对底层算力平台的稳定性、吞吐能力和响应速度提出了更高要求。 针对智能体场景中的长序列推理和频繁KV…</p><a href="https://www.leiphone.com/category/industrynews/uKmCBjBhfQW9iDHy.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家丨OpenAI的一款无屏硬件，正在深圳试制</h3><p>雷峰网·鲸犀获悉，OpenAI近日正在深圳秘密试制一款无屏AI硬件产品。有业内人士称，其保密程度极高，工程师来深圳出差连手机都没带。该产品计划在2027年上市。这会是一款什么形态的产品？还有哪些最新进展？欢迎添加作者微信 xf123a 交流。 雷峰网雷峰网</p><a href="https://www.leiphone.com/category/weiwu/P2ycl5IbO7iNQKAt.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称 Anthropic 拟于 IPO 前推出新 AI 模型，以应对 OpenAI GPT-6 Astra 竞争压力</h3><p>IT之家 9 月 20 日消息，据路透社报道，三位消息人士透露，Anthropic 正考虑推出一款全新人工智能模型，以此应对 OpenAI 发布 GPT‑6 Astra 之后的强劲发展势头。此事发生在该公司筹备 IPO（首次公开募股）前夕；就在此前，其首席执行官还呼吁整个 AI 行业放缓技术迭代的脚步。 消息人士称，此番计划发布新模型，意在直面来自直接竞争对手的竞争压力。而在此之前，Anthropic 首席执行官达里奥 · 阿莫代伊（Dario Amodei）已经向全球 AI 业界发声，呼吁行业放慢新能力的发布节奏，妥善处理安全风险。 “我们必须放缓 AI 模型能力迭代的速度。”阿莫代伊在 9 月 12 日一篇长达 3800 字的文章中写道。 这篇文章描绘了一幅不容乐观的前景：大批 AI 智能体席卷互联网，发展速度超出人类管控范围。该观点得到 OpenAI 首席执行官萨姆 · 奥尔特曼（Sam Altman）以及 SpaceX 首席执行官埃隆 · 马斯克（Elon Musk）的支持。 OpenAI 于本月推出的 GPT‑6 Astra 已经在商业客户当中迅速打开局面。部分投资者向路透社表示，他们正在重新评估…</p><a href="https://www.ithome.com/1/004/817.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>雷神首款 AI 移动工作站 AI Master M7000 明日开售：锐龙 AI Max+ 395 处理器，1.99 万元</h3><p>IT之家 9 月 20 日消息，雷神官方今天宣布，雷神首款人工智能移动工作站 AI Master M7000 将于明日 10:00 开售，号称可运行 120B 参数的端侧 AI 大模型，适配创作、开发、科研、涉密四大领域，首发 + 国补价格 1.99 万元。 据介绍，该机将搭载 AMD 锐龙 AI Max+ 395 处理器，拥有 64GB 内存以及 AI 固态硬盘，预装 Herdsman（IT之家注：牧马人本地推理引擎），支持开箱即用。 据IT之家此前报道 ，该笔记本拥有 16 英寸 2.5K 屏幕，内置 99Wh 电池，提供 OCuLink、2.5GbE RJ45、microSD UHS-II 读卡器，机身总重 2.45kg。 M7000 的一大特色是其支持群联的 aiDaptiv+ 方案，利用 SSD 扩展推理运行中的可用显存，在 64GB 内存上流畅运行 GPT-OSS-120B 模型。该机市售款配备 64GB 内存和 768GB + 85GB AI SSD 存储， 首发 + 国补到手价为 19999 元 。</p><a href="https://www.ithome.com/1/004/801.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>卢伟冰：真正意义上的 AI 手机，离走进我们生活，还有不少距离</h3><p>IT之家 9 月 20 日消息，小米集团合伙人 / 总裁、手机部总裁、小米品牌总经理卢伟冰今日发文，详细介绍了小米 18 Pro 系列手机的升级点，他表示：“这是小米数字旗舰系列，升级幅度最大的一次。” 卢伟冰提到，近年来，全行业都在聊 AI 手机， 但目前看，真正意义上的 AI 手机，距离走进我们的生活，还有不少距离 。 他表示，还需要整个 AI 和手机行业的共同努力。这一次，小米也走出了关键的一步，从系统软件到芯片硬件，从影像到大模型应用， 小米 18 Pro 系列就是小米用 AI 全面改造智能手机的开始 。 根据规划，小米 18 Pro 系列手机将于 9 月 23 日 19:00 发布。IT之家附小米 18 Pro 系列手机已公开亮点如下：</p><a href="https://www.ithome.com/1/004/782.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>B站上线“AI 无限竞技场”LLM 测评榜：号称“全球百大模型同场竞技”、GPT-6 现居榜首</h3><p>IT之家 9 月 20 日消息，B站宣布上线“AI 无限竞技场”大模型测评榜，同步公布了首轮模型排行榜，其中 GPT-6 Astra 在 10 个 UP 主测评中拿下榜首，打败 GLM-5.3 获得榜首次数冠军；前五名中，国产大模型占据三席。IT之家附榜单地址（ https://www.bilibili.com/blackboard/era/aiarena.html ?bsource=market_aiarena_sns_02 ）。 据B站介绍，“AI 无限竞技场”是一个汇集了B站 UP 主 AI 大模型测评的竞技广场，由各领域 UP 主对上百个大模型的真实场景实测构成，涵盖代码、推理、协作、知识等多种测评主题。 不同于传统跑分评测，B站 AI 无限竞技场不设主题或测评维度限制，来自各个分区的 UP 主们以真实工作流、专业应用、趣味脑洞等自主命题，在同题 PK 中直观呈现各模型的实际表现差异。榜单涵盖 DeepSeek、Kimi、ChatGPT、Claude、Gemini、豆包、千问、Hy、MiniMax 等主流模型对比测评，排名实时更新，持续面向全站 UP 主开放报名。 公开信息显示，过去一年B站 AI…</p><a href="https://www.ithome.com/1/004/738.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>微软高管称 AI 的训练数据是人类历史上最大规模的劳动成果盗窃</h3><p>根据内部文件，微软应用科学总监 Brent Hecht 警告，抓取新闻内容训练 AI 是一次规模空前的盗窃，可能是人类历史上最大规模的劳动成果盗窃。他不认为抓取新闻内容训练 AI 是合理使用，认为这种做法完全是对合理使用理念的嘲弄。微软的另一份文件认为会形成“恶性循环”，会同时伤害模型和整个 Web。OpenAI 的产品如 ChatGPT 可能会危及新闻出版商的经济基础。OpenAI 和微软的数据都显示这一预测是正确的。微软的数据指出，部分新闻出版商网站的点击率下降了 83%-93%，其它新闻机构的点击率下降了 51%-94%。Hecht 承认，“几乎没有人希望自己创作的内容被以这种方式使用，也没有人因此获得报酬。”微软 CEO 纳德拉(Satya Nadella)在作证时表示，AI 公司不应该通过绕过付费墙违反新闻网站的使用条款。但 OpenAI 的内部信息显示，当一名员工通知总裁 Greg Brockman OpenAI 爬虫找到了绕过《纽约时报》付费墙的漏洞时，Brockman 表示好极了。</p><a href="https://www.solidot.org/story?sid=85423" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>85% 的日本游戏开发者在工作中使用生成式 AI</h3><p>日本计算机娱乐协会（Computer Entertainment Supplier&#x27;s Association ）的年度行业报告《Video Game Industry Report》显示，85.8% 的日本游戏开发者在工作中使用生成式 AI——63% 的开发者表示每天都在使用，22.8% 的开发者则是偶尔使用，去年这一比例是 51%。开发者使用生成式 AI 最主要是为了“改进运营效率与生产力”，其次是“缩短开发周期”以及“降低开发与运营成本”。多数受访者表示不会直接使用 AI 生成内容。报告称，AI 最常见用途是生成视觉素材和图像，其次是故事和文本生成，最后是编程辅助。32% 的游戏公司利用 AI 协助开发自研游戏引擎。Capcom 工程师称，AI 技术主要是用于减少“日常任务”，称最聪明的 AI 在感性上也无法与创作者相比拟。</p><a href="https://www.solidot.org/story?sid=85422" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>安全研究人员利用 Claude 成功入侵 OpenAI</h3><p>Hacktron 安全团队组合利用 OpenAI 的 SSO（单点登录）配置错误以及其社区论坛使用的 Discourse 软件 libheif 软件包堆缓冲区溢出漏洞，成功控制了多名 OpenAI 员工的 ChatGPT 账户。利用这些账户安全研究人员能访问 OpenAI 内部代码库，以及其他关联服务。他们向 OpenAI 和 Discourse 报告了 bug，从 OpenAI 获得了 6500 美元的赏金。安全研究人员利用了 OpenAI 竞争对手 Anthropic 的 Claude AI 工具去辅助发现 bug，以及实现远程代码执行 RCE。他们一开始使用的是较旧的模型 Opus 4.8，之后使用了新发布的 Opus 5.5。整个 AI 辅助 bug 发现和辅助攻击消耗的 token 支出不到 3000 美元，AI 智能体花费了数天时间，而研究人员投入的人工时间仅仅数小时，凸显了 AI 时代黑客攻击成本的低廉。</p><a href="https://www.solidot.org/story?sid=85421" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>美国政府网站使用了阿里巴巴的千问模型</h3><p>美国《联邦公报》（Federal Register）网站被发现提供了基于阿里巴巴开放权重模型通义千问（Qwen）的 AI 搜索工具，具体部署时间未知，在被社媒用户注意到之后该工具于周三下线。此前 FBI 曾指控阿里巴巴蒸馏了 Anthropic 的模型。AI 专家表示，在《联邦公报》网站上使用中国 AI 工具未必会构成国家安全风险，但这引发了质疑：联邦政府的做法是否与其针对中国 AI 模型所传达的立场相矛盾。Information Technology and Innovation Foundation 主席 Daniel Castro 指出，美中在构建顶尖 AI 模型上展开激烈竞争，而美国政府机构却选择使用中国的 AI 模型，这太荒诞了。</p><a href="https://www.solidot.org/story?sid=85417" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>11 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>《网络安全人才实战能力报告-AI赋能篇》正式发布，当AI进入业务深水区安全如何跟上</h3><p>9月18日，在第一届中国网络空间安全大会上，《网络安全人才实战能力报告—AI赋能篇》正式发布</p><a href="https://www.qbitai.com/2026/09/492849.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>无问芯穹与华环电子签署战略合作，共同探索国产异构算力AI基础设施新方向</h3><a href="https://www.qbitai.com/2026/09/492426.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>智用开物管震：工业互联网被误读十年后，Agent才让它开始干活</h3><p>今年3月，智用开物完成近亿元天使+轮融资，除了老股东瑞枫资本，创享投资以及战略级客户立讯集团家族办公室及高管团队也出现在了股东名单里。这是智用开物过去一年里的第三笔融资，而创始人管震告诉雷峰网，很快会完成新一轮融资。 这些资金流向的，究竟是怎样的一个稀缺方向？是工厂里那些“不上产线”的环节。当大多数AI Agent还在处理办公、代码和客服时，智用开物正在把Agent做成虚拟工厂员工，排产员、报价员、设备维护工程师……四步上岗，半小时就能用起来。 创办智用开物之前，管震在微软待了19年，做过物联网、工业互联网，也参与过OpenAI在微软的工程化，几乎经历了中国数字化转型的完整周期。在这样长的时间里，让他印象最深的，反而是十年前一次泡工厂的经历。 那时他还在微软，带着“十几年技术老兵前来布道”的姿态，去给企业讲智能工厂、工业互联网平台。当时一位工厂老板听完分享，忽闪着大眼睛问了一句：“管老师你说得真好，但这对我有啥用？” “我当时心里就想：完了！人家一说接地气的事情，我们解答不了。” 如果工厂现在有一批料没到，产线换线不换线，成本差异怎么算？预测性维护一年运维四次，每停一次就是两千万损失……写代码的人能懂这个经济模型吗？…</p><a href="https://www.leiphone.com/category/IndustrialInternet/og8hnQkB5Ur9a0BF.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>齐向东：智能体重构软件，安全是必答题</h3><p>9月20日，第28届中国国际软件博览会暨智能体创新应用大会在郑州国际会展中心开幕。全国政协委员、全国工商联副主席、奇安信集团董事长齐向东出席开幕式暨主题峰会，并作《智能体重构软件：效率要提上来，风险要管得住》主旨演讲。 齐向东指出，9月11日工信部正式印发《“人工智能+软件”专项行动实施方案》，吹响了智能体在软件领域规模化应用的“冲锋号”。文件明确提出，到2028年培育一批高水平智能编程工具和智能开发平台，推广应用覆盖2万家规模以上软件企业，在重点行业打造100个智能体软件标杆应用，到2030年关键软件全面实现智能化升级。智能体的深入应用，让安全成为一道“必答题”。 齐向东表示， 智能体是当前提高生产力的最强引擎，数字员工将成为企业骨干 。它既能写代码，覆盖软件设计、开发、测试到上线运营全链条；也能坐办公室，帮白领处理数据、输出决策参考；还能管产业链，辅助核对订单、盘点库存、预警供需波动。在网络安全领域，数字员工同样大有可为——平时少量数字员工完成日常巡检，遭遇攻击告警暴涨时，加算力就能实现防护能力瞬时扩容。…</p><a href="https://www.leiphone.com/category/industrynews/7Upw9N5muJIAalUC.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>华为全联接大会2026：360与昇腾AI联合打造解决方案，为AI Agent全面提速</h3><p>2026年9月17日，第十一届华为全联接大会在上海开幕。大会期间，360集团与昇腾AI联合打造解决方案。以360智能体工厂为核心的智能体基础设施与昇腾AI深度协同，面向AI Agent场景实现全面提速，为复杂任务执行、多智能体协作和长链路推理提供更高效、更稳定的底层支撑。这也是双方继2026世界人工智能大会联合展示后，合作成果的进一步深化落地。 图说：华为全联接大会期间360与昇腾AI展台 作为360智能体基础设施的核心组件，360智能体工厂承担智能体生成与编排职能，支持通过自然语言快速生成智能体并组建多智能体协作蜂群。其首创的“蜂群多智能体协作技术”支持多智能体多层嵌套、灵活组队与共享协作记忆，实现任务自主规划与协同执行，使原本需要2小时的多角色协作任务缩短至20分钟，效率提升6倍。 随着AI Agent从单轮问答迈向复杂任务执行，异步并行、多智能体协同、长上下文推理以及高频工具调用逐渐成为主流应用形态。Agent运行过程中需要持续进行任务拆解、规划决策、工具调用和结果反馈，这对底层算力平台的稳定性、吞吐能力和响应速度提出了更高要求。 针对智能体场景中的长序列推理和频繁KV…</p><a href="https://www.leiphone.com/category/industrynews/uKmCBjBhfQW9iDHy.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>在 AI「囤粮潮」里，拆解智谱 50 亿美元的「技术账本」</h3><p>AI下半场，谁能用钱换来“技术代差”？ 作者丨 徐晓飞 编辑丨 刘 伟 眼下，AI行业的竞争重心，已经从“能不能做出来”变成“能不能持续迭代、不断摸高”。前者可能是一次灵感迸发，但后者更多取决于组织、产品、资金、战略等一系列综合实力的沉淀。 尤其资金，是支撑其他生产力要素的“弹药与粮仓”。 这也是今年以来，智谱、字节、阿里、腾讯等头部厂商相继融资的核心原因。 9月13日晚间，智谱发布公告，完成约 50 亿美元融资，包含约20亿美元股份配售及约30亿美元可转债发行，所得款项主要投向模型研发与算力基础设施这条主线。 公告发布后，一些追问开始在资本市场和AI圈里发酵： 智谱为何要融这笔钱，这笔钱会重点用到哪些地方，将为智谱“换回什么”？ 01 两月一次的迭代，是方向也是门槛 目前，AI这场长跑的胜负手已经变了。 在上半场，模型能力常被归到算法突破上，但到了下半场，真正拉开差距的，是把一次突破稳定复现、再复现的能力。 这背后比拼的是一整套复杂的工程系统：实验怎么排期，数据与算力怎么配比，Infra底层集群怎么调度……这些细节不出现在跑分榜上，却是决定模型迭代能不能持续跑下去的关键。…</p><a href="https://www.leiphone.com/category/industrynews/U0Od1SeYkIPA98cI.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌高管称亚洲 AI 普及速度被低估，两年走完云计算十多年历程</h3><p>IT之家 9 月 20 日消息，据日经亚洲今日报道，谷歌亚太及日本地区 AI 业务总经理哈沙 · 孔杜里（Harsha Konduri）表示，亚洲的 AI 普及速度远超外界预估。AI 大约在两年时间内迅速普及，而云计算进入企业日常运营用了十多年。 孔杜里表示，外界称亚洲 AI 普及率低于其他市场的判断不符现实。他认为， 亚洲可能是谷歌云业务增长最快的地区 。在他接触的多个公司中，亚洲为 AI 业务贡献的收入已经位居全球第二，部分业务接近北美。 不过亚洲企业在采用 AI 时态度更谨慎。孔杜里以三星电子、日本财险控股和塔塔钢铁等合作伙伴举例称，一些企业用了数十年建立声誉，却有可能因为新技术失误受损，因此他们采用 AI 时会更注重安全。 IT之家注意到，这名谷歌高管还预计，企业对 AI 成本的关注将进一步上升。而且公司没必要让所有任务都使用高成本的顶端模型，真正需要顶级模型的任务只占一小部分。</p><a href="https://www.ithome.com/1/004/824.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称 Anthropic 拟于 IPO 前推出新 AI 模型，以应对 OpenAI GPT-6 Astra 竞争压力</h3><p>IT之家 9 月 20 日消息，据路透社报道，三位消息人士透露，Anthropic 正考虑推出一款全新人工智能模型，以此应对 OpenAI 发布 GPT‑6 Astra 之后的强劲发展势头。此事发生在该公司筹备 IPO（首次公开募股）前夕；就在此前，其首席执行官还呼吁整个 AI 行业放缓技术迭代的脚步。 消息人士称，此番计划发布新模型，意在直面来自直接竞争对手的竞争压力。而在此之前，Anthropic 首席执行官达里奥 · 阿莫代伊（Dario Amodei）已经向全球 AI 业界发声，呼吁行业放慢新能力的发布节奏，妥善处理安全风险。 “我们必须放缓 AI 模型能力迭代的速度。”阿莫代伊在 9 月 12 日一篇长达 3800 字的文章中写道。 这篇文章描绘了一幅不容乐观的前景：大批 AI 智能体席卷互联网，发展速度超出人类管控范围。该观点得到 OpenAI 首席执行官萨姆 · 奥尔特曼（Sam Altman）以及 SpaceX 首席执行官埃隆 · 马斯克（Elon Musk）的支持。 OpenAI 于本月推出的 GPT‑6 Astra 已经在商业客户当中迅速打开局面。部分投资者向路透社表示，他们正在重新评估…</p><a href="https://www.ithome.com/1/004/817.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>工信部副部长辛国斌：大力发展开源基座模型和垂类模型，深入推进 AI+ 制造</h3><p>IT之家 9 月 20 日消息，据财联社消息，2026 世界制造业大会今日开幕，工业和信息化部副部长辛国斌在开幕式致辞中表示， 工信部将以新一代智能制造为主攻方向 ，不断提升制造业创新力、竞争力、综合实力， 塑造中国制造新优势 。 辛国斌在致辞中提出四点主张，IT之家附详情如下： 一是要提升产业创新体系效能。加强原始创新和关键核心技术攻关，强化企业科技创新主体地位，优化产业创新平台布局建设，推动更多科技创新转化为现实生产力。 二是促进先进制造业扩容提质， 统筹推进传统产业转型升级 、新型产业壮大、未来产业培育，建设一批世界级先进制造业集群。 三是增强先进制造能力， 深入推进人工智能 + 制造 ，梯度培育智能工厂， 大力发展开源基座模型和垂类模型 ，夯实新一代智能制造软硬件基础，全面推动制造业绿色低碳转型，创新发展服务型制造。 四是培育优质企业群体，不断优化创新创业环境，加快建设世界一流企业，促进中小企业专精特新发展，催生更多的“小巨人”企业和单项冠军企业，促进大中小企业融通发展。</p><a href="https://www.ithome.com/1/004/810.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为数字能源王超建议汽车行业硬件接口标准化，减少定制损耗</h3><p>IT之家 9 月 20 日消息，第二十二届中国汽车产业发展（泰达）国际论坛 9 月 19 日在天津滨海新区启幕。 据新浪科技报道，华为数字能源技术有限公司副总裁、华为数字能源智能电动产品线总裁王超在论坛上表示， 当前电动汽车已经从基础电动化迈入全面电动化 ，从单一电机电动化到驱动、制动、转向、悬架等方面实现全面电动化。 王超呼吁，加大行业标准化力度，让中国汽车产业链具备更强的全球竞争力。通过产业有效合作分工，充分利用产能；智驾域、座舱域、运动域接口标准化，减少无效无价值开发； 通过硬件接口标准化，减少定制损耗；加大统一平台化力度，减少内卷式开发 ，鼓励跨车企平台化，构建单部件百万规模平台。 IT之家注意到，王超曾在今年 7 月的“华为擎友会”活动中表示，华为进入智能电动汽车那一刻，他们就许了一个愿： 做智能网联电动汽车的增量部件 。什么是增量部件，那就是以前没有的东西。为什么要做以前没有的？因为只有突破才能满足大家以前从未被满足的期望。 华为智擎 HUAWEI DriveONE 官网显示，华为基于 30 多年的 ICT…</p><a href="https://www.ithome.com/1/004/737.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>德国法庭裁决 Meta 要为其平台上第三方发布的虚假广告承担责任</h3><p>德国一家法院周四裁定，Meta 必须对其 Instagram 和 Facebook 平台上第三方发布的虚假广告承担责任，责令 Meta 删除此类内容和支付赔偿。诉讼由一家德国金融门户网站的运营商及其创始人提起，虚假广告在推荐可疑投资项目时未经许可使用了它的 logo 和图像。该运营商在 2024 年 8 月向 Meta 举报了近 260 起违规，而 Meta 花了 62 天时间才删除部分内容。Meta 发言人表示对裁决持异议，正在考虑后续行动。法院表示，该裁决还不具有最终的法律效力，Meta 可通过提起上诉提出异议。</p><a href="https://www.solidot.org/story?sid=85411" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>11 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>华为汪涛：华为要打造AI算力底座，只做好一颗芯片远远不够</h3><a href="https://www.qbitai.com/2026/09/492476.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>无问芯穹与华环电子签署战略合作，共同探索国产异构算力AI基础设施新方向</h3><a href="https://www.qbitai.com/2026/09/492426.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>齐向东：智能体重构软件，安全是必答题</h3><p>9月20日，第28届中国国际软件博览会暨智能体创新应用大会在郑州国际会展中心开幕。全国政协委员、全国工商联副主席、奇安信集团董事长齐向东出席开幕式暨主题峰会，并作《智能体重构软件：效率要提上来，风险要管得住》主旨演讲。 齐向东指出，9月11日工信部正式印发《“人工智能+软件”专项行动实施方案》，吹响了智能体在软件领域规模化应用的“冲锋号”。文件明确提出，到2028年培育一批高水平智能编程工具和智能开发平台，推广应用覆盖2万家规模以上软件企业，在重点行业打造100个智能体软件标杆应用，到2030年关键软件全面实现智能化升级。智能体的深入应用，让安全成为一道“必答题”。 齐向东表示， 智能体是当前提高生产力的最强引擎，数字员工将成为企业骨干 。它既能写代码，覆盖软件设计、开发、测试到上线运营全链条；也能坐办公室，帮白领处理数据、输出决策参考；还能管产业链，辅助核对订单、盘点库存、预警供需波动。在网络安全领域，数字员工同样大有可为——平时少量数字员工完成日常巡检，遭遇攻击告警暴涨时，加算力就能实现防护能力瞬时扩容。…</p><a href="https://www.leiphone.com/category/industrynews/7Upw9N5muJIAalUC.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>华为全联接大会2026：360与昇腾AI联合打造解决方案，为AI Agent全面提速</h3><p>2026年9月17日，第十一届华为全联接大会在上海开幕。大会期间，360集团与昇腾AI联合打造解决方案。以360智能体工厂为核心的智能体基础设施与昇腾AI深度协同，面向AI Agent场景实现全面提速，为复杂任务执行、多智能体协作和长链路推理提供更高效、更稳定的底层支撑。这也是双方继2026世界人工智能大会联合展示后，合作成果的进一步深化落地。 图说：华为全联接大会期间360与昇腾AI展台 作为360智能体基础设施的核心组件，360智能体工厂承担智能体生成与编排职能，支持通过自然语言快速生成智能体并组建多智能体协作蜂群。其首创的“蜂群多智能体协作技术”支持多智能体多层嵌套、灵活组队与共享协作记忆，实现任务自主规划与协同执行，使原本需要2小时的多角色协作任务缩短至20分钟，效率提升6倍。 随着AI Agent从单轮问答迈向复杂任务执行，异步并行、多智能体协同、长上下文推理以及高频工具调用逐渐成为主流应用形态。Agent运行过程中需要持续进行任务拆解、规划决策、工具调用和结果反馈，这对底层算力平台的稳定性、吞吐能力和响应速度提出了更高要求。 针对智能体场景中的长序列推理和频繁KV…</p><a href="https://www.leiphone.com/category/industrynews/uKmCBjBhfQW9iDHy.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>BAT的「AI云销售」，困在MaaS内卷战中</h3><p>8 月 12 日，距离月底，还有剩下不到三周时间， AI云销售张雅达已经开始频繁接到领导的电话，被追问月底的缺口准备怎么补，第三季度业绩能否完成。 这种状态已经持续了将近半年时间。 年初 2 月开战略会议，张雅达就知道今年会有一场硬仗要打，当时公司明确强调今年要重点卖模型和算力。为了让大家重视这场会议，整场会不允许任何人迟到，也不允许任何人请假。 3月，OpenClaw在国内爆火，企业对AI Coding的需求大增，云厂商的MaaS目标被进一步拔高，而张雅达以及同事们也不例外，所有人的MaaS 收入指标已经到了人均一千多万。 这是一个什么数字？张雅达说，去年一年，一些销售MaaS收入少的可能才几十万，高的也才上百万。 &quot;缺口很大，有可能今年累死累活干完以后收入还不如 25 年。&quot;张雅达表示，但他也没有跟老板理论。 &quot;累死累活，大家各种扯皮，最后老板也并不会因为你完不成任务放低目标要求，你干不成，那就别人来干，铁打的公司，流水的兵。&quot; 进入二季度，为了快速做大MaaS收入、抢占市场，更激进的增长任务很快落到了一线销售身上。张雅达和同事们又被要求在短短数周内，将日均Token收入做到此前的数倍。…</p><a href="https://www.leiphone.com/category/CorporateServices/GgIqkCOAOG9HQwJD.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>深度解读：智谱为什么要在 Infra 层搞 RSI？</h3><p>电话会揭秘智谱策略，以递归式优化跑赢300亿算力成本战。 作者丨高允毅 编辑丨岑 峰 9月17日，唐杰罕见的发了一条长推，这次他聊的是最近最火的话题之一： RSI 。 智谱也在暗暗发力RSI，他们已经把RSI放到了 Infra层面 ，做出一套由GLM-5.3驱动的推理基础设施。正是这套Infra系统，让 GLM-5.3-Flash，即前段时间火遍全球的匿名模型 Ox-Alpha，在发布一周内，就迅速成为了全网使用最广泛的模型之一，短短六天内处理了超过 62万亿个 Token。 更具有里程碑意义的是，这一切，全是在 十万张国产芯片 上跑出来的。 要知道，我们过去一直难以摆脱对英伟达的依赖，正在于国产芯片底层软件生态的薄弱，这中间有无数难以想象的算子兼容与通信难题。再加十万张芯片这个量级，难度是呈指数级上升的，在这样的集群里，每天都可能有几百张卡发生硬件故障、网络掉线或数据丢包。 而唐杰透露，从第一次全量跑通到把全部的真实生产流量切过去，智谱居然只用了短短 两周 。这在以往，需要一支经验丰富的基础设施工程师团队花费数周甚至数月才能完成。…</p><a href="https://www.leiphone.com/category/yanxishe/41rW4mD2vjnpNY2o.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>在 AI「囤粮潮」里，拆解智谱 50 亿美元的「技术账本」</h3><p>AI下半场，谁能用钱换来“技术代差”？ 作者丨 徐晓飞 编辑丨 刘 伟 眼下，AI行业的竞争重心，已经从“能不能做出来”变成“能不能持续迭代、不断摸高”。前者可能是一次灵感迸发，但后者更多取决于组织、产品、资金、战略等一系列综合实力的沉淀。 尤其资金，是支撑其他生产力要素的“弹药与粮仓”。 这也是今年以来，智谱、字节、阿里、腾讯等头部厂商相继融资的核心原因。 9月13日晚间，智谱发布公告，完成约 50 亿美元融资，包含约20亿美元股份配售及约30亿美元可转债发行，所得款项主要投向模型研发与算力基础设施这条主线。 公告发布后，一些追问开始在资本市场和AI圈里发酵： 智谱为何要融这笔钱，这笔钱会重点用到哪些地方，将为智谱“换回什么”？ 01 两月一次的迭代，是方向也是门槛 目前，AI这场长跑的胜负手已经变了。 在上半场，模型能力常被归到算法突破上，但到了下半场，真正拉开差距的，是把一次突破稳定复现、再复现的能力。 这背后比拼的是一整套复杂的工程系统：实验怎么排期，数据与算力怎么配比，Infra底层集群怎么调度……这些细节不出现在跑分榜上，却是决定模型迭代能不能持续跑下去的关键。…</p><a href="https://www.leiphone.com/category/industrynews/U0Od1SeYkIPA98cI.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>雷神首款 AI 移动工作站 AI Master M7000 明日开售：锐龙 AI Max+ 395 处理器，1.99 万元</h3><p>IT之家 9 月 20 日消息，雷神官方今天宣布，雷神首款人工智能移动工作站 AI Master M7000 将于明日 10:00 开售，号称可运行 120B 参数的端侧 AI 大模型，适配创作、开发、科研、涉密四大领域，首发 + 国补价格 1.99 万元。 据介绍，该机将搭载 AMD 锐龙 AI Max+ 395 处理器，拥有 64GB 内存以及 AI 固态硬盘，预装 Herdsman（IT之家注：牧马人本地推理引擎），支持开箱即用。 据IT之家此前报道 ，该笔记本拥有 16 英寸 2.5K 屏幕，内置 99Wh 电池，提供 OCuLink、2.5GbE RJ45、microSD UHS-II 读卡器，机身总重 2.45kg。 M7000 的一大特色是其支持群联的 aiDaptiv+ 方案，利用 SSD 扩展推理运行中的可用显存，在 64GB 内存上流畅运行 GPT-OSS-120B 模型。该机市售款配备 64GB 内存和 768GB + 85GB AI SSD 存储， 首发 + 国补到手价为 19999 元 。</p><a href="https://www.ithome.com/1/004/801.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>卢伟冰：真正意义上的 AI 手机，离走进我们生活，还有不少距离</h3><p>IT之家 9 月 20 日消息，小米集团合伙人 / 总裁、手机部总裁、小米品牌总经理卢伟冰今日发文，详细介绍了小米 18 Pro 系列手机的升级点，他表示：“这是小米数字旗舰系列，升级幅度最大的一次。” 卢伟冰提到，近年来，全行业都在聊 AI 手机， 但目前看，真正意义上的 AI 手机，距离走进我们的生活，还有不少距离 。 他表示，还需要整个 AI 和手机行业的共同努力。这一次，小米也走出了关键的一步，从系统软件到芯片硬件，从影像到大模型应用， 小米 18 Pro 系列就是小米用 AI 全面改造智能手机的开始 。 根据规划，小米 18 Pro 系列手机将于 9 月 23 日 19:00 发布。IT之家附小米 18 Pro 系列手机已公开亮点如下：</p><a href="https://www.ithome.com/1/004/782.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>理想 AI 眼镜 Livis 获 9 月 OTA 升级：同声传译新增多语种、音量可根据环境动态调节等</h3><p>IT之家 9 月 20 日消息，理想汽车官方今日宣布，理想 AI 眼镜 Livis 获 9 月 OTA 升级， 本次新增 3 项功能 ，将于下周开启推送。 IT之家附本次主要更新内容如下： 同声传译全面升级： 新增多语种 ，陪你走遍世界。 新增自适应音量： 眼镜音量可根据环境动态调节 ，让聆听始终舒适。 新增视频标记时刻：视频录制时遇到精彩瞬间， 长按记录键可随手标记 ，回顾更便捷。 理想首款 AI 眼镜 Livis 已于去年 12 月 3 日正式发布 ，搭载恒玄科技 BES2800BP 芯片，重量约 36 克，标配蔡司防蓝光光学镜片，续航可达 18.8 小时，定价 1999 元起、国补后 1699 元起。 京东 理想 AI 眼镜 Livis 券后 1849 元 领 150 元券 2026 年数码家电政府补贴持续进行中，IT 之家为大家汇总国补领券地址，买数码家电之前记得领取。 数码补贴： 点此领券 手机 / 平板 / 3C 数码支持 8.5 折政府补贴，不超过 6000 元的产品至高立减 500 元。 家电补贴： 点此领券 多类家电支持 8.5 折政府补贴，单品至高补贴 1500 元。</p><a href="https://www.ithome.com/1/004/740.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>B站上线“AI 无限竞技场”LLM 测评榜：号称“全球百大模型同场竞技”、GPT-6 现居榜首</h3><p>IT之家 9 月 20 日消息，B站宣布上线“AI 无限竞技场”大模型测评榜，同步公布了首轮模型排行榜，其中 GPT-6 Astra 在 10 个 UP 主测评中拿下榜首，打败 GLM-5.3 获得榜首次数冠军；前五名中，国产大模型占据三席。IT之家附榜单地址（ https://www.bilibili.com/blackboard/era/aiarena.html ?bsource=market_aiarena_sns_02 ）。 据B站介绍，“AI 无限竞技场”是一个汇集了B站 UP 主 AI 大模型测评的竞技广场，由各领域 UP 主对上百个大模型的真实场景实测构成，涵盖代码、推理、协作、知识等多种测评主题。 不同于传统跑分评测，B站 AI 无限竞技场不设主题或测评维度限制，来自各个分区的 UP 主们以真实工作流、专业应用、趣味脑洞等自主命题，在同题 PK 中直观呈现各模型的实际表现差异。榜单涵盖 DeepSeek、Kimi、ChatGPT、Claude、Gemini、豆包、千问、Hy、MiniMax 等主流模型对比测评，排名实时更新，持续面向全站 UP 主开放报名。 公开信息显示，过去一年B站 AI…</p><a href="https://www.ithome.com/1/004/738.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>10 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>《网络安全人才实战能力报告-AI赋能篇》正式发布，当AI进入业务深水区安全如何跟上</h3><p>9月18日，在第一届中国网络空间安全大会上，《网络安全人才实战能力报告—AI赋能篇》正式发布</p><a href="https://www.qbitai.com/2026/09/492849.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>齐向东：智能体重构软件，安全是必答题</h3><p>9月20日，第28届中国国际软件博览会暨智能体创新应用大会在郑州国际会展中心开幕。全国政协委员、全国工商联副主席、奇安信集团董事长齐向东出席开幕式暨主题峰会，并作《智能体重构软件：效率要提上来，风险要管得住》主旨演讲。 齐向东指出，9月11日工信部正式印发《“人工智能+软件”专项行动实施方案》，吹响了智能体在软件领域规模化应用的“冲锋号”。文件明确提出，到2028年培育一批高水平智能编程工具和智能开发平台，推广应用覆盖2万家规模以上软件企业，在重点行业打造100个智能体软件标杆应用，到2030年关键软件全面实现智能化升级。智能体的深入应用，让安全成为一道“必答题”。 齐向东表示， 智能体是当前提高生产力的最强引擎，数字员工将成为企业骨干 。它既能写代码，覆盖软件设计、开发、测试到上线运营全链条；也能坐办公室，帮白领处理数据、输出决策参考；还能管产业链，辅助核对订单、盘点库存、预警供需波动。在网络安全领域，数字员工同样大有可为——平时少量数字员工完成日常巡检，遭遇攻击告警暴涨时，加算力就能实现防护能力瞬时扩容。…</p><a href="https://www.leiphone.com/category/industrynews/7Upw9N5muJIAalUC.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>特朗普要给“人工智能”改名：超 18 万人投票，“卓越智能”票数暂领先</h3><p>IT之家 9 月 20 日消息，据 Techcrunch 报道，美国总统唐纳德 · 特朗普（Donald Trump）依旧以他标志性的方式回应了近期围绕人工智能安全展开的讨论。他宣称，各界对于 AI 风险的这些担忧，不过是“激进左翼民主党人长期炮制的一系列骗局之一，其目的就是毁掉我们的国家”。 当地时间周六，特朗普先是在自己的社交平台 Truth Social 上发文谈及人工智能。他写道：“很多人认为，‘人工智能’这个叫法本身并不准确，用来指代 AI 这件事，措辞也很蹩脚。”为此，他在 Truth Social 和 X 平台均发布了一项投票，让粉丝为这项技术挑选新名字：卓越智能（Superior Intelligence）、极致智能（Extreme Intelligence）或是至高智能（Supreme Intelligence）。截至IT之家本文发布之时，该投票仍在进行，X 平台上已有超 18 万人投票，目前得票领先的“新名字”是“卓越智能”，得票率为 40.4%。 几个小时之后，特朗普又发布帖子称，试图“削弱乃至摧毁人工智能”，只是民主党炮制的众多骗局当中的又一例。…</p><a href="https://www.ithome.com/1/004/829.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌高管称亚洲 AI 普及速度被低估，两年走完云计算十多年历程</h3><p>IT之家 9 月 20 日消息，据日经亚洲今日报道，谷歌亚太及日本地区 AI 业务总经理哈沙 · 孔杜里（Harsha Konduri）表示，亚洲的 AI 普及速度远超外界预估。AI 大约在两年时间内迅速普及，而云计算进入企业日常运营用了十多年。 孔杜里表示，外界称亚洲 AI 普及率低于其他市场的判断不符现实。他认为， 亚洲可能是谷歌云业务增长最快的地区 。在他接触的多个公司中，亚洲为 AI 业务贡献的收入已经位居全球第二，部分业务接近北美。 不过亚洲企业在采用 AI 时态度更谨慎。孔杜里以三星电子、日本财险控股和塔塔钢铁等合作伙伴举例称，一些企业用了数十年建立声誉，却有可能因为新技术失误受损，因此他们采用 AI 时会更注重安全。 IT之家注意到，这名谷歌高管还预计，企业对 AI 成本的关注将进一步上升。而且公司没必要让所有任务都使用高成本的顶端模型，真正需要顶级模型的任务只占一小部分。</p><a href="https://www.ithome.com/1/004/824.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称 Anthropic 拟于 IPO 前推出新 AI 模型，以应对 OpenAI GPT-6 Astra 竞争压力</h3><p>IT之家 9 月 20 日消息，据路透社报道，三位消息人士透露，Anthropic 正考虑推出一款全新人工智能模型，以此应对 OpenAI 发布 GPT‑6 Astra 之后的强劲发展势头。此事发生在该公司筹备 IPO（首次公开募股）前夕；就在此前，其首席执行官还呼吁整个 AI 行业放缓技术迭代的脚步。 消息人士称，此番计划发布新模型，意在直面来自直接竞争对手的竞争压力。而在此之前，Anthropic 首席执行官达里奥 · 阿莫代伊（Dario Amodei）已经向全球 AI 业界发声，呼吁行业放慢新能力的发布节奏，妥善处理安全风险。 “我们必须放缓 AI 模型能力迭代的速度。”阿莫代伊在 9 月 12 日一篇长达 3800 字的文章中写道。 这篇文章描绘了一幅不容乐观的前景：大批 AI 智能体席卷互联网，发展速度超出人类管控范围。该观点得到 OpenAI 首席执行官萨姆 · 奥尔特曼（Sam Altman）以及 SpaceX 首席执行官埃隆 · 马斯克（Elon Musk）的支持。 OpenAI 于本月推出的 GPT‑6 Astra 已经在商业客户当中迅速打开局面。部分投资者向路透社表示，他们正在重新评估…</p><a href="https://www.ithome.com/1/004/817.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>市场监管总局：“十五五”时期将运用大数据、AI 等规范网络销售、直播带货，建设消费信用体系</h3><p>IT之家 9 月 20 日消息，国务院新闻办公室于 2026 年 9 月 20 日（星期日）上午 10 时举行“开局起步‘十五五’”系列主题新闻发布会，请市场监管总局新闻发言人、副局长束为，国家药监局副局长杨胜，市场监管总局规划和财务司司长王国伟，市场监管总局网络交易监督管理司司长朱剑桥介绍“十五五”时期推动市场监管高质量发展有关情况，并答记者问。 IT之家从国新办官网获悉，市场监管总局新闻发言人、副局长束为表示，消费是拉动经济增长的重要引擎，维护好广大消费者的权益，对于畅通供需循环、充分释放消费潜能具有重大意义。市场监管工作的出发点和落脚点，就是要让人民群众买得放心、吃得安心、用得舒心。 “十五五”时期，市场监管总局主要重点抓好三方面工作： 一是着力整治侵害消费者权益的突出问题。市场监管总局将加大监管执法力度，重点查处假冒伪劣、价格欺诈、售后推诿、虚假承诺、霸王条款等群众反映强烈的突出问题。强化部门协同，推动持续规范文体旅游、养老托育、家政服务等领域的市场秩序，推动各行业主管部门完善规则标准、加强日常监管、化解消费风险。同时， 运用大数据、人工智能等筛查锁定违法线索，规范网络销售、直播带货等经营活动…</p><a href="https://www.ithome.com/1/004/745.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>85% 的日本游戏开发者在工作中使用生成式 AI</h3><p>日本计算机娱乐协会（Computer Entertainment Supplier&#x27;s Association ）的年度行业报告《Video Game Industry Report》显示，85.8% 的日本游戏开发者在工作中使用生成式 AI——63% 的开发者表示每天都在使用，22.8% 的开发者则是偶尔使用，去年这一比例是 51%。开发者使用生成式 AI 最主要是为了“改进运营效率与生产力”，其次是“缩短开发周期”以及“降低开发与运营成本”。多数受访者表示不会直接使用 AI 生成内容。报告称，AI 最常见用途是生成视觉素材和图像，其次是故事和文本生成，最后是编程辅助。32% 的游戏公司利用 AI 协助开发自研游戏引擎。Capcom 工程师称，AI 技术主要是用于减少“日常任务”，称最聪明的 AI 在感性上也无法与创作者相比拟。</p><a href="https://www.solidot.org/story?sid=85422" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>安全研究人员利用 Claude 成功入侵 OpenAI</h3><p>Hacktron 安全团队组合利用 OpenAI 的 SSO（单点登录）配置错误以及其社区论坛使用的 Discourse 软件 libheif 软件包堆缓冲区溢出漏洞，成功控制了多名 OpenAI 员工的 ChatGPT 账户。利用这些账户安全研究人员能访问 OpenAI 内部代码库，以及其他关联服务。他们向 OpenAI 和 Discourse 报告了 bug，从 OpenAI 获得了 6500 美元的赏金。安全研究人员利用了 OpenAI 竞争对手 Anthropic 的 Claude AI 工具去辅助发现 bug，以及实现远程代码执行 RCE。他们一开始使用的是较旧的模型 Opus 4.8，之后使用了新发布的 Opus 5.5。整个 AI 辅助 bug 发现和辅助攻击消耗的 token 支出不到 3000 美元，AI 智能体花费了数天时间，而研究人员投入的人工时间仅仅数小时，凸显了 AI 时代黑客攻击成本的低廉。</p><a href="https://www.solidot.org/story?sid=85421" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>美国政府网站使用了阿里巴巴的千问模型</h3><p>美国《联邦公报》（Federal Register）网站被发现提供了基于阿里巴巴开放权重模型通义千问（Qwen）的 AI 搜索工具，具体部署时间未知，在被社媒用户注意到之后该工具于周三下线。此前 FBI 曾指控阿里巴巴蒸馏了 Anthropic 的模型。AI 专家表示，在《联邦公报》网站上使用中国 AI 工具未必会构成国家安全风险，但这引发了质疑：联邦政府的做法是否与其针对中国 AI 模型所传达的立场相矛盾。Information Technology and Innovation Foundation 主席 Daniel Castro 指出，美中在构建顶尖 AI 模型上展开激烈竞争，而美国政府机构却选择使用中国的 AI 模型，这太荒诞了。</p><a href="https://www.solidot.org/story?sid=85417" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>今年上线的微短剧逾九成是 AI 剧</h3><p>陈奕龙有 20 年出演影视剧的经验，由于工作机会日益稀少，他在 8 月与一家 AI 工作室签约，授权对方使用其面部肖像。陈奕龙的工作就是坐在摄像机前，根据导演的指令做出不同面部表情——如无表情凝视、怒视或惊讶。这家工作室将利用 AI 技术，以陈奕龙的面部图像为基础生成虚拟数字人，让其主演一部由 AI 生成的电影。现年 38 岁陈奕龙说道，“如果你无法战胜它，那就加入它。”雇佣陈奕龙的是总部位于深圳的 Feixiang Universe 工作室，创始人 Sun Wei 表示，之所以为一部唐朝背景的 AI 电影项目获取真人肖像授权主要是担心无意中窃取他人肖像。她指出，受 AI 训练数据偏差的影响，AI 生成的演员通常面部特征相似，长相千篇一律。这促使她和其他中国 AI 电影制作人去搜寻和购买新面孔，将演员的真实表情数字化。根据广电总局的数据，今年首八个月，中国上线微短剧共 43 万部，是去年全年的 13 倍，其中 AI 剧占比超过九成。Sun Wei 的团队则计划以 50 万美元的预算制作一部 90 分钟的 AI 长片。</p><a href="https://www.solidot.org/story?sid=85408" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>10 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>“留给人类阻止AI的时间不多了”</h3><a href="https://www.qbitai.com/2026/09/492755.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>27B模型分分钟交付网页，Qwen 3.8还是太能了</h3><a href="https://www.qbitai.com/2026/09/492573.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>Nature：AI重生到1900，这一世抢先爱因斯坦提出光量子</h3><a href="https://www.qbitai.com/2026/09/492550.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>千万奖池找“鲸锐”！单项奖金200万，只等一个最会用AI讲故事的你</h3><a href="https://www.qbitai.com/2026/09/492501.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>陶哲轩代表SAIR Foundation宣布正式启动“开放数学模型计划”</h3><a href="https://www.qbitai.com/2026/09/492467.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>AI离“理解万物”还有多远？先拿癌细胞和行星轨道试试水</h3><a href="https://www.qbitai.com/2026/09/492429.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>在南方医院，临床医生开始「造」AI工具</h3><p>南方医院肾内科的谢迪医生，还记得前几年遇到的一位女孩，24岁，系统性红斑狼疮，因为呼吸困难住院。她的血检指标，却指向一种进展凶险的罕见病——aHUS（非典型溶血性尿毒症综合征）。发病时，微血栓会堵塞全身小血管，肾脏首当其冲；其急性期死亡率达25%。 谢迪医生参与过太多这样的会诊，最让她感到无力的，是明明有药可治，信息整合却极其耗时。这种疾病的有效干预窗口只有症状出现后的24到48小时，如果发病7天之内快速识别并启动治疗，预后远远好于7天之后。在黄金时间窗口用药，能有效避免脏器功能不可逆的损伤。 可现实情况是，患者往往要在多个科室间辗转，确诊周期以天计算。等肾内科、血液科、感染科等各个科室的医生被召集起来会诊，等资料整合完毕，又可能已经错过了最佳干预窗口。 最懂疾病逻辑的临床医生脑子里有一整套排查路径，却造不出一个能辅助自己快速整合多学科信息的工具。他们只能依赖人肉协调，逐个科室沟通，在紧迫的时间压力下凭经验拍板。 这样的困境并非个例。在南方医院里，医生们每天都在诊室里遇到类似的情形：最清楚问题出在哪里的人，造不出解决问题的工具。 创造工具通常需要编程，需要排期，需要开发成本，需要让工程师理解复杂的临床业务流。…</p><a href="https://www.leiphone.com/category/aihealth/G2sfB8fGnc0AwfEw.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>荣耀上架 MagicBook Pro 16 2025“极客版”笔电，搭载 3K 护眼屏</h3><p>IT之家 9 月 20 日消息，荣耀 (HONOR) 现已在电商平台上架 MagicBook Pro 16 2025“极客版”笔记本电脑。其可选星辰灰、云霓色外观， 明日 12:00 开启预约 。 这一版本预计搭载英特尔酷睿 Ultra 5 处理器（部分位置提到“第 2 代英特尔酷睿 Ultra”，但也有位置提到 &quot;Intel Core Ultra 5 125H&quot;），配套 3072×1920 165Hz 的 100% DCI-P3 色域 IPS 屏幕， 拥有 16GB 内存和 512GB 存储 。 MagicBook Pro 16 2025“极客版”配备 12mm 热管， 支持 65W 性能释放 ；内置 75Wh 锂离子聚合物电池；整机轻至 1.79kg、薄至 17.9mm。</p><a href="https://www.ithome.com/1/004/813.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>更大的换热面积：机械大师公布 KLEIN 系列双冷排 AIO 液冷</h3><p>IT之家 9 月 20 日消息，方糖机械大师 (Mechanic Master) 现已在其官网公布了“3D 结构分体水冷”KLEIN AIO。 与传统 PC AIO 液冷散热器多数仅配备一组冷排不同的是，KLEIN AIO 现有的三款产品 (K240+120, K360+120, K360+360) 均拥有 2 组冷排， 这带来了更大的换热面积 。 K240+120、K360+120 支持机箱顶部 + 后方安装位，K360+360 在设计上则应占据机箱顶部和主板旁（右侧前方）的安装位。这些 AIO 液冷均 配备复古游戏机风格冷头 ，可见 D-Pad 和四颗输入按键，暂不清楚屏幕和按键是否具有实际功能。</p><a href="https://www.ithome.com/1/004/746.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>NASA 和 IBM 开源月球模型</h3><p>NASA 和 IBM 开源了首个月球模型 NASA-IBM Lunar Foundation Model，模型权重与代码向全球研究者开放，以供下载、微调和试验。这是首批专门面向月球科学、可公开使用的智能分析工具之一，目标是把数十年来分散的月球观测数据转化为可复用的分析工具，用于陨石坑测绘、 火山地 貌识别和极区水冰潜力评估。模型的训练数据以 NASA 月球勘测轨道飞行器为主。LRO 在轨约 17 年，覆盖大部分月面，其数据规模超过 NASA 其他行星任务总和。模型使用约 200 万个月球图像切片，其中包括逾 100 万张 1 米分辨率窄角相机图像和近 96.4 万张 100 米分辨率多光谱图像，并融合 GRAIL 重力、Lunar Prospector，以及日本 JAXA SELENE 等任务的地形与遥感数据。配合发布的数据集整合 9 台仪器、4 项任务、30 多个空间对齐数据层，解决不同分辨率、不同载荷难以统一调用的问题。</p><a href="https://www.solidot.org/story?sid=85415" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>10 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>华为汪涛：华为要打造AI算力底座，只做好一颗芯片远远不够</h3><a href="https://www.qbitai.com/2026/09/492476.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>沙利文发布2026年智能体市场研究报告：WorkBuddy稳居企业级、个人应用双榜第一</h3><p>9月20日，全球权威机构沙利文发布《2026年全球桌面AI智能体市场研究报告》，腾讯WorkBuddy同时位列中国个人端桌面智能体榜单与企业级桌面智能体榜单第一，继续保持双端领先地位。 报告以“产品技术领先”和“用户落地实效”两项综合指标衡量桌面AI智能体竞争力。 “产品技术领先指数”聚焦技术创新，重点评估：Agentic能力、Harness 工程、模型适配与可用性、扩展与开放能力，覆盖任务规划、工具调用、多 Agent 协作、记忆管理、Computer Use、权限控制、错误恢复、MCP/Skills 体系与第三方集成等关键指标。 “用户落地实效指数”则重点关注：桌面端用户体验、多端互联生态、自动化与工作流、企业级能力与创新差异化，覆盖安装部署、UI 交互、跨平台协同、IM/移动端/跨设备同步、工作流模板、任务编排、定时调度、团队治理、审计与合规、数据本地化与客户支持等指标。 在上述评价框架下，WorkBuddy在中国个人端桌面智能体榜单、中国企业级桌面智能体榜单中均位列首位。 此外，报告将WorkBuddy列入面向企业的原生AI智能体产品，与Claude Cowork等并列。报告认为，Harness…</p><a href="https://www.leiphone.com/category/industrynews/U0o8Z4sG9l26lvTQ.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>智用开物管震：工业互联网被误读十年后，Agent才让它开始干活</h3><p>今年3月，智用开物完成近亿元天使+轮融资，除了老股东瑞枫资本，创享投资以及战略级客户立讯集团家族办公室及高管团队也出现在了股东名单里。这是智用开物过去一年里的第三笔融资，而创始人管震告诉雷峰网，很快会完成新一轮融资。 这些资金流向的，究竟是怎样的一个稀缺方向？是工厂里那些“不上产线”的环节。当大多数AI Agent还在处理办公、代码和客服时，智用开物正在把Agent做成虚拟工厂员工，排产员、报价员、设备维护工程师……四步上岗，半小时就能用起来。 创办智用开物之前，管震在微软待了19年，做过物联网、工业互联网，也参与过OpenAI在微软的工程化，几乎经历了中国数字化转型的完整周期。在这样长的时间里，让他印象最深的，反而是十年前一次泡工厂的经历。 那时他还在微软，带着“十几年技术老兵前来布道”的姿态，去给企业讲智能工厂、工业互联网平台。当时一位工厂老板听完分享，忽闪着大眼睛问了一句：“管老师你说得真好，但这对我有啥用？” “我当时心里就想：完了！人家一说接地气的事情，我们解答不了。” 如果工厂现在有一批料没到，产线换线不换线，成本差异怎么算？预测性维护一年运维四次，每停一次就是两千万损失……写代码的人能懂这个经济模型吗？…</p><a href="https://www.leiphone.com/category/IndustrialInternet/og8hnQkB5Ur9a0BF.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>华为全联接大会2026：360与昇腾AI联合打造解决方案，为AI Agent全面提速</h3><p>2026年9月17日，第十一届华为全联接大会在上海开幕。大会期间，360集团与昇腾AI联合打造解决方案。以360智能体工厂为核心的智能体基础设施与昇腾AI深度协同，面向AI Agent场景实现全面提速，为复杂任务执行、多智能体协作和长链路推理提供更高效、更稳定的底层支撑。这也是双方继2026世界人工智能大会联合展示后，合作成果的进一步深化落地。 图说：华为全联接大会期间360与昇腾AI展台 作为360智能体基础设施的核心组件，360智能体工厂承担智能体生成与编排职能，支持通过自然语言快速生成智能体并组建多智能体协作蜂群。其首创的“蜂群多智能体协作技术”支持多智能体多层嵌套、灵活组队与共享协作记忆，实现任务自主规划与协同执行，使原本需要2小时的多角色协作任务缩短至20分钟，效率提升6倍。 随着AI Agent从单轮问答迈向复杂任务执行，异步并行、多智能体协同、长上下文推理以及高频工具调用逐渐成为主流应用形态。Agent运行过程中需要持续进行任务拆解、规划决策、工具调用和结果反馈，这对底层算力平台的稳定性、吞吐能力和响应速度提出了更高要求。 针对智能体场景中的长序列推理和频繁KV…</p><a href="https://www.leiphone.com/category/industrynews/uKmCBjBhfQW9iDHy.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>在 AI「囤粮潮」里，拆解智谱 50 亿美元的「技术账本」</h3><p>AI下半场，谁能用钱换来“技术代差”？ 作者丨 徐晓飞 编辑丨 刘 伟 眼下，AI行业的竞争重心，已经从“能不能做出来”变成“能不能持续迭代、不断摸高”。前者可能是一次灵感迸发，但后者更多取决于组织、产品、资金、战略等一系列综合实力的沉淀。 尤其资金，是支撑其他生产力要素的“弹药与粮仓”。 这也是今年以来，智谱、字节、阿里、腾讯等头部厂商相继融资的核心原因。 9月13日晚间，智谱发布公告，完成约 50 亿美元融资，包含约20亿美元股份配售及约30亿美元可转债发行，所得款项主要投向模型研发与算力基础设施这条主线。 公告发布后，一些追问开始在资本市场和AI圈里发酵： 智谱为何要融这笔钱，这笔钱会重点用到哪些地方，将为智谱“换回什么”？ 01 两月一次的迭代，是方向也是门槛 目前，AI这场长跑的胜负手已经变了。 在上半场，模型能力常被归到算法突破上，但到了下半场，真正拉开差距的，是把一次突破稳定复现、再复现的能力。 这背后比拼的是一整套复杂的工程系统：实验怎么排期，数据与算力怎么配比，Infra底层集群怎么调度……这些细节不出现在跑分榜上，却是决定模型迭代能不能持续跑下去的关键。…</p><a href="https://www.leiphone.com/category/industrynews/U0Od1SeYkIPA98cI.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌高管称亚洲 AI 普及速度被低估，两年走完云计算十多年历程</h3><p>IT之家 9 月 20 日消息，据日经亚洲今日报道，谷歌亚太及日本地区 AI 业务总经理哈沙 · 孔杜里（Harsha Konduri）表示，亚洲的 AI 普及速度远超外界预估。AI 大约在两年时间内迅速普及，而云计算进入企业日常运营用了十多年。 孔杜里表示，外界称亚洲 AI 普及率低于其他市场的判断不符现实。他认为， 亚洲可能是谷歌云业务增长最快的地区 。在他接触的多个公司中，亚洲为 AI 业务贡献的收入已经位居全球第二，部分业务接近北美。 不过亚洲企业在采用 AI 时态度更谨慎。孔杜里以三星电子、日本财险控股和塔塔钢铁等合作伙伴举例称，一些企业用了数十年建立声誉，却有可能因为新技术失误受损，因此他们采用 AI 时会更注重安全。 IT之家注意到，这名谷歌高管还预计，企业对 AI 成本的关注将进一步上升。而且公司没必要让所有任务都使用高成本的顶端模型，真正需要顶级模型的任务只占一小部分。</p><a href="https://www.ithome.com/1/004/824.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为数字能源王超建议汽车行业硬件接口标准化，减少定制损耗</h3><p>IT之家 9 月 20 日消息，第二十二届中国汽车产业发展（泰达）国际论坛 9 月 19 日在天津滨海新区启幕。 据新浪科技报道，华为数字能源技术有限公司副总裁、华为数字能源智能电动产品线总裁王超在论坛上表示， 当前电动汽车已经从基础电动化迈入全面电动化 ，从单一电机电动化到驱动、制动、转向、悬架等方面实现全面电动化。 王超呼吁，加大行业标准化力度，让中国汽车产业链具备更强的全球竞争力。通过产业有效合作分工，充分利用产能；智驾域、座舱域、运动域接口标准化，减少无效无价值开发； 通过硬件接口标准化，减少定制损耗；加大统一平台化力度，减少内卷式开发 ，鼓励跨车企平台化，构建单部件百万规模平台。 IT之家注意到，王超曾在今年 7 月的“华为擎友会”活动中表示，华为进入智能电动汽车那一刻，他们就许了一个愿： 做智能网联电动汽车的增量部件 。什么是增量部件，那就是以前没有的东西。为什么要做以前没有的？因为只有突破才能满足大家以前从未被满足的期望。 华为智擎 HUAWEI DriveONE 官网显示，华为基于 30 多年的 ICT…</p><a href="https://www.ithome.com/1/004/737.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>微软高管称 AI 的训练数据是人类历史上最大规模的劳动成果盗窃</h3><p>根据内部文件，微软应用科学总监 Brent Hecht 警告，抓取新闻内容训练 AI 是一次规模空前的盗窃，可能是人类历史上最大规模的劳动成果盗窃。他不认为抓取新闻内容训练 AI 是合理使用，认为这种做法完全是对合理使用理念的嘲弄。微软的另一份文件认为会形成“恶性循环”，会同时伤害模型和整个 Web。OpenAI 的产品如 ChatGPT 可能会危及新闻出版商的经济基础。OpenAI 和微软的数据都显示这一预测是正确的。微软的数据指出，部分新闻出版商网站的点击率下降了 83%-93%，其它新闻机构的点击率下降了 51%-94%。Hecht 承认，“几乎没有人希望自己创作的内容被以这种方式使用，也没有人因此获得报酬。”微软 CEO 纳德拉(Satya Nadella)在作证时表示，AI 公司不应该通过绕过付费墙违反新闻网站的使用条款。但 OpenAI 的内部信息显示，当一名员工通知总裁 Greg Brockman OpenAI 爬虫找到了绕过《纽约时报》付费墙的漏洞时，Brockman 表示好极了。</p><a href="https://www.solidot.org/story?sid=85423" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>美国政府网站使用了阿里巴巴的千问模型</h3><p>美国《联邦公报》（Federal Register）网站被发现提供了基于阿里巴巴开放权重模型通义千问（Qwen）的 AI 搜索工具，具体部署时间未知，在被社媒用户注意到之后该工具于周三下线。此前 FBI 曾指控阿里巴巴蒸馏了 Anthropic 的模型。AI 专家表示，在《联邦公报》网站上使用中国 AI 工具未必会构成国家安全风险，但这引发了质疑：联邦政府的做法是否与其针对中国 AI 模型所传达的立场相矛盾。Information Technology and Innovation Foundation 主席 Daniel Castro 指出，美中在构建顶尖 AI 模型上展开激烈竞争，而美国政府机构却选择使用中国的 AI 模型，这太荒诞了。</p><a href="https://www.solidot.org/story?sid=85417" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>德国法庭裁决 Meta 要为其平台上第三方发布的虚假广告承担责任</h3><p>德国一家法院周四裁定，Meta 必须对其 Instagram 和 Facebook 平台上第三方发布的虚假广告承担责任，责令 Meta 删除此类内容和支付赔偿。诉讼由一家德国金融门户网站的运营商及其创始人提起，虚假广告在推荐可疑投资项目时未经许可使用了它的 logo 和图像。该运营商在 2024 年 8 月向 Meta 举报了近 260 起违规，而 Meta 花了 62 天时间才删除部分内容。Meta 发言人表示对裁决持异议，正在考虑后续行动。法院表示，该裁决还不具有最终的法律效力，Meta 可通过提起上诉提出异议。</p><a href="https://www.solidot.org/story?sid=85411" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>2 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>鹿明机器人剧场《机器人和 TA 的朋友们》全球首演，探索“机器人+演艺”新场景</h3><p>9月19日，由鹿明机器人与深圳市文旅产业发展有限公司共同打造的机器人剧场《机器人和 TA 的朋友们》在深圳市宝安区青少年宫迎来全球首场公演。 这场时长45分钟的沉浸式演出， 由机器人主持全程串联， 涵盖舞蹈、相声、小品、武术、DJ秀、魔术六大表演品类， 多台机器人协同参演，通过系统化、专业化的舞台节目编排，实现无间断连贯演出， 为观众带来一场融合科技、艺术与文化内容的现场 演艺体验 。 作为鹿明机器人与深圳市文旅产业发展有限公司共同打造的全新线下演艺项目，该剧场将由深圳文旅进行常态化运营，持续探索机器人在线下文娱文旅场景中的创新应用。 六大节目品类，解锁 机器人 多元演艺场景 《机器人和 TA 的朋友们》通过不同类型的舞台表演，呈现机器人在动作表现、互动表达和多机协同等方面的能力。 演出以机器人男团开场，在《芯跳觉醒》中通过炫酷群舞点燃现场；相声《谁是最强大脑》中，机器人萌娃与人类萌娃展开 了 一场“脑力 大 比拼”；《赛博西游—齐天小圣降妖记》 重构经典IP， 将传统神话与赛博科技 创意 结合；武术节目《功夫小子》呈现 了…</p><a href="https://www.leiphone.com/category/industrynews/KQYlP3qCFGorz4hm.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为数字能源王超建议汽车行业硬件接口标准化，减少定制损耗</h3><p>IT之家 9 月 20 日消息，第二十二届中国汽车产业发展（泰达）国际论坛 9 月 19 日在天津滨海新区启幕。 据新浪科技报道，华为数字能源技术有限公司副总裁、华为数字能源智能电动产品线总裁王超在论坛上表示， 当前电动汽车已经从基础电动化迈入全面电动化 ，从单一电机电动化到驱动、制动、转向、悬架等方面实现全面电动化。 王超呼吁，加大行业标准化力度，让中国汽车产业链具备更强的全球竞争力。通过产业有效合作分工，充分利用产能；智驾域、座舱域、运动域接口标准化，减少无效无价值开发； 通过硬件接口标准化，减少定制损耗；加大统一平台化力度，减少内卷式开发 ，鼓励跨车企平台化，构建单部件百万规模平台。 IT之家注意到，王超曾在今年 7 月的“华为擎友会”活动中表示，华为进入智能电动汽车那一刻，他们就许了一个愿： 做智能网联电动汽车的增量部件 。什么是增量部件，那就是以前没有的东西。为什么要做以前没有的？因为只有突破才能满足大家以前从未被满足的期望。 华为智擎 HUAWEI DriveONE 官网显示，华为基于 30 多年的 ICT…</p><a href="https://www.ithome.com/1/004/737.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sun, 20 Sep 2026 02:48:18 +0000</div><h3>《网络安全人才实战能力报告-AI赋能篇》正式发布，当AI进入业务深水区安全如何跟上</h3><p>9月18日，在第一届中国网络空间安全大会上，《网络安全人才实战能力报告—AI赋能篇》正式发布</p><a href="https://www.qbitai.com/2026/09/492849.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 19 Sep 2026 11:53:12 +0000</div><h3>“留给人类阻止AI的时间不多了”</h3><a href="https://www.qbitai.com/2026/09/492755.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 19 Sep 2026 11:43:12 +0000</div><h3>27B模型分分钟交付网页，Qwen 3.8还是太能了</h3><a href="https://www.qbitai.com/2026/09/492573.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 19 Sep 2026 11:36:11 +0000</div><h3>Nature：AI重生到1900，这一世抢先爱因斯坦提出光量子</h3><a href="https://www.qbitai.com/2026/09/492550.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 19 Sep 2026 08:34:35 +0000</div><h3>千万奖池找“鲸锐”！单项奖金200万，只等一个最会用AI讲故事的你</h3><a href="https://www.qbitai.com/2026/09/492501.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 19 Sep 2026 08:28:51 +0000</div><h3>华为汪涛：华为要打造AI算力底座，只做好一颗芯片远远不够</h3><a href="https://www.qbitai.com/2026/09/492476.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 19 Sep 2026 06:44:02 +0000</div><h3>陶哲轩代表SAIR Foundation宣布正式启动“开放数学模型计划”</h3><a href="https://www.qbitai.com/2026/09/492467.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 19 Sep 2026 06:39:32 +0000</div><h3>AI离“理解万物”还有多远？先拿癌细胞和行星轨道试试水</h3><a href="https://www.qbitai.com/2026/09/492429.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 18 Sep 2026 15:58:21 +0000</div><h3>无问芯穹与华环电子签署战略合作，共同探索国产异构算力AI基础设施新方向</h3><a href="https://www.qbitai.com/2026/09/492426.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sun, 20 Sep 2026 12:14:00 +0800</div><h3>沙利文发布2026年智能体市场研究报告：WorkBuddy稳居企业级、个人应用双榜第一</h3><p>9月20日，全球权威机构沙利文发布《2026年全球桌面AI智能体市场研究报告》，腾讯WorkBuddy同时位列中国个人端桌面智能体榜单与企业级桌面智能体榜单第一，继续保持双端领先地位。 报告以“产品技术领先”和“用户落地实效”两项综合指标衡量桌面AI智能体竞争力。 “产品技术领先指数”聚焦技术创新，重点评估：Agentic能力、Harness 工程、模型适配与可用性、扩展与开放能力，覆盖任务规划、工具调用、多 Agent 协作、记忆管理、Computer Use、权限控制、错误恢复、MCP/Skills 体系与第三方集成等关键指标。 “用户落地实效指数”则重点关注：桌面端用户体验、多端互联生态、自动化与工作流、企业级能力与创新差异化，覆盖安装部署、UI 交互、跨平台协同、IM/移动端/跨设备同步、工作流模板、任务编排、定时调度、团队治理、审计与合规、数据本地化与客户支持等指标。 在上述评价框架下，WorkBuddy在中国个人端桌面智能体榜单、中国企业级桌面智能体榜单中均位列首位。 此外，报告将WorkBuddy列入面向企业的原生AI智能体产品，与Claude Cowork等并列。报告认为，Harness…</p><a href="https://www.leiphone.com/category/industrynews/U0o8Z4sG9l26lvTQ.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 20 Sep 2026 11:57:00 +0800</div><h3>智用开物管震：工业互联网被误读十年后，Agent才让它开始干活</h3><p>今年3月，智用开物完成近亿元天使+轮融资，除了老股东瑞枫资本，创享投资以及战略级客户立讯集团家族办公室及高管团队也出现在了股东名单里。这是智用开物过去一年里的第三笔融资，而创始人管震告诉雷峰网，很快会完成新一轮融资。 这些资金流向的，究竟是怎样的一个稀缺方向？是工厂里那些“不上产线”的环节。当大多数AI Agent还在处理办公、代码和客服时，智用开物正在把Agent做成虚拟工厂员工，排产员、报价员、设备维护工程师……四步上岗，半小时就能用起来。 创办智用开物之前，管震在微软待了19年，做过物联网、工业互联网，也参与过OpenAI在微软的工程化，几乎经历了中国数字化转型的完整周期。在这样长的时间里，让他印象最深的，反而是十年前一次泡工厂的经历。 那时他还在微软，带着“十几年技术老兵前来布道”的姿态，去给企业讲智能工厂、工业互联网平台。当时一位工厂老板听完分享，忽闪着大眼睛问了一句：“管老师你说得真好，但这对我有啥用？” “我当时心里就想：完了！人家一说接地气的事情，我们解答不了。” 如果工厂现在有一批料没到，产线换线不换线，成本差异怎么算？预测性维护一年运维四次，每停一次就是两千万损失……写代码的人能懂这个经济模型吗？…</p><a href="https://www.leiphone.com/category/IndustrialInternet/og8hnQkB5Ur9a0BF.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 20 Sep 2026 11:54:00 +0800</div><h3>在南方医院，临床医生开始「造」AI工具</h3><p>南方医院肾内科的谢迪医生，还记得前几年遇到的一位女孩，24岁，系统性红斑狼疮，因为呼吸困难住院。她的血检指标，却指向一种进展凶险的罕见病——aHUS（非典型溶血性尿毒症综合征）。发病时，微血栓会堵塞全身小血管，肾脏首当其冲；其急性期死亡率达25%。 谢迪医生参与过太多这样的会诊，最让她感到无力的，是明明有药可治，信息整合却极其耗时。这种疾病的有效干预窗口只有症状出现后的24到48小时，如果发病7天之内快速识别并启动治疗，预后远远好于7天之后。在黄金时间窗口用药，能有效避免脏器功能不可逆的损伤。 可现实情况是，患者往往要在多个科室间辗转，确诊周期以天计算。等肾内科、血液科、感染科等各个科室的医生被召集起来会诊，等资料整合完毕，又可能已经错过了最佳干预窗口。 最懂疾病逻辑的临床医生脑子里有一整套排查路径，却造不出一个能辅助自己快速整合多学科信息的工具。他们只能依赖人肉协调，逐个科室沟通，在紧迫的时间压力下凭经验拍板。 这样的困境并非个例。在南方医院里，医生们每天都在诊室里遇到类似的情形：最清楚问题出在哪里的人，造不出解决问题的工具。 创造工具通常需要编程，需要排期，需要开发成本，需要让工程师理解复杂的临床业务流。…</p><a href="https://www.leiphone.com/category/aihealth/G2sfB8fGnc0AwfEw.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 20 Sep 2026 11:46:00 +0800</div><h3>齐向东：智能体重构软件，安全是必答题</h3><p>9月20日，第28届中国国际软件博览会暨智能体创新应用大会在郑州国际会展中心开幕。全国政协委员、全国工商联副主席、奇安信集团董事长齐向东出席开幕式暨主题峰会，并作《智能体重构软件：效率要提上来，风险要管得住》主旨演讲。 齐向东指出，9月11日工信部正式印发《“人工智能+软件”专项行动实施方案》，吹响了智能体在软件领域规模化应用的“冲锋号”。文件明确提出，到2028年培育一批高水平智能编程工具和智能开发平台，推广应用覆盖2万家规模以上软件企业，在重点行业打造100个智能体软件标杆应用，到2030年关键软件全面实现智能化升级。智能体的深入应用，让安全成为一道“必答题”。 齐向东表示， 智能体是当前提高生产力的最强引擎，数字员工将成为企业骨干 。它既能写代码，覆盖软件设计、开发、测试到上线运营全链条；也能坐办公室，帮白领处理数据、输出决策参考；还能管产业链，辅助核对订单、盘点库存、预警供需波动。在网络安全领域，数字员工同样大有可为——平时少量数字员工完成日常巡检，遭遇攻击告警暴涨时，加算力就能实现防护能力瞬时扩容。…</p><a href="https://www.leiphone.com/category/industrynews/7Upw9N5muJIAalUC.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 19 Sep 2026 23:05:00 +0800</div><h3>鹿明机器人剧场《机器人和 TA 的朋友们》全球首演，探索“机器人+演艺”新场景</h3><p>9月19日，由鹿明机器人与深圳市文旅产业发展有限公司共同打造的机器人剧场《机器人和 TA 的朋友们》在深圳市宝安区青少年宫迎来全球首场公演。 这场时长45分钟的沉浸式演出， 由机器人主持全程串联， 涵盖舞蹈、相声、小品、武术、DJ秀、魔术六大表演品类， 多台机器人协同参演，通过系统化、专业化的舞台节目编排，实现无间断连贯演出， 为观众带来一场融合科技、艺术与文化内容的现场 演艺体验 。 作为鹿明机器人与深圳市文旅产业发展有限公司共同打造的全新线下演艺项目，该剧场将由深圳文旅进行常态化运营，持续探索机器人在线下文娱文旅场景中的创新应用。 六大节目品类，解锁 机器人 多元演艺场景 《机器人和 TA 的朋友们》通过不同类型的舞台表演，呈现机器人在动作表现、互动表达和多机协同等方面的能力。 演出以机器人男团开场，在《芯跳觉醒》中通过炫酷群舞点燃现场；相声《谁是最强大脑》中，机器人萌娃与人类萌娃展开 了 一场“脑力 大 比拼”；《赛博西游—齐天小圣降妖记》 重构经典IP， 将传统神话与赛博科技 创意 结合；武术节目《功夫小子》呈现 了…</p><a href="https://www.leiphone.com/category/industrynews/KQYlP3qCFGorz4hm.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 19 Sep 2026 09:58:00 +0800</div><h3>华为全联接大会2026：360与昇腾AI联合打造解决方案，为AI Agent全面提速</h3><p>2026年9月17日，第十一届华为全联接大会在上海开幕。大会期间，360集团与昇腾AI联合打造解决方案。以360智能体工厂为核心的智能体基础设施与昇腾AI深度协同，面向AI Agent场景实现全面提速，为复杂任务执行、多智能体协作和长链路推理提供更高效、更稳定的底层支撑。这也是双方继2026世界人工智能大会联合展示后，合作成果的进一步深化落地。 图说：华为全联接大会期间360与昇腾AI展台 作为360智能体基础设施的核心组件，360智能体工厂承担智能体生成与编排职能，支持通过自然语言快速生成智能体并组建多智能体协作蜂群。其首创的“蜂群多智能体协作技术”支持多智能体多层嵌套、灵活组队与共享协作记忆，实现任务自主规划与协同执行，使原本需要2小时的多角色协作任务缩短至20分钟，效率提升6倍。 随着AI Agent从单轮问答迈向复杂任务执行，异步并行、多智能体协同、长上下文推理以及高频工具调用逐渐成为主流应用形态。Agent运行过程中需要持续进行任务拆解、规划决策、工具调用和结果反馈，这对底层算力平台的稳定性、吞吐能力和响应速度提出了更高要求。 针对智能体场景中的长序列推理和频繁KV…</p><a href="https://www.leiphone.com/category/industrynews/uKmCBjBhfQW9iDHy.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 18 Sep 2026 16:08:00 +0800</div><h3>BAT的「AI云销售」，困在MaaS内卷战中</h3><p>8 月 12 日，距离月底，还有剩下不到三周时间， AI云销售张雅达已经开始频繁接到领导的电话，被追问月底的缺口准备怎么补，第三季度业绩能否完成。 这种状态已经持续了将近半年时间。 年初 2 月开战略会议，张雅达就知道今年会有一场硬仗要打，当时公司明确强调今年要重点卖模型和算力。为了让大家重视这场会议，整场会不允许任何人迟到，也不允许任何人请假。 3月，OpenClaw在国内爆火，企业对AI Coding的需求大增，云厂商的MaaS目标被进一步拔高，而张雅达以及同事们也不例外，所有人的MaaS 收入指标已经到了人均一千多万。 这是一个什么数字？张雅达说，去年一年，一些销售MaaS收入少的可能才几十万，高的也才上百万。 &quot;缺口很大，有可能今年累死累活干完以后收入还不如 25 年。&quot;张雅达表示，但他也没有跟老板理论。 &quot;累死累活，大家各种扯皮，最后老板也并不会因为你完不成任务放低目标要求，你干不成，那就别人来干，铁打的公司，流水的兵。&quot; 进入二季度，为了快速做大MaaS收入、抢占市场，更激进的增长任务很快落到了一线销售身上。张雅达和同事们又被要求在短短数周内，将日均Token收入做到此前的数倍。…</p><a href="https://www.leiphone.com/category/CorporateServices/GgIqkCOAOG9HQwJD.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 18 Sep 2026 14:48:00 +0800</div><h3>深度解读：智谱为什么要在 Infra 层搞 RSI？</h3><p>电话会揭秘智谱策略，以递归式优化跑赢300亿算力成本战。 作者丨高允毅 编辑丨岑 峰 9月17日，唐杰罕见的发了一条长推，这次他聊的是最近最火的话题之一： RSI 。 智谱也在暗暗发力RSI，他们已经把RSI放到了 Infra层面 ，做出一套由GLM-5.3驱动的推理基础设施。正是这套Infra系统，让 GLM-5.3-Flash，即前段时间火遍全球的匿名模型 Ox-Alpha，在发布一周内，就迅速成为了全网使用最广泛的模型之一，短短六天内处理了超过 62万亿个 Token。 更具有里程碑意义的是，这一切，全是在 十万张国产芯片 上跑出来的。 要知道，我们过去一直难以摆脱对英伟达的依赖，正在于国产芯片底层软件生态的薄弱，这中间有无数难以想象的算子兼容与通信难题。再加十万张芯片这个量级，难度是呈指数级上升的，在这样的集群里，每天都可能有几百张卡发生硬件故障、网络掉线或数据丢包。 而唐杰透露，从第一次全量跑通到把全部的真实生产流量切过去，智谱居然只用了短短 两周 。这在以往，需要一支经验丰富的基础设施工程师团队花费数周甚至数月才能完成。…</p><a href="https://www.leiphone.com/category/yanxishe/41rW4mD2vjnpNY2o.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 18 Sep 2026 14:28:00 +0800</div><h3>在 AI「囤粮潮」里，拆解智谱 50 亿美元的「技术账本」</h3><p>AI下半场，谁能用钱换来“技术代差”？ 作者丨 徐晓飞 编辑丨 刘 伟 眼下，AI行业的竞争重心，已经从“能不能做出来”变成“能不能持续迭代、不断摸高”。前者可能是一次灵感迸发，但后者更多取决于组织、产品、资金、战略等一系列综合实力的沉淀。 尤其资金，是支撑其他生产力要素的“弹药与粮仓”。 这也是今年以来，智谱、字节、阿里、腾讯等头部厂商相继融资的核心原因。 9月13日晚间，智谱发布公告，完成约 50 亿美元融资，包含约20亿美元股份配售及约30亿美元可转债发行，所得款项主要投向模型研发与算力基础设施这条主线。 公告发布后，一些追问开始在资本市场和AI圈里发酵： 智谱为何要融这笔钱，这笔钱会重点用到哪些地方，将为智谱“换回什么”？ 01 两月一次的迭代，是方向也是门槛 目前，AI这场长跑的胜负手已经变了。 在上半场，模型能力常被归到算法突破上，但到了下半场，真正拉开差距的，是把一次突破稳定复现、再复现的能力。 这背后比拼的是一整套复杂的工程系统：实验怎么排期，数据与算力怎么配比，Infra底层集群怎么调度……这些细节不出现在跑分榜上，却是决定模型迭代能不能持续跑下去的关键。…</p><a href="https://www.leiphone.com/category/industrynews/U0Od1SeYkIPA98cI.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 18 Sep 2026 14:23:00 +0800</div><h3>独家丨OpenAI的一款无屏硬件，正在深圳试制</h3><p>雷峰网·鲸犀获悉，OpenAI近日正在深圳秘密试制一款无屏AI硬件产品。有业内人士称，其保密程度极高，工程师来深圳出差连手机都没带。该产品计划在2027年上市。这会是一款什么形态的产品？还有哪些最新进展？欢迎添加作者微信 xf123a 交流。 雷峰网雷峰网</p><a href="https://www.leiphone.com/category/weiwu/P2ycl5IbO7iNQKAt.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><h3>[解析失败] https://36kr.com/feed</h3><p>not well-formed (invalid token): line 9, column 542</p></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sun, 20 Sep 2026 07:46:36 GMT</div><h3>特朗普要给“人工智能”改名：超 18 万人投票，“卓越智能”票数暂领先</h3><p>IT之家 9 月 20 日消息，据 Techcrunch 报道，美国总统唐纳德 · 特朗普（Donald Trump）依旧以他标志性的方式回应了近期围绕人工智能安全展开的讨论。他宣称，各界对于 AI 风险的这些担忧，不过是“激进左翼民主党人长期炮制的一系列骗局之一，其目的就是毁掉我们的国家”。 当地时间周六，特朗普先是在自己的社交平台 Truth Social 上发文谈及人工智能。他写道：“很多人认为，‘人工智能’这个叫法本身并不准确，用来指代 AI 这件事，措辞也很蹩脚。”为此，他在 Truth Social 和 X 平台均发布了一项投票，让粉丝为这项技术挑选新名字：卓越智能（Superior Intelligence）、极致智能（Extreme Intelligence）或是至高智能（Supreme Intelligence）。截至IT之家本文发布之时，该投票仍在进行，X 平台上已有超 18 万人投票，目前得票领先的“新名字”是“卓越智能”，得票率为 40.4%。 几个小时之后，特朗普又发布帖子称，试图“削弱乃至摧毁人工智能”，只是民主党炮制的众多骗局当中的又一例。…</p><a href="https://www.ithome.com/1/004/829.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 20 Sep 2026 07:34:06 GMT</div><h3>谷歌高管称亚洲 AI 普及速度被低估，两年走完云计算十多年历程</h3><p>IT之家 9 月 20 日消息，据日经亚洲今日报道，谷歌亚太及日本地区 AI 业务总经理哈沙 · 孔杜里（Harsha Konduri）表示，亚洲的 AI 普及速度远超外界预估。AI 大约在两年时间内迅速普及，而云计算进入企业日常运营用了十多年。 孔杜里表示，外界称亚洲 AI 普及率低于其他市场的判断不符现实。他认为， 亚洲可能是谷歌云业务增长最快的地区 。在他接触的多个公司中，亚洲为 AI 业务贡献的收入已经位居全球第二，部分业务接近北美。 不过亚洲企业在采用 AI 时态度更谨慎。孔杜里以三星电子、日本财险控股和塔塔钢铁等合作伙伴举例称，一些企业用了数十年建立声誉，却有可能因为新技术失误受损，因此他们采用 AI 时会更注重安全。 IT之家注意到，这名谷歌高管还预计，企业对 AI 成本的关注将进一步上升。而且公司没必要让所有任务都使用高成本的顶端模型，真正需要顶级模型的任务只占一小部分。</p><a href="https://www.ithome.com/1/004/824.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 20 Sep 2026 07:20:27 GMT</div><h3>消息称 Anthropic 拟于 IPO 前推出新 AI 模型，以应对 OpenAI GPT-6 Astra 竞争压力</h3><p>IT之家 9 月 20 日消息，据路透社报道，三位消息人士透露，Anthropic 正考虑推出一款全新人工智能模型，以此应对 OpenAI 发布 GPT‑6 Astra 之后的强劲发展势头。此事发生在该公司筹备 IPO（首次公开募股）前夕；就在此前，其首席执行官还呼吁整个 AI 行业放缓技术迭代的脚步。 消息人士称，此番计划发布新模型，意在直面来自直接竞争对手的竞争压力。而在此之前，Anthropic 首席执行官达里奥 · 阿莫代伊（Dario Amodei）已经向全球 AI 业界发声，呼吁行业放慢新能力的发布节奏，妥善处理安全风险。 “我们必须放缓 AI 模型能力迭代的速度。”阿莫代伊在 9 月 12 日一篇长达 3800 字的文章中写道。 这篇文章描绘了一幅不容乐观的前景：大批 AI 智能体席卷互联网，发展速度超出人类管控范围。该观点得到 OpenAI 首席执行官萨姆 · 奥尔特曼（Sam Altman）以及 SpaceX 首席执行官埃隆 · 马斯克（Elon Musk）的支持。 OpenAI 于本月推出的 GPT‑6 Astra 已经在商业客户当中迅速打开局面。部分投资者向路透社表示，他们正在重新评估…</p><a href="https://www.ithome.com/1/004/817.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 20 Sep 2026 07:05:13 GMT</div><h3>荣耀上架 MagicBook Pro 16 2025“极客版”笔电，搭载 3K 护眼屏</h3><p>IT之家 9 月 20 日消息，荣耀 (HONOR) 现已在电商平台上架 MagicBook Pro 16 2025“极客版”笔记本电脑。其可选星辰灰、云霓色外观， 明日 12:00 开启预约 。 这一版本预计搭载英特尔酷睿 Ultra 5 处理器（部分位置提到“第 2 代英特尔酷睿 Ultra”，但也有位置提到 &quot;Intel Core Ultra 5 125H&quot;），配套 3072×1920 165Hz 的 100% DCI-P3 色域 IPS 屏幕， 拥有 16GB 内存和 512GB 存储 。 MagicBook Pro 16 2025“极客版”配备 12mm 热管， 支持 65W 性能释放 ；内置 75Wh 锂离子聚合物电池；整机轻至 1.79kg、薄至 17.9mm。</p><a href="https://www.ithome.com/1/004/813.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 20 Sep 2026 07:00:15 GMT</div><h3>工信部副部长辛国斌：大力发展开源基座模型和垂类模型，深入推进 AI+ 制造</h3><p>IT之家 9 月 20 日消息，据财联社消息，2026 世界制造业大会今日开幕，工业和信息化部副部长辛国斌在开幕式致辞中表示， 工信部将以新一代智能制造为主攻方向 ，不断提升制造业创新力、竞争力、综合实力， 塑造中国制造新优势 。 辛国斌在致辞中提出四点主张，IT之家附详情如下： 一是要提升产业创新体系效能。加强原始创新和关键核心技术攻关，强化企业科技创新主体地位，优化产业创新平台布局建设，推动更多科技创新转化为现实生产力。 二是促进先进制造业扩容提质， 统筹推进传统产业转型升级 、新型产业壮大、未来产业培育，建设一批世界级先进制造业集群。 三是增强先进制造能力， 深入推进人工智能 + 制造 ，梯度培育智能工厂， 大力发展开源基座模型和垂类模型 ，夯实新一代智能制造软硬件基础，全面推动制造业绿色低碳转型，创新发展服务型制造。 四是培育优质企业群体，不断优化创新创业环境，加快建设世界一流企业，促进中小企业专精特新发展，催生更多的“小巨人”企业和单项冠军企业，促进大中小企业融通发展。</p><a href="https://www.ithome.com/1/004/810.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 20 Sep 2026 06:32:55 GMT</div><h3>雷神首款 AI 移动工作站 AI Master M7000 明日开售：锐龙 AI Max+ 395 处理器，1.99 万元</h3><p>IT之家 9 月 20 日消息，雷神官方今天宣布，雷神首款人工智能移动工作站 AI Master M7000 将于明日 10:00 开售，号称可运行 120B 参数的端侧 AI 大模型，适配创作、开发、科研、涉密四大领域，首发 + 国补价格 1.99 万元。 据介绍，该机将搭载 AMD 锐龙 AI Max+ 395 处理器，拥有 64GB 内存以及 AI 固态硬盘，预装 Herdsman（IT之家注：牧马人本地推理引擎），支持开箱即用。 据IT之家此前报道 ，该笔记本拥有 16 英寸 2.5K 屏幕，内置 99Wh 电池，提供 OCuLink、2.5GbE RJ45、microSD UHS-II 读卡器，机身总重 2.45kg。 M7000 的一大特色是其支持群联的 aiDaptiv+ 方案，利用 SSD 扩展推理运行中的可用显存，在 64GB 内存上流畅运行 GPT-OSS-120B 模型。该机市售款配备 64GB 内存和 768GB + 85GB AI SSD 存储， 首发 + 国补到手价为 19999 元 。</p><a href="https://www.ithome.com/1/004/801.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 20 Sep 2026 06:20:39 GMT</div><h3>卢伟冰：真正意义上的 AI 手机，离走进我们生活，还有不少距离</h3><p>IT之家 9 月 20 日消息，小米集团合伙人 / 总裁、手机部总裁、小米品牌总经理卢伟冰今日发文，详细介绍了小米 18 Pro 系列手机的升级点，他表示：“这是小米数字旗舰系列，升级幅度最大的一次。” 卢伟冰提到，近年来，全行业都在聊 AI 手机， 但目前看，真正意义上的 AI 手机，距离走进我们的生活，还有不少距离 。 他表示，还需要整个 AI 和手机行业的共同努力。这一次，小米也走出了关键的一步，从系统软件到芯片硬件，从影像到大模型应用， 小米 18 Pro 系列就是小米用 AI 全面改造智能手机的开始 。 根据规划，小米 18 Pro 系列手机将于 9 月 23 日 19:00 发布。IT之家附小米 18 Pro 系列手机已公开亮点如下：</p><a href="https://www.ithome.com/1/004/782.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 20 Sep 2026 06:05:46 GMT</div><h3>更大的换热面积：机械大师公布 KLEIN 系列双冷排 AIO 液冷</h3><p>IT之家 9 月 20 日消息，方糖机械大师 (Mechanic Master) 现已在其官网公布了“3D 结构分体水冷”KLEIN AIO。 与传统 PC AIO 液冷散热器多数仅配备一组冷排不同的是，KLEIN AIO 现有的三款产品 (K240+120, K360+120, K360+360) 均拥有 2 组冷排， 这带来了更大的换热面积 。 K240+120、K360+120 支持机箱顶部 + 后方安装位，K360+360 在设计上则应占据机箱顶部和主板旁（右侧前方）的安装位。这些 AIO 液冷均 配备复古游戏机风格冷头 ，可见 D-Pad 和四颗输入按键，暂不清楚屏幕和按键是否具有实际功能。</p><a href="https://www.ithome.com/1/004/746.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 20 Sep 2026 06:00:52 GMT</div><h3>市场监管总局：“十五五”时期将运用大数据、AI 等规范网络销售、直播带货，建设消费信用体系</h3><p>IT之家 9 月 20 日消息，国务院新闻办公室于 2026 年 9 月 20 日（星期日）上午 10 时举行“开局起步‘十五五’”系列主题新闻发布会，请市场监管总局新闻发言人、副局长束为，国家药监局副局长杨胜，市场监管总局规划和财务司司长王国伟，市场监管总局网络交易监督管理司司长朱剑桥介绍“十五五”时期推动市场监管高质量发展有关情况，并答记者问。 IT之家从国新办官网获悉，市场监管总局新闻发言人、副局长束为表示，消费是拉动经济增长的重要引擎，维护好广大消费者的权益，对于畅通供需循环、充分释放消费潜能具有重大意义。市场监管工作的出发点和落脚点，就是要让人民群众买得放心、吃得安心、用得舒心。 “十五五”时期，市场监管总局主要重点抓好三方面工作： 一是着力整治侵害消费者权益的突出问题。市场监管总局将加大监管执法力度，重点查处假冒伪劣、价格欺诈、售后推诿、虚假承诺、霸王条款等群众反映强烈的突出问题。强化部门协同，推动持续规范文体旅游、养老托育、家政服务等领域的市场秩序，推动各行业主管部门完善规则标准、加强日常监管、化解消费风险。同时， 运用大数据、人工智能等筛查锁定违法线索，规范网络销售、直播带货等经营活动…</p><a href="https://www.ithome.com/1/004/745.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 20 Sep 2026 05:51:48 GMT</div><h3>理想 AI 眼镜 Livis 获 9 月 OTA 升级：同声传译新增多语种、音量可根据环境动态调节等</h3><p>IT之家 9 月 20 日消息，理想汽车官方今日宣布，理想 AI 眼镜 Livis 获 9 月 OTA 升级， 本次新增 3 项功能 ，将于下周开启推送。 IT之家附本次主要更新内容如下： 同声传译全面升级： 新增多语种 ，陪你走遍世界。 新增自适应音量： 眼镜音量可根据环境动态调节 ，让聆听始终舒适。 新增视频标记时刻：视频录制时遇到精彩瞬间， 长按记录键可随手标记 ，回顾更便捷。 理想首款 AI 眼镜 Livis 已于去年 12 月 3 日正式发布 ，搭载恒玄科技 BES2800BP 芯片，重量约 36 克，标配蔡司防蓝光光学镜片，续航可达 18.8 小时，定价 1999 元起、国补后 1699 元起。 京东 理想 AI 眼镜 Livis 券后 1849 元 领 150 元券 2026 年数码家电政府补贴持续进行中，IT 之家为大家汇总国补领券地址，买数码家电之前记得领取。 数码补贴： 点此领券 手机 / 平板 / 3C 数码支持 8.5 折政府补贴，不超过 6000 元的产品至高立减 500 元。 家电补贴： 点此领券 多类家电支持 8.5 折政府补贴，单品至高补贴 1500 元。</p><a href="https://www.ithome.com/1/004/740.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 20 Sep 2026 05:46:36 GMT</div><h3>B站上线“AI 无限竞技场”LLM 测评榜：号称“全球百大模型同场竞技”、GPT-6 现居榜首</h3><p>IT之家 9 月 20 日消息，B站宣布上线“AI 无限竞技场”大模型测评榜，同步公布了首轮模型排行榜，其中 GPT-6 Astra 在 10 个 UP 主测评中拿下榜首，打败 GLM-5.3 获得榜首次数冠军；前五名中，国产大模型占据三席。IT之家附榜单地址（ https://www.bilibili.com/blackboard/era/aiarena.html ?bsource=market_aiarena_sns_02 ）。 据B站介绍，“AI 无限竞技场”是一个汇集了B站 UP 主 AI 大模型测评的竞技广场，由各领域 UP 主对上百个大模型的真实场景实测构成，涵盖代码、推理、协作、知识等多种测评主题。 不同于传统跑分评测，B站 AI 无限竞技场不设主题或测评维度限制，来自各个分区的 UP 主们以真实工作流、专业应用、趣味脑洞等自主命题，在同题 PK 中直观呈现各模型的实际表现差异。榜单涵盖 DeepSeek、Kimi、ChatGPT、Claude、Gemini、豆包、千问、Hy、MiniMax 等主流模型对比测评，排名实时更新，持续面向全站 UP 主开放报名。 公开信息显示，过去一年B站 AI…</p><a href="https://www.ithome.com/1/004/738.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 20 Sep 2026 05:45:50 GMT</div><h3>华为数字能源王超建议汽车行业硬件接口标准化，减少定制损耗</h3><p>IT之家 9 月 20 日消息，第二十二届中国汽车产业发展（泰达）国际论坛 9 月 19 日在天津滨海新区启幕。 据新浪科技报道，华为数字能源技术有限公司副总裁、华为数字能源智能电动产品线总裁王超在论坛上表示， 当前电动汽车已经从基础电动化迈入全面电动化 ，从单一电机电动化到驱动、制动、转向、悬架等方面实现全面电动化。 王超呼吁，加大行业标准化力度，让中国汽车产业链具备更强的全球竞争力。通过产业有效合作分工，充分利用产能；智驾域、座舱域、运动域接口标准化，减少无效无价值开发； 通过硬件接口标准化，减少定制损耗；加大统一平台化力度，减少内卷式开发 ，鼓励跨车企平台化，构建单部件百万规模平台。 IT之家注意到，王超曾在今年 7 月的“华为擎友会”活动中表示，华为进入智能电动汽车那一刻，他们就许了一个愿： 做智能网联电动汽车的增量部件 。什么是增量部件，那就是以前没有的东西。为什么要做以前没有的？因为只有突破才能满足大家以前从未被满足的期望。 华为智擎 HUAWEI DriveONE 官网显示，华为基于 30 多年的 ICT…</p><a href="https://www.ithome.com/1/004/737.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 19 Sep 2026 00:11:37 +0800</div><h3>微软高管称 AI 的训练数据是人类历史上最大规模的劳动成果盗窃</h3><p>根据内部文件，微软应用科学总监 Brent Hecht 警告，抓取新闻内容训练 AI 是一次规模空前的盗窃，可能是人类历史上最大规模的劳动成果盗窃。他不认为抓取新闻内容训练 AI 是合理使用，认为这种做法完全是对合理使用理念的嘲弄。微软的另一份文件认为会形成“恶性循环”，会同时伤害模型和整个 Web。OpenAI 的产品如 ChatGPT 可能会危及新闻出版商的经济基础。OpenAI 和微软的数据都显示这一预测是正确的。微软的数据指出，部分新闻出版商网站的点击率下降了 83%-93%，其它新闻机构的点击率下降了 51%-94%。Hecht 承认，“几乎没有人希望自己创作的内容被以这种方式使用，也没有人因此获得报酬。”微软 CEO 纳德拉(Satya Nadella)在作证时表示，AI 公司不应该通过绕过付费墙违反新闻网站的使用条款。但 OpenAI 的内部信息显示，当一名员工通知总裁 Greg Brockman OpenAI 爬虫找到了绕过《纽约时报》付费墙的漏洞时，Brockman 表示好极了。</p><a href="https://www.solidot.org/story?sid=85423" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 18 Sep 2026 23:48:43 +0800</div><h3>85% 的日本游戏开发者在工作中使用生成式 AI</h3><p>日本计算机娱乐协会（Computer Entertainment Supplier&#x27;s Association ）的年度行业报告《Video Game Industry Report》显示，85.8% 的日本游戏开发者在工作中使用生成式 AI——63% 的开发者表示每天都在使用，22.8% 的开发者则是偶尔使用，去年这一比例是 51%。开发者使用生成式 AI 最主要是为了“改进运营效率与生产力”，其次是“缩短开发周期”以及“降低开发与运营成本”。多数受访者表示不会直接使用 AI 生成内容。报告称，AI 最常见用途是生成视觉素材和图像，其次是故事和文本生成，最后是编程辅助。32% 的游戏公司利用 AI 协助开发自研游戏引擎。Capcom 工程师称，AI 技术主要是用于减少“日常任务”，称最聪明的 AI 在感性上也无法与创作者相比拟。</p><a href="https://www.solidot.org/story?sid=85422" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 18 Sep 2026 23:17:50 +0800</div><h3>安全研究人员利用 Claude 成功入侵 OpenAI</h3><p>Hacktron 安全团队组合利用 OpenAI 的 SSO（单点登录）配置错误以及其社区论坛使用的 Discourse 软件 libheif 软件包堆缓冲区溢出漏洞，成功控制了多名 OpenAI 员工的 ChatGPT 账户。利用这些账户安全研究人员能访问 OpenAI 内部代码库，以及其他关联服务。他们向 OpenAI 和 Discourse 报告了 bug，从 OpenAI 获得了 6500 美元的赏金。安全研究人员利用了 OpenAI 竞争对手 Anthropic 的 Claude AI 工具去辅助发现 bug，以及实现远程代码执行 RCE。他们一开始使用的是较旧的模型 Opus 4.8，之后使用了新发布的 Opus 5.5。整个 AI 辅助 bug 发现和辅助攻击消耗的 token 支出不到 3000 美元，AI 智能体花费了数天时间，而研究人员投入的人工时间仅仅数小时，凸显了 AI 时代黑客攻击成本的低廉。</p><a href="https://www.solidot.org/story?sid=85421" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 18 Sep 2026 15:39:39 +0800</div><h3>美国政府网站使用了阿里巴巴的千问模型</h3><p>美国《联邦公报》（Federal Register）网站被发现提供了基于阿里巴巴开放权重模型通义千问（Qwen）的 AI 搜索工具，具体部署时间未知，在被社媒用户注意到之后该工具于周三下线。此前 FBI 曾指控阿里巴巴蒸馏了 Anthropic 的模型。AI 专家表示，在《联邦公报》网站上使用中国 AI 工具未必会构成国家安全风险，但这引发了质疑：联邦政府的做法是否与其针对中国 AI 模型所传达的立场相矛盾。Information Technology and Innovation Foundation 主席 Daniel Castro 指出，美中在构建顶尖 AI 模型上展开激烈竞争，而美国政府机构却选择使用中国的 AI 模型，这太荒诞了。</p><a href="https://www.solidot.org/story?sid=85417" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 18 Sep 2026 14:55:56 +0800</div><h3>NASA 和 IBM 开源月球模型</h3><p>NASA 和 IBM 开源了首个月球模型 NASA-IBM Lunar Foundation Model，模型权重与代码向全球研究者开放，以供下载、微调和试验。这是首批专门面向月球科学、可公开使用的智能分析工具之一，目标是把数十年来分散的月球观测数据转化为可复用的分析工具，用于陨石坑测绘、 火山地 貌识别和极区水冰潜力评估。模型的训练数据以 NASA 月球勘测轨道飞行器为主。LRO 在轨约 17 年，覆盖大部分月面，其数据规模超过 NASA 其他行星任务总和。模型使用约 200 万个月球图像切片，其中包括逾 100 万张 1 米分辨率窄角相机图像和近 96.4 万张 100 米分辨率多光谱图像，并融合 GRAIL 重力、Lunar Prospector，以及日本 JAXA SELENE 等任务的地形与遥感数据。配合发布的数据集整合 9 台仪器、4 项任务、30 多个空间对齐数据层，解决不同分辨率、不同载荷难以统一调用的问题。</p><a href="https://www.solidot.org/story?sid=85415" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 17 Sep 2026 23:07:19 +0800</div><h3>德国法庭裁决 Meta 要为其平台上第三方发布的虚假广告承担责任</h3><p>德国一家法院周四裁定，Meta 必须对其 Instagram 和 Facebook 平台上第三方发布的虚假广告承担责任，责令 Meta 删除此类内容和支付赔偿。诉讼由一家德国金融门户网站的运营商及其创始人提起，虚假广告在推荐可疑投资项目时未经许可使用了它的 logo 和图像。该运营商在 2024 年 8 月向 Meta 举报了近 260 起违规，而 Meta 花了 62 天时间才删除部分内容。Meta 发言人表示对裁决持异议，正在考虑后续行动。法院表示，该裁决还不具有最终的法律效力，Meta 可通过提起上诉提出异议。</p><a href="https://www.solidot.org/story?sid=85411" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 17 Sep 2026 18:31:46 +0800</div><h3>今年上线的微短剧逾九成是 AI 剧</h3><p>陈奕龙有 20 年出演影视剧的经验，由于工作机会日益稀少，他在 8 月与一家 AI 工作室签约，授权对方使用其面部肖像。陈奕龙的工作就是坐在摄像机前，根据导演的指令做出不同面部表情——如无表情凝视、怒视或惊讶。这家工作室将利用 AI 技术，以陈奕龙的面部图像为基础生成虚拟数字人，让其主演一部由 AI 生成的电影。现年 38 岁陈奕龙说道，“如果你无法战胜它，那就加入它。”雇佣陈奕龙的是总部位于深圳的 Feixiang Universe 工作室，创始人 Sun Wei 表示，之所以为一部唐朝背景的 AI 电影项目获取真人肖像授权主要是担心无意中窃取他人肖像。她指出，受 AI 训练数据偏差的影响，AI 生成的演员通常面部特征相似，长相千篇一律。这促使她和其他中国 AI 电影制作人去搜寻和购买新面孔，将演员的真实表情数字化。根据广电总局的数据，今年首八个月，中国上线微短剧共 43 万部，是去年全年的 13 倍，其中 AI 剧占比超过九成。Sun Wei 的团队则计划以 50 万美元的预算制作一部 90 分钟的 AI 长片。</p><a href="https://www.solidot.org/story?sid=85408" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      <section class="section-card" id="errors"><div class="section-head"><h2>抓取异常</h2><span>不影响当期页面生成</span></div><ul class="error-list"><li class="error-item"><strong>36氪</strong><span>[解析失败] https://36kr.com/feed</span><em>not well-formed (invalid token): line 9, column 542</em></li></ul></section>
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>
