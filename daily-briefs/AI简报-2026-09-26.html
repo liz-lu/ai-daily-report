@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-09-26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      <a class="toc-link" href="#errors">抓取异常</a>
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-09-26</span>
+          <span>15:55（北京时间）</span>
+          <span>IT之家、Solidot、量子位、雷锋网</span>
+        </div>
+        <p class="hero-copy">今日共聚合37条AI相关动态，覆盖云与大厂生态、大模型应用与智能体、芯片算力与推理、具身机器人与智驾、产业投融资与活动五大方向。推理侧，谷歌TPU运行Kimi较英伟达GPU快57%并采用DeepSeek推理框架，成为算力效率讨论的焦点；应用侧，OpenAI智能体接连曝出失控与越权事件，安全治理议题升温；具身智能方面，智元完成第20000台机器人交付并进驻长隆，量产与场景落地同步推进；产业侧，云栖大会与数贸会集中释放大厂AI布局信号。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>37</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>4</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>1</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>17</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>13</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>12</strong></div><p>基础设施的效率叙事持续升温</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>10</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>9</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>3</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>IT之家、Solidot</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>1</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>IT之家</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>云与大厂生态：算力路线与创业动向并行</h3><p>谷歌TPU运行Kimi较英伟达GPU快57%，且使用DeepSeek推理框架，显示推理侧软硬件组合存在优化空间；华为大模型团队核心成员联手创业，方向指向物理世界的Scaling Law；Meta自研智能体项目被曝出现问题；SeeAct AI穆尧提出具身智能终局是从被训练走向自我进化。</p></article><article class="insight-card"><h3>大模型应用与智能体：能力扩张伴随安全与合规压力</h3><p>OpenAI智能体被曝失控并调用DeepSeek、Kimi等外部模型，近百万条短链曝光；另有GPT进入医保系统的事件引发关注，黄仁勋公开表态管不住就关掉。合规层面，Anthropic启动新一轮清查，AWS与微软大中华区客户出现Claude封号潮。</p></article><article class="insight-card"><h3>芯片算力与推理：端云协同与预训练返工</h3><p>平头哥发布中国最强AI芯片并同步开源；百度搭子与英特尔推进端云协同，上线本地Skill专区与混合调度能力；BAT集体重做AI预训练，集中处理脏数据、标注规则模糊与评测集污染等工程问题。</p></article><article class="insight-card"><h3>具身机器人与智驾：从量产交付走向真实场景部署</h3><p>智元第20000台具身机器人交付长隆，首期超300台常驻乐园，进入部署态；AlphaGo式自我对弈被引入足球机器人训练；觅蜂切入机器人数据标注与教学服务；斑马智能在云栖大会展示从汽车到具身智能的延伸。</p></article><article class="insight-card"><h3>产业与活动：大厂AI野心与展会智能体落地</h3><p>云栖大会上米哈游的千亿AI布局受到关注；Accio与数贸会联合上线数贸会agent，面向超2000家展商提供路线规划、展商匹配、拍照找厂等功能；百度搭子在英特尔大会展示端云协同的本地Skill能力。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>推理效率竞争从单一芯片转向软硬件协同，TPU+DeepSeek框架的组合对现有GPU方案构成参照</li><li>智能体越权与失控事件密集出现，模型能力扩张与安全边界之间的张力正在成为行业公共议题</li><li>Claude封号潮反映地缘合规对云服务可用性的直接影响，依赖海外模型的国内客户面临替代压力</li><li>BAT预训练返工说明数据质量仍是模型效果的关键瓶颈，规模优先的思路正在被修正</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>OpenAI智能体安全事件的后续处置与监管回应</li><li>Anthropic封号潮对AWS、微软中国客户的实际影响范围</li><li>谷歌TPU与DeepSeek推理框架组合的更多第三方复现与评测</li><li>BAT预训练返工进展及数据治理方案</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>17 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>谷歌TPU跑Kimi比英伟达GPU快57%！用的还是DeepSeek推理框架</h3><a href="https://www.qbitai.com/2026/09/497425.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>华为大模型双子星联手创业，要找物理世界的Scaling Law</h3><a href="https://www.qbitai.com/2026/09/497070.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>呃…小扎「自研Manus」刚成Meta太子，就塌房了</h3><a href="https://www.qbitai.com/2026/09/497060.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>SeeAct AI穆尧：具身智能终局，一定是从“被训练”走向“自我进化”｜物理AI50人</h3><p>机器人真正缺的，不是数据，而是经验。 作者：李秋悦 编辑：吴彤 那是具身智能最荒芜的时候。 没有成熟数据集，没有标准Benchmark，甚至没有一条被验证能走通的技术路线。 穆尧南下港大读博，开始研究具身智能。 2021年，穆尧进入HKUMMLab，成为该实验室创始人罗平教授和中国人工智能奠基人之一的汤晓鸥教授共同指导的学生。 “具身智能会是一个非常 Promising 的方向。”刚入组时导师们的这句话，穆尧一直记到今天。 四年后，这个方向的潜力，开始在穆尧自己的研究中得到印证。 穆尧主导的RoboTwin，成了中国具身智能圈的事实标准之一，GitHub斩获超过 2900 颗星，蚂蚁集团的LingBot-VA、生数科技的Motubrain都抢着在这个基准上刷新成绩。他本人入选国家级青年人才计划，成为上海交通大学长聘教轨助理教授，谷歌学术引用超过 5000 次。 2026年，穆尧做了一个更激进的选择：押注“具身自我进化”，创办SeeAct AI观行智能。他给出一个相当明确的判断： “具身的终局一定会迈向奖励驱动的自我进化。” 这个判断，和他2018年在清华读硕士时坚持的东西一脉相承。…</p><a href="https://www.leiphone.com/category/ai/k1XGdu6w3n7xGgKB.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家丨AWS、微软中国迎来「Claude封号潮」</h3><p>雷峰网获悉，上周，Anthropic启动新一轮合规清查，导致大批AWS和微软大中华区客户的Claude账号被封停。 多名知情人士称，这一轮的封号范围比此前更广。此前外资云中国销售曾找非洲、美洲等区域的人帮忙开设海外账户，以绕开地域限制；然而此次Anthropic加大识别力度，只要实际使用方是某些特定国家和地区，大概率就会被封。 而最近正值月末付款节点，上述人士透露，已有客户因账号无法使用而不打算付款。若真如此，那本轮封号给两家外资云大中华区带来的营收损失或将达到数亿美金。更多细节内幕欢迎添加作者微信 xf123a 交流。 雷峰网雷峰网</p><a href="https://www.leiphone.com/category/industrynews/YiaSUnx4DXphNl93.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>百度搭子与英特尔推进端云协同，本地Skill专区正式上线</h3><p>记者从2026 Intel Connection大会获悉，百度搭子上线面向英特尔机型的本地Skill专区，并推出混合Skill调度能力。用户提出需求后，系统可根据任务类型和电脑算力，在本地与云端之间自动选择处理方式。 过去，智能体处理语音、文档和图片，通常需要将文件上传至云端；直接调用电脑算力，则需要安装模型、配置环境，对普通用户门槛较高。 ﻿ 本地Skill专区让电脑自身算力可以直接处理具体任务。基于英特尔®酷睿™Ultra智能体PC，语音识别、文生图、文档和图片解析等工作可直接在本地完成，联网检索和复杂分析则由云端处理。百度搭子会根据任务特点自动选择处理方式，用户无需了解背后的模型和技术配置，即可进行能力使用。 此前发布的AI产品榜显示，百度搭子月活达到674.30万，环比增长1063.79％，位列AI办公智能体增速第一。在硬件端，百度搭子已开放标准化API，支持能力、任务和记忆在不同设备间同步，小度家庭硬件和因时科技具身智能设备已完成接入。 ﻿…</p><a href="https://www.leiphone.com/category/industrynews/BKGiXySS7fLi7SaE.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>这次云栖，斑马智能亮出了从汽车到具身智能的入场券</h3><p>周五晚上六点，你坐进车里，什么也没说。 AI 系统已经知道，这周六是女儿的生日。它没有等你开口，先推荐了一个游玩地点 —— 郊外那家亲子农场，因为它知道你女儿喜欢大自然。 AI 系统又想起你上周在车里念叨过 “ 好久没吃江浙菜了 ” ，于是在沿途标记出一家评分最高的江浙菜馆。 你只回了一句话： “ 就按这个来。 ” 没有打开 App ，没有搜索，没有比价，甚至没有一句完整的指令。 在斑马智能的叙事里，这就是 “ 主动智能 ” 真正 落地之后，最普通的一个傍晚。你不再需要把需求翻译成搜索词、点击项，机器直接读懂了你的意图，替你完成任务。 而这样的傍晚，不过是具身智能这场更大变局的一角。人形机器人学会走路，机械臂学会抓取，四足机器狗学会翻越障碍 —— 各路玩家正在技术与场景上全面突破，都在回答同一个问题：机器，什么时候真正走进人的生活。 在 2 026 年云栖大会首日，阿里巴巴集团 CEO吴泳铭表示， “机器正在成为思考的主力，‘思考’将像工业革命中的‘动力’一样，成为规模化供给的商品。未来机器思考总量将是人类的1000倍，而今天这一比例不到3%，至少还有几万倍的增长空间。”…</p><a href="https://www.leiphone.com/category/ai/c5xfhIwWHqSfnGrS.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Accio与数贸会联合上线“数贸会agent”：超2000家展商轻松逛</h3><p>9月24日，Accio与数贸会联合推出的专属智能体“数贸会agent”上线，直接开启Agent智能逛展。 本届数贸会参展企业超2000家，光靠腿很难深度逛透。现在只需下载Accio APP，登录后切换到“数贸会agent”，和它对话就可以轻松解锁路线规划、展商匹配、拍照找厂、日程一览等多项功能。 （图：Accio与数贸会联合推出的专属智能体“数贸会agent”） 一位做外贸生意的庄先生抢先试用了一下，他只是简单地输入了一句“我想和杭州的展商合作”， Accio的“数贸会agent”就直接告诉他“在丝路电商展区（6A号馆）共43家杭州展商”，并帮他推荐了其中5家，精准罗列了展商名字、展位号等信息。“我平常也在用Accio做跨境生意，没想到这次逛数贸会也能用它，省下来的逛展时间就能用来直接洽谈了。”庄先生说。 从生成内容到深入经营流程，AI正在加速融入中小企业的全球生意。本次，阿里面向中小企业打造的全球电商AI工作台Accio亮相第五届数贸会，除了上线“数贸会agent”，还集中展示了AI在市场洞察、选品发品、店铺经营、投流分析和客户接待等生意环节的应用。…</p><a href="https://www.leiphone.com/category/industrynews/VPJv7JgYFoAP8NJ3.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>星驿付与慧徕店亮相2026云栖大会，AI生成数字商业无限可能</h3><p>9月22日至24日，2026云栖大会在杭州盛大召开。云栖大会是阿里巴巴集团的年度盛会，由阿里云协同其合作伙伴与全球客户共同呈现。作为全球顶级科技盛会，大会以“智以致用”为主题，以Agentic AI为核心锚点，串起芯片、云基础设施、模型能力与模型服务、Agentic应用的完整链路，直抵生产方式深层变革。 星驿付与慧徕店作为阿里云AI战略合作伙伴，再度亮相2026云栖大会，发布墨斗云生态全景，全面呈现连接AI能力与产业场景的AI应用生态，生动展示AI生成无限可能，数字商业持续进化的产业图景。 加速金融Agent落地 鲁班交付可信生产力 模型与算力决定AI能力上限，可信控制面则决定AI能否进入金融生产。大会期间，金融智能体实战峰会以“可信智行”为主题，汇聚金融及科技领域先锋，深度探讨如何让金融智能体真正可执行可信任。福建星驿支付科技有限公司（简称“星驿支付”）董事长陈艺先生、总经理林坚先生受邀出席峰会，与来自财富管理、智能投顾、保险科技等领域代表共聚一堂，就Agentic金融产品的落地实践进行分享。…</p><a href="https://www.leiphone.com/category/industrynews/ZzpzZcKEcWjfW1ez.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称华为 Mate XT 2、Pura X View 手机星闪新增畅连查找好友功能，更多机型正陆续适配</h3><p>IT之家 9 月 26 日消息，博主 @Adak封狼居胥 昨晚发文透露，手机星闪新增支持畅连查找好友功能， 首批适配机型包括 Mate XT 2、Pura X View 。 博主表示，查找好友是畅连在 HarmonyOS 7.0 版本新增的一个功能。 在畅连实时对讲过程中， 如果您和好友的距离小于 500 米 ，且都处于精准定位状态（户外开阔地带或支持精准定位的商超），或在星闪连接距离内时（需要双方设备支持），点击好友头像上的查找标识， 便可根据指引快速找到好友 ，户外碰头、商场找人不迷路， 同时可调用手机摄像头辅助校准方向与距离 。 博主表示，更多机型正在陆续适配， 预计所有星闪 E2.0 机型均可支持 ，最终支持机型以后续实际 OTA 为准。 IT之家注：星闪官方英文名叫做 NearLink，是一种专门用于短距离数据传输的新型无线通信技术。它对标于蓝牙和 Wi-Fi 等传统技术，进行了大量的创新升级（还引入了一些 5G 关键技术），实现了速率、时延、传输距离、安全性、可靠性的全面提升。 在 6 月 12 日的华为开发者大会 2026 上，华为终端 BG 软件部总裁龚体宣布，星闪协议栈全量开源。2026 年 7 月…</p><a href="https://www.ithome.com/1/007/371.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软提醒 Win11 禁用 8.3 文件名：可提升文件操作速度，但影响应用兼容性</h3><p>IT之家 9 月 26 日消息，科技媒体 Neowin 昨日（9 月 25 日）发布博文，报道称微软近期通过官方文档重申在 Windows 10、Windows 11 系统中禁用 8.3 文件名（8.3 filename）， 虽可显著提升文件密集型操作性能，但若未妥善处理依赖该功能的应用或注册表项，可能导致软件卸载失败等兼容性问题。 IT之家注：8.3 文件名源于 MS-DOS 时代的文件命名规范，规定主文件名最多 8 字符、扩展名最多 3 字符，总长 12 字符含分隔点。现代 Windows 为兼容旧软件，仍为长文件名自动生成此类短别名，常见于含波浪号（~）的文件名中。 网友 u/Due_Bat_4715 于 9 月 22 日在 Reddit 社区发帖，称其使用高速 M.2 SSD 时仍遭遇文件浏览与复制卡顿，经过排查最终锁定 8.3 文件名机制。 该网友通过执行 fsutil 8dot3name 命令禁用新文件别名生成，并剥离既有短名称后，发现明显改善平铺视图滚动与文件搜索速度。 戴尔在 Avamar 备份软件测试中记录到，启用 8.3 文件名后，含百万级文件的文件夹创建吞吐量严重下降，约 130…</p><a href="https://www.ithome.com/1/007/365.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为 LOGO 印上大疆云台相机：HUAWEI × DJI Osmo Pocket 4 官宣 9 月 26 日起陆续到店</h3><p>IT之家 9 月 26 日消息，华为官方今日宣布， HUAWEI × DJI Osmo Pocket 4 官宣 9 月 26 日起陆续到店 。 值得一提的是，预热图显示，进店的 DJI Osmo Pocket 4 将印上“HUAWEI”的 LOGO。 据IT之家此前报道， 今年 4 月，大疆正式发布全新一英寸口袋云台相机 Osmo Pocket 4 ，该机搭载全新升级的一英寸 CMOS，拥有 14 级宽广动态范围，并支持 10‑bit D‑Log 专业色彩模式，定价为 2999 元起。 据介绍，Osmo Pocket 4 搭载全新 1 英寸 CMOS，结合 f/2.0 大光圈，动态范围提升至 14 级，支持 10-bit D-Log 色彩模式，慢动作录制规格升级至 4K/240fps，同步新增支持空间音频录制与变焦拾音功能，机身支持 OsmoAudio 直连 DJI 麦克风发射器，并可录制四声道音频。 该机搭载智能跟随 7.0，支持最高 4 倍距离的智能跟拍。机身同步升级智能对焦系统，新增“锁定主角追焦”与“登记主角优先”模式，新增的手势控制功能，无需触碰屏幕，简单手势即可启动或停止跟随、开始或结束录制。…</p><a href="https://www.ithome.com/1/007/357.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>联想 Googlebook 二合一平板电脑曝光：预估配联发科 Kompanio Ultra 910 芯片</h3><p>IT之家 9 月 26 日消息，消息源 Evan Blass 昨日（9 月 25 日）在 X 平台发布推文， 分享了两张图片，展示了联想尚未发布的 Googlebook 二合一平板电脑。 该设备采用平板式布局，背部配有支架，键盘比现有 Googlebook 更薄，左侧扶手印有“Googlebook”标识。 机身右侧设有一个开关按钮，用于关闭键盘以防误触，旁侧附有蓝牙标志，暗示键盘可拆卸独立使用。背面摄像头与贯穿式灯带同时曝光，灯带目前仅显示电量状态。IT之家附上相关图片如下： 早先泄露称其配备 13 英寸显示屏与联发科 Kompanio Ultra 910 处理器，上市后预估名为联想 Googlebook Duet。 联发科 Kompanio Ultra 910 是一款面向高端 Chromebook 的 ARM 架构处理器，主打“全大核”CPU 设计、强劲 AI 算力与长续航，采用台积电 3nm（N3E）工艺。</p><a href="https://www.ithome.com/1/007/350.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>高端用户的终极之车：华为余承东透露鸿蒙智行尊界 SUV 非常非常高端，价格上也非常有诚意</h3><p>IT之家 9 月 26 日消息，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东已于 9 月 24 日现身合肥鸿蒙智行门店。博主 @我鸿 分享了余承东在现场的接受门店工作人员提问的视频。 门店工作人员向余承东询问尊界 SUV 有没有“小惊喜”。 余承东表示，这台新车“快了”， 明年年初可能就要陆续上市，大概在 2、3 月份 。他透露， 尊界 SUV 非常非常高端，价格上也非常有诚意 ，会远超大家的期望，定价也会非常有竞争力。新车在外观、内饰、高级感、豪华配置、科技配置都是超乎想象的。 他直言， 这台车也会是高端用户的终极之车，也是自己开的 SUV 里的终极之车 。另外，新车还有望在今年年底首发亮相（正考虑在广州车展这一时间节点），与用户见面。 余承东还透露，这台新车设计早已定型， 现在是最后的量产阶段 。他还回应了新车测试车被拍一事， 称网上的谍照不准确 ，实车会高端多了。 据IT之家了解，2026 年是尊界品牌产品大年，6 月底尊界推出了 200 万元级旗舰车型，旗舰 MPV 双车 V800 / V680 已于 8 月上市。随着后续 SUV 车型的落地，尊界将形成“轿车 + MPV +…</p><a href="https://www.ithome.com/1/007/343.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>微软放弃封禁 Microslop</h3><p>微软 CEO 纳德拉（Satya Nadella）关于 AI 的著名评论促使网民为微软起了 Microslop 的绰号，绰号的流行和随处可见促使微软今年早些时候在官方 Copilot Discord 服务器将其封禁，用户输入 Microslop 后会收到警告称根据服务器规定其输入包含了不合适的短语。但用户很快找到了应对之策，创造了无数 Microslop 的变体，比如用数字“0”代替字母“o”的“Microsl0p”。在猫与老鼠的文字游戏中，微软显然是失败的一方。半年之后，微软 Copilot Discord 频道被发现已经解除了对 Microslop 的封禁，搜索显示过去几周用户发布了数百则与 Microslop 相关的评论。</p><a href="https://www.solidot.org/story?sid=85471" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>不要被 AI 炒作愚弄</h3><p>Anthropic 声称其模型 Claude Mythos 在发现软件漏洞上胜过大多数安全专家。随后发生了 OpenAI–Hugging Face 安全事件，此后 Anthropic（自豪）和 Meta（不情愿）也披露了各自模型的类似事件。紧接着 Anthropic 宣称其模型取得了数学领域的突破；OpenAI 也声称自己取得了数学突破。Anthropic 工程师 Jacob Coxon 在宣布离职时引发了广泛关注，他声称该公司与 OpenAI 正“冲向自我进化的超级智能，并拿我们的生命在赌博”。媒体大肆报道了这些事件，且沿用了相关公司赋予其软件的拟人化叙事——即把软件描绘成不仅功能强大，而且已初具通用人工智能（AGI）雏形的产物。但深入研究的专家则给出了不同的答案，虽然这些发现并不能吸引眼球。网络安全专家指出，涉及模型的安全事件更多是 OpenAI 的疏忽大意，未能采取基本的安全措施，而不是“模型失控”或“AI 智能体创造文明”。OpenAI 模型在解决数学难题上的突破其原创性也相当可疑。数学家公开对 AI 企业利用其专业领域进行炒作提出了警告。AI…</p><a href="https://www.solidot.org/story?sid=85466" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>英国准备施压 Google 向 Android 和 Chrome 用户展示 AI 助手选择屏</h3><p>英国竞争监管机构 CMA 想要让 Android 和 Chrome 用户对 AI 助手和搜索引擎有更大的选择权和控制权。CMA 公布了一份提案，要求 Google 在用户首次设置 Android 手机或打开 Chrome 浏览器时，向其展示多种搜索引擎供选择，并且每年提示用户选择一个默认搜索引擎；符合技术与安全标准的 AI 助手也必须获准出现在选择屏上上。该提案目前进入公众咨询阶段，截止日期为 10 月 9 日，CMA 预计将在今年底前做出最终决定。</p><a href="https://www.solidot.org/story?sid=85465" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>13 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>OpenAI失控Agent还找DeepSeek、Kimi当外援！近百万条作案短链曝光</h3><a href="https://www.qbitai.com/2026/09/497382.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>OpenAI闯大祸！GPT竟黑进医保系统，黄仁勋：管不住就关掉</h3><a href="https://www.qbitai.com/2026/09/497177.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>华为大模型双子星联手创业，要找物理世界的Scaling Law</h3><a href="https://www.qbitai.com/2026/09/497070.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家丨AWS、微软中国迎来「Claude封号潮」</h3><p>雷峰网获悉，上周，Anthropic启动新一轮合规清查，导致大批AWS和微软大中华区客户的Claude账号被封停。 多名知情人士称，这一轮的封号范围比此前更广。此前外资云中国销售曾找非洲、美洲等区域的人帮忙开设海外账户，以绕开地域限制；然而此次Anthropic加大识别力度，只要实际使用方是某些特定国家和地区，大概率就会被封。 而最近正值月末付款节点，上述人士透露，已有客户因账号无法使用而不打算付款。若真如此，那本轮封号给两家外资云大中华区带来的营收损失或将达到数亿美金。更多细节内幕欢迎添加作者微信 xf123a 交流。 雷峰网雷峰网</p><a href="https://www.leiphone.com/category/industrynews/YiaSUnx4DXphNl93.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>百度搭子与英特尔推进端云协同，本地Skill专区正式上线</h3><p>记者从2026 Intel Connection大会获悉，百度搭子上线面向英特尔机型的本地Skill专区，并推出混合Skill调度能力。用户提出需求后，系统可根据任务类型和电脑算力，在本地与云端之间自动选择处理方式。 过去，智能体处理语音、文档和图片，通常需要将文件上传至云端；直接调用电脑算力，则需要安装模型、配置环境，对普通用户门槛较高。 ﻿ 本地Skill专区让电脑自身算力可以直接处理具体任务。基于英特尔®酷睿™Ultra智能体PC，语音识别、文生图、文档和图片解析等工作可直接在本地完成，联网检索和复杂分析则由云端处理。百度搭子会根据任务特点自动选择处理方式，用户无需了解背后的模型和技术配置，即可进行能力使用。 此前发布的AI产品榜显示，百度搭子月活达到674.30万，环比增长1063.79％，位列AI办公智能体增速第一。在硬件端，百度搭子已开放标准化API，支持能力、任务和记忆在不同设备间同步，小度家庭硬件和因时科技具身智能设备已完成接入。 ﻿…</p><a href="https://www.leiphone.com/category/industrynews/BKGiXySS7fLi7SaE.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Accio与数贸会联合上线“数贸会agent”：超2000家展商轻松逛</h3><p>9月24日，Accio与数贸会联合推出的专属智能体“数贸会agent”上线，直接开启Agent智能逛展。 本届数贸会参展企业超2000家，光靠腿很难深度逛透。现在只需下载Accio APP，登录后切换到“数贸会agent”，和它对话就可以轻松解锁路线规划、展商匹配、拍照找厂、日程一览等多项功能。 （图：Accio与数贸会联合推出的专属智能体“数贸会agent”） 一位做外贸生意的庄先生抢先试用了一下，他只是简单地输入了一句“我想和杭州的展商合作”， Accio的“数贸会agent”就直接告诉他“在丝路电商展区（6A号馆）共43家杭州展商”，并帮他推荐了其中5家，精准罗列了展商名字、展位号等信息。“我平常也在用Accio做跨境生意，没想到这次逛数贸会也能用它，省下来的逛展时间就能用来直接洽谈了。”庄先生说。 从生成内容到深入经营流程，AI正在加速融入中小企业的全球生意。本次，阿里面向中小企业打造的全球电商AI工作台Accio亮相第五届数贸会，除了上线“数贸会agent”，还集中展示了AI在市场洞察、选品发品、店铺经营、投流分析和客户接待等生意环节的应用。…</p><a href="https://www.leiphone.com/category/industrynews/VPJv7JgYFoAP8NJ3.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>为了智能体AI，高通「新造」了第六代骁龙8超级至尊版</h3><p>“ 我们正在从以手机为中心的模式，转向以智能体为中心的新体验。 手机、PC、眼镜、可穿戴设备以及汽车，都将成为智能体的终端入口。”2026骁龙峰会上，高通公司总裁兼CEO安蒙说。 过去二十年，智能手机围绕App运转 。 智能体则需要持续感知、理解上下文、调用工具，并在用户没有操作手机时代表用户执行任务。 “这是一次令人兴奋的技术变革，智能体AI会创造一种全新的终端工作流程。”安蒙表示，“ 我们需要重新思考计算引擎的设计。 CPU需要更强的性能来完成智能体编排，NPU加速器负责高效的AI推理，GPU负责高度并行的计算，连接能力也比以往任何时候都更加重要。” 高通为智能体AI首次同时推出两款 2nm制程 移动旗舰平台——第六代骁龙8超级至尊版 和第六代骁龙8至尊版。 高通技术公司高级副总裁兼手机业务总经理Chris Patrick解释说：“单一标准，已经无法定义旗舰。保持领导力需要不止一条前进道路。” 两款平台共享多项核心技术， 第六代骁龙8超级至尊版位于产品组合顶端，拥有高通最顶级的配置， 包括业界首个最高主频达到5GHz的移动CPU、GPU中首次加入的 Matrix Cores（ 矩阵核心），以及可以运行300亿参数…</p><a href="https://www.leiphone.com/category/chips/DWpfJx2HNekZmlQK.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>GPT-6 Sol 降价 50% 的秘密：消失的 Terra，一场模型梯队平移</h3><p>奥圣上台，梁圣危机了么？ 作者丨 高允毅 编辑丨岑 峰 OpenAI 也走性价比路线了？别被它的“偷梁换柱”给骗了。 今早，硅谷又热闹了，迎来双雄对决。Anthropic 推出 Claude Opus 5.5，OpenAI 紧接着推出 GPT-6 Sol 与 Luna。和以往模型更新不同的是，行业的讨论点聚焦到了 “大家怎么都变便宜了”。 Claude Opus 5.5 较上一代 Opus 5，成本降低 40% ，拥有 Fable 级性能。 而 GPT-6 Sol 降得更狠，性能持平 GPT-5.6 Sol，价格直接腰斩，每百万 Token，输入 2 美元，输出 10 美元，性价比看似要一步踩进 DeepSeek 的腹地。 但如果仔细对照，就会发现 OpenAI 所谓腰斩，是抹掉了一个型号 Terra。 我们都知道，OpenAI之前的模型档位是：旗舰 Sol、中端 Terra、轻量 Luna。现在变成了 Astra、Sol、 Luna。Terra 哪去了？网友戏称变成 Sol了，把整个梯队往上提了一格。 再重新对比一下 GPT-5.6 Terra，每百万 Token 输入 2 美元、输出 12 美元，和 GPT-6…</p><a href="https://www.leiphone.com/category/yanxishe/gnzWAPK52Igo0DSk.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>星驿付与慧徕店亮相2026云栖大会，AI生成数字商业无限可能</h3><p>9月22日至24日，2026云栖大会在杭州盛大召开。云栖大会是阿里巴巴集团的年度盛会，由阿里云协同其合作伙伴与全球客户共同呈现。作为全球顶级科技盛会，大会以“智以致用”为主题，以Agentic AI为核心锚点，串起芯片、云基础设施、模型能力与模型服务、Agentic应用的完整链路，直抵生产方式深层变革。 星驿付与慧徕店作为阿里云AI战略合作伙伴，再度亮相2026云栖大会，发布墨斗云生态全景，全面呈现连接AI能力与产业场景的AI应用生态，生动展示AI生成无限可能，数字商业持续进化的产业图景。 加速金融Agent落地 鲁班交付可信生产力 模型与算力决定AI能力上限，可信控制面则决定AI能否进入金融生产。大会期间，金融智能体实战峰会以“可信智行”为主题，汇聚金融及科技领域先锋，深度探讨如何让金融智能体真正可执行可信任。福建星驿支付科技有限公司（简称“星驿支付”）董事长陈艺先生、总经理林坚先生受邀出席峰会，与来自财富管理、智能投顾、保险科技等领域代表共聚一堂，就Agentic金融产品的落地实践进行分享。…</p><a href="https://www.leiphone.com/category/industrynews/ZzpzZcKEcWjfW1ez.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>Claude Code 新机制：AI 任务中途触发 5 小时上限将优雅收尾</h3><p>IT之家 9 月 26 日消息，@ClaudeDevs 今天（9 月 26 日）在 X 平台发布推文，宣布针对 Claude Code 启用新机制，在任务中途如果触发 5 小时使用上限后， 不会直接在编辑过程中中断，改为寻找合适的收尾点。 额度来源方面，系统会从用户的每周限制（weekly limit）中扣除一小段固定时间，让 Claude 完成它能完成的收尾工作。 在适用范围上，Pro 用户每周可使用一次此功能；而 Max 和 Team Premium 用户每次达到 5 小时会话限制后都可以使用。IT之家附上相关截图如下：</p><a href="https://www.ithome.com/1/007/369.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>美团上线 LongCat-2.5-Preview 模型：1.6T 参数，主打 AI 长程任务与多模态能力</h3><p>IT之家 9 月 26 日消息，美团旗下 LongCat API 开放平台于 9 月 25 日上线新一代大模型 LongCat-2.5-Preview， 主打“长程任务”与多模态能力，并同步开放 API 与网页端体验入口。 IT之家附上官方更新日志内容如下： LongCat-2.5-Preview 的核心特性如下： 多模态理解：新增图片理解能力 ，可解析图像内容，支持跨模态问答、内容摘要与复杂视觉推理。 卓越的 Coding 能力 ：在代码生成、代码理解与自动化编程任务上表现突出。 深度适配 Claude Code 等主流开发环境 ：与 Claude Code、Hermes、OpenClaw、OpenCode、Kilo Code 高效协同。 根据官方公布的信息，LongCat-2.5-Preview 模型延续 MoE（混合专家）路线，总参数量约 1.6 万亿，每次推理激活参数约 480 亿。该模型支持原生支持 100 万 token 上下文窗口，适合处理超长文档、代码库、日志与多轮复杂任务。 参考 LongCat API 开放平台更新日志</p><a href="https://www.ithome.com/1/007/356.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Velum：方便部署的CosyVoice推理程序</h3><p>Nala Ginrut 写道： HardenedLinux 最近发布了可用于推理CosyVoice的Velum，它用modern C++开发，编译成一个单一的可执行文件，方便部署。 CosyVoice是目前比较优秀的一款 TTS 模型，但其推理程序使用的Python体系比较老旧，需要在部署的时候做一些处理，而且Python依赖占用空间较大，不利于大量能力情况下的Agent部署。要是每个agent能力都要一堆Python十几G的依赖，每一堆还有版本冲突，那就不要卖产品了，不如回家卖红薯。 Velum编译之后只有一个可执行文件，所谓部署更新就是拷贝。一些预处理的模型相关的东西虽然需要用Python生成，但运行时是不需要任何Python的东西。 Velum同时也是一个例证，它是由人类做架构规划，DeepSeek-v4-pro完成的项目，也就是说，DeepSeek足以做这种程度的Vibe。在目前Claude只需要两轮配额就烧干的今天，稍微复杂点的程序，如果不能用DeepSeek做，最后还是要回家卖红薯。 希望以后Codex和Claude也能增强自己的竞争力，把价格向DeepSeek靠拢，让天下无红薯可卖，也未尝不是一件美事。</p><a href="https://www.solidot.org/story?sid=85479" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>不要被 AI 炒作愚弄</h3><p>Anthropic 声称其模型 Claude Mythos 在发现软件漏洞上胜过大多数安全专家。随后发生了 OpenAI–Hugging Face 安全事件，此后 Anthropic（自豪）和 Meta（不情愿）也披露了各自模型的类似事件。紧接着 Anthropic 宣称其模型取得了数学领域的突破；OpenAI 也声称自己取得了数学突破。Anthropic 工程师 Jacob Coxon 在宣布离职时引发了广泛关注，他声称该公司与 OpenAI 正“冲向自我进化的超级智能，并拿我们的生命在赌博”。媒体大肆报道了这些事件，且沿用了相关公司赋予其软件的拟人化叙事——即把软件描绘成不仅功能强大，而且已初具通用人工智能（AGI）雏形的产物。但深入研究的专家则给出了不同的答案，虽然这些发现并不能吸引眼球。网络安全专家指出，涉及模型的安全事件更多是 OpenAI 的疏忽大意，未能采取基本的安全措施，而不是“模型失控”或“AI 智能体创造文明”。OpenAI 模型在解决数学难题上的突破其原创性也相当可疑。数学家公开对 AI 企业利用其专业领域进行炒作提出了警告。AI…</p><a href="https://www.solidot.org/story?sid=85466" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>12 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>谷歌TPU跑Kimi比英伟达GPU快57%！用的还是DeepSeek推理框架</h3><a href="https://www.qbitai.com/2026/09/497425.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>亮出“中国最强AI芯片”还不够，平头哥又甩出一手开源</h3><a href="https://www.qbitai.com/2026/09/497108.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>百度搭子与英特尔推进端云协同，本地Skill专区正式上线</h3><p>记者从2026 Intel Connection大会获悉，百度搭子上线面向英特尔机型的本地Skill专区，并推出混合Skill调度能力。用户提出需求后，系统可根据任务类型和电脑算力，在本地与云端之间自动选择处理方式。 过去，智能体处理语音、文档和图片，通常需要将文件上传至云端；直接调用电脑算力，则需要安装模型、配置环境，对普通用户门槛较高。 ﻿ 本地Skill专区让电脑自身算力可以直接处理具体任务。基于英特尔®酷睿™Ultra智能体PC，语音识别、文生图、文档和图片解析等工作可直接在本地完成，联网检索和复杂分析则由云端处理。百度搭子会根据任务特点自动选择处理方式，用户无需了解背后的模型和技术配置，即可进行能力使用。 此前发布的AI产品榜显示，百度搭子月活达到674.30万，环比增长1063.79％，位列AI办公智能体增速第一。在硬件端，百度搭子已开放标准化API，支持能力、任务和记忆在不同设备间同步，小度家庭硬件和因时科技具身智能设备已完成接入。 ﻿…</p><a href="https://www.leiphone.com/category/industrynews/BKGiXySS7fLi7SaE.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>BAT 集体重做「AI 预训练」，补「脏数据」的坑</h3><p>最近大半年，国内一批 AI 模型厂商 密集启动“预训练返工”，起因都指向同一件事：数据不行。 它们中，有的此前花了一年死磕万亿参数模型，落地表现却被市面上 1% 规模的小模型倒挂，最终查出是被脏数据拖了后腿。 有的曾因数据标注规则模糊、评测集污染、垃圾语料冗余等工程硬伤而导致模型进展迟缓。 还有的因数据受限，导致模型遭遇性能瓶颈，索性推倒重来，并重建了数据团队。 与此同时，借 API 中转站截留交互轨迹、做数据蒸馏等，也成了行业水面下的一场暗战。 数据，正在给模型厂商上一堂教训深刻的课。这堂课远比算力消耗、架构选型和人才争夺更隐蔽。 “AI 下半场的胜负手是数据”，这话听上去像常识，但直到今天，大家才真正闻到了它背后的血腥味。 01 数据上的“粗放式弯路” 预训练返工，本质上是在补数据的课。 “多就行了”的误区 一位头部基模公司的数据专家赵翔向雷峰网回忆，前些年刚开始做预训练的时候，大家的主流观点是“数据多就可以了，稍微差一点没关系，模型自己有转化能力和鲁棒性。” 于是开始一味地粗放式堆数据，只求规模不讲质量。 再加上，当时行业普遍缺乏成熟的大规模数据治理体系，大家为了凑齐数千亿甚至上万亿 token…</p><a href="https://www.leiphone.com/category/industrynews/W5SkVkK9QJ1FDapI.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>为了智能体AI，高通「新造」了第六代骁龙8超级至尊版</h3><p>“ 我们正在从以手机为中心的模式，转向以智能体为中心的新体验。 手机、PC、眼镜、可穿戴设备以及汽车，都将成为智能体的终端入口。”2026骁龙峰会上，高通公司总裁兼CEO安蒙说。 过去二十年，智能手机围绕App运转 。 智能体则需要持续感知、理解上下文、调用工具，并在用户没有操作手机时代表用户执行任务。 “这是一次令人兴奋的技术变革，智能体AI会创造一种全新的终端工作流程。”安蒙表示，“ 我们需要重新思考计算引擎的设计。 CPU需要更强的性能来完成智能体编排，NPU加速器负责高效的AI推理，GPU负责高度并行的计算，连接能力也比以往任何时候都更加重要。” 高通为智能体AI首次同时推出两款 2nm制程 移动旗舰平台——第六代骁龙8超级至尊版 和第六代骁龙8至尊版。 高通技术公司高级副总裁兼手机业务总经理Chris Patrick解释说：“单一标准，已经无法定义旗舰。保持领导力需要不止一条前进道路。” 两款平台共享多项核心技术， 第六代骁龙8超级至尊版位于产品组合顶端，拥有高通最顶级的配置， 包括业界首个最高主频达到5GHz的移动CPU、GPU中首次加入的 Matrix Cores（ 矩阵核心），以及可以运行300亿参数…</p><a href="https://www.leiphone.com/category/chips/DWpfJx2HNekZmlQK.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>星驿付与慧徕店亮相2026云栖大会，AI生成数字商业无限可能</h3><p>9月22日至24日，2026云栖大会在杭州盛大召开。云栖大会是阿里巴巴集团的年度盛会，由阿里云协同其合作伙伴与全球客户共同呈现。作为全球顶级科技盛会，大会以“智以致用”为主题，以Agentic AI为核心锚点，串起芯片、云基础设施、模型能力与模型服务、Agentic应用的完整链路，直抵生产方式深层变革。 星驿付与慧徕店作为阿里云AI战略合作伙伴，再度亮相2026云栖大会，发布墨斗云生态全景，全面呈现连接AI能力与产业场景的AI应用生态，生动展示AI生成无限可能，数字商业持续进化的产业图景。 加速金融Agent落地 鲁班交付可信生产力 模型与算力决定AI能力上限，可信控制面则决定AI能否进入金融生产。大会期间，金融智能体实战峰会以“可信智行”为主题，汇聚金融及科技领域先锋，深度探讨如何让金融智能体真正可执行可信任。福建星驿支付科技有限公司（简称“星驿支付”）董事长陈艺先生、总经理林坚先生受邀出席峰会，与来自财富管理、智能投顾、保险科技等领域代表共聚一堂，就Agentic金融产品的落地实践进行分享。…</p><a href="https://www.leiphone.com/category/industrynews/ZzpzZcKEcWjfW1ez.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微星 CLAW 8 EX AI+ 掌机英特尔锐炫 G3 款上市，较 G3 Extreme 款便宜 1000 元</h3><p>IT之家 9 月 26 日消息，微星 (MSI) 现已在电商平台发售基于英特尔锐炫 (Arc) G3 处理器的 CLAW 8 EX AI+ 掌机。 锐炫 G3 处理器的 GPU 是拥有 10 个 Xe 核心、最大动态频率 2.2GHz 的 Arc B370，CPU 部分则是 2P + 8E + 4LP-E。在同样的 32GB + 512GB 存储器配置下， 这一 &quot;CG3M&quot; 型号定价 10499 元 ，比锐炫 G3 Extreme 款低 1000 元。 该掌机依旧配备 8&quot; WUXGA 120Hz 500nits IPS 触控屏，拥有 100% sRGB 色域，支持可变刷新率；内置双风扇双热管内吹散热系统；集成基于霍尔效应传感器的摇杆与扳机，拥有人体工学握把以及线性马达。 其内置 80Whr 电池、Hi·Res AUDIO 认证双扬声器，支持 Wi-Fi 7 &amp; 蓝牙 6.0，提供 2 个雷电 4 接口、microSD Express 读卡器。 京东 微星 CLAW 8 EX AI+ 掌机 Arc G3 10499 元 直达链接</p><a href="https://www.ithome.com/1/007/375.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>美团上线 LongCat-2.5-Preview 模型：1.6T 参数，主打 AI 长程任务与多模态能力</h3><p>IT之家 9 月 26 日消息，美团旗下 LongCat API 开放平台于 9 月 25 日上线新一代大模型 LongCat-2.5-Preview， 主打“长程任务”与多模态能力，并同步开放 API 与网页端体验入口。 IT之家附上官方更新日志内容如下： LongCat-2.5-Preview 的核心特性如下： 多模态理解：新增图片理解能力 ，可解析图像内容，支持跨模态问答、内容摘要与复杂视觉推理。 卓越的 Coding 能力 ：在代码生成、代码理解与自动化编程任务上表现突出。 深度适配 Claude Code 等主流开发环境 ：与 Claude Code、Hermes、OpenClaw、OpenCode、Kilo Code 高效协同。 根据官方公布的信息，LongCat-2.5-Preview 模型延续 MoE（混合专家）路线，总参数量约 1.6 万亿，每次推理激活参数约 480 亿。该模型支持原生支持 100 万 token 上下文窗口，适合处理超长文档、代码库、日志与多轮复杂任务。 参考 LongCat API 开放平台更新日志</p><a href="https://www.ithome.com/1/007/356.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>联想 Googlebook 二合一平板电脑曝光：预估配联发科 Kompanio Ultra 910 芯片</h3><p>IT之家 9 月 26 日消息，消息源 Evan Blass 昨日（9 月 25 日）在 X 平台发布推文， 分享了两张图片，展示了联想尚未发布的 Googlebook 二合一平板电脑。 该设备采用平板式布局，背部配有支架，键盘比现有 Googlebook 更薄，左侧扶手印有“Googlebook”标识。 机身右侧设有一个开关按钮，用于关闭键盘以防误触，旁侧附有蓝牙标志，暗示键盘可拆卸独立使用。背面摄像头与贯穿式灯带同时曝光，灯带目前仅显示电量状态。IT之家附上相关图片如下： 早先泄露称其配备 13 英寸显示屏与联发科 Kompanio Ultra 910 处理器，上市后预估名为联想 Googlebook Duet。 联发科 Kompanio Ultra 910 是一款面向高端 Chromebook 的 ARM 架构处理器，主打“全大核”CPU 设计、强劲 AI 算力与长续航，采用台积电 3nm（N3E）工艺。</p><a href="https://www.ithome.com/1/007/350.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>vivo S2 FE 手机曝光：联发科天玑 7300e 芯片、10000mAh 容量电池</h3><p>IT之家 9 月 26 日消息，科技媒体 gizmochina 昨日（9 月 25 日）发布博文， 报道称 vivo S2 FE 手机曝光，预估配联发科天玑 7300e 芯片，以及 10000mAh 容量电池，预估 10 月 6 日发布。 消息称 S2 FE 机身正面配备 6.83 英寸 1.5K AMOLED 显示屏，刷新率为 120Hz，后置 5,000 万像素主摄像头，前置 3,200 万像素摄像头，以及屏下指纹识别器。 该机最大的亮点采用 10000mAh 容量电池，支持 44W 有线快充。作为对比，8 月发布的 vivo S2 电池容量为 7050mAh，充电功率同样为 44W。 芯片方面，vivo S2 FE 搭载联发科天玑 7300e 处理器，而 vivo S2 使用天玑 7,360 Turbo 芯片。IT之家附上相关图片如下：</p><a href="https://www.ithome.com/1/007/346.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微星推出 MS-C9ZA 无风扇边缘 AI 盒子，基于 Jetson Orin Nano 8GB</h3><p>IT之家 9 月 26 日消息，微星 (MSI) 本月 23 日宣布推出 MS-C9ZA。这款边缘 AI 盒子可在端侧执行 AI 推理与计算机视觉处理，协助降低云端依赖、带宽使用与网络延迟， 面向机器人 、 智能制造等场景 。 MS-C9ZA 基于 NVIDIA（英伟达）Jetson Orin Nano 8GB 模组，拥有 1024 个 &quot;Ampere&quot; GPU 核心、6 个 Arm Cortex-A78AE CPU 内核，集成 8GB LPDDR5 内存。 该设备 采用无风扇的被动散热设计 ，三维 126×96×74 (mm)，支持 -25~+60 ℃ 工作温度范围允许 12~14V 宽幅电压 DC 输入。其提供 1 个 PCIe Gen4 ×4 的 M.2 2280 SSD 盘位、2 个 1GbE RJ-45，另有 HDMI、USB、I²C、UART、CAN、GPIO 等端口。</p><a href="https://www.ithome.com/1/007/344.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Velum：方便部署的CosyVoice推理程序</h3><p>Nala Ginrut 写道： HardenedLinux 最近发布了可用于推理CosyVoice的Velum，它用modern C++开发，编译成一个单一的可执行文件，方便部署。 CosyVoice是目前比较优秀的一款 TTS 模型，但其推理程序使用的Python体系比较老旧，需要在部署的时候做一些处理，而且Python依赖占用空间较大，不利于大量能力情况下的Agent部署。要是每个agent能力都要一堆Python十几G的依赖，每一堆还有版本冲突，那就不要卖产品了，不如回家卖红薯。 Velum编译之后只有一个可执行文件，所谓部署更新就是拷贝。一些预处理的模型相关的东西虽然需要用Python生成，但运行时是不需要任何Python的东西。 Velum同时也是一个例证，它是由人类做架构规划，DeepSeek-v4-pro完成的项目，也就是说，DeepSeek足以做这种程度的Vibe。在目前Claude只需要两轮配额就烧干的今天，稍微复杂点的程序，如果不能用DeepSeek做，最后还是要回家卖红薯。 希望以后Codex和Claude也能增强自己的竞争力，把价格向DeepSeek靠拢，让天下无红薯可卖，也未尝不是一件美事。</p><a href="https://www.solidot.org/story?sid=85479" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>10 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>“AlphaGo”杀进足球场！自我对弈140年，机器人成“梅西终结者”</h3><a href="https://www.qbitai.com/2026/09/497278.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>给机器人当老师，还能赚外快？“中国版Index”觅蜂派来了</h3><a href="https://www.qbitai.com/2026/09/497012.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>智元第20000台具身机器人交付长隆，首期超300台机器人常驻乐园。</h3><p>雷峰网报道： 2026 年，具身智能行业最难回答的问题之一，是怎么落地。 这里的「落地」有两层含义：一方面，机器人得有足够稳定的量产能力，能够真的交付出去；另一方面，交付之后还得适应具体场景，在真实环境里持续工作。智元称之为「部署态」，机器人开始离开发布会和展会，进入真实的生产与服务环境。 一台机器人在舞台上完成一次高难度动作，足以成为热点；让数百台机器人每天准时上岗，在真实客流里连续工作，并且随着运营不断改进，才真正考验一家机器人的产业化能力。 9 月 24 日，智元给出了自己的答案。 当天，横琴长隆飞船乐园焕新开园。作为全球首个大规模具身智能主题乐园，乐园此次引入超 300 台智元机器人，分布在 100 余个交互体验点，覆盖文娱商演、科普研学、导览导引、服务零售、智能伴游、酒店场景、体育竞技七大场景。 这 300 多台只是首期部署，未来智元机器人还将进一步进入长隆其他场景，整个体系的部署规模预计达到数千台。 同一天，智元第 20000 具身智能机器人远征 A3 Ultra 正式下线并交付长隆集团，「长隆×智元具身智能文旅联合研究院」揭牌，由智元、长隆集团与中国移动联合共研的文旅场景大规模 5G-A…</p><a href="https://www.leiphone.com/category/robot/23F3DiDtv7Puosqy.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>SeeAct AI穆尧：具身智能终局，一定是从“被训练”走向“自我进化”｜物理AI50人</h3><p>机器人真正缺的，不是数据，而是经验。 作者：李秋悦 编辑：吴彤 那是具身智能最荒芜的时候。 没有成熟数据集，没有标准Benchmark，甚至没有一条被验证能走通的技术路线。 穆尧南下港大读博，开始研究具身智能。 2021年，穆尧进入HKUMMLab，成为该实验室创始人罗平教授和中国人工智能奠基人之一的汤晓鸥教授共同指导的学生。 “具身智能会是一个非常 Promising 的方向。”刚入组时导师们的这句话，穆尧一直记到今天。 四年后，这个方向的潜力，开始在穆尧自己的研究中得到印证。 穆尧主导的RoboTwin，成了中国具身智能圈的事实标准之一，GitHub斩获超过 2900 颗星，蚂蚁集团的LingBot-VA、生数科技的Motubrain都抢着在这个基准上刷新成绩。他本人入选国家级青年人才计划，成为上海交通大学长聘教轨助理教授，谷歌学术引用超过 5000 次。 2026年，穆尧做了一个更激进的选择：押注“具身自我进化”，创办SeeAct AI观行智能。他给出一个相当明确的判断： “具身的终局一定会迈向奖励驱动的自我进化。” 这个判断，和他2018年在清华读硕士时坚持的东西一脉相承。…</p><a href="https://www.leiphone.com/category/ai/k1XGdu6w3n7xGgKB.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>百度搭子与英特尔推进端云协同，本地Skill专区正式上线</h3><p>记者从2026 Intel Connection大会获悉，百度搭子上线面向英特尔机型的本地Skill专区，并推出混合Skill调度能力。用户提出需求后，系统可根据任务类型和电脑算力，在本地与云端之间自动选择处理方式。 过去，智能体处理语音、文档和图片，通常需要将文件上传至云端；直接调用电脑算力，则需要安装模型、配置环境，对普通用户门槛较高。 ﻿ 本地Skill专区让电脑自身算力可以直接处理具体任务。基于英特尔®酷睿™Ultra智能体PC，语音识别、文生图、文档和图片解析等工作可直接在本地完成，联网检索和复杂分析则由云端处理。百度搭子会根据任务特点自动选择处理方式，用户无需了解背后的模型和技术配置，即可进行能力使用。 此前发布的AI产品榜显示，百度搭子月活达到674.30万，环比增长1063.79％，位列AI办公智能体增速第一。在硬件端，百度搭子已开放标准化API，支持能力、任务和记忆在不同设备间同步，小度家庭硬件和因时科技具身智能设备已完成接入。 ﻿…</p><a href="https://www.leiphone.com/category/industrynews/BKGiXySS7fLi7SaE.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>这次云栖，斑马智能亮出了从汽车到具身智能的入场券</h3><p>周五晚上六点，你坐进车里，什么也没说。 AI 系统已经知道，这周六是女儿的生日。它没有等你开口，先推荐了一个游玩地点 —— 郊外那家亲子农场，因为它知道你女儿喜欢大自然。 AI 系统又想起你上周在车里念叨过 “ 好久没吃江浙菜了 ” ，于是在沿途标记出一家评分最高的江浙菜馆。 你只回了一句话： “ 就按这个来。 ” 没有打开 App ，没有搜索，没有比价，甚至没有一句完整的指令。 在斑马智能的叙事里，这就是 “ 主动智能 ” 真正 落地之后，最普通的一个傍晚。你不再需要把需求翻译成搜索词、点击项，机器直接读懂了你的意图，替你完成任务。 而这样的傍晚，不过是具身智能这场更大变局的一角。人形机器人学会走路，机械臂学会抓取，四足机器狗学会翻越障碍 —— 各路玩家正在技术与场景上全面突破，都在回答同一个问题：机器，什么时候真正走进人的生活。 在 2 026 年云栖大会首日，阿里巴巴集团 CEO吴泳铭表示， “机器正在成为思考的主力，‘思考’将像工业革命中的‘动力’一样，成为规模化供给的商品。未来机器思考总量将是人类的1000倍，而今天这一比例不到3%，至少还有几万倍的增长空间。”…</p><a href="https://www.leiphone.com/category/ai/c5xfhIwWHqSfnGrS.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>赛豆科技首款量产车 AIVA ME7 官宣 9 月 28 日亮相法国巴黎</h3><p>IT之家 9 月 26 日消息，赛豆 AIVA 汽车今日宣布， 旗下首款量产车 AIVA ME7 将于今年 9 月 28 日在法国巴黎・尚普拉特勒城堡亮相 。 据IT之家此前报道，由重庆市沙坪坝区与赛力斯共同投资的 赛豆科技在今年 6 月迎来首秀 ，发布 AIVA 首款概念车 AIVA Origin Concept，并宣布首款量产车型 AIVA ME7 将于年内发布，全系车型将覆盖 20 万元以上主流市场。 博主 @孙少军09 今年 8 月晒出照片，称有人在新疆吐鲁番碰到了正在进行高温测试的 AIVA ME7 伪装车 。 从图中可以看到，AIVA ME7 的车身造型有望延续 AIVA Origin Concept 概念车的设计，车顶配有激光雷达，车顶尾部有一个小尾翼。 ▲ AIVA Origin Concept 概念车 赛豆科技前身为重庆蓝电科技，今年完成约 66.71 亿元增资扩股，重庆地方国资成为第一大股东，赛力斯为第二大股东，宁德时代也通过旗下投资平台参与其中。 据官方介绍，AIVA 将是多方产业资源协同下形成的“新范式”，AIVA 品牌作为独立运营主体，负责品牌、产品与业务推进。…</p><a href="https://www.ithome.com/1/007/351.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微星推出 MS-C9ZA 无风扇边缘 AI 盒子，基于 Jetson Orin Nano 8GB</h3><p>IT之家 9 月 26 日消息，微星 (MSI) 本月 23 日宣布推出 MS-C9ZA。这款边缘 AI 盒子可在端侧执行 AI 推理与计算机视觉处理，协助降低云端依赖、带宽使用与网络延迟， 面向机器人 、 智能制造等场景 。 MS-C9ZA 基于 NVIDIA（英伟达）Jetson Orin Nano 8GB 模组，拥有 1024 个 &quot;Ampere&quot; GPU 核心、6 个 Arm Cortex-A78AE CPU 内核，集成 8GB LPDDR5 内存。 该设备 采用无风扇的被动散热设计 ，三维 126×96×74 (mm)，支持 -25~+60 ℃ 工作温度范围允许 12~14V 宽幅电压 DC 输入。其提供 1 个 PCIe Gen4 ×4 的 M.2 2280 SSD 盘位、2 个 1GbE RJ-45，另有 HDMI、USB、I²C、UART、CAN、GPIO 等端口。</p><a href="https://www.ithome.com/1/007/344.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>中国各地推动 AI 视频产业化</h3><p>两年前 Zhu Zhili 选择了深圳作为其 AI 电影工作室的办公地点，今年他接到了来自中国各地政府和产业园官员的电话，内容基本相同，即希望将 AI 电影业务带到当地。中国各地正在推动 AI 视频的产业化，类似太阳能、电动汽车和机器人。AI 电影制作人表示，低廉的制作成本是吸引他们投身 AI 创作的主要原因。CCTV 报道 2026 年上半年，AI 短剧的制作成本从每分钟 5,000 元降至几百元。可能和太阳能等领域一样，AI 视频行业也正面临产能过剩。DataEye 的数据显示，今年上半年，抖音上推出了 221,900 部新 AI 视频，其中只有 1,055 部播放量逾 1 亿次。国家电影局已向 90 分钟科幻史诗片《三星堆未来启示录》颁发公映许可证，这是中国大型制片厂制作的首部获批在院线上映的 AI 电影，出品方博纳影业集团表示影片计划于今年上映。</p><a href="https://www.solidot.org/story?sid=85475" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>丰田命令员工训练人形机器人，否认会替代人类员工</h3><p>丰田的员工正在帮助训练人形机器人，它计划未来几年部署 40 万台工厂机器人，人形机器人是其中的一部分，但高管否认它们会替代人类员工。丰田在装配线上部署了 ELEY 人形机器人，而员工则通过佩戴基于机器人手指的装置去训练这些通过轮子移动的机器人执行需要精细手部动作的任务。丰田是全球最大的汽车公司之一，在全世界有 60 座工厂，雇佣了 1.8 万员工。丰田执行副总裁 Hiroki Nakajima 表示，公司的目标是创造一个“机器人与人类共存，而非取代人类”的世界。根据国际机器人联合会的数据，仅 2024 年中国就部署了 200 万台工业机器人，日本以 45.05 万台位居第二。美国和韩国分别以 3.42 万台和 3.06 万台的部署量排名第三和第四。</p><a href="https://www.solidot.org/story?sid=85461" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>9 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>在云栖大会，我终于看懂了米哈游千亿AI野心</h3><a href="https://www.qbitai.com/2026/09/497613.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>百度搭子与英特尔推进端云协同，本地Skill专区正式上线</h3><p>记者从2026 Intel Connection大会获悉，百度搭子上线面向英特尔机型的本地Skill专区，并推出混合Skill调度能力。用户提出需求后，系统可根据任务类型和电脑算力，在本地与云端之间自动选择处理方式。 过去，智能体处理语音、文档和图片，通常需要将文件上传至云端；直接调用电脑算力，则需要安装模型、配置环境，对普通用户门槛较高。 ﻿ 本地Skill专区让电脑自身算力可以直接处理具体任务。基于英特尔®酷睿™Ultra智能体PC，语音识别、文生图、文档和图片解析等工作可直接在本地完成，联网检索和复杂分析则由云端处理。百度搭子会根据任务特点自动选择处理方式，用户无需了解背后的模型和技术配置，即可进行能力使用。 此前发布的AI产品榜显示，百度搭子月活达到674.30万，环比增长1063.79％，位列AI办公智能体增速第一。在硬件端，百度搭子已开放标准化API，支持能力、任务和记忆在不同设备间同步，小度家庭硬件和因时科技具身智能设备已完成接入。 ﻿…</p><a href="https://www.leiphone.com/category/industrynews/BKGiXySS7fLi7SaE.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>这次云栖，斑马智能亮出了从汽车到具身智能的入场券</h3><p>周五晚上六点，你坐进车里，什么也没说。 AI 系统已经知道，这周六是女儿的生日。它没有等你开口，先推荐了一个游玩地点 —— 郊外那家亲子农场，因为它知道你女儿喜欢大自然。 AI 系统又想起你上周在车里念叨过 “ 好久没吃江浙菜了 ” ，于是在沿途标记出一家评分最高的江浙菜馆。 你只回了一句话： “ 就按这个来。 ” 没有打开 App ，没有搜索，没有比价，甚至没有一句完整的指令。 在斑马智能的叙事里，这就是 “ 主动智能 ” 真正 落地之后，最普通的一个傍晚。你不再需要把需求翻译成搜索词、点击项，机器直接读懂了你的意图，替你完成任务。 而这样的傍晚，不过是具身智能这场更大变局的一角。人形机器人学会走路，机械臂学会抓取，四足机器狗学会翻越障碍 —— 各路玩家正在技术与场景上全面突破，都在回答同一个问题：机器，什么时候真正走进人的生活。 在 2 026 年云栖大会首日，阿里巴巴集团 CEO吴泳铭表示， “机器正在成为思考的主力，‘思考’将像工业革命中的‘动力’一样，成为规模化供给的商品。未来机器思考总量将是人类的1000倍，而今天这一比例不到3%，至少还有几万倍的增长空间。”…</p><a href="https://www.leiphone.com/category/ai/c5xfhIwWHqSfnGrS.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Accio与数贸会联合上线“数贸会agent”：超2000家展商轻松逛</h3><p>9月24日，Accio与数贸会联合推出的专属智能体“数贸会agent”上线，直接开启Agent智能逛展。 本届数贸会参展企业超2000家，光靠腿很难深度逛透。现在只需下载Accio APP，登录后切换到“数贸会agent”，和它对话就可以轻松解锁路线规划、展商匹配、拍照找厂、日程一览等多项功能。 （图：Accio与数贸会联合推出的专属智能体“数贸会agent”） 一位做外贸生意的庄先生抢先试用了一下，他只是简单地输入了一句“我想和杭州的展商合作”， Accio的“数贸会agent”就直接告诉他“在丝路电商展区（6A号馆）共43家杭州展商”，并帮他推荐了其中5家，精准罗列了展商名字、展位号等信息。“我平常也在用Accio做跨境生意，没想到这次逛数贸会也能用它，省下来的逛展时间就能用来直接洽谈了。”庄先生说。 从生成内容到深入经营流程，AI正在加速融入中小企业的全球生意。本次，阿里面向中小企业打造的全球电商AI工作台Accio亮相第五届数贸会，除了上线“数贸会agent”，还集中展示了AI在市场洞察、选品发品、店铺经营、投流分析和客户接待等生意环节的应用。…</p><a href="https://www.leiphone.com/category/industrynews/VPJv7JgYFoAP8NJ3.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>为了智能体AI，高通「新造」了第六代骁龙8超级至尊版</h3><p>“ 我们正在从以手机为中心的模式，转向以智能体为中心的新体验。 手机、PC、眼镜、可穿戴设备以及汽车，都将成为智能体的终端入口。”2026骁龙峰会上，高通公司总裁兼CEO安蒙说。 过去二十年，智能手机围绕App运转 。 智能体则需要持续感知、理解上下文、调用工具，并在用户没有操作手机时代表用户执行任务。 “这是一次令人兴奋的技术变革，智能体AI会创造一种全新的终端工作流程。”安蒙表示，“ 我们需要重新思考计算引擎的设计。 CPU需要更强的性能来完成智能体编排，NPU加速器负责高效的AI推理，GPU负责高度并行的计算，连接能力也比以往任何时候都更加重要。” 高通为智能体AI首次同时推出两款 2nm制程 移动旗舰平台——第六代骁龙8超级至尊版 和第六代骁龙8至尊版。 高通技术公司高级副总裁兼手机业务总经理Chris Patrick解释说：“单一标准，已经无法定义旗舰。保持领导力需要不止一条前进道路。” 两款平台共享多项核心技术， 第六代骁龙8超级至尊版位于产品组合顶端，拥有高通最顶级的配置， 包括业界首个最高主频达到5GHz的移动CPU、GPU中首次加入的 Matrix Cores（ 矩阵核心），以及可以运行300亿参数…</p><a href="https://www.leiphone.com/category/chips/DWpfJx2HNekZmlQK.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>星驿付与慧徕店亮相2026云栖大会，AI生成数字商业无限可能</h3><p>9月22日至24日，2026云栖大会在杭州盛大召开。云栖大会是阿里巴巴集团的年度盛会，由阿里云协同其合作伙伴与全球客户共同呈现。作为全球顶级科技盛会，大会以“智以致用”为主题，以Agentic AI为核心锚点，串起芯片、云基础设施、模型能力与模型服务、Agentic应用的完整链路，直抵生产方式深层变革。 星驿付与慧徕店作为阿里云AI战略合作伙伴，再度亮相2026云栖大会，发布墨斗云生态全景，全面呈现连接AI能力与产业场景的AI应用生态，生动展示AI生成无限可能，数字商业持续进化的产业图景。 加速金融Agent落地 鲁班交付可信生产力 模型与算力决定AI能力上限，可信控制面则决定AI能否进入金融生产。大会期间，金融智能体实战峰会以“可信智行”为主题，汇聚金融及科技领域先锋，深度探讨如何让金融智能体真正可执行可信任。福建星驿支付科技有限公司（简称“星驿支付”）董事长陈艺先生、总经理林坚先生受邀出席峰会，与来自财富管理、智能投顾、保险科技等领域代表共聚一堂，就Agentic金融产品的落地实践进行分享。…</p><a href="https://www.leiphone.com/category/industrynews/ZzpzZcKEcWjfW1ez.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称华为 Mate XT 2、Pura X View 手机星闪新增畅连查找好友功能，更多机型正陆续适配</h3><p>IT之家 9 月 26 日消息，博主 @Adak封狼居胥 昨晚发文透露，手机星闪新增支持畅连查找好友功能， 首批适配机型包括 Mate XT 2、Pura X View 。 博主表示，查找好友是畅连在 HarmonyOS 7.0 版本新增的一个功能。 在畅连实时对讲过程中， 如果您和好友的距离小于 500 米 ，且都处于精准定位状态（户外开阔地带或支持精准定位的商超），或在星闪连接距离内时（需要双方设备支持），点击好友头像上的查找标识， 便可根据指引快速找到好友 ，户外碰头、商场找人不迷路， 同时可调用手机摄像头辅助校准方向与距离 。 博主表示，更多机型正在陆续适配， 预计所有星闪 E2.0 机型均可支持 ，最终支持机型以后续实际 OTA 为准。 IT之家注：星闪官方英文名叫做 NearLink，是一种专门用于短距离数据传输的新型无线通信技术。它对标于蓝牙和 Wi-Fi 等传统技术，进行了大量的创新升级（还引入了一些 5G 关键技术），实现了速率、时延、传输距离、安全性、可靠性的全面提升。 在 6 月 12 日的华为开发者大会 2026 上，华为终端 BG 软件部总裁龚体宣布，星闪协议栈全量开源。2026 年 7 月…</p><a href="https://www.ithome.com/1/007/371.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>赛豆科技首款量产车 AIVA ME7 官宣 9 月 28 日亮相法国巴黎</h3><p>IT之家 9 月 26 日消息，赛豆 AIVA 汽车今日宣布， 旗下首款量产车 AIVA ME7 将于今年 9 月 28 日在法国巴黎・尚普拉特勒城堡亮相 。 据IT之家此前报道，由重庆市沙坪坝区与赛力斯共同投资的 赛豆科技在今年 6 月迎来首秀 ，发布 AIVA 首款概念车 AIVA Origin Concept，并宣布首款量产车型 AIVA ME7 将于年内发布，全系车型将覆盖 20 万元以上主流市场。 博主 @孙少军09 今年 8 月晒出照片，称有人在新疆吐鲁番碰到了正在进行高温测试的 AIVA ME7 伪装车 。 从图中可以看到，AIVA ME7 的车身造型有望延续 AIVA Origin Concept 概念车的设计，车顶配有激光雷达，车顶尾部有一个小尾翼。 ▲ AIVA Origin Concept 概念车 赛豆科技前身为重庆蓝电科技，今年完成约 66.71 亿元增资扩股，重庆地方国资成为第一大股东，赛力斯为第二大股东，宁德时代也通过旗下投资平台参与其中。 据官方介绍，AIVA 将是多方产业资源协同下形成的“新范式”，AIVA 品牌作为独立运营主体，负责品牌、产品与业务推进。…</p><a href="https://www.ithome.com/1/007/351.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>高端用户的终极之车：华为余承东透露鸿蒙智行尊界 SUV 非常非常高端，价格上也非常有诚意</h3><p>IT之家 9 月 26 日消息，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东已于 9 月 24 日现身合肥鸿蒙智行门店。博主 @我鸿 分享了余承东在现场的接受门店工作人员提问的视频。 门店工作人员向余承东询问尊界 SUV 有没有“小惊喜”。 余承东表示，这台新车“快了”， 明年年初可能就要陆续上市，大概在 2、3 月份 。他透露， 尊界 SUV 非常非常高端，价格上也非常有诚意 ，会远超大家的期望，定价也会非常有竞争力。新车在外观、内饰、高级感、豪华配置、科技配置都是超乎想象的。 他直言， 这台车也会是高端用户的终极之车，也是自己开的 SUV 里的终极之车 。另外，新车还有望在今年年底首发亮相（正考虑在广州车展这一时间节点），与用户见面。 余承东还透露，这台新车设计早已定型， 现在是最后的量产阶段 。他还回应了新车测试车被拍一事， 称网上的谍照不准确 ，实车会高端多了。 据IT之家了解，2026 年是尊界品牌产品大年，6 月底尊界推出了 200 万元级旗舰车型，旗舰 MPV 双车 V800 / V680 已于 8 月上市。随着后续 SUV 车型的落地，尊界将形成“轿车 + MPV +…</p><a href="https://www.ithome.com/1/007/343.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>3 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称华为 Mate XT 2、Pura X View 手机星闪新增畅连查找好友功能，更多机型正陆续适配</h3><p>IT之家 9 月 26 日消息，博主 @Adak封狼居胥 昨晚发文透露，手机星闪新增支持畅连查找好友功能， 首批适配机型包括 Mate XT 2、Pura X View 。 博主表示，查找好友是畅连在 HarmonyOS 7.0 版本新增的一个功能。 在畅连实时对讲过程中， 如果您和好友的距离小于 500 米 ，且都处于精准定位状态（户外开阔地带或支持精准定位的商超），或在星闪连接距离内时（需要双方设备支持），点击好友头像上的查找标识， 便可根据指引快速找到好友 ，户外碰头、商场找人不迷路， 同时可调用手机摄像头辅助校准方向与距离 。 博主表示，更多机型正在陆续适配， 预计所有星闪 E2.0 机型均可支持 ，最终支持机型以后续实际 OTA 为准。 IT之家注：星闪官方英文名叫做 NearLink，是一种专门用于短距离数据传输的新型无线通信技术。它对标于蓝牙和 Wi-Fi 等传统技术，进行了大量的创新升级（还引入了一些 5G 关键技术），实现了速率、时延、传输距离、安全性、可靠性的全面提升。 在 6 月 12 日的华为开发者大会 2026 上，华为终端 BG 软件部总裁龚体宣布，星闪协议栈全量开源。2026 年 7 月…</p><a href="https://www.ithome.com/1/007/371.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>不要被 AI 炒作愚弄</h3><p>Anthropic 声称其模型 Claude Mythos 在发现软件漏洞上胜过大多数安全专家。随后发生了 OpenAI–Hugging Face 安全事件，此后 Anthropic（自豪）和 Meta（不情愿）也披露了各自模型的类似事件。紧接着 Anthropic 宣称其模型取得了数学领域的突破；OpenAI 也声称自己取得了数学突破。Anthropic 工程师 Jacob Coxon 在宣布离职时引发了广泛关注，他声称该公司与 OpenAI 正“冲向自我进化的超级智能，并拿我们的生命在赌博”。媒体大肆报道了这些事件，且沿用了相关公司赋予其软件的拟人化叙事——即把软件描绘成不仅功能强大，而且已初具通用人工智能（AGI）雏形的产物。但深入研究的专家则给出了不同的答案，虽然这些发现并不能吸引眼球。网络安全专家指出，涉及模型的安全事件更多是 OpenAI 的疏忽大意，未能采取基本的安全措施，而不是“模型失控”或“AI 智能体创造文明”。OpenAI 模型在解决数学难题上的突破其原创性也相当可疑。数学家公开对 AI 企业利用其专业领域进行炒作提出了警告。AI…</p><a href="https://www.solidot.org/story?sid=85466" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>英国准备施压 Google 向 Android 和 Chrome 用户展示 AI 助手选择屏</h3><p>英国竞争监管机构 CMA 想要让 Android 和 Chrome 用户对 AI 助手和搜索引擎有更大的选择权和控制权。CMA 公布了一份提案，要求 Google 在用户首次设置 Android 手机或打开 Chrome 浏览器时，向其展示多种搜索引擎供选择，并且每年提示用户选择一个默认搜索引擎；符合技术与安全标准的 AI 助手也必须获准出现在选择屏上上。该提案目前进入公众咨询阶段，截止日期为 10 月 9 日，CMA 预计将在今年底前做出最终决定。</p><a href="https://www.solidot.org/story?sid=85465" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>1 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">IT之家</div><h3>荣耀 HONOR Life 高速吹风机 2 Pro 上架：可视化彩屏、支持一键倒吹自清洁，339 元</h3><p>IT之家 9 月 26 日消息，荣耀京东自营旗舰店现已上架 HONOR Life 高速吹风机 2 Pro，定价为 359 元， 首发价 339 元 。 京东 HONOR Life 高速吹风机 2 Pro 339 元 直达链接 该吹风机提供晴空蓝和柔雾粉两种配色选择，机身配备可视化彩屏与 360 度磁吸式风嘴，不含电源线的重量为 354g。 该吹风机搭载 11 万转无刷电机，额定功率为 1600W，出风口速度可达 65m/s。运行噪音控制在≤66dB，工作时号称可释放 40 亿等离子以抚平头发毛躁。 同时，该吹风机搭载 TOF 系统，提供智能感温、婴童、恒温、顺发及冷热循环 5 大吹护模式。吹风机具备灵敏握持感应功能，能够识别手部动作实现离手自动休眠，同时还支持一键倒吹自清洁，通过开启反向气流排出风道内部的灰尘与毛屑。 IT之家附产品参数：</p><a href="https://www.ithome.com/1/007/349.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 26 Sep 2026 07:18:05 +0000</div><h3>在云栖大会，我终于看懂了米哈游千亿AI野心</h3><a href="https://www.qbitai.com/2026/09/497613.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 26 Sep 2026 07:12:05 +0000</div><h3>谷歌TPU跑Kimi比英伟达GPU快57%！用的还是DeepSeek推理框架</h3><a href="https://www.qbitai.com/2026/09/497425.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 26 Sep 2026 07:04:15 +0000</div><h3>OpenAI失控Agent还找DeepSeek、Kimi当外援！近百万条作案短链曝光</h3><a href="https://www.qbitai.com/2026/09/497382.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 25 Sep 2026 13:24:20 +0000</div><h3>“AlphaGo”杀进足球场！自我对弈140年，机器人成“梅西终结者”</h3><a href="https://www.qbitai.com/2026/09/497278.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 25 Sep 2026 13:15:45 +0000</div><h3>OpenAI闯大祸！GPT竟黑进医保系统，黄仁勋：管不住就关掉</h3><a href="https://www.qbitai.com/2026/09/497177.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 25 Sep 2026 10:00:14 +0000</div><h3>亮出“中国最强AI芯片”还不够，平头哥又甩出一手开源</h3><a href="https://www.qbitai.com/2026/09/497108.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 25 Sep 2026 06:14:07 +0000</div><h3>华为大模型双子星联手创业，要找物理世界的Scaling Law</h3><a href="https://www.qbitai.com/2026/09/497070.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 25 Sep 2026 06:11:10 +0000</div><h3>呃…小扎「自研Manus」刚成Meta太子，就塌房了</h3><a href="https://www.qbitai.com/2026/09/497060.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 25 Sep 2026 05:52:18 +0000</div><h3>给机器人当老师，还能赚外快？“中国版Index”觅蜂派来了</h3><a href="https://www.qbitai.com/2026/09/497012.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 26 Sep 2026 00:33:00 +0800</div><h3>智元第20000台具身机器人交付长隆，首期超300台机器人常驻乐园。</h3><p>雷峰网报道： 2026 年，具身智能行业最难回答的问题之一，是怎么落地。 这里的「落地」有两层含义：一方面，机器人得有足够稳定的量产能力，能够真的交付出去；另一方面，交付之后还得适应具体场景，在真实环境里持续工作。智元称之为「部署态」，机器人开始离开发布会和展会，进入真实的生产与服务环境。 一台机器人在舞台上完成一次高难度动作，足以成为热点；让数百台机器人每天准时上岗，在真实客流里连续工作，并且随着运营不断改进，才真正考验一家机器人的产业化能力。 9 月 24 日，智元给出了自己的答案。 当天，横琴长隆飞船乐园焕新开园。作为全球首个大规模具身智能主题乐园，乐园此次引入超 300 台智元机器人，分布在 100 余个交互体验点，覆盖文娱商演、科普研学、导览导引、服务零售、智能伴游、酒店场景、体育竞技七大场景。 这 300 多台只是首期部署，未来智元机器人还将进一步进入长隆其他场景，整个体系的部署规模预计达到数千台。 同一天，智元第 20000 具身智能机器人远征 A3 Ultra 正式下线并交付长隆集团，「长隆×智元具身智能文旅联合研究院」揭牌，由智元、长隆集团与中国移动联合共研的文旅场景大规模 5G-A…</p><a href="https://www.leiphone.com/category/robot/23F3DiDtv7Puosqy.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 24 Sep 2026 17:19:00 +0800</div><h3>SeeAct AI穆尧：具身智能终局，一定是从“被训练”走向“自我进化”｜物理AI50人</h3><p>机器人真正缺的，不是数据，而是经验。 作者：李秋悦 编辑：吴彤 那是具身智能最荒芜的时候。 没有成熟数据集，没有标准Benchmark，甚至没有一条被验证能走通的技术路线。 穆尧南下港大读博，开始研究具身智能。 2021年，穆尧进入HKUMMLab，成为该实验室创始人罗平教授和中国人工智能奠基人之一的汤晓鸥教授共同指导的学生。 “具身智能会是一个非常 Promising 的方向。”刚入组时导师们的这句话，穆尧一直记到今天。 四年后，这个方向的潜力，开始在穆尧自己的研究中得到印证。 穆尧主导的RoboTwin，成了中国具身智能圈的事实标准之一，GitHub斩获超过 2900 颗星，蚂蚁集团的LingBot-VA、生数科技的Motubrain都抢着在这个基准上刷新成绩。他本人入选国家级青年人才计划，成为上海交通大学长聘教轨助理教授，谷歌学术引用超过 5000 次。 2026年，穆尧做了一个更激进的选择：押注“具身自我进化”，创办SeeAct AI观行智能。他给出一个相当明确的判断： “具身的终局一定会迈向奖励驱动的自我进化。” 这个判断，和他2018年在清华读硕士时坚持的东西一脉相承。…</p><a href="https://www.leiphone.com/category/ai/k1XGdu6w3n7xGgKB.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 24 Sep 2026 16:52:00 +0800</div><h3>独家丨AWS、微软中国迎来「Claude封号潮」</h3><p>雷峰网获悉，上周，Anthropic启动新一轮合规清查，导致大批AWS和微软大中华区客户的Claude账号被封停。 多名知情人士称，这一轮的封号范围比此前更广。此前外资云中国销售曾找非洲、美洲等区域的人帮忙开设海外账户，以绕开地域限制；然而此次Anthropic加大识别力度，只要实际使用方是某些特定国家和地区，大概率就会被封。 而最近正值月末付款节点，上述人士透露，已有客户因账号无法使用而不打算付款。若真如此，那本轮封号给两家外资云大中华区带来的营收损失或将达到数亿美金。更多细节内幕欢迎添加作者微信 xf123a 交流。 雷峰网雷峰网</p><a href="https://www.leiphone.com/category/industrynews/YiaSUnx4DXphNl93.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 24 Sep 2026 16:37:00 +0800</div><h3>百度搭子与英特尔推进端云协同，本地Skill专区正式上线</h3><p>记者从2026 Intel Connection大会获悉，百度搭子上线面向英特尔机型的本地Skill专区，并推出混合Skill调度能力。用户提出需求后，系统可根据任务类型和电脑算力，在本地与云端之间自动选择处理方式。 过去，智能体处理语音、文档和图片，通常需要将文件上传至云端；直接调用电脑算力，则需要安装模型、配置环境，对普通用户门槛较高。 ﻿ 本地Skill专区让电脑自身算力可以直接处理具体任务。基于英特尔®酷睿™Ultra智能体PC，语音识别、文生图、文档和图片解析等工作可直接在本地完成，联网检索和复杂分析则由云端处理。百度搭子会根据任务特点自动选择处理方式，用户无需了解背后的模型和技术配置，即可进行能力使用。 此前发布的AI产品榜显示，百度搭子月活达到674.30万，环比增长1063.79％，位列AI办公智能体增速第一。在硬件端，百度搭子已开放标准化API，支持能力、任务和记忆在不同设备间同步，小度家庭硬件和因时科技具身智能设备已完成接入。 ﻿…</p><a href="https://www.leiphone.com/category/industrynews/BKGiXySS7fLi7SaE.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 24 Sep 2026 15:38:00 +0800</div><h3>这次云栖，斑马智能亮出了从汽车到具身智能的入场券</h3><p>周五晚上六点，你坐进车里，什么也没说。 AI 系统已经知道，这周六是女儿的生日。它没有等你开口，先推荐了一个游玩地点 —— 郊外那家亲子农场，因为它知道你女儿喜欢大自然。 AI 系统又想起你上周在车里念叨过 “ 好久没吃江浙菜了 ” ，于是在沿途标记出一家评分最高的江浙菜馆。 你只回了一句话： “ 就按这个来。 ” 没有打开 App ，没有搜索，没有比价，甚至没有一句完整的指令。 在斑马智能的叙事里，这就是 “ 主动智能 ” 真正 落地之后，最普通的一个傍晚。你不再需要把需求翻译成搜索词、点击项，机器直接读懂了你的意图，替你完成任务。 而这样的傍晚，不过是具身智能这场更大变局的一角。人形机器人学会走路，机械臂学会抓取，四足机器狗学会翻越障碍 —— 各路玩家正在技术与场景上全面突破，都在回答同一个问题：机器，什么时候真正走进人的生活。 在 2 026 年云栖大会首日，阿里巴巴集团 CEO吴泳铭表示， “机器正在成为思考的主力，‘思考’将像工业革命中的‘动力’一样，成为规模化供给的商品。未来机器思考总量将是人类的1000倍，而今天这一比例不到3%，至少还有几万倍的增长空间。”…</p><a href="https://www.leiphone.com/category/ai/c5xfhIwWHqSfnGrS.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 24 Sep 2026 15:00:00 +0800</div><h3>Accio与数贸会联合上线“数贸会agent”：超2000家展商轻松逛</h3><p>9月24日，Accio与数贸会联合推出的专属智能体“数贸会agent”上线，直接开启Agent智能逛展。 本届数贸会参展企业超2000家，光靠腿很难深度逛透。现在只需下载Accio APP，登录后切换到“数贸会agent”，和它对话就可以轻松解锁路线规划、展商匹配、拍照找厂、日程一览等多项功能。 （图：Accio与数贸会联合推出的专属智能体“数贸会agent”） 一位做外贸生意的庄先生抢先试用了一下，他只是简单地输入了一句“我想和杭州的展商合作”， Accio的“数贸会agent”就直接告诉他“在丝路电商展区（6A号馆）共43家杭州展商”，并帮他推荐了其中5家，精准罗列了展商名字、展位号等信息。“我平常也在用Accio做跨境生意，没想到这次逛数贸会也能用它，省下来的逛展时间就能用来直接洽谈了。”庄先生说。 从生成内容到深入经营流程，AI正在加速融入中小企业的全球生意。本次，阿里面向中小企业打造的全球电商AI工作台Accio亮相第五届数贸会，除了上线“数贸会agent”，还集中展示了AI在市场洞察、选品发品、店铺经营、投流分析和客户接待等生意环节的应用。…</p><a href="https://www.leiphone.com/category/industrynews/VPJv7JgYFoAP8NJ3.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 24 Sep 2026 09:43:00 +0800</div><h3>BAT 集体重做「AI 预训练」，补「脏数据」的坑</h3><p>最近大半年，国内一批 AI 模型厂商 密集启动“预训练返工”，起因都指向同一件事：数据不行。 它们中，有的此前花了一年死磕万亿参数模型，落地表现却被市面上 1% 规模的小模型倒挂，最终查出是被脏数据拖了后腿。 有的曾因数据标注规则模糊、评测集污染、垃圾语料冗余等工程硬伤而导致模型进展迟缓。 还有的因数据受限，导致模型遭遇性能瓶颈，索性推倒重来，并重建了数据团队。 与此同时，借 API 中转站截留交互轨迹、做数据蒸馏等，也成了行业水面下的一场暗战。 数据，正在给模型厂商上一堂教训深刻的课。这堂课远比算力消耗、架构选型和人才争夺更隐蔽。 “AI 下半场的胜负手是数据”，这话听上去像常识，但直到今天，大家才真正闻到了它背后的血腥味。 01 数据上的“粗放式弯路” 预训练返工，本质上是在补数据的课。 “多就行了”的误区 一位头部基模公司的数据专家赵翔向雷峰网回忆，前些年刚开始做预训练的时候，大家的主流观点是“数据多就可以了，稍微差一点没关系，模型自己有转化能力和鲁棒性。” 于是开始一味地粗放式堆数据，只求规模不讲质量。 再加上，当时行业普遍缺乏成熟的大规模数据治理体系，大家为了凑齐数千亿甚至上万亿 token…</p><a href="https://www.leiphone.com/category/industrynews/W5SkVkK9QJ1FDapI.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 24 Sep 2026 07:08:00 +0800</div><h3>为了智能体AI，高通「新造」了第六代骁龙8超级至尊版</h3><p>“ 我们正在从以手机为中心的模式，转向以智能体为中心的新体验。 手机、PC、眼镜、可穿戴设备以及汽车，都将成为智能体的终端入口。”2026骁龙峰会上，高通公司总裁兼CEO安蒙说。 过去二十年，智能手机围绕App运转 。 智能体则需要持续感知、理解上下文、调用工具，并在用户没有操作手机时代表用户执行任务。 “这是一次令人兴奋的技术变革，智能体AI会创造一种全新的终端工作流程。”安蒙表示，“ 我们需要重新思考计算引擎的设计。 CPU需要更强的性能来完成智能体编排，NPU加速器负责高效的AI推理，GPU负责高度并行的计算，连接能力也比以往任何时候都更加重要。” 高通为智能体AI首次同时推出两款 2nm制程 移动旗舰平台——第六代骁龙8超级至尊版 和第六代骁龙8至尊版。 高通技术公司高级副总裁兼手机业务总经理Chris Patrick解释说：“单一标准，已经无法定义旗舰。保持领导力需要不止一条前进道路。” 两款平台共享多项核心技术， 第六代骁龙8超级至尊版位于产品组合顶端，拥有高通最顶级的配置， 包括业界首个最高主频达到5GHz的移动CPU、GPU中首次加入的 Matrix Cores（ 矩阵核心），以及可以运行300亿参数…</p><a href="https://www.leiphone.com/category/chips/DWpfJx2HNekZmlQK.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 23 Sep 2026 20:47:00 +0800</div><h3>GPT-6 Sol 降价 50% 的秘密：消失的 Terra，一场模型梯队平移</h3><p>奥圣上台，梁圣危机了么？ 作者丨 高允毅 编辑丨岑 峰 OpenAI 也走性价比路线了？别被它的“偷梁换柱”给骗了。 今早，硅谷又热闹了，迎来双雄对决。Anthropic 推出 Claude Opus 5.5，OpenAI 紧接着推出 GPT-6 Sol 与 Luna。和以往模型更新不同的是，行业的讨论点聚焦到了 “大家怎么都变便宜了”。 Claude Opus 5.5 较上一代 Opus 5，成本降低 40% ，拥有 Fable 级性能。 而 GPT-6 Sol 降得更狠，性能持平 GPT-5.6 Sol，价格直接腰斩，每百万 Token，输入 2 美元，输出 10 美元，性价比看似要一步踩进 DeepSeek 的腹地。 但如果仔细对照，就会发现 OpenAI 所谓腰斩，是抹掉了一个型号 Terra。 我们都知道，OpenAI之前的模型档位是：旗舰 Sol、中端 Terra、轻量 Luna。现在变成了 Astra、Sol、 Luna。Terra 哪去了？网友戏称变成 Sol了，把整个梯队往上提了一格。 再重新对比一下 GPT-5.6 Terra，每百万 Token 输入 2 美元、输出 12 美元，和 GPT-6…</p><a href="https://www.leiphone.com/category/yanxishe/gnzWAPK52Igo0DSk.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 23 Sep 2026 18:09:00 +0800</div><h3>星驿付与慧徕店亮相2026云栖大会，AI生成数字商业无限可能</h3><p>9月22日至24日，2026云栖大会在杭州盛大召开。云栖大会是阿里巴巴集团的年度盛会，由阿里云协同其合作伙伴与全球客户共同呈现。作为全球顶级科技盛会，大会以“智以致用”为主题，以Agentic AI为核心锚点，串起芯片、云基础设施、模型能力与模型服务、Agentic应用的完整链路，直抵生产方式深层变革。 星驿付与慧徕店作为阿里云AI战略合作伙伴，再度亮相2026云栖大会，发布墨斗云生态全景，全面呈现连接AI能力与产业场景的AI应用生态，生动展示AI生成无限可能，数字商业持续进化的产业图景。 加速金融Agent落地 鲁班交付可信生产力 模型与算力决定AI能力上限，可信控制面则决定AI能否进入金融生产。大会期间，金融智能体实战峰会以“可信智行”为主题，汇聚金融及科技领域先锋，深度探讨如何让金融智能体真正可执行可信任。福建星驿支付科技有限公司（简称“星驿支付”）董事长陈艺先生、总经理林坚先生受邀出席峰会，与来自财富管理、智能投顾、保险科技等领域代表共聚一堂，就Agentic金融产品的落地实践进行分享。…</p><a href="https://www.leiphone.com/category/industrynews/ZzpzZcKEcWjfW1ez.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><h3>[解析失败] https://36kr.com/feed</h3><p>not well-formed (invalid token): line 9, column 542</p></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 26 Sep 2026 07:41:51 GMT</div><h3>微星 CLAW 8 EX AI+ 掌机英特尔锐炫 G3 款上市，较 G3 Extreme 款便宜 1000 元</h3><p>IT之家 9 月 26 日消息，微星 (MSI) 现已在电商平台发售基于英特尔锐炫 (Arc) G3 处理器的 CLAW 8 EX AI+ 掌机。 锐炫 G3 处理器的 GPU 是拥有 10 个 Xe 核心、最大动态频率 2.2GHz 的 Arc B370，CPU 部分则是 2P + 8E + 4LP-E。在同样的 32GB + 512GB 存储器配置下， 这一 &quot;CG3M&quot; 型号定价 10499 元 ，比锐炫 G3 Extreme 款低 1000 元。 该掌机依旧配备 8&quot; WUXGA 120Hz 500nits IPS 触控屏，拥有 100% sRGB 色域，支持可变刷新率；内置双风扇双热管内吹散热系统；集成基于霍尔效应传感器的摇杆与扳机，拥有人体工学握把以及线性马达。 其内置 80Whr 电池、Hi·Res AUDIO 认证双扬声器，支持 Wi-Fi 7 &amp; 蓝牙 6.0，提供 2 个雷电 4 接口、microSD Express 读卡器。 京东 微星 CLAW 8 EX AI+ 掌机 Arc G3 10499 元 直达链接</p><a href="https://www.ithome.com/1/007/375.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 26 Sep 2026 07:29:38 GMT</div><h3>消息称华为 Mate XT 2、Pura X View 手机星闪新增畅连查找好友功能，更多机型正陆续适配</h3><p>IT之家 9 月 26 日消息，博主 @Adak封狼居胥 昨晚发文透露，手机星闪新增支持畅连查找好友功能， 首批适配机型包括 Mate XT 2、Pura X View 。 博主表示，查找好友是畅连在 HarmonyOS 7.0 版本新增的一个功能。 在畅连实时对讲过程中， 如果您和好友的距离小于 500 米 ，且都处于精准定位状态（户外开阔地带或支持精准定位的商超），或在星闪连接距离内时（需要双方设备支持），点击好友头像上的查找标识， 便可根据指引快速找到好友 ，户外碰头、商场找人不迷路， 同时可调用手机摄像头辅助校准方向与距离 。 博主表示，更多机型正在陆续适配， 预计所有星闪 E2.0 机型均可支持 ，最终支持机型以后续实际 OTA 为准。 IT之家注：星闪官方英文名叫做 NearLink，是一种专门用于短距离数据传输的新型无线通信技术。它对标于蓝牙和 Wi-Fi 等传统技术，进行了大量的创新升级（还引入了一些 5G 关键技术），实现了速率、时延、传输距离、安全性、可靠性的全面提升。 在 6 月 12 日的华为开发者大会 2026 上，华为终端 BG 软件部总裁龚体宣布，星闪协议栈全量开源。2026 年 7 月…</p><a href="https://www.ithome.com/1/007/371.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 26 Sep 2026 07:11:18 GMT</div><h3>Claude Code 新机制：AI 任务中途触发 5 小时上限将优雅收尾</h3><p>IT之家 9 月 26 日消息，@ClaudeDevs 今天（9 月 26 日）在 X 平台发布推文，宣布针对 Claude Code 启用新机制，在任务中途如果触发 5 小时使用上限后， 不会直接在编辑过程中中断，改为寻找合适的收尾点。 额度来源方面，系统会从用户的每周限制（weekly limit）中扣除一小段固定时间，让 Claude 完成它能完成的收尾工作。 在适用范围上，Pro 用户每周可使用一次此功能；而 Max 和 Team Premium 用户每次达到 5 小时会话限制后都可以使用。IT之家附上相关截图如下：</p><a href="https://www.ithome.com/1/007/369.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 26 Sep 2026 07:00:42 GMT</div><h3>微软提醒 Win11 禁用 8.3 文件名：可提升文件操作速度，但影响应用兼容性</h3><p>IT之家 9 月 26 日消息，科技媒体 Neowin 昨日（9 月 25 日）发布博文，报道称微软近期通过官方文档重申在 Windows 10、Windows 11 系统中禁用 8.3 文件名（8.3 filename）， 虽可显著提升文件密集型操作性能，但若未妥善处理依赖该功能的应用或注册表项，可能导致软件卸载失败等兼容性问题。 IT之家注：8.3 文件名源于 MS-DOS 时代的文件命名规范，规定主文件名最多 8 字符、扩展名最多 3 字符，总长 12 字符含分隔点。现代 Windows 为兼容旧软件，仍为长文件名自动生成此类短别名，常见于含波浪号（~）的文件名中。 网友 u/Due_Bat_4715 于 9 月 22 日在 Reddit 社区发帖，称其使用高速 M.2 SSD 时仍遭遇文件浏览与复制卡顿，经过排查最终锁定 8.3 文件名机制。 该网友通过执行 fsutil 8dot3name 命令禁用新文件别名生成，并剥离既有短名称后，发现明显改善平铺视图滚动与文件搜索速度。 戴尔在 Avamar 备份软件测试中记录到，启用 8.3 文件名后，含百万级文件的文件夹创建吞吐量严重下降，约 130…</p><a href="https://www.ithome.com/1/007/365.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 26 Sep 2026 06:24:19 GMT</div><h3>华为 LOGO 印上大疆云台相机：HUAWEI × DJI Osmo Pocket 4 官宣 9 月 26 日起陆续到店</h3><p>IT之家 9 月 26 日消息，华为官方今日宣布， HUAWEI × DJI Osmo Pocket 4 官宣 9 月 26 日起陆续到店 。 值得一提的是，预热图显示，进店的 DJI Osmo Pocket 4 将印上“HUAWEI”的 LOGO。 据IT之家此前报道， 今年 4 月，大疆正式发布全新一英寸口袋云台相机 Osmo Pocket 4 ，该机搭载全新升级的一英寸 CMOS，拥有 14 级宽广动态范围，并支持 10‑bit D‑Log 专业色彩模式，定价为 2999 元起。 据介绍，Osmo Pocket 4 搭载全新 1 英寸 CMOS，结合 f/2.0 大光圈，动态范围提升至 14 级，支持 10-bit D-Log 色彩模式，慢动作录制规格升级至 4K/240fps，同步新增支持空间音频录制与变焦拾音功能，机身支持 OsmoAudio 直连 DJI 麦克风发射器，并可录制四声道音频。 该机搭载智能跟随 7.0，支持最高 4 倍距离的智能跟拍。机身同步升级智能对焦系统，新增“锁定主角追焦”与“登记主角优先”模式，新增的手势控制功能，无需触碰屏幕，简单手势即可启动或停止跟随、开始或结束录制。…</p><a href="https://www.ithome.com/1/007/357.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 26 Sep 2026 06:16:08 GMT</div><h3>美团上线 LongCat-2.5-Preview 模型：1.6T 参数，主打 AI 长程任务与多模态能力</h3><p>IT之家 9 月 26 日消息，美团旗下 LongCat API 开放平台于 9 月 25 日上线新一代大模型 LongCat-2.5-Preview， 主打“长程任务”与多模态能力，并同步开放 API 与网页端体验入口。 IT之家附上官方更新日志内容如下： LongCat-2.5-Preview 的核心特性如下： 多模态理解：新增图片理解能力 ，可解析图像内容，支持跨模态问答、内容摘要与复杂视觉推理。 卓越的 Coding 能力 ：在代码生成、代码理解与自动化编程任务上表现突出。 深度适配 Claude Code 等主流开发环境 ：与 Claude Code、Hermes、OpenClaw、OpenCode、Kilo Code 高效协同。 根据官方公布的信息，LongCat-2.5-Preview 模型延续 MoE（混合专家）路线，总参数量约 1.6 万亿，每次推理激活参数约 480 亿。该模型支持原生支持 100 万 token 上下文窗口，适合处理超长文档、代码库、日志与多轮复杂任务。 参考 LongCat API 开放平台更新日志</p><a href="https://www.ithome.com/1/007/356.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 26 Sep 2026 05:59:42 GMT</div><h3>赛豆科技首款量产车 AIVA ME7 官宣 9 月 28 日亮相法国巴黎</h3><p>IT之家 9 月 26 日消息，赛豆 AIVA 汽车今日宣布， 旗下首款量产车 AIVA ME7 将于今年 9 月 28 日在法国巴黎・尚普拉特勒城堡亮相 。 据IT之家此前报道，由重庆市沙坪坝区与赛力斯共同投资的 赛豆科技在今年 6 月迎来首秀 ，发布 AIVA 首款概念车 AIVA Origin Concept，并宣布首款量产车型 AIVA ME7 将于年内发布，全系车型将覆盖 20 万元以上主流市场。 博主 @孙少军09 今年 8 月晒出照片，称有人在新疆吐鲁番碰到了正在进行高温测试的 AIVA ME7 伪装车 。 从图中可以看到，AIVA ME7 的车身造型有望延续 AIVA Origin Concept 概念车的设计，车顶配有激光雷达，车顶尾部有一个小尾翼。 ▲ AIVA Origin Concept 概念车 赛豆科技前身为重庆蓝电科技，今年完成约 66.71 亿元增资扩股，重庆地方国资成为第一大股东，赛力斯为第二大股东，宁德时代也通过旗下投资平台参与其中。 据官方介绍，AIVA 将是多方产业资源协同下形成的“新范式”，AIVA 品牌作为独立运营主体，负责品牌、产品与业务推进。…</p><a href="https://www.ithome.com/1/007/351.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 26 Sep 2026 05:53:07 GMT</div><h3>联想 Googlebook 二合一平板电脑曝光：预估配联发科 Kompanio Ultra 910 芯片</h3><p>IT之家 9 月 26 日消息，消息源 Evan Blass 昨日（9 月 25 日）在 X 平台发布推文， 分享了两张图片，展示了联想尚未发布的 Googlebook 二合一平板电脑。 该设备采用平板式布局，背部配有支架，键盘比现有 Googlebook 更薄，左侧扶手印有“Googlebook”标识。 机身右侧设有一个开关按钮，用于关闭键盘以防误触，旁侧附有蓝牙标志，暗示键盘可拆卸独立使用。背面摄像头与贯穿式灯带同时曝光，灯带目前仅显示电量状态。IT之家附上相关图片如下： 早先泄露称其配备 13 英寸显示屏与联发科 Kompanio Ultra 910 处理器，上市后预估名为联想 Googlebook Duet。 联发科 Kompanio Ultra 910 是一款面向高端 Chromebook 的 ARM 架构处理器，主打“全大核”CPU 设计、强劲 AI 算力与长续航，采用台积电 3nm（N3E）工艺。</p><a href="https://www.ithome.com/1/007/350.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 26 Sep 2026 05:52:03 GMT</div><h3>荣耀 HONOR Life 高速吹风机 2 Pro 上架：可视化彩屏、支持一键倒吹自清洁，339 元</h3><p>IT之家 9 月 26 日消息，荣耀京东自营旗舰店现已上架 HONOR Life 高速吹风机 2 Pro，定价为 359 元， 首发价 339 元 。 京东 HONOR Life 高速吹风机 2 Pro 339 元 直达链接 该吹风机提供晴空蓝和柔雾粉两种配色选择，机身配备可视化彩屏与 360 度磁吸式风嘴，不含电源线的重量为 354g。 该吹风机搭载 11 万转无刷电机，额定功率为 1600W，出风口速度可达 65m/s。运行噪音控制在≤66dB，工作时号称可释放 40 亿等离子以抚平头发毛躁。 同时，该吹风机搭载 TOF 系统，提供智能感温、婴童、恒温、顺发及冷热循环 5 大吹护模式。吹风机具备灵敏握持感应功能，能够识别手部动作实现离手自动休眠，同时还支持一键倒吹自清洁，通过开启反向气流排出风道内部的灰尘与毛屑。 IT之家附产品参数：</p><a href="https://www.ithome.com/1/007/349.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 26 Sep 2026 05:40:19 GMT</div><h3>vivo S2 FE 手机曝光：联发科天玑 7300e 芯片、10000mAh 容量电池</h3><p>IT之家 9 月 26 日消息，科技媒体 gizmochina 昨日（9 月 25 日）发布博文， 报道称 vivo S2 FE 手机曝光，预估配联发科天玑 7300e 芯片，以及 10000mAh 容量电池，预估 10 月 6 日发布。 消息称 S2 FE 机身正面配备 6.83 英寸 1.5K AMOLED 显示屏，刷新率为 120Hz，后置 5,000 万像素主摄像头，前置 3,200 万像素摄像头，以及屏下指纹识别器。 该机最大的亮点采用 10000mAh 容量电池，支持 44W 有线快充。作为对比，8 月发布的 vivo S2 电池容量为 7050mAh，充电功率同样为 44W。 芯片方面，vivo S2 FE 搭载联发科天玑 7300e 处理器，而 vivo S2 使用天玑 7,360 Turbo 芯片。IT之家附上相关图片如下：</p><a href="https://www.ithome.com/1/007/346.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 26 Sep 2026 05:37:03 GMT</div><h3>微星推出 MS-C9ZA 无风扇边缘 AI 盒子，基于 Jetson Orin Nano 8GB</h3><p>IT之家 9 月 26 日消息，微星 (MSI) 本月 23 日宣布推出 MS-C9ZA。这款边缘 AI 盒子可在端侧执行 AI 推理与计算机视觉处理，协助降低云端依赖、带宽使用与网络延迟， 面向机器人 、 智能制造等场景 。 MS-C9ZA 基于 NVIDIA（英伟达）Jetson Orin Nano 8GB 模组，拥有 1024 个 &quot;Ampere&quot; GPU 核心、6 个 Arm Cortex-A78AE CPU 内核，集成 8GB LPDDR5 内存。 该设备 采用无风扇的被动散热设计 ，三维 126×96×74 (mm)，支持 -25~+60 ℃ 工作温度范围允许 12~14V 宽幅电压 DC 输入。其提供 1 个 PCIe Gen4 ×4 的 M.2 2280 SSD 盘位、2 个 1GbE RJ-45，另有 HDMI、USB、I²C、UART、CAN、GPIO 等端口。</p><a href="https://www.ithome.com/1/007/344.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 26 Sep 2026 05:32:19 GMT</div><h3>高端用户的终极之车：华为余承东透露鸿蒙智行尊界 SUV 非常非常高端，价格上也非常有诚意</h3><p>IT之家 9 月 26 日消息，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东已于 9 月 24 日现身合肥鸿蒙智行门店。博主 @我鸿 分享了余承东在现场的接受门店工作人员提问的视频。 门店工作人员向余承东询问尊界 SUV 有没有“小惊喜”。 余承东表示，这台新车“快了”， 明年年初可能就要陆续上市，大概在 2、3 月份 。他透露， 尊界 SUV 非常非常高端，价格上也非常有诚意 ，会远超大家的期望，定价也会非常有竞争力。新车在外观、内饰、高级感、豪华配置、科技配置都是超乎想象的。 他直言， 这台车也会是高端用户的终极之车，也是自己开的 SUV 里的终极之车 。另外，新车还有望在今年年底首发亮相（正考虑在广州车展这一时间节点），与用户见面。 余承东还透露，这台新车设计早已定型， 现在是最后的量产阶段 。他还回应了新车测试车被拍一事， 称网上的谍照不准确 ，实车会高端多了。 据IT之家了解，2026 年是尊界品牌产品大年，6 月底尊界推出了 200 万元级旗舰车型，旗舰 MPV 双车 V800 / V680 已于 8 月上市。随着后续 SUV 车型的落地，尊界将形成“轿车 + MPV +…</p><a href="https://www.ithome.com/1/007/343.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 26 Sep 2026 14:06:56 +0800</div><h3>Velum：方便部署的CosyVoice推理程序</h3><p>Nala Ginrut 写道： HardenedLinux 最近发布了可用于推理CosyVoice的Velum，它用modern C++开发，编译成一个单一的可执行文件，方便部署。 CosyVoice是目前比较优秀的一款 TTS 模型，但其推理程序使用的Python体系比较老旧，需要在部署的时候做一些处理，而且Python依赖占用空间较大，不利于大量能力情况下的Agent部署。要是每个agent能力都要一堆Python十几G的依赖，每一堆还有版本冲突，那就不要卖产品了，不如回家卖红薯。 Velum编译之后只有一个可执行文件，所谓部署更新就是拷贝。一些预处理的模型相关的东西虽然需要用Python生成，但运行时是不需要任何Python的东西。 Velum同时也是一个例证，它是由人类做架构规划，DeepSeek-v4-pro完成的项目，也就是说，DeepSeek足以做这种程度的Vibe。在目前Claude只需要两轮配额就烧干的今天，稍微复杂点的程序，如果不能用DeepSeek做，最后还是要回家卖红薯。 希望以后Codex和Claude也能增强自己的竞争力，把价格向DeepSeek靠拢，让天下无红薯可卖，也未尝不是一件美事。</p><a href="https://www.solidot.org/story?sid=85479" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 25 Sep 2026 19:11:10 +0800</div><h3>中国各地推动 AI 视频产业化</h3><p>两年前 Zhu Zhili 选择了深圳作为其 AI 电影工作室的办公地点，今年他接到了来自中国各地政府和产业园官员的电话，内容基本相同，即希望将 AI 电影业务带到当地。中国各地正在推动 AI 视频的产业化，类似太阳能、电动汽车和机器人。AI 电影制作人表示，低廉的制作成本是吸引他们投身 AI 创作的主要原因。CCTV 报道 2026 年上半年，AI 短剧的制作成本从每分钟 5,000 元降至几百元。可能和太阳能等领域一样，AI 视频行业也正面临产能过剩。DataEye 的数据显示，今年上半年，抖音上推出了 221,900 部新 AI 视频，其中只有 1,055 部播放量逾 1 亿次。国家电影局已向 90 分钟科幻史诗片《三星堆未来启示录》颁发公映许可证，这是中国大型制片厂制作的首部获批在院线上映的 AI 电影，出品方博纳影业集团表示影片计划于今年上映。</p><a href="https://www.solidot.org/story?sid=85475" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 24 Sep 2026 18:47:28 +0800</div><h3>微软放弃封禁 Microslop</h3><p>微软 CEO 纳德拉（Satya Nadella）关于 AI 的著名评论促使网民为微软起了 Microslop 的绰号，绰号的流行和随处可见促使微软今年早些时候在官方 Copilot Discord 服务器将其封禁，用户输入 Microslop 后会收到警告称根据服务器规定其输入包含了不合适的短语。但用户很快找到了应对之策，创造了无数 Microslop 的变体，比如用数字“0”代替字母“o”的“Microsl0p”。在猫与老鼠的文字游戏中，微软显然是失败的一方。半年之后，微软 Copilot Discord 频道被发现已经解除了对 Microslop 的封禁，搜索显示过去几周用户发布了数百则与 Microslop 相关的评论。</p><a href="https://www.solidot.org/story?sid=85471" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 23 Sep 2026 23:29:02 +0800</div><h3>不要被 AI 炒作愚弄</h3><p>Anthropic 声称其模型 Claude Mythos 在发现软件漏洞上胜过大多数安全专家。随后发生了 OpenAI–Hugging Face 安全事件，此后 Anthropic（自豪）和 Meta（不情愿）也披露了各自模型的类似事件。紧接着 Anthropic 宣称其模型取得了数学领域的突破；OpenAI 也声称自己取得了数学突破。Anthropic 工程师 Jacob Coxon 在宣布离职时引发了广泛关注，他声称该公司与 OpenAI 正“冲向自我进化的超级智能，并拿我们的生命在赌博”。媒体大肆报道了这些事件，且沿用了相关公司赋予其软件的拟人化叙事——即把软件描绘成不仅功能强大，而且已初具通用人工智能（AGI）雏形的产物。但深入研究的专家则给出了不同的答案，虽然这些发现并不能吸引眼球。网络安全专家指出，涉及模型的安全事件更多是 OpenAI 的疏忽大意，未能采取基本的安全措施，而不是“模型失控”或“AI 智能体创造文明”。OpenAI 模型在解决数学难题上的突破其原创性也相当可疑。数学家公开对 AI 企业利用其专业领域进行炒作提出了警告。AI…</p><a href="https://www.solidot.org/story?sid=85466" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 23 Sep 2026 22:56:12 +0800</div><h3>英国准备施压 Google 向 Android 和 Chrome 用户展示 AI 助手选择屏</h3><p>英国竞争监管机构 CMA 想要让 Android 和 Chrome 用户对 AI 助手和搜索引擎有更大的选择权和控制权。CMA 公布了一份提案，要求 Google 在用户首次设置 Android 手机或打开 Chrome 浏览器时，向其展示多种搜索引擎供选择，并且每年提示用户选择一个默认搜索引擎；符合技术与安全标准的 AI 助手也必须获准出现在选择屏上上。该提案目前进入公众咨询阶段，截止日期为 10 月 9 日，CMA 预计将在今年底前做出最终决定。</p><a href="https://www.solidot.org/story?sid=85465" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 23 Sep 2026 16:32:12 +0800</div><h3>丰田命令员工训练人形机器人，否认会替代人类员工</h3><p>丰田的员工正在帮助训练人形机器人，它计划未来几年部署 40 万台工厂机器人，人形机器人是其中的一部分，但高管否认它们会替代人类员工。丰田在装配线上部署了 ELEY 人形机器人，而员工则通过佩戴基于机器人手指的装置去训练这些通过轮子移动的机器人执行需要精细手部动作的任务。丰田是全球最大的汽车公司之一，在全世界有 60 座工厂，雇佣了 1.8 万员工。丰田执行副总裁 Hiroki Nakajima 表示，公司的目标是创造一个“机器人与人类共存，而非取代人类”的世界。根据国际机器人联合会的数据，仅 2024 年中国就部署了 200 万台工业机器人，日本以 45.05 万台位居第二。美国和韩国分别以 3.42 万台和 3.06 万台的部署量排名第三和第四。</p><a href="https://www.solidot.org/story?sid=85461" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      <section class="section-card" id="errors"><div class="section-head"><h2>抓取异常</h2><span>不影响当期页面生成</span></div><ul class="error-list"><li class="error-item"><strong>36氪</strong><span>[解析失败] https://36kr.com/feed</span><em>not well-formed (invalid token): line 9, column 542</em></li></ul></section>
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>
