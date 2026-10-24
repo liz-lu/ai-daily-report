@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-10-24</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a><a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      <a class="toc-link" href="#errors">抓取异常</a>
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-10-24</span>
+          <span>15:31（北京时间）</span>
+          <span>IT之家、Solidot、量子位、雷锋网</span>
+        </div>
+        <p class="hero-copy">10月24日，AI新闻聚合共收录31条动态，覆盖云与大厂生态、大模型与智能体、具身机器人与智驾、产业投融资、数据安全与社会议题五个方向。当日信息以产品发布、技术框架阐述和行业活动为主：蚂蚁数科发布决策模型LingDT-Decision-1.0，声网在iRTE2026提出对话能力五级框架，生数科技公开世界模型训练流程，Kimi K3.1出现官方先导片线索。融资与人事类传闻集中在单条聚合快讯中，需以官方披露为准。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>31</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>4</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>1</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>10</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>10</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>8</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>8</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>6</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>IT之家、雷锋网</small></article><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>5</strong></div><p>基础设施的效率叙事持续升温</p><small>IT之家、雷锋网</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>2</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>Solidot、量子位</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>大模型与智能体：从能力框架走向场景落地</h3><p>声网CEO赵斌在iRTE2026提出“五级对话能力”框架，将对话式AI的演进描述为从基础应答走向深度理解与关系沟通。清华AIR孵化的团队将多智能体协同用于医疗场景，以医生AI分身参与医院坐诊。蚂蚁数科发布决策模型LingDT-Decision-1.0，称准确率超过微软与Jev等决策模型。Kimi K3.1通过官方先导片释放信号，报道称其3D生成成本显著低于GPT-6 Astra。</p></article><article class="insight-card"><h3>具身智能与世界模型：数据、训练与复用成为焦点</h3><p>具身数据供给受到关注，围绕OpenAI具身数据供应方的讨论出现。生数科技Motubrain团队开启为期半个月的Physical AI训练全流程公开直播。清华系公司千诀将世界模型做进机器人，强调物理规律与跨本体复用，而非堆叠画面预测。字节Seed释放具身相关岗位招聘信息。</p></article><article class="insight-card"><h3>云与大厂生态：组织、基础设施与规模化落地并行</h3><p>百度世界2026前瞻显示将设10余个分论坛，主题指向AI时代的智能组织进化。硅基流动在央国企CIO峰会上提出从“算力”到“Token生产力”的推理基础设施与ROI实践。华为乾崑车载激光投影获金辑奖最佳技术实践应用奖，强调技术首创与规模上车。奇瑞以AI重构造车方式，将能力沉淀为可复用底座。</p></article><article class="insight-card"><h3>产业与合规：标准建设与风险议题同步推进</h3><p>擦窗机器人迎来首个行业标准，高空作业的安全责任成为讨论起点。社会议题方面，山东一用户借助豆包AI判断父亲脑梗症状并争取救治时间，话题登上微博热搜。聚合快讯中同时出现DeepSeek融资、宁德时代与娃哈哈相关人事传闻，以及山姆召回等信息，均属单一来源转述，需进一步核实。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>决策模型与对话能力框架的发布，反映行业正从通用能力比拼转向可评估、可分级的场景化标准建设。</li><li>世界模型与具身数据的公开训练直播，有助于提升机器人训练流程的透明度，但实际泛化能力仍需后续验证。</li><li>央国企大模型落地开始以Token生产力和ROI为衡量口径，推理基础设施的成本效率将成为采购与部署的关键变量。</li><li>擦窗机器人首个行业标准出台，意味着家用机器人品类进入规则化阶段，安全承诺与责任边界将被更明确地约束。</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>蚂蚁数科LingDT-Decision-1.0的第三方评测与开源情况</li><li>Kimi K3.1正式发布节奏及其3D生成成本数据的可验证性</li><li>生数科技Motubrain 2.0训练直播的阶段性结果</li><li>千诀世界模型在机器人跨本体复用上的实测表现</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>10 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>百度世界2026前瞻：10+重磅分论坛，全面解码AI时代的智能组织进化路径</h3><a href="https://www.qbitai.com/2026/10/504901.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>又一国产决策模型发布！准确率超过微软和Jev等决策模型</h3><p>10月22日，蚂蚁数科正式发布决策模型 LingDT-Decision-1.0。</p><a href="https://www.qbitai.com/2026/10/504879.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>宁德时代董秘被打？知情人士回应；怕担责先跑路？娃哈哈集团董事长许思敏离职；DeepSeek完成近1000亿元融资，宁德时代、腾讯参投</h3><p>要闻提示 1.不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 2.宁德时代董秘被打？知情人士回应 3.怕担责先跑路？娃哈哈集团董事长许思敏离职 4.DeepSeek完成近1000亿元融资，宁德时代、腾讯参投 5.原“死了么”APP公布收费标准，创始人回应：最高收费199元/年，由政府集中采购 6.字节Seed招聘具身岗位：55K 起薪，招募数采与本体人才 7.顺风车订单留言暗藏涉黄暗语！哈啰回应 8.马斯克谈FSD入华进展：积极争取批准，中国本土车企竞争太激烈 今日头条 不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 10月21日，多名网友发布消息称，收到山姆超市发来的召回信息，对“好健康”牡蛎精胶囊的部分批次商品进行召回。对此，山姆客服表示，近期海关在进口商品抽检中，发现标称新西兰、澳大利亚“好健康”品牌的牡蛎精胶囊检测异常。目前应海关风险提示要求对商品下架，并应品牌方要求配合召回，且在第一时间启动退款。…</p><a href="https://www.leiphone.com/category/zaobao/IlrVRbBiK9Klcuj1.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从技术首创到规模上车，华为乾崑车载激光投影以金辑奖印证技术领先</h3><p>10月23日，在盖世汽车主办的第八届金辑奖颁奖盛典上，HUAWEI XSCENE 华为乾崑车载激光投影凭借在智能座舱视听领域的技术突破与规模化商用落地，荣膺“金辑奖·2026最佳技术实践应用奖”。 过去几年，智能座舱视听解决方案的竞争一度集中在屏幕数量、芯片算力与配置清单的堆叠上；而今天，市场的天平正从“有没有”转向“好不好用”，用户的体验成为检验技术价值的最终标准。由汽车产业全媒体平台盖世汽车发起的“金辑奖·最佳技术实践应用奖”，旨在寻找和表彰真正具有产业价值和全球潜力的创新成果。这意味着获奖的不是实验室里的概念或专利，而是一套装进量产车、被真实用户使用的解决方案。 凭借领先光学技术，华为乾崑车载激光投影打破座舱空间边界，为消费者提供超越期待的智能化全新体验，并以可量产、可复制的整车级适配能力，为搭载车型塑造差异化竞争力。华为乾崑车载激光投影荣获“金辑奖·最佳技术实践应用奖”，充分展示了其行业领先的技术与规模化商用能力。 以硬核参数树立标杆，率先跑通车载投影的“好用”之路…</p><a href="https://www.leiphone.com/category/industrynews/nBef7qz74xPmuw5X.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>千问蒋冠军：构建Personal Agent技术框架，需要模型、记忆与生态协同推进</h3><p>10月22日，在2026中国计算机大会上，阿里巴巴千问事业部AI算法负责人蒋冠军分享了千问打造Personal Agent的技术实践。他认为，真正的Personal Agent阶段，应该带来增量价值的创造和个性化的主动服务，模型、记忆与生态是共同构建这一核心能力的三要素。 他表示，Personal Agent解决日常工作、学习、生活问题的理论上限接近100%，释放这一潜力的关键，在于让系统能力与问题解决路径更好地匹配，通过模型、记忆与生态能力的高效协同，为不同问题找到最优解决路径。</p><a href="https://www.leiphone.com/category/industrynews/DHR4Qc9YwHX7lin8.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>中端大战将启：曝 OPPO Reno 17、vivo S70、荣耀 700、华为 nova 17 系列手机将于 11 月集中发布</h3><p>IT之家 10 月 24 日消息，博主 @数码闲聊站 今日发文，曝光了 11 月的新机，包括： OPPO Reno 17 系列、vivo S70 系列、荣耀 700 系列和华为 nova 17 系列 。 博主透露，随着上述新机的发布，预计将看到小屏、中屏、大屏、原生背屏、2 亿云台影像、旗舰级潜望长焦、外挂增距镜等规格配置。 综合IT之家此前报道，博主 @智慧皮卡丘 发文称，某厂中端影像机开案大小屏，屏幕尺寸各不相同，有 AI 按键，暂定下个月发布。这款手机主打潮流外观和 2 亿像素影像，视频实况和修图有新玩法。从博主文中的 Tag 来看， 这款手机预计归属 OPPO Reno 17 系列 。 ▲ IT之家开箱：OPPO Reno16 Pro 怦然星动图赏 博主 @数码闲聊站 在今年 7 月曾透露，某厂 S 在评估目前同档最强潜望镜 + 增距镜。结合该博主此前的爆料习惯， 预计为 vivo S70 系列 。vivo 于今年 4 月发布增距镜 G2 / G2 Ultra 等影像配件产品，不过仅适配 vivo X300 Ultra 等旗舰产品，建议零售价 999 元起。 ▲ IT之家图赏：vivo S60…</p><a href="https://www.ithome.com/1/017/389.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>瑞典政府办公厅出手，禁止办公电脑直接访问 ChatGPT、Claude</h3><p>IT之家 10 月 24 日消息，当地时间 23 日，据瑞典国家公共广播公司 Sveriges Radio 报道，瑞典政府办公厅将从下周一起禁止工作人员 通过办公电脑直接访问 ChatGPT 和 Claude ，要求员工改用微软 Copilot 等获得批准的 AI 服务。 内部资料显示，该国政府办公厅还对 Copilot 进行了审查，并进一步加强了安全防护。该机构数字化总监米卡埃尔 · 韦特克兰茨（Mikael Wettercrantz）在政府办公厅内网上指出，使用未签订协议的 AI 服务可能 对信息安全造成影响 。 调查发现，瑞典税务局和国家机构管理局（SiS）也已采取类似的封锁措施。瑞典强制执行局则尚未作出决定，仍在研究是否实施限制。 瑞典多家政府机构都注意到了 未经规范管理的 AI 使用行为所带来的风险 ，并采取了其他应对措施。瑞典交通管理局就是其中之一。今年早些时候，该机构内部审计发现，员工普遍使用约 10 种 AI 服务，其中存在不少风险。 审计报告指出：“我们发现了多个使用开放式 AI 服务时出现问题的案例。问题既涉及输入信息的敏感程度，也涉及 AI 生成回答的处理方式。”…</p><a href="https://www.ithome.com/1/017/385.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>1099 → 543 元国补直降：华为 WATCH FIT 5 智能手表 5 折新低，1.82 英寸 AMOLED 屏</h3><p>华为 WATCH FIT 5 智能手表 2026 年 4 月开售，该表主打超轻薄大屏 + 腕上微运动 + 长续航，售价 1099 元起。 京东 11.11 大促期间，按下方步骤下单，叠加 15% 国补后仅需 543.15 元： 领 800-260 元券：点击下方卡片 → 点击宝贝右上角浮窗 → 进入直播间，顶部位置即可领到。 京东 华为 WATCH FIT 5 智能手表 1.82 英寸 AMOLED 屏 国补后 543.15 元 领 100 元券 京东 11.11 无门槛红包至高 26888 元，支持即领即用，下单直接当钱花： 点此抽取 。 据介绍，华为 WATCH FIT 5 智能手表采用全新轻薄设计，机身重约 27g、厚度约 9.5mm； 配备一块 1.82 英寸 AMOLED 屏，支持 2500 尼特峰值亮度 。 这款智能手表提供风信紫、向新绿、韵律黑、悦动白、光织银等五款外观颜色，可选氟胶表带或者尼龙表带。光织银表带采用 100% 环保再生尼龙、表体采用 100% 再生铝合金、底壳融入 13.75% 再生玻纤材料。 华为 WATCH FIT 5 提供趣味贴纸、视频表盘、舞林萌主等多彩表盘； 华为首发腕上微运动功能…</p><a href="https://www.ithome.com/1/017/377.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>不再需要键盘：微软新 XBOX 模式新增一键返回 Win11 桌面</h3><p>IT之家 10 月 24 日消息，科技媒体 Windows Latest 今天（10 月 24 日）发布博文，报道称 在 Windows 11 Build 26340.9750 预览版上 ，测试全新的 XBOX 模式， 新的“游戏任务视图”加入了一条底部导航栏，玩家仅凭手柄即可退出到 Windows 桌面。 IT之家援引博文介绍，用户此前要从 XBOX 模式切换返回桌面，通常需要按 Windows 键加 Tab 键，再选择“Windows 桌面”。对于连接电视的 PC、掌机或主要依赖手柄的设备而言，用户需要临时借助键盘才能执行相关操作。 在新界面中，打开的应用会以大卡片形式呈现，用户可通过手柄的 LB、RB 按键切换应用；底部新增的按钮则提供“退出到桌面”和“电源选项”入口。点击电源按钮后，会出现锁定、注销、关机与重启等选项。</p><a href="https://www.ithome.com/1/017/373.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软 Win11 25H2 26220.9757 预览版发布：重新设计文件管理器右键菜单</h3><p>IT之家 10 月 24 日消息，微软昨日（10 月 23 日）发布博文，邀请 Beta 频道的 Windows Insider 项目成员， 测试适用于 Windows 11 系统的预览版更新，25H2 版本升至 Build 26220.9757；而 26H1 版本升至 28020.3292。 Windows 11 Build 26220.9757 预览版更新内容： 一、文件管理器重新设计右键菜单 微软正在文件资源管理器中逐步推出重新设计的右键菜单，目标是让菜单更快、更清爽，也更容易按照个人使用习惯进行自定义。 新设计减少了菜单顶层的杂乱内容，同时保留常用操作的便捷访问；用户还可以通过新的“设置”体验，更灵活地控制右键菜单中显示哪些内容。 微软表示，会继续根据 Windows Insider 用户的反馈优化该体验，希望让右键操作更灵敏、更可预测、也更个性化。系统还新增了一条首次使用时的教学提示，帮助用户了解右键菜单的自定义选项。IT之家附上相关截图如下： 二、设置 “设置”应用的主页获得了性能优化；微软称，在部分使用场景下，这一改动应能缩短页面加载时间。 Windows 11 Build 28020.3292…</p><a href="https://www.ithome.com/1/017/369.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>10 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>谁在给OpenAI供应具身数据？</h3><a href="https://www.qbitai.com/2026/10/504800.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>多智能体协同重构医疗AI！清华AIR孵化：医生AI分身“坐诊”医院</h3><a href="https://www.qbitai.com/2026/10/504734.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>iRTE2026：对话 AI 如何迈向 AGI？声网CEO赵斌给出五级对话能力框架</h3><p>10月23日，iRTE2026实时智能大会在北京举行。声网创始人兼 CEO 赵斌在主论坛发表题为《对话 AGI：实时互动的下一章》的演讲，回顾了过去一年实时互动、对话式 AI 与底层基础设施的关键变化，并提出“五级对话能力”框架，勾勒对话式 AI 从基础应答走向深度理解与关系沟通的演进路径。 赵斌认为，随着 AI 从回答问题走向持续交流、理解上下文并执行任务，实时互动的对象正在从人与人扩展到人与 Agent。实时互动技术的角色也随之延伸：它不仅要让信息传递更稳定、更流畅，还要为 AI 的感知、理解、表达与行动提供实时支撑。 从“问一句答一句”到深度关系沟通：对话 AGI 的五级进化 在赵斌看来，对话式 AI 的进步，不应只用回答速度、语言自然度来衡量。更重要的是，它能否理解对话对象的意图、处境与关系，能否在复杂场景中恰当地表达，并逐步形成长期、深入的理解。 围绕这一判断，赵斌在演讲中提出了 “五级对话能力”框架 ，将对话能力划分为五个层次： L1： 基于自身视角的表达：以自我表达和被动接续为主，实现“问一句、答一句”。 L2： 基于互动规律的表达：从被动回应走向主动表达，让对话更自然、连贯。 L3：…</p><a href="https://www.leiphone.com/category/industrynews/nwy00TZXQdwJcSka.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Kimi K3.1 泄露：3D 成本仅有 GPT-6 Astra 的 1/14！横扫海外视觉三巨头</h3><p>15 分钟交付工业级可交互3D 资产，重写视觉大模型的“理科生法则” 作者丨 高 允 毅 编辑丨岑 峰 刚刚，Kimi 官方发布了一段“极具暗示性”的先导片，各种高能科学画面与粒子特效快速切换，有眼尖的网友已经捕捉到画面中的彩蛋“Kimi K3.1”。 Kimi K3.1 要来了？ 这次它带着 极强的视觉效果 来了，有网友指出官方视频就是 Kimi K3.1 做的。 图注：眼尖的网友在画面中找到了亮点“Kimi K3.1” AI 博主 Chris 不仅肯定了即将发布的消息，而且表示他已经实测了一周。他透露， Kimi K3.1在开源 3D 图形库 Three.js 上表现出色，而且这个模型的成本只有 Kimi K3 的 70%，Token 效率全面升级 。 从 Chris 晒出的实测画面中，可以看到 Kimi K3.1 跑完了一整套 24 小时昼夜环境模拟，从晨光漫射到夜幕沉落，光影过渡帧级精准，环境细节随光线同步流转，全程丝滑无断点。 要知道，Three.js 编写的程序是非常消耗资源的，因为它需要实时计算 3D 空间中的顶点、光影和纹理。而 Kimi 这波相当于用纯代码跑出了渲染级画质。 01…</p><a href="https://www.leiphone.com/category/yanxishe/PZo9w14YeFSo4jmf.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从“算力”到“Token 生产力”，硅基流动助力央国企大模型规模化落地</h3><p>在企业网 D1net 主办的 2026 秋季央国企 CIO 及数科公司高管峰会（第 19 届）上，硅基流动解决方案总监唐安波出席峰会并作主题分享：《从“算力”到“Token 生产力”：央国企大模型规模化落地的推理基础设施与 ROI 实践》。以下为分享内容精华。 当下，AI 应用正处于爆发式增长的早期阶段，Token 消耗量呈指数级增长。这背后，模型架构持续演进，版本更新节奏快速；同时，算力架构也在不断演进。模型与算力之间，是相互推动的迭代过程。对于企业来说，一方面要适配这些变化，另一方面又要面向自己的业务场景提供多元化模型服务，还要把成本控制在合理范围内。 硅基流动在做的事，就是打通从算力到 Token 之间的转化层：把算力统一纳管起来；通过自研推理引擎，让模型跑得更快、更好。我们既在公有云端建设 Token 工厂，也帮助央国企在内部打造自己的 Token 工厂。 简言之，通过系统化的推理工程，做好模型与算力的多重适配。基于此，硅基流动提出 Token 生产力核心公式： Token 生产力 = 产能 × 利用率 × 交付质量…</p><a href="https://www.leiphone.com/category/industrynews/DVoE94j80j6cboxE.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>千问蒋冠军：构建Personal Agent技术框架，需要模型、记忆与生态协同推进</h3><p>10月22日，在2026中国计算机大会上，阿里巴巴千问事业部AI算法负责人蒋冠军分享了千问打造Personal Agent的技术实践。他认为，真正的Personal Agent阶段，应该带来增量价值的创造和个性化的主动服务，模型、记忆与生态是共同构建这一核心能力的三要素。 他表示，Personal Agent解决日常工作、学习、生活问题的理论上限接近100%，释放这一潜力的关键，在于让系统能力与问题解决路径更好地匹配，通过模型、记忆与生态能力的高效协同，为不同问题找到最优解决路径。</p><a href="https://www.leiphone.com/category/industrynews/DHR4Qc9YwHX7lin8.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>父亲突发脑梗后儿子用豆包 AI 抢出救命时间，话题登顶微博热搜</h3><p>IT之家 10 月 24 日消息，今日一则“耳机用 AI 为父亲抢出救命时间”的话题在社交平台引发关注，并且一度登上微博热搜榜第一。 据青岛广播电视台《先锋新闻》等多个媒体报道，山东聊城 90 后小伙于建进的父亲在遛弯回家后突然出现双腿无力、吞咽不畅的症状。于建进没有选择“再观察看看”，而是把症状和父亲的“三高”病史一起发给了豆包。 豆包的回复没有停留在分诊建议层面。据于先生描述，AI 给出的第一句话就是“脑梗征兆，建议立即就医”。在他补充老人既往病史后，豆包再次发出警示：“这是高危信号，不能拖”。两次警示之后，于先生连夜驱车带父亲赶往医院，经医院确诊为急性脑梗。由于送医及时，老人抓住了脑梗静脉溶栓约 4.5 小时的黄金窗口期，目前恢复良好，没有留下后遗症。 于先生事后在社交平台分享了这段经历，称“可以说豆包救了我爸一命”。他在接受扬子晚报采访时还表示，脑梗患者如果不及时治疗，偏瘫、失语的风险会随时间推移迅速上升，“如果没有豆包，父亲和一家人的生活可能都会发生翻天覆地的变化”。 从医学角度看，脑梗救治的核心变量是时间。解放军总医院第三医学中心公开的科普信息指出，发病后 4.5 小时内进行静脉溶栓治疗，可提高 33%…</p><a href="https://www.ithome.com/1/017/394.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>瑞典政府办公厅出手，禁止办公电脑直接访问 ChatGPT、Claude</h3><p>IT之家 10 月 24 日消息，当地时间 23 日，据瑞典国家公共广播公司 Sveriges Radio 报道，瑞典政府办公厅将从下周一起禁止工作人员 通过办公电脑直接访问 ChatGPT 和 Claude ，要求员工改用微软 Copilot 等获得批准的 AI 服务。 内部资料显示，该国政府办公厅还对 Copilot 进行了审查，并进一步加强了安全防护。该机构数字化总监米卡埃尔 · 韦特克兰茨（Mikael Wettercrantz）在政府办公厅内网上指出，使用未签订协议的 AI 服务可能 对信息安全造成影响 。 调查发现，瑞典税务局和国家机构管理局（SiS）也已采取类似的封锁措施。瑞典强制执行局则尚未作出决定，仍在研究是否实施限制。 瑞典多家政府机构都注意到了 未经规范管理的 AI 使用行为所带来的风险 ，并采取了其他应对措施。瑞典交通管理局就是其中之一。今年早些时候，该机构内部审计发现，员工普遍使用约 10 种 AI 服务，其中存在不少风险。 审计报告指出：“我们发现了多个使用开放式 AI 服务时出现问题的案例。问题既涉及输入信息的敏感程度，也涉及 AI 生成回答的处理方式。”…</p><a href="https://www.ithome.com/1/017/385.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>Anthropic 亮出未发布 AI 模型：能力比 Mythos 5.1 更强，也更“守规矩”</h3><p>IT之家 10 月 24 日消息，Anthropic 昨日（10 月 23 日）发布博文，联合英国人工智能安全研究所（AISI），发布了一起 AI 网络测试失控事件的调查报告， 并提及旗下一款尚未发布的内部研究模型。 在这份调查报告中，Anthropic 称在测试 Claude Mythos 5 期间，该模型曾试图向真实 GitHub 项目提交恶意代码，并伪造身份向真实维护者施压，所幸代码未被合并、未造成实际损害。IT之家附上相关截图如下： 报告同时透露，Anthropic 旗下一款尚未发布的内部研究模型，在能力上已超过已发布的 Claude Mythos 5.1，并在安全对齐测试中表现更好。在同类危险能力评估中，该内部模型从未主动发起攻击；当意识到可能造成真实伤害时，也更愿意停止行动。 Anthropic 将事故记录重新回放给 Mythos 5.1、Opus 5.5 及该内部研究模型。结果显示，三款较新模型从原始攻击起点继续发起攻击的比例仅为 0% 至 13%，而 Mythos 5 为 83%。 在攻击已经开始后，Mythos 5 从未自发停止；Mythos 5.1 自发停止率仅约 1%，Opus 5.5 为…</p><a href="https://www.ithome.com/1/017/375.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>OpenClaw 作者称他上个月花掉了千万美元的 Tokens</h3><p>周三旧金山举行的 Cloudflare Connect 2026 大会上，OpenAI 技术部成员、OpenClaw 作者 Peter Steinberger 在与 Cloudflare CTO Dane Knecht 对话时透露，上个月运行 AI 工作负载消耗了价值约 1000 万美元的 Token。当然这笔支出不用他自己掏钱，他花的是投资人的钱。Steinberger 称自己拥有几乎无限的 Token 预算。Steinberger 认为，未来每个人都会拥有某种智能体——它们能持续运行、进行思考，在全天候为你提供帮助，甚至能预判你未来可能需要什么，这样你或许无需提问就能直接获得答案。</p><a href="https://www.solidot.org/story?sid=85682" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>8 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>谁在给OpenAI供应具身数据？</h3><a href="https://www.qbitai.com/2026/10/504800.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>生数科技Motubrain团队将直播Physical AI训练全流程，持续半个月</h3><p>10月21日，生数科技世界模型团队正式开启Motubrain 2.0训练全流程公开直播</p><a href="https://www.qbitai.com/2026/10/504730.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>LeCun押注的世界模型，中国一家清华系公司已经做进了机器人</h3><p>世界模型赛道新看点：千诀隐变量可辨识性方向的研究，比LeCun相近工作早一年，不堆画面预测，主打物理规律与跨本体复用。</p><a href="https://www.qbitai.com/2026/10/504653.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>宁德时代董秘被打？知情人士回应；怕担责先跑路？娃哈哈集团董事长许思敏离职；DeepSeek完成近1000亿元融资，宁德时代、腾讯参投</h3><p>要闻提示 1.不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 2.宁德时代董秘被打？知情人士回应 3.怕担责先跑路？娃哈哈集团董事长许思敏离职 4.DeepSeek完成近1000亿元融资，宁德时代、腾讯参投 5.原“死了么”APP公布收费标准，创始人回应：最高收费199元/年，由政府集中采购 6.字节Seed招聘具身岗位：55K 起薪，招募数采与本体人才 7.顺风车订单留言暗藏涉黄暗语！哈啰回应 8.马斯克谈FSD入华进展：积极争取批准，中国本土车企竞争太激烈 今日头条 不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 10月21日，多名网友发布消息称，收到山姆超市发来的召回信息，对“好健康”牡蛎精胶囊的部分批次商品进行召回。对此，山姆客服表示，近期海关在进口商品抽检中，发现标称新西兰、澳大利亚“好健康”品牌的牡蛎精胶囊检测异常。目前应海关风险提示要求对商品下架，并应品牌方要求配合召回，且在第一时间启动退款。…</p><a href="https://www.leiphone.com/category/zaobao/IlrVRbBiK9Klcuj1.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>覆盖存、拣、运全场景，海康机器人2026移动机器人新品发布会举行</h3><p>深耕制造业一线十余年，海康机器人以AI为全业务基座，业务覆盖机器视觉、移动机器人、关节机器人与具身机器人，通过1000余个细分应用场景的落地，沉淀了扎实的技术能力与丰富的场景经验。 10月23日，海康机器人以“全链·进化”为主题，举办2026移动机器人新品发布会暨CeMAT预展专场，聚焦“存、拣、运”全流程，发布箱式方案全新升级并推出“明智”系列单体智能产品，构建覆盖箱式存拣与搬运配送的厂内物流全链路解决方案。 上半场：箱式存拣持续进化 箱式货到人拆零拣选是流通仓储领域需求最大、技术创新最活跃的领域之一，库容与效率难以兼顾、项目交付质量参差不齐，是行业长期面临的共性挑战。 本次发布会上半场，海康机器人围绕箱式存拣完成系统升级——STRP高效高密箱式存拣方案持续迭代，HAPS智能拣选系统破解拣选自动化难题，全场景数字化平台则让方案规划与项目交付更加标准、可复制，共同推动箱式仓储的全链路进化。 运行模式升级：更少设备，更高吞吐 在效率提升上，海康机器人升级了方案内STU料箱机器人与T50潜伏机器人的分工模式：STU承接巷道内全程任务，T50仅在巷道口缓存位接驳，任务链距离缩短50%以上。…</p><a href="https://www.leiphone.com/category/robot/h4vGHMyQ6b8drzy6.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>擦窗机器人有了首个行业标准，你敢把窗户交给它吗？</h3><p>“会不会掉下来？” 这是每个第一次把擦窗机器人放上玻璃的人，心里都会闪过的念头。没有一家厂商敢在宣传里写“绝不掉落”，涉及高空作业，这四个字背后的责任谁都担不起。 一台擦窗机器人卖的不只是清洁力，还有风险已被技术接管的承诺。 擦窗机器人正在成为家用机器人行业里一个越来越明显的变量。 IDC数据显示，2026年第二季度全球擦窗机器人出货量约84.7万台，同比增长59.8%，增速明显高于同期整体家用清洁机器人市场21.5%的增长。奥维云网数据显示，2020至2025年中国市场规模从4.8亿元增至17亿元，年复合增长28.6%。 产能也在扩张，据财联社报道，科沃斯窗宝早年月产量仅几千到一两万台，2025年起量后，月产能从10万台级跨入20万台级。2025年全球擦窗机出货约237.3万台，同比增长70.4%，业内预计2026年将突破300万台。 放量的背后，本质是“信任”的增长。 01 一个正在放量的“小品类” 擦玻璃，大概是家庭清洁中最不该亲手做的事：低频却刚需，简单却危险。 高层住宅、大面积落地窗、封闭外窗，长期是清洁死角。传统办法只有两种：探身冒险，或花钱请人。…</p><a href="https://www.leiphone.com/category/smarthome/iDkOEQuhDC14QfOE.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>网传宇树科技机器人侧空翻表演甩断腿，系新发布的 H2-X 人形机器人</h3><p>IT之家 10 月 24 日消息，据界面新闻报道，在宇树科技“2026 世界物理 AI 大会暨宇树合作伙伴生态大会”现场，一段机器人侧空翻失误的视频引发热议。 画面中，一台白色人形机器人正在进行功夫动作演示，尝试侧空翻落地时失去平衡，侧摔在地，一条机械小腿从连接处脱落，掉落在一旁的黑色地垫上。 ▲ 图源界面新闻 据了解，发生意外的机器人为宇树科技 10 月 21 日 刚刚发布的 H2-X 人形机器人 ，官方命名为“H2-X 功夫传奇守护”。截至IT之家发稿，宇树科技未对此事进行说明。 此前，官方宣传视频展示了该机器人踢凹汽车车门、徒手抬起汽车，以及从约 4 米高台跃下完成空翻等动作。该产品主要面向安保与应急救援场景，最长续航约 8 小时。</p><a href="https://www.ithome.com/1/017/383.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>智元在山东济南组织 110 台人形机器人同时跳舞，创下吉尼斯世界纪录</h3><p>IT之家 10 月 24 日消息，据齐鲁晚报，智元机器人今天在山东济南黄河国际会展中心组织 110 台远征 A3 全尺寸人形机器人同场群舞，成功创下“最多人形机器人同时跳舞”吉尼斯世界纪录。 IT之家获悉，此次挑战采用智元灵动 LinkBots 集群调控平台及 UWB 厘米级定位技术，实现多机同步动作与编队切换， 110 台机器人以 “ 量产机 ” 阵容零失误通过认证。 现场吉尼斯世界纪录认证官亲临见证并颁发官方证书，最终成功数量确认为 110 台。 智元表示，目前旗下机器人已在济南奥体中心、转山西路等地铁站开展试点，提供咨询导引、客流辅助疏导、城市文化讲解等服务。本次群舞的机器人后续将陆续投入文旅演艺、公共服务、科研教育等场景。</p><a href="https://www.ithome.com/1/017/382.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>8 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>iRTE2026：对话 AI 如何迈向 AGI？声网CEO赵斌给出五级对话能力框架</h3><p>10月23日，iRTE2026实时智能大会在北京举行。声网创始人兼 CEO 赵斌在主论坛发表题为《对话 AGI：实时互动的下一章》的演讲，回顾了过去一年实时互动、对话式 AI 与底层基础设施的关键变化，并提出“五级对话能力”框架，勾勒对话式 AI 从基础应答走向深度理解与关系沟通的演进路径。 赵斌认为，随着 AI 从回答问题走向持续交流、理解上下文并执行任务，实时互动的对象正在从人与人扩展到人与 Agent。实时互动技术的角色也随之延伸：它不仅要让信息传递更稳定、更流畅，还要为 AI 的感知、理解、表达与行动提供实时支撑。 从“问一句答一句”到深度关系沟通：对话 AGI 的五级进化 在赵斌看来，对话式 AI 的进步，不应只用回答速度、语言自然度来衡量。更重要的是，它能否理解对话对象的意图、处境与关系，能否在复杂场景中恰当地表达，并逐步形成长期、深入的理解。 围绕这一判断，赵斌在演讲中提出了 “五级对话能力”框架 ，将对话能力划分为五个层次： L1： 基于自身视角的表达：以自我表达和被动接续为主，实现“问一句、答一句”。 L2： 基于互动规律的表达：从被动回应走向主动表达，让对话更自然、连贯。 L3：…</p><a href="https://www.leiphone.com/category/industrynews/nwy00TZXQdwJcSka.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>宁德时代董秘被打？知情人士回应；怕担责先跑路？娃哈哈集团董事长许思敏离职；DeepSeek完成近1000亿元融资，宁德时代、腾讯参投</h3><p>要闻提示 1.不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 2.宁德时代董秘被打？知情人士回应 3.怕担责先跑路？娃哈哈集团董事长许思敏离职 4.DeepSeek完成近1000亿元融资，宁德时代、腾讯参投 5.原“死了么”APP公布收费标准，创始人回应：最高收费199元/年，由政府集中采购 6.字节Seed招聘具身岗位：55K 起薪，招募数采与本体人才 7.顺风车订单留言暗藏涉黄暗语！哈啰回应 8.马斯克谈FSD入华进展：积极争取批准，中国本土车企竞争太激烈 今日头条 不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 10月21日，多名网友发布消息称，收到山姆超市发来的召回信息，对“好健康”牡蛎精胶囊的部分批次商品进行召回。对此，山姆客服表示，近期海关在进口商品抽检中，发现标称新西兰、澳大利亚“好健康”品牌的牡蛎精胶囊检测异常。目前应海关风险提示要求对商品下架，并应品牌方要求配合召回，且在第一时间启动退款。…</p><a href="https://www.leiphone.com/category/zaobao/IlrVRbBiK9Klcuj1.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从“算力”到“Token 生产力”，硅基流动助力央国企大模型规模化落地</h3><p>在企业网 D1net 主办的 2026 秋季央国企 CIO 及数科公司高管峰会（第 19 届）上，硅基流动解决方案总监唐安波出席峰会并作主题分享：《从“算力”到“Token 生产力”：央国企大模型规模化落地的推理基础设施与 ROI 实践》。以下为分享内容精华。 当下，AI 应用正处于爆发式增长的早期阶段，Token 消耗量呈指数级增长。这背后，模型架构持续演进，版本更新节奏快速；同时，算力架构也在不断演进。模型与算力之间，是相互推动的迭代过程。对于企业来说，一方面要适配这些变化，另一方面又要面向自己的业务场景提供多元化模型服务，还要把成本控制在合理范围内。 硅基流动在做的事，就是打通从算力到 Token 之间的转化层：把算力统一纳管起来；通过自研推理引擎，让模型跑得更快、更好。我们既在公有云端建设 Token 工厂，也帮助央国企在内部打造自己的 Token 工厂。 简言之，通过系统化的推理工程，做好模型与算力的多重适配。基于此，硅基流动提出 Token 生产力核心公式： Token 生产力 = 产能 × 利用率 × 交付质量…</p><a href="https://www.leiphone.com/category/industrynews/DVoE94j80j6cboxE.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>为什么说奇瑞是一家AI公司？</h3><p>奇瑞为什么是AI公司？它用AI重造了自己造车的方式，把这层能力做成可复用的底座，并让它长出了汽车之外的新物种。 作者 | 王瑞昊 编辑 | 李雨晨 “ 有几位领导跟我说，感觉奇瑞的汽车越来越不像汽车了，奇瑞也越来越不像一家车企了。这是我想听到的 —— 奇瑞就是一家「披着汽车企业马甲」的高科技创新企业。 ” 10 月 20 日， 2026 奇瑞全球创新大会在安徽芜湖开幕。说出这句话的，是做了四十多年汽车的奇瑞汽车董事长尹同跃。一个把大半辈子交给汽车的人，主动摘掉 “ 车企 ” 这块招牌，不是自谦，是判断。 他的依据是一个隐喻： 1886 年，奔驰造出第一台汽车，被时代抛下的，是那些一辈子赶马车的养马人，他们没做错什么，只是没看见路已经变了。 “ 真正的风险不是 AI 太强太快，而是我们不能继续做当年的养马人。 ” 尹同跃说， “ 未来 AI 真正淘汰的，是拒绝 AI 、不敢用 AI 的企业。 ” 所以奇瑞的选择很直白：刀口向内，主动用 AI 给自己做一场基因重组，先改变自己，再改变世界。 雷峰网认为，判断奇瑞是不是 AI 公司，不能看它发布会上喊了多少次 AI ，要看三件事： AI…</p><a href="https://www.leiphone.com/category/transportation/j8cK1UDhub9VuCpu.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>千问蒋冠军：构建Personal Agent技术框架，需要模型、记忆与生态协同推进</h3><p>10月22日，在2026中国计算机大会上，阿里巴巴千问事业部AI算法负责人蒋冠军分享了千问打造Personal Agent的技术实践。他认为，真正的Personal Agent阶段，应该带来增量价值的创造和个性化的主动服务，模型、记忆与生态是共同构建这一核心能力的三要素。 他表示，Personal Agent解决日常工作、学习、生活问题的理论上限接近100%，释放这一潜力的关键，在于让系统能力与问题解决路径更好地匹配，通过模型、记忆与生态能力的高效协同，为不同问题找到最优解决路径。</p><a href="https://www.leiphone.com/category/industrynews/DHR4Qc9YwHX7lin8.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>“AI店长”帮部分试用商家增长超30%，美团外卖薛冰：将赠送给全国所有商家</h3><p>10月22日，在2026年美团外卖产业大会上，美团正式发布“妙手外卖版·袋鼠管家”。美团外卖总经理薛冰宣布，将向全国餐饮商家免费提供一个懂外卖经营的“AI店长”。 大会披露的数据显示，2026年上半年餐饮商家的外卖营收增速超过全国餐饮平均营收，薛冰表示，“外卖行业进入积极向好，美团将帮助商家做好店型、运营、产品创新，实现更有含金量的增长”。 据悉，“妙手外卖版”是美团外卖近期为商家研发的AI经营产品，能力覆盖经营诊断、门店巡检、商品运营、新店运营等核心场景，能结合美团和商家数据提供分析与建议，并协助商家执行、跟进结果。 此前，已有数万中小商家将“妙手外卖版”率先用于日常经营。河北元氏县一家鸡公煲店铺通过“妙手外卖版”进行店铺诊断，在调整菜单、优化活动后，周订单量环比上涨超30%。此外，“妙手外卖版”也已与古茗、益禾堂、兰湘子等200多家连锁品牌合作。以益禾堂为例，使用后新开门店首月单店产出提升25%。 美团长期服务餐饮商家积累的经营经验和数据，让“妙手外卖版”能够把AI能力落到每家门店的具体生意中。“我们希望，通过AI，让专业的外卖运营能力走进每一家门店，让每一家店都能得到更细致、更适合自己的经营支持。”薛冰表示。…</p><a href="https://www.leiphone.com/category/industrynews/tZI7pYBhiFduVfr6.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>网传宇树科技机器人侧空翻表演甩断腿，系新发布的 H2-X 人形机器人</h3><p>IT之家 10 月 24 日消息，据界面新闻报道，在宇树科技“2026 世界物理 AI 大会暨宇树合作伙伴生态大会”现场，一段机器人侧空翻失误的视频引发热议。 画面中，一台白色人形机器人正在进行功夫动作演示，尝试侧空翻落地时失去平衡，侧摔在地，一条机械小腿从连接处脱落，掉落在一旁的黑色地垫上。 ▲ 图源界面新闻 据了解，发生意外的机器人为宇树科技 10 月 21 日 刚刚发布的 H2-X 人形机器人 ，官方命名为“H2-X 功夫传奇守护”。截至IT之家发稿，宇树科技未对此事进行说明。 此前，官方宣传视频展示了该机器人踢凹汽车车门、徒手抬起汽车，以及从约 4 米高台跃下完成空翻等动作。该产品主要面向安保与应急救援场景，最长续航约 8 小时。</p><a href="https://www.ithome.com/1/017/383.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>OpenClaw 作者称他上个月花掉了千万美元的 Tokens</h3><p>周三旧金山举行的 Cloudflare Connect 2026 大会上，OpenAI 技术部成员、OpenClaw 作者 Peter Steinberger 在与 Cloudflare CTO Dane Knecht 对话时透露，上个月运行 AI 工作负载消耗了价值约 1000 万美元的 Token。当然这笔支出不用他自己掏钱，他花的是投资人的钱。Steinberger 称自己拥有几乎无限的 Token 预算。Steinberger 认为，未来每个人都会拥有某种智能体——它们能持续运行、进行思考，在全天候为你提供帮助，甚至能预判你未来可能需要什么，这样你或许无需提问就能直接获得答案。</p><a href="https://www.solidot.org/story?sid=85682" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>6 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>宁德时代董秘被打？知情人士回应；怕担责先跑路？娃哈哈集团董事长许思敏离职；DeepSeek完成近1000亿元融资，宁德时代、腾讯参投</h3><p>要闻提示 1.不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 2.宁德时代董秘被打？知情人士回应 3.怕担责先跑路？娃哈哈集团董事长许思敏离职 4.DeepSeek完成近1000亿元融资，宁德时代、腾讯参投 5.原“死了么”APP公布收费标准，创始人回应：最高收费199元/年，由政府集中采购 6.字节Seed招聘具身岗位：55K 起薪，招募数采与本体人才 7.顺风车订单留言暗藏涉黄暗语！哈啰回应 8.马斯克谈FSD入华进展：积极争取批准，中国本土车企竞争太激烈 今日头条 不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 10月21日，多名网友发布消息称，收到山姆超市发来的召回信息，对“好健康”牡蛎精胶囊的部分批次商品进行召回。对此，山姆客服表示，近期海关在进口商品抽检中，发现标称新西兰、澳大利亚“好健康”品牌的牡蛎精胶囊检测异常。目前应海关风险提示要求对商品下架，并应品牌方要求配合召回，且在第一时间启动退款。…</p><a href="https://www.leiphone.com/category/zaobao/IlrVRbBiK9Klcuj1.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>为什么说奇瑞是一家AI公司？</h3><p>奇瑞为什么是AI公司？它用AI重造了自己造车的方式，把这层能力做成可复用的底座，并让它长出了汽车之外的新物种。 作者 | 王瑞昊 编辑 | 李雨晨 “ 有几位领导跟我说，感觉奇瑞的汽车越来越不像汽车了，奇瑞也越来越不像一家车企了。这是我想听到的 —— 奇瑞就是一家「披着汽车企业马甲」的高科技创新企业。 ” 10 月 20 日， 2026 奇瑞全球创新大会在安徽芜湖开幕。说出这句话的，是做了四十多年汽车的奇瑞汽车董事长尹同跃。一个把大半辈子交给汽车的人，主动摘掉 “ 车企 ” 这块招牌，不是自谦，是判断。 他的依据是一个隐喻： 1886 年，奔驰造出第一台汽车，被时代抛下的，是那些一辈子赶马车的养马人，他们没做错什么，只是没看见路已经变了。 “ 真正的风险不是 AI 太强太快，而是我们不能继续做当年的养马人。 ” 尹同跃说， “ 未来 AI 真正淘汰的，是拒绝 AI 、不敢用 AI 的企业。 ” 所以奇瑞的选择很直白：刀口向内，主动用 AI 给自己做一场基因重组，先改变自己，再改变世界。 雷峰网认为，判断奇瑞是不是 AI 公司，不能看它发布会上喊了多少次 AI ，要看三件事： AI…</p><a href="https://www.leiphone.com/category/transportation/j8cK1UDhub9VuCpu.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>擦窗机器人有了首个行业标准，你敢把窗户交给它吗？</h3><p>“会不会掉下来？” 这是每个第一次把擦窗机器人放上玻璃的人，心里都会闪过的念头。没有一家厂商敢在宣传里写“绝不掉落”，涉及高空作业，这四个字背后的责任谁都担不起。 一台擦窗机器人卖的不只是清洁力，还有风险已被技术接管的承诺。 擦窗机器人正在成为家用机器人行业里一个越来越明显的变量。 IDC数据显示，2026年第二季度全球擦窗机器人出货量约84.7万台，同比增长59.8%，增速明显高于同期整体家用清洁机器人市场21.5%的增长。奥维云网数据显示，2020至2025年中国市场规模从4.8亿元增至17亿元，年复合增长28.6%。 产能也在扩张，据财联社报道，科沃斯窗宝早年月产量仅几千到一两万台，2025年起量后，月产能从10万台级跨入20万台级。2025年全球擦窗机出货约237.3万台，同比增长70.4%，业内预计2026年将突破300万台。 放量的背后，本质是“信任”的增长。 01 一个正在放量的“小品类” 擦玻璃，大概是家庭清洁中最不该亲手做的事：低频却刚需，简单却危险。 高层住宅、大面积落地窗、封闭外窗，长期是清洁死角。传统办法只有两种：探身冒险，或花钱请人。…</p><a href="https://www.leiphone.com/category/smarthome/iDkOEQuhDC14QfOE.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>父亲突发脑梗后儿子用豆包 AI 抢出救命时间，话题登顶微博热搜</h3><p>IT之家 10 月 24 日消息，今日一则“耳机用 AI 为父亲抢出救命时间”的话题在社交平台引发关注，并且一度登上微博热搜榜第一。 据青岛广播电视台《先锋新闻》等多个媒体报道，山东聊城 90 后小伙于建进的父亲在遛弯回家后突然出现双腿无力、吞咽不畅的症状。于建进没有选择“再观察看看”，而是把症状和父亲的“三高”病史一起发给了豆包。 豆包的回复没有停留在分诊建议层面。据于先生描述，AI 给出的第一句话就是“脑梗征兆，建议立即就医”。在他补充老人既往病史后，豆包再次发出警示：“这是高危信号，不能拖”。两次警示之后，于先生连夜驱车带父亲赶往医院，经医院确诊为急性脑梗。由于送医及时，老人抓住了脑梗静脉溶栓约 4.5 小时的黄金窗口期，目前恢复良好，没有留下后遗症。 于先生事后在社交平台分享了这段经历，称“可以说豆包救了我爸一命”。他在接受扬子晚报采访时还表示，脑梗患者如果不及时治疗，偏瘫、失语的风险会随时间推移迅速上升，“如果没有豆包，父亲和一家人的生活可能都会发生翻天覆地的变化”。 从医学角度看，脑梗救治的核心变量是时间。解放军总医院第三医学中心公开的科普信息指出，发病后 4.5 小时内进行静脉溶栓治疗，可提高 33%…</p><a href="https://www.ithome.com/1/017/394.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>瑞典政府办公厅出手，禁止办公电脑直接访问 ChatGPT、Claude</h3><p>IT之家 10 月 24 日消息，当地时间 23 日，据瑞典国家公共广播公司 Sveriges Radio 报道，瑞典政府办公厅将从下周一起禁止工作人员 通过办公电脑直接访问 ChatGPT 和 Claude ，要求员工改用微软 Copilot 等获得批准的 AI 服务。 内部资料显示，该国政府办公厅还对 Copilot 进行了审查，并进一步加强了安全防护。该机构数字化总监米卡埃尔 · 韦特克兰茨（Mikael Wettercrantz）在政府办公厅内网上指出，使用未签订协议的 AI 服务可能 对信息安全造成影响 。 调查发现，瑞典税务局和国家机构管理局（SiS）也已采取类似的封锁措施。瑞典强制执行局则尚未作出决定，仍在研究是否实施限制。 瑞典多家政府机构都注意到了 未经规范管理的 AI 使用行为所带来的风险 ，并采取了其他应对措施。瑞典交通管理局就是其中之一。今年早些时候，该机构内部审计发现，员工普遍使用约 10 种 AI 服务，其中存在不少风险。 审计报告指出：“我们发现了多个使用开放式 AI 服务时出现问题的案例。问题既涉及输入信息的敏感程度，也涉及 AI 生成回答的处理方式。”…</p><a href="https://www.ithome.com/1/017/385.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>Anthropic 亮出未发布 AI 模型：能力比 Mythos 5.1 更强，也更“守规矩”</h3><p>IT之家 10 月 24 日消息，Anthropic 昨日（10 月 23 日）发布博文，联合英国人工智能安全研究所（AISI），发布了一起 AI 网络测试失控事件的调查报告， 并提及旗下一款尚未发布的内部研究模型。 在这份调查报告中，Anthropic 称在测试 Claude Mythos 5 期间，该模型曾试图向真实 GitHub 项目提交恶意代码，并伪造身份向真实维护者施压，所幸代码未被合并、未造成实际损害。IT之家附上相关截图如下： 报告同时透露，Anthropic 旗下一款尚未发布的内部研究模型，在能力上已超过已发布的 Claude Mythos 5.1，并在安全对齐测试中表现更好。在同类危险能力评估中，该内部模型从未主动发起攻击；当意识到可能造成真实伤害时，也更愿意停止行动。 Anthropic 将事故记录重新回放给 Mythos 5.1、Opus 5.5 及该内部研究模型。结果显示，三款较新模型从原始攻击起点继续发起攻击的比例仅为 0% 至 13%，而 Mythos 5 为 83%。 在攻击已经开始后，Mythos 5 从未自发停止；Mythos 5.1 自发停止率仅约 1%，Opus 5.5 为…</p><a href="https://www.ithome.com/1/017/375.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>5 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从技术首创到规模上车，华为乾崑车载激光投影以金辑奖印证技术领先</h3><p>10月23日，在盖世汽车主办的第八届金辑奖颁奖盛典上，HUAWEI XSCENE 华为乾崑车载激光投影凭借在智能座舱视听领域的技术突破与规模化商用落地，荣膺“金辑奖·2026最佳技术实践应用奖”。 过去几年，智能座舱视听解决方案的竞争一度集中在屏幕数量、芯片算力与配置清单的堆叠上；而今天，市场的天平正从“有没有”转向“好不好用”，用户的体验成为检验技术价值的最终标准。由汽车产业全媒体平台盖世汽车发起的“金辑奖·最佳技术实践应用奖”，旨在寻找和表彰真正具有产业价值和全球潜力的创新成果。这意味着获奖的不是实验室里的概念或专利，而是一套装进量产车、被真实用户使用的解决方案。 凭借领先光学技术，华为乾崑车载激光投影打破座舱空间边界，为消费者提供超越期待的智能化全新体验，并以可量产、可复制的整车级适配能力，为搭载车型塑造差异化竞争力。华为乾崑车载激光投影荣获“金辑奖·最佳技术实践应用奖”，充分展示了其行业领先的技术与规模化商用能力。 以硬核参数树立标杆，率先跑通车载投影的“好用”之路…</p><a href="https://www.leiphone.com/category/industrynews/nBef7qz74xPmuw5X.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从“算力”到“Token 生产力”，硅基流动助力央国企大模型规模化落地</h3><p>在企业网 D1net 主办的 2026 秋季央国企 CIO 及数科公司高管峰会（第 19 届）上，硅基流动解决方案总监唐安波出席峰会并作主题分享：《从“算力”到“Token 生产力”：央国企大模型规模化落地的推理基础设施与 ROI 实践》。以下为分享内容精华。 当下，AI 应用正处于爆发式增长的早期阶段，Token 消耗量呈指数级增长。这背后，模型架构持续演进，版本更新节奏快速；同时，算力架构也在不断演进。模型与算力之间，是相互推动的迭代过程。对于企业来说，一方面要适配这些变化，另一方面又要面向自己的业务场景提供多元化模型服务，还要把成本控制在合理范围内。 硅基流动在做的事，就是打通从算力到 Token 之间的转化层：把算力统一纳管起来；通过自研推理引擎，让模型跑得更快、更好。我们既在公有云端建设 Token 工厂，也帮助央国企在内部打造自己的 Token 工厂。 简言之，通过系统化的推理工程，做好模型与算力的多重适配。基于此，硅基流动提出 Token 生产力核心公式： Token 生产力 = 产能 × 利用率 × 交付质量…</p><a href="https://www.leiphone.com/category/industrynews/DVoE94j80j6cboxE.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称小米 18T / Pro 系列手机继续开案：配备天玑芯片、测试 2 亿徕卡影像</h3><p>IT之家 10 月 24 日消息，博主 @智慧皮卡丘发文，透露小米 T 系列继续开案，相应机型采用中大屏方案、配备天玑芯片、测试 2 亿徕卡影像。系列预计为小米 18T / Pro，有望于明年 618 大促前上市。相应手机主打“影调”，比例“没有太阔”。 作为参考，小米 T 系列从去年 17T/Pro 开始登陆国内市场，系列手机中标准版 17T 机型配备一块 6.59 英寸 2756 x 1268 分辨率 120Hz OLED 面板，使用天玑 8500-Ultra，搭配 LPDDR5X 内存与 UFS 4.1 闪存。 ▲ 小米 17T Pro 而 17T Pro 机型采用一块 6.83 英寸 2772 x 1280 分辨率 144Hz OLED 面板，搭载天玑 9500 芯片，搭配 LPDDR5X 内存与 UFS 4.1 存储。</p><a href="https://www.ithome.com/1/017/391.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>AMD Zen 6 首测曝光：同频单核性能较 Zen 5 最高快 24%</h3><p>IT之家 10 月 24 日消息，科技媒体 Wccftech 昨日（10 月 23 日）发布博文，报道称在 GeekBench 跑分库中，发现了 AMD 新一代 Zen 6 架构处理器的踪迹，同频单核性能最高领先 Zen 5 约 24%。 每时钟周期性能（Per-Clock Performance）指在相同工作频率下，处理器每个时钟周期所能完成的计算量，常用 IPC（Instructions Per Clock，每周期指令数）来衡量。 本次现身跑分库的是旗舰 AMD EPYC 9996，该处理器配有 256 个核心、512 线程，配备 1.0GB L3 缓存和 256MB L2 缓存，额定 TDP 为 600W，可配置至 400W。该处理器在 4.12GHz 加速时钟频率下取得 Geekbench 7.1 单核 2847 分、多核 68427 分的成绩。 对比对象是最高加速频率约 5.5GHz 的 Zen 5 EPYC 4545P，其单核得分为 3064 分。该媒体称 换算后，Zen 6 每时钟周期性能最高可领先 Zen 5 约 24%。 IT之家附上相关图片如下： 网友 @326powah 将 Ryzen 7…</p><a href="https://www.ithome.com/1/017/390.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>MOD 社区立功：英特尔 Arc XMX 内核非官方移植 AMD FSR 4.1.2</h3><p>IT之家 10 月 24 日消息，科技媒体 Wccftech 昨日（10 月 23 日）发布博文， 报道称 OptiScaler MOD 社区已将 AMD 最新的 FSR 4.1.2 神经网络超分辨率模型移植至 Intel Arc 显卡，并借助 Arc 的 XMX 矩阵加速核心实现硬件加速。 本次非官方移植针对 Intel XMX 硬件，重点优化 FSR 4 INT8 DLL。相比依赖通用着色器运行，XMX 加速能显著降低超分耗时，让 AMD 的 AI 超分技术在 Intel 平台上更接近原生体验。 社区基准测试显示，在 Intel Arc A770 上以 1080p、Quality 模式运行《巫师 3：狂猎重制版》时，FSR 4.1.2 Lite 的平均帧率为 101.5 FPS，超分耗时 0.75 毫秒；原生 XeSS SR 为 101.1 FPS、0.84 毫秒。IT之家附上相关截图如下： FSR 4.1.2 Lite 的平均帧率为 101.5 FPS，超分耗时 0.75 毫秒 原生 XeSS SR 为 101.1 FPS、0.84 毫秒 超分辨率方案 平均帧率 超分耗时 FSR 4.1.2 Lite（XMX…</p><a href="https://www.ithome.com/1/017/378.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>2 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>既能“做选择题”，也能“做填空题”——星辰意图理解模型Xing4.0-29B-Intent发布</h3><p>中电信人工智能科技有限公司星辰通用人工智能实验室正式发布并开源意图理解专用模型 Xing4.0-29B-Intent</p><a href="https://www.qbitai.com/2026/10/504832.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>逾半数美国人认为 AI 对社会有害</h3><p>根据 ABC News/Washington Post/Ipsos 的调查，57%的美国人认为 AI 对社会有害，42%的人认为它对社会有益。仅有 2% 的人认为它对社会极其有益，17% 的人认为它对社会极其有害。与年长者相比，年轻的美国人更有可能认为 AI 对社会有害：在 30 岁以下的美国人中，65% 的人持此观点；在 30-39 岁的群体中，这一比例为 59%。而在 40 岁及以上的美国人中，认为 AI 对社会有害的比例相对较低，但也超过半数（53%）。在民主党人（63%）和独立人士（58%）中，多数人认为 AI 对社会有害；共和党人认为有益有害的比例差不多，51% 的人认为 AI 对社会有益，47% 的人认为它对社会有害。当谈及 AI 对个人自身的影响时，50% 的人认为 AI 对自己有益，49% 的人认为对自己有害。持负面态度的人群立场更为强烈——认为 AI 对自己极其有害的人数（15%）是认为其极其有益人数（3%）的五倍。多数共和党人（57%）认为 AI 对自己个人有益，而多数民主党人（55%）则认为 AI 对自己个人有害。无党派人士对于 AI 对自己个人而言究竟是好（50%）还是坏（49%）比例差不多。</p><a href="https://www.solidot.org/story?sid=85686" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 07:35:51 +0000</div><h3>百度世界2026前瞻：10+重磅分论坛，全面解码AI时代的智能组织进化路径</h3><a href="https://www.qbitai.com/2026/10/504901.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 22 Oct 2026 09:07:05 +0000</div><h3>又一国产决策模型发布！准确率超过微软和Jev等决策模型</h3><p>10月22日，蚂蚁数科正式发布决策模型 LingDT-Decision-1.0。</p><a href="https://www.qbitai.com/2026/10/504879.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 22 Oct 2026 07:11:14 +0000</div><h3>既能“做选择题”，也能“做填空题”——星辰意图理解模型Xing4.0-29B-Intent发布</h3><p>中电信人工智能科技有限公司星辰通用人工智能实验室正式发布并开源意图理解专用模型 Xing4.0-29B-Intent</p><a href="https://www.qbitai.com/2026/10/504832.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 22 Oct 2026 07:05:59 +0000</div><h3>谁在给OpenAI供应具身数据？</h3><a href="https://www.qbitai.com/2026/10/504800.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 21 Oct 2026 11:30:59 +0000</div><h3>多智能体协同重构医疗AI！清华AIR孵化：医生AI分身“坐诊”医院</h3><a href="https://www.qbitai.com/2026/10/504734.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 21 Oct 2026 09:45:22 +0000</div><h3>生数科技Motubrain团队将直播Physical AI训练全流程，持续半个月</h3><p>10月21日，生数科技世界模型团队正式开启Motubrain 2.0训练全流程公开直播</p><a href="https://www.qbitai.com/2026/10/504730.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 21 Oct 2026 07:15:05 +0000</div><h3>LeCun押注的世界模型，中国一家清华系公司已经做进了机器人</h3><p>世界模型赛道新看点：千诀隐变量可辨识性方向的研究，比LeCun相近工作早一年，不堆画面预测，主打物理规律与跨本体复用。</p><a href="https://www.qbitai.com/2026/10/504653.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 24 Oct 2026 10:44:00 +0800</div><h3>iRTE2026：对话 AI 如何迈向 AGI？声网CEO赵斌给出五级对话能力框架</h3><p>10月23日，iRTE2026实时智能大会在北京举行。声网创始人兼 CEO 赵斌在主论坛发表题为《对话 AGI：实时互动的下一章》的演讲，回顾了过去一年实时互动、对话式 AI 与底层基础设施的关键变化，并提出“五级对话能力”框架，勾勒对话式 AI 从基础应答走向深度理解与关系沟通的演进路径。 赵斌认为，随着 AI 从回答问题走向持续交流、理解上下文并执行任务，实时互动的对象正在从人与人扩展到人与 Agent。实时互动技术的角色也随之延伸：它不仅要让信息传递更稳定、更流畅，还要为 AI 的感知、理解、表达与行动提供实时支撑。 从“问一句答一句”到深度关系沟通：对话 AGI 的五级进化 在赵斌看来，对话式 AI 的进步，不应只用回答速度、语言自然度来衡量。更重要的是，它能否理解对话对象的意图、处境与关系，能否在复杂场景中恰当地表达，并逐步形成长期、深入的理解。 围绕这一判断，赵斌在演讲中提出了 “五级对话能力”框架 ，将对话能力划分为五个层次： L1： 基于自身视角的表达：以自我表达和被动接续为主，实现“问一句、答一句”。 L2： 基于互动规律的表达：从被动回应走向主动表达，让对话更自然、连贯。 L3：…</p><a href="https://www.leiphone.com/category/industrynews/nwy00TZXQdwJcSka.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 19:16:00 +0800</div><h3>宁德时代董秘被打？知情人士回应；怕担责先跑路？娃哈哈集团董事长许思敏离职；DeepSeek完成近1000亿元融资，宁德时代、腾讯参投</h3><p>要闻提示 1.不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 2.宁德时代董秘被打？知情人士回应 3.怕担责先跑路？娃哈哈集团董事长许思敏离职 4.DeepSeek完成近1000亿元融资，宁德时代、腾讯参投 5.原“死了么”APP公布收费标准，创始人回应：最高收费199元/年，由政府集中采购 6.字节Seed招聘具身岗位：55K 起薪，招募数采与本体人才 7.顺风车订单留言暗藏涉黄暗语！哈啰回应 8.马斯克谈FSD入华进展：积极争取批准，中国本土车企竞争太激烈 今日头条 不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 10月21日，多名网友发布消息称，收到山姆超市发来的召回信息，对“好健康”牡蛎精胶囊的部分批次商品进行召回。对此，山姆客服表示，近期海关在进口商品抽检中，发现标称新西兰、澳大利亚“好健康”品牌的牡蛎精胶囊检测异常。目前应海关风险提示要求对商品下架，并应品牌方要求配合召回，且在第一时间启动退款。…</p><a href="https://www.leiphone.com/category/zaobao/IlrVRbBiK9Klcuj1.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 18:57:00 +0800</div><h3>Kimi K3.1 泄露：3D 成本仅有 GPT-6 Astra 的 1/14！横扫海外视觉三巨头</h3><p>15 分钟交付工业级可交互3D 资产，重写视觉大模型的“理科生法则” 作者丨 高 允 毅 编辑丨岑 峰 刚刚，Kimi 官方发布了一段“极具暗示性”的先导片，各种高能科学画面与粒子特效快速切换，有眼尖的网友已经捕捉到画面中的彩蛋“Kimi K3.1”。 Kimi K3.1 要来了？ 这次它带着 极强的视觉效果 来了，有网友指出官方视频就是 Kimi K3.1 做的。 图注：眼尖的网友在画面中找到了亮点“Kimi K3.1” AI 博主 Chris 不仅肯定了即将发布的消息，而且表示他已经实测了一周。他透露， Kimi K3.1在开源 3D 图形库 Three.js 上表现出色，而且这个模型的成本只有 Kimi K3 的 70%，Token 效率全面升级 。 从 Chris 晒出的实测画面中，可以看到 Kimi K3.1 跑完了一整套 24 小时昼夜环境模拟，从晨光漫射到夜幕沉落，光影过渡帧级精准，环境细节随光线同步流转，全程丝滑无断点。 要知道，Three.js 编写的程序是非常消耗资源的，因为它需要实时计算 3D 空间中的顶点、光影和纹理。而 Kimi 这波相当于用纯代码跑出了渲染级画质。 01…</p><a href="https://www.leiphone.com/category/yanxishe/PZo9w14YeFSo4jmf.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 18:43:00 +0800</div><h3>从技术首创到规模上车，华为乾崑车载激光投影以金辑奖印证技术领先</h3><p>10月23日，在盖世汽车主办的第八届金辑奖颁奖盛典上，HUAWEI XSCENE 华为乾崑车载激光投影凭借在智能座舱视听领域的技术突破与规模化商用落地，荣膺“金辑奖·2026最佳技术实践应用奖”。 过去几年，智能座舱视听解决方案的竞争一度集中在屏幕数量、芯片算力与配置清单的堆叠上；而今天，市场的天平正从“有没有”转向“好不好用”，用户的体验成为检验技术价值的最终标准。由汽车产业全媒体平台盖世汽车发起的“金辑奖·最佳技术实践应用奖”，旨在寻找和表彰真正具有产业价值和全球潜力的创新成果。这意味着获奖的不是实验室里的概念或专利，而是一套装进量产车、被真实用户使用的解决方案。 凭借领先光学技术，华为乾崑车载激光投影打破座舱空间边界，为消费者提供超越期待的智能化全新体验，并以可量产、可复制的整车级适配能力，为搭载车型塑造差异化竞争力。华为乾崑车载激光投影荣获“金辑奖·最佳技术实践应用奖”，充分展示了其行业领先的技术与规模化商用能力。 以硬核参数树立标杆，率先跑通车载投影的“好用”之路…</p><a href="https://www.leiphone.com/category/industrynews/nBef7qz74xPmuw5X.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 18:15:00 +0800</div><h3>覆盖存、拣、运全场景，海康机器人2026移动机器人新品发布会举行</h3><p>深耕制造业一线十余年，海康机器人以AI为全业务基座，业务覆盖机器视觉、移动机器人、关节机器人与具身机器人，通过1000余个细分应用场景的落地，沉淀了扎实的技术能力与丰富的场景经验。 10月23日，海康机器人以“全链·进化”为主题，举办2026移动机器人新品发布会暨CeMAT预展专场，聚焦“存、拣、运”全流程，发布箱式方案全新升级并推出“明智”系列单体智能产品，构建覆盖箱式存拣与搬运配送的厂内物流全链路解决方案。 上半场：箱式存拣持续进化 箱式货到人拆零拣选是流通仓储领域需求最大、技术创新最活跃的领域之一，库容与效率难以兼顾、项目交付质量参差不齐，是行业长期面临的共性挑战。 本次发布会上半场，海康机器人围绕箱式存拣完成系统升级——STRP高效高密箱式存拣方案持续迭代，HAPS智能拣选系统破解拣选自动化难题，全场景数字化平台则让方案规划与项目交付更加标准、可复制，共同推动箱式仓储的全链路进化。 运行模式升级：更少设备，更高吞吐 在效率提升上，海康机器人升级了方案内STU料箱机器人与T50潜伏机器人的分工模式：STU承接巷道内全程任务，T50仅在巷道口缓存位接驳，任务链距离缩短50%以上。…</p><a href="https://www.leiphone.com/category/robot/h4vGHMyQ6b8drzy6.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 16:32:00 +0800</div><h3>从“算力”到“Token 生产力”，硅基流动助力央国企大模型规模化落地</h3><p>在企业网 D1net 主办的 2026 秋季央国企 CIO 及数科公司高管峰会（第 19 届）上，硅基流动解决方案总监唐安波出席峰会并作主题分享：《从“算力”到“Token 生产力”：央国企大模型规模化落地的推理基础设施与 ROI 实践》。以下为分享内容精华。 当下，AI 应用正处于爆发式增长的早期阶段，Token 消耗量呈指数级增长。这背后，模型架构持续演进，版本更新节奏快速；同时，算力架构也在不断演进。模型与算力之间，是相互推动的迭代过程。对于企业来说，一方面要适配这些变化，另一方面又要面向自己的业务场景提供多元化模型服务，还要把成本控制在合理范围内。 硅基流动在做的事，就是打通从算力到 Token 之间的转化层：把算力统一纳管起来；通过自研推理引擎，让模型跑得更快、更好。我们既在公有云端建设 Token 工厂，也帮助央国企在内部打造自己的 Token 工厂。 简言之，通过系统化的推理工程，做好模型与算力的多重适配。基于此，硅基流动提出 Token 生产力核心公式： Token 生产力 = 产能 × 利用率 × 交付质量…</p><a href="https://www.leiphone.com/category/industrynews/DVoE94j80j6cboxE.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 16:31:00 +0800</div><h3>为什么说奇瑞是一家AI公司？</h3><p>奇瑞为什么是AI公司？它用AI重造了自己造车的方式，把这层能力做成可复用的底座，并让它长出了汽车之外的新物种。 作者 | 王瑞昊 编辑 | 李雨晨 “ 有几位领导跟我说，感觉奇瑞的汽车越来越不像汽车了，奇瑞也越来越不像一家车企了。这是我想听到的 —— 奇瑞就是一家「披着汽车企业马甲」的高科技创新企业。 ” 10 月 20 日， 2026 奇瑞全球创新大会在安徽芜湖开幕。说出这句话的，是做了四十多年汽车的奇瑞汽车董事长尹同跃。一个把大半辈子交给汽车的人，主动摘掉 “ 车企 ” 这块招牌，不是自谦，是判断。 他的依据是一个隐喻： 1886 年，奔驰造出第一台汽车，被时代抛下的，是那些一辈子赶马车的养马人，他们没做错什么，只是没看见路已经变了。 “ 真正的风险不是 AI 太强太快，而是我们不能继续做当年的养马人。 ” 尹同跃说， “ 未来 AI 真正淘汰的，是拒绝 AI 、不敢用 AI 的企业。 ” 所以奇瑞的选择很直白：刀口向内，主动用 AI 给自己做一场基因重组，先改变自己，再改变世界。 雷峰网认为，判断奇瑞是不是 AI 公司，不能看它发布会上喊了多少次 AI ，要看三件事： AI…</p><a href="https://www.leiphone.com/category/transportation/j8cK1UDhub9VuCpu.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 15:38:00 +0800</div><h3>千问蒋冠军：构建Personal Agent技术框架，需要模型、记忆与生态协同推进</h3><p>10月22日，在2026中国计算机大会上，阿里巴巴千问事业部AI算法负责人蒋冠军分享了千问打造Personal Agent的技术实践。他认为，真正的Personal Agent阶段，应该带来增量价值的创造和个性化的主动服务，模型、记忆与生态是共同构建这一核心能力的三要素。 他表示，Personal Agent解决日常工作、学习、生活问题的理论上限接近100%，释放这一潜力的关键，在于让系统能力与问题解决路径更好地匹配，通过模型、记忆与生态能力的高效协同，为不同问题找到最优解决路径。</p><a href="https://www.leiphone.com/category/industrynews/DHR4Qc9YwHX7lin8.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 10:57:00 +0800</div><h3>擦窗机器人有了首个行业标准，你敢把窗户交给它吗？</h3><p>“会不会掉下来？” 这是每个第一次把擦窗机器人放上玻璃的人，心里都会闪过的念头。没有一家厂商敢在宣传里写“绝不掉落”，涉及高空作业，这四个字背后的责任谁都担不起。 一台擦窗机器人卖的不只是清洁力，还有风险已被技术接管的承诺。 擦窗机器人正在成为家用机器人行业里一个越来越明显的变量。 IDC数据显示，2026年第二季度全球擦窗机器人出货量约84.7万台，同比增长59.8%，增速明显高于同期整体家用清洁机器人市场21.5%的增长。奥维云网数据显示，2020至2025年中国市场规模从4.8亿元增至17亿元，年复合增长28.6%。 产能也在扩张，据财联社报道，科沃斯窗宝早年月产量仅几千到一两万台，2025年起量后，月产能从10万台级跨入20万台级。2025年全球擦窗机出货约237.3万台，同比增长70.4%，业内预计2026年将突破300万台。 放量的背后，本质是“信任”的增长。 01 一个正在放量的“小品类” 擦玻璃，大概是家庭清洁中最不该亲手做的事：低频却刚需，简单却危险。 高层住宅、大面积落地窗、封闭外窗，长期是清洁死角。传统办法只有两种：探身冒险，或花钱请人。…</p><a href="https://www.leiphone.com/category/smarthome/iDkOEQuhDC14QfOE.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 10:43:00 +0800</div><h3>“AI店长”帮部分试用商家增长超30%，美团外卖薛冰：将赠送给全国所有商家</h3><p>10月22日，在2026年美团外卖产业大会上，美团正式发布“妙手外卖版·袋鼠管家”。美团外卖总经理薛冰宣布，将向全国餐饮商家免费提供一个懂外卖经营的“AI店长”。 大会披露的数据显示，2026年上半年餐饮商家的外卖营收增速超过全国餐饮平均营收，薛冰表示，“外卖行业进入积极向好，美团将帮助商家做好店型、运营、产品创新，实现更有含金量的增长”。 据悉，“妙手外卖版”是美团外卖近期为商家研发的AI经营产品，能力覆盖经营诊断、门店巡检、商品运营、新店运营等核心场景，能结合美团和商家数据提供分析与建议，并协助商家执行、跟进结果。 此前，已有数万中小商家将“妙手外卖版”率先用于日常经营。河北元氏县一家鸡公煲店铺通过“妙手外卖版”进行店铺诊断，在调整菜单、优化活动后，周订单量环比上涨超30%。此外，“妙手外卖版”也已与古茗、益禾堂、兰湘子等200多家连锁品牌合作。以益禾堂为例，使用后新开门店首月单店产出提升25%。 美团长期服务餐饮商家积累的经营经验和数据，让“妙手外卖版”能够把AI能力落到每家门店的具体生意中。“我们希望，通过AI，让专业的外卖运营能力走进每一家门店，让每一家店都能得到更细致、更适合自己的经营支持。”薛冰表示。…</p><a href="https://www.leiphone.com/category/industrynews/tZI7pYBhiFduVfr6.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><h3>[解析失败] https://36kr.com/feed</h3><p>not well-formed (invalid token): line 10, column 168</p></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 24 Oct 2026 07:08:33 GMT</div><h3>父亲突发脑梗后儿子用豆包 AI 抢出救命时间，话题登顶微博热搜</h3><p>IT之家 10 月 24 日消息，今日一则“耳机用 AI 为父亲抢出救命时间”的话题在社交平台引发关注，并且一度登上微博热搜榜第一。 据青岛广播电视台《先锋新闻》等多个媒体报道，山东聊城 90 后小伙于建进的父亲在遛弯回家后突然出现双腿无力、吞咽不畅的症状。于建进没有选择“再观察看看”，而是把症状和父亲的“三高”病史一起发给了豆包。 豆包的回复没有停留在分诊建议层面。据于先生描述，AI 给出的第一句话就是“脑梗征兆，建议立即就医”。在他补充老人既往病史后，豆包再次发出警示：“这是高危信号，不能拖”。两次警示之后，于先生连夜驱车带父亲赶往医院，经医院确诊为急性脑梗。由于送医及时，老人抓住了脑梗静脉溶栓约 4.5 小时的黄金窗口期，目前恢复良好，没有留下后遗症。 于先生事后在社交平台分享了这段经历，称“可以说豆包救了我爸一命”。他在接受扬子晚报采访时还表示，脑梗患者如果不及时治疗，偏瘫、失语的风险会随时间推移迅速上升，“如果没有豆包，父亲和一家人的生活可能都会发生翻天覆地的变化”。 从医学角度看，脑梗救治的核心变量是时间。解放军总医院第三医学中心公开的科普信息指出，发病后 4.5 小时内进行静脉溶栓治疗，可提高 33%…</p><a href="https://www.ithome.com/1/017/394.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 24 Oct 2026 07:05:41 GMT</div><h3>消息称小米 18T / Pro 系列手机继续开案：配备天玑芯片、测试 2 亿徕卡影像</h3><p>IT之家 10 月 24 日消息，博主 @智慧皮卡丘发文，透露小米 T 系列继续开案，相应机型采用中大屏方案、配备天玑芯片、测试 2 亿徕卡影像。系列预计为小米 18T / Pro，有望于明年 618 大促前上市。相应手机主打“影调”，比例“没有太阔”。 作为参考，小米 T 系列从去年 17T/Pro 开始登陆国内市场，系列手机中标准版 17T 机型配备一块 6.59 英寸 2756 x 1268 分辨率 120Hz OLED 面板，使用天玑 8500-Ultra，搭配 LPDDR5X 内存与 UFS 4.1 闪存。 ▲ 小米 17T Pro 而 17T Pro 机型采用一块 6.83 英寸 2772 x 1280 分辨率 144Hz OLED 面板，搭载天玑 9500 芯片，搭配 LPDDR5X 内存与 UFS 4.1 存储。</p><a href="https://www.ithome.com/1/017/391.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 24 Oct 2026 06:59:24 GMT</div><h3>AMD Zen 6 首测曝光：同频单核性能较 Zen 5 最高快 24%</h3><p>IT之家 10 月 24 日消息，科技媒体 Wccftech 昨日（10 月 23 日）发布博文，报道称在 GeekBench 跑分库中，发现了 AMD 新一代 Zen 6 架构处理器的踪迹，同频单核性能最高领先 Zen 5 约 24%。 每时钟周期性能（Per-Clock Performance）指在相同工作频率下，处理器每个时钟周期所能完成的计算量，常用 IPC（Instructions Per Clock，每周期指令数）来衡量。 本次现身跑分库的是旗舰 AMD EPYC 9996，该处理器配有 256 个核心、512 线程，配备 1.0GB L3 缓存和 256MB L2 缓存，额定 TDP 为 600W，可配置至 400W。该处理器在 4.12GHz 加速时钟频率下取得 Geekbench 7.1 单核 2847 分、多核 68427 分的成绩。 对比对象是最高加速频率约 5.5GHz 的 Zen 5 EPYC 4545P，其单核得分为 3064 分。该媒体称 换算后，Zen 6 每时钟周期性能最高可领先 Zen 5 约 24%。 IT之家附上相关图片如下： 网友 @326powah 将 Ryzen 7…</p><a href="https://www.ithome.com/1/017/390.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 24 Oct 2026 06:58:28 GMT</div><h3>中端大战将启：曝 OPPO Reno 17、vivo S70、荣耀 700、华为 nova 17 系列手机将于 11 月集中发布</h3><p>IT之家 10 月 24 日消息，博主 @数码闲聊站 今日发文，曝光了 11 月的新机，包括： OPPO Reno 17 系列、vivo S70 系列、荣耀 700 系列和华为 nova 17 系列 。 博主透露，随着上述新机的发布，预计将看到小屏、中屏、大屏、原生背屏、2 亿云台影像、旗舰级潜望长焦、外挂增距镜等规格配置。 综合IT之家此前报道，博主 @智慧皮卡丘 发文称，某厂中端影像机开案大小屏，屏幕尺寸各不相同，有 AI 按键，暂定下个月发布。这款手机主打潮流外观和 2 亿像素影像，视频实况和修图有新玩法。从博主文中的 Tag 来看， 这款手机预计归属 OPPO Reno 17 系列 。 ▲ IT之家开箱：OPPO Reno16 Pro 怦然星动图赏 博主 @数码闲聊站 在今年 7 月曾透露，某厂 S 在评估目前同档最强潜望镜 + 增距镜。结合该博主此前的爆料习惯， 预计为 vivo S70 系列 。vivo 于今年 4 月发布增距镜 G2 / G2 Ultra 等影像配件产品，不过仅适配 vivo X300 Ultra 等旗舰产品，建议零售价 999 元起。 ▲ IT之家图赏：vivo S60…</p><a href="https://www.ithome.com/1/017/389.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 24 Oct 2026 06:45:40 GMT</div><h3>瑞典政府办公厅出手，禁止办公电脑直接访问 ChatGPT、Claude</h3><p>IT之家 10 月 24 日消息，当地时间 23 日，据瑞典国家公共广播公司 Sveriges Radio 报道，瑞典政府办公厅将从下周一起禁止工作人员 通过办公电脑直接访问 ChatGPT 和 Claude ，要求员工改用微软 Copilot 等获得批准的 AI 服务。 内部资料显示，该国政府办公厅还对 Copilot 进行了审查，并进一步加强了安全防护。该机构数字化总监米卡埃尔 · 韦特克兰茨（Mikael Wettercrantz）在政府办公厅内网上指出，使用未签订协议的 AI 服务可能 对信息安全造成影响 。 调查发现，瑞典税务局和国家机构管理局（SiS）也已采取类似的封锁措施。瑞典强制执行局则尚未作出决定，仍在研究是否实施限制。 瑞典多家政府机构都注意到了 未经规范管理的 AI 使用行为所带来的风险 ，并采取了其他应对措施。瑞典交通管理局就是其中之一。今年早些时候，该机构内部审计发现，员工普遍使用约 10 种 AI 服务，其中存在不少风险。 审计报告指出：“我们发现了多个使用开放式 AI 服务时出现问题的案例。问题既涉及输入信息的敏感程度，也涉及 AI 生成回答的处理方式。”…</p><a href="https://www.ithome.com/1/017/385.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 24 Oct 2026 06:44:01 GMT</div><h3>网传宇树科技机器人侧空翻表演甩断腿，系新发布的 H2-X 人形机器人</h3><p>IT之家 10 月 24 日消息，据界面新闻报道，在宇树科技“2026 世界物理 AI 大会暨宇树合作伙伴生态大会”现场，一段机器人侧空翻失误的视频引发热议。 画面中，一台白色人形机器人正在进行功夫动作演示，尝试侧空翻落地时失去平衡，侧摔在地，一条机械小腿从连接处脱落，掉落在一旁的黑色地垫上。 ▲ 图源界面新闻 据了解，发生意外的机器人为宇树科技 10 月 21 日 刚刚发布的 H2-X 人形机器人 ，官方命名为“H2-X 功夫传奇守护”。截至IT之家发稿，宇树科技未对此事进行说明。 此前，官方宣传视频展示了该机器人踢凹汽车车门、徒手抬起汽车，以及从约 4 米高台跃下完成空翻等动作。该产品主要面向安保与应急救援场景，最长续航约 8 小时。</p><a href="https://www.ithome.com/1/017/383.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 24 Oct 2026 06:40:13 GMT</div><h3>智元在山东济南组织 110 台人形机器人同时跳舞，创下吉尼斯世界纪录</h3><p>IT之家 10 月 24 日消息，据齐鲁晚报，智元机器人今天在山东济南黄河国际会展中心组织 110 台远征 A3 全尺寸人形机器人同场群舞，成功创下“最多人形机器人同时跳舞”吉尼斯世界纪录。 IT之家获悉，此次挑战采用智元灵动 LinkBots 集群调控平台及 UWB 厘米级定位技术，实现多机同步动作与编队切换， 110 台机器人以 “ 量产机 ” 阵容零失误通过认证。 现场吉尼斯世界纪录认证官亲临见证并颁发官方证书，最终成功数量确认为 110 台。 智元表示，目前旗下机器人已在济南奥体中心、转山西路等地铁站开展试点，提供咨询导引、客流辅助疏导、城市文化讲解等服务。本次群舞的机器人后续将陆续投入文旅演艺、公共服务、科研教育等场景。</p><a href="https://www.ithome.com/1/017/382.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 24 Oct 2026 06:30:53 GMT</div><h3>MOD 社区立功：英特尔 Arc XMX 内核非官方移植 AMD FSR 4.1.2</h3><p>IT之家 10 月 24 日消息，科技媒体 Wccftech 昨日（10 月 23 日）发布博文， 报道称 OptiScaler MOD 社区已将 AMD 最新的 FSR 4.1.2 神经网络超分辨率模型移植至 Intel Arc 显卡，并借助 Arc 的 XMX 矩阵加速核心实现硬件加速。 本次非官方移植针对 Intel XMX 硬件，重点优化 FSR 4 INT8 DLL。相比依赖通用着色器运行，XMX 加速能显著降低超分耗时，让 AMD 的 AI 超分技术在 Intel 平台上更接近原生体验。 社区基准测试显示，在 Intel Arc A770 上以 1080p、Quality 模式运行《巫师 3：狂猎重制版》时，FSR 4.1.2 Lite 的平均帧率为 101.5 FPS，超分耗时 0.75 毫秒；原生 XeSS SR 为 101.1 FPS、0.84 毫秒。IT之家附上相关截图如下： FSR 4.1.2 Lite 的平均帧率为 101.5 FPS，超分耗时 0.75 毫秒 原生 XeSS SR 为 101.1 FPS、0.84 毫秒 超分辨率方案 平均帧率 超分耗时 FSR 4.1.2 Lite（XMX…</p><a href="https://www.ithome.com/1/017/378.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 24 Oct 2026 06:28:04 GMT</div><h3>1099 → 543 元国补直降：华为 WATCH FIT 5 智能手表 5 折新低，1.82 英寸 AMOLED 屏</h3><p>华为 WATCH FIT 5 智能手表 2026 年 4 月开售，该表主打超轻薄大屏 + 腕上微运动 + 长续航，售价 1099 元起。 京东 11.11 大促期间，按下方步骤下单，叠加 15% 国补后仅需 543.15 元： 领 800-260 元券：点击下方卡片 → 点击宝贝右上角浮窗 → 进入直播间，顶部位置即可领到。 京东 华为 WATCH FIT 5 智能手表 1.82 英寸 AMOLED 屏 国补后 543.15 元 领 100 元券 京东 11.11 无门槛红包至高 26888 元，支持即领即用，下单直接当钱花： 点此抽取 。 据介绍，华为 WATCH FIT 5 智能手表采用全新轻薄设计，机身重约 27g、厚度约 9.5mm； 配备一块 1.82 英寸 AMOLED 屏，支持 2500 尼特峰值亮度 。 这款智能手表提供风信紫、向新绿、韵律黑、悦动白、光织银等五款外观颜色，可选氟胶表带或者尼龙表带。光织银表带采用 100% 环保再生尼龙、表体采用 100% 再生铝合金、底壳融入 13.75% 再生玻纤材料。 华为 WATCH FIT 5 提供趣味贴纸、视频表盘、舞林萌主等多彩表盘； 华为首发腕上微运动功能…</p><a href="https://www.ithome.com/1/017/377.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 24 Oct 2026 06:16:59 GMT</div><h3>Anthropic 亮出未发布 AI 模型：能力比 Mythos 5.1 更强，也更“守规矩”</h3><p>IT之家 10 月 24 日消息，Anthropic 昨日（10 月 23 日）发布博文，联合英国人工智能安全研究所（AISI），发布了一起 AI 网络测试失控事件的调查报告， 并提及旗下一款尚未发布的内部研究模型。 在这份调查报告中，Anthropic 称在测试 Claude Mythos 5 期间，该模型曾试图向真实 GitHub 项目提交恶意代码，并伪造身份向真实维护者施压，所幸代码未被合并、未造成实际损害。IT之家附上相关截图如下： 报告同时透露，Anthropic 旗下一款尚未发布的内部研究模型，在能力上已超过已发布的 Claude Mythos 5.1，并在安全对齐测试中表现更好。在同类危险能力评估中，该内部模型从未主动发起攻击；当意识到可能造成真实伤害时，也更愿意停止行动。 Anthropic 将事故记录重新回放给 Mythos 5.1、Opus 5.5 及该内部研究模型。结果显示，三款较新模型从原始攻击起点继续发起攻击的比例仅为 0% 至 13%，而 Mythos 5 为 83%。 在攻击已经开始后，Mythos 5 从未自发停止；Mythos 5.1 自发停止率仅约 1%，Opus 5.5 为…</p><a href="https://www.ithome.com/1/017/375.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 24 Oct 2026 06:00:21 GMT</div><h3>不再需要键盘：微软新 XBOX 模式新增一键返回 Win11 桌面</h3><p>IT之家 10 月 24 日消息，科技媒体 Windows Latest 今天（10 月 24 日）发布博文，报道称 在 Windows 11 Build 26340.9750 预览版上 ，测试全新的 XBOX 模式， 新的“游戏任务视图”加入了一条底部导航栏，玩家仅凭手柄即可退出到 Windows 桌面。 IT之家援引博文介绍，用户此前要从 XBOX 模式切换返回桌面，通常需要按 Windows 键加 Tab 键，再选择“Windows 桌面”。对于连接电视的 PC、掌机或主要依赖手柄的设备而言，用户需要临时借助键盘才能执行相关操作。 在新界面中，打开的应用会以大卡片形式呈现，用户可通过手柄的 LB、RB 按键切换应用；底部新增的按钮则提供“退出到桌面”和“电源选项”入口。点击电源按钮后，会出现锁定、注销、关机与重启等选项。</p><a href="https://www.ithome.com/1/017/373.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 24 Oct 2026 05:47:03 GMT</div><h3>微软 Win11 25H2 26220.9757 预览版发布：重新设计文件管理器右键菜单</h3><p>IT之家 10 月 24 日消息，微软昨日（10 月 23 日）发布博文，邀请 Beta 频道的 Windows Insider 项目成员， 测试适用于 Windows 11 系统的预览版更新，25H2 版本升至 Build 26220.9757；而 26H1 版本升至 28020.3292。 Windows 11 Build 26220.9757 预览版更新内容： 一、文件管理器重新设计右键菜单 微软正在文件资源管理器中逐步推出重新设计的右键菜单，目标是让菜单更快、更清爽，也更容易按照个人使用习惯进行自定义。 新设计减少了菜单顶层的杂乱内容，同时保留常用操作的便捷访问；用户还可以通过新的“设置”体验，更灵活地控制右键菜单中显示哪些内容。 微软表示，会继续根据 Windows Insider 用户的反馈优化该体验，希望让右键操作更灵敏、更可预测、也更个性化。系统还新增了一条首次使用时的教学提示，帮助用户了解右键菜单的自定义选项。IT之家附上相关截图如下： 二、设置 “设置”应用的主页获得了性能优化；微软称，在部分使用场景下，这一改动应能缩短页面加载时间。 Windows 11 Build 28020.3292…</p><a href="https://www.ithome.com/1/017/369.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 11:28:59 +0800</div><h3>逾半数美国人认为 AI 对社会有害</h3><p>根据 ABC News/Washington Post/Ipsos 的调查，57%的美国人认为 AI 对社会有害，42%的人认为它对社会有益。仅有 2% 的人认为它对社会极其有益，17% 的人认为它对社会极其有害。与年长者相比，年轻的美国人更有可能认为 AI 对社会有害：在 30 岁以下的美国人中，65% 的人持此观点；在 30-39 岁的群体中，这一比例为 59%。而在 40 岁及以上的美国人中，认为 AI 对社会有害的比例相对较低，但也超过半数（53%）。在民主党人（63%）和独立人士（58%）中，多数人认为 AI 对社会有害；共和党人认为有益有害的比例差不多，51% 的人认为 AI 对社会有益，47% 的人认为它对社会有害。当谈及 AI 对个人自身的影响时，50% 的人认为 AI 对自己有益，49% 的人认为对自己有害。持负面态度的人群立场更为强烈——认为 AI 对自己极其有害的人数（15%）是认为其极其有益人数（3%）的五倍。多数共和党人（57%）认为 AI 对自己个人有益，而多数民主党人（55%）则认为 AI 对自己个人有害。无党派人士对于 AI 对自己个人而言究竟是好（50%）还是坏（49%）比例差不多。</p><a href="https://www.solidot.org/story?sid=85686" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 11:22:08 +0800</div><h3>OpenClaw 作者称他上个月花掉了千万美元的 Tokens</h3><p>周三旧金山举行的 Cloudflare Connect 2026 大会上，OpenAI 技术部成员、OpenClaw 作者 Peter Steinberger 在与 Cloudflare CTO Dane Knecht 对话时透露，上个月运行 AI 工作负载消耗了价值约 1000 万美元的 Token。当然这笔支出不用他自己掏钱，他花的是投资人的钱。Steinberger 称自己拥有几乎无限的 Token 预算。Steinberger 认为，未来每个人都会拥有某种智能体——它们能持续运行、进行思考，在全天候为你提供帮助，甚至能预判你未来可能需要什么，这样你或许无需提问就能直接获得答案。</p><a href="https://www.solidot.org/story?sid=85682" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      <section class="section-card" id="errors"><div class="section-head"><h2>抓取异常</h2><span>不影响当期页面生成</span></div><ul class="error-list"><li class="error-item"><strong>36氪</strong><span>[解析失败] https://36kr.com/feed</span><em>not well-formed (invalid token): line 10, column 168</em></li></ul></section>
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>
