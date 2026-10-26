@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-10-26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a><a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a><a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      <a class="toc-link" href="#errors">抓取异常</a>
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-10-26</span>
+          <span>16:00（北京时间）</span>
+          <span>IT之家、Solidot、量子位、雷锋网</span>
+        </div>
+        <p class="hero-copy hero-copy--muted">本期模型总结暂不可用，页面仍保留完整的原始聚合与主题整理。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>33</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>4</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>1</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>14</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>12</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>11</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>IT之家、雷锋网</small></article><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>8</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>7</strong></div><p>基础设施的效率叙事持续升温</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>4</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>3</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>量子位</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>模型总结暂不可用</h3><p>当 API 未配置或调用失败时，这一块会自动降级，但页面主体仍会正常更新。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>暂无额外点评。</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>暂无 watchlist。</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>14 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>百度世界2026前瞻：10+重磅分论坛，全面解码AI时代的智能组织进化路径</h3><a href="https://www.qbitai.com/2026/10/504901.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>又一国产决策模型发布！准确率超过微软和Jev等决策模型</h3><p>10月22日，蚂蚁数科正式发布决策模型 LingDT-Decision-1.0。</p><a href="https://www.qbitai.com/2026/10/504879.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>行业第一！百度健康AI服务MAU超5000万，发布好医矩阵和健康相机</h3><p>10月24日，百度健康宣布升级文心健康管家，发布「好医矩阵」和「健康相机」。其中好医矩阵包括“好医答、好医加号、好医说、好医榜、好医评”等多项功能，进一步实现AI+真人医生在线问诊与线下就诊等全流程医疗服务的闭环；而全网首发的健康动态视频识别的健康相机，除了支持打字、方言语音、拍照，还支持用户拍摄视频上传、边拍边说等全模态输入的交互方式，进一步降低用户描述健康问题的门槛。 百度健康总经理杨明璐 表示，AI在医疗领域的发展价值，不仅要看服务了多少用户，更要看能否为每一个生命的负责。百度健康持续投入「AI+真人」模式，让诊疗的决定权始终掌握在专业医生手中，赋能但不替代，辅助但不主导，让健康的每一步都有医靠。 发布会上， 中国工程院院士、中国抗癌协会理事长樊代明 分享了《中国肿瘤整合诊治指南》（CACA指南）的研制推广成果，以及协会在肿瘤科普、医学文化建设方面的工作。他提出，AI是医学普惠的放大器：依托百度AI打造的CACA Bot，把厚重的指南变成医患随手可查的工具，让前沿医学触手可及、可信可用。但医学事关生命，AI只可拓展能力边界，不能替代医生判断。人机协同才是正道——AI赋能医学，医生为生命负责。…</p><a href="https://www.leiphone.com/category/industrynews/RRFr9U8GKWjNNxfH.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>钛动科技发布行业首个Pro-Agent, Navos Pro定义结果导向的AI for Work | TGC 2026科技增长大会</h3><p>10 月 23 日，以 “ AI is Profitable ” 为主题的 2026 TGC 科技增长大会于广州召开。 面向AI for Work数万亿美元级蓝海市场，全球领先的AI营销科技公司钛动科技，在会上正式发布行业首个 Pro Agent ——Navos Pro。Navos Pro以 Professional、Proactive、Profitable 三大核心属性构建产品内核，让结果导向（Result-Driven）的 AI for Work成为现实，持续推动 AI 成为企业全球增长与生产力变革的核心引擎。 【Kevin Knight博士开场演讲】 本次大会由国际AI泰斗 Kevin Knight 博士领衔开场演讲，发言嘉宾汇聚 OpenAI、Google、阿里、字节、腾讯等全球 AI 科技公司，凝聚一个核心共识：“科技创造增长”产业新周期开启，AI 商业价值必须由真实业务指标验证。 Kevin Knight博士在《From Language to Action: The Next Leap in AI》开场演讲中，结合学术与产业双重视角给出判断：AI for Work 将成为 AI 应用最重要的方向之一。…</p><a href="https://www.leiphone.com/category/industrynews/sf7R7WgzGyvZwKLa.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>宁德时代董秘被打？知情人士回应；怕担责先跑路？娃哈哈集团董事长许思敏离职；DeepSeek完成近1000亿元融资，宁德时代、腾讯参投</h3><p>要闻提示 1.不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 2.宁德时代董秘被打？知情人士回应 3.怕担责先跑路？娃哈哈集团董事长许思敏离职 4.DeepSeek完成近1000亿元融资，宁德时代、腾讯参投 5.原“死了么”APP公布收费标准，创始人回应：最高收费199元/年，由政府集中采购 6.字节Seed招聘具身岗位：55K 起薪，招募数采与本体人才 7.顺风车订单留言暗藏涉黄暗语！哈啰回应 8.马斯克谈FSD入华进展：积极争取批准，中国本土车企竞争太激烈 今日头条 不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 10月21日，多名网友发布消息称，收到山姆超市发来的召回信息，对“好健康”牡蛎精胶囊的部分批次商品进行召回。对此，山姆客服表示，近期海关在进口商品抽检中，发现标称新西兰、澳大利亚“好健康”品牌的牡蛎精胶囊检测异常。目前应海关风险提示要求对商品下架，并应品牌方要求配合召回，且在第一时间启动退款。…</p><a href="https://www.leiphone.com/category/zaobao/IlrVRbBiK9Klcuj1.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从技术首创到规模上车，华为乾崑车载激光投影以金辑奖印证技术领先</h3><p>10月23日，在盖世汽车主办的第八届金辑奖颁奖盛典上，HUAWEI XSCENE 华为乾崑车载激光投影凭借在智能座舱视听领域的技术突破与规模化商用落地，荣膺“金辑奖·2026最佳技术实践应用奖”。 过去几年，智能座舱视听解决方案的竞争一度集中在屏幕数量、芯片算力与配置清单的堆叠上；而今天，市场的天平正从“有没有”转向“好不好用”，用户的体验成为检验技术价值的最终标准。由汽车产业全媒体平台盖世汽车发起的“金辑奖·最佳技术实践应用奖”，旨在寻找和表彰真正具有产业价值和全球潜力的创新成果。这意味着获奖的不是实验室里的概念或专利，而是一套装进量产车、被真实用户使用的解决方案。 凭借领先光学技术，华为乾崑车载激光投影打破座舱空间边界，为消费者提供超越期待的智能化全新体验，并以可量产、可复制的整车级适配能力，为搭载车型塑造差异化竞争力。华为乾崑车载激光投影荣获“金辑奖·最佳技术实践应用奖”，充分展示了其行业领先的技术与规模化商用能力。 以硬核参数树立标杆，率先跑通车载投影的“好用”之路…</p><a href="https://www.leiphone.com/category/industrynews/nBef7qz74xPmuw5X.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>VGN 联名腾讯天美工作室 V98Pro V4 TiMi 限定款机械键盘发售：带有小云仔发声键帽按钮，首发价 419 元</h3><p>IT之家 10 月 26 日消息，VGN 联合腾讯天美工作室推出的 V98Pro V4 TiMi 限定款机械键盘现已在京东发售，该键盘采用云朵轴，使用天蓝色外观，首发价 419 元。 京东 VGN V98Pro V4 TiMi 限定款机械键盘 419 元 直达链接 该键盘主体采用了清新的天蓝色外壳，搭配定制云朵图案印花键帽及一颗联名小云仔发声键帽按钮，按下时会发出“TiMi”的声音。该键盘还配备了 V-Display 情绪屏，支持输入交互模式和用户自定义图案。 性能和规格方面，该键盘采用了 98 配列（100 键）设计，重量约 1132g±50g。键盘采用了 Gasket 结构，并进行了消音填充，搭配 PC 横向开槽定位板和 FR-4 单键开槽 PCB，全键支持热插拔，并且全键无冲。 该键盘支持有线、2.4G 和蓝牙三模连接，其采用 VGN 全自研的“破阵”方案，支持原生双 8KHz 回报率，并具备全链路频段智能调控以增强抗干扰能力。键盘内置 10000mAh 容量电池，最长续航可达 347 天。 IT之家附产品参数： 京东 11.11 无门槛红包 面额至高 26888 元，每天抽 3 次： 点此抽红包 。 淘宝…</p><a href="https://www.ithome.com/1/017/939.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>Seedance 核心研发负责人周畅被曝离职？接近字节人士否认</h3><p>IT之家 10 月 26 日消息，据澎湃新闻消息，近日有传闻称，字节 Seed AI 研发核心负责人之一周畅已经提出离职。消息人士称，周畅将会开启创业，或为具身智能相关，并已获各知名基金、大厂战投、头部大模型独角兽积极接触。 接近字节人士今日回应称， 周畅没有离职 。 IT之家查询互联网公开资料获悉，周畅 2012 年本科毕业于复旦大学计算机科学与技术专业，2017 年博士毕业于北京大学计算机软件与理论专业，随后加入阿里巴巴，花名“钟煌”，曾任通义千问大模型的技术负责人，曾和团队推出一系列语言模型、多模态模型。 2024 年 8 月，周畅加入字节跳动，从事 AI 大模型相关工作，现任字节跳动豆包大模型视觉多模态生成方向负责人。</p><a href="https://www.ithome.com/1/017/938.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>首页壁纸被替换为游戏海报：微软 XBOX 游戏机强推《使命召唤：现代战争 4》广告引发玩家不满</h3><p>IT之家 10 月 26 日消息，微软此前在 XBOX 平台推出大型第一方游戏时偶尔会在主界面投放宣传广告，然而随着《使命召唤：现代战争 4（Call of Duty：Modern Warfare 4）》于 10 月 23 日发售，微软本次营销更加猛烈， 将用户游戏机首页背景直接替换为了游戏广告 ，引发用户不满。 综合 Windows Central 报道，微软在本次营销活动中，擅自替换了用户本身为 XBOX 设置的自定义壁纸。许多用户表示，即使理解微软需要为新游戏进行宣传，也不希望广告未经同意便覆盖自己的个性化设置。 目前，用户只能手动关闭这一广告。具体办法为依次进入“设置”&gt;“常规”&gt;“个性化”&gt;“我的背景”，取消勾选“显示活动主题背景”，以避免系统继续自动应用与活动相关的背景。 IT之家注意到，XBOX 新任首席战略官 Matthew Ball 此前也曾表达过通过增加广告收入缓解游戏行业成本压力的观点。他认为，如今许多游戏的开发成本已经高得难以持续上涨，而消费者又不愿意支付更高价格，行业需要寻找其他收入来源，广告可能成为其中一种解决方案。 至于《使命召唤：现代战争…</p><a href="https://www.ithome.com/1/017/923.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称某厂 2027H1 影像旗舰评估阔屏，预计华为旗下</h3><p>IT之家 10 月 26 日消息，据博主 @数码闲聊站 今日爆料，某厂 2027H1 影像旗舰在评估阔屏，据我摸到的工程机信息，标准版继续用 6.6 英寸中屏， Pro / Pro Max 换阔屏 ，尺寸还是 6.39 英寸左右，定义全能阔屏影像旗舰。结合该博主此前的爆料习惯，该产品预计为华为旗下。 据该博主此前透露，华为阔直板手机有多产品线布局的动作，n 中端线（预计指 nova 产品线）也在评估阔直板中。有网友询问 Mate 系列是否会推出阔直板形态手机，博主表示：“Mate 暂时没有这个计划。” 据IT之家此前报道， 全球首款阔直板手机 —— 华为 Pura X View 已于 9 月 7 日正式上市 ，正面配备一块 6.39 英寸 2232×1320 分辨率 16:9.5 比例面板 。该机围绕阔屏形态开发了阔感观剧、阔感阅读、阔感游戏和阔感办公等场景化体验，出厂预装鸿蒙 HarmonyOS 7 系统。此外，该机搭载麒麟 9030S 处理器，定价 5999 元起。</p><a href="https://www.ithome.com/1/017/908.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为余承东预热 2026 央视鸿蒙星光盛典：致敬每一位生态建设者，也感谢所有用户一路相伴</h3><p>IT之家 10 月 26 日消息，央视频今日宣布，2026《鸿蒙星光盛典》将于 12 月 5 日在深圳湾体育中心“春茧”体育场举办，共同见证鸿蒙应用体验进入成熟好用阶段。 IT之家注意到，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东刚刚发文，预热了 2026 央视鸿蒙星光盛典： 共赴星光之约，期待 2026 央视鸿蒙星光盛典， 致敬每一位生态建设者，也感谢所有用户一路相伴 。 据IT之家此前报道，10 月 1 日，在华为 Mate 90 系列及全场景新品发布会上，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东曾宣布， 鸿蒙 HarmonyOS 6 | HarmonyOS 7 终端设备数突破 9000 万 。华为轮值董事长徐直军曾表示， 预计今年第四季度会突破 1 亿用户 。 去年的总台大型直播晚会《鸿蒙星光盛典》最初定档 11 月 28 日，后因香港新界大埔屋邨宏福苑多栋住宅楼发生火灾，原定 11 月 28 日晚的活动延迟举办，并最终在 12 月 20 日采取录播的形式进行播出。</p><a href="https://www.ithome.com/1/017/905.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>在 Google 砍伐了上千英亩树后野狼来到芬兰的村庄</h3><p>为建造数据中心，Google 在芬兰农村砍伐了 25 万棵树木，清理了多达 1300 英亩的森林，它甚至还铲除了表层土壤。芬兰监管机构以未完成必要环评为由下令工程暂时停工，Google 芬兰高管已为此道歉。Google 砍伐森林的一个后果是由于猎物减少，狼群进入了附近的村庄寻找食物。 当地居民表示，由于森林里的野生动物全都离开了，狼进村了。Google 还在另一个数据中心选址砍伐了 15 万棵树。芬兰不是唯一一个为建造数据中心而生态系统遭到破坏的地方。美国西弗吉尼亚州的栗子树林以及印第安纳州的一处湿地都面临为数据中心让路。</p><a href="https://www.solidot.org/story?sid=85706" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>为让数据中心有充足电力 Google 将付钱给其他人少用电</h3><p>Google 正资助美国规模最大的虚拟电厂项目。该项目通过向家庭和企业提供经济激励，鼓励他们在电力需求高峰期间减少用电量，从而为数据中心提供更多的电网容量。该项目有望在中大西洋地区的 PJM 电网提供 1070 MW 的电力容量——相当于一座大型核反应堆的输出电力。很多削减用电量措施能自动执行，如利用智能恒温器在夏季用电高峰期调低空调运行强度，或者通过电池系统提供临时电力。与 Google 合作的能源服务公司 Voltus 表示，通过聚合成千上万家企业和家庭的用电，该项目能在最需要用电的时候可靠提供大量额外电力容量，而且能在几年内实现。尽管科技公司若想持续建设大型数据中心，最终仍需建造传统的发电厂，但在过渡阶段虚拟电厂方案不失为一种更快捷、更经济且污染更少的选择。</p><a href="https://www.solidot.org/story?sid=85701" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Google 修改隐私条款将 Gmail 和照片数据用于个性化广告</h3><p>Google 修改了隐私政策，允许将 Gmail 和相册数据用于个性化广告。新政策于 10 月 16 日生效。新政策没有默认启用，而是声明：“我们可能还会根据您的兴趣以及您在 Google 服务中的活动或个性化内容，向您展示个性化广告，具体取决于您的设置。例如，如果在 Google 搜索中搜索“山地自行车”，您可能会在 YouTube 上看到运动装备广告...我们不会根据您在 Google 云端硬盘、Gmail 和 Google 相册中的内容向您展示个性化广告，除非您选择允许其他支持个性化广告的 Google 服务使用这些服务中的数据。”也就是如果用户不希望 Gmail 和 Google 相册中的内容被用于个性化广告需要切断关联服务，方法是：Google 账号 —— 数据和隐私设置——个性化设置——搜索服务个性化——更多个性化智能服务——关联的内容应用，切断 Google Workspace 关联。</p><a href="https://www.solidot.org/story?sid=85698" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>12 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>趋境科技完成 B 轮融资，半年实现超十倍速增长，加速高品质 AI Token 规模化交付</h3><p>近日，雷峰网获悉，高品质 AI Token 生产服务商趋境科技（Approaching.AI）完成 B 轮融资，本轮融资金额超13亿人民币；今年内已累计募得24亿人民币。多项核心经营指标在半年内实现超十倍速增长，持续获得产业和资本的高度认可。 本轮融资由浙财创新、萧山资本、工银投资、中关村科学城、星连资本及钱江世纪城共同领投。云创资本、湖南高新纵横、建投华科、申万创新投、中信聚信、珠海科技产业集团、商汤科技、网宿科技、甘肃树帜、常金控、元智未来、清证星竹、小咖资本等跟投，老股东尚势资本继续追投。 这是继今年 7 月完成 A 轮融资后，趋境科技短期内再获大额融资。截至今年10月，趋境科技已在 2026 年连续完成多轮融资。密集的资本跟进背后，既反映出市场对 AI 基础设施赛道长期价值的共识，更源于投资人对趋境科技战略聚焦、技术领先和商业化交付成绩等综合实力的肯定——过去半年，趋境科技不但全面跑通了从技术架构到规模化商业交付的全链路，更是持续引领推理行业的技术演进，以技术创新推动了国产算力的性能大跃升。 本轮募集的资金将重点投向高品质 AI Token 产能扩张、ATaaS（Approaching.AI Token as a…</p><a href="https://www.leiphone.com/category/yanxishe/upPcOw2EaMaw2Otv.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>iRTE2026：对话 AI 如何迈向 AGI？声网CEO赵斌给出五级对话能力框架</h3><p>10月23日，iRTE2026实时智能大会在北京举行。声网创始人兼 CEO 赵斌在主论坛发表题为《对话 AGI：实时互动的下一章》的演讲，回顾了过去一年实时互动、对话式 AI 与底层基础设施的关键变化，并提出“五级对话能力”框架，勾勒对话式 AI 从基础应答走向深度理解与关系沟通的演进路径。 赵斌认为，随着 AI 从回答问题走向持续交流、理解上下文并执行任务，实时互动的对象正在从人与人扩展到人与 Agent。实时互动技术的角色也随之延伸：它不仅要让信息传递更稳定、更流畅，还要为 AI 的感知、理解、表达与行动提供实时支撑。 从“问一句答一句”到深度关系沟通：对话 AGI 的五级进化 在赵斌看来，对话式 AI 的进步，不应只用回答速度、语言自然度来衡量。更重要的是，它能否理解对话对象的意图、处境与关系，能否在复杂场景中恰当地表达，并逐步形成长期、深入的理解。 围绕这一判断，赵斌在演讲中提出了 “五级对话能力”框架 ，将对话能力划分为五个层次： L1： 基于自身视角的表达：以自我表达和被动接续为主，实现“问一句、答一句”。 L2： 基于互动规律的表达：从被动回应走向主动表达，让对话更自然、连贯。 L3：…</p><a href="https://www.leiphone.com/category/industrynews/nwy00TZXQdwJcSka.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>钛动科技发布行业首个Pro-Agent, Navos Pro定义结果导向的AI for Work | TGC 2026科技增长大会</h3><p>10 月 23 日，以 “ AI is Profitable ” 为主题的 2026 TGC 科技增长大会于广州召开。 面向AI for Work数万亿美元级蓝海市场，全球领先的AI营销科技公司钛动科技，在会上正式发布行业首个 Pro Agent ——Navos Pro。Navos Pro以 Professional、Proactive、Profitable 三大核心属性构建产品内核，让结果导向（Result-Driven）的 AI for Work成为现实，持续推动 AI 成为企业全球增长与生产力变革的核心引擎。 【Kevin Knight博士开场演讲】 本次大会由国际AI泰斗 Kevin Knight 博士领衔开场演讲，发言嘉宾汇聚 OpenAI、Google、阿里、字节、腾讯等全球 AI 科技公司，凝聚一个核心共识：“科技创造增长”产业新周期开启，AI 商业价值必须由真实业务指标验证。 Kevin Knight博士在《From Language to Action: The Next Leap in AI》开场演讲中，结合学术与产业双重视角给出判断：AI for Work 将成为 AI 应用最重要的方向之一。…</p><a href="https://www.leiphone.com/category/industrynews/sf7R7WgzGyvZwKLa.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>宁德时代董秘被打？知情人士回应；怕担责先跑路？娃哈哈集团董事长许思敏离职；DeepSeek完成近1000亿元融资，宁德时代、腾讯参投</h3><p>要闻提示 1.不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 2.宁德时代董秘被打？知情人士回应 3.怕担责先跑路？娃哈哈集团董事长许思敏离职 4.DeepSeek完成近1000亿元融资，宁德时代、腾讯参投 5.原“死了么”APP公布收费标准，创始人回应：最高收费199元/年，由政府集中采购 6.字节Seed招聘具身岗位：55K 起薪，招募数采与本体人才 7.顺风车订单留言暗藏涉黄暗语！哈啰回应 8.马斯克谈FSD入华进展：积极争取批准，中国本土车企竞争太激烈 今日头条 不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 10月21日，多名网友发布消息称，收到山姆超市发来的召回信息，对“好健康”牡蛎精胶囊的部分批次商品进行召回。对此，山姆客服表示，近期海关在进口商品抽检中，发现标称新西兰、澳大利亚“好健康”品牌的牡蛎精胶囊检测异常。目前应海关风险提示要求对商品下架，并应品牌方要求配合召回，且在第一时间启动退款。…</p><a href="https://www.leiphone.com/category/zaobao/IlrVRbBiK9Klcuj1.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从“算力”到“Token 生产力”，硅基流动助力央国企大模型规模化落地</h3><p>在企业网 D1net 主办的 2026 秋季央国企 CIO 及数科公司高管峰会（第 19 届）上，硅基流动解决方案总监唐安波出席峰会并作主题分享：《从“算力”到“Token 生产力”：央国企大模型规模化落地的推理基础设施与 ROI 实践》。以下为分享内容精华。 当下，AI 应用正处于爆发式增长的早期阶段，Token 消耗量呈指数级增长。这背后，模型架构持续演进，版本更新节奏快速；同时，算力架构也在不断演进。模型与算力之间，是相互推动的迭代过程。对于企业来说，一方面要适配这些变化，另一方面又要面向自己的业务场景提供多元化模型服务，还要把成本控制在合理范围内。 硅基流动在做的事，就是打通从算力到 Token 之间的转化层：把算力统一纳管起来；通过自研推理引擎，让模型跑得更快、更好。我们既在公有云端建设 Token 工厂，也帮助央国企在内部打造自己的 Token 工厂。 简言之，通过系统化的推理工程，做好模型与算力的多重适配。基于此，硅基流动提出 Token 生产力核心公式： Token 生产力 = 产能 × 利用率 × 交付质量…</p><a href="https://www.leiphone.com/category/industrynews/DVoE94j80j6cboxE.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>Seedance 核心研发负责人周畅被曝离职？接近字节人士否认</h3><p>IT之家 10 月 26 日消息，据澎湃新闻消息，近日有传闻称，字节 Seed AI 研发核心负责人之一周畅已经提出离职。消息人士称，周畅将会开启创业，或为具身智能相关，并已获各知名基金、大厂战投、头部大模型独角兽积极接触。 接近字节人士今日回应称， 周畅没有离职 。 IT之家查询互联网公开资料获悉，周畅 2012 年本科毕业于复旦大学计算机科学与技术专业，2017 年博士毕业于北京大学计算机软件与理论专业，随后加入阿里巴巴，花名“钟煌”，曾任通义千问大模型的技术负责人，曾和团队推出一系列语言模型、多模态模型。 2024 年 8 月，周畅加入字节跳动，从事 AI 大模型相关工作，现任字节跳动豆包大模型视觉多模态生成方向负责人。</p><a href="https://www.ithome.com/1/017/938.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>大众中国在合肥获得 L3 级自动驾驶道路测试牌照</h3><p>IT之家 10 月 26 日消息，大众汽车集团（中国）已在合肥正式获得 L3 级自动驾驶道路测试牌照，并已在合肥启动 L3 级技术的真实道路测试与数据采集。 本次获牌是集团推进高阶自动驾驶落地的关键节点，标志着集团向 2027 年实现 L3 级自动驾驶技术就绪迈进的又一重要进展。2026 年 10 月 28 日，首届大众汽车集团（中国）技术日将在合肥举行，集中展示最新技术进展。 IT之家注意到，4 月 11 日，智能电动汽车发展高层论坛在北京举办，大众汽车集团执行副总裁、CARIAD 中国首席执行官韩三楚表示：智能化是用户选择要素，大众汽车围绕中国用户核心诉求，快速构建开发和迭代的能力。 大众汽车将于 2027 年实现 L3 级有条件自动驾驶 ，2029 年实现 L4 级自动驾驶。 地平线与大众汽车集团今年 7 月宣布，通过 CARIAD 与地平线的合资公司酷睿程 (CARIZON) ，大众汽车集团将进一步深化与地平线在 AI 基座大模型领域的技术合作。按照规划，大众汽车集团 L3 级自动驾驶能力最快将于 2027 年下半年启动交付。</p><a href="https://www.ithome.com/1/017/935.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为余承东预热 2026 央视鸿蒙星光盛典：致敬每一位生态建设者，也感谢所有用户一路相伴</h3><p>IT之家 10 月 26 日消息，央视频今日宣布，2026《鸿蒙星光盛典》将于 12 月 5 日在深圳湾体育中心“春茧”体育场举办，共同见证鸿蒙应用体验进入成熟好用阶段。 IT之家注意到，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东刚刚发文，预热了 2026 央视鸿蒙星光盛典： 共赴星光之约，期待 2026 央视鸿蒙星光盛典， 致敬每一位生态建设者，也感谢所有用户一路相伴 。 据IT之家此前报道，10 月 1 日，在华为 Mate 90 系列及全场景新品发布会上，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东曾宣布， 鸿蒙 HarmonyOS 6 | HarmonyOS 7 终端设备数突破 9000 万 。华为轮值董事长徐直军曾表示， 预计今年第四季度会突破 1 亿用户 。 去年的总台大型直播晚会《鸿蒙星光盛典》最初定档 11 月 28 日，后因香港新界大埔屋邨宏福苑多栋住宅楼发生火灾，原定 11 月 28 日晚的活动延迟举办，并最终在 12 月 20 日采取录播的形式进行播出。</p><a href="https://www.ithome.com/1/017/905.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>AI 交易热情降温，两只挂钩 SK 海力士的美股杠杆 ETF 将退市清算</h3><p>IT之家 10 月 26 日消息，据彭博社报道，两只挂钩 SK 海力士（SK Hynix）的杠杆 ETF，在美国上市仅仅数月后就要清盘，背后原因是市场对 AI 交易行情的投资热情降温。 Tradr ETF 发行的这两只多头和空头产品，分别跟踪这家韩国芯片厂商的美国存托凭证（ADR），提供两倍于每日表现的收益或反向收益。ETF 发行方公告显示，SKHA（2 倍多）与 SKHN（2 倍空）大约将在 11 月 12 日进行清盘。 今年，SK 海力士以及同行三星电子的股价剧烈震荡，资金在 AI 概念股里快进快出。韩国及其他地区的杠杆 ETF 会放大个股日内波动，进一步加剧行情起伏；韩国本土监管机构近期也已经收紧了这类产品的监管规则。 SK 海力士首尔上市的股票，相比历史高点已经下跌 56%。市场对 AI 热潮的乐观情绪消退，投资者开始担忧：公司为大规模基建投入背负的高额融资成本会带来压力。 这两只 Tradr ETF 于 7 月 28 日挂牌上市，距离 SK 海力士 ADR 登陆美股仅仅过去几周。ProShares、Leverage Shares、Direxion 等多家机构也都推出过挂钩 SK 海力士的同类杠杆产品。…</p><a href="https://www.ithome.com/1/017/896.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>Gartner 调研显示：44% 的 CEO 难以证明 AI 的财务回报</h3><p>IT之家 10 月 26 日消息，商业与技术洞察公司 Gartner 调研显示，44% 的首席执行官（CEO）难以向利益相关方证明 AI 带来的财务回报。但他们并未因此放弃技术投资，而是希望借助 AI 与技术，重新设计企业机构的运营、竞争与增长方式。 Gartner 于 2026 年 4 月至 5 月开展了“2027 年 Gartner CEO 调研”，覆盖全球 203 位 CEO 及企业高管。调研发现，62% 的受访者将营收与业务增长列为首要战略业务事项之一，75% 的受访者计划增加技术投资。 技术已成为核心战略技术正日益决定企业的战略选择空间。80% 的 CEO 表示，技术本身已然成为战略，使技术决策成为企业关于增长、竞争力与发展方向讨论中的核心议题。 与此同时，CEO 正面临巨大变革。93% 的受访者预计，到 2027 年，经济波动将对企业战略业务目标产生高或中程度的影响；79% 的受访者预计持续冲突将产生同等程度的影响；77% 的受访者则预计 AI 产业化也将带来该等级的影响。而对上述变革的应对就绪度却明显较低，分别为 24%、11% 和 20%。 IT之家注意到，CEO 还指出，要实现更高的 AI…</p><a href="https://www.ithome.com/1/017/843.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>小米开源硬件 HachimoDock 亮相，150 元就能复刻万能 AI 桌宠</h3><p>10 月 26 日中午消息，2026 观猹大会期间，由小米技术委创新产品团队孵化的开源 AI 硬件 HachimoDock 亮相 —— 这是一台可由用户按个人喜好自由改造的桌面 AI 设备，小巧机身集成了个性化桌宠、语音操控电脑端 Agent、智能家居联动、自定义组件创作等能力。 据介绍， HachimoDock 硬件自制成本约 150 元 。团队希望以此降低 AI 硬件的体验门槛，让它成为大众入门 Vibe Coding 的第一台 AI 硬件，体验用自然语言去“创造”一台万能桌面搭子的乐趣。 这台设备的功能不止于此： 用户说出想法，即可与 AI 协作，现场生成并运行新的组件 。基于这一开放机制，它既可以是快捷语音输入的麦克风、内置万款游戏的小游戏机、收听 FM 电台的小收音机，也可以是查看 AI 任务进展与电脑状态的桌面副屏、联动智能家居的桌面中控…… 更多玩法，留给每位用户亲手创造。 用户可以通过语音直接与桌宠进行互动，它会将用户意图转化为各类任务派发给电脑端 Codex、WorkBuddy 等各类 Agent，例如查资料、整理文件、编写代码等，同时 HachimoDock…</p><a href="https://www.ithome.com/1/017/842.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>为让数据中心有充足电力 Google 将付钱给其他人少用电</h3><p>Google 正资助美国规模最大的虚拟电厂项目。该项目通过向家庭和企业提供经济激励，鼓励他们在电力需求高峰期间减少用电量，从而为数据中心提供更多的电网容量。该项目有望在中大西洋地区的 PJM 电网提供 1070 MW 的电力容量——相当于一座大型核反应堆的输出电力。很多削减用电量措施能自动执行，如利用智能恒温器在夏季用电高峰期调低空调运行强度，或者通过电池系统提供临时电力。与 Google 合作的能源服务公司 Voltus 表示，通过聚合成千上万家企业和家庭的用电，该项目能在最需要用电的时候可靠提供大量额外电力容量，而且能在几年内实现。尽管科技公司若想持续建设大型数据中心，最终仍需建造传统的发电厂，但在过渡阶段虚拟电厂方案不失为一种更快捷、更经济且污染更少的选择。</p><a href="https://www.solidot.org/story?sid=85701" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>11 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>支付宝AI支付发起年度黑客松大赛，邀开发者把AI创意变成生意</h3><p>从 Vibe Coding 到 Skill、Agent，AI 正打开新一轮创业窗口：一个人也能打造应用，一项技能也能成为产品。随着创作与开发门槛降低，新的机会正在浮现——让自己做出的 AI 产品，成为用户愿意付费的生意。 面向这股浪潮，10月24日，支付宝AI支付联合观猹发起“PAYATHON 2026”年度黑客松，邀请开发者带着应用、Skill 或 Agent 参赛：接入支付，把创意推向真实市场，争夺 20 万元总奖池。报名截至12月1日，线下决赛将于12月26日举行。 这场黑客松不只比创意与技术，更看产品在真实交易中的价值。这也是支付宝AI支付“开发者为先”产品战略的重要举措：通过持续降低AI产品的商业化门槛，让开发者更少为收款、交付与定价发愁，让好项目更快变成好生意。 五大赛道，把作品推向市场 一个独立应用、一项 Agent 技能，都可以成为参赛的起点。本次大赛面向个人开发者与团队，设置五大赛道：应用、技能两大主赛道，以 Vibe Pay、Skill Pay 为核心；围绕Token Pay、Machine Pay 与 Agent Pay，重点探索按量付费、连续订阅以及机器与智能体之间的交易场景。…</p><a href="https://www.leiphone.com/category/industrynews/ykWM8XAjpHi0biY1.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>iRTE2026：对话 AI 如何迈向 AGI？声网CEO赵斌给出五级对话能力框架</h3><p>10月23日，iRTE2026实时智能大会在北京举行。声网创始人兼 CEO 赵斌在主论坛发表题为《对话 AGI：实时互动的下一章》的演讲，回顾了过去一年实时互动、对话式 AI 与底层基础设施的关键变化，并提出“五级对话能力”框架，勾勒对话式 AI 从基础应答走向深度理解与关系沟通的演进路径。 赵斌认为，随着 AI 从回答问题走向持续交流、理解上下文并执行任务，实时互动的对象正在从人与人扩展到人与 Agent。实时互动技术的角色也随之延伸：它不仅要让信息传递更稳定、更流畅，还要为 AI 的感知、理解、表达与行动提供实时支撑。 从“问一句答一句”到深度关系沟通：对话 AGI 的五级进化 在赵斌看来，对话式 AI 的进步，不应只用回答速度、语言自然度来衡量。更重要的是，它能否理解对话对象的意图、处境与关系，能否在复杂场景中恰当地表达，并逐步形成长期、深入的理解。 围绕这一判断，赵斌在演讲中提出了 “五级对话能力”框架 ，将对话能力划分为五个层次： L1： 基于自身视角的表达：以自我表达和被动接续为主，实现“问一句、答一句”。 L2： 基于互动规律的表达：从被动回应走向主动表达，让对话更自然、连贯。 L3：…</p><a href="https://www.leiphone.com/category/industrynews/nwy00TZXQdwJcSka.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>钛动科技发布行业首个Pro-Agent, Navos Pro定义结果导向的AI for Work | TGC 2026科技增长大会</h3><p>10 月 23 日，以 “ AI is Profitable ” 为主题的 2026 TGC 科技增长大会于广州召开。 面向AI for Work数万亿美元级蓝海市场，全球领先的AI营销科技公司钛动科技，在会上正式发布行业首个 Pro Agent ——Navos Pro。Navos Pro以 Professional、Proactive、Profitable 三大核心属性构建产品内核，让结果导向（Result-Driven）的 AI for Work成为现实，持续推动 AI 成为企业全球增长与生产力变革的核心引擎。 【Kevin Knight博士开场演讲】 本次大会由国际AI泰斗 Kevin Knight 博士领衔开场演讲，发言嘉宾汇聚 OpenAI、Google、阿里、字节、腾讯等全球 AI 科技公司，凝聚一个核心共识：“科技创造增长”产业新周期开启，AI 商业价值必须由真实业务指标验证。 Kevin Knight博士在《From Language to Action: The Next Leap in AI》开场演讲中，结合学术与产业双重视角给出判断：AI for Work 将成为 AI 应用最重要的方向之一。…</p><a href="https://www.leiphone.com/category/industrynews/sf7R7WgzGyvZwKLa.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>Kimi K3.1 泄露：3D 成本仅有 GPT-6 Astra 的 1/14！横扫海外视觉三巨头</h3><p>15 分钟交付工业级可交互3D 资产，重写视觉大模型的“理科生法则” 作者丨 高 允 毅 编辑丨岑 峰 刚刚，Kimi 官方发布了一段“极具暗示性”的先导片，各种高能科学画面与粒子特效快速切换，有眼尖的网友已经捕捉到画面中的彩蛋“Kimi K3.1”。 Kimi K3.1 要来了？ 这次它带着 极强的视觉效果 来了，有网友指出官方视频就是 Kimi K3.1 做的。 图注：眼尖的网友在画面中找到了亮点“Kimi K3.1” AI 博主 Chris 不仅肯定了即将发布的消息，而且表示他已经实测了一周。他透露， Kimi K3.1在开源 3D 图形库 Three.js 上表现出色，而且这个模型的成本只有 Kimi K3 的 70%，Token 效率全面升级 。 从 Chris 晒出的实测画面中，可以看到 Kimi K3.1 跑完了一整套 24 小时昼夜环境模拟，从晨光漫射到夜幕沉落，光影过渡帧级精准，环境细节随光线同步流转，全程丝滑无断点。 要知道，Three.js 编写的程序是非常消耗资源的，因为它需要实时计算 3D 空间中的顶点、光影和纹理。而 Kimi 这波相当于用纯代码跑出了渲染级画质。 01…</p><a href="https://www.leiphone.com/category/yanxishe/PZo9w14YeFSo4jmf.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从“算力”到“Token 生产力”，硅基流动助力央国企大模型规模化落地</h3><p>在企业网 D1net 主办的 2026 秋季央国企 CIO 及数科公司高管峰会（第 19 届）上，硅基流动解决方案总监唐安波出席峰会并作主题分享：《从“算力”到“Token 生产力”：央国企大模型规模化落地的推理基础设施与 ROI 实践》。以下为分享内容精华。 当下，AI 应用正处于爆发式增长的早期阶段，Token 消耗量呈指数级增长。这背后，模型架构持续演进，版本更新节奏快速；同时，算力架构也在不断演进。模型与算力之间，是相互推动的迭代过程。对于企业来说，一方面要适配这些变化，另一方面又要面向自己的业务场景提供多元化模型服务，还要把成本控制在合理范围内。 硅基流动在做的事，就是打通从算力到 Token 之间的转化层：把算力统一纳管起来；通过自研推理引擎，让模型跑得更快、更好。我们既在公有云端建设 Token 工厂，也帮助央国企在内部打造自己的 Token 工厂。 简言之，通过系统化的推理工程，做好模型与算力的多重适配。基于此，硅基流动提出 Token 生产力核心公式： Token 生产力 = 产能 × 利用率 × 交付质量…</p><a href="https://www.leiphone.com/category/industrynews/DVoE94j80j6cboxE.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>Seedance 核心研发负责人周畅被曝离职？接近字节人士否认</h3><p>IT之家 10 月 26 日消息，据澎湃新闻消息，近日有传闻称，字节 Seed AI 研发核心负责人之一周畅已经提出离职。消息人士称，周畅将会开启创业，或为具身智能相关，并已获各知名基金、大厂战投、头部大模型独角兽积极接触。 接近字节人士今日回应称， 周畅没有离职 。 IT之家查询互联网公开资料获悉，周畅 2012 年本科毕业于复旦大学计算机科学与技术专业，2017 年博士毕业于北京大学计算机软件与理论专业，随后加入阿里巴巴，花名“钟煌”，曾任通义千问大模型的技术负责人，曾和团队推出一系列语言模型、多模态模型。 2024 年 8 月，周畅加入字节跳动，从事 AI 大模型相关工作，现任字节跳动豆包大模型视觉多模态生成方向负责人。</p><a href="https://www.ithome.com/1/017/938.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>研究：人类更喜好拟人形象 AI 智能体，但也存在“性别”偏见</h3><p>IT之家 10 月 26 日消息，爱尔兰利默里克大学研究人员在本月初发布的一篇研究论文中指出，在一项涉及 189 位知识工作者的实验中， 人类更喜好拟人形象 AI 智能体 ， 但也存在“性别”偏见 。 参测者在一个虚拟办公室中同 3 个基于相同底层模型的智能体同事协同完成工作。三位虚拟同事分别以文本聊天窗口、虚拟小机器人、拟人形象出现，其中拟人形象分为女性的 &quot;Johanna&quot; 和男性的 &quot;Johan&quot; 两个版本。受测者在智能体协同办公后对每位 AI 助理进行评分，并根据其表现分配后续开发资源。 图源：Pexels 结果显示，拟人形象比那些更像机器人的智能体获得了更高的信任、信用和“薪酬”；&quot;Johanna&quot; 和 &quot;Johan&quot; 在信任与信用上的表现无显著差异， 但女性化的 &quot;Johanna&quot; 得到的“薪酬”仍在统计学上明显明确低于其男性“同事” ，尽管多数受采访的参测者并不认为虚拟的“性别”会影响其反馈。 其它值得注意的情况包括：文本聊天窗口与虚拟小机器人在信任度和信誉度评分上相当、&quot;Johann&quot; 的类人度评分显著低于 &quot;Johan&quot;、参测者在形象上更偏好 &quot;Johann&quot; 作为 AI 助手。 参考…</p><a href="https://www.ithome.com/1/017/937.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>大众中国在合肥获得 L3 级自动驾驶道路测试牌照</h3><p>IT之家 10 月 26 日消息，大众汽车集团（中国）已在合肥正式获得 L3 级自动驾驶道路测试牌照，并已在合肥启动 L3 级技术的真实道路测试与数据采集。 本次获牌是集团推进高阶自动驾驶落地的关键节点，标志着集团向 2027 年实现 L3 级自动驾驶技术就绪迈进的又一重要进展。2026 年 10 月 28 日，首届大众汽车集团（中国）技术日将在合肥举行，集中展示最新技术进展。 IT之家注意到，4 月 11 日，智能电动汽车发展高层论坛在北京举办，大众汽车集团执行副总裁、CARIAD 中国首席执行官韩三楚表示：智能化是用户选择要素，大众汽车围绕中国用户核心诉求，快速构建开发和迭代的能力。 大众汽车将于 2027 年实现 L3 级有条件自动驾驶 ，2029 年实现 L4 级自动驾驶。 地平线与大众汽车集团今年 7 月宣布，通过 CARIAD 与地平线的合资公司酷睿程 (CARIZON) ，大众汽车集团将进一步深化与地平线在 AI 基座大模型领域的技术合作。按照规划，大众汽车集团 L3 级自动驾驶能力最快将于 2027 年下半年启动交付。</p><a href="https://www.ithome.com/1/017/935.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>AI 交易热情降温，两只挂钩 SK 海力士的美股杠杆 ETF 将退市清算</h3><p>IT之家 10 月 26 日消息，据彭博社报道，两只挂钩 SK 海力士（SK Hynix）的杠杆 ETF，在美国上市仅仅数月后就要清盘，背后原因是市场对 AI 交易行情的投资热情降温。 Tradr ETF 发行的这两只多头和空头产品，分别跟踪这家韩国芯片厂商的美国存托凭证（ADR），提供两倍于每日表现的收益或反向收益。ETF 发行方公告显示，SKHA（2 倍多）与 SKHN（2 倍空）大约将在 11 月 12 日进行清盘。 今年，SK 海力士以及同行三星电子的股价剧烈震荡，资金在 AI 概念股里快进快出。韩国及其他地区的杠杆 ETF 会放大个股日内波动，进一步加剧行情起伏；韩国本土监管机构近期也已经收紧了这类产品的监管规则。 SK 海力士首尔上市的股票，相比历史高点已经下跌 56%。市场对 AI 热潮的乐观情绪消退，投资者开始担忧：公司为大规模基建投入背负的高额融资成本会带来压力。 这两只 Tradr ETF 于 7 月 28 日挂牌上市，距离 SK 海力士 ADR 登陆美股仅仅过去几周。ProShares、Leverage Shares、Direxion 等多家机构也都推出过挂钩 SK 海力士的同类杠杆产品。…</p><a href="https://www.ithome.com/1/017/896.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>全国多所财经高校布局“AI + 财经”</h3><p>IT之家 10 月 26 日消息，据央视新闻今日报道，为推动财经教育数智化转型， 全国多所财经高校积极布局“AI+ 财经” ，探索 AI 赋能财经教育和研究转型升级。 在首都经济贸易大学，新成立的智能经济研究院正在对“融创智谷”平台进行升级。这是学校重点打造的“算力 — 算法 — 数据”一体化底座，通过统筹全校算力、共享数据资源，面向全校人才培养、科学研究和智库服务三类场景开放。 依托这一底座，学校持续推动教学方式和课程设置调整。 各学院可开发自己的垂类大模型和智能体，给不同专业配备不同的“智能助手” 。在人工智能学院的“词元经济”课堂，教学不再主要依托教材案例和历史数据，而是引入实时数据和智能交互，学生围绕真实经济问题开展实训。 同时，学校新成立的未来商学院、数字经济学院，也在借助 AI 重构人才培养模式，培养适应智能经济发展的复合型财经人才。…</p><a href="https://www.ithome.com/1/017/877.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>小米开源硬件 HachimoDock 亮相，150 元就能复刻万能 AI 桌宠</h3><p>10 月 26 日中午消息，2026 观猹大会期间，由小米技术委创新产品团队孵化的开源 AI 硬件 HachimoDock 亮相 —— 这是一台可由用户按个人喜好自由改造的桌面 AI 设备，小巧机身集成了个性化桌宠、语音操控电脑端 Agent、智能家居联动、自定义组件创作等能力。 据介绍， HachimoDock 硬件自制成本约 150 元 。团队希望以此降低 AI 硬件的体验门槛，让它成为大众入门 Vibe Coding 的第一台 AI 硬件，体验用自然语言去“创造”一台万能桌面搭子的乐趣。 这台设备的功能不止于此： 用户说出想法，即可与 AI 协作，现场生成并运行新的组件 。基于这一开放机制，它既可以是快捷语音输入的麦克风、内置万款游戏的小游戏机、收听 FM 电台的小收音机，也可以是查看 AI 任务进展与电脑状态的桌面副屏、联动智能家居的桌面中控…… 更多玩法，留给每位用户亲手创造。 用户可以通过语音直接与桌宠进行互动，它会将用户意图转化为各类任务派发给电脑端 Codex、WorkBuddy 等各类 Agent，例如查资料、整理文件、编写代码等，同时 HachimoDock…</p><a href="https://www.ithome.com/1/017/842.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>8 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>企业AI需要两个世界模型</h3><a href="https://www.qbitai.com/2026/10/505032.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>一张5090跑起34B实时世界模型，国产玩家拿下英伟达大奖！</h3><a href="https://www.qbitai.com/2026/10/504931.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>高德发布首个基于开放世界行为的全身基座模型λ0，推动机器人从“局部学习”迈向“全身动作对齐”</h3><a href="https://www.qbitai.com/2026/10/504905.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>宁德时代董秘被打？知情人士回应；怕担责先跑路？娃哈哈集团董事长许思敏离职；DeepSeek完成近1000亿元融资，宁德时代、腾讯参投</h3><p>要闻提示 1.不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 2.宁德时代董秘被打？知情人士回应 3.怕担责先跑路？娃哈哈集团董事长许思敏离职 4.DeepSeek完成近1000亿元融资，宁德时代、腾讯参投 5.原“死了么”APP公布收费标准，创始人回应：最高收费199元/年，由政府集中采购 6.字节Seed招聘具身岗位：55K 起薪，招募数采与本体人才 7.顺风车订单留言暗藏涉黄暗语！哈啰回应 8.马斯克谈FSD入华进展：积极争取批准，中国本土车企竞争太激烈 今日头条 不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 10月21日，多名网友发布消息称，收到山姆超市发来的召回信息，对“好健康”牡蛎精胶囊的部分批次商品进行召回。对此，山姆客服表示，近期海关在进口商品抽检中，发现标称新西兰、澳大利亚“好健康”品牌的牡蛎精胶囊检测异常。目前应海关风险提示要求对商品下架，并应品牌方要求配合召回，且在第一时间启动退款。…</p><a href="https://www.leiphone.com/category/zaobao/IlrVRbBiK9Klcuj1.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>覆盖存、拣、运全场景，海康机器人2026移动机器人新品发布会举行</h3><p>深耕制造业一线十余年，海康机器人以AI为全业务基座，业务覆盖机器视觉、移动机器人、关节机器人与具身机器人，通过1000余个细分应用场景的落地，沉淀了扎实的技术能力与丰富的场景经验。 10月23日，海康机器人以“全链·进化”为主题，举办2026移动机器人新品发布会暨CeMAT预展专场，聚焦“存、拣、运”全流程，发布箱式方案全新升级并推出“明智”系列单体智能产品，构建覆盖箱式存拣与搬运配送的厂内物流全链路解决方案。 上半场：箱式存拣持续进化 箱式货到人拆零拣选是流通仓储领域需求最大、技术创新最活跃的领域之一，库容与效率难以兼顾、项目交付质量参差不齐，是行业长期面临的共性挑战。 本次发布会上半场，海康机器人围绕箱式存拣完成系统升级——STRP高效高密箱式存拣方案持续迭代，HAPS智能拣选系统破解拣选自动化难题，全场景数字化平台则让方案规划与项目交付更加标准、可复制，共同推动箱式仓储的全链路进化。 运行模式升级：更少设备，更高吞吐 在效率提升上，海康机器人升级了方案内STU料箱机器人与T50潜伏机器人的分工模式：STU承接巷道内全程任务，T50仅在巷道口缓存位接驳，任务链距离缩短50%以上。…</p><a href="https://www.leiphone.com/category/robot/h4vGHMyQ6b8drzy6.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>Seedance 核心研发负责人周畅被曝离职？接近字节人士否认</h3><p>IT之家 10 月 26 日消息，据澎湃新闻消息，近日有传闻称，字节 Seed AI 研发核心负责人之一周畅已经提出离职。消息人士称，周畅将会开启创业，或为具身智能相关，并已获各知名基金、大厂战投、头部大模型独角兽积极接触。 接近字节人士今日回应称， 周畅没有离职 。 IT之家查询互联网公开资料获悉，周畅 2012 年本科毕业于复旦大学计算机科学与技术专业，2017 年博士毕业于北京大学计算机软件与理论专业，随后加入阿里巴巴，花名“钟煌”，曾任通义千问大模型的技术负责人，曾和团队推出一系列语言模型、多模态模型。 2024 年 8 月，周畅加入字节跳动，从事 AI 大模型相关工作，现任字节跳动豆包大模型视觉多模态生成方向负责人。</p><a href="https://www.ithome.com/1/017/938.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>研究：人类更喜好拟人形象 AI 智能体，但也存在“性别”偏见</h3><p>IT之家 10 月 26 日消息，爱尔兰利默里克大学研究人员在本月初发布的一篇研究论文中指出，在一项涉及 189 位知识工作者的实验中， 人类更喜好拟人形象 AI 智能体 ， 但也存在“性别”偏见 。 参测者在一个虚拟办公室中同 3 个基于相同底层模型的智能体同事协同完成工作。三位虚拟同事分别以文本聊天窗口、虚拟小机器人、拟人形象出现，其中拟人形象分为女性的 &quot;Johanna&quot; 和男性的 &quot;Johan&quot; 两个版本。受测者在智能体协同办公后对每位 AI 助理进行评分，并根据其表现分配后续开发资源。 图源：Pexels 结果显示，拟人形象比那些更像机器人的智能体获得了更高的信任、信用和“薪酬”；&quot;Johanna&quot; 和 &quot;Johan&quot; 在信任与信用上的表现无显著差异， 但女性化的 &quot;Johanna&quot; 得到的“薪酬”仍在统计学上明显明确低于其男性“同事” ，尽管多数受采访的参测者并不认为虚拟的“性别”会影响其反馈。 其它值得注意的情况包括：文本聊天窗口与虚拟小机器人在信任度和信誉度评分上相当、&quot;Johann&quot; 的类人度评分显著低于 &quot;Johan&quot;、参测者在形象上更偏好 &quot;Johann&quot; 作为 AI 助手。 参考…</p><a href="https://www.ithome.com/1/017/937.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>大众中国在合肥获得 L3 级自动驾驶道路测试牌照</h3><p>IT之家 10 月 26 日消息，大众汽车集团（中国）已在合肥正式获得 L3 级自动驾驶道路测试牌照，并已在合肥启动 L3 级技术的真实道路测试与数据采集。 本次获牌是集团推进高阶自动驾驶落地的关键节点，标志着集团向 2027 年实现 L3 级自动驾驶技术就绪迈进的又一重要进展。2026 年 10 月 28 日，首届大众汽车集团（中国）技术日将在合肥举行，集中展示最新技术进展。 IT之家注意到，4 月 11 日，智能电动汽车发展高层论坛在北京举办，大众汽车集团执行副总裁、CARIAD 中国首席执行官韩三楚表示：智能化是用户选择要素，大众汽车围绕中国用户核心诉求，快速构建开发和迭代的能力。 大众汽车将于 2027 年实现 L3 级有条件自动驾驶 ，2029 年实现 L4 级自动驾驶。 地平线与大众汽车集团今年 7 月宣布，通过 CARIAD 与地平线的合资公司酷睿程 (CARIZON) ，大众汽车集团将进一步深化与地平线在 AI 基座大模型领域的技术合作。按照规划，大众汽车集团 L3 级自动驾驶能力最快将于 2027 年下半年启动交付。</p><a href="https://www.ithome.com/1/017/935.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>7 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>一张5090跑起34B实时世界模型，国产玩家拿下英伟达大奖！</h3><a href="https://www.qbitai.com/2026/10/504931.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>趋境科技完成 B 轮融资，半年实现超十倍速增长，加速高品质 AI Token 规模化交付</h3><p>近日，雷峰网获悉，高品质 AI Token 生产服务商趋境科技（Approaching.AI）完成 B 轮融资，本轮融资金额超13亿人民币；今年内已累计募得24亿人民币。多项核心经营指标在半年内实现超十倍速增长，持续获得产业和资本的高度认可。 本轮融资由浙财创新、萧山资本、工银投资、中关村科学城、星连资本及钱江世纪城共同领投。云创资本、湖南高新纵横、建投华科、申万创新投、中信聚信、珠海科技产业集团、商汤科技、网宿科技、甘肃树帜、常金控、元智未来、清证星竹、小咖资本等跟投，老股东尚势资本继续追投。 这是继今年 7 月完成 A 轮融资后，趋境科技短期内再获大额融资。截至今年10月，趋境科技已在 2026 年连续完成多轮融资。密集的资本跟进背后，既反映出市场对 AI 基础设施赛道长期价值的共识，更源于投资人对趋境科技战略聚焦、技术领先和商业化交付成绩等综合实力的肯定——过去半年，趋境科技不但全面跑通了从技术架构到规模化商业交付的全链路，更是持续引领推理行业的技术演进，以技术创新推动了国产算力的性能大跃升。 本轮募集的资金将重点投向高品质 AI Token 产能扩张、ATaaS（Approaching.AI Token as a…</p><a href="https://www.leiphone.com/category/yanxishe/upPcOw2EaMaw2Otv.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从技术首创到规模上车，华为乾崑车载激光投影以金辑奖印证技术领先</h3><p>10月23日，在盖世汽车主办的第八届金辑奖颁奖盛典上，HUAWEI XSCENE 华为乾崑车载激光投影凭借在智能座舱视听领域的技术突破与规模化商用落地，荣膺“金辑奖·2026最佳技术实践应用奖”。 过去几年，智能座舱视听解决方案的竞争一度集中在屏幕数量、芯片算力与配置清单的堆叠上；而今天，市场的天平正从“有没有”转向“好不好用”，用户的体验成为检验技术价值的最终标准。由汽车产业全媒体平台盖世汽车发起的“金辑奖·最佳技术实践应用奖”，旨在寻找和表彰真正具有产业价值和全球潜力的创新成果。这意味着获奖的不是实验室里的概念或专利，而是一套装进量产车、被真实用户使用的解决方案。 凭借领先光学技术，华为乾崑车载激光投影打破座舱空间边界，为消费者提供超越期待的智能化全新体验，并以可量产、可复制的整车级适配能力，为搭载车型塑造差异化竞争力。华为乾崑车载激光投影荣获“金辑奖·最佳技术实践应用奖”，充分展示了其行业领先的技术与规模化商用能力。 以硬核参数树立标杆，率先跑通车载投影的“好用”之路…</p><a href="https://www.leiphone.com/category/industrynews/nBef7qz74xPmuw5X.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从“算力”到“Token 生产力”，硅基流动助力央国企大模型规模化落地</h3><p>在企业网 D1net 主办的 2026 秋季央国企 CIO 及数科公司高管峰会（第 19 届）上，硅基流动解决方案总监唐安波出席峰会并作主题分享：《从“算力”到“Token 生产力”：央国企大模型规模化落地的推理基础设施与 ROI 实践》。以下为分享内容精华。 当下，AI 应用正处于爆发式增长的早期阶段，Token 消耗量呈指数级增长。这背后，模型架构持续演进，版本更新节奏快速；同时，算力架构也在不断演进。模型与算力之间，是相互推动的迭代过程。对于企业来说，一方面要适配这些变化，另一方面又要面向自己的业务场景提供多元化模型服务，还要把成本控制在合理范围内。 硅基流动在做的事，就是打通从算力到 Token 之间的转化层：把算力统一纳管起来；通过自研推理引擎，让模型跑得更快、更好。我们既在公有云端建设 Token 工厂，也帮助央国企在内部打造自己的 Token 工厂。 简言之，通过系统化的推理工程，做好模型与算力的多重适配。基于此，硅基流动提出 Token 生产力核心公式： Token 生产力 = 产能 × 利用率 × 交付质量…</p><a href="https://www.leiphone.com/category/industrynews/DVoE94j80j6cboxE.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>Epic 喜加一：狼人杀推理游戏《MAFIA HOTEL》免费领</h3><p>IT之家 10 月 26 日消息，由独立开发商 ALMNHALI 开发并发行的狼人杀推理游戏《MAFIA HOTEL》即日起在 Epic Games Store 开放限时免费领取“喜加一”活动， 本作在 Epic 国区定价为 6 元，玩家可以在北京时间 11 月 2 日 01:02 前免费领取 。 需要注意的是，本次限免并非 Epic 官方活动，而是由开发团队自行发起的特别促销，IT之家附游戏商品页（ https://store.epicgames.com/p/mafia-hotel-eaea4c ? ）。 顾名思义，《MAFIA HOTEL》以酒店为舞台。白天，所有玩家会聚集在酒吧自由讨论，互相质疑对方是否为黑手党成员。玩家可以像在传统狼人杀游戏中一样提出指控、为自己辩护，也能谎报身份，试图误导其他人。 本作最多支持 16 名玩家联机游玩。游戏结合了类似狼人杀的身份推理玩法与第一人称视角的夜间追杀，玩家需要通过交谈、说谎、指控和投票，找出隐藏在人群中的黑手党成员。…</p><a href="https://www.ithome.com/1/017/899.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>AI 交易热情降温，两只挂钩 SK 海力士的美股杠杆 ETF 将退市清算</h3><p>IT之家 10 月 26 日消息，据彭博社报道，两只挂钩 SK 海力士（SK Hynix）的杠杆 ETF，在美国上市仅仅数月后就要清盘，背后原因是市场对 AI 交易行情的投资热情降温。 Tradr ETF 发行的这两只多头和空头产品，分别跟踪这家韩国芯片厂商的美国存托凭证（ADR），提供两倍于每日表现的收益或反向收益。ETF 发行方公告显示，SKHA（2 倍多）与 SKHN（2 倍空）大约将在 11 月 12 日进行清盘。 今年，SK 海力士以及同行三星电子的股价剧烈震荡，资金在 AI 概念股里快进快出。韩国及其他地区的杠杆 ETF 会放大个股日内波动，进一步加剧行情起伏；韩国本土监管机构近期也已经收紧了这类产品的监管规则。 SK 海力士首尔上市的股票，相比历史高点已经下跌 56%。市场对 AI 热潮的乐观情绪消退，投资者开始担忧：公司为大规模基建投入背负的高额融资成本会带来压力。 这两只 Tradr ETF 于 7 月 28 日挂牌上市，距离 SK 海力士 ADR 登陆美股仅仅过去几周。ProShares、Leverage Shares、Direxion 等多家机构也都推出过挂钩 SK 海力士的同类杠杆产品。…</p><a href="https://www.ithome.com/1/017/896.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>全国多所财经高校布局“AI + 财经”</h3><p>IT之家 10 月 26 日消息，据央视新闻今日报道，为推动财经教育数智化转型， 全国多所财经高校积极布局“AI+ 财经” ，探索 AI 赋能财经教育和研究转型升级。 在首都经济贸易大学，新成立的智能经济研究院正在对“融创智谷”平台进行升级。这是学校重点打造的“算力 — 算法 — 数据”一体化底座，通过统筹全校算力、共享数据资源，面向全校人才培养、科学研究和智库服务三类场景开放。 依托这一底座，学校持续推动教学方式和课程设置调整。 各学院可开发自己的垂类大模型和智能体，给不同专业配备不同的“智能助手” 。在人工智能学院的“词元经济”课堂，教学不再主要依托教材案例和历史数据，而是引入实时数据和智能交互，学生围绕真实经济问题开展实训。 同时，学校新成立的未来商学院、数字经济学院，也在借助 AI 重构人才培养模式，培养适应智能经济发展的复合型财经人才。…</p><a href="https://www.ithome.com/1/017/877.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>4 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>宁德时代董秘被打？知情人士回应；怕担责先跑路？娃哈哈集团董事长许思敏离职；DeepSeek完成近1000亿元融资，宁德时代、腾讯参投</h3><p>要闻提示 1.不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 2.宁德时代董秘被打？知情人士回应 3.怕担责先跑路？娃哈哈集团董事长许思敏离职 4.DeepSeek完成近1000亿元融资，宁德时代、腾讯参投 5.原“死了么”APP公布收费标准，创始人回应：最高收费199元/年，由政府集中采购 6.字节Seed招聘具身岗位：55K 起薪，招募数采与本体人才 7.顺风车订单留言暗藏涉黄暗语！哈啰回应 8.马斯克谈FSD入华进展：积极争取批准，中国本土车企竞争太激烈 今日头条 不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 10月21日，多名网友发布消息称，收到山姆超市发来的召回信息，对“好健康”牡蛎精胶囊的部分批次商品进行召回。对此，山姆客服表示，近期海关在进口商品抽检中，发现标称新西兰、澳大利亚“好健康”品牌的牡蛎精胶囊检测异常。目前应海关风险提示要求对商品下架，并应品牌方要求配合召回，且在第一时间启动退款。…</p><a href="https://www.leiphone.com/category/zaobao/IlrVRbBiK9Klcuj1.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>AI 交易热情降温，两只挂钩 SK 海力士的美股杠杆 ETF 将退市清算</h3><p>IT之家 10 月 26 日消息，据彭博社报道，两只挂钩 SK 海力士（SK Hynix）的杠杆 ETF，在美国上市仅仅数月后就要清盘，背后原因是市场对 AI 交易行情的投资热情降温。 Tradr ETF 发行的这两只多头和空头产品，分别跟踪这家韩国芯片厂商的美国存托凭证（ADR），提供两倍于每日表现的收益或反向收益。ETF 发行方公告显示，SKHA（2 倍多）与 SKHN（2 倍空）大约将在 11 月 12 日进行清盘。 今年，SK 海力士以及同行三星电子的股价剧烈震荡，资金在 AI 概念股里快进快出。韩国及其他地区的杠杆 ETF 会放大个股日内波动，进一步加剧行情起伏；韩国本土监管机构近期也已经收紧了这类产品的监管规则。 SK 海力士首尔上市的股票，相比历史高点已经下跌 56%。市场对 AI 热潮的乐观情绪消退，投资者开始担忧：公司为大规模基建投入背负的高额融资成本会带来压力。 这两只 Tradr ETF 于 7 月 28 日挂牌上市，距离 SK 海力士 ADR 登陆美股仅仅过去几周。ProShares、Leverage Shares、Direxion 等多家机构也都推出过挂钩 SK 海力士的同类杠杆产品。…</p><a href="https://www.ithome.com/1/017/896.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>在 Google 砍伐了上千英亩树后野狼来到芬兰的村庄</h3><p>为建造数据中心，Google 在芬兰农村砍伐了 25 万棵树木，清理了多达 1300 英亩的森林，它甚至还铲除了表层土壤。芬兰监管机构以未完成必要环评为由下令工程暂时停工，Google 芬兰高管已为此道歉。Google 砍伐森林的一个后果是由于猎物减少，狼群进入了附近的村庄寻找食物。 当地居民表示，由于森林里的野生动物全都离开了，狼进村了。Google 还在另一个数据中心选址砍伐了 15 万棵树。芬兰不是唯一一个为建造数据中心而生态系统遭到破坏的地方。美国西弗吉尼亚州的栗子树林以及印第安纳州的一处湿地都面临为数据中心让路。</p><a href="https://www.solidot.org/story?sid=85706" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Google 修改隐私条款将 Gmail 和照片数据用于个性化广告</h3><p>Google 修改了隐私政策，允许将 Gmail 和相册数据用于个性化广告。新政策于 10 月 16 日生效。新政策没有默认启用，而是声明：“我们可能还会根据您的兴趣以及您在 Google 服务中的活动或个性化内容，向您展示个性化广告，具体取决于您的设置。例如，如果在 Google 搜索中搜索“山地自行车”，您可能会在 YouTube 上看到运动装备广告...我们不会根据您在 Google 云端硬盘、Gmail 和 Google 相册中的内容向您展示个性化广告，除非您选择允许其他支持个性化广告的 Google 服务使用这些服务中的数据。”也就是如果用户不希望 Gmail 和 Google 相册中的内容被用于个性化广告需要切断关联服务，方法是：Google 账号 —— 数据和隐私设置——个性化设置——搜索服务个性化——更多个性化智能服务——关联的内容应用，切断 Google Workspace 关联。</p><a href="https://www.solidot.org/story?sid=85698" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>3 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>科大讯飞首发星辰TaaS平台，让Token真正成为千行百业的生产力</h3><a href="https://www.qbitai.com/2026/10/505083.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>国产5B生图模型海外突然爆火，4天超百万下载</h3><a href="https://www.qbitai.com/2026/10/504930.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>南京物理AI上大分！三位图灵奖得主发声，50个应用场景亮相</h3><a href="https://www.qbitai.com/2026/10/504915.html" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 09:21:41 +0000</div><h3>科大讯飞首发星辰TaaS平台，让Token真正成为千行百业的生产力</h3><a href="https://www.qbitai.com/2026/10/505083.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 09:07:25 +0000</div><h3>企业AI需要两个世界模型</h3><a href="https://www.qbitai.com/2026/10/505032.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 09:03:37 +0000</div><h3>一张5090跑起34B实时世界模型，国产玩家拿下英伟达大奖！</h3><a href="https://www.qbitai.com/2026/10/504931.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 08:50:16 +0000</div><h3>国产5B生图模型海外突然爆火，4天超百万下载</h3><a href="https://www.qbitai.com/2026/10/504930.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 08:45:43 +0000</div><h3>南京物理AI上大分！三位图灵奖得主发声，50个应用场景亮相</h3><a href="https://www.qbitai.com/2026/10/504915.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 08:40:57 +0000</div><h3>高德发布首个基于开放世界行为的全身基座模型λ0，推动机器人从“局部学习”迈向“全身动作对齐”</h3><a href="https://www.qbitai.com/2026/10/504905.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 07:35:51 +0000</div><h3>百度世界2026前瞻：10+重磅分论坛，全面解码AI时代的智能组织进化路径</h3><a href="https://www.qbitai.com/2026/10/504901.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 22 Oct 2026 09:07:05 +0000</div><h3>又一国产决策模型发布！准确率超过微软和Jev等决策模型</h3><p>10月22日，蚂蚁数科正式发布决策模型 LingDT-Decision-1.0。</p><a href="https://www.qbitai.com/2026/10/504879.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Mon, 26 Oct 2026 10:37:00 +0800</div><h3>趋境科技完成 B 轮融资，半年实现超十倍速增长，加速高品质 AI Token 规模化交付</h3><p>近日，雷峰网获悉，高品质 AI Token 生产服务商趋境科技（Approaching.AI）完成 B 轮融资，本轮融资金额超13亿人民币；今年内已累计募得24亿人民币。多项核心经营指标在半年内实现超十倍速增长，持续获得产业和资本的高度认可。 本轮融资由浙财创新、萧山资本、工银投资、中关村科学城、星连资本及钱江世纪城共同领投。云创资本、湖南高新纵横、建投华科、申万创新投、中信聚信、珠海科技产业集团、商汤科技、网宿科技、甘肃树帜、常金控、元智未来、清证星竹、小咖资本等跟投，老股东尚势资本继续追投。 这是继今年 7 月完成 A 轮融资后，趋境科技短期内再获大额融资。截至今年10月，趋境科技已在 2026 年连续完成多轮融资。密集的资本跟进背后，既反映出市场对 AI 基础设施赛道长期价值的共识，更源于投资人对趋境科技战略聚焦、技术领先和商业化交付成绩等综合实力的肯定——过去半年，趋境科技不但全面跑通了从技术架构到规模化商业交付的全链路，更是持续引领推理行业的技术演进，以技术创新推动了国产算力的性能大跃升。 本轮募集的资金将重点投向高品质 AI Token 产能扩张、ATaaS（Approaching.AI Token as a…</p><a href="https://www.leiphone.com/category/yanxishe/upPcOw2EaMaw2Otv.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 24 Oct 2026 16:49:00 +0800</div><h3>支付宝AI支付发起年度黑客松大赛，邀开发者把AI创意变成生意</h3><p>从 Vibe Coding 到 Skill、Agent，AI 正打开新一轮创业窗口：一个人也能打造应用，一项技能也能成为产品。随着创作与开发门槛降低，新的机会正在浮现——让自己做出的 AI 产品，成为用户愿意付费的生意。 面向这股浪潮，10月24日，支付宝AI支付联合观猹发起“PAYATHON 2026”年度黑客松，邀请开发者带着应用、Skill 或 Agent 参赛：接入支付，把创意推向真实市场，争夺 20 万元总奖池。报名截至12月1日，线下决赛将于12月26日举行。 这场黑客松不只比创意与技术，更看产品在真实交易中的价值。这也是支付宝AI支付“开发者为先”产品战略的重要举措：通过持续降低AI产品的商业化门槛，让开发者更少为收款、交付与定价发愁，让好项目更快变成好生意。 五大赛道，把作品推向市场 一个独立应用、一项 Agent 技能，都可以成为参赛的起点。本次大赛面向个人开发者与团队，设置五大赛道：应用、技能两大主赛道，以 Vibe Pay、Skill Pay 为核心；围绕Token Pay、Machine Pay 与 Agent Pay，重点探索按量付费、连续订阅以及机器与智能体之间的交易场景。…</p><a href="https://www.leiphone.com/category/industrynews/ykWM8XAjpHi0biY1.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 24 Oct 2026 16:37:00 +0800</div><h3>行业第一！百度健康AI服务MAU超5000万，发布好医矩阵和健康相机</h3><p>10月24日，百度健康宣布升级文心健康管家，发布「好医矩阵」和「健康相机」。其中好医矩阵包括“好医答、好医加号、好医说、好医榜、好医评”等多项功能，进一步实现AI+真人医生在线问诊与线下就诊等全流程医疗服务的闭环；而全网首发的健康动态视频识别的健康相机，除了支持打字、方言语音、拍照，还支持用户拍摄视频上传、边拍边说等全模态输入的交互方式，进一步降低用户描述健康问题的门槛。 百度健康总经理杨明璐 表示，AI在医疗领域的发展价值，不仅要看服务了多少用户，更要看能否为每一个生命的负责。百度健康持续投入「AI+真人」模式，让诊疗的决定权始终掌握在专业医生手中，赋能但不替代，辅助但不主导，让健康的每一步都有医靠。 发布会上， 中国工程院院士、中国抗癌协会理事长樊代明 分享了《中国肿瘤整合诊治指南》（CACA指南）的研制推广成果，以及协会在肿瘤科普、医学文化建设方面的工作。他提出，AI是医学普惠的放大器：依托百度AI打造的CACA Bot，把厚重的指南变成医患随手可查的工具，让前沿医学触手可及、可信可用。但医学事关生命，AI只可拓展能力边界，不能替代医生判断。人机协同才是正道——AI赋能医学，医生为生命负责。…</p><a href="https://www.leiphone.com/category/industrynews/RRFr9U8GKWjNNxfH.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 24 Oct 2026 10:44:00 +0800</div><h3>iRTE2026：对话 AI 如何迈向 AGI？声网CEO赵斌给出五级对话能力框架</h3><p>10月23日，iRTE2026实时智能大会在北京举行。声网创始人兼 CEO 赵斌在主论坛发表题为《对话 AGI：实时互动的下一章》的演讲，回顾了过去一年实时互动、对话式 AI 与底层基础设施的关键变化，并提出“五级对话能力”框架，勾勒对话式 AI 从基础应答走向深度理解与关系沟通的演进路径。 赵斌认为，随着 AI 从回答问题走向持续交流、理解上下文并执行任务，实时互动的对象正在从人与人扩展到人与 Agent。实时互动技术的角色也随之延伸：它不仅要让信息传递更稳定、更流畅，还要为 AI 的感知、理解、表达与行动提供实时支撑。 从“问一句答一句”到深度关系沟通：对话 AGI 的五级进化 在赵斌看来，对话式 AI 的进步，不应只用回答速度、语言自然度来衡量。更重要的是，它能否理解对话对象的意图、处境与关系，能否在复杂场景中恰当地表达，并逐步形成长期、深入的理解。 围绕这一判断，赵斌在演讲中提出了 “五级对话能力”框架 ，将对话能力划分为五个层次： L1： 基于自身视角的表达：以自我表达和被动接续为主，实现“问一句、答一句”。 L2： 基于互动规律的表达：从被动回应走向主动表达，让对话更自然、连贯。 L3：…</p><a href="https://www.leiphone.com/category/industrynews/nwy00TZXQdwJcSka.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 20:20:00 +0800</div><h3>钛动科技发布行业首个Pro-Agent, Navos Pro定义结果导向的AI for Work | TGC 2026科技增长大会</h3><p>10 月 23 日，以 “ AI is Profitable ” 为主题的 2026 TGC 科技增长大会于广州召开。 面向AI for Work数万亿美元级蓝海市场，全球领先的AI营销科技公司钛动科技，在会上正式发布行业首个 Pro Agent ——Navos Pro。Navos Pro以 Professional、Proactive、Profitable 三大核心属性构建产品内核，让结果导向（Result-Driven）的 AI for Work成为现实，持续推动 AI 成为企业全球增长与生产力变革的核心引擎。 【Kevin Knight博士开场演讲】 本次大会由国际AI泰斗 Kevin Knight 博士领衔开场演讲，发言嘉宾汇聚 OpenAI、Google、阿里、字节、腾讯等全球 AI 科技公司，凝聚一个核心共识：“科技创造增长”产业新周期开启，AI 商业价值必须由真实业务指标验证。 Kevin Knight博士在《From Language to Action: The Next Leap in AI》开场演讲中，结合学术与产业双重视角给出判断：AI for Work 将成为 AI 应用最重要的方向之一。…</p><a href="https://www.leiphone.com/category/industrynews/sf7R7WgzGyvZwKLa.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 19:16:00 +0800</div><h3>宁德时代董秘被打？知情人士回应；怕担责先跑路？娃哈哈集团董事长许思敏离职；DeepSeek完成近1000亿元融资，宁德时代、腾讯参投</h3><p>要闻提示 1.不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 2.宁德时代董秘被打？知情人士回应 3.怕担责先跑路？娃哈哈集团董事长许思敏离职 4.DeepSeek完成近1000亿元融资，宁德时代、腾讯参投 5.原“死了么”APP公布收费标准，创始人回应：最高收费199元/年，由政府集中采购 6.字节Seed招聘具身岗位：55K 起薪，招募数采与本体人才 7.顺风车订单留言暗藏涉黄暗语！哈啰回应 8.马斯克谈FSD入华进展：积极争取批准，中国本土车企竞争太激烈 今日头条 不少备孕人群购买！“好健康”牡蛎精被海关检出污染物，山姆紧急召回 10月21日，多名网友发布消息称，收到山姆超市发来的召回信息，对“好健康”牡蛎精胶囊的部分批次商品进行召回。对此，山姆客服表示，近期海关在进口商品抽检中，发现标称新西兰、澳大利亚“好健康”品牌的牡蛎精胶囊检测异常。目前应海关风险提示要求对商品下架，并应品牌方要求配合召回，且在第一时间启动退款。…</p><a href="https://www.leiphone.com/category/zaobao/IlrVRbBiK9Klcuj1.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 18:57:00 +0800</div><h3>Kimi K3.1 泄露：3D 成本仅有 GPT-6 Astra 的 1/14！横扫海外视觉三巨头</h3><p>15 分钟交付工业级可交互3D 资产，重写视觉大模型的“理科生法则” 作者丨 高 允 毅 编辑丨岑 峰 刚刚，Kimi 官方发布了一段“极具暗示性”的先导片，各种高能科学画面与粒子特效快速切换，有眼尖的网友已经捕捉到画面中的彩蛋“Kimi K3.1”。 Kimi K3.1 要来了？ 这次它带着 极强的视觉效果 来了，有网友指出官方视频就是 Kimi K3.1 做的。 图注：眼尖的网友在画面中找到了亮点“Kimi K3.1” AI 博主 Chris 不仅肯定了即将发布的消息，而且表示他已经实测了一周。他透露， Kimi K3.1在开源 3D 图形库 Three.js 上表现出色，而且这个模型的成本只有 Kimi K3 的 70%，Token 效率全面升级 。 从 Chris 晒出的实测画面中，可以看到 Kimi K3.1 跑完了一整套 24 小时昼夜环境模拟，从晨光漫射到夜幕沉落，光影过渡帧级精准，环境细节随光线同步流转，全程丝滑无断点。 要知道，Three.js 编写的程序是非常消耗资源的，因为它需要实时计算 3D 空间中的顶点、光影和纹理。而 Kimi 这波相当于用纯代码跑出了渲染级画质。 01…</p><a href="https://www.leiphone.com/category/yanxishe/PZo9w14YeFSo4jmf.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 18:43:00 +0800</div><h3>从技术首创到规模上车，华为乾崑车载激光投影以金辑奖印证技术领先</h3><p>10月23日，在盖世汽车主办的第八届金辑奖颁奖盛典上，HUAWEI XSCENE 华为乾崑车载激光投影凭借在智能座舱视听领域的技术突破与规模化商用落地，荣膺“金辑奖·2026最佳技术实践应用奖”。 过去几年，智能座舱视听解决方案的竞争一度集中在屏幕数量、芯片算力与配置清单的堆叠上；而今天，市场的天平正从“有没有”转向“好不好用”，用户的体验成为检验技术价值的最终标准。由汽车产业全媒体平台盖世汽车发起的“金辑奖·最佳技术实践应用奖”，旨在寻找和表彰真正具有产业价值和全球潜力的创新成果。这意味着获奖的不是实验室里的概念或专利，而是一套装进量产车、被真实用户使用的解决方案。 凭借领先光学技术，华为乾崑车载激光投影打破座舱空间边界，为消费者提供超越期待的智能化全新体验，并以可量产、可复制的整车级适配能力，为搭载车型塑造差异化竞争力。华为乾崑车载激光投影荣获“金辑奖·最佳技术实践应用奖”，充分展示了其行业领先的技术与规模化商用能力。 以硬核参数树立标杆，率先跑通车载投影的“好用”之路…</p><a href="https://www.leiphone.com/category/industrynews/nBef7qz74xPmuw5X.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 18:15:00 +0800</div><h3>覆盖存、拣、运全场景，海康机器人2026移动机器人新品发布会举行</h3><p>深耕制造业一线十余年，海康机器人以AI为全业务基座，业务覆盖机器视觉、移动机器人、关节机器人与具身机器人，通过1000余个细分应用场景的落地，沉淀了扎实的技术能力与丰富的场景经验。 10月23日，海康机器人以“全链·进化”为主题，举办2026移动机器人新品发布会暨CeMAT预展专场，聚焦“存、拣、运”全流程，发布箱式方案全新升级并推出“明智”系列单体智能产品，构建覆盖箱式存拣与搬运配送的厂内物流全链路解决方案。 上半场：箱式存拣持续进化 箱式货到人拆零拣选是流通仓储领域需求最大、技术创新最活跃的领域之一，库容与效率难以兼顾、项目交付质量参差不齐，是行业长期面临的共性挑战。 本次发布会上半场，海康机器人围绕箱式存拣完成系统升级——STRP高效高密箱式存拣方案持续迭代，HAPS智能拣选系统破解拣选自动化难题，全场景数字化平台则让方案规划与项目交付更加标准、可复制，共同推动箱式仓储的全链路进化。 运行模式升级：更少设备，更高吞吐 在效率提升上，海康机器人升级了方案内STU料箱机器人与T50潜伏机器人的分工模式：STU承接巷道内全程任务，T50仅在巷道口缓存位接驳，任务链距离缩短50%以上。…</p><a href="https://www.leiphone.com/category/robot/h4vGHMyQ6b8drzy6.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 23 Oct 2026 16:32:00 +0800</div><h3>从“算力”到“Token 生产力”，硅基流动助力央国企大模型规模化落地</h3><p>在企业网 D1net 主办的 2026 秋季央国企 CIO 及数科公司高管峰会（第 19 届）上，硅基流动解决方案总监唐安波出席峰会并作主题分享：《从“算力”到“Token 生产力”：央国企大模型规模化落地的推理基础设施与 ROI 实践》。以下为分享内容精华。 当下，AI 应用正处于爆发式增长的早期阶段，Token 消耗量呈指数级增长。这背后，模型架构持续演进，版本更新节奏快速；同时，算力架构也在不断演进。模型与算力之间，是相互推动的迭代过程。对于企业来说，一方面要适配这些变化，另一方面又要面向自己的业务场景提供多元化模型服务，还要把成本控制在合理范围内。 硅基流动在做的事，就是打通从算力到 Token 之间的转化层：把算力统一纳管起来；通过自研推理引擎，让模型跑得更快、更好。我们既在公有云端建设 Token 工厂，也帮助央国企在内部打造自己的 Token 工厂。 简言之，通过系统化的推理工程，做好模型与算力的多重适配。基于此，硅基流动提出 Token 生产力核心公式： Token 生产力 = 产能 × 利用率 × 交付质量…</p><a href="https://www.leiphone.com/category/industrynews/DVoE94j80j6cboxE.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><h3>[解析失败] https://36kr.com/feed</h3><p>not well-formed (invalid token): line 10, column 168</p></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Mon, 26 Oct 2026 07:54:18 GMT</div><h3>VGN 联名腾讯天美工作室 V98Pro V4 TiMi 限定款机械键盘发售：带有小云仔发声键帽按钮，首发价 419 元</h3><p>IT之家 10 月 26 日消息，VGN 联合腾讯天美工作室推出的 V98Pro V4 TiMi 限定款机械键盘现已在京东发售，该键盘采用云朵轴，使用天蓝色外观，首发价 419 元。 京东 VGN V98Pro V4 TiMi 限定款机械键盘 419 元 直达链接 该键盘主体采用了清新的天蓝色外壳，搭配定制云朵图案印花键帽及一颗联名小云仔发声键帽按钮，按下时会发出“TiMi”的声音。该键盘还配备了 V-Display 情绪屏，支持输入交互模式和用户自定义图案。 性能和规格方面，该键盘采用了 98 配列（100 键）设计，重量约 1132g±50g。键盘采用了 Gasket 结构，并进行了消音填充，搭配 PC 横向开槽定位板和 FR-4 单键开槽 PCB，全键支持热插拔，并且全键无冲。 该键盘支持有线、2.4G 和蓝牙三模连接，其采用 VGN 全自研的“破阵”方案，支持原生双 8KHz 回报率，并具备全链路频段智能调控以增强抗干扰能力。键盘内置 10000mAh 容量电池，最长续航可达 347 天。 IT之家附产品参数： 京东 11.11 无门槛红包 面额至高 26888 元，每天抽 3 次： 点此抽红包 。 淘宝…</p><a href="https://www.ithome.com/1/017/939.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 26 Oct 2026 07:52:24 GMT</div><h3>Seedance 核心研发负责人周畅被曝离职？接近字节人士否认</h3><p>IT之家 10 月 26 日消息，据澎湃新闻消息，近日有传闻称，字节 Seed AI 研发核心负责人之一周畅已经提出离职。消息人士称，周畅将会开启创业，或为具身智能相关，并已获各知名基金、大厂战投、头部大模型独角兽积极接触。 接近字节人士今日回应称， 周畅没有离职 。 IT之家查询互联网公开资料获悉，周畅 2012 年本科毕业于复旦大学计算机科学与技术专业，2017 年博士毕业于北京大学计算机软件与理论专业，随后加入阿里巴巴，花名“钟煌”，曾任通义千问大模型的技术负责人，曾和团队推出一系列语言模型、多模态模型。 2024 年 8 月，周畅加入字节跳动，从事 AI 大模型相关工作，现任字节跳动豆包大模型视觉多模态生成方向负责人。</p><a href="https://www.ithome.com/1/017/938.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 26 Oct 2026 07:46:55 GMT</div><h3>研究：人类更喜好拟人形象 AI 智能体，但也存在“性别”偏见</h3><p>IT之家 10 月 26 日消息，爱尔兰利默里克大学研究人员在本月初发布的一篇研究论文中指出，在一项涉及 189 位知识工作者的实验中， 人类更喜好拟人形象 AI 智能体 ， 但也存在“性别”偏见 。 参测者在一个虚拟办公室中同 3 个基于相同底层模型的智能体同事协同完成工作。三位虚拟同事分别以文本聊天窗口、虚拟小机器人、拟人形象出现，其中拟人形象分为女性的 &quot;Johanna&quot; 和男性的 &quot;Johan&quot; 两个版本。受测者在智能体协同办公后对每位 AI 助理进行评分，并根据其表现分配后续开发资源。 图源：Pexels 结果显示，拟人形象比那些更像机器人的智能体获得了更高的信任、信用和“薪酬”；&quot;Johanna&quot; 和 &quot;Johan&quot; 在信任与信用上的表现无显著差异， 但女性化的 &quot;Johanna&quot; 得到的“薪酬”仍在统计学上明显明确低于其男性“同事” ，尽管多数受采访的参测者并不认为虚拟的“性别”会影响其反馈。 其它值得注意的情况包括：文本聊天窗口与虚拟小机器人在信任度和信誉度评分上相当、&quot;Johann&quot; 的类人度评分显著低于 &quot;Johan&quot;、参测者在形象上更偏好 &quot;Johann&quot; 作为 AI 助手。 参考…</p><a href="https://www.ithome.com/1/017/937.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 26 Oct 2026 07:42:25 GMT</div><h3>大众中国在合肥获得 L3 级自动驾驶道路测试牌照</h3><p>IT之家 10 月 26 日消息，大众汽车集团（中国）已在合肥正式获得 L3 级自动驾驶道路测试牌照，并已在合肥启动 L3 级技术的真实道路测试与数据采集。 本次获牌是集团推进高阶自动驾驶落地的关键节点，标志着集团向 2027 年实现 L3 级自动驾驶技术就绪迈进的又一重要进展。2026 年 10 月 28 日，首届大众汽车集团（中国）技术日将在合肥举行，集中展示最新技术进展。 IT之家注意到，4 月 11 日，智能电动汽车发展高层论坛在北京举办，大众汽车集团执行副总裁、CARIAD 中国首席执行官韩三楚表示：智能化是用户选择要素，大众汽车围绕中国用户核心诉求，快速构建开发和迭代的能力。 大众汽车将于 2027 年实现 L3 级有条件自动驾驶 ，2029 年实现 L4 级自动驾驶。 地平线与大众汽车集团今年 7 月宣布，通过 CARIAD 与地平线的合资公司酷睿程 (CARIZON) ，大众汽车集团将进一步深化与地平线在 AI 基座大模型领域的技术合作。按照规划，大众汽车集团 L3 级自动驾驶能力最快将于 2027 年下半年启动交付。</p><a href="https://www.ithome.com/1/017/935.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 26 Oct 2026 07:19:58 GMT</div><h3>首页壁纸被替换为游戏海报：微软 XBOX 游戏机强推《使命召唤：现代战争 4》广告引发玩家不满</h3><p>IT之家 10 月 26 日消息，微软此前在 XBOX 平台推出大型第一方游戏时偶尔会在主界面投放宣传广告，然而随着《使命召唤：现代战争 4（Call of Duty：Modern Warfare 4）》于 10 月 23 日发售，微软本次营销更加猛烈， 将用户游戏机首页背景直接替换为了游戏广告 ，引发用户不满。 综合 Windows Central 报道，微软在本次营销活动中，擅自替换了用户本身为 XBOX 设置的自定义壁纸。许多用户表示，即使理解微软需要为新游戏进行宣传，也不希望广告未经同意便覆盖自己的个性化设置。 目前，用户只能手动关闭这一广告。具体办法为依次进入“设置”&gt;“常规”&gt;“个性化”&gt;“我的背景”，取消勾选“显示活动主题背景”，以避免系统继续自动应用与活动相关的背景。 IT之家注意到，XBOX 新任首席战略官 Matthew Ball 此前也曾表达过通过增加广告收入缓解游戏行业成本压力的观点。他认为，如今许多游戏的开发成本已经高得难以持续上涨，而消费者又不愿意支付更高价格，行业需要寻找其他收入来源，广告可能成为其中一种解决方案。 至于《使命召唤：现代战争…</p><a href="https://www.ithome.com/1/017/923.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 26 Oct 2026 06:54:35 GMT</div><h3>消息称某厂 2027H1 影像旗舰评估阔屏，预计华为旗下</h3><p>IT之家 10 月 26 日消息，据博主 @数码闲聊站 今日爆料，某厂 2027H1 影像旗舰在评估阔屏，据我摸到的工程机信息，标准版继续用 6.6 英寸中屏， Pro / Pro Max 换阔屏 ，尺寸还是 6.39 英寸左右，定义全能阔屏影像旗舰。结合该博主此前的爆料习惯，该产品预计为华为旗下。 据该博主此前透露，华为阔直板手机有多产品线布局的动作，n 中端线（预计指 nova 产品线）也在评估阔直板中。有网友询问 Mate 系列是否会推出阔直板形态手机，博主表示：“Mate 暂时没有这个计划。” 据IT之家此前报道， 全球首款阔直板手机 —— 华为 Pura X View 已于 9 月 7 日正式上市 ，正面配备一块 6.39 英寸 2232×1320 分辨率 16:9.5 比例面板 。该机围绕阔屏形态开发了阔感观剧、阔感阅读、阔感游戏和阔感办公等场景化体验，出厂预装鸿蒙 HarmonyOS 7 系统。此外，该机搭载麒麟 9030S 处理器，定价 5999 元起。</p><a href="https://www.ithome.com/1/017/908.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 26 Oct 2026 06:50:32 GMT</div><h3>华为余承东预热 2026 央视鸿蒙星光盛典：致敬每一位生态建设者，也感谢所有用户一路相伴</h3><p>IT之家 10 月 26 日消息，央视频今日宣布，2026《鸿蒙星光盛典》将于 12 月 5 日在深圳湾体育中心“春茧”体育场举办，共同见证鸿蒙应用体验进入成熟好用阶段。 IT之家注意到，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东刚刚发文，预热了 2026 央视鸿蒙星光盛典： 共赴星光之约，期待 2026 央视鸿蒙星光盛典， 致敬每一位生态建设者，也感谢所有用户一路相伴 。 据IT之家此前报道，10 月 1 日，在华为 Mate 90 系列及全场景新品发布会上，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东曾宣布， 鸿蒙 HarmonyOS 6 | HarmonyOS 7 终端设备数突破 9000 万 。华为轮值董事长徐直军曾表示， 预计今年第四季度会突破 1 亿用户 。 去年的总台大型直播晚会《鸿蒙星光盛典》最初定档 11 月 28 日，后因香港新界大埔屋邨宏福苑多栋住宅楼发生火灾，原定 11 月 28 日晚的活动延迟举办，并最终在 12 月 20 日采取录播的形式进行播出。</p><a href="https://www.ithome.com/1/017/905.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 26 Oct 2026 06:37:23 GMT</div><h3>Epic 喜加一：狼人杀推理游戏《MAFIA HOTEL》免费领</h3><p>IT之家 10 月 26 日消息，由独立开发商 ALMNHALI 开发并发行的狼人杀推理游戏《MAFIA HOTEL》即日起在 Epic Games Store 开放限时免费领取“喜加一”活动， 本作在 Epic 国区定价为 6 元，玩家可以在北京时间 11 月 2 日 01:02 前免费领取 。 需要注意的是，本次限免并非 Epic 官方活动，而是由开发团队自行发起的特别促销，IT之家附游戏商品页（ https://store.epicgames.com/p/mafia-hotel-eaea4c ? ）。 顾名思义，《MAFIA HOTEL》以酒店为舞台。白天，所有玩家会聚集在酒吧自由讨论，互相质疑对方是否为黑手党成员。玩家可以像在传统狼人杀游戏中一样提出指控、为自己辩护，也能谎报身份，试图误导其他人。 本作最多支持 16 名玩家联机游玩。游戏结合了类似狼人杀的身份推理玩法与第一人称视角的夜间追杀，玩家需要通过交谈、说谎、指控和投票，找出隐藏在人群中的黑手党成员。…</p><a href="https://www.ithome.com/1/017/899.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 26 Oct 2026 06:24:50 GMT</div><h3>AI 交易热情降温，两只挂钩 SK 海力士的美股杠杆 ETF 将退市清算</h3><p>IT之家 10 月 26 日消息，据彭博社报道，两只挂钩 SK 海力士（SK Hynix）的杠杆 ETF，在美国上市仅仅数月后就要清盘，背后原因是市场对 AI 交易行情的投资热情降温。 Tradr ETF 发行的这两只多头和空头产品，分别跟踪这家韩国芯片厂商的美国存托凭证（ADR），提供两倍于每日表现的收益或反向收益。ETF 发行方公告显示，SKHA（2 倍多）与 SKHN（2 倍空）大约将在 11 月 12 日进行清盘。 今年，SK 海力士以及同行三星电子的股价剧烈震荡，资金在 AI 概念股里快进快出。韩国及其他地区的杠杆 ETF 会放大个股日内波动，进一步加剧行情起伏；韩国本土监管机构近期也已经收紧了这类产品的监管规则。 SK 海力士首尔上市的股票，相比历史高点已经下跌 56%。市场对 AI 热潮的乐观情绪消退，投资者开始担忧：公司为大规模基建投入背负的高额融资成本会带来压力。 这两只 Tradr ETF 于 7 月 28 日挂牌上市，距离 SK 海力士 ADR 登陆美股仅仅过去几周。ProShares、Leverage Shares、Direxion 等多家机构也都推出过挂钩 SK 海力士的同类杠杆产品。…</p><a href="https://www.ithome.com/1/017/896.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 26 Oct 2026 05:38:51 GMT</div><h3>全国多所财经高校布局“AI + 财经”</h3><p>IT之家 10 月 26 日消息，据央视新闻今日报道，为推动财经教育数智化转型， 全国多所财经高校积极布局“AI+ 财经” ，探索 AI 赋能财经教育和研究转型升级。 在首都经济贸易大学，新成立的智能经济研究院正在对“融创智谷”平台进行升级。这是学校重点打造的“算力 — 算法 — 数据”一体化底座，通过统筹全校算力、共享数据资源，面向全校人才培养、科学研究和智库服务三类场景开放。 依托这一底座，学校持续推动教学方式和课程设置调整。 各学院可开发自己的垂类大模型和智能体，给不同专业配备不同的“智能助手” 。在人工智能学院的“词元经济”课堂，教学不再主要依托教材案例和历史数据，而是引入实时数据和智能交互，学生围绕真实经济问题开展实训。 同时，学校新成立的未来商学院、数字经济学院，也在借助 AI 重构人才培养模式，培养适应智能经济发展的复合型财经人才。…</p><a href="https://www.ithome.com/1/017/877.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 26 Oct 2026 04:59:05 GMT</div><h3>Gartner 调研显示：44% 的 CEO 难以证明 AI 的财务回报</h3><p>IT之家 10 月 26 日消息，商业与技术洞察公司 Gartner 调研显示，44% 的首席执行官（CEO）难以向利益相关方证明 AI 带来的财务回报。但他们并未因此放弃技术投资，而是希望借助 AI 与技术，重新设计企业机构的运营、竞争与增长方式。 Gartner 于 2026 年 4 月至 5 月开展了“2027 年 Gartner CEO 调研”，覆盖全球 203 位 CEO 及企业高管。调研发现，62% 的受访者将营收与业务增长列为首要战略业务事项之一，75% 的受访者计划增加技术投资。 技术已成为核心战略技术正日益决定企业的战略选择空间。80% 的 CEO 表示，技术本身已然成为战略，使技术决策成为企业关于增长、竞争力与发展方向讨论中的核心议题。 与此同时，CEO 正面临巨大变革。93% 的受访者预计，到 2027 年，经济波动将对企业战略业务目标产生高或中程度的影响；79% 的受访者预计持续冲突将产生同等程度的影响；77% 的受访者则预计 AI 产业化也将带来该等级的影响。而对上述变革的应对就绪度却明显较低，分别为 24%、11% 和 20%。 IT之家注意到，CEO 还指出，要实现更高的 AI…</p><a href="https://www.ithome.com/1/017/843.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 26 Oct 2026 04:53:01 GMT</div><h3>小米开源硬件 HachimoDock 亮相，150 元就能复刻万能 AI 桌宠</h3><p>10 月 26 日中午消息，2026 观猹大会期间，由小米技术委创新产品团队孵化的开源 AI 硬件 HachimoDock 亮相 —— 这是一台可由用户按个人喜好自由改造的桌面 AI 设备，小巧机身集成了个性化桌宠、语音操控电脑端 Agent、智能家居联动、自定义组件创作等能力。 据介绍， HachimoDock 硬件自制成本约 150 元 。团队希望以此降低 AI 硬件的体验门槛，让它成为大众入门 Vibe Coding 的第一台 AI 硬件，体验用自然语言去“创造”一台万能桌面搭子的乐趣。 这台设备的功能不止于此： 用户说出想法，即可与 AI 协作，现场生成并运行新的组件 。基于这一开放机制，它既可以是快捷语音输入的麦克风、内置万款游戏的小游戏机、收听 FM 电台的小收音机，也可以是查看 AI 任务进展与电脑状态的桌面副屏、联动智能家居的桌面中控…… 更多玩法，留给每位用户亲手创造。 用户可以通过语音直接与桌宠进行互动，它会将用户意图转化为各类任务派发给电脑端 Codex、WorkBuddy 等各类 Agent，例如查资料、整理文件、编写代码等，同时 HachimoDock…</p><a href="https://www.ithome.com/1/017/842.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Mon, 26 Oct 2026 00:16:11 +0800</div><h3>在 Google 砍伐了上千英亩树后野狼来到芬兰的村庄</h3><p>为建造数据中心，Google 在芬兰农村砍伐了 25 万棵树木，清理了多达 1300 英亩的森林，它甚至还铲除了表层土壤。芬兰监管机构以未完成必要环评为由下令工程暂时停工，Google 芬兰高管已为此道歉。Google 砍伐森林的一个后果是由于猎物减少，狼群进入了附近的村庄寻找食物。 当地居民表示，由于森林里的野生动物全都离开了，狼进村了。Google 还在另一个数据中心选址砍伐了 15 万棵树。芬兰不是唯一一个为建造数据中心而生态系统遭到破坏的地方。美国西弗吉尼亚州的栗子树林以及印第安纳州的一处湿地都面临为数据中心让路。</p><a href="https://www.solidot.org/story?sid=85706" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 24 Oct 2026 21:50:21 +0800</div><h3>为让数据中心有充足电力 Google 将付钱给其他人少用电</h3><p>Google 正资助美国规模最大的虚拟电厂项目。该项目通过向家庭和企业提供经济激励，鼓励他们在电力需求高峰期间减少用电量，从而为数据中心提供更多的电网容量。该项目有望在中大西洋地区的 PJM 电网提供 1070 MW 的电力容量——相当于一座大型核反应堆的输出电力。很多削减用电量措施能自动执行，如利用智能恒温器在夏季用电高峰期调低空调运行强度，或者通过电池系统提供临时电力。与 Google 合作的能源服务公司 Voltus 表示，通过聚合成千上万家企业和家庭的用电，该项目能在最需要用电的时候可靠提供大量额外电力容量，而且能在几年内实现。尽管科技公司若想持续建设大型数据中心，最终仍需建造传统的发电厂，但在过渡阶段虚拟电厂方案不失为一种更快捷、更经济且污染更少的选择。</p><a href="https://www.solidot.org/story?sid=85701" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 24 Oct 2026 20:53:21 +0800</div><h3>Google 修改隐私条款将 Gmail 和照片数据用于个性化广告</h3><p>Google 修改了隐私政策，允许将 Gmail 和相册数据用于个性化广告。新政策于 10 月 16 日生效。新政策没有默认启用，而是声明：“我们可能还会根据您的兴趣以及您在 Google 服务中的活动或个性化内容，向您展示个性化广告，具体取决于您的设置。例如，如果在 Google 搜索中搜索“山地自行车”，您可能会在 YouTube 上看到运动装备广告...我们不会根据您在 Google 云端硬盘、Gmail 和 Google 相册中的内容向您展示个性化广告，除非您选择允许其他支持个性化广告的 Google 服务使用这些服务中的数据。”也就是如果用户不希望 Gmail 和 Google 相册中的内容被用于个性化广告需要切断关联服务，方法是：Google 账号 —— 数据和隐私设置——个性化设置——搜索服务个性化——更多个性化智能服务——关联的内容应用，切断 Google Workspace 关联。</p><a href="https://www.solidot.org/story?sid=85698" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      <section class="section-card" id="errors"><div class="section-head"><h2>抓取异常</h2><span>不影响当期页面生成</span></div><ul class="error-list"><li class="error-item"><strong>36氪</strong><span>[解析失败] https://36kr.com/feed</span><em>not well-formed (invalid token): line 10, column 168</em></li></ul></section>
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>
