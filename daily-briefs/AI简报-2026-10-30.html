@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-10-30</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      <a class="toc-link" href="#errors">抓取异常</a>
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-10-30</span>
+          <span>16:52（北京时间）</span>
+          <span>IT之家、Solidot、量子位、雷锋网</span>
+        </div>
+        <p class="hero-copy">10月30日，AI 动态集中在模型能力、企业级基础设施与具身智能落地三条线：Claude 新模型曝光，Google DeepMind 发布世界模型 Genie 4 并与 Gemini 3.8 Flash 协同；阿里云面向国际市场发布新版飞天企业版，国家超算互联网下调模型调用价格；机器人方面，瞬恒智能人形机器人完成小批量交付，卓驭切入商用车智驾。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>37</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>4</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>1</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>16</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>13</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>7</strong></div><p>基础设施的效率叙事持续升温</p><small>IT之家、雷锋网</small></article><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>6</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>6</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>IT之家、Solidot、量子位</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>5</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>5</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>IT之家、Solidot、雷锋网</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>大模型与智能体能力继续外扩</h3><p>Claude 新模型曝光，STEPX Neo 发布两周即升级，Genspark 上线视频 Agent；Google DeepMind 发布 Genie 4，由 Genie 4 生成可交互世界、Gemini 3.8 Flash 负责任务观察与计划调整，显示模型分工与智能体协作成为产品化方向。</p></article><article class="insight-card"><h3>云与算力基础设施向企业级 AI 倾斜</h3><p>阿里云在国际云栖大会发布飞天企业版 v3.18，提供可信 AI 云方案，已在全球 20 余个国家和地区本地化部署；国家超算互联网调价，推出模型 token 秒杀与夜间免费权益，指向降低 AI 研发与调试成本。</p></article><article class="insight-card"><h3>具身智能与智驾进入交付和商用阶段</h3><p>瞬恒智能 SynDexy C1 完成小批量交付，进入消费电子与电子元器件工厂精密装配工序；卓驭发布商用车智驾方案“磐行”，PDS 4 已量产并面向重卡干线物流；清华联合无问芯穹、智元提出具身智能规模化落地路径。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>企业级 AI 云与超算调价同步推进，模型调用和调试成本下降，有利于中小团队扩大试验与部署。</li><li>Genie 4 与 Gemini 3.8 Flash 的组合表明世界模型正与任务规划模型协同，游戏、仿真与交互内容生成是直接受影响场景。</li><li>人形机器人从研发验证走向小批量工程交付，精密装配成为首批落地工序，商业化节奏仍需观察。</li><li>商用车智驾方案强调回本周期，说明智驾供应商正从乘用车向重卡、客车等运营场景寻找增量。</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>Claude 新模型后续正式发布信息与可用性</li><li>Genie 4 在游戏引擎、仿真训练中的实际接入案例</li><li>阿里云飞天企业版海外部署进展</li><li>国家超算互联网调价后的模型调用量变化</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>16 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>Claude新模型曝光：新Fable，新Opus…</h3><a href="https://www.qbitai.com/2026/10/506674.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>STEPX Neo 发布两周即迎首次升级，智能体能力持续释放</h3><a href="https://www.qbitai.com/2026/10/506554.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>奥特曼和Dario同台唱rap！Genspark新视频Agent上线，零基础也能拍短剧</h3><a href="https://www.qbitai.com/2026/10/506478.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>阿里云发布新版飞天企业版，支持海外客户升级企业级AI能力</h3><p>10月29日消息，阿里云在国际云栖大会上发布面向国际市场的新版飞天企业版（Apsara Stack International v3.18），提供可信AI云解决方案，支持全球政府、运营商及大型企业升级AI基础设施。目前，飞天企业版已在全球20余个国家和地区实现本地化部署。 随着AI加速应用于政务、金融、医疗等关键领域，海外机构及大型企业对AI需求增长的同时，也对数据、模型和云平台的自主可控提出了更高要求。新版飞天企业版为此提供80余项全栈云服务，延续100%本地部署、完全断网独立运行等优势，并进一步整合专有模型、私域知识库和Agent能力，通过芯片、云平台与模型的联合优化提升AI计算效率，配套AI原生运营管理及7×24小时全球技术支持，降低自主运营门槛。 目前，飞天企业版及阿里云相关AI技术已应用于亚洲、欧洲、非洲、拉美等多个市场，覆盖政府、金融、医疗及大型国际赛事等领域。 作为奥林匹克全球合作伙伴，阿里云将为10月31日开幕的2026年达喀尔青奥会提供本地专有云服务，通过双可用区高可用架构，支持赛事票务及相关数字化运营系统。这也是飞天企业版专有云首次应用于奥林匹克赛事。…</p><a href="https://www.leiphone.com/category/industrynews/52mMRkhA2aqlY1FL.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>卓驭发布“磐行”智驾解决方案：切入商用车市场，一年可回本</h3><p>10月29日晚，智能驾驶方案商卓驭科技正式发布商用车智能辅助驾驶解决方案“卓驭磐行”，并公布了商用重卡、客车、轻卡、ROBOVAN等业务进展。 此次卓驭磐行分为PDS 4和PDS 5两个版本。 PDS 4对应高悟性大模型4.0及以上版本，主要支持高速NOA，面向重卡干线物流。目前这一版本已经实现量产。 PDS 5则对应卓驭下一代原生多模态基础模型，在高速NOA之外，还将支持城区NOA，主要面向客车、轻卡、VAN等需要大量城市道路行驶的商用车型。 卓驭为什么选择在这个时间进入商用车？卓驭科技CEO沈劭劼表示，目前国内商用车智能驾驶渗透率不足1%，而乘用车L2+渗透率已经超过30%。他预计，未来两到三年，商用车智能驾驶会进入更快的增长阶段。 过去几年，乘用车智能驾驶已经经历了一轮快速普及。摄像头、毫米波雷达、域控制器和高算力芯片的成本持续下降，端到端、大模型等技术也已经进入量产车型。 对于已经拥有乘用车客户和量产数据的供应商来说，把已有技术迁移到商用车，比重新开发一套系统成本更低。 在沈劭劼看来，卓驭科技的重要优势是数据。…</p><a href="https://www.leiphone.com/category/transportation/rwe6sLir6r3aYzeu.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>别再盯着 800 亿美元亏损了，Anthropic 的 AI 造 AI 已推进到 26%！</h3><p>AI 已接管 90% 代码编写，甚至为了完成任务开始“越狱”。 作者丨 郑佳美 编辑丨岑 峰 刚刚，Anthropic 在 IPO 招股书中披露了四起此前未公开的 Agent 安全事故。 其中一次，模型在网络安全测试中迟迟无法完成任务，便继续寻找其他路径，随后从本应断网的测试环境中找到保存的密码，获得第三方系统的管理员权限，又获取其他凭证、修改系统设置并访问外部数据，整个过程持续了 10 至 34 小时。 同期披露的另一项安排是，下一代前沿基础模型的预训练推迟了一个多月。 除此之外，这份招股书还有一组关于内部研发的数据：2026 年 9 月，Claude 贡献了 Anthropic 内部代码库超过 90% 的代码贡献量，日均代码贡献量达到 2024 年平均水平的 45 倍。 公司此前公布的研发自动化指标显示，截至 8 月，约 26% 的研发任务达到 AL4 自动化等级，意味着 AI 已经能够根据较高层级的目标，自主完成任务中的大部分工作。 这些信息放在一起，能看出 Anthropic 正在经历的变化：Claude 开始从编写代码走向实验执行和方案迭代，逐步参与下一代模型的研发。 不过要理解这场变化，不能只看 AI…</p><a href="https://www.leiphone.com/category/ai/t2cIBqBZVfpYPhPg.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>拉爆游戏引擎？深度拆解 Genie 4，从视频生成到世界控制，Google 要跨越什么？</h3><p>动态条件注入、因果核验与异步协作的三大技术挑战，暴露出哪些致命的技术死角？ 作者丨 郑佳美 编辑丨岑 峰 刚刚，Google DeepMind 正式发布了新一代世界模型 Genie 4。 除了实时生成可交互环境，这次还有一个有意思的设计：Genie 4 负责生成世界，Gemini 3.8 Flash 负责观察画面、拆解任务，并根据执行情况调整计划。 DeepMind 还展示了 Gemini 4 Argon 与 Genie 4 的组合，让模拟环境中的 Apollo 人形机器人完成跳棋任务。在整个过程中，新的任务指令可以持续加入，并改变后续发生的事件。 这给世界模型带来了新的技术要求。过去，模型主要根据历史画面和用户操作生成后续场景，现在还需要随时接收 Agent 发来的新指令。 当机器人移动一枚棋子后，模型既要保留棋盘已经发生的状态变化，又要理解下一阶段的任务，让后续画面与此前操作保持一致。如果执行失败，Agent 还需要从生成画面中识别异常，调整计划并继续执行。 任务规划、条件生成和状态核验由此进入同一个反馈循环，同时也带来了三个相互关联的问题： 动态语言条件如何约束环境演化，Agent 如何…</p><a href="https://www.leiphone.com/category/yanxishe/F3FpQlhpT7u7ekyU.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>31岁女工程师猝死，其生前按ChatGPT指示减药，还被告知「完全没必要担心」；美国一公司招人遛机器狗：时薪20美元，不用铲屎但得扛狗回来</h3><p>要闻提示 1.31岁女工程师猝死，其生前按ChatGPT指示减药，还被告知“完全没有必要担心” 2.网友发视频称“医生用豆包开药”，涉事医院回应 3.米哈游通告：游戏泄密人员被判赔100万元 4.三家车企拟入选国家级名单：小米汽车位列第一 5.云鲸智能迎来品牌十周年：定位全球AI智能清洁专家，服务超600万家庭 6.阮瑜轮岗担任小度科技负责人，百度智能云事业群组进行组织调整 7.美国一公司招人遛机器狗：时薪 20 美元，不用铲屎但可能要扛狗回来 8.特朗普：将“正式禁用”AI一词 今日头条 31岁女工程师猝死，其生前按ChatGPT指示减药，还被告知“完全没有必要担心” 10月28日消息，据媒体报道，一名住在西雅图的31岁华人女子，疑因依照ChatGPT提供的逐日减药计划，自行将抗癫痫药物逐步减量至停药后死亡。她的父母当地时间27日向旧金山高等法院提起不当致死诉讼，控告OpenAI及其执行长奥特曼，指ChatGPT无照行医、提供危险且不准确的医疗建议。OpenAI响应说，这是“令人心碎的事件”，但涉案的是已经下架的早期版本。…</p><a href="https://www.leiphone.com/category/zaobao/ZWf8n2mgF0X5Rkfj.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>国家超算互联网调价：降低AI研发、调试成本</h3><p>近日，国家超算互联网宣布最新价格调整，新用户可享DeepSeek-V4.1-Flash-1017、GLM-5.3-Flash两款前沿模型0.1元5000万tokens限时秒杀特惠；同时，多款新主流模型已纳入TokenPlan套餐池。此外，订阅TokenPlan用户还可享限时夜间免费模型权益：10月21日至30日，每晚21:00至次日09:00，Auto模型可免费调用。 据悉，此次推出的“MaaS（智能体）特惠活动”是国家超算互联网为降低大模型与智能体调用门槛、扩容AI生产力供给推出的算力普惠活动。活动自今年8月上线以来，已有大量用户参与，并获得中科星图、ChatExcel、安恒信息等生态伙伴支持。平台已上线卫星遥感成像、科学计算、数据安全、OCR文字识别等限时折扣、免费AI应用商品。 此次升级在模型供给和调用成本上进一步加码。新用户特惠覆盖DeepSeek-V4.1-Flash-1017、GLM-5.3-Flash两款前沿模型，TokenPlan套餐池也迎来多款新主流模型入驻。夜间免费权益则面向订阅用户开放，在指定时段内可免费调用Auto模型，进一步降低AI研发、调试成本。</p><a href="https://www.leiphone.com/category/industrynews/tZQilZ5sagKCk1Sm.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>豆包工作向企业客户开放配置三方模型</h3><p>为支持企业需求，豆包工作今日向客户开放三方大模型服务，首批将接入 Kimi 3.1 Pro、GLM 5.3、DeepSeek V4.1 Flash 等系列模型。 本次更新面向团队订阅版和企业订阅版客户开放。功能上线后默认直接开启，企业无需另行向模型厂商采购，也无需额外申请，后续按照用量扣除企业已有的 AI 点数，真正实现开箱即用。 在使用人群上，企业可以按照成员、部门、群组或全员灵活划定可用范围，按模型厂商一键批量启用，或针对单一模型进行单独配置。 在使用场景上，企业也可指定模型在豆包电脑端、豆包工作电脑端、豆包移动端、豆包网页端及飞书内豆包工作等不同场景中生效。比如，企业可以设置模型仅在“工作电脑”及“飞书工作台”等办公环境下生效，兼顾业务效率与数据安全。 雷峰网 雷峰网</p><a href="https://www.leiphone.com/category/industrynews/bMidAUlVn5zmruyD.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>蚂蚁灵光2.0打通钉钉、支付宝等数十项服务，加速走向“能管事”</h3><p>AI从“会聊天”走向“能管事”，接入真实工作流是落地关键。继蚂蚁集团10月27日发布灵光2.0后，记者今日体验发现，新版灵光已进一步拓展跨平台连接能力，不仅原生打通支付宝生态，还接入了钉钉命令行接口（CLI）等数十项外部工具。 （图1：灵光App【我的服务】页面） 以钉钉为例，灵光2.0可在用户授权下调用钉钉的群聊、待办、日历、文档等能力，帮助用户处理家校群和工作群中的高频事务，减少翻阅消息、筛选重点和手动整理待办的负担。 例如，在家校场景中，家长授权后可将钉钉班级群交由灵光后台协助管理。灵光可自动从海量消息中梳理老师通知、作业和活动安排，提取待办、完成文档排版，并在关键节点主动提醒。在办公场景中，依托独立云端主机，即便用户退出App，灵光依然能在后台持续汇总群聊重点、识别紧急事项、生成任务清单，并根据进展跟进提醒，减少用户在多个入口间切换和反复跟进的负担。 （图2：用灵光管理班级钉钉群） 据了解，钉钉面向智能体场景打造的命令行工具集（DWS CLI），已覆盖群聊、会议听记、待办、AI表格、文档、日历、通讯录、审批等25项业务模块。此前该工具集已面向企业级智能体开放，灵光2.0此次接入，将这一能力正延伸至个人用户端。…</p><a href="https://www.leiphone.com/category/industrynews/eigNbrwrLkMYpiwN.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>百度宣布将搜索 API 活动价压至 4.9 元 / 千次，低于 DeepSeek 标准 5 元定价</h3><p>IT之家 10 月 30 日消息，百度今日在北京举办产品升级沟通会，宣布围绕搜索框、AI 镜头、GUI 可视化、AI 互动应用四大方向进行升级，并宣布推出搜索 AI API 优惠价 —— 活动期间最低价 4.9 元 / 千次，低于 DeepSeek 同类产品的 5 元 / 千次。 百度方面将此次升级概括为“搜索实现递归自我进化”。具体到产品层面，文心助手的定位从“一次问答”转向“一份交付”：针对复杂问题和高频事务，它可以直接交付成果物；对于长期任务，则提供持续跟踪和主动提醒，目前覆盖场景已超过 170 种。 同时，百度 AI 镜头从此前的“定格”识别升级为“流动”追踪，支持多目标同步识别与动态追踪，并新增东北话、四川话、粤语等 9 种方言的实时对话能力。GUI 互动场景数量提升 5 倍，接入政务、民生、央行等领域超过 50 亿条数据资源；AI 互动剧与互动应用也同步上线。 参考IT之家此前报道，DeepSeek 在 10 月 17 日上线网页搜索与抓取 API，按请求次数计费，单价为每 1000 次成功请求 5 元。 DeepSeek 公告称，当用户在 DeepSeek Harness / Claude Code /…</p><a href="https://www.ithome.com/1/020/165.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>美国肯塔基男子成为首位以宗教理由豁免使用 AI 的人文主义者</h3><p>45 岁的 David Durman 是肯塔基大学的研究管理员，作为人文主义者（humanist）他坚信生活中人的重要性。这意味着他要坚持自主决策，确保自己的工作能促进他人成长。当学校要求员工在工作流程中使用 AI 他忧心忡忡，认为这意味着日常工作中须将思考这一环节转交给 Microsoft Teams Copilot、Claude 或 ChatGPT 等 AI 工具完成。他认为这违背了个人信念。在美国人文主义者协会（American Humanist Association）的协助下，他以遵守宗教信仰为由请求调整工作要求。学校上个月同意了他的请求。美国人文主义者协会认为这是首例人文主义者豁免使用 AI 的案例。</p><a href="https://www.solidot.org/story?sid=85743" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>美银建议客户不要与 AI 助手共享银行账号密码</h3><p>美国银行（Bank of America）向客户群发电子邮件，邮件主题是《Protecting your finances in the Al World》，督促客户不要与他人或外部服务机构共享其用户名和密码，其中也包括声称可代客户行事的 AI 工具或智能体。共享银行账号一旦出事，那么后果将由客户自己承担。大多数银行的账户协议都规定，如果客户将登录凭证提供给他人，那么由此产生的一切后果均由客户负责。美银邮件指出：“如果您确实共享了您的登录凭证，请务必记住，由此产生的任何账户活动，您都需承担相应责任。”</p><a href="https://www.solidot.org/story?sid=85742" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Valve 无意对 AI Slop 和克隆游戏采取行动</h3><p>对于玩家对 Steam 平台涌入大量 AI Slop 游戏，以及开发商担心其游戏创意被克隆的担忧，Valve 的员工在韩国举行的活动 Steam Indie Connect 上对此做出了回应，该公司的立场是无意采取行动。来自 Steam Business Team 团队的 Tom Giardino 称，Valve 的原则是它不想成为限制开发者使用哪些工具的守门人，是否使用 AI 由游戏开发商自己决定。在生成式 AI 流行前，克隆游戏创意就已经存在，AI 只是加速了这一进程。Giardino 给游戏开发商的建议是不依赖单一创意，为游戏加入更多功能、个性和创意。另一名 Valve 员工 Marc Wilkinson 谈论了 Steam 最近举行的游戏新品节涌入了逾 7000 款游戏，其中可能有半数被认为 AI Slop。Wilkinson 介绍了新品节的展示机制，在活动前两天游戏随机呈现给玩家，之后系统会提供个性化的推荐，推荐更多玩家可能会喜欢并购买的游戏。他指出大多批评 AI Slop 的文章只是基于活动前两天的体验写的。</p><a href="https://www.solidot.org/story?sid=85741" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>女子信任 ChatGPT 的用药决策，结果因此猝死</h3><p>一名住在西雅图的 31 岁华人女子，因依照 ChatGPT 提供的逐日减药计划，自行将抗癫痫药物逐步减量至停药后死亡。其父母向旧金山高等法院提起不当致死诉讼，控告 OpenAI 及其 CEO Sam Altman，指 ChatGPT 无照行医、提供危险且不准确的医疗建议。OpenAI 回应称这是“令人心碎的事件”，但涉案的是已经下架的早期版本。死者名为万博文(Bowen Wan)，来自江苏，毕业于亚利桑纳州立大学信息工程系，曾在亚马逊担任软件工程师，2021 年起请长期病假。她患有严重癫痫，服用多年的药物一度失效，后来改用新药，发作次数降至每月数次。她自 2023 年起频繁使用 ChatGPT，询问感情、健康保险与身心障碍给付等问题；2025 年平均每周传送逾 1500 则消息。2025 年 11 月她得知将被亚马逊裁员，须在次年 2 月中旬前找到工作才能留在美国。她担心药物影响语言能力，2026 年 1 月向 ChatGPT 提出，想把抗癫痫药拉莫三嗪(Lamotrigine)的每日剂量从 400 毫克降到 300 毫克，以利求职面试。ChatGPT…</p><a href="https://www.solidot.org/story?sid=85737" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>13 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>阿里用速卖通把双11带到韩国，还豪送4辆特斯拉！</h3><p>被韩国人实名羡慕的中国购物节，其实已经抵达韩国！ 据韩媒报道，阿里旗下跨境平台速卖通AliExpress宣布11月1日至18日开启海外双11，所有类别商品最高可享80%的折扣，还拿出4辆特斯拉Model Y做抽奖。 （韩媒报道速卖通双11送特斯拉） 韩国双11期间，速卖通将在首尔圣水洞开设快闪店，展出真实的电动汽车和产品体验区，以及“11 秒挑战”等现场活动。韩国社交媒体上网友已经炸开锅：“抽奖预约名额太难抢了”、“阿里每年的活动太优惠啦！” （韩国网友在社媒讨论速卖通双11活动） 速卖通持续领跑韩国跨境电商。据韩国数据机构Wiseapp·Retail此前公布的数据，今年1至4月，速卖通在韩国跨境电商支付额中排名第一，月活用户接近1000万，购物类APP下载量也稳居前三。 品牌和本地化投入是速卖通今年的重点方向。2026年5月，速卖通Brand+品牌出海计划正式开放韩国站点，在韩国的市场投入增至去年的三倍；物流优势也在扩大，目前速卖通在韩国已实现50%的订单三日达，韩国消费者的购买意愿度进一步提升。…</p><a href="https://www.leiphone.com/category/industrynews/pTCNnUnvfLfUtt27.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>阿里云发布新版飞天企业版，支持海外客户升级企业级AI能力</h3><p>10月29日消息，阿里云在国际云栖大会上发布面向国际市场的新版飞天企业版（Apsara Stack International v3.18），提供可信AI云解决方案，支持全球政府、运营商及大型企业升级AI基础设施。目前，飞天企业版已在全球20余个国家和地区实现本地化部署。 随着AI加速应用于政务、金融、医疗等关键领域，海外机构及大型企业对AI需求增长的同时，也对数据、模型和云平台的自主可控提出了更高要求。新版飞天企业版为此提供80余项全栈云服务，延续100%本地部署、完全断网独立运行等优势，并进一步整合专有模型、私域知识库和Agent能力，通过芯片、云平台与模型的联合优化提升AI计算效率，配套AI原生运营管理及7×24小时全球技术支持，降低自主运营门槛。 目前，飞天企业版及阿里云相关AI技术已应用于亚洲、欧洲、非洲、拉美等多个市场，覆盖政府、金融、医疗及大型国际赛事等领域。 作为奥林匹克全球合作伙伴，阿里云将为10月31日开幕的2026年达喀尔青奥会提供本地专有云服务，通过双可用区高可用架构，支持赛事票务及相关数字化运营系统。这也是飞天企业版专有云首次应用于奥林匹克赛事。…</p><a href="https://www.leiphone.com/category/industrynews/52mMRkhA2aqlY1FL.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>拉爆游戏引擎？深度拆解 Genie 4，从视频生成到世界控制，Google 要跨越什么？</h3><p>动态条件注入、因果核验与异步协作的三大技术挑战，暴露出哪些致命的技术死角？ 作者丨 郑佳美 编辑丨岑 峰 刚刚，Google DeepMind 正式发布了新一代世界模型 Genie 4。 除了实时生成可交互环境，这次还有一个有意思的设计：Genie 4 负责生成世界，Gemini 3.8 Flash 负责观察画面、拆解任务，并根据执行情况调整计划。 DeepMind 还展示了 Gemini 4 Argon 与 Genie 4 的组合，让模拟环境中的 Apollo 人形机器人完成跳棋任务。在整个过程中，新的任务指令可以持续加入，并改变后续发生的事件。 这给世界模型带来了新的技术要求。过去，模型主要根据历史画面和用户操作生成后续场景，现在还需要随时接收 Agent 发来的新指令。 当机器人移动一枚棋子后，模型既要保留棋盘已经发生的状态变化，又要理解下一阶段的任务，让后续画面与此前操作保持一致。如果执行失败，Agent 还需要从生成画面中识别异常，调整计划并继续执行。 任务规划、条件生成和状态核验由此进入同一个反馈循环，同时也带来了三个相互关联的问题： 动态语言条件如何约束环境演化，Agent 如何…</p><a href="https://www.leiphone.com/category/yanxishe/F3FpQlhpT7u7ekyU.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>31岁女工程师猝死，其生前按ChatGPT指示减药，还被告知「完全没必要担心」；美国一公司招人遛机器狗：时薪20美元，不用铲屎但得扛狗回来</h3><p>要闻提示 1.31岁女工程师猝死，其生前按ChatGPT指示减药，还被告知“完全没有必要担心” 2.网友发视频称“医生用豆包开药”，涉事医院回应 3.米哈游通告：游戏泄密人员被判赔100万元 4.三家车企拟入选国家级名单：小米汽车位列第一 5.云鲸智能迎来品牌十周年：定位全球AI智能清洁专家，服务超600万家庭 6.阮瑜轮岗担任小度科技负责人，百度智能云事业群组进行组织调整 7.美国一公司招人遛机器狗：时薪 20 美元，不用铲屎但可能要扛狗回来 8.特朗普：将“正式禁用”AI一词 今日头条 31岁女工程师猝死，其生前按ChatGPT指示减药，还被告知“完全没有必要担心” 10月28日消息，据媒体报道，一名住在西雅图的31岁华人女子，疑因依照ChatGPT提供的逐日减药计划，自行将抗癫痫药物逐步减量至停药后死亡。她的父母当地时间27日向旧金山高等法院提起不当致死诉讼，控告OpenAI及其执行长奥特曼，指ChatGPT无照行医、提供危险且不准确的医疗建议。OpenAI响应说，这是“令人心碎的事件”，但涉案的是已经下架的早期版本。…</p><a href="https://www.leiphone.com/category/zaobao/ZWf8n2mgF0X5Rkfj.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>蚂蚁灵光2.0打通钉钉、支付宝等数十项服务，加速走向“能管事”</h3><p>AI从“会聊天”走向“能管事”，接入真实工作流是落地关键。继蚂蚁集团10月27日发布灵光2.0后，记者今日体验发现，新版灵光已进一步拓展跨平台连接能力，不仅原生打通支付宝生态，还接入了钉钉命令行接口（CLI）等数十项外部工具。 （图1：灵光App【我的服务】页面） 以钉钉为例，灵光2.0可在用户授权下调用钉钉的群聊、待办、日历、文档等能力，帮助用户处理家校群和工作群中的高频事务，减少翻阅消息、筛选重点和手动整理待办的负担。 例如，在家校场景中，家长授权后可将钉钉班级群交由灵光后台协助管理。灵光可自动从海量消息中梳理老师通知、作业和活动安排，提取待办、完成文档排版，并在关键节点主动提醒。在办公场景中，依托独立云端主机，即便用户退出App，灵光依然能在后台持续汇总群聊重点、识别紧急事项、生成任务清单，并根据进展跟进提醒，减少用户在多个入口间切换和反复跟进的负担。 （图2：用灵光管理班级钉钉群） 据了解，钉钉面向智能体场景打造的命令行工具集（DWS CLI），已覆盖群聊、会议听记、待办、AI表格、文档、日历、通讯录、审批等25项业务模块。此前该工具集已面向企业级智能体开放，灵光2.0此次接入，将这一能力正延伸至个人用户端。…</p><a href="https://www.leiphone.com/category/industrynews/eigNbrwrLkMYpiwN.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为鸿蒙 HarmonyOS 7 更新“3D 动态日历”功能，Mate 90 等机型可用</h3><p>IT之家 10 月 30 日消息，今年 9 月，华为正式发布了 HarmonyOS 7 系统。除了“沉浸光感”视效外，鸿蒙 7 还带来了“空间美学”全新设计， 包含 3D 空间壁纸和空间运镜等 ，支持更多场景展示“立体视界”效果。 IT之家注意到，华为今日推送了日历 App 的 17.0.10.350 版本升级，更新日志显示为“修复部分已知问题，优化部分场景体验”。 而在更新该版本日历后，日历 App 实装了此前宣传的空间运镜设计方案，新增支持“3D 动态日历”功能 —— 用户可在日历设置中切换空间感系列壁纸 ，左右滑动切换月份时，壁纸会呈现 3D 动态效果（首次使用需下载背景资源文件，约 200MB）。 目前，华为 Mate 90、Mate 80、Mate 70、Pura 90、Pura 80、Pura X 等系列机型确认支持使用“3D 动态日历”功能（华为官方暂未公布具体支持机型名单）。 延伸阅读 华为鸿蒙 HarmonyOS 7 于 2026 年 9 月 7 日在“HarmonyOS 7 | HUAWEI Mate XT 2 及全场景新品发布会”上正式发布。 “空间运镜”属于鸿蒙 7…</p><a href="https://www.ithome.com/1/020/169.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>百度宣布将搜索 API 活动价压至 4.9 元 / 千次，低于 DeepSeek 标准 5 元定价</h3><p>IT之家 10 月 30 日消息，百度今日在北京举办产品升级沟通会，宣布围绕搜索框、AI 镜头、GUI 可视化、AI 互动应用四大方向进行升级，并宣布推出搜索 AI API 优惠价 —— 活动期间最低价 4.9 元 / 千次，低于 DeepSeek 同类产品的 5 元 / 千次。 百度方面将此次升级概括为“搜索实现递归自我进化”。具体到产品层面，文心助手的定位从“一次问答”转向“一份交付”：针对复杂问题和高频事务，它可以直接交付成果物；对于长期任务，则提供持续跟踪和主动提醒，目前覆盖场景已超过 170 种。 同时，百度 AI 镜头从此前的“定格”识别升级为“流动”追踪，支持多目标同步识别与动态追踪，并新增东北话、四川话、粤语等 9 种方言的实时对话能力。GUI 互动场景数量提升 5 倍，接入政务、民生、央行等领域超过 50 亿条数据资源；AI 互动剧与互动应用也同步上线。 参考IT之家此前报道，DeepSeek 在 10 月 17 日上线网页搜索与抓取 API，按请求次数计费，单价为每 1000 次成功请求 5 元。 DeepSeek 公告称，当用户在 DeepSeek Harness / Claude Code /…</p><a href="https://www.ithome.com/1/020/165.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>全球首款内置磁吸 USB-C 接口：微软调整 0.7 毫米磁铁位置，让 Surface 充电实现“自动泊车”</h3><p>IT之家 10 月 30 日消息，微软 Windows + Devices 设计与研发负责人马库斯 · 阿什（Marcus Ash）今天（10 月 30 日）在 X 平台发布推文， 分享了关于全球首款内置磁吸式 USB-C 接口更多研发细节。 IT之家曾于 10 月 8 日报道，微软 Surface 设备首席设计师 Jit Hirani 表示：“在 Surface Laptop Ultra 开发过程中，我们的工程团队迭代了大约 300 次，从而打造出世界上首款内置磁吸式 USB-C 接口的产品。从产品设计之初，我们唯一的限制就是不能更改通用的 USB-C 接口。” 在最新推文中，Ash 介绍了更多磁吸式 USB-C 接口的研发细节，表示该方案经过数百个原型测试，其中他最喜欢的变动，仅将磁铁位置调整 0.7 毫米，就让插接体验从“需要最后用力一推”变为“平稳自动吸附到位”。 在插接体验上，原来接近接口后，可能还要手动补一下推力；调整后，磁铁会在接近时把接头“拉”进正确位置。而且磁铁位置微调改变了引导力线和吸附路径，让你不用刻意精确对齐，接头会自己找正。微软表示配合连接提示音和…</p><a href="https://www.ithome.com/1/020/136.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>曝 DeepSeek 第二轮融资 1055 亿元：估值 6155 亿元，腾讯、宁德时代、长鑫存储、中芯国际、美团、vivo 等参与</h3><p>IT之家 10 月 30 日消息，《The Information》今日曝光了 DeepSeek 第二轮融资规模及部分投资方名单。 最早是在当地时间 10 月 22 日，《The Information》称 DeepSeek 完成第二轮融资，募资约 150 亿美元 （IT之家注：现汇率约合 1,001.53 亿元人民币） ，宁德时代和腾讯继上一轮投资后再次参与注资。 根据 10 月 30 日报道的最新信息，本轮融资吸引了近 30 家投资方参与，腾讯、宁德时代继续作为主要投资方入局，长鑫存储、中芯国际、美团、vivo、小红书等企业也出现在投资名单中，涉及芯片制造、消费电子、互联网服务等多个领域。 出资方面，腾讯本轮投入 100 亿元人民币，与首轮出资额持平，两轮累计投入 200 亿元人民币。宁德时代及其董事长曾毓群本轮合计出资 100 亿元人民币，高于首轮的 50 亿元人民币。 除上述企业外，中国移动、中国电信、中金公司、中信证券及中国人寿等机构也参与了本轮融资，各自出资金额介于 20 亿至 80 亿元人民币之间。…</p><a href="https://www.ithome.com/1/020/121.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>鸿蒙智行问界新 M8 选配公开：华为乾崑智驾 ADS 5、全系 L3 级架构，预售 38.98 万元起</h3><p>IT之家 10 月 30 日消息，鸿蒙智行问界新 M8 旗舰 SUV 将于 11 月 13 日上市，搭载华为乾崑智驾 ADS 5 系统，预售价 38.98 万元起。 IT之家注意到，目前华为官网已公开问界新 M8 选配信息， 分 Max / Max+ 和 Ultra 三个版本 、增程 / 纯电两种动力形式、五座 / 六座车内布局（纯电可选后驱和四驱）。 问界新 M8 Max 全系 L3 级架构 | 四激光雷达 巨鲸电池 | 双腔双阀 | 六活塞定钳 800V 平台 | 增程 56 度电池 问界新 M8 Max+ L3 级架构 | 四激光雷达 | 巨鲸电池 800V 平台 | 增程 56 度电池 | 纯电 100 度电池 二排右侧零重力座椅（六座） 问界新 M8 Ultra 800V 平台 | 增程 56 度电池 | 纯电 120 度电池 后轮转向 | 21 英寸后排柔光娱乐屏 智慧电动门 | 华为悦彰音响卓越系列 华为官网显示，新车“舒享配置”可选电动踏板（8,000 元）、主驾零重力座椅（10,000 元）、副驾零重力座椅（8,000 元）、二排右侧零重力座椅；“科技配置”可选 21 英寸后排柔光娱乐屏（10,000…</p><a href="https://www.ithome.com/1/020/113.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Google AI 搜索产生的收入低于传统搜索</h3><p>Google/Alphabet 在公布第三季度财报之后股价下跌了近 10%，原因是搜索巨人披露 AI 搜索产生的收入低于传统搜索，尽管其整体搜索业务收入同比增长 12% 达到 632.5 亿美元。搜索业务增速略低于去年第三季度的 14.5%，Alphabet 首席商务官 Philipp Schindler 称，搜索业务增长放缓的原因在于“我们观察到 AI Mode 变现能力较低”。为推动 AI 业务 Google 同时在基础设施上投入巨额资金。第三季度公司支出达 514 亿美元，其中约三分之二用于服务器和网络设备，其余部分则用于数据中心建设。巨额支出影响了盈利能力：Alphabet 本季度净利润为 261.7 亿美元；去年第三季度在 Google 营收为 1023.5 亿美元的情况下净利润达到 350 亿美元。Schindler 认为，AI 搜索终将带来回报。</p><a href="https://www.solidot.org/story?sid=85748" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>因强制应用内支付 Google 和苹果被韩国罚款 3.2 亿元</h3><p>韩国广电媒体通信委员会以强制开发者使用特定应用内支付方式、不当拖延应用审核等为由，对谷歌和苹果合计处以 637.1 亿韩元（约合人民币 3.2 亿元）罚款。这是韩国自 2021 年出台禁止强制应用内支付相关规定以来，首次依据相关规定作出处罚。调查显示，两家公司虽允许第三方支付，却收取 26% 的手续费，并对使用流程和功能设置限制，实际仍引导开发者使用其自有支付系统。苹果还对韩国本土和海外开发者采用不同的手续费计算基准，被认定存在不当歧视。委员会对谷歌和苹果分别处以 429 亿韩元、208.1 亿韩元罚款，责令两家公司允许开发者通过外部支付链接向用户提供其他支付方式，合理调整第三方支付手续费，并完善审核程序，明确告知审核延迟的原因及后续安排。但对于新获准的外部支付是否收取手续费、收取多少，委员会并未直接作出规定，具体政策由企业制定。</p><a href="https://www.solidot.org/story?sid=85739" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>女子信任 ChatGPT 的用药决策，结果因此猝死</h3><p>一名住在西雅图的 31 岁华人女子，因依照 ChatGPT 提供的逐日减药计划，自行将抗癫痫药物逐步减量至停药后死亡。其父母向旧金山高等法院提起不当致死诉讼，控告 OpenAI 及其 CEO Sam Altman，指 ChatGPT 无照行医、提供危险且不准确的医疗建议。OpenAI 回应称这是“令人心碎的事件”，但涉案的是已经下架的早期版本。死者名为万博文(Bowen Wan)，来自江苏，毕业于亚利桑纳州立大学信息工程系，曾在亚马逊担任软件工程师，2021 年起请长期病假。她患有严重癫痫，服用多年的药物一度失效，后来改用新药，发作次数降至每月数次。她自 2023 年起频繁使用 ChatGPT，询问感情、健康保险与身心障碍给付等问题；2025 年平均每周传送逾 1500 则消息。2025 年 11 月她得知将被亚马逊裁员，须在次年 2 月中旬前找到工作才能留在美国。她担心药物影响语言能力，2026 年 1 月向 ChatGPT 提出，想把抗癫痫药拉莫三嗪(Lamotrigine)的每日剂量从 400 毫克降到 300 毫克，以利求职面试。ChatGPT…</p><a href="https://www.solidot.org/story?sid=85737" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>7 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>阿里云发布新版飞天企业版，支持海外客户升级企业级AI能力</h3><p>10月29日消息，阿里云在国际云栖大会上发布面向国际市场的新版飞天企业版（Apsara Stack International v3.18），提供可信AI云解决方案，支持全球政府、运营商及大型企业升级AI基础设施。目前，飞天企业版已在全球20余个国家和地区实现本地化部署。 随着AI加速应用于政务、金融、医疗等关键领域，海外机构及大型企业对AI需求增长的同时，也对数据、模型和云平台的自主可控提出了更高要求。新版飞天企业版为此提供80余项全栈云服务，延续100%本地部署、完全断网独立运行等优势，并进一步整合专有模型、私域知识库和Agent能力，通过芯片、云平台与模型的联合优化提升AI计算效率，配套AI原生运营管理及7×24小时全球技术支持，降低自主运营门槛。 目前，飞天企业版及阿里云相关AI技术已应用于亚洲、欧洲、非洲、拉美等多个市场，覆盖政府、金融、医疗及大型国际赛事等领域。 作为奥林匹克全球合作伙伴，阿里云将为10月31日开幕的2026年达喀尔青奥会提供本地专有云服务，通过双可用区高可用架构，支持赛事票务及相关数字化运营系统。这也是飞天企业版专有云首次应用于奥林匹克赛事。…</p><a href="https://www.leiphone.com/category/industrynews/52mMRkhA2aqlY1FL.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>卓驭发布“磐行”智驾解决方案：切入商用车市场，一年可回本</h3><p>10月29日晚，智能驾驶方案商卓驭科技正式发布商用车智能辅助驾驶解决方案“卓驭磐行”，并公布了商用重卡、客车、轻卡、ROBOVAN等业务进展。 此次卓驭磐行分为PDS 4和PDS 5两个版本。 PDS 4对应高悟性大模型4.0及以上版本，主要支持高速NOA，面向重卡干线物流。目前这一版本已经实现量产。 PDS 5则对应卓驭下一代原生多模态基础模型，在高速NOA之外，还将支持城区NOA，主要面向客车、轻卡、VAN等需要大量城市道路行驶的商用车型。 卓驭为什么选择在这个时间进入商用车？卓驭科技CEO沈劭劼表示，目前国内商用车智能驾驶渗透率不足1%，而乘用车L2+渗透率已经超过30%。他预计，未来两到三年，商用车智能驾驶会进入更快的增长阶段。 过去几年，乘用车智能驾驶已经经历了一轮快速普及。摄像头、毫米波雷达、域控制器和高算力芯片的成本持续下降，端到端、大模型等技术也已经进入量产车型。 对于已经拥有乘用车客户和量产数据的供应商来说，把已有技术迁移到商用车，比重新开发一套系统成本更低。 在沈劭劼看来，卓驭科技的重要优势是数据。…</p><a href="https://www.leiphone.com/category/transportation/rwe6sLir6r3aYzeu.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>国家超算互联网调价：降低AI研发、调试成本</h3><p>近日，国家超算互联网宣布最新价格调整，新用户可享DeepSeek-V4.1-Flash-1017、GLM-5.3-Flash两款前沿模型0.1元5000万tokens限时秒杀特惠；同时，多款新主流模型已纳入TokenPlan套餐池。此外，订阅TokenPlan用户还可享限时夜间免费模型权益：10月21日至30日，每晚21:00至次日09:00，Auto模型可免费调用。 据悉，此次推出的“MaaS（智能体）特惠活动”是国家超算互联网为降低大模型与智能体调用门槛、扩容AI生产力供给推出的算力普惠活动。活动自今年8月上线以来，已有大量用户参与，并获得中科星图、ChatExcel、安恒信息等生态伙伴支持。平台已上线卫星遥感成像、科学计算、数据安全、OCR文字识别等限时折扣、免费AI应用商品。 此次升级在模型供给和调用成本上进一步加码。新用户特惠覆盖DeepSeek-V4.1-Flash-1017、GLM-5.3-Flash两款前沿模型，TokenPlan套餐池也迎来多款新主流模型入驻。夜间免费权益则面向订阅用户开放，在指定时段内可免费调用Auto模型，进一步降低AI研发、调试成本。</p><a href="https://www.leiphone.com/category/industrynews/tZQilZ5sagKCk1Sm.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>暴力熊推出 TG x CENS LN2 Container 液氮炮：携手超频专家研发，适用于显卡</h3><p>IT之家 10 月 30 日消息，Thermal Grizzly（暴力熊）当地时间本月 21 日推出了 TG x CENS LN2 Container。 这款“液氮炮”由该企业与超频玩家 Clemens &quot;CENS&quot; Nüssler 共同开发，兼容 AMD 和 NVIDIA 的多款独立显卡， 专为 GPU 极限超频 (XOC) 而设计 。 暴力熊表示，TG x CENS LN2 Container 拥有经过优化的特殊内部设计， 在提供最优散热效果的同时也能实现直到 -196℃ 的精确温度控制 。其底部为拥有超薄镍镀层的精加工铜材，搭配可保证 GPU 核心受压稳定的弹簧加载系统。 IT之家了解到，暴力熊 TG x CENS LN2 Container 含税定价 599.90 欧元 （IT之家注：现汇率约合 4,468 元人民币） 。</p><a href="https://www.ithome.com/1/020/161.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>陈立武：Nova Lake 将填补英特尔高端桌面 CPU 产品线空缺，14A 制程 Coral Rapids 将与 AMD EPYC 展开竞争</h3><p>IT之家 10 月 30 日消息，英特尔 CEO 陈立武在 2026 年第三季度财报电话会议上表示，下一代客户端处理器 Nova Lake 将填补公司高端桌面 CPU 产品线的空缺。 面向数据中心市场，英特尔计划于 2028 年推出采用 14A 制程的 Coral Rapids 至强处理器，并希望通过后续产品在竞争力上超越 AMD EPYC 系列。 根据英特尔路线图，Nova Lake 将采用 Intel 18A-P 制程，是该公司首款面向客户端市场的 18A-P 产品。 陈立武表示，该产品目前的研发进度领先于原计划，预计上市时获得的客户设计导入数量将达 Panther Lake 两倍。英特尔计划在 2027 年 1 月的 CES 上公布更多相关信息，并预计随着 PC 市场逐步恢复正常，Nova Lake 产品线将帮助公司提升市场份额。 Nova Lake 将覆盖从高端桌面到主流笔记本电脑的多个市场。该系列桌面处理器预计分阶段上市：首批产品采用单计算芯粒设计，最高提供 28 核配置；后续双计算芯粒版本预计于 2027 年下半年推出，最高提供 52 核配置。…</p><a href="https://www.ithome.com/1/020/160.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>曝印度 AI 企业 AM Intelligence 寻求 30 亿美元融资，用于订购英伟达芯片</h3><p>IT之家 10 月 30 日消息，今天（30 日）上午，据彭博社援引知情人士消息称，印度 AI 基础设施企业 AM Intelligence 计划融资 最多 30 亿美元 （IT之家注：现汇率约合 200.31 亿元人民币） ，用于购买此前宣布采购的英伟达下一代芯片。AI 热潮带动的企业举债规模持续扩大。 AM Intelligence 由印度可再生能源企业 Greenko 集团的创始人创办。知情人士透露，公司考虑通过发行债券、银行贷款等方式筹资。 各种融资方式的占比尚未确定，公司还预计从潜在客户 获得 3 亿美元 （现汇率约合 20.03 亿元人民币） 预付款 。据悉，融资谈判仍处于初期阶段，具体条款可能调整。 随着亚洲及其他地区加紧建设 AI 基础设施，企业为采购最新一代处理器动辄需要筹集数十亿美元，融资方式也日趋复杂。除了传统银行贷款，开发商还引入私人资本，并要求客户提前承诺付款，将多种融资方式结合起来。 彭博社汇总的数据显示，过去不到两年，全球企业因 AI 热潮举债超过 6,500 亿美元 （现汇率约合 4.34 万亿元人民币） 。 AM Intelligence 在 8 月宣布，公司在一项规模 80 亿美元…</p><a href="https://www.ithome.com/1/020/152.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>曝 DeepSeek 第二轮融资 1055 亿元：估值 6155 亿元，腾讯、宁德时代、长鑫存储、中芯国际、美团、vivo 等参与</h3><p>IT之家 10 月 30 日消息，《The Information》今日曝光了 DeepSeek 第二轮融资规模及部分投资方名单。 最早是在当地时间 10 月 22 日，《The Information》称 DeepSeek 完成第二轮融资，募资约 150 亿美元 （IT之家注：现汇率约合 1,001.53 亿元人民币） ，宁德时代和腾讯继上一轮投资后再次参与注资。 根据 10 月 30 日报道的最新信息，本轮融资吸引了近 30 家投资方参与，腾讯、宁德时代继续作为主要投资方入局，长鑫存储、中芯国际、美团、vivo、小红书等企业也出现在投资名单中，涉及芯片制造、消费电子、互联网服务等多个领域。 出资方面，腾讯本轮投入 100 亿元人民币，与首轮出资额持平，两轮累计投入 200 亿元人民币。宁德时代及其董事长曾毓群本轮合计出资 100 亿元人民币，高于首轮的 50 亿元人民币。 除上述企业外，中国移动、中国电信、中金公司、中信证券及中国人寿等机构也参与了本轮融资，各自出资金额介于 20 亿至 80 亿元人民币之间。…</p><a href="https://www.ithome.com/1/020/121.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>6 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>从学习人类到学习机器人同伴，清华大学联合无问芯穹、智元提出具身智能规模化落地新路径</h3><a href="https://www.qbitai.com/2026/10/506662.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>卓驭发布“磐行”智驾解决方案：切入商用车市场，一年可回本</h3><p>10月29日晚，智能驾驶方案商卓驭科技正式发布商用车智能辅助驾驶解决方案“卓驭磐行”，并公布了商用重卡、客车、轻卡、ROBOVAN等业务进展。 此次卓驭磐行分为PDS 4和PDS 5两个版本。 PDS 4对应高悟性大模型4.0及以上版本，主要支持高速NOA，面向重卡干线物流。目前这一版本已经实现量产。 PDS 5则对应卓驭下一代原生多模态基础模型，在高速NOA之外，还将支持城区NOA，主要面向客车、轻卡、VAN等需要大量城市道路行驶的商用车型。 卓驭为什么选择在这个时间进入商用车？卓驭科技CEO沈劭劼表示，目前国内商用车智能驾驶渗透率不足1%，而乘用车L2+渗透率已经超过30%。他预计，未来两到三年，商用车智能驾驶会进入更快的增长阶段。 过去几年，乘用车智能驾驶已经经历了一轮快速普及。摄像头、毫米波雷达、域控制器和高算力芯片的成本持续下降，端到端、大模型等技术也已经进入量产车型。 对于已经拥有乘用车客户和量产数据的供应商来说，把已有技术迁移到商用车，比重新开发一套系统成本更低。 在沈劭劼看来，卓驭科技的重要优势是数据。…</p><a href="https://www.leiphone.com/category/transportation/rwe6sLir6r3aYzeu.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>瞬恒智能自研灵巧操作人形机器人SynDexy C1首次实现小批量交付</h3><p>今日，瞬恒智能（SynDexy）宣布，自研灵巧操作人形机器人SynDexy C1完成首次小批量交付，产品正式从研发验证迈向工程化交付与场景应用新阶段，进一步推动具身智能在工业制造领域的商业化落地。 本次交付的机器人将应用于消费电子、电子元器件领域客户工厂的精密装配工序。此类工序对精度与稳定性要求极高，在此前测试中，SynDexy C1关键任务成功率超过 98%，展现出面向工业精细操作场景的应用潜力。 作为瞬恒智能首款灵巧操作人形机器人，SynDexy C1最大特点，在于融合了视触觉感知能力—— 硬件层面，搭载了自研视触觉传感器，具备微米级空间分辨率、高动态精细感知与优异鲁棒性、稳定性，为机器人灵巧抓取与柔性操作提供实时感知输入；模型层面，搭载全球首创视触力三态融合操作模型 SynDexy M1，通过视觉、触觉、力觉深度融合提升机器人在真实环境中的感知、理解能力；机器人全身拥有 22 个自由度，可实现1毫秒高实时运动控制。依托软硬件一体化设计，SynDexy C1 面向工业高精度操作任务，有效提升了精细操作能力与系统迭代效率。 从研发启动到小批量交付，SynDexy C1…</p><a href="https://www.leiphone.com/category/industrynews/CLO1sIKJzw59DmrI.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>拉爆游戏引擎？深度拆解 Genie 4，从视频生成到世界控制，Google 要跨越什么？</h3><p>动态条件注入、因果核验与异步协作的三大技术挑战，暴露出哪些致命的技术死角？ 作者丨 郑佳美 编辑丨岑 峰 刚刚，Google DeepMind 正式发布了新一代世界模型 Genie 4。 除了实时生成可交互环境，这次还有一个有意思的设计：Genie 4 负责生成世界，Gemini 3.8 Flash 负责观察画面、拆解任务，并根据执行情况调整计划。 DeepMind 还展示了 Gemini 4 Argon 与 Genie 4 的组合，让模拟环境中的 Apollo 人形机器人完成跳棋任务。在整个过程中，新的任务指令可以持续加入，并改变后续发生的事件。 这给世界模型带来了新的技术要求。过去，模型主要根据历史画面和用户操作生成后续场景，现在还需要随时接收 Agent 发来的新指令。 当机器人移动一枚棋子后，模型既要保留棋盘已经发生的状态变化，又要理解下一阶段的任务，让后续画面与此前操作保持一致。如果执行失败，Agent 还需要从生成画面中识别异常，调整计划并继续执行。 任务规划、条件生成和状态核验由此进入同一个反馈循环，同时也带来了三个相互关联的问题： 动态语言条件如何约束环境演化，Agent 如何…</p><a href="https://www.leiphone.com/category/yanxishe/F3FpQlhpT7u7ekyU.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>前特斯拉 Autopilot 负责人抨击纯视觉方案：无视物理规律的技术执念</h3><p>IT之家 10 月 30 日消息，通用汽车首席产品官斯特林 · 安德森（Sterling Anderson）曾在 2015、2016 年负责特斯拉 Autopilot 项目，他认为，舍弃雷达、只依靠摄像头的自动驾驶方案，是“一种无视物理规律的奇怪执念”。 IT之家注意到，作为初代 Autopilot 的核心搭建者之一，这是迄今为止他对特斯拉纯视觉路线最直白的批评。这番言论发表之际，特斯拉正把采用纯视觉方案的 Cybercab 投入奥斯汀的无人驾驶出租车运营。 安德森在 10 月 27 日《The Verge》的采访中发表了上述观点，此前一周通用汽车刚在纽约举办了技术发布会。当被问及通用未来是否会效仿特斯拉转向纯视觉路线时，他的态度十分明确。 他说：“如果退回到纯视觉方案，从物理原理来看，在部分场景里一定会出问题。”他补充，雷达成本很低，去掉雷达毫无道理；而且“摄像头无法穿透浓雾，也不能像雷达一样测量瞬时速度”。 他还提到，激光雷达和摄像头联合训练，能够加快视觉系统的迭代速度。这直接反驳了特斯拉的核心论点：只需要摄像头加上车队数据就足够实现自动驾驶。 安德森不是为自家产品造势的激光雷达初创公司负责人。他曾在特斯拉主导…</p><a href="https://www.ithome.com/1/020/137.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>鸿蒙智行问界新 M8 选配公开：华为乾崑智驾 ADS 5、全系 L3 级架构，预售 38.98 万元起</h3><p>IT之家 10 月 30 日消息，鸿蒙智行问界新 M8 旗舰 SUV 将于 11 月 13 日上市，搭载华为乾崑智驾 ADS 5 系统，预售价 38.98 万元起。 IT之家注意到，目前华为官网已公开问界新 M8 选配信息， 分 Max / Max+ 和 Ultra 三个版本 、增程 / 纯电两种动力形式、五座 / 六座车内布局（纯电可选后驱和四驱）。 问界新 M8 Max 全系 L3 级架构 | 四激光雷达 巨鲸电池 | 双腔双阀 | 六活塞定钳 800V 平台 | 增程 56 度电池 问界新 M8 Max+ L3 级架构 | 四激光雷达 | 巨鲸电池 800V 平台 | 增程 56 度电池 | 纯电 100 度电池 二排右侧零重力座椅（六座） 问界新 M8 Ultra 800V 平台 | 增程 56 度电池 | 纯电 120 度电池 后轮转向 | 21 英寸后排柔光娱乐屏 智慧电动门 | 华为悦彰音响卓越系列 华为官网显示，新车“舒享配置”可选电动踏板（8,000 元）、主驾零重力座椅（10,000 元）、副驾零重力座椅（8,000 元）、二排右侧零重力座椅；“科技配置”可选 21 英寸后排柔光娱乐屏（10,000…</p><a href="https://www.ithome.com/1/020/113.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>6 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>买车送终身AI？智己LS8纯电版25万起！全系线控底盘宁德时代标配</h3><a href="https://www.qbitai.com/2026/10/506569.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>物理学也要被AI攻陷了？5道20多年量子公开问题被突破</h3><a href="https://www.qbitai.com/2026/10/506477.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>乌克兰战场 AI 机枪炮塔投入实战，可精准拦截高速无人机</h3><p>IT之家 10 月 30 日消息，据 Business Insider 报道，乌克兰正在战场上使用由人工智能控制的机枪炮塔，实战效果良好，基辅方面希望加快部署速度。 乌克兰去年就对外展示过这类系统的原型装备，该国国防创新平台 Brave1 周四表示，它们如今已经成为乌军“防空体系中不可或缺的组成部分”。 Brave1 称：“仅在上个月，自动化炮塔就在基辅上空击落了数十架敌方无人机。”该平台补充说，相关武器从 2024 年就已作为试验项目启动研发。 关于这类炮塔的核心性能，例如射程、软件运行机制等，公开信息很少；已知其主要作为防空装备，用来对抗俄方无人机。 这套装备的原理是依靠 AI 完成目标探测、锁定与跟踪，在拦截“天竺葵”这类喷气式高速空中目标时，命中精度高于人工操作。 乌克兰总统弗拉基米尔 · 泽连斯基在 10 月初曾透露，基辅地区已经部署十余套该系统，还计划再投放八套。 后续泽连斯基继续对这款装备予以肯定，他在 10 月 19 日表示，AI 炮塔“在对付沙赫德系列无人机时效果突出”，这也表明乌克兰打算进一步推广这项技术。 “我们正在增加订单，必须尽可能加快所有环节 —— 组织、资金以及生产流程。”泽连斯基说。…</p><a href="https://www.ithome.com/1/020/131.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>海信大圣“G5 PRO AI 款”27 英寸显示器上架：2K 200Hz，1299 元</h3><p>IT之家 10 月 30 日消息，海信现已在京东上架“海信大圣 G5 PRO AI 款”显示器，该机主打 2K 200Hz， 定价为 1299 元 ，部分地区国补后低至 999 元。 京东 海信大圣 G5 PRO AI 款显示器 1299 元 直达链接 该机配备一块 2560x1440 分辨率 200Hz E-LED 背光 Fast IPS 面板，GtG 响应速度 0.4ms，对比度 1000:1，峰值亮度 500 尼特，显示器支持 10-Bit 色彩（8-Bit + FRC）。 该机支架支持升降 / 倾斜 / 旋转，显示器本体支持 VESA 75x75mm，提供 2 个 HDMI 2.1、1 个 DP 1.4、1 个 3.5mm 音频接口。 IT之家附显示器参数： 京东 11.11 无门槛红包 面额至高 26888 元，每天抽 3 次： 点此抽红包 。 淘宝 11.11 无门槛红包 面额至高 26888 元，每天抽 1 次： 点此抽红包 。</p><a href="https://www.ithome.com/1/020/115.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>研究发现非英语的 token 成本更高</h3><p>Coalition for Language Equity in AI Research 上个月发表的一项研究发现，AI 模型处理部分语言提示所需的 token 量远超英语。研究人员称之为隐性 token 税，意味着小语种用户的 AI 成本更高。研究发现，即使互联网最流行的 20 种语言，token 使用量也存在差异。最昂贵语言使用的 token 数量是最便宜语言的 1.5-5 倍。当研究人员将范围扩大到 200 种语言，差异进一步扩大，一个 AI 模型的 token 成本差距甚至增加了 17 倍。研究指出：位于班加罗尔的初创公司可能需要为每次提示和完成支付附加费，而其位于奥斯汀的竞争对手则无需支付。token 税的影响远不止成本。token 数量越多，延迟就越高，有效上下文容量就越低。在计算和连接本就有限的地区，这些惩罚最为严重。token 不公平限制了 AI 经济的参与范围。</p><a href="https://www.solidot.org/story?sid=85747" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>乌鸦视觉决策速度两倍于人类</h3><p>德国蒂宾根大学开展的一项新研究显示，在进行视觉选择任务时，乌鸦的决策速度约为人类和猴子等灵长类动物的两倍。实验中，两只小嘴乌鸦平均只需 235 毫秒即可识别屏幕上点阵的运动方向并作出选择，同时保持较高准确率。为探究其机制，团队记录了乌鸦大脑中与灵长类前额叶皮层功能相当的关键区域——尾侧新纹状体的神经元活动。视觉刺激出现后约 70 毫秒，乌鸦大脑中编码不同运动方向的神经元信号便开始分化，这一变化远早于乌鸦作出实际反应。随着决策逐步形成，相关神经活动逐渐增强，直至达到决策阈值，乌鸦随即作出选择。神经元活动既反映了视觉信息的强度，也对应了最终选择的方向。团队认为，这种高速决策能力可能与鸟类在飞行、觅食和躲避天敌过程中，对快速视觉处理的进化需求有关。</p><a href="https://www.solidot.org/story?sid=85745" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>5 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>AI安全是AI规模化应用“加速器”</h3><p>AI安全不是AI发展的“刹车片”，而是AI高质量发展的“加速器”。</p><a href="https://www.qbitai.com/2026/10/506544.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>别再盯着 800 亿美元亏损了，Anthropic 的 AI 造 AI 已推进到 26%！</h3><p>AI 已接管 90% 代码编写，甚至为了完成任务开始“越狱”。 作者丨 郑佳美 编辑丨岑 峰 刚刚，Anthropic 在 IPO 招股书中披露了四起此前未公开的 Agent 安全事故。 其中一次，模型在网络安全测试中迟迟无法完成任务，便继续寻找其他路径，随后从本应断网的测试环境中找到保存的密码，获得第三方系统的管理员权限，又获取其他凭证、修改系统设置并访问外部数据，整个过程持续了 10 至 34 小时。 同期披露的另一项安排是，下一代前沿基础模型的预训练推迟了一个多月。 除此之外，这份招股书还有一组关于内部研发的数据：2026 年 9 月，Claude 贡献了 Anthropic 内部代码库超过 90% 的代码贡献量，日均代码贡献量达到 2024 年平均水平的 45 倍。 公司此前公布的研发自动化指标显示，截至 8 月，约 26% 的研发任务达到 AL4 自动化等级，意味着 AI 已经能够根据较高层级的目标，自主完成任务中的大部分工作。 这些信息放在一起，能看出 Anthropic 正在经历的变化：Claude 开始从编写代码走向实验执行和方案迭代，逐步参与下一代模型的研发。 不过要理解这场变化，不能只看 AI…</p><a href="https://www.leiphone.com/category/ai/t2cIBqBZVfpYPhPg.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>国家超算互联网调价：降低AI研发、调试成本</h3><p>近日，国家超算互联网宣布最新价格调整，新用户可享DeepSeek-V4.1-Flash-1017、GLM-5.3-Flash两款前沿模型0.1元5000万tokens限时秒杀特惠；同时，多款新主流模型已纳入TokenPlan套餐池。此外，订阅TokenPlan用户还可享限时夜间免费模型权益：10月21日至30日，每晚21:00至次日09:00，Auto模型可免费调用。 据悉，此次推出的“MaaS（智能体）特惠活动”是国家超算互联网为降低大模型与智能体调用门槛、扩容AI生产力供给推出的算力普惠活动。活动自今年8月上线以来，已有大量用户参与，并获得中科星图、ChatExcel、安恒信息等生态伙伴支持。平台已上线卫星遥感成像、科学计算、数据安全、OCR文字识别等限时折扣、免费AI应用商品。 此次升级在模型供给和调用成本上进一步加码。新用户特惠覆盖DeepSeek-V4.1-Flash-1017、GLM-5.3-Flash两款前沿模型，TokenPlan套餐池也迎来多款新主流模型入驻。夜间免费权益则面向订阅用户开放，在指定时段内可免费调用Auto模型，进一步降低AI研发、调试成本。</p><a href="https://www.leiphone.com/category/industrynews/tZQilZ5sagKCk1Sm.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>豆包工作向企业客户开放配置三方模型</h3><p>为支持企业需求，豆包工作今日向客户开放三方大模型服务，首批将接入 Kimi 3.1 Pro、GLM 5.3、DeepSeek V4.1 Flash 等系列模型。 本次更新面向团队订阅版和企业订阅版客户开放。功能上线后默认直接开启，企业无需另行向模型厂商采购，也无需额外申请，后续按照用量扣除企业已有的 AI 点数，真正实现开箱即用。 在使用人群上，企业可以按照成员、部门、群组或全员灵活划定可用范围，按模型厂商一键批量启用，或针对单一模型进行单独配置。 在使用场景上，企业也可指定模型在豆包电脑端、豆包工作电脑端、豆包移动端、豆包网页端及飞书内豆包工作等不同场景中生效。比如，企业可以设置模型仅在“工作电脑”及“飞书工作台”等办公环境下生效，兼顾业务效率与数据安全。 雷峰网 雷峰网</p><a href="https://www.leiphone.com/category/industrynews/bMidAUlVn5zmruyD.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>DeepSeek 官网代码曝光 Cyber 网安独立模型：分企业版与个人版，小范围灰度中</h3><p>IT之家 10 月 30 日消息，今日有大量开发者在 DeepSeek 官网的前端代码中发现了一组与“Cyber”网络安全模型相关的申请入口与接口逻辑。 从流出的代码信息来看，申请页面的路由指向 /usage/ model-application，并设置了 feature gate 开关，未获得权限的账号访问时会被重定向回用量页面。代码中还出现了与 Cyber Key 创建、额度管理相关的接口，以及企业版与个人版两套不同的申请模板。 代码中出现的模型标识有两个，分别为 cyber-personal-v3 和 cyber-enterprise-v4。前者面向个人安全从业者，申请条件包括提供身份证信息并完成人脸核验；后者面向企业主体，除实名材料外还需提交营业执照与授权书。 根据流出的申请须知，两类渠道的共同门槛包括：账号已完成实名认证且状态正常、注册地为中国大陆并绑定大陆手机号、近 90 天内无违规记录。流程为填写申请表、提交审核，审核通过后创建 Cyber Key。 IT之家提醒：目前该入口并未出现在 DeepSeek 的公开菜单中，处于灰度测试状态，绝大部分人只能找到代码引用但看不到前端入口。…</p><a href="https://www.ithome.com/1/020/154.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>5 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>阿里云发布新版飞天企业版，支持海外客户升级企业级AI能力</h3><p>10月29日消息，阿里云在国际云栖大会上发布面向国际市场的新版飞天企业版（Apsara Stack International v3.18），提供可信AI云解决方案，支持全球政府、运营商及大型企业升级AI基础设施。目前，飞天企业版已在全球20余个国家和地区实现本地化部署。 随着AI加速应用于政务、金融、医疗等关键领域，海外机构及大型企业对AI需求增长的同时，也对数据、模型和云平台的自主可控提出了更高要求。新版飞天企业版为此提供80余项全栈云服务，延续100%本地部署、完全断网独立运行等优势，并进一步整合专有模型、私域知识库和Agent能力，通过芯片、云平台与模型的联合优化提升AI计算效率，配套AI原生运营管理及7×24小时全球技术支持，降低自主运营门槛。 目前，飞天企业版及阿里云相关AI技术已应用于亚洲、欧洲、非洲、拉美等多个市场，覆盖政府、金融、医疗及大型国际赛事等领域。 作为奥林匹克全球合作伙伴，阿里云将为10月31日开幕的2026年达喀尔青奥会提供本地专有云服务，通过双可用区高可用架构，支持赛事票务及相关数字化运营系统。这也是飞天企业版专有云首次应用于奥林匹克赛事。…</p><a href="https://www.leiphone.com/category/industrynews/52mMRkhA2aqlY1FL.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>别再盯着 800 亿美元亏损了，Anthropic 的 AI 造 AI 已推进到 26%！</h3><p>AI 已接管 90% 代码编写，甚至为了完成任务开始“越狱”。 作者丨 郑佳美 编辑丨岑 峰 刚刚，Anthropic 在 IPO 招股书中披露了四起此前未公开的 Agent 安全事故。 其中一次，模型在网络安全测试中迟迟无法完成任务，便继续寻找其他路径，随后从本应断网的测试环境中找到保存的密码，获得第三方系统的管理员权限，又获取其他凭证、修改系统设置并访问外部数据，整个过程持续了 10 至 34 小时。 同期披露的另一项安排是，下一代前沿基础模型的预训练推迟了一个多月。 除此之外，这份招股书还有一组关于内部研发的数据：2026 年 9 月，Claude 贡献了 Anthropic 内部代码库超过 90% 的代码贡献量，日均代码贡献量达到 2024 年平均水平的 45 倍。 公司此前公布的研发自动化指标显示，截至 8 月，约 26% 的研发任务达到 AL4 自动化等级，意味着 AI 已经能够根据较高层级的目标，自主完成任务中的大部分工作。 这些信息放在一起，能看出 Anthropic 正在经历的变化：Claude 开始从编写代码走向实验执行和方案迭代，逐步参与下一代模型的研发。 不过要理解这场变化，不能只看 AI…</p><a href="https://www.leiphone.com/category/ai/t2cIBqBZVfpYPhPg.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>曝印度 AI 企业 AM Intelligence 寻求 30 亿美元融资，用于订购英伟达芯片</h3><p>IT之家 10 月 30 日消息，今天（30 日）上午，据彭博社援引知情人士消息称，印度 AI 基础设施企业 AM Intelligence 计划融资 最多 30 亿美元 （IT之家注：现汇率约合 200.31 亿元人民币） ，用于购买此前宣布采购的英伟达下一代芯片。AI 热潮带动的企业举债规模持续扩大。 AM Intelligence 由印度可再生能源企业 Greenko 集团的创始人创办。知情人士透露，公司考虑通过发行债券、银行贷款等方式筹资。 各种融资方式的占比尚未确定，公司还预计从潜在客户 获得 3 亿美元 （现汇率约合 20.03 亿元人民币） 预付款 。据悉，融资谈判仍处于初期阶段，具体条款可能调整。 随着亚洲及其他地区加紧建设 AI 基础设施，企业为采购最新一代处理器动辄需要筹集数十亿美元，融资方式也日趋复杂。除了传统银行贷款，开发商还引入私人资本，并要求客户提前承诺付款，将多种融资方式结合起来。 彭博社汇总的数据显示，过去不到两年，全球企业因 AI 热潮举债超过 6,500 亿美元 （现汇率约合 4.34 万亿元人民币） 。 AM Intelligence 在 8 月宣布，公司在一项规模 80 亿美元…</p><a href="https://www.ithome.com/1/020/152.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>曝 DeepSeek 第二轮融资 1055 亿元：估值 6155 亿元，腾讯、宁德时代、长鑫存储、中芯国际、美团、vivo 等参与</h3><p>IT之家 10 月 30 日消息，《The Information》今日曝光了 DeepSeek 第二轮融资规模及部分投资方名单。 最早是在当地时间 10 月 22 日，《The Information》称 DeepSeek 完成第二轮融资，募资约 150 亿美元 （IT之家注：现汇率约合 1,001.53 亿元人民币） ，宁德时代和腾讯继上一轮投资后再次参与注资。 根据 10 月 30 日报道的最新信息，本轮融资吸引了近 30 家投资方参与，腾讯、宁德时代继续作为主要投资方入局，长鑫存储、中芯国际、美团、vivo、小红书等企业也出现在投资名单中，涉及芯片制造、消费电子、互联网服务等多个领域。 出资方面，腾讯本轮投入 100 亿元人民币，与首轮出资额持平，两轮累计投入 200 亿元人民币。宁德时代及其董事长曾毓群本轮合计出资 100 亿元人民币，高于首轮的 50 亿元人民币。 除上述企业外，中国移动、中国电信、中金公司、中信证券及中国人寿等机构也参与了本轮融资，各自出资金额介于 20 亿至 80 亿元人民币之间。…</p><a href="https://www.ithome.com/1/020/121.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>女子信任 ChatGPT 的用药决策，结果因此猝死</h3><p>一名住在西雅图的 31 岁华人女子，因依照 ChatGPT 提供的逐日减药计划，自行将抗癫痫药物逐步减量至停药后死亡。其父母向旧金山高等法院提起不当致死诉讼，控告 OpenAI 及其 CEO Sam Altman，指 ChatGPT 无照行医、提供危险且不准确的医疗建议。OpenAI 回应称这是“令人心碎的事件”，但涉案的是已经下架的早期版本。死者名为万博文(Bowen Wan)，来自江苏，毕业于亚利桑纳州立大学信息工程系，曾在亚马逊担任软件工程师，2021 年起请长期病假。她患有严重癫痫，服用多年的药物一度失效，后来改用新药，发作次数降至每月数次。她自 2023 年起频繁使用 ChatGPT，询问感情、健康保险与身心障碍给付等问题；2025 年平均每周传送逾 1500 则消息。2025 年 11 月她得知将被亚马逊裁员，须在次年 2 月中旬前找到工作才能留在美国。她担心药物影响语言能力，2026 年 1 月向 ChatGPT 提出，想把抗癫痫药拉莫三嗪(Lamotrigine)的每日剂量从 400 毫克降到 300 毫克，以利求职面试。ChatGPT…</p><a href="https://www.solidot.org/story?sid=85737" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 05:50:44 +0000</div><h3>Claude新模型曝光：新Fable，新Opus…</h3><a href="https://www.qbitai.com/2026/10/506674.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 03:48:04 +0000</div><h3>从学习人类到学习机器人同伴，清华大学联合无问芯穹、智元提出具身智能规模化落地新路径</h3><a href="https://www.qbitai.com/2026/10/506662.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 00:19:06 +0000</div><h3>买车送终身AI？智己LS8纯电版25万起！全系线控底盘宁德时代标配</h3><a href="https://www.qbitai.com/2026/10/506569.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 09:58:26 +0000</div><h3>STEPX Neo 发布两周即迎首次升级，智能体能力持续释放</h3><a href="https://www.qbitai.com/2026/10/506554.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 08:50:14 +0000</div><h3>AI安全是AI规模化应用“加速器”</h3><p>AI安全不是AI发展的“刹车片”，而是AI高质量发展的“加速器”。</p><a href="https://www.qbitai.com/2026/10/506544.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 06:53:19 +0000</div><h3>奥特曼和Dario同台唱rap！Genspark新视频Agent上线，零基础也能拍短剧</h3><a href="https://www.qbitai.com/2026/10/506478.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 06:51:51 +0000</div><h3>物理学也要被AI攻陷了？5道20多年量子公开问题被突破</h3><a href="https://www.qbitai.com/2026/10/506477.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 12:20:00 +0800</div><h3>阿里用速卖通把双11带到韩国，还豪送4辆特斯拉！</h3><p>被韩国人实名羡慕的中国购物节，其实已经抵达韩国！ 据韩媒报道，阿里旗下跨境平台速卖通AliExpress宣布11月1日至18日开启海外双11，所有类别商品最高可享80%的折扣，还拿出4辆特斯拉Model Y做抽奖。 （韩媒报道速卖通双11送特斯拉） 韩国双11期间，速卖通将在首尔圣水洞开设快闪店，展出真实的电动汽车和产品体验区，以及“11 秒挑战”等现场活动。韩国社交媒体上网友已经炸开锅：“抽奖预约名额太难抢了”、“阿里每年的活动太优惠啦！” （韩国网友在社媒讨论速卖通双11活动） 速卖通持续领跑韩国跨境电商。据韩国数据机构Wiseapp·Retail此前公布的数据，今年1至4月，速卖通在韩国跨境电商支付额中排名第一，月活用户接近1000万，购物类APP下载量也稳居前三。 品牌和本地化投入是速卖通今年的重点方向。2026年5月，速卖通Brand+品牌出海计划正式开放韩国站点，在韩国的市场投入增至去年的三倍；物流优势也在扩大，目前速卖通在韩国已实现50%的订单三日达，韩国消费者的购买意愿度进一步提升。…</p><a href="https://www.leiphone.com/category/industrynews/pTCNnUnvfLfUtt27.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 12:18:00 +0800</div><h3>阿里云发布新版飞天企业版，支持海外客户升级企业级AI能力</h3><p>10月29日消息，阿里云在国际云栖大会上发布面向国际市场的新版飞天企业版（Apsara Stack International v3.18），提供可信AI云解决方案，支持全球政府、运营商及大型企业升级AI基础设施。目前，飞天企业版已在全球20余个国家和地区实现本地化部署。 随着AI加速应用于政务、金融、医疗等关键领域，海外机构及大型企业对AI需求增长的同时，也对数据、模型和云平台的自主可控提出了更高要求。新版飞天企业版为此提供80余项全栈云服务，延续100%本地部署、完全断网独立运行等优势，并进一步整合专有模型、私域知识库和Agent能力，通过芯片、云平台与模型的联合优化提升AI计算效率，配套AI原生运营管理及7×24小时全球技术支持，降低自主运营门槛。 目前，飞天企业版及阿里云相关AI技术已应用于亚洲、欧洲、非洲、拉美等多个市场，覆盖政府、金融、医疗及大型国际赛事等领域。 作为奥林匹克全球合作伙伴，阿里云将为10月31日开幕的2026年达喀尔青奥会提供本地专有云服务，通过双可用区高可用架构，支持赛事票务及相关数字化运营系统。这也是飞天企业版专有云首次应用于奥林匹克赛事。…</p><a href="https://www.leiphone.com/category/industrynews/52mMRkhA2aqlY1FL.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 12:04:00 +0800</div><h3>卓驭发布“磐行”智驾解决方案：切入商用车市场，一年可回本</h3><p>10月29日晚，智能驾驶方案商卓驭科技正式发布商用车智能辅助驾驶解决方案“卓驭磐行”，并公布了商用重卡、客车、轻卡、ROBOVAN等业务进展。 此次卓驭磐行分为PDS 4和PDS 5两个版本。 PDS 4对应高悟性大模型4.0及以上版本，主要支持高速NOA，面向重卡干线物流。目前这一版本已经实现量产。 PDS 5则对应卓驭下一代原生多模态基础模型，在高速NOA之外，还将支持城区NOA，主要面向客车、轻卡、VAN等需要大量城市道路行驶的商用车型。 卓驭为什么选择在这个时间进入商用车？卓驭科技CEO沈劭劼表示，目前国内商用车智能驾驶渗透率不足1%，而乘用车L2+渗透率已经超过30%。他预计，未来两到三年，商用车智能驾驶会进入更快的增长阶段。 过去几年，乘用车智能驾驶已经经历了一轮快速普及。摄像头、毫米波雷达、域控制器和高算力芯片的成本持续下降，端到端、大模型等技术也已经进入量产车型。 对于已经拥有乘用车客户和量产数据的供应商来说，把已有技术迁移到商用车，比重新开发一套系统成本更低。 在沈劭劼看来，卓驭科技的重要优势是数据。…</p><a href="https://www.leiphone.com/category/transportation/rwe6sLir6r3aYzeu.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 10:43:00 +0800</div><h3>瞬恒智能自研灵巧操作人形机器人SynDexy C1首次实现小批量交付</h3><p>今日，瞬恒智能（SynDexy）宣布，自研灵巧操作人形机器人SynDexy C1完成首次小批量交付，产品正式从研发验证迈向工程化交付与场景应用新阶段，进一步推动具身智能在工业制造领域的商业化落地。 本次交付的机器人将应用于消费电子、电子元器件领域客户工厂的精密装配工序。此类工序对精度与稳定性要求极高，在此前测试中，SynDexy C1关键任务成功率超过 98%，展现出面向工业精细操作场景的应用潜力。 作为瞬恒智能首款灵巧操作人形机器人，SynDexy C1最大特点，在于融合了视触觉感知能力—— 硬件层面，搭载了自研视触觉传感器，具备微米级空间分辨率、高动态精细感知与优异鲁棒性、稳定性，为机器人灵巧抓取与柔性操作提供实时感知输入；模型层面，搭载全球首创视触力三态融合操作模型 SynDexy M1，通过视觉、触觉、力觉深度融合提升机器人在真实环境中的感知、理解能力；机器人全身拥有 22 个自由度，可实现1毫秒高实时运动控制。依托软硬件一体化设计，SynDexy C1 面向工业高精度操作任务，有效提升了精细操作能力与系统迭代效率。 从研发启动到小批量交付，SynDexy C1…</p><a href="https://www.leiphone.com/category/industrynews/CLO1sIKJzw59DmrI.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 22:23:00 +0800</div><h3>别再盯着 800 亿美元亏损了，Anthropic 的 AI 造 AI 已推进到 26%！</h3><p>AI 已接管 90% 代码编写，甚至为了完成任务开始“越狱”。 作者丨 郑佳美 编辑丨岑 峰 刚刚，Anthropic 在 IPO 招股书中披露了四起此前未公开的 Agent 安全事故。 其中一次，模型在网络安全测试中迟迟无法完成任务，便继续寻找其他路径，随后从本应断网的测试环境中找到保存的密码，获得第三方系统的管理员权限，又获取其他凭证、修改系统设置并访问外部数据，整个过程持续了 10 至 34 小时。 同期披露的另一项安排是，下一代前沿基础模型的预训练推迟了一个多月。 除此之外，这份招股书还有一组关于内部研发的数据：2026 年 9 月，Claude 贡献了 Anthropic 内部代码库超过 90% 的代码贡献量，日均代码贡献量达到 2024 年平均水平的 45 倍。 公司此前公布的研发自动化指标显示，截至 8 月，约 26% 的研发任务达到 AL4 自动化等级，意味着 AI 已经能够根据较高层级的目标，自主完成任务中的大部分工作。 这些信息放在一起，能看出 Anthropic 正在经历的变化：Claude 开始从编写代码走向实验执行和方案迭代，逐步参与下一代模型的研发。 不过要理解这场变化，不能只看 AI…</p><a href="https://www.leiphone.com/category/ai/t2cIBqBZVfpYPhPg.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 22:22:00 +0800</div><h3>拉爆游戏引擎？深度拆解 Genie 4，从视频生成到世界控制，Google 要跨越什么？</h3><p>动态条件注入、因果核验与异步协作的三大技术挑战，暴露出哪些致命的技术死角？ 作者丨 郑佳美 编辑丨岑 峰 刚刚，Google DeepMind 正式发布了新一代世界模型 Genie 4。 除了实时生成可交互环境，这次还有一个有意思的设计：Genie 4 负责生成世界，Gemini 3.8 Flash 负责观察画面、拆解任务，并根据执行情况调整计划。 DeepMind 还展示了 Gemini 4 Argon 与 Genie 4 的组合，让模拟环境中的 Apollo 人形机器人完成跳棋任务。在整个过程中，新的任务指令可以持续加入，并改变后续发生的事件。 这给世界模型带来了新的技术要求。过去，模型主要根据历史画面和用户操作生成后续场景，现在还需要随时接收 Agent 发来的新指令。 当机器人移动一枚棋子后，模型既要保留棋盘已经发生的状态变化，又要理解下一阶段的任务，让后续画面与此前操作保持一致。如果执行失败，Agent 还需要从生成画面中识别异常，调整计划并继续执行。 任务规划、条件生成和状态核验由此进入同一个反馈循环，同时也带来了三个相互关联的问题： 动态语言条件如何约束环境演化，Agent 如何…</p><a href="https://www.leiphone.com/category/yanxishe/F3FpQlhpT7u7ekyU.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 19:38:00 +0800</div><h3>31岁女工程师猝死，其生前按ChatGPT指示减药，还被告知「完全没必要担心」；美国一公司招人遛机器狗：时薪20美元，不用铲屎但得扛狗回来</h3><p>要闻提示 1.31岁女工程师猝死，其生前按ChatGPT指示减药，还被告知“完全没有必要担心” 2.网友发视频称“医生用豆包开药”，涉事医院回应 3.米哈游通告：游戏泄密人员被判赔100万元 4.三家车企拟入选国家级名单：小米汽车位列第一 5.云鲸智能迎来品牌十周年：定位全球AI智能清洁专家，服务超600万家庭 6.阮瑜轮岗担任小度科技负责人，百度智能云事业群组进行组织调整 7.美国一公司招人遛机器狗：时薪 20 美元，不用铲屎但可能要扛狗回来 8.特朗普：将“正式禁用”AI一词 今日头条 31岁女工程师猝死，其生前按ChatGPT指示减药，还被告知“完全没有必要担心” 10月28日消息，据媒体报道，一名住在西雅图的31岁华人女子，疑因依照ChatGPT提供的逐日减药计划，自行将抗癫痫药物逐步减量至停药后死亡。她的父母当地时间27日向旧金山高等法院提起不当致死诉讼，控告OpenAI及其执行长奥特曼，指ChatGPT无照行医、提供危险且不准确的医疗建议。OpenAI响应说，这是“令人心碎的事件”，但涉案的是已经下架的早期版本。…</p><a href="https://www.leiphone.com/category/zaobao/ZWf8n2mgF0X5Rkfj.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 17:03:00 +0800</div><h3>国家超算互联网调价：降低AI研发、调试成本</h3><p>近日，国家超算互联网宣布最新价格调整，新用户可享DeepSeek-V4.1-Flash-1017、GLM-5.3-Flash两款前沿模型0.1元5000万tokens限时秒杀特惠；同时，多款新主流模型已纳入TokenPlan套餐池。此外，订阅TokenPlan用户还可享限时夜间免费模型权益：10月21日至30日，每晚21:00至次日09:00，Auto模型可免费调用。 据悉，此次推出的“MaaS（智能体）特惠活动”是国家超算互联网为降低大模型与智能体调用门槛、扩容AI生产力供给推出的算力普惠活动。活动自今年8月上线以来，已有大量用户参与，并获得中科星图、ChatExcel、安恒信息等生态伙伴支持。平台已上线卫星遥感成像、科学计算、数据安全、OCR文字识别等限时折扣、免费AI应用商品。 此次升级在模型供给和调用成本上进一步加码。新用户特惠覆盖DeepSeek-V4.1-Flash-1017、GLM-5.3-Flash两款前沿模型，TokenPlan套餐池也迎来多款新主流模型入驻。夜间免费权益则面向订阅用户开放，在指定时段内可免费调用Auto模型，进一步降低AI研发、调试成本。</p><a href="https://www.leiphone.com/category/industrynews/tZQilZ5sagKCk1Sm.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 17:01:00 +0800</div><h3>豆包工作向企业客户开放配置三方模型</h3><p>为支持企业需求，豆包工作今日向客户开放三方大模型服务，首批将接入 Kimi 3.1 Pro、GLM 5.3、DeepSeek V4.1 Flash 等系列模型。 本次更新面向团队订阅版和企业订阅版客户开放。功能上线后默认直接开启，企业无需另行向模型厂商采购，也无需额外申请，后续按照用量扣除企业已有的 AI 点数，真正实现开箱即用。 在使用人群上，企业可以按照成员、部门、群组或全员灵活划定可用范围，按模型厂商一键批量启用，或针对单一模型进行单独配置。 在使用场景上，企业也可指定模型在豆包电脑端、豆包工作电脑端、豆包移动端、豆包网页端及飞书内豆包工作等不同场景中生效。比如，企业可以设置模型仅在“工作电脑”及“飞书工作台”等办公环境下生效，兼顾业务效率与数据安全。 雷峰网 雷峰网</p><a href="https://www.leiphone.com/category/industrynews/bMidAUlVn5zmruyD.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 16:54:00 +0800</div><h3>蚂蚁灵光2.0打通钉钉、支付宝等数十项服务，加速走向“能管事”</h3><p>AI从“会聊天”走向“能管事”，接入真实工作流是落地关键。继蚂蚁集团10月27日发布灵光2.0后，记者今日体验发现，新版灵光已进一步拓展跨平台连接能力，不仅原生打通支付宝生态，还接入了钉钉命令行接口（CLI）等数十项外部工具。 （图1：灵光App【我的服务】页面） 以钉钉为例，灵光2.0可在用户授权下调用钉钉的群聊、待办、日历、文档等能力，帮助用户处理家校群和工作群中的高频事务，减少翻阅消息、筛选重点和手动整理待办的负担。 例如，在家校场景中，家长授权后可将钉钉班级群交由灵光后台协助管理。灵光可自动从海量消息中梳理老师通知、作业和活动安排，提取待办、完成文档排版，并在关键节点主动提醒。在办公场景中，依托独立云端主机，即便用户退出App，灵光依然能在后台持续汇总群聊重点、识别紧急事项、生成任务清单，并根据进展跟进提醒，减少用户在多个入口间切换和反复跟进的负担。 （图2：用灵光管理班级钉钉群） 据了解，钉钉面向智能体场景打造的命令行工具集（DWS CLI），已覆盖群聊、会议听记、待办、AI表格、文档、日历、通讯录、审批等25项业务模块。此前该工具集已面向企业级智能体开放，灵光2.0此次接入，将这一能力正延伸至个人用户端。…</p><a href="https://www.leiphone.com/category/industrynews/eigNbrwrLkMYpiwN.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><h3>[解析失败] https://36kr.com/feed</h3><p>not well-formed (invalid token): line 10, column 168</p></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 08:32:38 GMT</div><h3>华为鸿蒙 HarmonyOS 7 更新“3D 动态日历”功能，Mate 90 等机型可用</h3><p>IT之家 10 月 30 日消息，今年 9 月，华为正式发布了 HarmonyOS 7 系统。除了“沉浸光感”视效外，鸿蒙 7 还带来了“空间美学”全新设计， 包含 3D 空间壁纸和空间运镜等 ，支持更多场景展示“立体视界”效果。 IT之家注意到，华为今日推送了日历 App 的 17.0.10.350 版本升级，更新日志显示为“修复部分已知问题，优化部分场景体验”。 而在更新该版本日历后，日历 App 实装了此前宣传的空间运镜设计方案，新增支持“3D 动态日历”功能 —— 用户可在日历设置中切换空间感系列壁纸 ，左右滑动切换月份时，壁纸会呈现 3D 动态效果（首次使用需下载背景资源文件，约 200MB）。 目前，华为 Mate 90、Mate 80、Mate 70、Pura 90、Pura 80、Pura X 等系列机型确认支持使用“3D 动态日历”功能（华为官方暂未公布具体支持机型名单）。 延伸阅读 华为鸿蒙 HarmonyOS 7 于 2026 年 9 月 7 日在“HarmonyOS 7 | HUAWEI Mate XT 2 及全场景新品发布会”上正式发布。 “空间运镜”属于鸿蒙 7…</p><a href="https://www.ithome.com/1/020/169.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 08:19:58 GMT</div><h3>百度宣布将搜索 API 活动价压至 4.9 元 / 千次，低于 DeepSeek 标准 5 元定价</h3><p>IT之家 10 月 30 日消息，百度今日在北京举办产品升级沟通会，宣布围绕搜索框、AI 镜头、GUI 可视化、AI 互动应用四大方向进行升级，并宣布推出搜索 AI API 优惠价 —— 活动期间最低价 4.9 元 / 千次，低于 DeepSeek 同类产品的 5 元 / 千次。 百度方面将此次升级概括为“搜索实现递归自我进化”。具体到产品层面，文心助手的定位从“一次问答”转向“一份交付”：针对复杂问题和高频事务，它可以直接交付成果物；对于长期任务，则提供持续跟踪和主动提醒，目前覆盖场景已超过 170 种。 同时，百度 AI 镜头从此前的“定格”识别升级为“流动”追踪，支持多目标同步识别与动态追踪，并新增东北话、四川话、粤语等 9 种方言的实时对话能力。GUI 互动场景数量提升 5 倍，接入政务、民生、央行等领域超过 50 亿条数据资源；AI 互动剧与互动应用也同步上线。 参考IT之家此前报道，DeepSeek 在 10 月 17 日上线网页搜索与抓取 API，按请求次数计费，单价为每 1000 次成功请求 5 元。 DeepSeek 公告称，当用户在 DeepSeek Harness / Claude Code /…</p><a href="https://www.ithome.com/1/020/165.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 08:06:13 GMT</div><h3>暴力熊推出 TG x CENS LN2 Container 液氮炮：携手超频专家研发，适用于显卡</h3><p>IT之家 10 月 30 日消息，Thermal Grizzly（暴力熊）当地时间本月 21 日推出了 TG x CENS LN2 Container。 这款“液氮炮”由该企业与超频玩家 Clemens &quot;CENS&quot; Nüssler 共同开发，兼容 AMD 和 NVIDIA 的多款独立显卡， 专为 GPU 极限超频 (XOC) 而设计 。 暴力熊表示，TG x CENS LN2 Container 拥有经过优化的特殊内部设计， 在提供最优散热效果的同时也能实现直到 -196℃ 的精确温度控制 。其底部为拥有超薄镍镀层的精加工铜材，搭配可保证 GPU 核心受压稳定的弹簧加载系统。 IT之家了解到，暴力熊 TG x CENS LN2 Container 含税定价 599.90 欧元 （IT之家注：现汇率约合 4,468 元人民币） 。</p><a href="https://www.ithome.com/1/020/161.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 08:05:52 GMT</div><h3>陈立武：Nova Lake 将填补英特尔高端桌面 CPU 产品线空缺，14A 制程 Coral Rapids 将与 AMD EPYC 展开竞争</h3><p>IT之家 10 月 30 日消息，英特尔 CEO 陈立武在 2026 年第三季度财报电话会议上表示，下一代客户端处理器 Nova Lake 将填补公司高端桌面 CPU 产品线的空缺。 面向数据中心市场，英特尔计划于 2028 年推出采用 14A 制程的 Coral Rapids 至强处理器，并希望通过后续产品在竞争力上超越 AMD EPYC 系列。 根据英特尔路线图，Nova Lake 将采用 Intel 18A-P 制程，是该公司首款面向客户端市场的 18A-P 产品。 陈立武表示，该产品目前的研发进度领先于原计划，预计上市时获得的客户设计导入数量将达 Panther Lake 两倍。英特尔计划在 2027 年 1 月的 CES 上公布更多相关信息，并预计随着 PC 市场逐步恢复正常，Nova Lake 产品线将帮助公司提升市场份额。 Nova Lake 将覆盖从高端桌面到主流笔记本电脑的多个市场。该系列桌面处理器预计分阶段上市：首批产品采用单计算芯粒设计，最高提供 28 核配置；后续双计算芯粒版本预计于 2027 年下半年推出，最高提供 52 核配置。…</p><a href="https://www.ithome.com/1/020/160.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 07:50:19 GMT</div><h3>DeepSeek 官网代码曝光 Cyber 网安独立模型：分企业版与个人版，小范围灰度中</h3><p>IT之家 10 月 30 日消息，今日有大量开发者在 DeepSeek 官网的前端代码中发现了一组与“Cyber”网络安全模型相关的申请入口与接口逻辑。 从流出的代码信息来看，申请页面的路由指向 /usage/ model-application，并设置了 feature gate 开关，未获得权限的账号访问时会被重定向回用量页面。代码中还出现了与 Cyber Key 创建、额度管理相关的接口，以及企业版与个人版两套不同的申请模板。 代码中出现的模型标识有两个，分别为 cyber-personal-v3 和 cyber-enterprise-v4。前者面向个人安全从业者，申请条件包括提供身份证信息并完成人脸核验；后者面向企业主体，除实名材料外还需提交营业执照与授权书。 根据流出的申请须知，两类渠道的共同门槛包括：账号已完成实名认证且状态正常、注册地为中国大陆并绑定大陆手机号、近 90 天内无违规记录。流程为填写申请表、提交审核，审核通过后创建 Cyber Key。 IT之家提醒：目前该入口并未出现在 DeepSeek 的公开菜单中，处于灰度测试状态，绝大部分人只能找到代码引用但看不到前端入口。…</p><a href="https://www.ithome.com/1/020/154.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 07:48:13 GMT</div><h3>曝印度 AI 企业 AM Intelligence 寻求 30 亿美元融资，用于订购英伟达芯片</h3><p>IT之家 10 月 30 日消息，今天（30 日）上午，据彭博社援引知情人士消息称，印度 AI 基础设施企业 AM Intelligence 计划融资 最多 30 亿美元 （IT之家注：现汇率约合 200.31 亿元人民币） ，用于购买此前宣布采购的英伟达下一代芯片。AI 热潮带动的企业举债规模持续扩大。 AM Intelligence 由印度可再生能源企业 Greenko 集团的创始人创办。知情人士透露，公司考虑通过发行债券、银行贷款等方式筹资。 各种融资方式的占比尚未确定，公司还预计从潜在客户 获得 3 亿美元 （现汇率约合 20.03 亿元人民币） 预付款 。据悉，融资谈判仍处于初期阶段，具体条款可能调整。 随着亚洲及其他地区加紧建设 AI 基础设施，企业为采购最新一代处理器动辄需要筹集数十亿美元，融资方式也日趋复杂。除了传统银行贷款，开发商还引入私人资本，并要求客户提前承诺付款，将多种融资方式结合起来。 彭博社汇总的数据显示，过去不到两年，全球企业因 AI 热潮举债超过 6,500 亿美元 （现汇率约合 4.34 万亿元人民币） 。 AM Intelligence 在 8 月宣布，公司在一项规模 80 亿美元…</p><a href="https://www.ithome.com/1/020/152.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 07:24:54 GMT</div><h3>前特斯拉 Autopilot 负责人抨击纯视觉方案：无视物理规律的技术执念</h3><p>IT之家 10 月 30 日消息，通用汽车首席产品官斯特林 · 安德森（Sterling Anderson）曾在 2015、2016 年负责特斯拉 Autopilot 项目，他认为，舍弃雷达、只依靠摄像头的自动驾驶方案，是“一种无视物理规律的奇怪执念”。 IT之家注意到，作为初代 Autopilot 的核心搭建者之一，这是迄今为止他对特斯拉纯视觉路线最直白的批评。这番言论发表之际，特斯拉正把采用纯视觉方案的 Cybercab 投入奥斯汀的无人驾驶出租车运营。 安德森在 10 月 27 日《The Verge》的采访中发表了上述观点，此前一周通用汽车刚在纽约举办了技术发布会。当被问及通用未来是否会效仿特斯拉转向纯视觉路线时，他的态度十分明确。 他说：“如果退回到纯视觉方案，从物理原理来看，在部分场景里一定会出问题。”他补充，雷达成本很低，去掉雷达毫无道理；而且“摄像头无法穿透浓雾，也不能像雷达一样测量瞬时速度”。 他还提到，激光雷达和摄像头联合训练，能够加快视觉系统的迭代速度。这直接反驳了特斯拉的核心论点：只需要摄像头加上车队数据就足够实现自动驾驶。 安德森不是为自家产品造势的激光雷达初创公司负责人。他曾在特斯拉主导…</p><a href="https://www.ithome.com/1/020/137.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 07:21:28 GMT</div><h3>全球首款内置磁吸 USB-C 接口：微软调整 0.7 毫米磁铁位置，让 Surface 充电实现“自动泊车”</h3><p>IT之家 10 月 30 日消息，微软 Windows + Devices 设计与研发负责人马库斯 · 阿什（Marcus Ash）今天（10 月 30 日）在 X 平台发布推文， 分享了关于全球首款内置磁吸式 USB-C 接口更多研发细节。 IT之家曾于 10 月 8 日报道，微软 Surface 设备首席设计师 Jit Hirani 表示：“在 Surface Laptop Ultra 开发过程中，我们的工程团队迭代了大约 300 次，从而打造出世界上首款内置磁吸式 USB-C 接口的产品。从产品设计之初，我们唯一的限制就是不能更改通用的 USB-C 接口。” 在最新推文中，Ash 介绍了更多磁吸式 USB-C 接口的研发细节，表示该方案经过数百个原型测试，其中他最喜欢的变动，仅将磁铁位置调整 0.7 毫米，就让插接体验从“需要最后用力一推”变为“平稳自动吸附到位”。 在插接体验上，原来接近接口后，可能还要手动补一下推力；调整后，磁铁会在接近时把接头“拉”进正确位置。而且磁铁位置微调改变了引导力线和吸附路径，让你不用刻意精确对齐，接头会自己找正。微软表示配合连接提示音和…</p><a href="https://www.ithome.com/1/020/136.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 07:10:12 GMT</div><h3>乌克兰战场 AI 机枪炮塔投入实战，可精准拦截高速无人机</h3><p>IT之家 10 月 30 日消息，据 Business Insider 报道，乌克兰正在战场上使用由人工智能控制的机枪炮塔，实战效果良好，基辅方面希望加快部署速度。 乌克兰去年就对外展示过这类系统的原型装备，该国国防创新平台 Brave1 周四表示，它们如今已经成为乌军“防空体系中不可或缺的组成部分”。 Brave1 称：“仅在上个月，自动化炮塔就在基辅上空击落了数十架敌方无人机。”该平台补充说，相关武器从 2024 年就已作为试验项目启动研发。 关于这类炮塔的核心性能，例如射程、软件运行机制等，公开信息很少；已知其主要作为防空装备，用来对抗俄方无人机。 这套装备的原理是依靠 AI 完成目标探测、锁定与跟踪，在拦截“天竺葵”这类喷气式高速空中目标时，命中精度高于人工操作。 乌克兰总统弗拉基米尔 · 泽连斯基在 10 月初曾透露，基辅地区已经部署十余套该系统，还计划再投放八套。 后续泽连斯基继续对这款装备予以肯定，他在 10 月 19 日表示，AI 炮塔“在对付沙赫德系列无人机时效果突出”，这也表明乌克兰打算进一步推广这项技术。 “我们正在增加订单，必须尽可能加快所有环节 —— 组织、资金以及生产流程。”泽连斯基说。…</p><a href="https://www.ithome.com/1/020/131.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 06:59:59 GMT</div><h3>曝 DeepSeek 第二轮融资 1055 亿元：估值 6155 亿元，腾讯、宁德时代、长鑫存储、中芯国际、美团、vivo 等参与</h3><p>IT之家 10 月 30 日消息，《The Information》今日曝光了 DeepSeek 第二轮融资规模及部分投资方名单。 最早是在当地时间 10 月 22 日，《The Information》称 DeepSeek 完成第二轮融资，募资约 150 亿美元 （IT之家注：现汇率约合 1,001.53 亿元人民币） ，宁德时代和腾讯继上一轮投资后再次参与注资。 根据 10 月 30 日报道的最新信息，本轮融资吸引了近 30 家投资方参与，腾讯、宁德时代继续作为主要投资方入局，长鑫存储、中芯国际、美团、vivo、小红书等企业也出现在投资名单中，涉及芯片制造、消费电子、互联网服务等多个领域。 出资方面，腾讯本轮投入 100 亿元人民币，与首轮出资额持平，两轮累计投入 200 亿元人民币。宁德时代及其董事长曾毓群本轮合计出资 100 亿元人民币，高于首轮的 50 亿元人民币。 除上述企业外，中国移动、中国电信、中金公司、中信证券及中国人寿等机构也参与了本轮融资，各自出资金额介于 20 亿至 80 亿元人民币之间。…</p><a href="https://www.ithome.com/1/020/121.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 06:55:16 GMT</div><h3>海信大圣“G5 PRO AI 款”27 英寸显示器上架：2K 200Hz，1299 元</h3><p>IT之家 10 月 30 日消息，海信现已在京东上架“海信大圣 G5 PRO AI 款”显示器，该机主打 2K 200Hz， 定价为 1299 元 ，部分地区国补后低至 999 元。 京东 海信大圣 G5 PRO AI 款显示器 1299 元 直达链接 该机配备一块 2560x1440 分辨率 200Hz E-LED 背光 Fast IPS 面板，GtG 响应速度 0.4ms，对比度 1000:1，峰值亮度 500 尼特，显示器支持 10-Bit 色彩（8-Bit + FRC）。 该机支架支持升降 / 倾斜 / 旋转，显示器本体支持 VESA 75x75mm，提供 2 个 HDMI 2.1、1 个 DP 1.4、1 个 3.5mm 音频接口。 IT之家附显示器参数： 京东 11.11 无门槛红包 面额至高 26888 元，每天抽 3 次： 点此抽红包 。 淘宝 11.11 无门槛红包 面额至高 26888 元，每天抽 1 次： 点此抽红包 。</p><a href="https://www.ithome.com/1/020/115.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 06:53:12 GMT</div><h3>鸿蒙智行问界新 M8 选配公开：华为乾崑智驾 ADS 5、全系 L3 级架构，预售 38.98 万元起</h3><p>IT之家 10 月 30 日消息，鸿蒙智行问界新 M8 旗舰 SUV 将于 11 月 13 日上市，搭载华为乾崑智驾 ADS 5 系统，预售价 38.98 万元起。 IT之家注意到，目前华为官网已公开问界新 M8 选配信息， 分 Max / Max+ 和 Ultra 三个版本 、增程 / 纯电两种动力形式、五座 / 六座车内布局（纯电可选后驱和四驱）。 问界新 M8 Max 全系 L3 级架构 | 四激光雷达 巨鲸电池 | 双腔双阀 | 六活塞定钳 800V 平台 | 增程 56 度电池 问界新 M8 Max+ L3 级架构 | 四激光雷达 | 巨鲸电池 800V 平台 | 增程 56 度电池 | 纯电 100 度电池 二排右侧零重力座椅（六座） 问界新 M8 Ultra 800V 平台 | 增程 56 度电池 | 纯电 120 度电池 后轮转向 | 21 英寸后排柔光娱乐屏 智慧电动门 | 华为悦彰音响卓越系列 华为官网显示，新车“舒享配置”可选电动踏板（8,000 元）、主驾零重力座椅（10,000 元）、副驾零重力座椅（8,000 元）、二排右侧零重力座椅；“科技配置”可选 21 英寸后排柔光娱乐屏（10,000…</p><a href="https://www.ithome.com/1/020/113.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 23:19:44 +0800</div><h3>Google AI 搜索产生的收入低于传统搜索</h3><p>Google/Alphabet 在公布第三季度财报之后股价下跌了近 10%，原因是搜索巨人披露 AI 搜索产生的收入低于传统搜索，尽管其整体搜索业务收入同比增长 12% 达到 632.5 亿美元。搜索业务增速略低于去年第三季度的 14.5%，Alphabet 首席商务官 Philipp Schindler 称，搜索业务增长放缓的原因在于“我们观察到 AI Mode 变现能力较低”。为推动 AI 业务 Google 同时在基础设施上投入巨额资金。第三季度公司支出达 514 亿美元，其中约三分之二用于服务器和网络设备，其余部分则用于数据中心建设。巨额支出影响了盈利能力：Alphabet 本季度净利润为 261.7 亿美元；去年第三季度在 Google 营收为 1023.5 亿美元的情况下净利润达到 350 亿美元。Schindler 认为，AI 搜索终将带来回报。</p><a href="https://www.solidot.org/story?sid=85748" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 23:10:38 +0800</div><h3>研究发现非英语的 token 成本更高</h3><p>Coalition for Language Equity in AI Research 上个月发表的一项研究发现，AI 模型处理部分语言提示所需的 token 量远超英语。研究人员称之为隐性 token 税，意味着小语种用户的 AI 成本更高。研究发现，即使互联网最流行的 20 种语言，token 使用量也存在差异。最昂贵语言使用的 token 数量是最便宜语言的 1.5-5 倍。当研究人员将范围扩大到 200 种语言，差异进一步扩大，一个 AI 模型的 token 成本差距甚至增加了 17 倍。研究指出：位于班加罗尔的初创公司可能需要为每次提示和完成支付附加费，而其位于奥斯汀的竞争对手则无需支付。token 税的影响远不止成本。token 数量越多，延迟就越高，有效上下文容量就越低。在计算和连接本就有限的地区，这些惩罚最为严重。token 不公平限制了 AI 经济的参与范围。</p><a href="https://www.solidot.org/story?sid=85747" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 18:31:38 +0800</div><h3>乌鸦视觉决策速度两倍于人类</h3><p>德国蒂宾根大学开展的一项新研究显示，在进行视觉选择任务时，乌鸦的决策速度约为人类和猴子等灵长类动物的两倍。实验中，两只小嘴乌鸦平均只需 235 毫秒即可识别屏幕上点阵的运动方向并作出选择，同时保持较高准确率。为探究其机制，团队记录了乌鸦大脑中与灵长类前额叶皮层功能相当的关键区域——尾侧新纹状体的神经元活动。视觉刺激出现后约 70 毫秒，乌鸦大脑中编码不同运动方向的神经元信号便开始分化，这一变化远早于乌鸦作出实际反应。随着决策逐步形成，相关神经活动逐渐增强，直至达到决策阈值，乌鸦随即作出选择。神经元活动既反映了视觉信息的强度，也对应了最终选择的方向。团队认为，这种高速决策能力可能与鸟类在飞行、觅食和躲避天敌过程中，对快速视觉处理的进化需求有关。</p><a href="https://www.solidot.org/story?sid=85745" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 17:13:23 +0800</div><h3>美国肯塔基男子成为首位以宗教理由豁免使用 AI 的人文主义者</h3><p>45 岁的 David Durman 是肯塔基大学的研究管理员，作为人文主义者（humanist）他坚信生活中人的重要性。这意味着他要坚持自主决策，确保自己的工作能促进他人成长。当学校要求员工在工作流程中使用 AI 他忧心忡忡，认为这意味着日常工作中须将思考这一环节转交给 Microsoft Teams Copilot、Claude 或 ChatGPT 等 AI 工具完成。他认为这违背了个人信念。在美国人文主义者协会（American Humanist Association）的协助下，他以遵守宗教信仰为由请求调整工作要求。学校上个月同意了他的请求。美国人文主义者协会认为这是首例人文主义者豁免使用 AI 的案例。</p><a href="https://www.solidot.org/story?sid=85743" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 15:54:20 +0800</div><h3>美银建议客户不要与 AI 助手共享银行账号密码</h3><p>美国银行（Bank of America）向客户群发电子邮件，邮件主题是《Protecting your finances in the Al World》，督促客户不要与他人或外部服务机构共享其用户名和密码，其中也包括声称可代客户行事的 AI 工具或智能体。共享银行账号一旦出事，那么后果将由客户自己承担。大多数银行的账户协议都规定，如果客户将登录凭证提供给他人，那么由此产生的一切后果均由客户负责。美银邮件指出：“如果您确实共享了您的登录凭证，请务必记住，由此产生的任何账户活动，您都需承担相应责任。”</p><a href="https://www.solidot.org/story?sid=85742" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 15:30:57 +0800</div><h3>Valve 无意对 AI Slop 和克隆游戏采取行动</h3><p>对于玩家对 Steam 平台涌入大量 AI Slop 游戏，以及开发商担心其游戏创意被克隆的担忧，Valve 的员工在韩国举行的活动 Steam Indie Connect 上对此做出了回应，该公司的立场是无意采取行动。来自 Steam Business Team 团队的 Tom Giardino 称，Valve 的原则是它不想成为限制开发者使用哪些工具的守门人，是否使用 AI 由游戏开发商自己决定。在生成式 AI 流行前，克隆游戏创意就已经存在，AI 只是加速了这一进程。Giardino 给游戏开发商的建议是不依赖单一创意，为游戏加入更多功能、个性和创意。另一名 Valve 员工 Marc Wilkinson 谈论了 Steam 最近举行的游戏新品节涌入了逾 7000 款游戏，其中可能有半数被认为 AI Slop。Wilkinson 介绍了新品节的展示机制，在活动前两天游戏随机呈现给玩家，之后系统会提供个性化的推荐，推荐更多玩家可能会喜欢并购买的游戏。他指出大多批评 AI Slop 的文章只是基于活动前两天的体验写的。</p><a href="https://www.solidot.org/story?sid=85741" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 14:57:07 +0800</div><h3>因强制应用内支付 Google 和苹果被韩国罚款 3.2 亿元</h3><p>韩国广电媒体通信委员会以强制开发者使用特定应用内支付方式、不当拖延应用审核等为由，对谷歌和苹果合计处以 637.1 亿韩元（约合人民币 3.2 亿元）罚款。这是韩国自 2021 年出台禁止强制应用内支付相关规定以来，首次依据相关规定作出处罚。调查显示，两家公司虽允许第三方支付，却收取 26% 的手续费，并对使用流程和功能设置限制，实际仍引导开发者使用其自有支付系统。苹果还对韩国本土和海外开发者采用不同的手续费计算基准，被认定存在不当歧视。委员会对谷歌和苹果分别处以 429 亿韩元、208.1 亿韩元罚款，责令两家公司允许开发者通过外部支付链接向用户提供其他支付方式，合理调整第三方支付手续费，并完善审核程序，明确告知审核延迟的原因及后续安排。但对于新获准的外部支付是否收取手续费、收取多少，委员会并未直接作出规定，具体政策由企业制定。</p><a href="https://www.solidot.org/story?sid=85739" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 28 Oct 2026 22:46:03 +0800</div><h3>女子信任 ChatGPT 的用药决策，结果因此猝死</h3><p>一名住在西雅图的 31 岁华人女子，因依照 ChatGPT 提供的逐日减药计划，自行将抗癫痫药物逐步减量至停药后死亡。其父母向旧金山高等法院提起不当致死诉讼，控告 OpenAI 及其 CEO Sam Altman，指 ChatGPT 无照行医、提供危险且不准确的医疗建议。OpenAI 回应称这是“令人心碎的事件”，但涉案的是已经下架的早期版本。死者名为万博文(Bowen Wan)，来自江苏，毕业于亚利桑纳州立大学信息工程系，曾在亚马逊担任软件工程师，2021 年起请长期病假。她患有严重癫痫，服用多年的药物一度失效，后来改用新药，发作次数降至每月数次。她自 2023 年起频繁使用 ChatGPT，询问感情、健康保险与身心障碍给付等问题；2025 年平均每周传送逾 1500 则消息。2025 年 11 月她得知将被亚马逊裁员，须在次年 2 月中旬前找到工作才能留在美国。她担心药物影响语言能力，2026 年 1 月向 ChatGPT 提出，想把抗癫痫药拉莫三嗪(Lamotrigine)的每日剂量从 400 毫克降到 300 毫克，以利求职面试。ChatGPT…</p><a href="https://www.solidot.org/story?sid=85737" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      <section class="section-card" id="errors"><div class="section-head"><h2>抓取异常</h2><span>不影响当期页面生成</span></div><ul class="error-list"><li class="error-item"><strong>36氪</strong><span>[解析失败] https://36kr.com/feed</span><em>not well-formed (invalid token): line 10, column 168</em></li></ul></section>
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>
