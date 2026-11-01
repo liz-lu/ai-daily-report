@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-11-01</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a><a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      <a class="toc-link" href="#errors">抓取异常</a>
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-11-01</span>
+          <span>17:31（北京时间）</span>
+          <span>IT之家、Solidot、量子位、雷锋网</span>
+        </div>
+        <p class="hero-copy">今日新闻共38条，主题集中在大模型应用、云生态合作、具身智能与算力基础设施。阿里巴巴与Apple达成合作，将千问集成至Apple智能，是本期最具分量的生态进展；DeepSeek开源Agent底座架构、百度APP搜索升级与Claude取消5小时限制，共同指向模型能力向可执行、可调用方向演进。具身智能方面，数据短缺仍是共识，仿真数采与代数世界模型成为应对路径。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>38</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>4</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>1</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>13</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>12</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>10</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>6</strong></div><p>基础设施的效率叙事持续升温</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>6</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>IT之家、Solidot、量子位</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>6</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>4</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>IT之家、Solidot、雷锋网</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>大模型能力向执行与开放演进</h3><p>DeepSeek开源Agent底座架构，Claude取消5小时使用限制，Zoho强调企业AI从“懂回答”走向“能执行”。模型侧竞争焦点正从对话质量转向任务执行与调用门槛的降低。</p></article><article class="insight-card"><h3>大厂生态合作与产品化落地</h3><p>阿里巴巴与Apple合作将千问集成至Apple智能，覆盖Siri、写作工具与视觉智能，11月4日随开发者Beta开放测试，12月正式面向中国用户推出。百度APP同步推出四大AI升级，搜索实现递归自我进化并下调搜索API价格。</p></article><article class="insight-card"><h3>具身智能的数据瓶颈与仿真路径</h3><p>行业两年累计约百万小时数据，难以满足千万小时级训练需求。影溯仿真数采中心落地杭州，提出以“环境配置数×并行算力”替代“人×小时”的产能公式；清华姚期智团队的代数世界模型则探索让AI具备类物理推理能力。</p></article><article class="insight-card"><h3>算力与芯片设计的新方法</h3><p>世界模型首次用于指导芯片设计，超大核NPU达700TOPS且99%算力可用，显示AI正反向介入底层硬件设计流程。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>千问进入Apple智能，意味着国产大模型首次以系统级入口服务中国iOS用户，对语音助手与内容生成的分发格局有实际影响。</li><li>DeepSeek开源Agent底座架构，可能降低智能体应用的工程门槛，后续需观察社区采用与生态配套情况。</li><li>具身智能的数据缺口被明确量化，仿真数采能否在质量上替代真实采集，仍是决定该赛道进度的关键变量。</li><li>百度搜索API降价至4.9元/千次并低于DeepSeek搜索API，搜索能力的API化竞争开始进入价格维度。</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>千问集成Apple智能的Beta测试反馈及12月正式上线节奏</li><li>DeepSeek Agent底座架构的开源社区采用情况</li><li>百度文心模型下周新进展及搜索API价格策略的后续动作</li><li>具身仿真数采中心的实际产能与数据质量验证</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>13 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>刚刚，DeepSeek重磅开源：Agent底座架构！</h3><a href="https://www.qbitai.com/2026/10/506904.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>刚刚，Claude宣布取消5小时限制！首批Ultra用户已「解封」</h3><a href="https://www.qbitai.com/2026/10/506855.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从“懂回答”到“能执行”：Zoho如何让AI走进企业业务</h3><p>10月20日，在以“助力中国企业全球化成长”为主题的Zoho北京媒体沟通会上， Zoho不仅向外界展示了其最新的企业级AI全景战略，更试图回答一个当前行业的普遍痛点：当AI大模型喧嚣了两年之后，为什么大多数企业在业务中依然觉得AI“用不起来”？ Zoho全球副总裁Mathivanan一针见血地点出了症结所在：“太短的决策周期，太多的备选工具，从一开始就造成了太多的数据孤岛。”当企业盲目堆叠各种带有AI标签的软件，不仅没有打破原有的信息孤岛，反而催生了“AI孤岛”。 Zoho中国COO夏海峰在随后的主题演讲中直言不讳：“如果AI只能回答问题、提供信息，却无法参与实际业务流程，它对商业的价值就微乎其微。” 这也揭示了企业AI应用面临的一道关键门槛：能够回答问题，不等于能够完成任务。AI要真正参与业务，不仅需要理解用户的需求，还需要获取相关数据、调用业务系统，并在权限和流程约束下完成具体操作。 为了跨过这道从“懂回答”到“能执行”的鸿沟，Zoho在此次会上系统展露了其沉淀多年的AI全景三层架构：底层给数据，中间层做连接，上层管执行。 跨越分水岭：从“会说”的助手，到“能干”的数字员工…</p><a href="https://www.leiphone.com/category/industrynews/00recUTGoMQ1JRh4.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>智能驾驶进入物理AI时代？7位行业嘉宾给出最新判断</h3><p>10月26日，第八届智能驾驶大会暨2026环秀湖物理AI产业发展推介会在苏州相城举行。 上一届，车路云一体化、智能驾驶出海和无人驾驶商业化是讨论重点，而到了今年，大会的讨论边界进一步从智能驾驶向物理AI延伸。 世界模型、强化学习、端侧智能、虚拟仿真、Robotaxi之外，机器人、低空飞行器等不同形态的物理智能开始出现在同一场大会上。这背后，是智能驾驶行业正在面对的一组新问题。 一方面，高阶辅助驾驶已经进入规模化上车阶段，Robotaxi也开始从技术验证走向运营和商业化；另一方面，当AI真正进入汽车、机器人、飞行器等物理设备，如何获得足够的数据、如何训练和验证模型、如何降低开发成本，以及如何保证系统在真实世界中的安全性，正在成为新的技术难题。 当天，包括Momenta、曹操出行、面壁智能等企业，以及高校和科研机构的多位嘉宾，从世界模型、强化学习、端侧大模型、虚拟仿真、车路云和物理AI基础设施等方向给出了自己的判断。…</p><a href="https://www.leiphone.com/category/transportation/pqEtZnYepE5D1PzD.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>阿里巴巴与 Apple 达成合作，将千问集成至 Apple 智能</h3><p>10月31日，阿里巴巴与Apple达成合作，将千问集成至 Apple 智能，中国用户可以在Siri、写作工具及视觉智能中，直接调用千问的文本与图像理解、内容生成等能力。这些功能将于11月4日起随最新的iOS 开发者 Beta 版开放测试，并将于12月iOS 27.3正式发布时面向中国用户推出。 Siri可以直接调用千问的广博知识，并在 Siri 中直接回复用户问答。通过 Siri，用户还能用自己选择的文档和照片，直接向千问提问。在任何问题、文档和图片发送给千问之前，都会先征得用户同意。 千问也已接入Apple 的系统级写作工具中，为用户提供“千问创作”（Compose with Qwen）功能。“千问创作”可以帮助用户基于任意主题生成内容。用户还可以使用这一功能来生成图像。 在 iPhone 上，用户可以通过视觉智能功能更深入地了解周围环境，其中包括选择“询问千问”来识别眼前所见。用户可通过相机控制、操作按钮或控制中心来启用视觉智能功能。 用户可以自主选择是否开通千问集成功能。启用后，用户可通过 Apple 登录或使用自己的千问 App 账户登录，在…</p><a href="https://www.leiphone.com/category/industrynews/es0ZV9LsDEsG7QLE.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>全行业两年攒下百万小时数据，影溯想 1 个月生产完：全国首个具身仿真数采中心落地杭州</h3><p>产能公式从“人×小时”，变成“环境配置数×并行算力”。 作者丨 幸丽娟 编辑丨 岑 峰 训练一个可用的具身智能模型， 需 要千 万小时 的多模态交互数据；而 现实仅有百万小时 ，剔除低质部分后，真正可用的更少。 缺数据，是具身智能行业的共识。 但只盯着“数据”这两个字，会错过更关键的问题： 一台机器人在固定货架前抓取，成功率可以很高。货架挪个方向，目标前多放一排饮料，换一侧伸手，成功率就往下掉。练过的，它能一遍遍做对；没练过的，它连手该从哪边伸都不知道。 行业缺的不只是数据量，还有“数据里的变化”。 过去两年，补缺口的主流办法是建场地、加采集人手。 据中国信息通信研究院，截至今年6月底，全国共建成启用超过70家训练场，另有40 余家在建或规划。 然而，大量训练场集中在叠衣服、收拾桌面、分拣搬运这类易展示任务上，复杂长程任务挖掘严重不足。数据小时数在涨，模型见过的空间布局没涨。 问题出在扩容的对象上。加场地，加采集人手，扩的是同一批场景的采集次数——货架还是那个货架，只是多采了几遍。 多样性要涨，靠的是条件变多 ： 布局、遮挡、物体组合、接近路径，每多一种都是一次重新排列。…</p><a href="https://www.leiphone.com/category/academic/xPVWQgBN3Foj7fo5.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>沙钢接入千问办公，已将Agent落地核心业务场景</h3><p>近日，江苏沙钢钢铁有限公司（以下简称“沙钢”）正式接入千问办公，已将Agent落地到电炉冶炼复盘、变压器状态评估、财务经营分析等业务场景，让分散的关键数据更快进入生产工作流，部分核心业务场景提效可达数百倍。 沙钢是全国最大的电炉钢生产基地，产品应用于港珠澳大桥、“西气东输”等国家重大工程，远销100多个国家和地区。钢铁生产流程长、工序多，大量关键数据分散在生产系统、Excel表格和纸质台账中，工艺分析、设备管理与经营决策长期依赖人工整理。随着“智慧沙钢”建设推进，企业需要能打通数据、自主完成分析的Agent产品。 目前，沙钢已将千问办公应用于电炉冶炼复盘、变压器状态评估、财务经营分析等场景，并取得显著成效。 在电炉炼钢厂，过去工艺人员每炼完一炉钢，需从生产系统导出数张明细表，手工拼合比对，单炉复盘耗时约30分钟；如今千问办公按炉号自动关联配料、能耗、合金、温度等七类数据，集中筛查异常炉次并给出调整建议，单炉复盘缩短至3分钟。…</p><a href="https://www.leiphone.com/category/industrynews/mxLii4LkfIz829iH.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>阿里千问 AI 眼镜 OTA 升级：新增通话翻译、媒体翻译等</h3><p>IT之家 11 月 1 日消息，阿里旗下千问 AI 眼镜今日迎来 OTA 升级，新增通话翻译、媒体翻译等，抗噪能力再升级。 IT之家整理如下： 新增通话翻译，打电话、线上会议跨国无障碍实时翻译。 新增媒体翻译，听海外播客、上外语网课、看外语大片，支持实时翻译，千问 AI 穿戴 App 同步显示译文。 抗噪能力再升级，优化嘈杂环境下的语音识别，让同声传译更准确、更及时。 千问 AI 眼镜 G1 于今年 3 月开售，后续又推出了第二款 AI 眼镜 S1。作为旗舰机型，千问 AI 眼镜 S1 相比之前的千问 AI 眼镜 G1 在交互、显示、续航及硬件配置方面均有升级。 今年 10 月，阿里再次发布千问 N1 系列 AI 眼镜发布，支持更换电池、Pro 版支持眼动交互 / 全天候健康监测，售 2899 元起。</p><a href="https://www.ithome.com/1/020/768.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>让 AI 自己做脑部手术，初创公司成功让智能体给小鼠治疗癫痫</h3><p>IT之家 11 月 1 日消息，专注于下一代神经治疗的生物科技初创公司 Exin Therapeutics 本周声称，该公司已成功 让 AI 智能体对一只小鼠进行了脑部手术 。 该公司联合创始人兼首席执行官 Gabriel Ocana-Santero 在 X 平台上分享了整个过程，展示了 AI 智能体如何选择基因治疗载体、剂量以及应用的大脑区域。 AI 智能体操控机械臂，将药物注入小鼠的大脑。幸运的是， 手术似乎很成功，小鼠恢复良好 ，目前在饲养箱内活蹦乱跳。 该团队使用了 Anthropic Sonnet 模型进行手术，给了模型一个电子表格（其中有 19 种基因疗法载体）、一个癫痫小鼠模型、一个带摄像头的机械臂手术装置，以及一个目标： 减少癫痫发作 。 模型自主选择了药物，选择了脑区，从三篇论文中推导出坐标，然后驱动机械臂给小鼠大脑做手术，同时通过装置摄像头观察注射部位是否有出血，最后注射了 250 纳升药物。 此外， 还有兽医在监督整个手术，每一个不可逆的步骤都需要获得批准 ，AI 智能体才能继续。整个系统还有一个紧急停止按钮，可以切断手术设备中所有电机的电源。 IT之家从该公司披露了解到，AI…</p><a href="https://www.ithome.com/1/020/737.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Kogui 族人谈 AI</h3><p>生活在南美哥伦比亚圣玛尔塔内华达山脉的原居民 Kogui 族人信仰 Aluna——即万物之母 Gaulčováng。Kogui 族人认为地球是有生命的，人类是地球之子。他们认为，人类为获取资源而进行的开采、破坏和掠夺行为正在削弱万物之母的力量，这最终会导致人类的毁灭。对于最近几年生成式 AI 的发展，Kogui 族人也有类似的观点。他们认为：AI 无法与其背后的思想分离。如果这种思想源于对生命的关切，那么这项技术便有助于保护生命。 如果它源于野心、竞争、积累，或是支配的欲望，那么它所展现并放大的也将是这些东西。AI 就是一面镜子。如果一面镜子仅仅是反射，那么它是无害的。但 AI 这面镜子有潜力将它所反射出的一切无限放大...除了人类的价值观，AI 还能拥有什么价值观？人类就是它唯一的参照样本。它变成什么必然源于人类。一切皆是人类所为，一切责任也由人类承担...自然本身存在着一种秩序。这种秩序在人类到来之前便已存在。水有其流经的路径。山峦有其各自的高度。种子各有其时节，动物各有其功用，人类亦然。那些构建技术的人是否理解这种秩序？还是说，他们仅仅利用了其中可供开发的部分，却并不知晓其真正的源头？...AI…</p><a href="https://www.solidot.org/story?sid=85760" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Claude Code for VS Code 官方扩展被植入后门</h3><p>安全研究人员在 Cursor Marketplace 的 Claude Code for VS Code 官方扩展中发现了后门，该恶意版本已经撤下，攻击者也关闭了其服务器。Cursor 已发布安全公告，但 Claude Code 开发商 Anthropic 尚未做出任何声明。受影响的版本是 Anthropic.claude-code 2.1.313，共上线了大约 11 小时，受影响用户估计有 5,000 名，该扩展会试图植入一个持久 SSH 后门。恶意扩展会：收集主机和用户信息：主机名、用户名、操作系统、架构、主目录路径、环境变量名称、工作目录、已配置的 Git 邮箱以及公网 IP。尝试将攻击者控制的 SSH 键添加到 authorized_keys，启用本地 SSH 服务，并建立反向 SSH 隧道。由于恶意代码存在 bug，除非 Cursor 是以管理员权限启动的 (这种情况极为罕见) ，否则这一步会失败。尝试通过 LaunchAgent (macOS) 或计划任务 (Windows，该任务会尝试以 SYSTEM 身份运行，并以启动脚本作为回退) 使反向 SSH 隧道长期生效。后台脚本大约每 60…</p><a href="https://www.solidot.org/story?sid=85756" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>LibreOffice 项目递交的代码发现使用LLM 的明确标记</h3><p>开发 LibreOffice 的 The Document Foundation(TDF)此前表示这款办公软件不会内置 AI 功能，其核心开发者也不使用 LLM 等 AI 辅助编程工具。但向该项目贡献代码的社区开发者未必会遵守该规定。对今年递交到 LibreOffice 的代码的分析显示至少由三处明确提及使用 LLM。社区开发者在代码中提及他们使用了 Claude 或 GitHub Copilot 等工具。这一结果并不出人意料，大型开源项目基本上不太可能完全避开 LLM。TDF 对这一发现回应称，他们确实要求贡献者在使用 LLM 时必须进行披露，且总体上并不鼓励使用 LLM。和 Debian 类似，LibreOffice 要求开发者理解自己的代码，确保代码质量。</p><a href="https://www.solidot.org/story?sid=85755" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>美国肯塔基男子成为首位以宗教理由豁免使用 AI 的人文主义者</h3><p>45 岁的 David Durman 是肯塔基大学的研究管理员，作为人文主义者（humanist）他坚信生活中人的重要性。这意味着他要坚持自主决策，确保自己的工作能促进他人成长。当学校要求员工在工作流程中使用 AI 他忧心忡忡，认为这意味着日常工作中须将思考这一环节转交给 Microsoft Teams Copilot、Claude 或 ChatGPT 等 AI 工具完成。他认为这违背了个人信念。在美国人文主义者协会（American Humanist Association）的协助下，他以遵守宗教信仰为由请求调整工作要求。学校上个月同意了他的请求。美国人文主义者协会认为这是首例人文主义者豁免使用 AI 的案例。</p><a href="https://www.solidot.org/story?sid=85743" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>12 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>阿里巴巴与 Apple 达成合作，将千问集成至 Apple 智能</h3><p>10月31日，阿里巴巴与Apple达成合作，将千问集成至 Apple 智能，中国用户可以在Siri、写作工具及视觉智能中，直接调用千问的文本与图像理解、内容生成等能力。这些功能将于11月4日起随最新的iOS 开发者 Beta 版开放测试，并将于12月iOS 27.3正式发布时面向中国用户推出。 Siri可以直接调用千问的广博知识，并在 Siri 中直接回复用户问答。通过 Siri，用户还能用自己选择的文档和照片，直接向千问提问。在任何问题、文档和图片发送给千问之前，都会先征得用户同意。 千问也已接入Apple 的系统级写作工具中，为用户提供“千问创作”（Compose with Qwen）功能。“千问创作”可以帮助用户基于任意主题生成内容。用户还可以使用这一功能来生成图像。 在 iPhone 上，用户可以通过视觉智能功能更深入地了解周围环境，其中包括选择“询问千问”来识别眼前所见。用户可通过相机控制、操作按钮或控制中心来启用视觉智能功能。 用户可以自主选择是否开通千问集成功能。启用后，用户可通过 Apple 登录或使用自己的千问 App 账户登录，在…</p><a href="https://www.leiphone.com/category/industrynews/es0ZV9LsDEsG7QLE.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>科大讯飞董事长与总裁主动降薪，两人均少领超2000万；阿维塔回应会议视频被吐槽「演的太尬」：是摆拍，但事是真的；百度副总裁吴甜已离职</h3><p>要闻提示 1.科大讯飞回应高管薪资质疑：董事长与总裁主动降薪，两人均少领超2000万 2.内部会议视频被吐槽演的太尬！阿维塔副总裁：是摆拍，但事是真的 3.华为“天才少年”杨玉雯加盟南京大学 4.百度确认吴甜已离职，文心模型下周将发布新进展 5.王腾创业首秀感谢小米和雷军！回应蹭流量质疑：真心感激过往经历 6.国产3A《影之刃零》登顶全球畅销榜，评分超《黑神话：悟空》 7.智元彭志辉：公司2026年上半年营收近20亿元 8.突发！英伟达遭调查：GPU捆绑销售成焦点 今日头条 科大讯飞回应高管薪资质疑：董事长与总裁主动降薪，两人均少领超2000万 10月29日消息，近日，有投资者在互动平台向科大讯飞提问，关注公司高管薪酬集体上涨与同行接轨等问题。科大讯飞就此作出回应，披露了公司高管主动大幅降薪的细节。…</p><a href="https://www.leiphone.com/category/zaobao/zRRabO7xif7QiyjK.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>百度 APP 发布四大 AI 升级，搜索已实现递归自我进化</h3><p>10 月 30 日，百度 APP 在北京举办产品升级沟通会。百度搜索实现递归自我进化，并全新升级搜索 AI API，活动期间最低价仅需 4.9 元/千次，低于 DeepSeek 搜索 API。同时围绕搜索框、AI 镜头、GUI 可视化、AI 互动应用等方向推出重大升级，给用户带来更智能、更聪明、更好玩的体验，在助力用户“搞定一切”上更进一步。 升级后的百度 APP，文心助手让搜索从「一次问答」走向「一份交付」，复杂问题和高频事务可直接交付成果物，长期任务则持续跟踪、主动提醒，目前已覆盖 170 余种场景。AI 镜头从「定格」走向「流动」，支持多目标同步识别与动态追踪，并可用东北话、四川话、粤语等 9 种方言实时对话。搜索结果页 GUI 互动场景提升 5 倍，接入政务、民生、央行等超 50 亿数据资源；AI 互动剧与互动应用同步上线。</p><a href="https://www.leiphone.com/category/industrynews/7pQrGMmdsjx5dOSR.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>Twelve South 推出 PowerClip“超便携应急充电宝”：苹果 AirPods Pro 尺寸、2000mAh 电芯、2C 设计</h3><p>IT之家 11 月 1 日消息，Twelve South 现已在苹果海外官网上架一款 PowerClip 挂扣式移动电源，其采用 2C 设计，配备 2000mAh 电芯，定价为 39.95 美元 （IT之家注：现汇率约合 266.5 元人民币） 。 该产品主要面向户外用户，号称是“超便携应急充电宝”，标配一枚可拆卸的锌合金材质圆形登山扣，用户可根据使用需求自由拆装。 该产品仅有 AirPods Pro 耳机充电盒大小，整体为圆角矩形造型，线条圆润柔和。顶部预留一体化挂扣孔位，正面配备 LED 电量指示灯与电源按键。产品配备双 USB-C 充电线缆，其中 USB-C1 为输入输出二合一线缆（支持 5W 输出，直通模式支持 10W 输出），USB-C2 线缆仅支持输出（支持 5W 输出）。</p><a href="https://www.ithome.com/1/020/771.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>阿里千问 AI 眼镜 OTA 升级：新增通话翻译、媒体翻译等</h3><p>IT之家 11 月 1 日消息，阿里旗下千问 AI 眼镜今日迎来 OTA 升级，新增通话翻译、媒体翻译等，抗噪能力再升级。 IT之家整理如下： 新增通话翻译，打电话、线上会议跨国无障碍实时翻译。 新增媒体翻译，听海外播客、上外语网课、看外语大片，支持实时翻译，千问 AI 穿戴 App 同步显示译文。 抗噪能力再升级，优化嘈杂环境下的语音识别，让同声传译更准确、更及时。 千问 AI 眼镜 G1 于今年 3 月开售，后续又推出了第二款 AI 眼镜 S1。作为旗舰机型，千问 AI 眼镜 S1 相比之前的千问 AI 眼镜 G1 在交互、显示、续航及硬件配置方面均有升级。 今年 10 月，阿里再次发布千问 N1 系列 AI 眼镜发布，支持更换电池、Pro 版支持眼动交互 / 全天候健康监测，售 2899 元起。</p><a href="https://www.ithome.com/1/020/768.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为新机影像超前瞻：200Mp 1/1.3&quot; 超大底主摄 + 200Mp 1/1.4&quot; 大底潜望长焦，预计明年落地</h3><p>IT之家 11 月 1 日消息，博主 @数码闲聊站 昨日发文超前爆料了某厂神秘新机的影像配置， 预计明年落地 。从评论区讨论和博主的暗示符号来看， 预计新机归属华为品牌 ，不过具体型号、系列未公布。 ① 200Mp 1/1.3&quot; 超大底主摄 +200Mp 1/1.4&quot; 大底潜望长焦 ，中高端线的双 2 亿积极评估中 ②外挂增距镜方案没有放弃， 甚至有普及计划 有网友询问畅享系列手机能否吃上增距镜？博主表示：“ nova 可以展望一下。 ”还有网友询问小米是否有计划推出搭载玄戒 O3 芯片的直板机？博主回复称：“ 我希望会有。 ” 据IT之家此前报道，该博主曾爆料，称华为新机影像实验室出现了双潜望长焦方案， 一颗 50Mp RYYB 小底，一颗 200Mp 1/1.3″ RYYB 超大底 ，焦段配置上新。另外，2027H1 的影像旗舰在评估阔屏，据工程机信息，标准版继续用 6.6 英寸中屏，Pro / Pro Max 换阔屏，尺寸还是 6.39 英寸左右，定义全能阔屏影像旗舰。 ▲ IT之家图赏：华为 nova 14 Ultra 实拍</p><a href="https://www.ithome.com/1/020/765.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>赛力斯：公司与华为是长期、稳定、互信的战略合作关系，问界用户已突破 120 万</h3><p>IT之家 11 月 1 日消息，10 月 31 日，赛力斯发布投资者关系活动记录表，其中提到了华为与问界后续合作问题。 公告称，公司与华为是长期、稳定、互信的战略合作关系。 问界用户已经突破 120 万 。双方锚定问界高端智能汽车品牌核心定位， 联合组建问界业务专属专营团队 ，以专属专营方式升级问界业务，以专属专营更好地服务问界用户，持续推动问界新豪华品牌向上。 赛力斯提到，问界专属专营是双方跨界融合，持续加强合作基础上的又一次创新，是体系和协同机制的进一步升级，也是资源的聚焦和渠道的提质增效，助力价值增长、伙伴共赢。通过问界专营，不仅仅能够实现销量回升，还能进一步改善车型结构，提升盈利能力，实现问界高质量可持续发展。面向未来，双方也将在新技术演进方向上持续开展探索与研发， 为长期合作和问界产品持续进化储备技术动能 。 IT之家注意到，9 月 30 日，鸿蒙智行问界业务升级战略合作签约仪式在深圳举行。华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东，赛力斯集团董事长张兴海等出席。鸿蒙智行官方宣布， 华为与赛力斯达成新的五年合作 。 相关阅读： 《…</p><a href="https://www.ithome.com/1/020/759.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称 AMD 拟计划本月再调涨 GPU + D6 显存套料供货成本</h3><p>IT之家 11 月 1 日消息，据博板堂 / 视讯堂旗下“ChannelGate 视博合聚”爆料，AMD“将针对 GPU + D6 显存套料的供货成本再次执行上涨政策”，预计将继续影响 AMD 显卡 11 月份（本月）的成本价格走向。 该消息源透露，AMD 现在每个季度都会根据 GPU 与显存颗粒成本的影响，立即执行新的供货成本价，对 GPU+ 显存供货成本及时涨价的，AMD 涨价风格是每个季度执行。 据了解到，考虑到 Q3 季度内，GDDR6 显存再次上涨了大概 8-10% 左右，AMD 决定 Q4 季度继续涨价，10 月份已上涨一次，AMD 仍可能执行 11 月份仍会继续上涨一次，幅度预计相对会不小，完成 GPU+ 显存的上涨力度。</p><a href="https://www.ithome.com/1/020/749.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为 ADS 5 加持：全新红旗 H9 轿车官宣标配闭式空气悬架 + iDCS 可变阻尼减振器，支持道路预瞄</h3><p>IT之家 11 月 1 日消息，一汽红旗今日发布视频，预热了全新红旗 H9 轿车在不同路面的驾驶情况。 据介绍， 全新红旗 H9 全系标配闭式空气悬架 + iDCS 可变阻尼减振器 ，拥有百万级全铝底盘，前双横臂 + 后梯形臂独立悬架，同时支持道路预瞄功能，可超前感知前方路况。 视频内容显示， 新车的空气悬架与闭式压缩机系统调节范围是 65mm、调节速度达 5mm/s ，其地形预瞄功能基于摄像头和激光雷达感知，每 10ms 可更新一次路面特征，识别前方路况。 全新红旗 H9 的电控悬架系统支持毫秒级悬架阻尼切换，可提升乘坐舒适性；iDCS 连续阻尼控制系统支持毫秒级动态调节， 宽域阻尼可抑制高频颠簸 。 另外，新车还有后轮转向系统， 支持双向 16° 调节提升车辆灵活度 ；前双横臂 + 后梯形臂独立悬架可用于缓解路面颠簸冲击，稳住车身姿态。全新红旗 H9 还定制舒适型轮胎，可兼顾节能特性。 据IT之家此前报道，全新一代红旗 H9 外观设计灵感取自中式宫殿的礼序章法，采用高山飞瀑格栅搭配贯穿式 U 型灯组设计； 搭载华为乾崑智驾 ADS 5 + 鸿蒙智舱 HarmonySpace + 红旗自研智能底盘 。 新车…</p><a href="https://www.ithome.com/1/020/736.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>芬兰对 Google 砍伐 25 万颗树展开调查</h3><p>作为 130 亿欧元投资计划的一部分，Google 正在芬兰的 Muhos 和 Kajaani-Otanmäki 建造两座数据中心。上周芬兰监管机构以未完成必要的环评为由下令工程停工。Google 芬兰子公司 Tuike Finland 遵守了命令。应监管机构的要求，Oulu 警方针对 Muhos 数据中心建设工地的活动（Google 在当地砍伐了 25 万颗树）展开初步调查。警方表示，此案正以涉嫌环境损害这一刑事罪名进行调查。警方指出，随着调查的深入，未来可能会明确其他潜在的指控。警方称，根据目前掌握的信息，数据中心项目工地在排水和水资源管理方面存在违规及缺陷。警方表示，初步调查工作力争在 2027 年内完成。</p><a href="https://www.solidot.org/story?sid=85754" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Google 创上市至今最大跌幅，市值蒸发逾 5000 亿美元</h3><p>Google 在公布三季度财报之后遭遇了它自 2004 年上市以来最大的单日跌幅，市值蒸发逾 5000 亿美元。在股价最低点，Google 市值蒸发 5240 亿美元，这是美股上市公司有史以来第二大单日市值缩水。仅次于英伟达在 2025 年 1 月 27 日因 DeepSeek 模型引发的市场震荡其市值单日缩水约 5930 亿美元。此前排名第二的单日跌幅由 SpaceX 创造，该公司在 6 月 22 日经历了 4000 亿美元的市值缩水，Google 超越了这一记录。美股市场今年至今已出现 18 次单日市值缩水 2000 亿美元或以上的情况，超过了 2025 年全年的 13 次。Google 的市值自 5 月创下高点以来已累计缩水约 1.4 万亿美元。</p><a href="https://www.solidot.org/story?sid=85752" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Google AI 搜索产生的收入低于传统搜索</h3><p>Google/Alphabet 在公布第三季度财报之后股价下跌了近 10%，原因是搜索巨人披露 AI 搜索产生的收入低于传统搜索，尽管其整体搜索业务收入同比增长 12% 达到 632.5 亿美元。搜索业务增速略低于去年第三季度的 14.5%，Alphabet 首席商务官 Philipp Schindler 称，搜索业务增长放缓的原因在于“我们观察到 AI Mode 变现能力较低”。为推动 AI 业务 Google 同时在基础设施上投入巨额资金。第三季度公司支出达 514 亿美元，其中约三分之二用于服务器和网络设备，其余部分则用于数据中心建设。巨额支出影响了盈利能力：Alphabet 本季度净利润为 261.7 亿美元；去年第三季度在 Google 营收为 1023.5 亿美元的情况下净利润达到 350 亿美元。Schindler 认为，AI 搜索终将带来回报。</p><a href="https://www.solidot.org/story?sid=85748" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>10 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>清华姚期智团队新作：代数世界模型，让AI像牛顿一样思考</h3><a href="https://www.qbitai.com/2026/11/507031.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>老牌便利店机器人售货折戟：实验室锤炼上万次，货架前还是摔瓶子</h3><a href="https://www.qbitai.com/2026/11/506990.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>世界模型首次指导设计芯片！超大核NPU700TOPS，99%算力可用</h3><a href="https://www.qbitai.com/2026/10/506866.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>智能驾驶进入物理AI时代？7位行业嘉宾给出最新判断</h3><p>10月26日，第八届智能驾驶大会暨2026环秀湖物理AI产业发展推介会在苏州相城举行。 上一届，车路云一体化、智能驾驶出海和无人驾驶商业化是讨论重点，而到了今年，大会的讨论边界进一步从智能驾驶向物理AI延伸。 世界模型、强化学习、端侧智能、虚拟仿真、Robotaxi之外，机器人、低空飞行器等不同形态的物理智能开始出现在同一场大会上。这背后，是智能驾驶行业正在面对的一组新问题。 一方面，高阶辅助驾驶已经进入规模化上车阶段，Robotaxi也开始从技术验证走向运营和商业化；另一方面，当AI真正进入汽车、机器人、飞行器等物理设备，如何获得足够的数据、如何训练和验证模型、如何降低开发成本，以及如何保证系统在真实世界中的安全性，正在成为新的技术难题。 当天，包括Momenta、曹操出行、面壁智能等企业，以及高校和科研机构的多位嘉宾，从世界模型、强化学习、端侧大模型、虚拟仿真、车路云和物理AI基础设施等方向给出了自己的判断。…</p><a href="https://www.leiphone.com/category/transportation/pqEtZnYepE5D1PzD.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>全行业两年攒下百万小时数据，影溯想 1 个月生产完：全国首个具身仿真数采中心落地杭州</h3><p>产能公式从“人×小时”，变成“环境配置数×并行算力”。 作者丨 幸丽娟 编辑丨 岑 峰 训练一个可用的具身智能模型， 需 要千 万小时 的多模态交互数据；而 现实仅有百万小时 ，剔除低质部分后，真正可用的更少。 缺数据，是具身智能行业的共识。 但只盯着“数据”这两个字，会错过更关键的问题： 一台机器人在固定货架前抓取，成功率可以很高。货架挪个方向，目标前多放一排饮料，换一侧伸手，成功率就往下掉。练过的，它能一遍遍做对；没练过的，它连手该从哪边伸都不知道。 行业缺的不只是数据量，还有“数据里的变化”。 过去两年，补缺口的主流办法是建场地、加采集人手。 据中国信息通信研究院，截至今年6月底，全国共建成启用超过70家训练场，另有40 余家在建或规划。 然而，大量训练场集中在叠衣服、收拾桌面、分拣搬运这类易展示任务上，复杂长程任务挖掘严重不足。数据小时数在涨，模型见过的空间布局没涨。 问题出在扩容的对象上。加场地，加采集人手，扩的是同一批场景的采集次数——货架还是那个货架，只是多采了几遍。 多样性要涨，靠的是条件变多 ： 布局、遮挡、物体组合、接近路径，每多一种都是一次重新排列。…</p><a href="https://www.leiphone.com/category/academic/xPVWQgBN3Foj7fo5.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>让触觉像视觉一样可规模化，哥大李昀烛团队 FlexiTac 的开源实践 | IROS 2026</h3><p>FlexiTac压阻式传感器可兼顾柔性、低成本与一致性。 作者丨 向欣 编辑丨岑峰 机器人的视觉能力正快速增强，但 触觉仍然是具身智能系统中的薄弱环节 。尤其是在精细操作场景中，当 物体被遮挡、透明、易碎，或需要精确判断接触力与手内姿态 时，仅靠视觉往往难以确认机器人是否真正抓稳了物体、是否发生了滑移，也难以实现可靠的力控与顺从交互。 与图像领域已经形成相对统一的传感器和数据体系相比，触觉研究尚未形成类似的「收敛」。不同实验室往往使用不同类型的触觉传感器，但它们都面临 寿命、柔性、多维信息感知、分辨率、成本与一致性 难以同时兼顾的困境。这使得触觉数据采集、算法研究以及不同系统之间的复现都变得更加困难。 如何 让触觉像视觉一样 ，成为一种可以被更多机器人使用、被大量采集、被算法反复利用的基础感知能力？ 针对这个问题，哥伦比亚大学李昀烛团队提出了开源柔性压阻式触觉传感器平台 FlexiTac 。在本届 IROS 2026 的触觉专题研讨会上，李昀烛系统介绍了这一平台开源一年半后的进展与生态。 FlexiTac 是一套低成本、开源、可扩展的 压阻式柔性触觉传感器 ，团队同时开源了完整…</p><a href="https://www.leiphone.com/category/robot/sRmmVes4DwBoIeRm.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>首届 CMG 世界机器人登泰山大赛明日进行，央视揭秘机器人如何认路、探路、见招拆招</h3><p>IT之家 11 月 1 日消息，首届 CMG 世界机器人登泰山大赛将于明天（11 月 2 日）在山东泰安正式开赛，各类机器人齐聚泰山脚下，在红门至中天门（3100 级台阶、600 米高差）千年盘道开启实景山地竞技比拼。 央视新闻今日发布视频，揭秘了机器人如何认路、探路、见招拆招。据介绍，赛事跳出传统实验室仿真环境，依托泰山独一无二的山岳实景赛道， 为山地特种机器人技术迭代、场景落地提供了高规格实战试炼平台 。 首届 CMG 世界机器人登泰山大赛总裁判长苏庆伟表示，最大的挑战还是机器人怎么样适应泰山的路。这个台阶有的高，有的低，有的宽，有的窄，还有鹅卵石路。报道提到，不管是四足的还是双足的机器人， 它们在爬山之前都会进行建图，把整条古道跑上一遍，了解路况 。 不过，四条腿的机器狗，下盘稳、步态灵活，认准大方向就能撒开腿往上跑；但两条腿的人形机器人不一样，身高更高、重心更难把控。想要精准感知脚下的每一级台阶，还得额外“加练”。据介绍，部分人形机器人干脆换一个思路， 将“眼睛”直接移到了胸前，视线放低，专守下盘 。 除了路面感知外，人形机器人还得练“脚感”——…</p><a href="https://www.ithome.com/1/020/773.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>上下水版 4599 → 1066 元：科沃斯 T50 PRO 扫拖机器人国补 2 折新低，81mm 纤薄机身</h3><p>【京东活动可能随时变更，需以实付款为准】 科沃斯 T50 PRO 扫拖机器人发布于 2024 年 9 月，该款扫拖机器人拥有 81mm 机身，支持 15800Pa 吸力（1.58 万 Pa 吸力），“上下水版”首发价 4599 元。 京东 11.11 大促期间，按下方步骤下单，叠加 15% 国补后仅需 1066.3 元： 下单时选择“以旧换新 → 个护健康 → 电动牙刷（无需回收）”补贴 100 元。 晒单再返 20 元京豆。 京东 科沃斯 T50 PRO 上下水版 扫拖洗一体 以旧换新后 1066 元 直达链接 订单截图 京东 11.11 无门槛红包至高 26888 元，支持即领即用，下单直接当钱花： 点此抽取 。 据介绍，科沃斯 T50 PRO 扫拖机器人采用“ 3D 结构光 + dTOF + Al 摄像头 ”视觉模组，支持低矮障碍物贴边清扫；机器人主机 高度 81mm ，可进入沙发底、床底等区域进行清扫。 该款扫拖机器人拥有 15800Pa 吸力 ，内置“TruEdge 灵隙 2.0 技术”，官方宣称该技术可提升边角清扫能力，实现“100% 扫拖覆盖率”；机器人还搭载“ZeroTangle 灵缠 2.0…</p><a href="https://www.ithome.com/1/020/760.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>上市两月 2068 → 1288 元：小米米家扫拖机器人 7C 新低，支持滚筒活水增压拖地</h3><p>小米米家扫拖机器人 7C 今年 8 月 27 日开售，京东首发国补到手价 2068 元。 今日 11.11 加码仅需 1288 元即可入手，大降价： 下单时选择“ 以旧换新 ” → 个护健康 → 电动牙刷（不回收） 京东 米家扫地机器人 7C 水箱版 券后 1299 元 领 8.8 折券 京东 11.11 红包至高 26888 元无门槛可用，每天可抽一次： 点此抽取 。 IT之家从商品页面获悉，这款新品支持滚筒活水拖地， 配备恒压恒湿滚筒拖布 ，200 转 / 分钟高速洗拖，强效清洁咖啡渍、油渍、宠物脚印等顽固污渍; 配合活水边拖边洗，有效减少二次污染。模拟人手拖地施压逻辑，滚筒拖布持续稳定贴合地面发力。 新品升级 30000Pa 吸力，强效清洁地面灰尘、大小颗粒物、碎屑、残渣以及地毯纤维深处的宠物毛发等；配合自动割毛发防缠主刷、防缠边刷，清洁时有效减少缠绕问题。 AI 摄像头搭配线 激光避障 ，可精准识别鞋子、吧台椅、体重秤等 220+ 常见室内障碍物，暗光环境也能灵活应对；结合侧面线激光沿边功能，实现精准贴障清扫。…</p><a href="https://www.ithome.com/1/020/740.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为 ADS 5 加持：全新红旗 H9 轿车官宣标配闭式空气悬架 + iDCS 可变阻尼减振器，支持道路预瞄</h3><p>IT之家 11 月 1 日消息，一汽红旗今日发布视频，预热了全新红旗 H9 轿车在不同路面的驾驶情况。 据介绍， 全新红旗 H9 全系标配闭式空气悬架 + iDCS 可变阻尼减振器 ，拥有百万级全铝底盘，前双横臂 + 后梯形臂独立悬架，同时支持道路预瞄功能，可超前感知前方路况。 视频内容显示， 新车的空气悬架与闭式压缩机系统调节范围是 65mm、调节速度达 5mm/s ，其地形预瞄功能基于摄像头和激光雷达感知，每 10ms 可更新一次路面特征，识别前方路况。 全新红旗 H9 的电控悬架系统支持毫秒级悬架阻尼切换，可提升乘坐舒适性；iDCS 连续阻尼控制系统支持毫秒级动态调节， 宽域阻尼可抑制高频颠簸 。 另外，新车还有后轮转向系统， 支持双向 16° 调节提升车辆灵活度 ；前双横臂 + 后梯形臂独立悬架可用于缓解路面颠簸冲击，稳住车身姿态。全新红旗 H9 还定制舒适型轮胎，可兼顾节能特性。 据IT之家此前报道，全新一代红旗 H9 外观设计灵感取自中式宫殿的礼序章法，采用高山飞瀑格栅搭配贯穿式 U 型灯组设计； 搭载华为乾崑智驾 ADS 5 + 鸿蒙智舱 HarmonySpace + 红旗自研智能底盘 。 新车…</p><a href="https://www.ithome.com/1/020/736.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>6 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>世界模型首次指导设计芯片！超大核NPU700TOPS，99%算力可用</h3><a href="https://www.qbitai.com/2026/10/506866.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>全行业两年攒下百万小时数据，影溯想 1 个月生产完：全国首个具身仿真数采中心落地杭州</h3><p>产能公式从“人×小时”，变成“环境配置数×并行算力”。 作者丨 幸丽娟 编辑丨 岑 峰 训练一个可用的具身智能模型， 需 要千 万小时 的多模态交互数据；而 现实仅有百万小时 ，剔除低质部分后，真正可用的更少。 缺数据，是具身智能行业的共识。 但只盯着“数据”这两个字，会错过更关键的问题： 一台机器人在固定货架前抓取，成功率可以很高。货架挪个方向，目标前多放一排饮料，换一侧伸手，成功率就往下掉。练过的，它能一遍遍做对；没练过的，它连手该从哪边伸都不知道。 行业缺的不只是数据量，还有“数据里的变化”。 过去两年，补缺口的主流办法是建场地、加采集人手。 据中国信息通信研究院，截至今年6月底，全国共建成启用超过70家训练场，另有40 余家在建或规划。 然而，大量训练场集中在叠衣服、收拾桌面、分拣搬运这类易展示任务上，复杂长程任务挖掘严重不足。数据小时数在涨，模型见过的空间布局没涨。 问题出在扩容的对象上。加场地，加采集人手，扩的是同一批场景的采集次数——货架还是那个货架，只是多采了几遍。 多样性要涨，靠的是条件变多 ： 布局、遮挡、物体组合、接近路径，每多一种都是一次重新排列。…</p><a href="https://www.leiphone.com/category/academic/xPVWQgBN3Foj7fo5.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>科大讯飞董事长与总裁主动降薪，两人均少领超2000万；阿维塔回应会议视频被吐槽「演的太尬」：是摆拍，但事是真的；百度副总裁吴甜已离职</h3><p>要闻提示 1.科大讯飞回应高管薪资质疑：董事长与总裁主动降薪，两人均少领超2000万 2.内部会议视频被吐槽演的太尬！阿维塔副总裁：是摆拍，但事是真的 3.华为“天才少年”杨玉雯加盟南京大学 4.百度确认吴甜已离职，文心模型下周将发布新进展 5.王腾创业首秀感谢小米和雷军！回应蹭流量质疑：真心感激过往经历 6.国产3A《影之刃零》登顶全球畅销榜，评分超《黑神话：悟空》 7.智元彭志辉：公司2026年上半年营收近20亿元 8.突发！英伟达遭调查：GPU捆绑销售成焦点 今日头条 科大讯飞回应高管薪资质疑：董事长与总裁主动降薪，两人均少领超2000万 10月29日消息，近日，有投资者在互动平台向科大讯飞提问，关注公司高管薪酬集体上涨与同行接轨等问题。科大讯飞就此作出回应，披露了公司高管主动大幅降薪的细节。…</p><a href="https://www.leiphone.com/category/zaobao/zRRabO7xif7QiyjK.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为新机影像超前瞻：200Mp 1/1.3&quot; 超大底主摄 + 200Mp 1/1.4&quot; 大底潜望长焦，预计明年落地</h3><p>IT之家 11 月 1 日消息，博主 @数码闲聊站 昨日发文超前爆料了某厂神秘新机的影像配置， 预计明年落地 。从评论区讨论和博主的暗示符号来看， 预计新机归属华为品牌 ，不过具体型号、系列未公布。 ① 200Mp 1/1.3&quot; 超大底主摄 +200Mp 1/1.4&quot; 大底潜望长焦 ，中高端线的双 2 亿积极评估中 ②外挂增距镜方案没有放弃， 甚至有普及计划 有网友询问畅享系列手机能否吃上增距镜？博主表示：“ nova 可以展望一下。 ”还有网友询问小米是否有计划推出搭载玄戒 O3 芯片的直板机？博主回复称：“ 我希望会有。 ” 据IT之家此前报道，该博主曾爆料，称华为新机影像实验室出现了双潜望长焦方案， 一颗 50Mp RYYB 小底，一颗 200Mp 1/1.3″ RYYB 超大底 ，焦段配置上新。另外，2027H1 的影像旗舰在评估阔屏，据工程机信息，标准版继续用 6.6 英寸中屏，Pro / Pro Max 换阔屏，尺寸还是 6.39 英寸左右，定义全能阔屏影像旗舰。 ▲ IT之家图赏：华为 nova 14 Ultra 实拍</p><a href="https://www.ithome.com/1/020/765.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称 AMD 拟计划本月再调涨 GPU + D6 显存套料供货成本</h3><p>IT之家 11 月 1 日消息，据博板堂 / 视讯堂旗下“ChannelGate 视博合聚”爆料，AMD“将针对 GPU + D6 显存套料的供货成本再次执行上涨政策”，预计将继续影响 AMD 显卡 11 月份（本月）的成本价格走向。 该消息源透露，AMD 现在每个季度都会根据 GPU 与显存颗粒成本的影响，立即执行新的供货成本价，对 GPU+ 显存供货成本及时涨价的，AMD 涨价风格是每个季度执行。 据了解到，考虑到 Q3 季度内，GDDR6 显存再次上涨了大概 8-10% 左右，AMD 决定 Q4 季度继续涨价，10 月份已上涨一次，AMD 仍可能执行 11 月份仍会继续上涨一次，幅度预计相对会不小，完成 GPU+ 显存的上涨力度。</p><a href="https://www.ithome.com/1/020/749.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Google 创上市至今最大跌幅，市值蒸发逾 5000 亿美元</h3><p>Google 在公布三季度财报之后遭遇了它自 2004 年上市以来最大的单日跌幅，市值蒸发逾 5000 亿美元。在股价最低点，Google 市值蒸发 5240 亿美元，这是美股上市公司有史以来第二大单日市值缩水。仅次于英伟达在 2025 年 1 月 27 日因 DeepSeek 模型引发的市场震荡其市值单日缩水约 5930 亿美元。此前排名第二的单日跌幅由 SpaceX 创造，该公司在 6 月 22 日经历了 4000 亿美元的市值缩水，Google 超越了这一记录。美股市场今年至今已出现 18 次单日市值缩水 2000 亿美元或以上的情况，超过了 2025 年全年的 13 次。Google 的市值自 5 月创下高点以来已累计缩水约 1.4 万亿美元。</p><a href="https://www.solidot.org/story?sid=85752" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>6 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>榜一，拿来吧你！智元这波双模型杀穿多榜榜单</h3><a href="https://www.qbitai.com/2026/10/506819.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>AI零帧起手写算子，反超DeepSeek人类手写巅峰：快了9.8%！</h3><a href="https://www.qbitai.com/2026/10/506785.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>“超能模式”重磅登场！联想天禧AI 4.5全端升级，三大场景打造“职场超能搭档”</h3><a href="https://www.qbitai.com/2026/10/506779.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>AI 简历泛滥之下，Z 世代求职者开始担心自己“看起来像 AI”过不了初筛</h3><p>IT之家 11 月 1 日消息，据科技媒体 TechRadar 今天报道，如今求职正变得越来越困难。应聘者不仅要应对 AI 初筛，还要努力让自己的遣词看起来更像真人，同时具备吸引人的特质。 IT之家从原报道获悉，招聘平台 Greenhouse 近期对英国、爱尔兰地区 1100 多名求职者展开调查，结果发现 Z 世代求职者与 60 岁以上人士相比，对 AI 招聘初筛有着更深刻认知。 在调查人群中，有 81% 求职者在只递交简历、没和人事进行任何交流的情况下遭到拒绝。97% 求职者希望展示一些无法写进履历的内容，这意味着新时代的招聘方式必须作出改变。 不过最令人担忧的还是 AI 初筛系统。过去 12 个月中，42% 候选人参加过 AI 面试，其中 57% 的人表示，这种面试让他们有机会展示自己的技能。AI 在简历润色过程中虽然有着重要作用，但雇主已经发现，千篇一律的 AI 简历，已经很难让应聘者拉开差距。 Greenhouse 首席人事官 Sharawn Tipton 对此表示：“这是第一次，招聘双方都认为现有的招聘流程出了问题。求职者提交申请后，仿佛石沉大海；雇主则要从一份份 AI…</p><a href="https://www.ithome.com/1/020/747.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>研究发现非英语的 token 成本更高</h3><p>Coalition for Language Equity in AI Research 上个月发表的一项研究发现，AI 模型处理部分语言提示所需的 token 量远超英语。研究人员称之为隐性 token 税，意味着小语种用户的 AI 成本更高。研究发现，即使互联网最流行的 20 种语言，token 使用量也存在差异。最昂贵语言使用的 token 数量是最便宜语言的 1.5-5 倍。当研究人员将范围扩大到 200 种语言，差异进一步扩大，一个 AI 模型的 token 成本差距甚至增加了 17 倍。研究指出：位于班加罗尔的初创公司可能需要为每次提示和完成支付附加费，而其位于奥斯汀的竞争对手则无需支付。token 税的影响远不止成本。token 数量越多，延迟就越高，有效上下文容量就越低。在计算和连接本就有限的地区，这些惩罚最为严重。token 不公平限制了 AI 经济的参与范围。</p><a href="https://www.solidot.org/story?sid=85747" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>乌鸦视觉决策速度两倍于人类</h3><p>德国蒂宾根大学开展的一项新研究显示，在进行视觉选择任务时，乌鸦的决策速度约为人类和猴子等灵长类动物的两倍。实验中，两只小嘴乌鸦平均只需 235 毫秒即可识别屏幕上点阵的运动方向并作出选择，同时保持较高准确率。为探究其机制，团队记录了乌鸦大脑中与灵长类前额叶皮层功能相当的关键区域——尾侧新纹状体的神经元活动。视觉刺激出现后约 70 毫秒，乌鸦大脑中编码不同运动方向的神经元信号便开始分化，这一变化远早于乌鸦作出实际反应。随着决策逐步形成，相关神经活动逐渐增强，直至达到决策阈值，乌鸦随即作出选择。神经元活动既反映了视觉信息的强度，也对应了最终选择的方向。团队认为，这种高速决策能力可能与鸟类在飞行、觅食和躲避天敌过程中，对快速视觉处理的进化需求有关。</p><a href="https://www.solidot.org/story?sid=85745" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>6 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>智能驾驶进入物理AI时代？7位行业嘉宾给出最新判断</h3><p>10月26日，第八届智能驾驶大会暨2026环秀湖物理AI产业发展推介会在苏州相城举行。 上一届，车路云一体化、智能驾驶出海和无人驾驶商业化是讨论重点，而到了今年，大会的讨论边界进一步从智能驾驶向物理AI延伸。 世界模型、强化学习、端侧智能、虚拟仿真、Robotaxi之外，机器人、低空飞行器等不同形态的物理智能开始出现在同一场大会上。这背后，是智能驾驶行业正在面对的一组新问题。 一方面，高阶辅助驾驶已经进入规模化上车阶段，Robotaxi也开始从技术验证走向运营和商业化；另一方面，当AI真正进入汽车、机器人、飞行器等物理设备，如何获得足够的数据、如何训练和验证模型、如何降低开发成本，以及如何保证系统在真实世界中的安全性，正在成为新的技术难题。 当天，包括Momenta、曹操出行、面壁智能等企业，以及高校和科研机构的多位嘉宾，从世界模型、强化学习、端侧大模型、虚拟仿真、车路云和物理AI基础设施等方向给出了自己的判断。…</p><a href="https://www.leiphone.com/category/transportation/pqEtZnYepE5D1PzD.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>阿里巴巴与 Apple 达成合作，将千问集成至 Apple 智能</h3><p>10月31日，阿里巴巴与Apple达成合作，将千问集成至 Apple 智能，中国用户可以在Siri、写作工具及视觉智能中，直接调用千问的文本与图像理解、内容生成等能力。这些功能将于11月4日起随最新的iOS 开发者 Beta 版开放测试，并将于12月iOS 27.3正式发布时面向中国用户推出。 Siri可以直接调用千问的广博知识，并在 Siri 中直接回复用户问答。通过 Siri，用户还能用自己选择的文档和照片，直接向千问提问。在任何问题、文档和图片发送给千问之前，都会先征得用户同意。 千问也已接入Apple 的系统级写作工具中，为用户提供“千问创作”（Compose with Qwen）功能。“千问创作”可以帮助用户基于任意主题生成内容。用户还可以使用这一功能来生成图像。 在 iPhone 上，用户可以通过视觉智能功能更深入地了解周围环境，其中包括选择“询问千问”来识别眼前所见。用户可通过相机控制、操作按钮或控制中心来启用视觉智能功能。 用户可以自主选择是否开通千问集成功能。启用后，用户可通过 Apple 登录或使用自己的千问 App 账户登录，在…</p><a href="https://www.leiphone.com/category/industrynews/es0ZV9LsDEsG7QLE.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>科大讯飞董事长与总裁主动降薪，两人均少领超2000万；阿维塔回应会议视频被吐槽「演的太尬」：是摆拍，但事是真的；百度副总裁吴甜已离职</h3><p>要闻提示 1.科大讯飞回应高管薪资质疑：董事长与总裁主动降薪，两人均少领超2000万 2.内部会议视频被吐槽演的太尬！阿维塔副总裁：是摆拍，但事是真的 3.华为“天才少年”杨玉雯加盟南京大学 4.百度确认吴甜已离职，文心模型下周将发布新进展 5.王腾创业首秀感谢小米和雷军！回应蹭流量质疑：真心感激过往经历 6.国产3A《影之刃零》登顶全球畅销榜，评分超《黑神话：悟空》 7.智元彭志辉：公司2026年上半年营收近20亿元 8.突发！英伟达遭调查：GPU捆绑销售成焦点 今日头条 科大讯飞回应高管薪资质疑：董事长与总裁主动降薪，两人均少领超2000万 10月29日消息，近日，有投资者在互动平台向科大讯飞提问，关注公司高管薪酬集体上涨与同行接轨等问题。科大讯飞就此作出回应，披露了公司高管主动大幅降薪的细节。…</p><a href="https://www.leiphone.com/category/zaobao/zRRabO7xif7QiyjK.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>赛力斯：公司与华为是长期、稳定、互信的战略合作关系，问界用户已突破 120 万</h3><p>IT之家 11 月 1 日消息，10 月 31 日，赛力斯发布投资者关系活动记录表，其中提到了华为与问界后续合作问题。 公告称，公司与华为是长期、稳定、互信的战略合作关系。 问界用户已经突破 120 万 。双方锚定问界高端智能汽车品牌核心定位， 联合组建问界业务专属专营团队 ，以专属专营方式升级问界业务，以专属专营更好地服务问界用户，持续推动问界新豪华品牌向上。 赛力斯提到，问界专属专营是双方跨界融合，持续加强合作基础上的又一次创新，是体系和协同机制的进一步升级，也是资源的聚焦和渠道的提质增效，助力价值增长、伙伴共赢。通过问界专营，不仅仅能够实现销量回升，还能进一步改善车型结构，提升盈利能力，实现问界高质量可持续发展。面向未来，双方也将在新技术演进方向上持续开展探索与研发， 为长期合作和问界产品持续进化储备技术动能 。 IT之家注意到，9 月 30 日，鸿蒙智行问界业务升级战略合作签约仪式在深圳举行。华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东，赛力斯集团董事长张兴海等出席。鸿蒙智行官方宣布， 华为与赛力斯达成新的五年合作 。 相关阅读： 《…</p><a href="https://www.ithome.com/1/020/759.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>思科给予一名 27 岁工程师无限 tokens 去重写陈旧代码</h3><p>思科总裁兼首席产品官 Jeetu Patel 在接受《财富》杂志采访时称，该公司给予一名 27 岁工程师无限 tokens 去重写遗留代码（legacy code）。27 岁的 Padmanabhan Krishnamurthy 在 2023 年联合创办了实时翻译初创公司 EzDubs，2025 年该公司被思科收购，他随后加入了思科。两人曾在旧金山办公室有过谈话，Krishnamurthy 许诺只需一个两人团队就能重写思科的遗留代码。他给自己争取了四周时间来证明这一想法，最终目标是在 24 个月内重构思科 98% 的遗留代码。</p><a href="https://www.solidot.org/story?sid=85764" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>芬兰对 Google 砍伐 25 万颗树展开调查</h3><p>作为 130 亿欧元投资计划的一部分，Google 正在芬兰的 Muhos 和 Kajaani-Otanmäki 建造两座数据中心。上周芬兰监管机构以未完成必要的环评为由下令工程停工。Google 芬兰子公司 Tuike Finland 遵守了命令。应监管机构的要求，Oulu 警方针对 Muhos 数据中心建设工地的活动（Google 在当地砍伐了 25 万颗树）展开初步调查。警方表示，此案正以涉嫌环境损害这一刑事罪名进行调查。警方指出，随着调查的深入，未来可能会明确其他潜在的指控。警方称，根据目前掌握的信息，数据中心项目工地在排水和水资源管理方面存在违规及缺陷。警方表示，初步调查工作力争在 2027 年内完成。</p><a href="https://www.solidot.org/story?sid=85754" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>4 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>智能驾驶进入物理AI时代？7位行业嘉宾给出最新判断</h3><p>10月26日，第八届智能驾驶大会暨2026环秀湖物理AI产业发展推介会在苏州相城举行。 上一届，车路云一体化、智能驾驶出海和无人驾驶商业化是讨论重点，而到了今年，大会的讨论边界进一步从智能驾驶向物理AI延伸。 世界模型、强化学习、端侧智能、虚拟仿真、Robotaxi之外，机器人、低空飞行器等不同形态的物理智能开始出现在同一场大会上。这背后，是智能驾驶行业正在面对的一组新问题。 一方面，高阶辅助驾驶已经进入规模化上车阶段，Robotaxi也开始从技术验证走向运营和商业化；另一方面，当AI真正进入汽车、机器人、飞行器等物理设备，如何获得足够的数据、如何训练和验证模型、如何降低开发成本，以及如何保证系统在真实世界中的安全性，正在成为新的技术难题。 当天，包括Momenta、曹操出行、面壁智能等企业，以及高校和科研机构的多位嘉宾，从世界模型、强化学习、端侧大模型、虚拟仿真、车路云和物理AI基础设施等方向给出了自己的判断。…</p><a href="https://www.leiphone.com/category/transportation/pqEtZnYepE5D1PzD.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>网传“新疆禾木景区野生猴群下山抢手机”，官方回应“系 AI 生成，当地不存在猴群栖息活动”</h3><p>IT之家 11 月 1 日消息，据央视新闻报道，近期网传所谓新疆“禾木野生猴群下山抢手机”图文、视频，引发公众关注，经新疆布尔津县委网信办联合当地林业和草原局野生动植物保护站核实确认，该内容是虚假谣言。 据新疆布尔津县林业和草原局野生动植物保护站工作人员介绍，禾木景区及布尔津县全域区内没有野生猴群分布，不存在猴群栖息活动记录，网络图文视频属于虚假信息。该谣言和本地野生动物资源实际情况不符， 目前当地网信部门已责成相关平台对不实信息予以下架处理 。</p><a href="https://www.ithome.com/1/020/739.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Claude Code for VS Code 官方扩展被植入后门</h3><p>安全研究人员在 Cursor Marketplace 的 Claude Code for VS Code 官方扩展中发现了后门，该恶意版本已经撤下，攻击者也关闭了其服务器。Cursor 已发布安全公告，但 Claude Code 开发商 Anthropic 尚未做出任何声明。受影响的版本是 Anthropic.claude-code 2.1.313，共上线了大约 11 小时，受影响用户估计有 5,000 名，该扩展会试图植入一个持久 SSH 后门。恶意扩展会：收集主机和用户信息：主机名、用户名、操作系统、架构、主目录路径、环境变量名称、工作目录、已配置的 Git 邮箱以及公网 IP。尝试将攻击者控制的 SSH 键添加到 authorized_keys，启用本地 SSH 服务，并建立反向 SSH 隧道。由于恶意代码存在 bug，除非 Cursor 是以管理员权限启动的 (这种情况极为罕见) ，否则这一步会失败。尝试通过 LaunchAgent (macOS) 或计划任务 (Windows，该任务会尝试以 SYSTEM 身份运行，并以启动脚本作为回退) 使反向 SSH 隧道长期生效。后台脚本大约每 60…</p><a href="https://www.solidot.org/story?sid=85756" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>芬兰对 Google 砍伐 25 万颗树展开调查</h3><p>作为 130 亿欧元投资计划的一部分，Google 正在芬兰的 Muhos 和 Kajaani-Otanmäki 建造两座数据中心。上周芬兰监管机构以未完成必要的环评为由下令工程停工。Google 芬兰子公司 Tuike Finland 遵守了命令。应监管机构的要求，Oulu 警方针对 Muhos 数据中心建设工地的活动（Google 在当地砍伐了 25 万颗树）展开初步调查。警方表示，此案正以涉嫌环境损害这一刑事罪名进行调查。警方指出，随着调查的深入，未来可能会明确其他潜在的指控。警方称，根据目前掌握的信息，数据中心项目工地在排水和水资源管理方面存在违规及缺陷。警方表示，初步调查工作力争在 2027 年内完成。</p><a href="https://www.solidot.org/story?sid=85754" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sun, 01 Nov 2026 08:02:37 +0000</div><h3>清华姚期智团队新作：代数世界模型，让AI像牛顿一样思考</h3><a href="https://www.qbitai.com/2026/11/507031.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 01 Nov 2026 07:50:57 +0000</div><h3>老牌便利店机器人售货折戟：实验室锤炼上万次，货架前还是摔瓶子</h3><a href="https://www.qbitai.com/2026/11/506990.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 31 Oct 2026 13:49:44 +0000</div><h3>刚刚，DeepSeek重磅开源：Agent底座架构！</h3><a href="https://www.qbitai.com/2026/10/506904.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 31 Oct 2026 05:11:19 +0000</div><h3>世界模型首次指导设计芯片！超大核NPU700TOPS，99%算力可用</h3><a href="https://www.qbitai.com/2026/10/506866.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 31 Oct 2026 05:05:29 +0000</div><h3>刚刚，Claude宣布取消5小时限制！首批Ultra用户已「解封」</h3><a href="https://www.qbitai.com/2026/10/506855.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 12:58:31 +0000</div><h3>榜一，拿来吧你！智元这波双模型杀穿多榜榜单</h3><a href="https://www.qbitai.com/2026/10/506819.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 11:05:06 +0000</div><h3>AI零帧起手写算子，反超DeepSeek人类手写巅峰：快了9.8%！</h3><a href="https://www.qbitai.com/2026/10/506785.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 10:44:01 +0000</div><h3>“超能模式”重磅登场！联想天禧AI 4.5全端升级，三大场景打造“职场超能搭档”</h3><a href="https://www.qbitai.com/2026/10/506779.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 31 Oct 2026 17:55:00 +0800</div><h3>从“懂回答”到“能执行”：Zoho如何让AI走进企业业务</h3><p>10月20日，在以“助力中国企业全球化成长”为主题的Zoho北京媒体沟通会上， Zoho不仅向外界展示了其最新的企业级AI全景战略，更试图回答一个当前行业的普遍痛点：当AI大模型喧嚣了两年之后，为什么大多数企业在业务中依然觉得AI“用不起来”？ Zoho全球副总裁Mathivanan一针见血地点出了症结所在：“太短的决策周期，太多的备选工具，从一开始就造成了太多的数据孤岛。”当企业盲目堆叠各种带有AI标签的软件，不仅没有打破原有的信息孤岛，反而催生了“AI孤岛”。 Zoho中国COO夏海峰在随后的主题演讲中直言不讳：“如果AI只能回答问题、提供信息，却无法参与实际业务流程，它对商业的价值就微乎其微。” 这也揭示了企业AI应用面临的一道关键门槛：能够回答问题，不等于能够完成任务。AI要真正参与业务，不仅需要理解用户的需求，还需要获取相关数据、调用业务系统，并在权限和流程约束下完成具体操作。 为了跨过这道从“懂回答”到“能执行”的鸿沟，Zoho在此次会上系统展露了其沉淀多年的AI全景三层架构：底层给数据，中间层做连接，上层管执行。 跨越分水岭：从“会说”的助手，到“能干”的数字员工…</p><a href="https://www.leiphone.com/category/industrynews/00recUTGoMQ1JRh4.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 31 Oct 2026 11:31:00 +0800</div><h3>智能驾驶进入物理AI时代？7位行业嘉宾给出最新判断</h3><p>10月26日，第八届智能驾驶大会暨2026环秀湖物理AI产业发展推介会在苏州相城举行。 上一届，车路云一体化、智能驾驶出海和无人驾驶商业化是讨论重点，而到了今年，大会的讨论边界进一步从智能驾驶向物理AI延伸。 世界模型、强化学习、端侧智能、虚拟仿真、Robotaxi之外，机器人、低空飞行器等不同形态的物理智能开始出现在同一场大会上。这背后，是智能驾驶行业正在面对的一组新问题。 一方面，高阶辅助驾驶已经进入规模化上车阶段，Robotaxi也开始从技术验证走向运营和商业化；另一方面，当AI真正进入汽车、机器人、飞行器等物理设备，如何获得足够的数据、如何训练和验证模型、如何降低开发成本，以及如何保证系统在真实世界中的安全性，正在成为新的技术难题。 当天，包括Momenta、曹操出行、面壁智能等企业，以及高校和科研机构的多位嘉宾，从世界模型、强化学习、端侧大模型、虚拟仿真、车路云和物理AI基础设施等方向给出了自己的判断。…</p><a href="https://www.leiphone.com/category/transportation/pqEtZnYepE5D1PzD.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 31 Oct 2026 06:52:00 +0800</div><h3>阿里巴巴与 Apple 达成合作，将千问集成至 Apple 智能</h3><p>10月31日，阿里巴巴与Apple达成合作，将千问集成至 Apple 智能，中国用户可以在Siri、写作工具及视觉智能中，直接调用千问的文本与图像理解、内容生成等能力。这些功能将于11月4日起随最新的iOS 开发者 Beta 版开放测试，并将于12月iOS 27.3正式发布时面向中国用户推出。 Siri可以直接调用千问的广博知识，并在 Siri 中直接回复用户问答。通过 Siri，用户还能用自己选择的文档和照片，直接向千问提问。在任何问题、文档和图片发送给千问之前，都会先征得用户同意。 千问也已接入Apple 的系统级写作工具中，为用户提供“千问创作”（Compose with Qwen）功能。“千问创作”可以帮助用户基于任意主题生成内容。用户还可以使用这一功能来生成图像。 在 iPhone 上，用户可以通过视觉智能功能更深入地了解周围环境，其中包括选择“询问千问”来识别眼前所见。用户可通过相机控制、操作按钮或控制中心来启用视觉智能功能。 用户可以自主选择是否开通千问集成功能。启用后，用户可通过 Apple 登录或使用自己的千问 App 账户登录，在…</p><a href="https://www.leiphone.com/category/industrynews/es0ZV9LsDEsG7QLE.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 19:08:00 +0800</div><h3>全行业两年攒下百万小时数据，影溯想 1 个月生产完：全国首个具身仿真数采中心落地杭州</h3><p>产能公式从“人×小时”，变成“环境配置数×并行算力”。 作者丨 幸丽娟 编辑丨 岑 峰 训练一个可用的具身智能模型， 需 要千 万小时 的多模态交互数据；而 现实仅有百万小时 ，剔除低质部分后，真正可用的更少。 缺数据，是具身智能行业的共识。 但只盯着“数据”这两个字，会错过更关键的问题： 一台机器人在固定货架前抓取，成功率可以很高。货架挪个方向，目标前多放一排饮料，换一侧伸手，成功率就往下掉。练过的，它能一遍遍做对；没练过的，它连手该从哪边伸都不知道。 行业缺的不只是数据量，还有“数据里的变化”。 过去两年，补缺口的主流办法是建场地、加采集人手。 据中国信息通信研究院，截至今年6月底，全国共建成启用超过70家训练场，另有40 余家在建或规划。 然而，大量训练场集中在叠衣服、收拾桌面、分拣搬运这类易展示任务上，复杂长程任务挖掘严重不足。数据小时数在涨，模型见过的空间布局没涨。 问题出在扩容的对象上。加场地，加采集人手，扩的是同一批场景的采集次数——货架还是那个货架，只是多采了几遍。 多样性要涨，靠的是条件变多 ： 布局、遮挡、物体组合、接近路径，每多一种都是一次重新排列。…</p><a href="https://www.leiphone.com/category/academic/xPVWQgBN3Foj7fo5.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 18:38:00 +0800</div><h3>沙钢接入千问办公，已将Agent落地核心业务场景</h3><p>近日，江苏沙钢钢铁有限公司（以下简称“沙钢”）正式接入千问办公，已将Agent落地到电炉冶炼复盘、变压器状态评估、财务经营分析等业务场景，让分散的关键数据更快进入生产工作流，部分核心业务场景提效可达数百倍。 沙钢是全国最大的电炉钢生产基地，产品应用于港珠澳大桥、“西气东输”等国家重大工程，远销100多个国家和地区。钢铁生产流程长、工序多，大量关键数据分散在生产系统、Excel表格和纸质台账中，工艺分析、设备管理与经营决策长期依赖人工整理。随着“智慧沙钢”建设推进，企业需要能打通数据、自主完成分析的Agent产品。 目前，沙钢已将千问办公应用于电炉冶炼复盘、变压器状态评估、财务经营分析等场景，并取得显著成效。 在电炉炼钢厂，过去工艺人员每炼完一炉钢，需从生产系统导出数张明细表，手工拼合比对，单炉复盘耗时约30分钟；如今千问办公按炉号自动关联配料、能耗、合金、温度等七类数据，集中筛查异常炉次并给出调整建议，单炉复盘缩短至3分钟。…</p><a href="https://www.leiphone.com/category/industrynews/mxLii4LkfIz829iH.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 16:42:00 +0800</div><h3>科大讯飞董事长与总裁主动降薪，两人均少领超2000万；阿维塔回应会议视频被吐槽「演的太尬」：是摆拍，但事是真的；百度副总裁吴甜已离职</h3><p>要闻提示 1.科大讯飞回应高管薪资质疑：董事长与总裁主动降薪，两人均少领超2000万 2.内部会议视频被吐槽演的太尬！阿维塔副总裁：是摆拍，但事是真的 3.华为“天才少年”杨玉雯加盟南京大学 4.百度确认吴甜已离职，文心模型下周将发布新进展 5.王腾创业首秀感谢小米和雷军！回应蹭流量质疑：真心感激过往经历 6.国产3A《影之刃零》登顶全球畅销榜，评分超《黑神话：悟空》 7.智元彭志辉：公司2026年上半年营收近20亿元 8.突发！英伟达遭调查：GPU捆绑销售成焦点 今日头条 科大讯飞回应高管薪资质疑：董事长与总裁主动降薪，两人均少领超2000万 10月29日消息，近日，有投资者在互动平台向科大讯飞提问，关注公司高管薪酬集体上涨与同行接轨等问题。科大讯飞就此作出回应，披露了公司高管主动大幅降薪的细节。…</p><a href="https://www.leiphone.com/category/zaobao/zRRabO7xif7QiyjK.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 16:13:00 +0800</div><h3>让触觉像视觉一样可规模化，哥大李昀烛团队 FlexiTac 的开源实践 | IROS 2026</h3><p>FlexiTac压阻式传感器可兼顾柔性、低成本与一致性。 作者丨 向欣 编辑丨岑峰 机器人的视觉能力正快速增强，但 触觉仍然是具身智能系统中的薄弱环节 。尤其是在精细操作场景中，当 物体被遮挡、透明、易碎，或需要精确判断接触力与手内姿态 时，仅靠视觉往往难以确认机器人是否真正抓稳了物体、是否发生了滑移，也难以实现可靠的力控与顺从交互。 与图像领域已经形成相对统一的传感器和数据体系相比，触觉研究尚未形成类似的「收敛」。不同实验室往往使用不同类型的触觉传感器，但它们都面临 寿命、柔性、多维信息感知、分辨率、成本与一致性 难以同时兼顾的困境。这使得触觉数据采集、算法研究以及不同系统之间的复现都变得更加困难。 如何 让触觉像视觉一样 ，成为一种可以被更多机器人使用、被大量采集、被算法反复利用的基础感知能力？ 针对这个问题，哥伦比亚大学李昀烛团队提出了开源柔性压阻式触觉传感器平台 FlexiTac 。在本届 IROS 2026 的触觉专题研讨会上，李昀烛系统介绍了这一平台开源一年半后的进展与生态。 FlexiTac 是一套低成本、开源、可扩展的 压阻式柔性触觉传感器 ，团队同时开源了完整…</p><a href="https://www.leiphone.com/category/robot/sRmmVes4DwBoIeRm.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 15:30:00 +0800</div><h3>百度 APP 发布四大 AI 升级，搜索已实现递归自我进化</h3><p>10 月 30 日，百度 APP 在北京举办产品升级沟通会。百度搜索实现递归自我进化，并全新升级搜索 AI API，活动期间最低价仅需 4.9 元/千次，低于 DeepSeek 搜索 API。同时围绕搜索框、AI 镜头、GUI 可视化、AI 互动应用等方向推出重大升级，给用户带来更智能、更聪明、更好玩的体验，在助力用户“搞定一切”上更进一步。 升级后的百度 APP，文心助手让搜索从「一次问答」走向「一份交付」，复杂问题和高频事务可直接交付成果物，长期任务则持续跟踪、主动提醒，目前已覆盖 170 余种场景。AI 镜头从「定格」走向「流动」，支持多目标同步识别与动态追踪，并可用东北话、四川话、粤语等 9 种方言实时对话。搜索结果页 GUI 互动场景提升 5 倍，接入政务、民生、央行等超 50 亿数据资源；AI 互动剧与互动应用同步上线。</p><a href="https://www.leiphone.com/category/industrynews/7pQrGMmdsjx5dOSR.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><h3>[解析失败] https://36kr.com/feed</h3><p>not well-formed (invalid token): line 10, column 168</p></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sun, 01 Nov 2026 09:23:41 GMT</div><h3>首届 CMG 世界机器人登泰山大赛明日进行，央视揭秘机器人如何认路、探路、见招拆招</h3><p>IT之家 11 月 1 日消息，首届 CMG 世界机器人登泰山大赛将于明天（11 月 2 日）在山东泰安正式开赛，各类机器人齐聚泰山脚下，在红门至中天门（3100 级台阶、600 米高差）千年盘道开启实景山地竞技比拼。 央视新闻今日发布视频，揭秘了机器人如何认路、探路、见招拆招。据介绍，赛事跳出传统实验室仿真环境，依托泰山独一无二的山岳实景赛道， 为山地特种机器人技术迭代、场景落地提供了高规格实战试炼平台 。 首届 CMG 世界机器人登泰山大赛总裁判长苏庆伟表示，最大的挑战还是机器人怎么样适应泰山的路。这个台阶有的高，有的低，有的宽，有的窄，还有鹅卵石路。报道提到，不管是四足的还是双足的机器人， 它们在爬山之前都会进行建图，把整条古道跑上一遍，了解路况 。 不过，四条腿的机器狗，下盘稳、步态灵活，认准大方向就能撒开腿往上跑；但两条腿的人形机器人不一样，身高更高、重心更难把控。想要精准感知脚下的每一级台阶，还得额外“加练”。据介绍，部分人形机器人干脆换一个思路， 将“眼睛”直接移到了胸前，视线放低，专守下盘 。 除了路面感知外，人形机器人还得练“脚感”——…</p><a href="https://www.ithome.com/1/020/773.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 01 Nov 2026 09:20:45 GMT</div><h3>Twelve South 推出 PowerClip“超便携应急充电宝”：苹果 AirPods Pro 尺寸、2000mAh 电芯、2C 设计</h3><p>IT之家 11 月 1 日消息，Twelve South 现已在苹果海外官网上架一款 PowerClip 挂扣式移动电源，其采用 2C 设计，配备 2000mAh 电芯，定价为 39.95 美元 （IT之家注：现汇率约合 266.5 元人民币） 。 该产品主要面向户外用户，号称是“超便携应急充电宝”，标配一枚可拆卸的锌合金材质圆形登山扣，用户可根据使用需求自由拆装。 该产品仅有 AirPods Pro 耳机充电盒大小，整体为圆角矩形造型，线条圆润柔和。顶部预留一体化挂扣孔位，正面配备 LED 电量指示灯与电源按键。产品配备双 USB-C 充电线缆，其中 USB-C1 为输入输出二合一线缆（支持 5W 输出，直通模式支持 10W 输出），USB-C2 线缆仅支持输出（支持 5W 输出）。</p><a href="https://www.ithome.com/1/020/771.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 01 Nov 2026 09:03:59 GMT</div><h3>阿里千问 AI 眼镜 OTA 升级：新增通话翻译、媒体翻译等</h3><p>IT之家 11 月 1 日消息，阿里旗下千问 AI 眼镜今日迎来 OTA 升级，新增通话翻译、媒体翻译等，抗噪能力再升级。 IT之家整理如下： 新增通话翻译，打电话、线上会议跨国无障碍实时翻译。 新增媒体翻译，听海外播客、上外语网课、看外语大片，支持实时翻译，千问 AI 穿戴 App 同步显示译文。 抗噪能力再升级，优化嘈杂环境下的语音识别，让同声传译更准确、更及时。 千问 AI 眼镜 G1 于今年 3 月开售，后续又推出了第二款 AI 眼镜 S1。作为旗舰机型，千问 AI 眼镜 S1 相比之前的千问 AI 眼镜 G1 在交互、显示、续航及硬件配置方面均有升级。 今年 10 月，阿里再次发布千问 N1 系列 AI 眼镜发布，支持更换电池、Pro 版支持眼动交互 / 全天候健康监测，售 2899 元起。</p><a href="https://www.ithome.com/1/020/768.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 01 Nov 2026 08:55:04 GMT</div><h3>华为新机影像超前瞻：200Mp 1/1.3&quot; 超大底主摄 + 200Mp 1/1.4&quot; 大底潜望长焦，预计明年落地</h3><p>IT之家 11 月 1 日消息，博主 @数码闲聊站 昨日发文超前爆料了某厂神秘新机的影像配置， 预计明年落地 。从评论区讨论和博主的暗示符号来看， 预计新机归属华为品牌 ，不过具体型号、系列未公布。 ① 200Mp 1/1.3&quot; 超大底主摄 +200Mp 1/1.4&quot; 大底潜望长焦 ，中高端线的双 2 亿积极评估中 ②外挂增距镜方案没有放弃， 甚至有普及计划 有网友询问畅享系列手机能否吃上增距镜？博主表示：“ nova 可以展望一下。 ”还有网友询问小米是否有计划推出搭载玄戒 O3 芯片的直板机？博主回复称：“ 我希望会有。 ” 据IT之家此前报道，该博主曾爆料，称华为新机影像实验室出现了双潜望长焦方案， 一颗 50Mp RYYB 小底，一颗 200Mp 1/1.3″ RYYB 超大底 ，焦段配置上新。另外，2027H1 的影像旗舰在评估阔屏，据工程机信息，标准版继续用 6.6 英寸中屏，Pro / Pro Max 换阔屏，尺寸还是 6.39 英寸左右，定义全能阔屏影像旗舰。 ▲ IT之家图赏：华为 nova 14 Ultra 实拍</p><a href="https://www.ithome.com/1/020/765.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 01 Nov 2026 08:33:07 GMT</div><h3>上下水版 4599 → 1066 元：科沃斯 T50 PRO 扫拖机器人国补 2 折新低，81mm 纤薄机身</h3><p>【京东活动可能随时变更，需以实付款为准】 科沃斯 T50 PRO 扫拖机器人发布于 2024 年 9 月，该款扫拖机器人拥有 81mm 机身，支持 15800Pa 吸力（1.58 万 Pa 吸力），“上下水版”首发价 4599 元。 京东 11.11 大促期间，按下方步骤下单，叠加 15% 国补后仅需 1066.3 元： 下单时选择“以旧换新 → 个护健康 → 电动牙刷（无需回收）”补贴 100 元。 晒单再返 20 元京豆。 京东 科沃斯 T50 PRO 上下水版 扫拖洗一体 以旧换新后 1066 元 直达链接 订单截图 京东 11.11 无门槛红包至高 26888 元，支持即领即用，下单直接当钱花： 点此抽取 。 据介绍，科沃斯 T50 PRO 扫拖机器人采用“ 3D 结构光 + dTOF + Al 摄像头 ”视觉模组，支持低矮障碍物贴边清扫；机器人主机 高度 81mm ，可进入沙发底、床底等区域进行清扫。 该款扫拖机器人拥有 15800Pa 吸力 ，内置“TruEdge 灵隙 2.0 技术”，官方宣称该技术可提升边角清扫能力，实现“100% 扫拖覆盖率”；机器人还搭载“ZeroTangle 灵缠 2.0…</p><a href="https://www.ithome.com/1/020/760.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 01 Nov 2026 08:33:04 GMT</div><h3>赛力斯：公司与华为是长期、稳定、互信的战略合作关系，问界用户已突破 120 万</h3><p>IT之家 11 月 1 日消息，10 月 31 日，赛力斯发布投资者关系活动记录表，其中提到了华为与问界后续合作问题。 公告称，公司与华为是长期、稳定、互信的战略合作关系。 问界用户已经突破 120 万 。双方锚定问界高端智能汽车品牌核心定位， 联合组建问界业务专属专营团队 ，以专属专营方式升级问界业务，以专属专营更好地服务问界用户，持续推动问界新豪华品牌向上。 赛力斯提到，问界专属专营是双方跨界融合，持续加强合作基础上的又一次创新，是体系和协同机制的进一步升级，也是资源的聚焦和渠道的提质增效，助力价值增长、伙伴共赢。通过问界专营，不仅仅能够实现销量回升，还能进一步改善车型结构，提升盈利能力，实现问界高质量可持续发展。面向未来，双方也将在新技术演进方向上持续开展探索与研发， 为长期合作和问界产品持续进化储备技术动能 。 IT之家注意到，9 月 30 日，鸿蒙智行问界业务升级战略合作签约仪式在深圳举行。华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东，赛力斯集团董事长张兴海等出席。鸿蒙智行官方宣布， 华为与赛力斯达成新的五年合作 。 相关阅读： 《…</p><a href="https://www.ithome.com/1/020/759.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 01 Nov 2026 07:58:20 GMT</div><h3>消息称 AMD 拟计划本月再调涨 GPU + D6 显存套料供货成本</h3><p>IT之家 11 月 1 日消息，据博板堂 / 视讯堂旗下“ChannelGate 视博合聚”爆料，AMD“将针对 GPU + D6 显存套料的供货成本再次执行上涨政策”，预计将继续影响 AMD 显卡 11 月份（本月）的成本价格走向。 该消息源透露，AMD 现在每个季度都会根据 GPU 与显存颗粒成本的影响，立即执行新的供货成本价，对 GPU+ 显存供货成本及时涨价的，AMD 涨价风格是每个季度执行。 据了解到，考虑到 Q3 季度内，GDDR6 显存再次上涨了大概 8-10% 左右，AMD 决定 Q4 季度继续涨价，10 月份已上涨一次，AMD 仍可能执行 11 月份仍会继续上涨一次，幅度预计相对会不小，完成 GPU+ 显存的上涨力度。</p><a href="https://www.ithome.com/1/020/749.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 01 Nov 2026 07:46:59 GMT</div><h3>AI 简历泛滥之下，Z 世代求职者开始担心自己“看起来像 AI”过不了初筛</h3><p>IT之家 11 月 1 日消息，据科技媒体 TechRadar 今天报道，如今求职正变得越来越困难。应聘者不仅要应对 AI 初筛，还要努力让自己的遣词看起来更像真人，同时具备吸引人的特质。 IT之家从原报道获悉，招聘平台 Greenhouse 近期对英国、爱尔兰地区 1100 多名求职者展开调查，结果发现 Z 世代求职者与 60 岁以上人士相比，对 AI 招聘初筛有着更深刻认知。 在调查人群中，有 81% 求职者在只递交简历、没和人事进行任何交流的情况下遭到拒绝。97% 求职者希望展示一些无法写进履历的内容，这意味着新时代的招聘方式必须作出改变。 不过最令人担忧的还是 AI 初筛系统。过去 12 个月中，42% 候选人参加过 AI 面试，其中 57% 的人表示，这种面试让他们有机会展示自己的技能。AI 在简历润色过程中虽然有着重要作用，但雇主已经发现，千篇一律的 AI 简历，已经很难让应聘者拉开差距。 Greenhouse 首席人事官 Sharawn Tipton 对此表示：“这是第一次，招聘双方都认为现有的招聘流程出了问题。求职者提交申请后，仿佛石沉大海；雇主则要从一份份 AI…</p><a href="https://www.ithome.com/1/020/747.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 01 Nov 2026 07:28:05 GMT</div><h3>上市两月 2068 → 1288 元：小米米家扫拖机器人 7C 新低，支持滚筒活水增压拖地</h3><p>小米米家扫拖机器人 7C 今年 8 月 27 日开售，京东首发国补到手价 2068 元。 今日 11.11 加码仅需 1288 元即可入手，大降价： 下单时选择“ 以旧换新 ” → 个护健康 → 电动牙刷（不回收） 京东 米家扫地机器人 7C 水箱版 券后 1299 元 领 8.8 折券 京东 11.11 红包至高 26888 元无门槛可用，每天可抽一次： 点此抽取 。 IT之家从商品页面获悉，这款新品支持滚筒活水拖地， 配备恒压恒湿滚筒拖布 ，200 转 / 分钟高速洗拖，强效清洁咖啡渍、油渍、宠物脚印等顽固污渍; 配合活水边拖边洗，有效减少二次污染。模拟人手拖地施压逻辑，滚筒拖布持续稳定贴合地面发力。 新品升级 30000Pa 吸力，强效清洁地面灰尘、大小颗粒物、碎屑、残渣以及地毯纤维深处的宠物毛发等；配合自动割毛发防缠主刷、防缠边刷，清洁时有效减少缠绕问题。 AI 摄像头搭配线 激光避障 ，可精准识别鞋子、吧台椅、体重秤等 220+ 常见室内障碍物，暗光环境也能灵活应对；结合侧面线激光沿边功能，实现精准贴障清扫。…</p><a href="https://www.ithome.com/1/020/740.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 01 Nov 2026 07:27:17 GMT</div><h3>网传“新疆禾木景区野生猴群下山抢手机”，官方回应“系 AI 生成，当地不存在猴群栖息活动”</h3><p>IT之家 11 月 1 日消息，据央视新闻报道，近期网传所谓新疆“禾木野生猴群下山抢手机”图文、视频，引发公众关注，经新疆布尔津县委网信办联合当地林业和草原局野生动植物保护站核实确认，该内容是虚假谣言。 据新疆布尔津县林业和草原局野生动植物保护站工作人员介绍，禾木景区及布尔津县全域区内没有野生猴群分布，不存在猴群栖息活动记录，网络图文视频属于虚假信息。该谣言和本地野生动物资源实际情况不符， 目前当地网信部门已责成相关平台对不实信息予以下架处理 。</p><a href="https://www.ithome.com/1/020/739.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 01 Nov 2026 07:15:13 GMT</div><h3>让 AI 自己做脑部手术，初创公司成功让智能体给小鼠治疗癫痫</h3><p>IT之家 11 月 1 日消息，专注于下一代神经治疗的生物科技初创公司 Exin Therapeutics 本周声称，该公司已成功 让 AI 智能体对一只小鼠进行了脑部手术 。 该公司联合创始人兼首席执行官 Gabriel Ocana-Santero 在 X 平台上分享了整个过程，展示了 AI 智能体如何选择基因治疗载体、剂量以及应用的大脑区域。 AI 智能体操控机械臂，将药物注入小鼠的大脑。幸运的是， 手术似乎很成功，小鼠恢复良好 ，目前在饲养箱内活蹦乱跳。 该团队使用了 Anthropic Sonnet 模型进行手术，给了模型一个电子表格（其中有 19 种基因疗法载体）、一个癫痫小鼠模型、一个带摄像头的机械臂手术装置，以及一个目标： 减少癫痫发作 。 模型自主选择了药物，选择了脑区，从三篇论文中推导出坐标，然后驱动机械臂给小鼠大脑做手术，同时通过装置摄像头观察注射部位是否有出血，最后注射了 250 纳升药物。 此外， 还有兽医在监督整个手术，每一个不可逆的步骤都需要获得批准 ，AI 智能体才能继续。整个系统还有一个紧急停止按钮，可以切断手术设备中所有电机的电源。 IT之家从该公司披露了解到，AI…</p><a href="https://www.ithome.com/1/020/737.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 01 Nov 2026 07:13:33 GMT</div><h3>华为 ADS 5 加持：全新红旗 H9 轿车官宣标配闭式空气悬架 + iDCS 可变阻尼减振器，支持道路预瞄</h3><p>IT之家 11 月 1 日消息，一汽红旗今日发布视频，预热了全新红旗 H9 轿车在不同路面的驾驶情况。 据介绍， 全新红旗 H9 全系标配闭式空气悬架 + iDCS 可变阻尼减振器 ，拥有百万级全铝底盘，前双横臂 + 后梯形臂独立悬架，同时支持道路预瞄功能，可超前感知前方路况。 视频内容显示， 新车的空气悬架与闭式压缩机系统调节范围是 65mm、调节速度达 5mm/s ，其地形预瞄功能基于摄像头和激光雷达感知，每 10ms 可更新一次路面特征，识别前方路况。 全新红旗 H9 的电控悬架系统支持毫秒级悬架阻尼切换，可提升乘坐舒适性；iDCS 连续阻尼控制系统支持毫秒级动态调节， 宽域阻尼可抑制高频颠簸 。 另外，新车还有后轮转向系统， 支持双向 16° 调节提升车辆灵活度 ；前双横臂 + 后梯形臂独立悬架可用于缓解路面颠簸冲击，稳住车身姿态。全新红旗 H9 还定制舒适型轮胎，可兼顾节能特性。 据IT之家此前报道，全新一代红旗 H9 外观设计灵感取自中式宫殿的礼序章法，采用高山飞瀑格栅搭配贯穿式 U 型灯组设计； 搭载华为乾崑智驾 ADS 5 + 鸿蒙智舱 HarmonySpace + 红旗自研智能底盘 。 新车…</p><a href="https://www.ithome.com/1/020/736.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 31 Oct 2026 20:59:41 +0800</div><h3>思科给予一名 27 岁工程师无限 tokens 去重写陈旧代码</h3><p>思科总裁兼首席产品官 Jeetu Patel 在接受《财富》杂志采访时称，该公司给予一名 27 岁工程师无限 tokens 去重写遗留代码（legacy code）。27 岁的 Padmanabhan Krishnamurthy 在 2023 年联合创办了实时翻译初创公司 EzDubs，2025 年该公司被思科收购，他随后加入了思科。两人曾在旧金山办公室有过谈话，Krishnamurthy 许诺只需一个两人团队就能重写思科的遗留代码。他给自己争取了四周时间来证明这一想法，最终目标是在 24 个月内重构思科 98% 的遗留代码。</p><a href="https://www.solidot.org/story?sid=85764" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 31 Oct 2026 18:59:58 +0800</div><h3>Kogui 族人谈 AI</h3><p>生活在南美哥伦比亚圣玛尔塔内华达山脉的原居民 Kogui 族人信仰 Aluna——即万物之母 Gaulčováng。Kogui 族人认为地球是有生命的，人类是地球之子。他们认为，人类为获取资源而进行的开采、破坏和掠夺行为正在削弱万物之母的力量，这最终会导致人类的毁灭。对于最近几年生成式 AI 的发展，Kogui 族人也有类似的观点。他们认为：AI 无法与其背后的思想分离。如果这种思想源于对生命的关切，那么这项技术便有助于保护生命。 如果它源于野心、竞争、积累，或是支配的欲望，那么它所展现并放大的也将是这些东西。AI 就是一面镜子。如果一面镜子仅仅是反射，那么它是无害的。但 AI 这面镜子有潜力将它所反射出的一切无限放大...除了人类的价值观，AI 还能拥有什么价值观？人类就是它唯一的参照样本。它变成什么必然源于人类。一切皆是人类所为，一切责任也由人类承担...自然本身存在着一种秩序。这种秩序在人类到来之前便已存在。水有其流经的路径。山峦有其各自的高度。种子各有其时节，动物各有其功用，人类亦然。那些构建技术的人是否理解这种秩序？还是说，他们仅仅利用了其中可供开发的部分，却并不知晓其真正的源头？...AI…</p><a href="https://www.solidot.org/story?sid=85760" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 21:43:51 +0800</div><h3>Claude Code for VS Code 官方扩展被植入后门</h3><p>安全研究人员在 Cursor Marketplace 的 Claude Code for VS Code 官方扩展中发现了后门，该恶意版本已经撤下，攻击者也关闭了其服务器。Cursor 已发布安全公告，但 Claude Code 开发商 Anthropic 尚未做出任何声明。受影响的版本是 Anthropic.claude-code 2.1.313，共上线了大约 11 小时，受影响用户估计有 5,000 名，该扩展会试图植入一个持久 SSH 后门。恶意扩展会：收集主机和用户信息：主机名、用户名、操作系统、架构、主目录路径、环境变量名称、工作目录、已配置的 Git 邮箱以及公网 IP。尝试将攻击者控制的 SSH 键添加到 authorized_keys，启用本地 SSH 服务，并建立反向 SSH 隧道。由于恶意代码存在 bug，除非 Cursor 是以管理员权限启动的 (这种情况极为罕见) ，否则这一步会失败。尝试通过 LaunchAgent (macOS) 或计划任务 (Windows，该任务会尝试以 SYSTEM 身份运行，并以启动脚本作为回退) 使反向 SSH 隧道长期生效。后台脚本大约每 60…</p><a href="https://www.solidot.org/story?sid=85756" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 18:45:38 +0800</div><h3>LibreOffice 项目递交的代码发现使用LLM 的明确标记</h3><p>开发 LibreOffice 的 The Document Foundation(TDF)此前表示这款办公软件不会内置 AI 功能，其核心开发者也不使用 LLM 等 AI 辅助编程工具。但向该项目贡献代码的社区开发者未必会遵守该规定。对今年递交到 LibreOffice 的代码的分析显示至少由三处明确提及使用 LLM。社区开发者在代码中提及他们使用了 Claude 或 GitHub Copilot 等工具。这一结果并不出人意料，大型开源项目基本上不太可能完全避开 LLM。TDF 对这一发现回应称，他们确实要求贡献者在使用 LLM 时必须进行披露，且总体上并不鼓励使用 LLM。和 Debian 类似，LibreOffice 要求开发者理解自己的代码，确保代码质量。</p><a href="https://www.solidot.org/story?sid=85755" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 18:25:44 +0800</div><h3>芬兰对 Google 砍伐 25 万颗树展开调查</h3><p>作为 130 亿欧元投资计划的一部分，Google 正在芬兰的 Muhos 和 Kajaani-Otanmäki 建造两座数据中心。上周芬兰监管机构以未完成必要的环评为由下令工程停工。Google 芬兰子公司 Tuike Finland 遵守了命令。应监管机构的要求，Oulu 警方针对 Muhos 数据中心建设工地的活动（Google 在当地砍伐了 25 万颗树）展开初步调查。警方表示，此案正以涉嫌环境损害这一刑事罪名进行调查。警方指出，随着调查的深入，未来可能会明确其他潜在的指控。警方称，根据目前掌握的信息，数据中心项目工地在排水和水资源管理方面存在违规及缺陷。警方表示，初步调查工作力争在 2027 年内完成。</p><a href="https://www.solidot.org/story?sid=85754" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 30 Oct 2026 16:10:29 +0800</div><h3>Google 创上市至今最大跌幅，市值蒸发逾 5000 亿美元</h3><p>Google 在公布三季度财报之后遭遇了它自 2004 年上市以来最大的单日跌幅，市值蒸发逾 5000 亿美元。在股价最低点，Google 市值蒸发 5240 亿美元，这是美股上市公司有史以来第二大单日市值缩水。仅次于英伟达在 2025 年 1 月 27 日因 DeepSeek 模型引发的市场震荡其市值单日缩水约 5930 亿美元。此前排名第二的单日跌幅由 SpaceX 创造，该公司在 6 月 22 日经历了 4000 亿美元的市值缩水，Google 超越了这一记录。美股市场今年至今已出现 18 次单日市值缩水 2000 亿美元或以上的情况，超过了 2025 年全年的 13 次。Google 的市值自 5 月创下高点以来已累计缩水约 1.4 万亿美元。</p><a href="https://www.solidot.org/story?sid=85752" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 23:19:44 +0800</div><h3>Google AI 搜索产生的收入低于传统搜索</h3><p>Google/Alphabet 在公布第三季度财报之后股价下跌了近 10%，原因是搜索巨人披露 AI 搜索产生的收入低于传统搜索，尽管其整体搜索业务收入同比增长 12% 达到 632.5 亿美元。搜索业务增速略低于去年第三季度的 14.5%，Alphabet 首席商务官 Philipp Schindler 称，搜索业务增长放缓的原因在于“我们观察到 AI Mode 变现能力较低”。为推动 AI 业务 Google 同时在基础设施上投入巨额资金。第三季度公司支出达 514 亿美元，其中约三分之二用于服务器和网络设备，其余部分则用于数据中心建设。巨额支出影响了盈利能力：Alphabet 本季度净利润为 261.7 亿美元；去年第三季度在 Google 营收为 1023.5 亿美元的情况下净利润达到 350 亿美元。Schindler 认为，AI 搜索终将带来回报。</p><a href="https://www.solidot.org/story?sid=85748" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 23:10:38 +0800</div><h3>研究发现非英语的 token 成本更高</h3><p>Coalition for Language Equity in AI Research 上个月发表的一项研究发现，AI 模型处理部分语言提示所需的 token 量远超英语。研究人员称之为隐性 token 税，意味着小语种用户的 AI 成本更高。研究发现，即使互联网最流行的 20 种语言，token 使用量也存在差异。最昂贵语言使用的 token 数量是最便宜语言的 1.5-5 倍。当研究人员将范围扩大到 200 种语言，差异进一步扩大，一个 AI 模型的 token 成本差距甚至增加了 17 倍。研究指出：位于班加罗尔的初创公司可能需要为每次提示和完成支付附加费，而其位于奥斯汀的竞争对手则无需支付。token 税的影响远不止成本。token 数量越多，延迟就越高，有效上下文容量就越低。在计算和连接本就有限的地区，这些惩罚最为严重。token 不公平限制了 AI 经济的参与范围。</p><a href="https://www.solidot.org/story?sid=85747" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 18:31:38 +0800</div><h3>乌鸦视觉决策速度两倍于人类</h3><p>德国蒂宾根大学开展的一项新研究显示，在进行视觉选择任务时，乌鸦的决策速度约为人类和猴子等灵长类动物的两倍。实验中，两只小嘴乌鸦平均只需 235 毫秒即可识别屏幕上点阵的运动方向并作出选择，同时保持较高准确率。为探究其机制，团队记录了乌鸦大脑中与灵长类前额叶皮层功能相当的关键区域——尾侧新纹状体的神经元活动。视觉刺激出现后约 70 毫秒，乌鸦大脑中编码不同运动方向的神经元信号便开始分化，这一变化远早于乌鸦作出实际反应。随着决策逐步形成，相关神经活动逐渐增强，直至达到决策阈值，乌鸦随即作出选择。神经元活动既反映了视觉信息的强度，也对应了最终选择的方向。团队认为，这种高速决策能力可能与鸟类在飞行、觅食和躲避天敌过程中，对快速视觉处理的进化需求有关。</p><a href="https://www.solidot.org/story?sid=85745" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 29 Oct 2026 17:13:23 +0800</div><h3>美国肯塔基男子成为首位以宗教理由豁免使用 AI 的人文主义者</h3><p>45 岁的 David Durman 是肯塔基大学的研究管理员，作为人文主义者（humanist）他坚信生活中人的重要性。这意味着他要坚持自主决策，确保自己的工作能促进他人成长。当学校要求员工在工作流程中使用 AI 他忧心忡忡，认为这意味着日常工作中须将思考这一环节转交给 Microsoft Teams Copilot、Claude 或 ChatGPT 等 AI 工具完成。他认为这违背了个人信念。在美国人文主义者协会（American Humanist Association）的协助下，他以遵守宗教信仰为由请求调整工作要求。学校上个月同意了他的请求。美国人文主义者协会认为这是首例人文主义者豁免使用 AI 的案例。</p><a href="https://www.solidot.org/story?sid=85743" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      <section class="section-card" id="errors"><div class="section-head"><h2>抓取异常</h2><span>不影响当期页面生成</span></div><ul class="error-list"><li class="error-item"><strong>36氪</strong><span>[解析失败] https://36kr.com/feed</span><em>not well-formed (invalid token): line 10, column 168</em></li></ul></section>
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>
