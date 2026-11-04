@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-11-04</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a><a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a><a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      <a class="toc-link" href="#errors">抓取异常</a>
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-11-04</span>
+          <span>17:40（北京时间）</span>
+          <span>IT之家、Solidot、量子位、雷锋网</span>
+        </div>
+        <p class="hero-copy">11月4日，AI行业动态集中在智能体规模化落地与模型竞赛两条主线。蚂蚁集团披露已有10万余个智能体在生产系统运行，华为内部亦部署数千个智能体，智能体安全成为CNCC 2026讨论焦点；谷歌以近乎每周一款的节奏推出Gemini 4 Carbon并登顶榜单，但伴随幻觉率抬升与市值波动。同期，百度发布面向物理AI的Apollo World世界模型，小米具身基座模型获世界互联网大会领先科技奖，AI基础设施与具身智能持续受到产业关注。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>32</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>4</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>1</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>15</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>15</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>11</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>10</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>8</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>4</strong></div><p>基础设施的效率叙事持续升温</p><small>IT之家、雷锋网</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>1</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>量子位</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>智能体从概念走向生产系统，安全边界待明确</h3><p>蚂蚁集团3万多名员工背后已有10万余个智能体运行，华为内部亦部署成千上万个智能体，覆盖客服、办公、运维、研发等业务线。CNCC 2026专家围绕智能体安全展开讨论，安全防线成为规模化落地后的核心议题。</p></article><article class="insight-card"><h3>谷歌高频发布模型，榜单表现与市场反应出现分化</h3><p>谷歌在发布世界模型Genie 4后紧接着推出Gemini 4 Carbon，刷榜重回全球第一，但报道指出其幻觉率抬升，且公司市值出现暴跌。两周内接连发布Gemini 4 Argon与Carbon，反映出谷歌在模型竞赛中的紧迫节奏。</p></article><article class="insight-card"><h3>世界模型与具身智能推进物理场景落地</h3><p>百度Apollo首次披露面向物理AI的智能体驱动全模态世界模型Apollo World，提出世界模型“2+3”判断标准，已用于萝卜快跑全球化测试与验证。小米具身基座模型获世界互联网大会领先科技奖，机器人自主智能仓等方向亦有进展。</p></article><article class="insight-card"><h3>AI基础设施向电力与区域市场延伸</h3><p>算力任务开始因电力供给差异而跨区域迁移，用电成本成为计算任务选址的新变量。阿里云为达喀尔青奥会提供云计算与AI技术支持，并为塞内加尔打造首个奥运专有云底座，延续其海外云市场布局。</p></article><article class="insight-card"><h3>AI风险与内容合规议题持续升温</h3><p>“AI教父”辛顿表示今明两年有可能发生切尔诺贝利等级的事故，并提及今夏OpenAI智能体入侵Hugging Face的事件。《Arc Raiders》开发商就生成式AI配音作出说明，称初衷是减轻演员负担，正逐步替换为真人录音。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>智能体在企业内部大规模部署后，权限管理、行为审计与故障隔离将成为运维与安全团队的新增工作重点。</li><li>谷歌高频发模型虽短期提升榜单表现，但幻觉率与市场信心之间的张力，可能影响企业客户对模型稳定性的评估标准。</li><li>世界模型在自动驾驶仿真与验证中的使用，意味着仿真还原物理规律的能力将比渲染画质更受产业关注。</li><li>算力随电价迁移的模式若扩大，数据中心选址与电网协同、任务调度策略将需要重新设计。</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>蚂蚁、华为等企业智能体规模化运行后的安全事件与治理方案披露</li><li>Gemini 4 Carbon幻觉率数据及谷歌后续模型发布节奏与市场反应</li><li>百度Apollo World在萝卜快跑全球化测试中的验证进展</li><li>辛顿所提AI事故风险的相关监管与行业回应</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>15 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>让Agent首次拥有“视听双流记忆”：openJiuwen Agent-Memory看懂长视频，关键事件一个不落</h3><a href="https://www.qbitai.com/2026/11/507533.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>纯语音Personal Agent来了！或许，这就是乔布斯心中的Siri</h3><a href="https://www.qbitai.com/2026/11/507419.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>榜单第一，市值暴跌！Gemini 4 Carbon「速成」背后，谷歌一场豪赌</h3><p>Gemini 4 Carbon 登顶，幻觉率抬升，谷歌疯狂发模型在急什么？ 作者丨 高允毅 编辑丨岑 峰 昨天，Google 发布世界模型 Genie 4，人们惊呼“太疯狂了”。今早，Google 又紧接着推出 Gemini 4 Carbon，直接刷榜&quot;重回全球第一&quot;。再加上两周前发布的 Gemini 4 Argon，谷歌正以近乎 “一周一款” 的节奏刷新模型产品线。 这种高频迭代在谷歌历史上前所未有，过去它更习惯“两年磨一剑”的大版本发布节奏，如今却突然切换成“小步快跑”的互联网打法。 这场节奏突变的背后，是谷歌在 技术路线选择、研发模式押注、算力基础突围和内部管理调整 上的全方位转向，也是它在行业节奏失落后的一次集中反击。 01 登顶榜首 vs 4000 亿市值蒸发， 谷歌深陷“跑分幻觉” Gemini 4 Carbon 发布之后，技术圈反应堪称魔幻。 谷歌对外宣布的内容中，最吸睛的标签是 “重回世界第一” 。 在17项基准测试中，它有 15 项拿下了最高成绩，甚至在最新的 Artificial Analysis （AA）智能指数评测中反超 Claude Opus 5.5（58分）和 GPT-6…</p><a href="https://www.leiphone.com/category/yanxishe/7uvYEZBsCWcPvhw3.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>当10万个智能体已在运行，安全防线到底在哪？｜CNCC 2026专家激辩智能体安全挑战</h3><p>2026年，智能体从概念走向了生产系统。 蚂蚁集团3万多名员工背后，已有10万余个智能体在运行。华为内部同样部署了成千上万个智能体，覆盖客服、办公、运维、研发各条业务线。放眼更广的产业图景，个人助手、AI for Science、网络安全自动化攻防、企业级工作流编排，智能体正在逐步接管人类过去亲力亲为的工作。 Gartner将智能体列入了2027年十大战略技术，安全圈里，非人类身份（NHI）成了RSAC大会上的新赛道。中国这边，国标、强标、最高法司法意见、三部委规范文件在今年密集出台，政策端的紧迫感与产业端的狂飙几乎同步。 10月22日，成都，在CNCC 2026”智能体的安全问题”专题论坛上，于锐、徐恪、胡侠、韦韬、肖亚军五位嘉宾齐聚一堂，分别从国家标准制定、高校AI安全研究、企业安全最后一道防线等角度，做出了各自的解读。 01 中国开始给智能体发“身份证” 安全的第一步是搞清楚“它是谁”。但智能体能自主行动、跨平台迁移、在无人监督下链式决策和调用工具，传统的人类身份认证方式显然并不适用。 CCF计算机安全专委会副主任委员于锐介绍，“中国在这方面的进展可以概括为三句话：国标引领、行业细化、企业落地。”…</p><a href="https://www.leiphone.com/category/ai/tT9FskgaSMm7y4Ao.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>后摩智能低调完成数十亿元B轮融资，端侧大模型AI芯片进入规模化兑现期</h3><p>仅今年9月，国内就有近十家端侧AI芯片企业宣布完成新一轮融资。资本的目光，正在从云端的算力集群，移向手机、电脑和机器人里的那颗芯片。 最新的一笔大额融资来自后摩智能。据知情人士透露，存算一体AI芯片企业后摩智能已于近期完成B轮融资，单笔融资金额高达数十亿元人民币，近一年内连续完成多轮融资。本轮融资上下游重磅产业资本集体押注、国有资本及国际投资人联袂入局，多家老股东持续加码，进一步印证了国内外资本市场对后摩智能技术路线与商业前景的高度认可，后摩智能领跑端侧AI市场已成共识。资本密集加码的背后，是后摩智能从技术突破走向规模化商业落地的加速兑现：在刚刚举行的后摩智能生态合作伙伴大会上，公司披露，其端边大模型AI芯片M50量产不到一年，已获得150多个产品定点，服务客户超过百家。 据悉，本轮资金将主要用于扩大M50规模化交付，推进新一代M6X与下一代3D CIM产品研发，并持续完善软件工具链与产业生态，推动端边AI在更多终端场景实现规模化落地。 存算一体并不是新概念。它为何在此刻同时被资本和终端厂商选中？后摩又凭什么在这条赛道上拿到资本的连续加注？ 资本转向端侧，存算一体回到牌桌中央…</p><a href="https://www.leiphone.com/category/industrynews/cyDQKpjtzDEPhrr8.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>AI教AI开车！百度Apollo World世界模型叩开无人驾驶产业“AGI时刻”</h3><p>“世界模型，重点不是渲染的画质是否好看，而是模拟器是否能忠实还原现实物理规律和行为的因果”。11月3日，在深圳举行的百度AI Day·Apollo专场上，百度Apollo首次披露面向物理AI的智能体驱动全模态世界模型Apollo World，并提出世界模型“2+3”判断标准。目前，该模型已用于萝卜快跑全球化测试与验证，助力无人驾驶规模化落地。 百度智能驾驶事业群组(IDG)首席架构师、IDG技术委员会主席王亮表示，世界模型不能只做“生成炫酷视频的画师”，更要成为验证无人驾驶安全性的“考官”。萝卜快跑是中国唯一以端到端技术规模化运行 L4 无人驾驶的出行平台，端到端全无人运营超百万公里，Apollo World为其提供虚拟训练环境，帮助“学生” AI Driver学习、验证和迭代。 “Apollo World将虚拟场景内所有交通参与者建模为具备决策与交互能力的AI智能体，支持无人车在虚拟城市任意起终点通行，打造提前验证‘无限未来’的虚拟场景订单。”百度智能驾驶事业群组(IDG)杰出架构师、世界模型负责人杨泽进一步介绍。此外，Apollo World的技术栈还可拓展至机器人等更广泛的物理 AI 场景。…</p><a href="https://www.leiphone.com/category/industrynews/NVxn28w1vAG2qbFy.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>香港大学发布全球首个KYA报告关注智能体信任建设，九类企业实践获收录</h3><p>11月3日，香港大学副校长汪扬教授与香港大学经管学院杨宏副教授代表香港大学KYA课题组，在2026年香港金融科技周 x StartmeupHK创业节发布全球首个KYA（Know Your Agent）领域报告《KYA：智能体信用体系研究报告》。 报告聚焦智能体参与真实经济活动后的身份、授权、信用与责任问题，结合109份从业者有效问卷及包含Stripe、蚂蚁数科等近十个企业案例，提出智能体成熟度模型、KYA框架和智能体发展指数，并进一步探讨“智能体信任资本”的形成及其经济价值。 “没有KYA，就没有智能体经济。”报告认为，模型能力的提升不会自动转化为商业上的可委托性。只有当身份可确权、履约可核验、权限可约束时，智能体才能获得与其能力相匹配的经济授权。KYA所要解决的，正是智能体从技术可能走向商业可行的问题。 香港大学副校长汪扬教授与香港大学经管学院杨宏副教授发布全球首个KYA领域报告 智能体加速进入真实经济，信任赤字正侵蚀人工智能红利 报告将智能体的演进概括为四个阶段：能力智能体、执行智能体、交易智能体和经济智能体。截至目前，行业整体仍处于从能力智能体向执行智能体加速演进的阶段，部分前沿场景已开始探索交易智能体。…</p><a href="https://www.leiphone.com/category/industrynews/KkjVOHcQ55GyhDLv.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>小鹏联合北大、港大等发布 GroundingPI 预训练模型，感知模块综合跑分超过 GPT-6 Astra</h3><p>IT之家 11 月 4 日消息，小鹏集团联合北京大学、香港大学等高校研究团队联合发布具身感知基座模型的研究成果 GroundingPI。 官方表示，该研究提出“感知优先”的技术路线，以约 40 亿参数规模，在 34 项公开感知基准的综合评测中位列第一，并在机器人仿真任务中展现出更高的数据处理效率与更强的场景泛化能力。 ▲ GroundingPI 在多个场景和能力上展现了基于视觉基元（构成画面的最小积木块）的感知能力 研究团队将 GroundingPI 与 OpenAI 前沿模型 GPT-6 Astra 在同一套 34 项感知基准上进行对比，按照以上这 11 类能力等权平均，GroundingPI 得分 73.68，Astra 得分 71.54。 ▲ 多类感知能力基准比较：紫色为 GroundingPI，蓝色为各能力类别中排名 TOP4 的对照模型，其中包含 GPT-6 Astra 据介绍，GroundingPI 提出具身智能的首要前提是精准感知自身与周边物体的空间位置，感知表征对于物理 AI 至关重要。若模型无法准确定位目标在画面中的位置，学习再多的动作知识也无法有效落地。 基于这一判断，GroundingPI…</p><a href="https://www.ithome.com/1/022/289.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>Claude Code 调整游戏开发限制：提到现有游戏不再被拒，禁止直接复刻</h3><p>IT之家 11 月 4 日消息，Anthropic 工程师阿迪 · 奥斯曼尼（Addy Osmani）在 X 发文，称已在 Claude Code 2.1.317 版本中调整 Claude Opus 5.5 的游戏开发限制， 允许用户引用现有游戏描述玩法和机制，不再因此直接拒绝生成游戏 。 据IT之家此前报道，上周，Anthropic 为防止用户利用 Claude Code 复制已有游戏， 在 Opus 5.5 的系统提示词中增加了两条规则 ，要求模型避免复刻他人的游戏作品。 这项限制引发开发者不满，因为即使用户只是提到某款游戏作为玩法参考，Claude Code 也有可能拒绝执行开发任务。 按照最新说明，用户现在可以直接提及某款现有游戏， 让 Claude 参考其玩法机制，开发同类型的原创游戏 。但如果用户明确要求复制原作，Claude 仍会拒绝直接复刻，转而建议开发一款具有类似体验的游戏。</p><a href="https://www.ithome.com/1/022/279.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>腾讯跨境支付平台 TenPay Global 与银联国际签署合作备忘录，首次在跨境汇款领域开展合作</h3><p>IT之家 11 月 4 日消息，2026 年香港金融科技周期间，腾讯旗下跨境支付平台 TenPay Global 与中国银联旗下银联国际签署合作备忘录， 双方将首次在跨境汇款领域开展合作 。 IT之家获悉，根据合作备忘录， 双方将共同探索便利的跨境汇款服务 。TenPay Global 跨境汇款平台已与全球 60 多家银行及汇款机构合作，支持从 150 多个国家和地区向中国境内汇款。 据介绍，Tenpay Global 汇款至微信服务 7×24 小时全天候开放，资金快至一分钟内到账。身份验证和合规审核在后台毫秒级完成。 相关阅读： 《 腾讯与 Visa 宣布战略合作，包含跨境支付、企业级 AI、智能体支付等领域 》 《 腾讯 TenPay Global 与万事达卡签署合作备忘录，入境扫码支付、汇款与智能体支付同步推进 》</p><a href="https://www.ithome.com/1/022/273.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>“AI 教父”辛顿：今明两年就有可能发生人工智能领域的切尔诺贝利事故</h3><p>IT之家 11 月 4 日消息，诺贝尔奖得主、“AI 教父”Geoffrey Hinton（杰弗里 · 辛顿）近日在接受英国《卫报》采访时表示， 人工智能领域今明两年就有可能发生切尔诺贝利等级的事故 。 辛顿表示，今年夏天发生的 OpenAI 智能体入侵 Hugging Face 事件是一次类似三哩岛核事故的“警告”。而更为严重的“人工智能切尔诺贝利”则可能会是 AI 攻击导致大规模停电或金融系统瘫痪一周。人类可能能承受这种重大灾难的考验，然后意识到人工智能技术的危险性。 辛顿并不信任 Meta 扎克伯格、SpaceXSI 马斯克、OpenAI 奥尔特曼。他 认为这些人工智能企业的领导人虽然明白风险但只关注技术产生的经济效益 ，放任人工智能的发展。 辛顿坦承他相信人工智能有潜力为人类带来美好的未来，但 其中蕴藏的重大隐患甚至可能让他认为这项技术当初就不该被开发出来 。人类将在十年甚至更短的时间内知道能否可以安全管控人工智能技术的风险。他支持对前沿人工智能进行强制性测试、独立评估并制定政府间通用标准。</p><a href="https://www.ithome.com/1/022/271.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>《Arc Raiders》开发商谈 AI 配音：初衷是减轻演员负担，正逐步替换为真人录音</h3><p>IT之家 11 月 4 日消息，《Arc Raiders》开发商 Embark Studios 的开发人员近日谈到了这款撤离射击游戏中生成式 AI 配音技术的使用问题。他们认为，最初采用生成式 AI 生成语音台词，实际上减轻了配音演员的工作负担。原因是，如果所有台词都要由演员亲自录制，“他们恐怕会被这些工作量逼疯”。 IT之家注意到，相关内容来自 Embark Studios 近期发布的一段视频，视频主要介绍了《Arc Raiders》的音效与音乐制作过程。多名核心工作人员在视频中谈到了游戏对生成式 AI 的使用，包括早期利用 AI 生成角色语音，以及此后逐步用真人录音替换 AI 配音的过程。 音频总监本斯 · 帕约尔（Bence Pajor）首先谈到了自己在此前工作室遇到的问题。他表示，过去由于语音台词已经确定，游戏玩法方面的调整往往无法进行。他认为这是一件“非常痛苦”的事，因为这不仅会给编剧团队和对话团队带来压力，也会影响配音演员的工作安排，尤其是在演员档期发生冲突时。 帕约尔表示，在斯德哥尔摩聘用能够随时联系到的配音演员，并借助现有工具开展工作，让所有人的工作都变得更加轻松。…</p><a href="https://www.ithome.com/1/022/270.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>游戏模组分享平台 Nexus Mods 更新创作政策，要求模组开发者公开披露 AI 工具使用情况</h3><p>IT之家 11 月 4 日消息，游戏模组分享平台 Nexus Mods 宣布更新平台生成式 AI 使用政策，要求创作者必须公开披露模组制作过程中 AI 工具的具体使用情况。同时平台明确表示不会全面禁止 AI 模组，旨在建立全新管理规则，以便在社区内不同立场的用户之间寻求平衡。 根据新规，使用 AI 工具参与模组制作的创作者，必须详细说明模组中 AI 具体参与的部分，以便其他用户在下载前了解相关信息，并自行决定是否接受。 而对于已经发布模组的创作者，平台提供了 60 天宽限期，以便开发者完成相关信息补充，后续审核将由人工进行，此外 Nexus Mods 也鼓励用户举报未按规定披露 AI 使用情况的模组。 Nexus Mods 网站负责人 Foledinho 强调，平台所有相关决策的基本出发点都是“支持人类创作”，因此不会直接封禁所有 AI 模组。 Foledinho 同时表示，只要符合平台关于使用权限、信息透明度、内容展示方式以及用户行为等方面的要求，AI 生成模组仍然可以在 Nexus Mods 发布。当然其也坦言，平台新政策不一定能够满足社区所有用户的期望。后续随着 AI 技术不断发展，平台相关政策也会随之调整。</p><a href="https://www.ithome.com/1/022/257.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>纽约时报等起诉 Brave 绕过付费墙抓取内容并提供给 AI 公司</h3><p>《纽约时报》、《芝加哥论坛报》和《奥兰多哨兵报》等美国出版商起诉 Brave Software，指控其未经许可抓取网站内容，并帮助用户绕过付费墙。Brave Software 被控将其抓取内容的索引数据库 Brave Index 提供给 Anthropic、Perplexity、Mistral、xAI 和 Cohere 等 AI 公司，通过 Paywall blocker 功能帮助用户绕过数百家新闻媒体的付费墙。《纽约时报》发言人 Graham James 在一份声明中表示：“我们支持合乎道德且负责任的使用与开发 AI，但 Brave 公然蔑视现行版权法，对《纽约时报》多次要求其停止侵权行为的诉求置之不理。我们提起此项诉讼，旨在追究 Brave 的责任——它窃取了我们的内容，不仅用于支撑其自身产品，还将其提供给部分全球最知名、资源最雄厚的生成式 AI 公司。”</p><a href="https://www.solidot.org/story?sid=85788" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Proton 全力推动工程师转向 AI</h3><p>以提供隐私服务著称的 Proton 公司正全力推动工程师转向采用 AI，CEO Andy Yen 还在内部 Slack 频道训斥了提出安全顾虑的员工，称是“失败者的思维”。Proton 甚至计划对员工进行重新面试，要求员工说明他们如何使用 AI。如果员工没有充分使用 AI 他们可能会面临被解雇。在引发公众抗议之后，Proton 取消了重新面试。尽管如此，Proton 公布了一份 AI 宣言：“首先工程文化和工程师心态需要发生转变。你们的工作性质已经变了。你们的任务不再是写代码，LLM 也不是为了帮助你们更快、更好地写代码。你们的工作，是帮助 LLM 更快更好地写代码。”</p><a href="https://www.solidot.org/story?sid=85773" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>15 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>榜单第一，市值暴跌！Gemini 4 Carbon「速成」背后，谷歌一场豪赌</h3><p>Gemini 4 Carbon 登顶，幻觉率抬升，谷歌疯狂发模型在急什么？ 作者丨 高允毅 编辑丨岑 峰 昨天，Google 发布世界模型 Genie 4，人们惊呼“太疯狂了”。今早，Google 又紧接着推出 Gemini 4 Carbon，直接刷榜&quot;重回全球第一&quot;。再加上两周前发布的 Gemini 4 Argon，谷歌正以近乎 “一周一款” 的节奏刷新模型产品线。 这种高频迭代在谷歌历史上前所未有，过去它更习惯“两年磨一剑”的大版本发布节奏，如今却突然切换成“小步快跑”的互联网打法。 这场节奏突变的背后，是谷歌在 技术路线选择、研发模式押注、算力基础突围和内部管理调整 上的全方位转向，也是它在行业节奏失落后的一次集中反击。 01 登顶榜首 vs 4000 亿市值蒸发， 谷歌深陷“跑分幻觉” Gemini 4 Carbon 发布之后，技术圈反应堪称魔幻。 谷歌对外宣布的内容中，最吸睛的标签是 “重回世界第一” 。 在17项基准测试中，它有 15 项拿下了最高成绩，甚至在最新的 Artificial Analysis （AA）智能指数评测中反超 Claude Opus 5.5（58分）和 GPT-6…</p><a href="https://www.leiphone.com/category/yanxishe/7uvYEZBsCWcPvhw3.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>哪里电便宜，算力就往哪里跑？没那么简单</h3><p>候鸟迁徙，是为了追逐适宜生存的气候。 一项AI计算任务的迁徙，则可能因为另一座数据中心拥有更充足、更便宜的电力，被送往数百甚至上千公里之外。 过去，算力的运行位置大多随着机房选址而确定。如今，电力供给的变化，开始成为计算任务选择落脚点的新理由。 “ 用电需求通常不能移动，但计算任务却可以迁移。 ”共绩科技创始人兼CEO付智说。 只是，与候鸟不同，AI任务无法独自完成这场迁徙。它所依赖的模型、数据与运行环境，也需要在另一座集群中得到妥善安排。 算电协同想让算力随电而动，但这场迁徙，远没有候鸟振翅那么轻盈。 01 算力不必搬家，任务却有迁移成本 据此前公开报道，一项跨区域算电协同实测在三天内累计调度28万余次AI推理请求，单位Token的算力用电成本下降约31%。 类似的探索也出现在海外，Google、英伟达和Emerald AI共同发起AI能源管理联盟，尝试让数据中心根据电网状态灵活调整用电负荷。 当电力系统开始尝试调动计算任务，另一批企业则正在建设让任务跨集群流动的基础设施。 雷峰网在共绩科技办公室见到了创始人兼CEO付智，这位有着“00后创业者”标签的年轻创始人，谈起行业频繁提及的算力调度，措辞相当直接。…</p><a href="https://www.leiphone.com/category/chips/pXuAy8TH7q2u0Q9T.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>当10万个智能体已在运行，安全防线到底在哪？｜CNCC 2026专家激辩智能体安全挑战</h3><p>2026年，智能体从概念走向了生产系统。 蚂蚁集团3万多名员工背后，已有10万余个智能体在运行。华为内部同样部署了成千上万个智能体，覆盖客服、办公、运维、研发各条业务线。放眼更广的产业图景，个人助手、AI for Science、网络安全自动化攻防、企业级工作流编排，智能体正在逐步接管人类过去亲力亲为的工作。 Gartner将智能体列入了2027年十大战略技术，安全圈里，非人类身份（NHI）成了RSAC大会上的新赛道。中国这边，国标、强标、最高法司法意见、三部委规范文件在今年密集出台，政策端的紧迫感与产业端的狂飙几乎同步。 10月22日，成都，在CNCC 2026”智能体的安全问题”专题论坛上，于锐、徐恪、胡侠、韦韬、肖亚军五位嘉宾齐聚一堂，分别从国家标准制定、高校AI安全研究、企业安全最后一道防线等角度，做出了各自的解读。 01 中国开始给智能体发“身份证” 安全的第一步是搞清楚“它是谁”。但智能体能自主行动、跨平台迁移、在无人监督下链式决策和调用工具，传统的人类身份认证方式显然并不适用。 CCF计算机安全专委会副主任委员于锐介绍，“中国在这方面的进展可以概括为三句话：国标引领、行业细化、企业落地。”…</p><a href="https://www.leiphone.com/category/ai/tT9FskgaSMm7y4Ao.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>青奥会结束后，阿里云想在非洲留下一朵「云」</h3><p>一场赛事结束了，一朵“国家云”的故事才刚刚开始。 10月31日，2026年达喀尔青年奥林匹克运动会在塞内加尔开幕，这是奥林匹克运动首次走进非洲。 阿里云为这场体育盛会提供云计算和人工智能技术支持，并为塞内加尔打造首个奥运专有云底座，支撑赛事运营。 依托阿里云在全球的数据中心，全球观众将通过OBS Cloud云转播观看到运动员的精彩表现；基于视频生成模型万相创作的AI鼓乐表演，也在开幕式亮相。 据雷峰网了解，除了云转播之外，达喀尔青奥会的核心业务系统均部署于阿里云为本次赛事打造的奥运专有云底座上，包括赛事票务、注册、赛程查询等应用，以及赛事导览、运动员服务等业务。 赛事结束后，这朵“赛事云”将整体移交给塞内加尔，转为“国家云”平台，继续服务当地数字化转型。 一场赛事带来的，可能不只是一笔云服务订单。赛事结束后，如果这朵云能够持续运转、承载当地政府和企业的业务， 阿里云就有机会从赛事技术服务商，进一步成为当地数字基础设施建设的参与者。 要让这朵云持续运转，考验的是阿里云的本地化能力。 在非洲“造云”，不只是把国内的云搬过去 达喀尔青奥会项目中，阿里云克服了不少难关。 最直接的挑战来自基础设施环境。…</p><a href="https://www.leiphone.com/category/industrynews/dhQud8FAggk62CZ2.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>AI教AI开车！百度Apollo World世界模型叩开无人驾驶产业“AGI时刻”</h3><p>“世界模型，重点不是渲染的画质是否好看，而是模拟器是否能忠实还原现实物理规律和行为的因果”。11月3日，在深圳举行的百度AI Day·Apollo专场上，百度Apollo首次披露面向物理AI的智能体驱动全模态世界模型Apollo World，并提出世界模型“2+3”判断标准。目前，该模型已用于萝卜快跑全球化测试与验证，助力无人驾驶规模化落地。 百度智能驾驶事业群组(IDG)首席架构师、IDG技术委员会主席王亮表示，世界模型不能只做“生成炫酷视频的画师”，更要成为验证无人驾驶安全性的“考官”。萝卜快跑是中国唯一以端到端技术规模化运行 L4 无人驾驶的出行平台，端到端全无人运营超百万公里，Apollo World为其提供虚拟训练环境，帮助“学生” AI Driver学习、验证和迭代。 “Apollo World将虚拟场景内所有交通参与者建模为具备决策与交互能力的AI智能体，支持无人车在虚拟城市任意起终点通行，打造提前验证‘无限未来’的虚拟场景订单。”百度智能驾驶事业群组(IDG)杰出架构师、世界模型负责人杨泽进一步介绍。此外，Apollo World的技术栈还可拓展至机器人等更广泛的物理 AI 场景。…</p><a href="https://www.leiphone.com/category/industrynews/NVxn28w1vAG2qbFy.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>中国开源走向物理世界，蚂蚁灵波携机器人通用大脑亮相乌镇</h3><p>11月2日至5日，2026年世界互联网大会乌镇峰会在浙江乌镇举行，本届峰会的主题为“开源开放 共建共享——携手构建网络空间命运共同体”。蚂蚁集团旗下具身智能公司蚂蚁灵波，携全栈开源的机器人通用大脑亮相乌镇，展示模型研发、开源协作以及场景应用的新进展。 今天，开源正从语言、代码和内容生成，延伸至机器人对物理世界的感知、预测与行动。与数字世界不同，机器人本体千差万别，任务场景高度分散，许多团队不得不为每一种构型、每一个场景从头训练“大脑”。 对此，灵波给出的路径是开放的具身基础模型。目前，灵波已向全球开源覆盖空间智能、灵巧操作与环境反馈的核心模型，围绕让机器人“看得更清楚、想得更明白、干得更利索”构建全栈能力，让同一套智能在不同机器人构型、任务和场景中复用。 蚂蚁灵波大脑全栈2.0模型矩阵 据统计，LingBot系列模型开源9个月来，下载量已突破220万，GitHub Star数超过3.3万，相关工作被 Physical Intelligence、Generalist AI…</p><a href="https://www.leiphone.com/category/industrynews/ADcxxdwtaojQvzhp.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>腾讯12.8亿用户蝉联中国互联网第一，绿泡泡月活破1.5亿，手游top10独占8款</h3><p>11 月 3 日，QuestMobile发布最新《中国移动互联网秋季大报告》。报告显示，截至 2026 年 9 月，腾讯控股以 12.80 亿去重总用户量（APP + 小程序）位列中国互联网公司用户规模榜首，第九年蝉联榜首，霸主地位稳固。 短剧业务是本次报告的关注重点。腾讯旗下嵌入微信生态的绿泡泡短剧2026年9月月活跃用户规模达到 1.56 亿，登顶微信小程序短剧月活榜。该产品依托微信社交关系链与视频号导流快速起量，目前体量已是短剧行业第二名，增长速度很快。 游戏业务方面，2026 年 9 月手机游戏 App 月活跃用户 TOP10 中，腾讯独占 8 款，合计月活约 3.41 亿。其中，王者荣耀以 1.29 亿月活位居全行业第二，仅次于乐元素开心消消乐的 1.61 亿；三角洲行动、和平精英分别以 6675 万、3547 万月活位列第三、第四。报告同时提到，名古屋亚运会期间，王者荣耀以庞大玩家基数成为电竞项目顶流。 报告指出，短剧视频与短视频已成为驱动全网用户时长增长的核心引擎，增长贡献率达 111.5%。依托微信社交与私域流量，小程序短剧起量迅猛，短剧业务正成为腾讯盘活流量矩阵的重要抓手。</p><a href="https://www.leiphone.com/category/industrynews/TIDTmVxPQiwSHe8f.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>香港大学发布全球首个KYA报告关注智能体信任建设，九类企业实践获收录</h3><p>11月3日，香港大学副校长汪扬教授与香港大学经管学院杨宏副教授代表香港大学KYA课题组，在2026年香港金融科技周 x StartmeupHK创业节发布全球首个KYA（Know Your Agent）领域报告《KYA：智能体信用体系研究报告》。 报告聚焦智能体参与真实经济活动后的身份、授权、信用与责任问题，结合109份从业者有效问卷及包含Stripe、蚂蚁数科等近十个企业案例，提出智能体成熟度模型、KYA框架和智能体发展指数，并进一步探讨“智能体信任资本”的形成及其经济价值。 “没有KYA，就没有智能体经济。”报告认为，模型能力的提升不会自动转化为商业上的可委托性。只有当身份可确权、履约可核验、权限可约束时，智能体才能获得与其能力相匹配的经济授权。KYA所要解决的，正是智能体从技术可能走向商业可行的问题。 香港大学副校长汪扬教授与香港大学经管学院杨宏副教授发布全球首个KYA领域报告 智能体加速进入真实经济，信任赤字正侵蚀人工智能红利 报告将智能体的演进概括为四个阶段：能力智能体、执行智能体、交易智能体和经济智能体。截至目前，行业整体仍处于从能力智能体向执行智能体加速演进的阶段，部分前沿场景已开始探索交易智能体。…</p><a href="https://www.leiphone.com/category/industrynews/KkjVOHcQ55GyhDLv.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌加码东南亚：拟在马来西亚投资 150 亿美元扩建数据中心</h3><p>IT之家 11 月 4 日消息，Alphabet 旗下谷歌当地时间周三表示，计划在马来西亚投资 150 亿美元 （IT之家注：现汇率约合 1,002.61 亿元人民币） ，扩大当地数据中心和云计算业务。随着人工智能热潮推动数字基础设施需求持续增长，谷歌正进一步加大在该领域的投入。 根据谷歌发布的声明，该公司将建设新的计算中心，并投资改善当地水资源保障、电力供应以及马来西亚居民的技能培训。上述投资计划将在 2027 年和 2028 年期间实施。 谷歌并非唯一一家扩大马来西亚业务布局的全球科技企业。该国凭借相对较低的运营成本、可靠的基础设施，以及毗邻新加坡等商业中心的地理优势，正吸引越来越多科技巨头入驻。 目前，马来西亚已成为东南亚最重要的数据中心枢纽，吸引了甲骨文、亚马逊、阿里巴巴集团和字节跳动等企业。这些公司都需要不断扩大数据存储和处理能力，以满足数据密集型 AI 服务用户持续增长带来的需求。 谷歌表示，未来两年新园区的建设阶段预计将为马来西亚经济贡献 11 亿美元 （现汇率约合 73.52 亿元人民币） ，并每年带动超过 3.7 万个本地就业岗位。 待数据中心投入运营后，预计每年将维持超过 9000…</p><a href="https://www.ithome.com/1/022/286.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌 Chrome 浏览器新版三点菜单内置搜索框，方便用户快速查找设置、书签及浏览记录</h3><p>IT之家 11 月 4 日消息，谷歌 Chrome 浏览器右上角的三点菜单一直有些像寻宝游戏。用户通常知道自己要找的设置藏在菜单里的某个位置，但要找到它，往往需要在一大堆选项中反复滚动，或者回忆谷歌究竟把它藏在哪个子菜单里。如今，谷歌正在开发一项快捷功能，有望让这些繁琐的查找过程成为过去。最新的 Chrome Canary 版本显示，这项功能已经逐渐成形。 IT之家注意到，X 平台用户 Leopeva64 近日分享了一段演示视频，展示了 Chrome 全新设计的三点菜单中已经可以正常使用的搜索框。此前，这个搜索框还只是一个没有实际功能的占位元素，如今用户输入关键词后，它便能搜索并显示匹配的浏览器命令、书签以及最近访问过的网站。 对于一个隐藏在菜单中的功能来说，这项改进相当实用。用户不再需要经过多个菜单层级寻找特定设置，也不用在书签中反复翻找，只需直接输入关键词，就能在不离开菜单的情况下找到所需内容。 此外，搜索结果还会按照类别进行分类，方便用户区分浏览器操作、已保存的网页和浏览历史记录。 这并不是谷歌第一次尝试简化 Chrome…</p><a href="https://www.ithome.com/1/022/276.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>腾讯跨境支付平台 TenPay Global 与银联国际签署合作备忘录，首次在跨境汇款领域开展合作</h3><p>IT之家 11 月 4 日消息，2026 年香港金融科技周期间，腾讯旗下跨境支付平台 TenPay Global 与中国银联旗下银联国际签署合作备忘录， 双方将首次在跨境汇款领域开展合作 。 IT之家获悉，根据合作备忘录， 双方将共同探索便利的跨境汇款服务 。TenPay Global 跨境汇款平台已与全球 60 多家银行及汇款机构合作，支持从 150 多个国家和地区向中国境内汇款。 据介绍，Tenpay Global 汇款至微信服务 7×24 小时全天候开放，资金快至一分钟内到账。身份验证和合规审核在后台毫秒级完成。 相关阅读： 《 腾讯与 Visa 宣布战略合作，包含跨境支付、企业级 AI、智能体支付等领域 》 《 腾讯 TenPay Global 与万事达卡签署合作备忘录，入境扫码支付、汇款与智能体支付同步推进 》</p><a href="https://www.ithome.com/1/022/273.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>“AI 教父”辛顿：今明两年就有可能发生人工智能领域的切尔诺贝利事故</h3><p>IT之家 11 月 4 日消息，诺贝尔奖得主、“AI 教父”Geoffrey Hinton（杰弗里 · 辛顿）近日在接受英国《卫报》采访时表示， 人工智能领域今明两年就有可能发生切尔诺贝利等级的事故 。 辛顿表示，今年夏天发生的 OpenAI 智能体入侵 Hugging Face 事件是一次类似三哩岛核事故的“警告”。而更为严重的“人工智能切尔诺贝利”则可能会是 AI 攻击导致大规模停电或金融系统瘫痪一周。人类可能能承受这种重大灾难的考验，然后意识到人工智能技术的危险性。 辛顿并不信任 Meta 扎克伯格、SpaceXSI 马斯克、OpenAI 奥尔特曼。他 认为这些人工智能企业的领导人虽然明白风险但只关注技术产生的经济效益 ，放任人工智能的发展。 辛顿坦承他相信人工智能有潜力为人类带来美好的未来，但 其中蕴藏的重大隐患甚至可能让他认为这项技术当初就不该被开发出来 。人类将在十年甚至更短的时间内知道能否可以安全管控人工智能技术的风险。他支持对前沿人工智能进行强制性测试、独立评估并制定政府间通用标准。</p><a href="https://www.ithome.com/1/022/271.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌确认自愿离职补偿计划已扩大至加拿大、法国、德国、日本、瑞士等国</h3><p>IT之家 11 月 4 日消息，据路透社今日报道，面对人工智能领域的巨额支出，Alphabet 旗下谷歌正力求遏制不断攀升的成本，并于今年将员工自愿离职买断方案扩展至多个国家。 谷歌向该媒体证实， 公司已于 6 月开始向加拿大、法国、德国、日本和瑞士的部分员工提供自愿离职补偿方案 。 “在 2025 年，我们的一些团队推出了附带遣散补偿的自愿离职计划，”一位谷歌发言人在声明中表示。“刚刚过去的今年夏天，也就是 6 月，我们在全球少数几个国家扩大了该计划，以支持我们接下来的重要工作。” 目前无法确定有多少员工接受了这轮此前未被报道过的最新要约。 此举正值 AI 领域资本开支激增之际，相关开支已引发华尔街担忧并波及 Alphabet 股价。微软上周也向 6 万名员工提供了自愿买断离职选项（IT之家注：微软后续澄清预计最终接受补偿离职的员工最多 3000 人，占符合条件员工总数的 5% 或更少），以全力控制开支。 尽管近几个季度 Alphabet 的员工规模稳步增长，但该公司始终致力于将资源向核心优先业务倾斜。…</p><a href="https://www.ithome.com/1/022/261.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>“剧好看”专区即将全面登陆爱奇艺、腾讯视频、优酷、芒果 TV 四大平台</h3><p>IT之家 11 月 4 日消息，据中国电视剧制作产业协会青年工作委员会“青刊”报道，在今日的 2026 中国广播电视精品创作大会电视剧（网络剧）论坛上，一则行业重磅消息放出： “剧好看”专区即将全面登陆爱奇艺、腾讯视频、优酷、芒果 TV 四大平台 。 在已覆盖全国电视大屏的基础上， “剧好看”专区补齐小屏端 ，不再只是电视大屏上的点播专区，而成为覆盖家庭客厅与移动端全场景、贯通有线电视 / IPTV / OTT 与头部长视频平台的剧集发行网络。 商业模式上，“剧好看”专区小屏端的延续大屏端 单片付费 的基础上增加了 会员分账和广告解锁分账 ，兼顾不同用户的消费习惯。 发行方式上， 版权方统一授权给剧好看专区，无需逐省、逐平台、逐渠道谈判，降低发行沟通成本 。 在“剧好看”大屏端上线播出的作品，“剧好看”小屏端也能同步播出。实现一次接入，作品即可同时进入全国电视大屏和四大长视频平台小屏观影场景，运营方与播控平台协同宣发，形成物料供给到渠道推广的一体化联动。 内容需求上，“剧好看”专区以 中剧、网络故事片、短剧集 等网剧新三样为主，同时可播出长剧、电影、纪录片、动画片、AI 作品，题材不设限。…</p><a href="https://www.ithome.com/1/022/258.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Google 将对拒绝 AI 的美国学校关闭搜索</h3><p>Google 宣布美国 K-12 学校学生使用的软件将默认关闭所有 AI 功能，除非学校管理人员自己选择启用。此举旨在回应教育工作者和家长的诉求，他们希望在孩子与 AI 互动上有更多的掌控权。今天 AI 功能已成为 Google 商用搜索引擎的标配，Google 负责教育的副总裁 Chris Phillips 表示，搜索与 AI 已深度融合，如果学校禁用了 AI，那么学生将无法使用搜索。美国 K-12 学校广泛使用 Google 的软件，包括 Gmail、Docs 以及作业平台 Classroom。Google 的 Chromebook 是美国学校最广泛使用的笔记本电脑。</p><a href="https://www.solidot.org/story?sid=85787" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>11 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>AI数据平台OceanBase获世界互联网大会杰出贡献奖</h3><a href="https://www.qbitai.com/2026/11/507405.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>小米斩获乌镇峰会双料大奖：小米集团获“杰出贡献奖”，小米具身基座模型获“领先科技奖”</h3><p>11月3日，小米方面披露，小米集团获得2026世界互联网大会“杰出贡献奖”创新突破类奖项</p><a href="https://www.qbitai.com/2026/11/507396.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>当10万个智能体已在运行，安全防线到底在哪？｜CNCC 2026专家激辩智能体安全挑战</h3><p>2026年，智能体从概念走向了生产系统。 蚂蚁集团3万多名员工背后，已有10万余个智能体在运行。华为内部同样部署了成千上万个智能体，覆盖客服、办公、运维、研发各条业务线。放眼更广的产业图景，个人助手、AI for Science、网络安全自动化攻防、企业级工作流编排，智能体正在逐步接管人类过去亲力亲为的工作。 Gartner将智能体列入了2027年十大战略技术，安全圈里，非人类身份（NHI）成了RSAC大会上的新赛道。中国这边，国标、强标、最高法司法意见、三部委规范文件在今年密集出台，政策端的紧迫感与产业端的狂飙几乎同步。 10月22日，成都，在CNCC 2026”智能体的安全问题”专题论坛上，于锐、徐恪、胡侠、韦韬、肖亚军五位嘉宾齐聚一堂，分别从国家标准制定、高校AI安全研究、企业安全最后一道防线等角度，做出了各自的解读。 01 中国开始给智能体发“身份证” 安全的第一步是搞清楚“它是谁”。但智能体能自主行动、跨平台迁移、在无人监督下链式决策和调用工具，传统的人类身份认证方式显然并不适用。 CCF计算机安全专委会副主任委员于锐介绍，“中国在这方面的进展可以概括为三句话：国标引领、行业细化、企业落地。”…</p><a href="https://www.leiphone.com/category/ai/tT9FskgaSMm7y4Ao.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>追觅科技亮相2026世界互联网大会人工智能嘉年华，以AI技术创新赋能智慧生活</h3><p>11月2日，2026年世界互联网大会乌镇峰会在浙江嘉兴乌镇正式启幕。本届峰会以“开源开放、共建共享”为主题，聚焦人工智能等前沿技术发展与产业应用。追觅携旗下T70 Ultra Station、T60 Steam等多款旗舰洗地机亮相“人工智能嘉年华”展区，集中展示智能清洁领域的技术创新成果，呈现前沿科技与家庭生活深度融合的创新实践。 作为全球领先的智能科技品牌，追觅始终坚持以技术创新驱动产品升级，持续探索人工智能、智能感知与清洁技术的融合应用。此次亮相的追觅T70 Ultra Station洗地机，集成多项行业首创技术，以创新设计进一步拓展家庭清洁的场景边界。其中，首创的EdgeHunter巡边探洗臂搭载高精度TOF测距传感器与新一代具身智能算法，可针对不同沿边清洁场景实现5mm自动外扩和30mm手动外扩，有效突破传统洗地机在墙边、家具边缘等区域的清洁局限。同时，产品采用9.85cm超薄机身设计，支持180°恒动平躺清洁，可深入沙发、床底等低矮空间，进一步提升家庭清洁的覆盖范围与灵活性。…</p><a href="https://www.leiphone.com/category/industrynews/hRlEqJpWm8oawq9h.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>后摩智能低调完成数十亿元B轮融资，端侧大模型AI芯片进入规模化兑现期</h3><p>仅今年9月，国内就有近十家端侧AI芯片企业宣布完成新一轮融资。资本的目光，正在从云端的算力集群，移向手机、电脑和机器人里的那颗芯片。 最新的一笔大额融资来自后摩智能。据知情人士透露，存算一体AI芯片企业后摩智能已于近期完成B轮融资，单笔融资金额高达数十亿元人民币，近一年内连续完成多轮融资。本轮融资上下游重磅产业资本集体押注、国有资本及国际投资人联袂入局，多家老股东持续加码，进一步印证了国内外资本市场对后摩智能技术路线与商业前景的高度认可，后摩智能领跑端侧AI市场已成共识。资本密集加码的背后，是后摩智能从技术突破走向规模化商业落地的加速兑现：在刚刚举行的后摩智能生态合作伙伴大会上，公司披露，其端边大模型AI芯片M50量产不到一年，已获得150多个产品定点，服务客户超过百家。 据悉，本轮资金将主要用于扩大M50规模化交付，推进新一代M6X与下一代3D CIM产品研发，并持续完善软件工具链与产业生态，推动端边AI在更多终端场景实现规模化落地。 存算一体并不是新概念。它为何在此刻同时被资本和终端厂商选中？后摩又凭什么在这条赛道上拿到资本的连续加注？ 资本转向端侧，存算一体回到牌桌中央…</p><a href="https://www.leiphone.com/category/industrynews/cyDQKpjtzDEPhrr8.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>中国开源走向物理世界，蚂蚁灵波携机器人通用大脑亮相乌镇</h3><p>11月2日至5日，2026年世界互联网大会乌镇峰会在浙江乌镇举行，本届峰会的主题为“开源开放 共建共享——携手构建网络空间命运共同体”。蚂蚁集团旗下具身智能公司蚂蚁灵波，携全栈开源的机器人通用大脑亮相乌镇，展示模型研发、开源协作以及场景应用的新进展。 今天，开源正从语言、代码和内容生成，延伸至机器人对物理世界的感知、预测与行动。与数字世界不同，机器人本体千差万别，任务场景高度分散，许多团队不得不为每一种构型、每一个场景从头训练“大脑”。 对此，灵波给出的路径是开放的具身基础模型。目前，灵波已向全球开源覆盖空间智能、灵巧操作与环境反馈的核心模型，围绕让机器人“看得更清楚、想得更明白、干得更利索”构建全栈能力，让同一套智能在不同机器人构型、任务和场景中复用。 蚂蚁灵波大脑全栈2.0模型矩阵 据统计，LingBot系列模型开源9个月来，下载量已突破220万，GitHub Star数超过3.3万，相关工作被 Physical Intelligence、Generalist AI…</p><a href="https://www.leiphone.com/category/industrynews/ADcxxdwtaojQvzhp.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌加码东南亚：拟在马来西亚投资 150 亿美元扩建数据中心</h3><p>IT之家 11 月 4 日消息，Alphabet 旗下谷歌当地时间周三表示，计划在马来西亚投资 150 亿美元 （IT之家注：现汇率约合 1,002.61 亿元人民币） ，扩大当地数据中心和云计算业务。随着人工智能热潮推动数字基础设施需求持续增长，谷歌正进一步加大在该领域的投入。 根据谷歌发布的声明，该公司将建设新的计算中心，并投资改善当地水资源保障、电力供应以及马来西亚居民的技能培训。上述投资计划将在 2027 年和 2028 年期间实施。 谷歌并非唯一一家扩大马来西亚业务布局的全球科技企业。该国凭借相对较低的运营成本、可靠的基础设施，以及毗邻新加坡等商业中心的地理优势，正吸引越来越多科技巨头入驻。 目前，马来西亚已成为东南亚最重要的数据中心枢纽，吸引了甲骨文、亚马逊、阿里巴巴集团和字节跳动等企业。这些公司都需要不断扩大数据存储和处理能力，以满足数据密集型 AI 服务用户持续增长带来的需求。 谷歌表示，未来两年新园区的建设阶段预计将为马来西亚经济贡献 11 亿美元 （现汇率约合 73.52 亿元人民币） ，并每年带动超过 3.7 万个本地就业岗位。 待数据中心投入运营后，预计每年将维持超过 9000…</p><a href="https://www.ithome.com/1/022/286.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>腾讯跨境支付平台 TenPay Global 与银联国际签署合作备忘录，首次在跨境汇款领域开展合作</h3><p>IT之家 11 月 4 日消息，2026 年香港金融科技周期间，腾讯旗下跨境支付平台 TenPay Global 与中国银联旗下银联国际签署合作备忘录， 双方将首次在跨境汇款领域开展合作 。 IT之家获悉，根据合作备忘录， 双方将共同探索便利的跨境汇款服务 。TenPay Global 跨境汇款平台已与全球 60 多家银行及汇款机构合作，支持从 150 多个国家和地区向中国境内汇款。 据介绍，Tenpay Global 汇款至微信服务 7×24 小时全天候开放，资金快至一分钟内到账。身份验证和合规审核在后台毫秒级完成。 相关阅读： 《 腾讯与 Visa 宣布战略合作，包含跨境支付、企业级 AI、智能体支付等领域 》 《 腾讯 TenPay Global 与万事达卡签署合作备忘录，入境扫码支付、汇款与智能体支付同步推进 》</p><a href="https://www.ithome.com/1/022/273.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>京东曹鹏：未来五年计划采购 300 万台机器人、100 万台无人车和 10 万架无人机</h3><p>IT之家 11 月 4 日消息，2026 年世界互联网大会乌镇峰会机器人与具身智能论坛今日在浙江乌镇举行。 京东集团技术委员会主席曹鹏发表演讲，分享了京东推动 AI 从数字世界走向物理世界的最新实践。目前，京东具身数采已覆盖 100 余个细分生产服务场景，采集超 10 万真实作业任务。 在应用端，京东正推动 AI 与机器人融入供应链全流程。例如， 未来五年，京东物流计划采购 300 万台机器人、100 万台无人车和 10 万架无人机 。智元的具身机器人已进入京东物流智狼仓，双方在真实作业中检验产品边界、提升可靠性，推动机器人从单点操作走向流程协同。 IT之家获悉，围绕超级 AI 供应链，京东已启动“ 京东物理 AI 加速计划 ”，第一阶段聚焦具身智能机器人，在数据、基地、制造、销售、物流和服务六个方向持续投入。 官方表示，目前， 京东 AI 已应用于零售、物流、健康、工业等超过 3000 个场景 。此外，京东拥有 3800 多个仓库、超过 20 万家合作线下零售药房，以及超过 1 万家京东 MALL、七鲜、养车等各类门店。丰富的业务场景，为机器人学习商品操作、仓储作业和家庭服务等任务提供了真实环境与持续反馈。…</p><a href="https://www.ithome.com/1/022/267.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>“剧好看”专区即将全面登陆爱奇艺、腾讯视频、优酷、芒果 TV 四大平台</h3><p>IT之家 11 月 4 日消息，据中国电视剧制作产业协会青年工作委员会“青刊”报道，在今日的 2026 中国广播电视精品创作大会电视剧（网络剧）论坛上，一则行业重磅消息放出： “剧好看”专区即将全面登陆爱奇艺、腾讯视频、优酷、芒果 TV 四大平台 。 在已覆盖全国电视大屏的基础上， “剧好看”专区补齐小屏端 ，不再只是电视大屏上的点播专区，而成为覆盖家庭客厅与移动端全场景、贯通有线电视 / IPTV / OTT 与头部长视频平台的剧集发行网络。 商业模式上，“剧好看”专区小屏端的延续大屏端 单片付费 的基础上增加了 会员分账和广告解锁分账 ，兼顾不同用户的消费习惯。 发行方式上， 版权方统一授权给剧好看专区，无需逐省、逐平台、逐渠道谈判，降低发行沟通成本 。 在“剧好看”大屏端上线播出的作品，“剧好看”小屏端也能同步播出。实现一次接入，作品即可同时进入全国电视大屏和四大长视频平台小屏观影场景，运营方与播控平台协同宣发，形成物料供给到渠道推广的一体化联动。 内容需求上，“剧好看”专区以 中剧、网络故事片、短剧集 等网剧新三样为主，同时可播出长剧、电影、纪录片、动画片、AI 作品，题材不设限。…</p><a href="https://www.ithome.com/1/022/258.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>SUSE 因 AI 而计划裁员十分之一</h3><p>德国开源软件公司 SUSE 现有员工 1900 人，它计划裁掉十分之一的员工。CEO Dirk-Peter van Leeuwen 在电子邮件里表示，自动化和 AI 降低了某些岗位的需求。他表示做出这一决定是非常痛苦的，但也是必要的。Van Leeuwen 称，在被瑞典私募股权投资公司殷拓集团收购后，公司在仔细审视了其未来战略、所需能力及团队架构后做出了裁员决定,“显而易见自动化和 AI 正从根本上改变软件公司的运营方式。AI 技术正呈指数级发展，迫使我们彻底重新构想工作模式。无论是所在行业，还是在更广泛的经济领域，我们都已经看到了这一趋势。这意味着 SUSE 目前所依托的组织架构和成本基础，已无法支撑未来的成功发展。”受影响的员工将在 11 月 4 日前收到通知，员工代表将于次日选出，一对一沟通会议则将于下周初启动。</p><a href="https://www.solidot.org/story?sid=85791" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>10 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>机器人干活，AI当厂长！这家巨头要造下一代自主智能仓</h3><a href="https://www.qbitai.com/2026/11/507507.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>小米斩获乌镇峰会双料大奖：小米集团获“杰出贡献奖”，小米具身基座模型获“领先科技奖”</h3><p>11月3日，小米方面披露，小米集团获得2026世界互联网大会“杰出贡献奖”创新突破类奖项</p><a href="https://www.qbitai.com/2026/11/507396.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>榜单第一，市值暴跌！Gemini 4 Carbon「速成」背后，谷歌一场豪赌</h3><p>Gemini 4 Carbon 登顶，幻觉率抬升，谷歌疯狂发模型在急什么？ 作者丨 高允毅 编辑丨岑 峰 昨天，Google 发布世界模型 Genie 4，人们惊呼“太疯狂了”。今早，Google 又紧接着推出 Gemini 4 Carbon，直接刷榜&quot;重回全球第一&quot;。再加上两周前发布的 Gemini 4 Argon，谷歌正以近乎 “一周一款” 的节奏刷新模型产品线。 这种高频迭代在谷歌历史上前所未有，过去它更习惯“两年磨一剑”的大版本发布节奏，如今却突然切换成“小步快跑”的互联网打法。 这场节奏突变的背后，是谷歌在 技术路线选择、研发模式押注、算力基础突围和内部管理调整 上的全方位转向，也是它在行业节奏失落后的一次集中反击。 01 登顶榜首 vs 4000 亿市值蒸发， 谷歌深陷“跑分幻觉” Gemini 4 Carbon 发布之后，技术圈反应堪称魔幻。 谷歌对外宣布的内容中，最吸睛的标签是 “重回世界第一” 。 在17项基准测试中，它有 15 项拿下了最高成绩，甚至在最新的 Artificial Analysis （AA）智能指数评测中反超 Claude Opus 5.5（58分）和 GPT-6…</p><a href="https://www.leiphone.com/category/yanxishe/7uvYEZBsCWcPvhw3.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>追觅科技亮相2026世界互联网大会人工智能嘉年华，以AI技术创新赋能智慧生活</h3><p>11月2日，2026年世界互联网大会乌镇峰会在浙江嘉兴乌镇正式启幕。本届峰会以“开源开放、共建共享”为主题，聚焦人工智能等前沿技术发展与产业应用。追觅携旗下T70 Ultra Station、T60 Steam等多款旗舰洗地机亮相“人工智能嘉年华”展区，集中展示智能清洁领域的技术创新成果，呈现前沿科技与家庭生活深度融合的创新实践。 作为全球领先的智能科技品牌，追觅始终坚持以技术创新驱动产品升级，持续探索人工智能、智能感知与清洁技术的融合应用。此次亮相的追觅T70 Ultra Station洗地机，集成多项行业首创技术，以创新设计进一步拓展家庭清洁的场景边界。其中，首创的EdgeHunter巡边探洗臂搭载高精度TOF测距传感器与新一代具身智能算法，可针对不同沿边清洁场景实现5mm自动外扩和30mm手动外扩，有效突破传统洗地机在墙边、家具边缘等区域的清洁局限。同时，产品采用9.85cm超薄机身设计，支持180°恒动平躺清洁，可深入沙发、床底等低矮空间，进一步提升家庭清洁的覆盖范围与灵活性。…</p><a href="https://www.leiphone.com/category/industrynews/hRlEqJpWm8oawq9h.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>后摩智能低调完成数十亿元B轮融资，端侧大模型AI芯片进入规模化兑现期</h3><p>仅今年9月，国内就有近十家端侧AI芯片企业宣布完成新一轮融资。资本的目光，正在从云端的算力集群，移向手机、电脑和机器人里的那颗芯片。 最新的一笔大额融资来自后摩智能。据知情人士透露，存算一体AI芯片企业后摩智能已于近期完成B轮融资，单笔融资金额高达数十亿元人民币，近一年内连续完成多轮融资。本轮融资上下游重磅产业资本集体押注、国有资本及国际投资人联袂入局，多家老股东持续加码，进一步印证了国内外资本市场对后摩智能技术路线与商业前景的高度认可，后摩智能领跑端侧AI市场已成共识。资本密集加码的背后，是后摩智能从技术突破走向规模化商业落地的加速兑现：在刚刚举行的后摩智能生态合作伙伴大会上，公司披露，其端边大模型AI芯片M50量产不到一年，已获得150多个产品定点，服务客户超过百家。 据悉，本轮资金将主要用于扩大M50规模化交付，推进新一代M6X与下一代3D CIM产品研发，并持续完善软件工具链与产业生态，推动端边AI在更多终端场景实现规模化落地。 存算一体并不是新概念。它为何在此刻同时被资本和终端厂商选中？后摩又凭什么在这条赛道上拿到资本的连续加注？ 资本转向端侧，存算一体回到牌桌中央…</p><a href="https://www.leiphone.com/category/industrynews/cyDQKpjtzDEPhrr8.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>AI教AI开车！百度Apollo World世界模型叩开无人驾驶产业“AGI时刻”</h3><p>“世界模型，重点不是渲染的画质是否好看，而是模拟器是否能忠实还原现实物理规律和行为的因果”。11月3日，在深圳举行的百度AI Day·Apollo专场上，百度Apollo首次披露面向物理AI的智能体驱动全模态世界模型Apollo World，并提出世界模型“2+3”判断标准。目前，该模型已用于萝卜快跑全球化测试与验证，助力无人驾驶规模化落地。 百度智能驾驶事业群组(IDG)首席架构师、IDG技术委员会主席王亮表示，世界模型不能只做“生成炫酷视频的画师”，更要成为验证无人驾驶安全性的“考官”。萝卜快跑是中国唯一以端到端技术规模化运行 L4 无人驾驶的出行平台，端到端全无人运营超百万公里，Apollo World为其提供虚拟训练环境，帮助“学生” AI Driver学习、验证和迭代。 “Apollo World将虚拟场景内所有交通参与者建模为具备决策与交互能力的AI智能体，支持无人车在虚拟城市任意起终点通行，打造提前验证‘无限未来’的虚拟场景订单。”百度智能驾驶事业群组(IDG)杰出架构师、世界模型负责人杨泽进一步介绍。此外，Apollo World的技术栈还可拓展至机器人等更广泛的物理 AI 场景。…</p><a href="https://www.leiphone.com/category/industrynews/NVxn28w1vAG2qbFy.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>中国开源走向物理世界，蚂蚁灵波携机器人通用大脑亮相乌镇</h3><p>11月2日至5日，2026年世界互联网大会乌镇峰会在浙江乌镇举行，本届峰会的主题为“开源开放 共建共享——携手构建网络空间命运共同体”。蚂蚁集团旗下具身智能公司蚂蚁灵波，携全栈开源的机器人通用大脑亮相乌镇，展示模型研发、开源协作以及场景应用的新进展。 今天，开源正从语言、代码和内容生成，延伸至机器人对物理世界的感知、预测与行动。与数字世界不同，机器人本体千差万别，任务场景高度分散，许多团队不得不为每一种构型、每一个场景从头训练“大脑”。 对此，灵波给出的路径是开放的具身基础模型。目前，灵波已向全球开源覆盖空间智能、灵巧操作与环境反馈的核心模型，围绕让机器人“看得更清楚、想得更明白、干得更利索”构建全栈能力，让同一套智能在不同机器人构型、任务和场景中复用。 蚂蚁灵波大脑全栈2.0模型矩阵 据统计，LingBot系列模型开源9个月来，下载量已突破220万，GitHub Star数超过3.3万，相关工作被 Physical Intelligence、Generalist AI…</p><a href="https://www.leiphone.com/category/industrynews/ADcxxdwtaojQvzhp.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>小鹏联合北大、港大等发布 GroundingPI 预训练模型，感知模块综合跑分超过 GPT-6 Astra</h3><p>IT之家 11 月 4 日消息，小鹏集团联合北京大学、香港大学等高校研究团队联合发布具身感知基座模型的研究成果 GroundingPI。 官方表示，该研究提出“感知优先”的技术路线，以约 40 亿参数规模，在 34 项公开感知基准的综合评测中位列第一，并在机器人仿真任务中展现出更高的数据处理效率与更强的场景泛化能力。 ▲ GroundingPI 在多个场景和能力上展现了基于视觉基元（构成画面的最小积木块）的感知能力 研究团队将 GroundingPI 与 OpenAI 前沿模型 GPT-6 Astra 在同一套 34 项感知基准上进行对比，按照以上这 11 类能力等权平均，GroundingPI 得分 73.68，Astra 得分 71.54。 ▲ 多类感知能力基准比较：紫色为 GroundingPI，蓝色为各能力类别中排名 TOP4 的对照模型，其中包含 GPT-6 Astra 据介绍，GroundingPI 提出具身智能的首要前提是精准感知自身与周边物体的空间位置，感知表征对于物理 AI 至关重要。若模型无法准确定位目标在画面中的位置，学习再多的动作知识也无法有效落地。 基于这一判断，GroundingPI…</p><a href="https://www.ithome.com/1/022/289.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>NIO IN 2026 蔚来创新科技日定档 11 月 25 日，AI 驱动的全新智能座舱、辅助驾驶产品将亮相</h3><p>IT之家 11 月 4 日消息，蔚来官方今日宣布，NIO IN 2026 蔚来创新科技日将于 11 月 25 日 在广州举行。 蔚来官方表示，届时，将分享公司在 AI 原生组织方面的思考与实践， 以及 AI 驱动的全新智能座舱、智能辅助驾驶产品 。 IT之家注意到，2023 蔚来创新科技日，蔚来曾发布品牌首款手机产品 —— NIO Phone，并首次介绍全栈技术布局；2024 蔚来创新科技日，蔚来发布了 5 纳米智驾芯片「蔚来神玑 NX9031」、行业首个面向 AI 的整车全域操作系统「SkyOS · 天枢」和全新「 Banyan 3 智能系统」。</p><a href="https://www.ithome.com/1/022/269.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>京东曹鹏：未来五年计划采购 300 万台机器人、100 万台无人车和 10 万架无人机</h3><p>IT之家 11 月 4 日消息，2026 年世界互联网大会乌镇峰会机器人与具身智能论坛今日在浙江乌镇举行。 京东集团技术委员会主席曹鹏发表演讲，分享了京东推动 AI 从数字世界走向物理世界的最新实践。目前，京东具身数采已覆盖 100 余个细分生产服务场景，采集超 10 万真实作业任务。 在应用端，京东正推动 AI 与机器人融入供应链全流程。例如， 未来五年，京东物流计划采购 300 万台机器人、100 万台无人车和 10 万架无人机 。智元的具身机器人已进入京东物流智狼仓，双方在真实作业中检验产品边界、提升可靠性，推动机器人从单点操作走向流程协同。 IT之家获悉，围绕超级 AI 供应链，京东已启动“ 京东物理 AI 加速计划 ”，第一阶段聚焦具身智能机器人，在数据、基地、制造、销售、物流和服务六个方向持续投入。 官方表示，目前， 京东 AI 已应用于零售、物流、健康、工业等超过 3000 个场景 。此外，京东拥有 3800 多个仓库、超过 20 万家合作线下零售药房，以及超过 1 万家京东 MALL、七鲜、养车等各类门店。丰富的业务场景，为机器人学习商品操作、仓储作业和家庭服务等任务提供了真实环境与持续反馈。…</p><a href="https://www.ithome.com/1/022/267.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>8 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>当10万个智能体已在运行，安全防线到底在哪？｜CNCC 2026专家激辩智能体安全挑战</h3><p>2026年，智能体从概念走向了生产系统。 蚂蚁集团3万多名员工背后，已有10万余个智能体在运行。华为内部同样部署了成千上万个智能体，覆盖客服、办公、运维、研发各条业务线。放眼更广的产业图景，个人助手、AI for Science、网络安全自动化攻防、企业级工作流编排，智能体正在逐步接管人类过去亲力亲为的工作。 Gartner将智能体列入了2027年十大战略技术，安全圈里，非人类身份（NHI）成了RSAC大会上的新赛道。中国这边，国标、强标、最高法司法意见、三部委规范文件在今年密集出台，政策端的紧迫感与产业端的狂飙几乎同步。 10月22日，成都，在CNCC 2026”智能体的安全问题”专题论坛上，于锐、徐恪、胡侠、韦韬、肖亚军五位嘉宾齐聚一堂，分别从国家标准制定、高校AI安全研究、企业安全最后一道防线等角度，做出了各自的解读。 01 中国开始给智能体发“身份证” 安全的第一步是搞清楚“它是谁”。但智能体能自主行动、跨平台迁移、在无人监督下链式决策和调用工具，传统的人类身份认证方式显然并不适用。 CCF计算机安全专委会副主任委员于锐介绍，“中国在这方面的进展可以概括为三句话：国标引领、行业细化、企业落地。”…</p><a href="https://www.leiphone.com/category/ai/tT9FskgaSMm7y4Ao.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>AI教AI开车！百度Apollo World世界模型叩开无人驾驶产业“AGI时刻”</h3><p>“世界模型，重点不是渲染的画质是否好看，而是模拟器是否能忠实还原现实物理规律和行为的因果”。11月3日，在深圳举行的百度AI Day·Apollo专场上，百度Apollo首次披露面向物理AI的智能体驱动全模态世界模型Apollo World，并提出世界模型“2+3”判断标准。目前，该模型已用于萝卜快跑全球化测试与验证，助力无人驾驶规模化落地。 百度智能驾驶事业群组(IDG)首席架构师、IDG技术委员会主席王亮表示，世界模型不能只做“生成炫酷视频的画师”，更要成为验证无人驾驶安全性的“考官”。萝卜快跑是中国唯一以端到端技术规模化运行 L4 无人驾驶的出行平台，端到端全无人运营超百万公里，Apollo World为其提供虚拟训练环境，帮助“学生” AI Driver学习、验证和迭代。 “Apollo World将虚拟场景内所有交通参与者建模为具备决策与交互能力的AI智能体，支持无人车在虚拟城市任意起终点通行，打造提前验证‘无限未来’的虚拟场景订单。”百度智能驾驶事业群组(IDG)杰出架构师、世界模型负责人杨泽进一步介绍。此外，Apollo World的技术栈还可拓展至机器人等更广泛的物理 AI 场景。…</p><a href="https://www.leiphone.com/category/industrynews/NVxn28w1vAG2qbFy.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>“AI 教父”辛顿：今明两年就有可能发生人工智能领域的切尔诺贝利事故</h3><p>IT之家 11 月 4 日消息，诺贝尔奖得主、“AI 教父”Geoffrey Hinton（杰弗里 · 辛顿）近日在接受英国《卫报》采访时表示， 人工智能领域今明两年就有可能发生切尔诺贝利等级的事故 。 辛顿表示，今年夏天发生的 OpenAI 智能体入侵 Hugging Face 事件是一次类似三哩岛核事故的“警告”。而更为严重的“人工智能切尔诺贝利”则可能会是 AI 攻击导致大规模停电或金融系统瘫痪一周。人类可能能承受这种重大灾难的考验，然后意识到人工智能技术的危险性。 辛顿并不信任 Meta 扎克伯格、SpaceXSI 马斯克、OpenAI 奥尔特曼。他 认为这些人工智能企业的领导人虽然明白风险但只关注技术产生的经济效益 ，放任人工智能的发展。 辛顿坦承他相信人工智能有潜力为人类带来美好的未来，但 其中蕴藏的重大隐患甚至可能让他认为这项技术当初就不该被开发出来 。人类将在十年甚至更短的时间内知道能否可以安全管控人工智能技术的风险。他支持对前沿人工智能进行强制性测试、独立评估并制定政府间通用标准。</p><a href="https://www.ithome.com/1/022/271.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>《Arc Raiders》开发商谈 AI 配音：初衷是减轻演员负担，正逐步替换为真人录音</h3><p>IT之家 11 月 4 日消息，《Arc Raiders》开发商 Embark Studios 的开发人员近日谈到了这款撤离射击游戏中生成式 AI 配音技术的使用问题。他们认为，最初采用生成式 AI 生成语音台词，实际上减轻了配音演员的工作负担。原因是，如果所有台词都要由演员亲自录制，“他们恐怕会被这些工作量逼疯”。 IT之家注意到，相关内容来自 Embark Studios 近期发布的一段视频，视频主要介绍了《Arc Raiders》的音效与音乐制作过程。多名核心工作人员在视频中谈到了游戏对生成式 AI 的使用，包括早期利用 AI 生成角色语音，以及此后逐步用真人录音替换 AI 配音的过程。 音频总监本斯 · 帕约尔（Bence Pajor）首先谈到了自己在此前工作室遇到的问题。他表示，过去由于语音台词已经确定，游戏玩法方面的调整往往无法进行。他认为这是一件“非常痛苦”的事，因为这不仅会给编剧团队和对话团队带来压力，也会影响配音演员的工作安排，尤其是在演员档期发生冲突时。 帕约尔表示，在斯德哥尔摩聘用能够随时联系到的配音演员，并借助现有工具开展工作，让所有人的工作都变得更加轻松。…</p><a href="https://www.ithome.com/1/022/270.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>“剧好看”专区即将全面登陆爱奇艺、腾讯视频、优酷、芒果 TV 四大平台</h3><p>IT之家 11 月 4 日消息，据中国电视剧制作产业协会青年工作委员会“青刊”报道，在今日的 2026 中国广播电视精品创作大会电视剧（网络剧）论坛上，一则行业重磅消息放出： “剧好看”专区即将全面登陆爱奇艺、腾讯视频、优酷、芒果 TV 四大平台 。 在已覆盖全国电视大屏的基础上， “剧好看”专区补齐小屏端 ，不再只是电视大屏上的点播专区，而成为覆盖家庭客厅与移动端全场景、贯通有线电视 / IPTV / OTT 与头部长视频平台的剧集发行网络。 商业模式上，“剧好看”专区小屏端的延续大屏端 单片付费 的基础上增加了 会员分账和广告解锁分账 ，兼顾不同用户的消费习惯。 发行方式上， 版权方统一授权给剧好看专区，无需逐省、逐平台、逐渠道谈判，降低发行沟通成本 。 在“剧好看”大屏端上线播出的作品，“剧好看”小屏端也能同步播出。实现一次接入，作品即可同时进入全国电视大屏和四大长视频平台小屏观影场景，运营方与播控平台协同宣发，形成物料供给到渠道推广的一体化联动。 内容需求上，“剧好看”专区以 中剧、网络故事片、短剧集 等网剧新三样为主，同时可播出长剧、电影、纪录片、动画片、AI 作品，题材不设限。…</p><a href="https://www.ithome.com/1/022/258.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>游戏模组分享平台 Nexus Mods 更新创作政策，要求模组开发者公开披露 AI 工具使用情况</h3><p>IT之家 11 月 4 日消息，游戏模组分享平台 Nexus Mods 宣布更新平台生成式 AI 使用政策，要求创作者必须公开披露模组制作过程中 AI 工具的具体使用情况。同时平台明确表示不会全面禁止 AI 模组，旨在建立全新管理规则，以便在社区内不同立场的用户之间寻求平衡。 根据新规，使用 AI 工具参与模组制作的创作者，必须详细说明模组中 AI 具体参与的部分，以便其他用户在下载前了解相关信息，并自行决定是否接受。 而对于已经发布模组的创作者，平台提供了 60 天宽限期，以便开发者完成相关信息补充，后续审核将由人工进行，此外 Nexus Mods 也鼓励用户举报未按规定披露 AI 使用情况的模组。 Nexus Mods 网站负责人 Foledinho 强调，平台所有相关决策的基本出发点都是“支持人类创作”，因此不会直接封禁所有 AI 模组。 Foledinho 同时表示，只要符合平台关于使用权限、信息透明度、内容展示方式以及用户行为等方面的要求，AI 生成模组仍然可以在 Nexus Mods 发布。当然其也坦言，平台新政策不一定能够满足社区所有用户的期望。后续随着 AI 技术不断发展，平台相关政策也会随之调整。</p><a href="https://www.ithome.com/1/022/257.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>纽约时报等起诉 Brave 绕过付费墙抓取内容并提供给 AI 公司</h3><p>《纽约时报》、《芝加哥论坛报》和《奥兰多哨兵报》等美国出版商起诉 Brave Software，指控其未经许可抓取网站内容，并帮助用户绕过付费墙。Brave Software 被控将其抓取内容的索引数据库 Brave Index 提供给 Anthropic、Perplexity、Mistral、xAI 和 Cohere 等 AI 公司，通过 Paywall blocker 功能帮助用户绕过数百家新闻媒体的付费墙。《纽约时报》发言人 Graham James 在一份声明中表示：“我们支持合乎道德且负责任的使用与开发 AI，但 Brave 公然蔑视现行版权法，对《纽约时报》多次要求其停止侵权行为的诉求置之不理。我们提起此项诉讼，旨在追究 Brave 的责任——它窃取了我们的内容，不仅用于支撑其自身产品，还将其提供给部分全球最知名、资源最雄厚的生成式 AI 公司。”</p><a href="https://www.solidot.org/story?sid=85788" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Proton 全力推动工程师转向 AI</h3><p>以提供隐私服务著称的 Proton 公司正全力推动工程师转向采用 AI，CEO Andy Yen 还在内部 Slack 频道训斥了提出安全顾虑的员工，称是“失败者的思维”。Proton 甚至计划对员工进行重新面试，要求员工说明他们如何使用 AI。如果员工没有充分使用 AI 他们可能会面临被解雇。在引发公众抗议之后，Proton 取消了重新面试。尽管如此，Proton 公布了一份 AI 宣言：“首先工程文化和工程师心态需要发生转变。你们的工作性质已经变了。你们的任务不再是写代码，LLM 也不是为了帮助你们更快、更好地写代码。你们的工作，是帮助 LLM 更快更好地写代码。”</p><a href="https://www.solidot.org/story?sid=85773" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>4 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>榜单第一，市值暴跌！Gemini 4 Carbon「速成」背后，谷歌一场豪赌</h3><p>Gemini 4 Carbon 登顶，幻觉率抬升，谷歌疯狂发模型在急什么？ 作者丨 高允毅 编辑丨岑 峰 昨天，Google 发布世界模型 Genie 4，人们惊呼“太疯狂了”。今早，Google 又紧接着推出 Gemini 4 Carbon，直接刷榜&quot;重回全球第一&quot;。再加上两周前发布的 Gemini 4 Argon，谷歌正以近乎 “一周一款” 的节奏刷新模型产品线。 这种高频迭代在谷歌历史上前所未有，过去它更习惯“两年磨一剑”的大版本发布节奏，如今却突然切换成“小步快跑”的互联网打法。 这场节奏突变的背后，是谷歌在 技术路线选择、研发模式押注、算力基础突围和内部管理调整 上的全方位转向，也是它在行业节奏失落后的一次集中反击。 01 登顶榜首 vs 4000 亿市值蒸发， 谷歌深陷“跑分幻觉” Gemini 4 Carbon 发布之后，技术圈反应堪称魔幻。 谷歌对外宣布的内容中，最吸睛的标签是 “重回世界第一” 。 在17项基准测试中，它有 15 项拿下了最高成绩，甚至在最新的 Artificial Analysis （AA）智能指数评测中反超 Claude Opus 5.5（58分）和 GPT-6…</p><a href="https://www.leiphone.com/category/yanxishe/7uvYEZBsCWcPvhw3.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>哪里电便宜，算力就往哪里跑？没那么简单</h3><p>候鸟迁徙，是为了追逐适宜生存的气候。 一项AI计算任务的迁徙，则可能因为另一座数据中心拥有更充足、更便宜的电力，被送往数百甚至上千公里之外。 过去，算力的运行位置大多随着机房选址而确定。如今，电力供给的变化，开始成为计算任务选择落脚点的新理由。 “ 用电需求通常不能移动，但计算任务却可以迁移。 ”共绩科技创始人兼CEO付智说。 只是，与候鸟不同，AI任务无法独自完成这场迁徙。它所依赖的模型、数据与运行环境，也需要在另一座集群中得到妥善安排。 算电协同想让算力随电而动，但这场迁徙，远没有候鸟振翅那么轻盈。 01 算力不必搬家，任务却有迁移成本 据此前公开报道，一项跨区域算电协同实测在三天内累计调度28万余次AI推理请求，单位Token的算力用电成本下降约31%。 类似的探索也出现在海外，Google、英伟达和Emerald AI共同发起AI能源管理联盟，尝试让数据中心根据电网状态灵活调整用电负荷。 当电力系统开始尝试调动计算任务，另一批企业则正在建设让任务跨集群流动的基础设施。 雷峰网在共绩科技办公室见到了创始人兼CEO付智，这位有着“00后创业者”标签的年轻创始人，谈起行业频繁提及的算力调度，措辞相当直接。…</p><a href="https://www.leiphone.com/category/chips/pXuAy8TH7q2u0Q9T.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>后摩智能低调完成数十亿元B轮融资，端侧大模型AI芯片进入规模化兑现期</h3><p>仅今年9月，国内就有近十家端侧AI芯片企业宣布完成新一轮融资。资本的目光，正在从云端的算力集群，移向手机、电脑和机器人里的那颗芯片。 最新的一笔大额融资来自后摩智能。据知情人士透露，存算一体AI芯片企业后摩智能已于近期完成B轮融资，单笔融资金额高达数十亿元人民币，近一年内连续完成多轮融资。本轮融资上下游重磅产业资本集体押注、国有资本及国际投资人联袂入局，多家老股东持续加码，进一步印证了国内外资本市场对后摩智能技术路线与商业前景的高度认可，后摩智能领跑端侧AI市场已成共识。资本密集加码的背后，是后摩智能从技术突破走向规模化商业落地的加速兑现：在刚刚举行的后摩智能生态合作伙伴大会上，公司披露，其端边大模型AI芯片M50量产不到一年，已获得150多个产品定点，服务客户超过百家。 据悉，本轮资金将主要用于扩大M50规模化交付，推进新一代M6X与下一代3D CIM产品研发，并持续完善软件工具链与产业生态，推动端边AI在更多终端场景实现规模化落地。 存算一体并不是新概念。它为何在此刻同时被资本和终端厂商选中？后摩又凭什么在这条赛道上拿到资本的连续加注？ 资本转向端侧，存算一体回到牌桌中央…</p><a href="https://www.leiphone.com/category/industrynews/cyDQKpjtzDEPhrr8.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>NIO IN 2026 蔚来创新科技日定档 11 月 25 日，AI 驱动的全新智能座舱、辅助驾驶产品将亮相</h3><p>IT之家 11 月 4 日消息，蔚来官方今日宣布，NIO IN 2026 蔚来创新科技日将于 11 月 25 日 在广州举行。 蔚来官方表示，届时，将分享公司在 AI 原生组织方面的思考与实践， 以及 AI 驱动的全新智能座舱、智能辅助驾驶产品 。 IT之家注意到，2023 蔚来创新科技日，蔚来曾发布品牌首款手机产品 —— NIO Phone，并首次介绍全栈技术布局；2024 蔚来创新科技日，蔚来发布了 5 纳米智驾芯片「蔚来神玑 NX9031」、行业首个面向 AI 的整车全域操作系统「SkyOS · 天枢」和全新「 Banyan 3 智能系统」。</p><a href="https://www.ithome.com/1/022/269.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>1 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>模型谁都买得到，拉开差距的是AI生产力系统</h3><a href="https://www.qbitai.com/2026/11/507448.html" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 02:49:02 +0000</div><h3>让Agent首次拥有“视听双流记忆”：openJiuwen Agent-Memory看懂长视频，关键事件一个不落</h3><a href="https://www.qbitai.com/2026/11/507533.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 03 Nov 2026 13:57:11 +0000</div><h3>机器人干活，AI当厂长！这家巨头要造下一代自主智能仓</h3><a href="https://www.qbitai.com/2026/11/507507.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 03 Nov 2026 11:13:49 +0000</div><h3>模型谁都买得到，拉开差距的是AI生产力系统</h3><a href="https://www.qbitai.com/2026/11/507448.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 03 Nov 2026 06:55:30 +0000</div><h3>纯语音Personal Agent来了！或许，这就是乔布斯心中的Siri</h3><a href="https://www.qbitai.com/2026/11/507419.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 03 Nov 2026 05:59:05 +0000</div><h3>AI数据平台OceanBase获世界互联网大会杰出贡献奖</h3><a href="https://www.qbitai.com/2026/11/507405.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 03 Nov 2026 05:16:35 +0000</div><h3>小米斩获乌镇峰会双料大奖：小米集团获“杰出贡献奖”，小米具身基座模型获“领先科技奖”</h3><p>11月3日，小米方面披露，小米集团获得2026世界互联网大会“杰出贡献奖”创新突破类奖项</p><a href="https://www.qbitai.com/2026/11/507396.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 14:39:00 +0800</div><h3>榜单第一，市值暴跌！Gemini 4 Carbon「速成」背后，谷歌一场豪赌</h3><p>Gemini 4 Carbon 登顶，幻觉率抬升，谷歌疯狂发模型在急什么？ 作者丨 高允毅 编辑丨岑 峰 昨天，Google 发布世界模型 Genie 4，人们惊呼“太疯狂了”。今早，Google 又紧接着推出 Gemini 4 Carbon，直接刷榜&quot;重回全球第一&quot;。再加上两周前发布的 Gemini 4 Argon，谷歌正以近乎 “一周一款” 的节奏刷新模型产品线。 这种高频迭代在谷歌历史上前所未有，过去它更习惯“两年磨一剑”的大版本发布节奏，如今却突然切换成“小步快跑”的互联网打法。 这场节奏突变的背后，是谷歌在 技术路线选择、研发模式押注、算力基础突围和内部管理调整 上的全方位转向，也是它在行业节奏失落后的一次集中反击。 01 登顶榜首 vs 4000 亿市值蒸发， 谷歌深陷“跑分幻觉” Gemini 4 Carbon 发布之后，技术圈反应堪称魔幻。 谷歌对外宣布的内容中，最吸睛的标签是 “重回世界第一” 。 在17项基准测试中，它有 15 项拿下了最高成绩，甚至在最新的 Artificial Analysis （AA）智能指数评测中反超 Claude Opus 5.5（58分）和 GPT-6…</p><a href="https://www.leiphone.com/category/yanxishe/7uvYEZBsCWcPvhw3.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 11:56:00 +0800</div><h3>哪里电便宜，算力就往哪里跑？没那么简单</h3><p>候鸟迁徙，是为了追逐适宜生存的气候。 一项AI计算任务的迁徙，则可能因为另一座数据中心拥有更充足、更便宜的电力，被送往数百甚至上千公里之外。 过去，算力的运行位置大多随着机房选址而确定。如今，电力供给的变化，开始成为计算任务选择落脚点的新理由。 “ 用电需求通常不能移动，但计算任务却可以迁移。 ”共绩科技创始人兼CEO付智说。 只是，与候鸟不同，AI任务无法独自完成这场迁徙。它所依赖的模型、数据与运行环境，也需要在另一座集群中得到妥善安排。 算电协同想让算力随电而动，但这场迁徙，远没有候鸟振翅那么轻盈。 01 算力不必搬家，任务却有迁移成本 据此前公开报道，一项跨区域算电协同实测在三天内累计调度28万余次AI推理请求，单位Token的算力用电成本下降约31%。 类似的探索也出现在海外，Google、英伟达和Emerald AI共同发起AI能源管理联盟，尝试让数据中心根据电网状态灵活调整用电负荷。 当电力系统开始尝试调动计算任务，另一批企业则正在建设让任务跨集群流动的基础设施。 雷峰网在共绩科技办公室见到了创始人兼CEO付智，这位有着“00后创业者”标签的年轻创始人，谈起行业频繁提及的算力调度，措辞相当直接。…</p><a href="https://www.leiphone.com/category/chips/pXuAy8TH7q2u0Q9T.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 11:22:00 +0800</div><h3>当10万个智能体已在运行，安全防线到底在哪？｜CNCC 2026专家激辩智能体安全挑战</h3><p>2026年，智能体从概念走向了生产系统。 蚂蚁集团3万多名员工背后，已有10万余个智能体在运行。华为内部同样部署了成千上万个智能体，覆盖客服、办公、运维、研发各条业务线。放眼更广的产业图景，个人助手、AI for Science、网络安全自动化攻防、企业级工作流编排，智能体正在逐步接管人类过去亲力亲为的工作。 Gartner将智能体列入了2027年十大战略技术，安全圈里，非人类身份（NHI）成了RSAC大会上的新赛道。中国这边，国标、强标、最高法司法意见、三部委规范文件在今年密集出台，政策端的紧迫感与产业端的狂飙几乎同步。 10月22日，成都，在CNCC 2026”智能体的安全问题”专题论坛上，于锐、徐恪、胡侠、韦韬、肖亚军五位嘉宾齐聚一堂，分别从国家标准制定、高校AI安全研究、企业安全最后一道防线等角度，做出了各自的解读。 01 中国开始给智能体发“身份证” 安全的第一步是搞清楚“它是谁”。但智能体能自主行动、跨平台迁移、在无人监督下链式决策和调用工具，传统的人类身份认证方式显然并不适用。 CCF计算机安全专委会副主任委员于锐介绍，“中国在这方面的进展可以概括为三句话：国标引领、行业细化、企业落地。”…</p><a href="https://www.leiphone.com/category/ai/tT9FskgaSMm7y4Ao.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 11:06:00 +0800</div><h3>追觅科技亮相2026世界互联网大会人工智能嘉年华，以AI技术创新赋能智慧生活</h3><p>11月2日，2026年世界互联网大会乌镇峰会在浙江嘉兴乌镇正式启幕。本届峰会以“开源开放、共建共享”为主题，聚焦人工智能等前沿技术发展与产业应用。追觅携旗下T70 Ultra Station、T60 Steam等多款旗舰洗地机亮相“人工智能嘉年华”展区，集中展示智能清洁领域的技术创新成果，呈现前沿科技与家庭生活深度融合的创新实践。 作为全球领先的智能科技品牌，追觅始终坚持以技术创新驱动产品升级，持续探索人工智能、智能感知与清洁技术的融合应用。此次亮相的追觅T70 Ultra Station洗地机，集成多项行业首创技术，以创新设计进一步拓展家庭清洁的场景边界。其中，首创的EdgeHunter巡边探洗臂搭载高精度TOF测距传感器与新一代具身智能算法，可针对不同沿边清洁场景实现5mm自动外扩和30mm手动外扩，有效突破传统洗地机在墙边、家具边缘等区域的清洁局限。同时，产品采用9.85cm超薄机身设计，支持180°恒动平躺清洁，可深入沙发、床底等低矮空间，进一步提升家庭清洁的覆盖范围与灵活性。…</p><a href="https://www.leiphone.com/category/industrynews/hRlEqJpWm8oawq9h.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 10:21:00 +0800</div><h3>后摩智能低调完成数十亿元B轮融资，端侧大模型AI芯片进入规模化兑现期</h3><p>仅今年9月，国内就有近十家端侧AI芯片企业宣布完成新一轮融资。资本的目光，正在从云端的算力集群，移向手机、电脑和机器人里的那颗芯片。 最新的一笔大额融资来自后摩智能。据知情人士透露，存算一体AI芯片企业后摩智能已于近期完成B轮融资，单笔融资金额高达数十亿元人民币，近一年内连续完成多轮融资。本轮融资上下游重磅产业资本集体押注、国有资本及国际投资人联袂入局，多家老股东持续加码，进一步印证了国内外资本市场对后摩智能技术路线与商业前景的高度认可，后摩智能领跑端侧AI市场已成共识。资本密集加码的背后，是后摩智能从技术突破走向规模化商业落地的加速兑现：在刚刚举行的后摩智能生态合作伙伴大会上，公司披露，其端边大模型AI芯片M50量产不到一年，已获得150多个产品定点，服务客户超过百家。 据悉，本轮资金将主要用于扩大M50规模化交付，推进新一代M6X与下一代3D CIM产品研发，并持续完善软件工具链与产业生态，推动端边AI在更多终端场景实现规模化落地。 存算一体并不是新概念。它为何在此刻同时被资本和终端厂商选中？后摩又凭什么在这条赛道上拿到资本的连续加注？ 资本转向端侧，存算一体回到牌桌中央…</p><a href="https://www.leiphone.com/category/industrynews/cyDQKpjtzDEPhrr8.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 03 Nov 2026 23:20:00 +0800</div><h3>青奥会结束后，阿里云想在非洲留下一朵「云」</h3><p>一场赛事结束了，一朵“国家云”的故事才刚刚开始。 10月31日，2026年达喀尔青年奥林匹克运动会在塞内加尔开幕，这是奥林匹克运动首次走进非洲。 阿里云为这场体育盛会提供云计算和人工智能技术支持，并为塞内加尔打造首个奥运专有云底座，支撑赛事运营。 依托阿里云在全球的数据中心，全球观众将通过OBS Cloud云转播观看到运动员的精彩表现；基于视频生成模型万相创作的AI鼓乐表演，也在开幕式亮相。 据雷峰网了解，除了云转播之外，达喀尔青奥会的核心业务系统均部署于阿里云为本次赛事打造的奥运专有云底座上，包括赛事票务、注册、赛程查询等应用，以及赛事导览、运动员服务等业务。 赛事结束后，这朵“赛事云”将整体移交给塞内加尔，转为“国家云”平台，继续服务当地数字化转型。 一场赛事带来的，可能不只是一笔云服务订单。赛事结束后，如果这朵云能够持续运转、承载当地政府和企业的业务， 阿里云就有机会从赛事技术服务商，进一步成为当地数字基础设施建设的参与者。 要让这朵云持续运转，考验的是阿里云的本地化能力。 在非洲“造云”，不只是把国内的云搬过去 达喀尔青奥会项目中，阿里云克服了不少难关。 最直接的挑战来自基础设施环境。…</p><a href="https://www.leiphone.com/category/industrynews/dhQud8FAggk62CZ2.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 03 Nov 2026 21:59:00 +0800</div><h3>AI教AI开车！百度Apollo World世界模型叩开无人驾驶产业“AGI时刻”</h3><p>“世界模型，重点不是渲染的画质是否好看，而是模拟器是否能忠实还原现实物理规律和行为的因果”。11月3日，在深圳举行的百度AI Day·Apollo专场上，百度Apollo首次披露面向物理AI的智能体驱动全模态世界模型Apollo World，并提出世界模型“2+3”判断标准。目前，该模型已用于萝卜快跑全球化测试与验证，助力无人驾驶规模化落地。 百度智能驾驶事业群组(IDG)首席架构师、IDG技术委员会主席王亮表示，世界模型不能只做“生成炫酷视频的画师”，更要成为验证无人驾驶安全性的“考官”。萝卜快跑是中国唯一以端到端技术规模化运行 L4 无人驾驶的出行平台，端到端全无人运营超百万公里，Apollo World为其提供虚拟训练环境，帮助“学生” AI Driver学习、验证和迭代。 “Apollo World将虚拟场景内所有交通参与者建模为具备决策与交互能力的AI智能体，支持无人车在虚拟城市任意起终点通行，打造提前验证‘无限未来’的虚拟场景订单。”百度智能驾驶事业群组(IDG)杰出架构师、世界模型负责人杨泽进一步介绍。此外，Apollo World的技术栈还可拓展至机器人等更广泛的物理 AI 场景。…</p><a href="https://www.leiphone.com/category/industrynews/NVxn28w1vAG2qbFy.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 03 Nov 2026 21:41:00 +0800</div><h3>中国开源走向物理世界，蚂蚁灵波携机器人通用大脑亮相乌镇</h3><p>11月2日至5日，2026年世界互联网大会乌镇峰会在浙江乌镇举行，本届峰会的主题为“开源开放 共建共享——携手构建网络空间命运共同体”。蚂蚁集团旗下具身智能公司蚂蚁灵波，携全栈开源的机器人通用大脑亮相乌镇，展示模型研发、开源协作以及场景应用的新进展。 今天，开源正从语言、代码和内容生成，延伸至机器人对物理世界的感知、预测与行动。与数字世界不同，机器人本体千差万别，任务场景高度分散，许多团队不得不为每一种构型、每一个场景从头训练“大脑”。 对此，灵波给出的路径是开放的具身基础模型。目前，灵波已向全球开源覆盖空间智能、灵巧操作与环境反馈的核心模型，围绕让机器人“看得更清楚、想得更明白、干得更利索”构建全栈能力，让同一套智能在不同机器人构型、任务和场景中复用。 蚂蚁灵波大脑全栈2.0模型矩阵 据统计，LingBot系列模型开源9个月来，下载量已突破220万，GitHub Star数超过3.3万，相关工作被 Physical Intelligence、Generalist AI…</p><a href="https://www.leiphone.com/category/industrynews/ADcxxdwtaojQvzhp.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 03 Nov 2026 18:59:00 +0800</div><h3>腾讯12.8亿用户蝉联中国互联网第一，绿泡泡月活破1.5亿，手游top10独占8款</h3><p>11 月 3 日，QuestMobile发布最新《中国移动互联网秋季大报告》。报告显示，截至 2026 年 9 月，腾讯控股以 12.80 亿去重总用户量（APP + 小程序）位列中国互联网公司用户规模榜首，第九年蝉联榜首，霸主地位稳固。 短剧业务是本次报告的关注重点。腾讯旗下嵌入微信生态的绿泡泡短剧2026年9月月活跃用户规模达到 1.56 亿，登顶微信小程序短剧月活榜。该产品依托微信社交关系链与视频号导流快速起量，目前体量已是短剧行业第二名，增长速度很快。 游戏业务方面，2026 年 9 月手机游戏 App 月活跃用户 TOP10 中，腾讯独占 8 款，合计月活约 3.41 亿。其中，王者荣耀以 1.29 亿月活位居全行业第二，仅次于乐元素开心消消乐的 1.61 亿；三角洲行动、和平精英分别以 6675 万、3547 万月活位列第三、第四。报告同时提到，名古屋亚运会期间，王者荣耀以庞大玩家基数成为电竞项目顶流。 报告指出，短剧视频与短视频已成为驱动全网用户时长增长的核心引擎，增长贡献率达 111.5%。依托微信社交与私域流量，小程序短剧起量迅猛，短剧业务正成为腾讯盘活流量矩阵的重要抓手。</p><a href="https://www.leiphone.com/category/industrynews/TIDTmVxPQiwSHe8f.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Tue, 03 Nov 2026 18:09:00 +0800</div><h3>香港大学发布全球首个KYA报告关注智能体信任建设，九类企业实践获收录</h3><p>11月3日，香港大学副校长汪扬教授与香港大学经管学院杨宏副教授代表香港大学KYA课题组，在2026年香港金融科技周 x StartmeupHK创业节发布全球首个KYA（Know Your Agent）领域报告《KYA：智能体信用体系研究报告》。 报告聚焦智能体参与真实经济活动后的身份、授权、信用与责任问题，结合109份从业者有效问卷及包含Stripe、蚂蚁数科等近十个企业案例，提出智能体成熟度模型、KYA框架和智能体发展指数，并进一步探讨“智能体信任资本”的形成及其经济价值。 “没有KYA，就没有智能体经济。”报告认为，模型能力的提升不会自动转化为商业上的可委托性。只有当身份可确权、履约可核验、权限可约束时，智能体才能获得与其能力相匹配的经济授权。KYA所要解决的，正是智能体从技术可能走向商业可行的问题。 香港大学副校长汪扬教授与香港大学经管学院杨宏副教授发布全球首个KYA领域报告 智能体加速进入真实经济，信任赤字正侵蚀人工智能红利 报告将智能体的演进概括为四个阶段：能力智能体、执行智能体、交易智能体和经济智能体。截至目前，行业整体仍处于从能力智能体向执行智能体加速演进的阶段，部分前沿场景已开始探索交易智能体。…</p><a href="https://www.leiphone.com/category/industrynews/KkjVOHcQ55GyhDLv.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><h3>[解析失败] https://36kr.com/feed</h3><p>not well-formed (invalid token): line 10, column 168</p></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 09:40:04 GMT</div><h3>小鹏联合北大、港大等发布 GroundingPI 预训练模型，感知模块综合跑分超过 GPT-6 Astra</h3><p>IT之家 11 月 4 日消息，小鹏集团联合北京大学、香港大学等高校研究团队联合发布具身感知基座模型的研究成果 GroundingPI。 官方表示，该研究提出“感知优先”的技术路线，以约 40 亿参数规模，在 34 项公开感知基准的综合评测中位列第一，并在机器人仿真任务中展现出更高的数据处理效率与更强的场景泛化能力。 ▲ GroundingPI 在多个场景和能力上展现了基于视觉基元（构成画面的最小积木块）的感知能力 研究团队将 GroundingPI 与 OpenAI 前沿模型 GPT-6 Astra 在同一套 34 项感知基准上进行对比，按照以上这 11 类能力等权平均，GroundingPI 得分 73.68，Astra 得分 71.54。 ▲ 多类感知能力基准比较：紫色为 GroundingPI，蓝色为各能力类别中排名 TOP4 的对照模型，其中包含 GPT-6 Astra 据介绍，GroundingPI 提出具身智能的首要前提是精准感知自身与周边物体的空间位置，感知表征对于物理 AI 至关重要。若模型无法准确定位目标在画面中的位置，学习再多的动作知识也无法有效落地。 基于这一判断，GroundingPI…</p><a href="https://www.ithome.com/1/022/289.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 09:36:36 GMT</div><h3>谷歌加码东南亚：拟在马来西亚投资 150 亿美元扩建数据中心</h3><p>IT之家 11 月 4 日消息，Alphabet 旗下谷歌当地时间周三表示，计划在马来西亚投资 150 亿美元 （IT之家注：现汇率约合 1,002.61 亿元人民币） ，扩大当地数据中心和云计算业务。随着人工智能热潮推动数字基础设施需求持续增长，谷歌正进一步加大在该领域的投入。 根据谷歌发布的声明，该公司将建设新的计算中心，并投资改善当地水资源保障、电力供应以及马来西亚居民的技能培训。上述投资计划将在 2027 年和 2028 年期间实施。 谷歌并非唯一一家扩大马来西亚业务布局的全球科技企业。该国凭借相对较低的运营成本、可靠的基础设施，以及毗邻新加坡等商业中心的地理优势，正吸引越来越多科技巨头入驻。 目前，马来西亚已成为东南亚最重要的数据中心枢纽，吸引了甲骨文、亚马逊、阿里巴巴集团和字节跳动等企业。这些公司都需要不断扩大数据存储和处理能力，以满足数据密集型 AI 服务用户持续增长带来的需求。 谷歌表示，未来两年新园区的建设阶段预计将为马来西亚经济贡献 11 亿美元 （现汇率约合 73.52 亿元人民币） ，并每年带动超过 3.7 万个本地就业岗位。 待数据中心投入运营后，预计每年将维持超过 9000…</p><a href="https://www.ithome.com/1/022/286.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 09:30:28 GMT</div><h3>Claude Code 调整游戏开发限制：提到现有游戏不再被拒，禁止直接复刻</h3><p>IT之家 11 月 4 日消息，Anthropic 工程师阿迪 · 奥斯曼尼（Addy Osmani）在 X 发文，称已在 Claude Code 2.1.317 版本中调整 Claude Opus 5.5 的游戏开发限制， 允许用户引用现有游戏描述玩法和机制，不再因此直接拒绝生成游戏 。 据IT之家此前报道，上周，Anthropic 为防止用户利用 Claude Code 复制已有游戏， 在 Opus 5.5 的系统提示词中增加了两条规则 ，要求模型避免复刻他人的游戏作品。 这项限制引发开发者不满，因为即使用户只是提到某款游戏作为玩法参考，Claude Code 也有可能拒绝执行开发任务。 按照最新说明，用户现在可以直接提及某款现有游戏， 让 Claude 参考其玩法机制，开发同类型的原创游戏 。但如果用户明确要求复制原作，Claude 仍会拒绝直接复刻，转而建议开发一款具有类似体验的游戏。</p><a href="https://www.ithome.com/1/022/279.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 09:21:03 GMT</div><h3>谷歌 Chrome 浏览器新版三点菜单内置搜索框，方便用户快速查找设置、书签及浏览记录</h3><p>IT之家 11 月 4 日消息，谷歌 Chrome 浏览器右上角的三点菜单一直有些像寻宝游戏。用户通常知道自己要找的设置藏在菜单里的某个位置，但要找到它，往往需要在一大堆选项中反复滚动，或者回忆谷歌究竟把它藏在哪个子菜单里。如今，谷歌正在开发一项快捷功能，有望让这些繁琐的查找过程成为过去。最新的 Chrome Canary 版本显示，这项功能已经逐渐成形。 IT之家注意到，X 平台用户 Leopeva64 近日分享了一段演示视频，展示了 Chrome 全新设计的三点菜单中已经可以正常使用的搜索框。此前，这个搜索框还只是一个没有实际功能的占位元素，如今用户输入关键词后，它便能搜索并显示匹配的浏览器命令、书签以及最近访问过的网站。 对于一个隐藏在菜单中的功能来说，这项改进相当实用。用户不再需要经过多个菜单层级寻找特定设置，也不用在书签中反复翻找，只需直接输入关键词，就能在不离开菜单的情况下找到所需内容。 此外，搜索结果还会按照类别进行分类，方便用户区分浏览器操作、已保存的网页和浏览历史记录。 这并不是谷歌第一次尝试简化 Chrome…</p><a href="https://www.ithome.com/1/022/276.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 09:15:31 GMT</div><h3>腾讯跨境支付平台 TenPay Global 与银联国际签署合作备忘录，首次在跨境汇款领域开展合作</h3><p>IT之家 11 月 4 日消息，2026 年香港金融科技周期间，腾讯旗下跨境支付平台 TenPay Global 与中国银联旗下银联国际签署合作备忘录， 双方将首次在跨境汇款领域开展合作 。 IT之家获悉，根据合作备忘录， 双方将共同探索便利的跨境汇款服务 。TenPay Global 跨境汇款平台已与全球 60 多家银行及汇款机构合作，支持从 150 多个国家和地区向中国境内汇款。 据介绍，Tenpay Global 汇款至微信服务 7×24 小时全天候开放，资金快至一分钟内到账。身份验证和合规审核在后台毫秒级完成。 相关阅读： 《 腾讯与 Visa 宣布战略合作，包含跨境支付、企业级 AI、智能体支付等领域 》 《 腾讯 TenPay Global 与万事达卡签署合作备忘录，入境扫码支付、汇款与智能体支付同步推进 》</p><a href="https://www.ithome.com/1/022/273.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 09:11:48 GMT</div><h3>“AI 教父”辛顿：今明两年就有可能发生人工智能领域的切尔诺贝利事故</h3><p>IT之家 11 月 4 日消息，诺贝尔奖得主、“AI 教父”Geoffrey Hinton（杰弗里 · 辛顿）近日在接受英国《卫报》采访时表示， 人工智能领域今明两年就有可能发生切尔诺贝利等级的事故 。 辛顿表示，今年夏天发生的 OpenAI 智能体入侵 Hugging Face 事件是一次类似三哩岛核事故的“警告”。而更为严重的“人工智能切尔诺贝利”则可能会是 AI 攻击导致大规模停电或金融系统瘫痪一周。人类可能能承受这种重大灾难的考验，然后意识到人工智能技术的危险性。 辛顿并不信任 Meta 扎克伯格、SpaceXSI 马斯克、OpenAI 奥尔特曼。他 认为这些人工智能企业的领导人虽然明白风险但只关注技术产生的经济效益 ，放任人工智能的发展。 辛顿坦承他相信人工智能有潜力为人类带来美好的未来，但 其中蕴藏的重大隐患甚至可能让他认为这项技术当初就不该被开发出来 。人类将在十年甚至更短的时间内知道能否可以安全管控人工智能技术的风险。他支持对前沿人工智能进行强制性测试、独立评估并制定政府间通用标准。</p><a href="https://www.ithome.com/1/022/271.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 09:11:39 GMT</div><h3>《Arc Raiders》开发商谈 AI 配音：初衷是减轻演员负担，正逐步替换为真人录音</h3><p>IT之家 11 月 4 日消息，《Arc Raiders》开发商 Embark Studios 的开发人员近日谈到了这款撤离射击游戏中生成式 AI 配音技术的使用问题。他们认为，最初采用生成式 AI 生成语音台词，实际上减轻了配音演员的工作负担。原因是，如果所有台词都要由演员亲自录制，“他们恐怕会被这些工作量逼疯”。 IT之家注意到，相关内容来自 Embark Studios 近期发布的一段视频，视频主要介绍了《Arc Raiders》的音效与音乐制作过程。多名核心工作人员在视频中谈到了游戏对生成式 AI 的使用，包括早期利用 AI 生成角色语音，以及此后逐步用真人录音替换 AI 配音的过程。 音频总监本斯 · 帕约尔（Bence Pajor）首先谈到了自己在此前工作室遇到的问题。他表示，过去由于语音台词已经确定，游戏玩法方面的调整往往无法进行。他认为这是一件“非常痛苦”的事，因为这不仅会给编剧团队和对话团队带来压力，也会影响配音演员的工作安排，尤其是在演员档期发生冲突时。 帕约尔表示，在斯德哥尔摩聘用能够随时联系到的配音演员，并借助现有工具开展工作，让所有人的工作都变得更加轻松。…</p><a href="https://www.ithome.com/1/022/270.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 09:10:54 GMT</div><h3>NIO IN 2026 蔚来创新科技日定档 11 月 25 日，AI 驱动的全新智能座舱、辅助驾驶产品将亮相</h3><p>IT之家 11 月 4 日消息，蔚来官方今日宣布，NIO IN 2026 蔚来创新科技日将于 11 月 25 日 在广州举行。 蔚来官方表示，届时，将分享公司在 AI 原生组织方面的思考与实践， 以及 AI 驱动的全新智能座舱、智能辅助驾驶产品 。 IT之家注意到，2023 蔚来创新科技日，蔚来曾发布品牌首款手机产品 —— NIO Phone，并首次介绍全栈技术布局；2024 蔚来创新科技日，蔚来发布了 5 纳米智驾芯片「蔚来神玑 NX9031」、行业首个面向 AI 的整车全域操作系统「SkyOS · 天枢」和全新「 Banyan 3 智能系统」。</p><a href="https://www.ithome.com/1/022/269.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 09:07:57 GMT</div><h3>京东曹鹏：未来五年计划采购 300 万台机器人、100 万台无人车和 10 万架无人机</h3><p>IT之家 11 月 4 日消息，2026 年世界互联网大会乌镇峰会机器人与具身智能论坛今日在浙江乌镇举行。 京东集团技术委员会主席曹鹏发表演讲，分享了京东推动 AI 从数字世界走向物理世界的最新实践。目前，京东具身数采已覆盖 100 余个细分生产服务场景，采集超 10 万真实作业任务。 在应用端，京东正推动 AI 与机器人融入供应链全流程。例如， 未来五年，京东物流计划采购 300 万台机器人、100 万台无人车和 10 万架无人机 。智元的具身机器人已进入京东物流智狼仓，双方在真实作业中检验产品边界、提升可靠性，推动机器人从单点操作走向流程协同。 IT之家获悉，围绕超级 AI 供应链，京东已启动“ 京东物理 AI 加速计划 ”，第一阶段聚焦具身智能机器人，在数据、基地、制造、销售、物流和服务六个方向持续投入。 官方表示，目前， 京东 AI 已应用于零售、物流、健康、工业等超过 3000 个场景 。此外，京东拥有 3800 多个仓库、超过 20 万家合作线下零售药房，以及超过 1 万家京东 MALL、七鲜、养车等各类门店。丰富的业务场景，为机器人学习商品操作、仓储作业和家庭服务等任务提供了真实环境与持续反馈。…</p><a href="https://www.ithome.com/1/022/267.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 08:52:06 GMT</div><h3>谷歌确认自愿离职补偿计划已扩大至加拿大、法国、德国、日本、瑞士等国</h3><p>IT之家 11 月 4 日消息，据路透社今日报道，面对人工智能领域的巨额支出，Alphabet 旗下谷歌正力求遏制不断攀升的成本，并于今年将员工自愿离职买断方案扩展至多个国家。 谷歌向该媒体证实， 公司已于 6 月开始向加拿大、法国、德国、日本和瑞士的部分员工提供自愿离职补偿方案 。 “在 2025 年，我们的一些团队推出了附带遣散补偿的自愿离职计划，”一位谷歌发言人在声明中表示。“刚刚过去的今年夏天，也就是 6 月，我们在全球少数几个国家扩大了该计划，以支持我们接下来的重要工作。” 目前无法确定有多少员工接受了这轮此前未被报道过的最新要约。 此举正值 AI 领域资本开支激增之际，相关开支已引发华尔街担忧并波及 Alphabet 股价。微软上周也向 6 万名员工提供了自愿买断离职选项（IT之家注：微软后续澄清预计最终接受补偿离职的员工最多 3000 人，占符合条件员工总数的 5% 或更少），以全力控制开支。 尽管近几个季度 Alphabet 的员工规模稳步增长，但该公司始终致力于将资源向核心优先业务倾斜。…</p><a href="https://www.ithome.com/1/022/261.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 08:44:41 GMT</div><h3>“剧好看”专区即将全面登陆爱奇艺、腾讯视频、优酷、芒果 TV 四大平台</h3><p>IT之家 11 月 4 日消息，据中国电视剧制作产业协会青年工作委员会“青刊”报道，在今日的 2026 中国广播电视精品创作大会电视剧（网络剧）论坛上，一则行业重磅消息放出： “剧好看”专区即将全面登陆爱奇艺、腾讯视频、优酷、芒果 TV 四大平台 。 在已覆盖全国电视大屏的基础上， “剧好看”专区补齐小屏端 ，不再只是电视大屏上的点播专区，而成为覆盖家庭客厅与移动端全场景、贯通有线电视 / IPTV / OTT 与头部长视频平台的剧集发行网络。 商业模式上，“剧好看”专区小屏端的延续大屏端 单片付费 的基础上增加了 会员分账和广告解锁分账 ，兼顾不同用户的消费习惯。 发行方式上， 版权方统一授权给剧好看专区，无需逐省、逐平台、逐渠道谈判，降低发行沟通成本 。 在“剧好看”大屏端上线播出的作品，“剧好看”小屏端也能同步播出。实现一次接入，作品即可同时进入全国电视大屏和四大长视频平台小屏观影场景，运营方与播控平台协同宣发，形成物料供给到渠道推广的一体化联动。 内容需求上，“剧好看”专区以 中剧、网络故事片、短剧集 等网剧新三样为主，同时可播出长剧、电影、纪录片、动画片、AI 作品，题材不设限。…</p><a href="https://www.ithome.com/1/022/258.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 08:41:45 GMT</div><h3>游戏模组分享平台 Nexus Mods 更新创作政策，要求模组开发者公开披露 AI 工具使用情况</h3><p>IT之家 11 月 4 日消息，游戏模组分享平台 Nexus Mods 宣布更新平台生成式 AI 使用政策，要求创作者必须公开披露模组制作过程中 AI 工具的具体使用情况。同时平台明确表示不会全面禁止 AI 模组，旨在建立全新管理规则，以便在社区内不同立场的用户之间寻求平衡。 根据新规，使用 AI 工具参与模组制作的创作者，必须详细说明模组中 AI 具体参与的部分，以便其他用户在下载前了解相关信息，并自行决定是否接受。 而对于已经发布模组的创作者，平台提供了 60 天宽限期，以便开发者完成相关信息补充，后续审核将由人工进行，此外 Nexus Mods 也鼓励用户举报未按规定披露 AI 使用情况的模组。 Nexus Mods 网站负责人 Foledinho 强调，平台所有相关决策的基本出发点都是“支持人类创作”，因此不会直接封禁所有 AI 模组。 Foledinho 同时表示，只要符合平台关于使用权限、信息透明度、内容展示方式以及用户行为等方面的要求，AI 生成模组仍然可以在 Nexus Mods 发布。当然其也坦言，平台新政策不一定能够满足社区所有用户的期望。后续随着 AI 技术不断发展，平台相关政策也会随之调整。</p><a href="https://www.ithome.com/1/022/257.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 16:23:37 +0800</div><h3>SUSE 因 AI 而计划裁员十分之一</h3><p>德国开源软件公司 SUSE 现有员工 1900 人，它计划裁掉十分之一的员工。CEO Dirk-Peter van Leeuwen 在电子邮件里表示，自动化和 AI 降低了某些岗位的需求。他表示做出这一决定是非常痛苦的，但也是必要的。Van Leeuwen 称，在被瑞典私募股权投资公司殷拓集团收购后，公司在仔细审视了其未来战略、所需能力及团队架构后做出了裁员决定,“显而易见自动化和 AI 正从根本上改变软件公司的运营方式。AI 技术正呈指数级发展，迫使我们彻底重新构想工作模式。无论是所在行业，还是在更广泛的经济领域，我们都已经看到了这一趋势。这意味着 SUSE 目前所依托的组织架构和成本基础，已无法支撑未来的成功发展。”受影响的员工将在 11 月 4 日前收到通知，员工代表将于次日选出，一对一沟通会议则将于下周初启动。</p><a href="https://www.solidot.org/story?sid=85791" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 00:58:29 +0800</div><h3>纽约时报等起诉 Brave 绕过付费墙抓取内容并提供给 AI 公司</h3><p>《纽约时报》、《芝加哥论坛报》和《奥兰多哨兵报》等美国出版商起诉 Brave Software，指控其未经许可抓取网站内容，并帮助用户绕过付费墙。Brave Software 被控将其抓取内容的索引数据库 Brave Index 提供给 Anthropic、Perplexity、Mistral、xAI 和 Cohere 等 AI 公司，通过 Paywall blocker 功能帮助用户绕过数百家新闻媒体的付费墙。《纽约时报》发言人 Graham James 在一份声明中表示：“我们支持合乎道德且负责任的使用与开发 AI，但 Brave 公然蔑视现行版权法，对《纽约时报》多次要求其停止侵权行为的诉求置之不理。我们提起此项诉讼，旨在追究 Brave 的责任——它窃取了我们的内容，不仅用于支撑其自身产品，还将其提供给部分全球最知名、资源最雄厚的生成式 AI 公司。”</p><a href="https://www.solidot.org/story?sid=85788" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 04 Nov 2026 00:33:42 +0800</div><h3>Google 将对拒绝 AI 的美国学校关闭搜索</h3><p>Google 宣布美国 K-12 学校学生使用的软件将默认关闭所有 AI 功能，除非学校管理人员自己选择启用。此举旨在回应教育工作者和家长的诉求，他们希望在孩子与 AI 互动上有更多的掌控权。今天 AI 功能已成为 Google 商用搜索引擎的标配，Google 负责教育的副总裁 Chris Phillips 表示，搜索与 AI 已深度融合，如果学校禁用了 AI，那么学生将无法使用搜索。美国 K-12 学校广泛使用 Google 的软件，包括 Gmail、Docs 以及作业平台 Classroom。Google 的 Chromebook 是美国学校最广泛使用的笔记本电脑。</p><a href="https://www.solidot.org/story?sid=85787" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 02 Nov 2026 17:53:16 +0800</div><h3>Proton 全力推动工程师转向 AI</h3><p>以提供隐私服务著称的 Proton 公司正全力推动工程师转向采用 AI，CEO Andy Yen 还在内部 Slack 频道训斥了提出安全顾虑的员工，称是“失败者的思维”。Proton 甚至计划对员工进行重新面试，要求员工说明他们如何使用 AI。如果员工没有充分使用 AI 他们可能会面临被解雇。在引发公众抗议之后，Proton 取消了重新面试。尽管如此，Proton 公布了一份 AI 宣言：“首先工程文化和工程师心态需要发生转变。你们的工作性质已经变了。你们的任务不再是写代码，LLM 也不是为了帮助你们更快、更好地写代码。你们的工作，是帮助 LLM 更快更好地写代码。”</p><a href="https://www.solidot.org/story?sid=85773" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      <section class="section-card" id="errors"><div class="section-head"><h2>抓取异常</h2><span>不影响当期页面生成</span></div><ul class="error-list"><li class="error-item"><strong>36氪</strong><span>[解析失败] https://36kr.com/feed</span><em>not well-formed (invalid token): line 10, column 168</em></li></ul></section>
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>
