@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-11-07</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a><a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      <a class="toc-link" href="#errors">抓取异常</a>
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-11-07</span>
+          <span>17:03（北京时间）</span>
+          <span>IT之家、Solidot、量子位、雷锋网</span>
+        </div>
+        <p class="hero-copy">11月7日共汇总33条AI相关动态，覆盖大模型与智能体、云与大厂生态、芯片算力、产业投融资及数据安全合规等方向。当日信息以智能体产品化探索、AI商业化渠道试验和早期融资为主，同时出现AI办公合规判例与交通气象大模型等落地信号。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>33</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>4</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>1</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>12</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>12</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>9</strong></div><p>基础设施的效率叙事持续升温</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>8</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>IT之家、雷锋网</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>7</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>6</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>IT之家、雷锋网</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>2</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>量子位</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>智能体从概念走向终端与基础设施</h3><p>围绕Agent Harness、AGENTS.MD的讨论，以及Personal Agent与云电脑的配套关系，显示智能体落地正涉及运行框架与算力载体。阶跃终端STEPX Neo智能体手机在高通展台亮相，进一步把智能体体验推向终端形态。</p></article><article class="insight-card"><h3>AI商业化试水与生态合作并行</h3><p>李佳琦直播间上架千问办公Token算力，半小时售出10万份个人会员月卡、累计约2万亿Token，反映Token作为AI服务计量与销售单元的尝试。阿里巴巴发布《2026 AI向善行动报告》，将AI数据中心可持续发展列为年度亮点；菜鸟则宣布开放全球仓网，打造AI及具身智能物流实景训练集群。</p></article><article class="insight-card"><h3>算力与芯片方向持续受资本关注</h3><p>DeepSeek带火稀疏计算背景下，国产芯片公司加速突围，其中一家公司再融近10亿元。上交大张伟楠在CNCC 2026的分享则把讨论延伸至物理智能，强调AI在真实世界中形成感知、预测、行动与持续学习闭环的挑战。</p></article><article class="insight-card"><h3>AI创业融资活跃，入口与硬件并进</h3><p>前腾讯光子工作室群副总经理刘丹创办的创想悦动完成约六千万元种子轮融资，投资方为创维战投、创维数字，并已启动新一轮融资。前飞书CMO孙峰创办的AI情绪科技品牌Ora-Orb完成数千万元融资，梅花创投领投，新一轮融资同步启动，目标投后估值2亿元。</p></article><article class="insight-card"><h3>安全合规与行业应用同步推进</h3><p>OpenAI产品反馈与安全相关人事动向引发关注。国内出现员工使用第三方AI平台辅助办公被开除、法院判决公司赔偿4.6万元的案例，涉及信息安全规定与劳动关系的边界。吉利与中国气象局地球系统数值预报中心合作推出“智象-星睿交通气象大模型”，聚焦结冰、团雾等场景的车道级监测提示。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>Token算力进入直播电商渠道，说明AI服务正尝试以更接近消费品的计量和销售方式触达用户，后续需观察复购与真实使用转化。</li><li>智能体手机、AI体感主机、AI情绪硬件等终端形态同时出现，表明创业公司正争夺屏幕之外的AI入口，但产品成熟度与场景刚需仍待验证。</li><li>稀疏计算受关注、国产芯片公司融资近10亿元，反映推理侧算力优化仍是资本与技术竞争焦点。</li><li>员工因使用第三方AI平台被开除的判例提示企业AI使用政策需明确数据边界与授权流程，否则可能带来劳动合规风险。</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>Agent Harness与AGENTS.MD相关实践的安全性与标准化进展</li><li>Personal Agent与云电脑配套模式的落地情况</li><li>阶跃终端STEPX Neo智能体手机的市场反馈</li><li>千问办公Token在直播渠道的销售与使用持续性</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>12 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？</h3><a href="https://www.qbitai.com/2026/11/508264.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>AGENTS.MD，危险危险危险！！！</h3><a href="https://www.qbitai.com/2026/11/508244.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>为什么每个 Personal Agent 背后，都必须配备一台“云电脑”？</h3><a href="https://www.qbitai.com/2026/11/508174.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>阶跃终端 STEPX Neo 智能体手机亮相进博会高通展台，软硬模一体打造智能体新体验</h3><a href="https://www.qbitai.com/2026/11/508170.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>百图生科与11家伙伴战略合作，AI生物计算覆盖医药研发及农业育种</h3><p>活动焦点： · 百图生科主办、港投公司支持的第三届峰会2026年11月6日开幕，汇聚约300名科研、产业及投资界代表，探讨人工智能与生命科学的融合发展 · 百图生科InnoHub分别与大学、科企及投资机构合作，以AI生物计算聚焦乳癌及中医药研究、农业育种、研发与产业配套，包括与香港大学推进「乳腺癌虚拟细胞大模型」项目，以及与香港浸会大学筹建「AI中医药联合实验室」；合作网络延伸至日本、新加坡及「一带一路」沿线市场 · 全日设多场院士演讲及圆桌论坛，涵盖世界模型、可穿戴生物传感与具身智能，以及香港生物计算发展、生物医药AI研发、投资及企业拓展国际市场等议题 2026年11月6日，生命科学基础大模型企业百图生科（BioMap）主办、香港投资管理有限公司（港投公司）支持的第三届「国际生物计算创新峰会2026」在香港会议展览中心隆重举行。本届峰会主题为「智解生机」（Decoding Future…</p><a href="https://www.leiphone.com/category/industrynews/X7HwwQTEXJhiVVzK.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>OpenAI 「重置大神」换人了？Tibo 去救火，Andrew 上位</h3><p>Tibo 不发糖了？因为Open AI 的内部安全烂透了 作者丨 高允毅 编辑丨岑 峰 OpenAI 的“赛博义父”好像换人了？最先发现不对劲的是敏锐的网友。 11 月 4 日， Codex 团队的产品负责人 Andrew Ambrosino 发帖称，关于 OpenAI 产品的任何意见都可以反馈给他。 Tibo 在下面跟了一句：“快点改进模型”，Andrew 回：“马上照办”。 在另一个互动里，双方的关键词都在不断 cue “按钮”。 这些对话看起来很像某种交接仪式，但实际上可能是 OpenAI 内部分工的细化：Tibo 不再亲自下场做客服回应用户的额度问题了，而是把协调产品体验的活交给了更懂技术的 Andrew。 而 Tibo 自身有更重要的事要管。据路透社曝出， Tibo 被调去治理 OpenAI 内部安全问题。 其实真的交接起来，也很容易，就是传递一个按钮的事儿。众所周知，Codex 的重置功能，真的来自一个按钮。 曾有两名博主去拜访 OpenAI 时，亲眼确认那个按钮就在 Tibo 桌子上，被一个银色翻盖盒子包裹。按钮连接着OpenAI内部系统，按下去，全球所有付费用户的 Codex…</p><a href="https://www.leiphone.com/category/yanxishe/u5N6lCUT0bEfanp1.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>李佳琦卖出万份Token，天猫的AI生意才刚开场</h3><p>Token正在成为AI时代的“流量包”。 （雷峰网雷峰网雷峰网） 11月2日晚，李佳琦直播间上架AI千问办公的Token算力，开播半小时，售出10万份千问办公个人会员月卡，累计约2万亿Token。 这次千问办公CEO陈宇森也来到直播间现场，雷峰网此前了解到，这位阿里最年轻的事业部CEO，业内普遍评价他能力很强，具备出色的产品sense、表达能力和商业认知都超出大部分阿里的资深老员工，“登味”极少。 说起来，阿里在就9月份就已有动作，同期天猫设立“AI空间站”，就有三家厂商入驻：千问、智谱、Minimax，充值规格分为月卡、季卡和年卡三档；阿里旗下的三档AI应用分别也给出了20%—40%的优惠；更早些，智谱直接在天猫开通官方旗舰店。 从模型厂商到电商平台，再到直播间，Token正在被包装成一种可以直接购买的商品。 但对电商平台来说，把Token摆上货架只是第一步。至于做成一门生意，是另一件事。（作者持续关注字节百度等大厂，欢迎添加微信Who123start畅聊） 01 电商平台为什么盯上Token？…</p><a href="https://www.leiphone.com/category/industrynews/h454rlPtg41JIuFd.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>李彦宏百度世界2026演讲海报曝光，或分享智能组织进化新思考</h3><p>11月4日，百度官方发布了一则百度世界2026大会预热海报，提前透露了百度创始人李彦宏将于11月12日在大会开幕式上发表主题演讲的相关线索。 海报中的三个问题引人关注：“什么是AI时代的新厂房？”“组织进化三原则是哪些？”“智能组织将迎来的三大机会是什么？” 结合本届大会“下一幕，智能组织”的主题，李彦宏的主题演讲或围绕“智能组织进化”展开。 预测一：或分享智能组织进化趋势，并为企业AI转型提出建议 2016年百度世界大会上，李彦宏曾提出“互联网的下一幕，是人工智能”。十年后，百度世界再次以“下一幕”为题，将焦点转向“智能组织”。 近一年来，李彦宏持续关注AI如何推动企业组织层变革。在2025年百度世界大会上，他提出内化AI能力，让AI成为企业发展和个人成长的原生推动力。今年5月的Create大会上，他进一步提出AI时代的“进化论”，探讨由人与智能体组成混合编队的超级组织形态，并就企业自我进化提出建议。 从“内化AI能力”到“组织自我进化”，相关思考逐步从个人提效延伸至组织变革。海报中的“新厂房”、“组织进化三原则”等线索，预示着李彦宏或将进一步阐释智能组织的进化路径，并就企业如何推进组织进化提供新思路。…</p><a href="https://www.leiphone.com/category/industrynews/49uolfG855V4Zc9M.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>Anthropic 神秘模型“立功”，AI 帮助攻克量子计算领域重大难题</h3><p>IT之家 11 月 7 日消息，据《商业内幕》今天（7 日）上午报道，AI 帮助攻克了量子计算领域一项长期悬而未决的重大难题。 物理研究机构 Physical Superintelligence（PSI）宣布，借助 Anthropic 一款尚未发布的 AI 模型， 量子计算领域的阿伦森－安拜尼斯猜想 成功得到证明。 这项猜想自 2008 年提出以来一直未获证明，研究的是量子计算机 在何种条件下能够获得远超传统计算机的运算速度 。 PSI 自行开发了一套 采用 Anthropic 模型的研究系统 ，仅用三天就完成了证明。据其介绍，此次行动意味着“量子计算领域最根本的问题之一”得到解决。 AI 辅助数学研究取得突破的案例还在增加。今年 9 月，OpenAI 宣布解决了有 90 年历史、“数学前沿最深奥的问题之一”的纳维－斯托克斯方程难题。 证明阿伦森－安拜尼斯猜想的研究系统由 PSI 技术人员戴维 · 图尔图雷安开发，系统使用了 Anthropic 尚未发布的 AI 模型。不过，PSI 具体使用了何种模型暂时不得而知。…</p><a href="https://www.ithome.com/1/023/752.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>“超视距安全预警”可识别结冰等危险路况并提示，吉利发布首个车道级气象环境监测大模型</h3><p>IT之家 11 月 7 日消息，11 月 5 日，吉利汽车集团与中国气象局地球系统数值预报中心正式签署战略合作框架协议。 双方联合推出行业首个“智象-星睿交通气象大模型”，该模型聚焦结冰、团雾等极端气象场景， 可实现车道级气象环境实时监测与提示 ，为进一步提升复杂天气条件下的行车安全与自动驾驶系统可靠运行提供支撑。 其中针对 能见度骤然下降、暗冰在特定桥面或背阴路段形成、暴雨在局地路段造成积水 等这些“看得见天气、看不清路段”的盲区，目前“智象-星睿交通气象大模型”已初步输出车道级能见度、暗冰和暴雨风险提示产品 ——“超视距安全预警”功能， 可基于多车互联智能识别到结冰等危险路况，并主动提示 。 IT之家获悉，该模型计划 率先在领克 900L 上量产落地 ，未来逐步应用于吉利、银河、领克、极氪等多品牌车型。 此外，明年一季度，吉利汽车集团还将联合中国气象局地球系统数值预报中心发布行业首个“通用气象模型”。 未来，双方还将共同推进《智能网联汽车气象环境数据采集与处理规范》国家标准建议书落地，力争在车载气象观测领域形成适配国内产业实际的技术路径与标准方案。</p><a href="https://www.ithome.com/1/023/749.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>OpenAI CFO 弗莱尔：今年美国中期选举不会影响公司的 IPO 计划</h3><p>IT之家 11 月 7 日消息，OpenAI CFO 莎拉 · 弗莱尔认为，尽管 2026 年美国中期选举改变了国会的政治格局，但公司的 IPO 计划并未受到影响。 当地时间 6 日，弗莱尔接受 CNBC 直播采访时说：“你看，我们拿着管理者的薪水，就是要 应对各种可能出现的情况 。我不认为有什么事情对我们产生了重大影响。” 此次，弗莱尔重申了 OpenAI 计划争取明年上市 的目标。与此同时，外界也在关注 OpenAI 的主要竞争对手 Anthropic 是否会继续推进 IPO。 据IT之家了解，美国民主党在此次中期选举中取得数十年罕见的大胜，不仅夺回国会控制权，还将在新的一年以明显的席位优势掌控国会。州长方面，民主党候选人凭借 限制新建数据中心开发 的竞选承诺，赢得了原本由共和党掌握的得克萨斯州、佐治亚州和俄亥俄州州长职位。 弗莱尔披露，OpenAI 不会停止投资大型数据中心。公司试图将这些设施 重新定义为“算力园区” ，而数据中心的建设对 OpenAI 和整个 AI 行业的未来都至关重要。“对于中期选举，我需要继续考虑的是，如何通过 持续投资来满足客户需求…</p><a href="https://www.ithome.com/1/023/690.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Google 和 OpenAI 的模型对特定口音有偏见</h3><p>研究人员调查了先进多模态模型如何评估面试、会议报告和英语口语能力测试中的语音，测试的模型包括了 Google 的 Gemini 2.5 Pro 和 Gemini 2.5 Flash，以及 OpenAI 的 GPT-Audio 1.5，开放权重模型 Qwen 3 Omni。这些模型对五种不同口音——美国、英国、中国、印度和尼日利亚——的英语语音进行了评分。AI 模型普遍将中国和尼日利亚口音的评分最低，印度口音居中，美国和英国口音的评分最高。即使内容完全相同，系统仍然认为美国和英国口音的表达方式和内容都更胜一筹。研究团队发现，明显的等级划分也体现在模型的解释中。研究人员说，模型反复声称中国和尼日利亚口音的英语使用者含糊不清或难以理解，但实际上它们非常擅长转录带有口音的语音，它们理解说话者，但它们只是基于口音，对说话者存在一种隐性的等级观念。</p><a href="https://www.solidot.org/story?sid=85804" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>12 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>阿里巴巴发布《2026 AI向善行动报告》 AI数据中心可持续发展成年度亮点</h3><a href="https://www.qbitai.com/2026/11/508165.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>李佳琦卖出万份Token，天猫的AI生意才刚开场</h3><p>Token正在成为AI时代的“流量包”。 （雷峰网雷峰网雷峰网） 11月2日晚，李佳琦直播间上架AI千问办公的Token算力，开播半小时，售出10万份千问办公个人会员月卡，累计约2万亿Token。 这次千问办公CEO陈宇森也来到直播间现场，雷峰网此前了解到，这位阿里最年轻的事业部CEO，业内普遍评价他能力很强，具备出色的产品sense、表达能力和商业认知都超出大部分阿里的资深老员工，“登味”极少。 说起来，阿里在就9月份就已有动作，同期天猫设立“AI空间站”，就有三家厂商入驻：千问、智谱、Minimax，充值规格分为月卡、季卡和年卡三档；阿里旗下的三档AI应用分别也给出了20%—40%的优惠；更早些，智谱直接在天猫开通官方旗舰店。 从模型厂商到电商平台，再到直播间，Token正在被包装成一种可以直接购买的商品。 但对电商平台来说，把Token摆上货架只是第一步。至于做成一门生意，是另一件事。（作者持续关注字节百度等大厂，欢迎添加微信Who123start畅聊） 01 电商平台为什么盯上Token？…</p><a href="https://www.leiphone.com/category/industrynews/h454rlPtg41JIuFd.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家丨腾讯20年老兵创业 AI 体感主机，融资超六千万</h3><p>创始人刘丹曾任光子工作室群副总经理、《斗战神》制作人。 作者丨 陈玘凡 编辑丨 吴优 雷峰网·鲸犀独家获悉，AI 体感成长主机公司创想悦动已完成种子轮融资，投资方为创维战投、创维数字，总金额约六千万元。 创想悦动目前已经开启 新一轮融资 ，意在进行更多后续内容开发、东南亚海外市场拓展、线下渠道铺设及下一代产品预研。 创想悦动创始人刘丹曾任光子工作室群副总经理、天行工作室总经理，于 2003 年加入腾讯互娱，参与见证腾讯游戏从起步到壮大的全过程，主导并参与了《QQ堂》、《QQ宠物》《斗战神》等项目。核心团队均来自 腾讯、字节、阿里 等头部互联网公司。 刘丹告诉雷峰网·鲸犀，“创想悦动当前以及未来在做的事情与索尼、任天堂一样”，既搭建主机硬件平台，也构建应用内容生态。 由于体感内容对于算力、存储的高要求，传统的电视机如果集成对应模块，会导致成本和售价的大幅上涨。而创想悦动选择将体感内容做成主机，通过摄像头结合端侧 AI 实现对用户骨骼、动作、表情识别，将体感运动、体感娱乐、体感学习塞进家庭客厅，和电视配成“互动大屏家庭新生态”。 Youdoo Box…</p><a href="https://www.leiphone.com/category/weiwu/8xihmnpkWWIHsn9G.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家解读丨前飞书 CMO 创业，为何用「水晶球」赌一个AI入口？</h3><p>这是梅花创投吴世春10分钟敲定的一笔投资。 作者丨陈玘凡 编辑丨吴优 雷峰网・鲸犀独家获悉，前字节飞书 CMO 孙峰创办的 A I 情绪 科技品牌 Ora-Orb ， 已完成累计数千万元融资。由梅花创投领投，知名产业资本跟投。向阳资本担任长期独家财务顾问。 新一轮融资同步启动，目标投后估值 2 亿元人民币。 孙峰对雷峰网·鲸犀分享：去年与梅花创投的吴世春见面，不到 10 分钟，吴世春就敲定了对这家新公司的融资。 Ora-Orb 创始人孙峰拥有 20 年互联网市场与出海经验，曾任字节飞书 CMO、京东市场总监、金山软件市场总监、蓝湖 CMO、迅雷副总裁，在蓝湖任职期间，他用 9 个月就把产品推至行业第一。 公司主打的硬件产品 Ora-Orb，是一款桌面级 AI 情绪陪伴终端，包括水晶球硬件 Orb 和 IP 形象 Ora，主攻北美 Z 世代女性市场，定价 365 美元，计划 2027 年 1 月亮相 CES 展会后，再登陆 Kickstarter 众筹。 今天做情绪陪伴的 AI 硬件其实不少，能够打出声量的却凤毛麟角。Ora-Orb 怎么在情绪陪伴的“坚壁”上凿出一条“裂缝”？孙峰的心里，已经有了有不少思考。 01…</p><a href="https://www.leiphone.com/category/weiwu/MiJKpPLqwFGB14X7.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>李彦宏百度世界2026演讲海报曝光，或分享智能组织进化新思考</h3><p>11月4日，百度官方发布了一则百度世界2026大会预热海报，提前透露了百度创始人李彦宏将于11月12日在大会开幕式上发表主题演讲的相关线索。 海报中的三个问题引人关注：“什么是AI时代的新厂房？”“组织进化三原则是哪些？”“智能组织将迎来的三大机会是什么？” 结合本届大会“下一幕，智能组织”的主题，李彦宏的主题演讲或围绕“智能组织进化”展开。 预测一：或分享智能组织进化趋势，并为企业AI转型提出建议 2016年百度世界大会上，李彦宏曾提出“互联网的下一幕，是人工智能”。十年后，百度世界再次以“下一幕”为题，将焦点转向“智能组织”。 近一年来，李彦宏持续关注AI如何推动企业组织层变革。在2025年百度世界大会上，他提出内化AI能力，让AI成为企业发展和个人成长的原生推动力。今年5月的Create大会上，他进一步提出AI时代的“进化论”，探讨由人与智能体组成混合编队的超级组织形态，并就企业自我进化提出建议。 从“内化AI能力”到“组织自我进化”，相关思考逐步从个人提效延伸至组织变革。海报中的“新厂房”、“组织进化三原则”等线索，预示着李彦宏或将进一步阐释智能组织的进化路径，并就企业如何推进组织进化提供新思路。…</p><a href="https://www.leiphone.com/category/industrynews/49uolfG855V4Zc9M.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为更多机型鸿蒙 HarmonyOS 7 系统转公测，含 nova 12 / 13 系列、畅享 70X 等</h3><p>IT之家 11 月 7 日消息，华为官网最新信息显示，鸿蒙 HarmonyOS 7 系统更多机型从花粉 Beta 转为公测， 覆盖 nova 12 / 13 系列、畅享 70X、MatePad Pro 13.2 英寸 2023 系列等 。 IT之家附华为鸿蒙 HarmonyOS 7 最新适配机型清单如下： 正式版 HUAWEI Mate 80 系列 HUAWEI Mate 70 系列 HUAWEI Mate 60 系列 HUAWEI Mate X7 系列 HUAWEI Mate X6 系列 HUAWEI Mate X5 系列 HUAWEI Mate XTs 非凡大师 HUAWEI Mate XT 非凡大师 HUAWEI Pura 90 系列 HUAWEI Pura 80 系列 HUAWEI Pura 70 系列 HUAWEI Pura X Max 系列 HUAWEI Pura X 系列 HUAWEI Pocket 2 系列 HUAWEI nova 16 系列 HUAWEI nova 15 系列 HUAWEI nova 14 系列 华为畅享 90 系列 HUAWEI MatePad Edge HUAWEI MatePad…</p><a href="https://www.ithome.com/1/023/755.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>Meta 推出基于 Muse Wonder 训练的现有模型专用版本，主动记忆与专注能力下放</h3><p>IT之家 11 月 7 日消息，Meta 在上月发布了 Muse Wonder 系列模型。当地时间 11 月 6 日，Meta 宣布推出 基于 Muse Wonder 训练的现有模型专用版本 ，并全面推送给 Muse 与 Meta AI 用户。 在发布 Muse Wonder 时，Meta 首次推出了主动记忆（Active Memory）与主动专注（Active Focus）两项核心特性。如今这两项能力全面下放至 Muse 与 Meta AI 中的专用模型群。 官方表示，主动记忆让 Muse 和 Meta AI 能够精准记住关键信息，并在先前对话内容与当前场景相关时及时调取，从而更轻松地基于历史对话延展推进。 Muse 中升级后的模型，在遗忘达成目标所需关键信息的问题上降低了 2.4 倍。 IT之家获悉，主动专注能力则确保 Muse 即使遭遇突发挑战，也能坚定不移地推进目标。在 Muse 中，当日常任务出现意外状况时，新模型的任务完成率提升了 67%。 延伸阅读 Muse Wonder 是 Meta 于 2026 年 10 月 12 日（美东时间）正式发布的新一代人工智能模型系列，包含主打快速前沿性能的 Muse…</p><a href="https://www.ithome.com/1/023/744.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为余承东：享界 V8 全国试驾正式开启，发布会临近敬请期待</h3><p>IT之家 11 月 7 日消息，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东今日宣布， 享界 V8 全国试驾正式开启 ，欢迎带上家人一起体验，期待听到大家的真实反馈。 发布会临近，敬请期待 ！ 据IT之家了解，享界 V8 是鸿蒙智行旗下 享界品牌首款 MPV ，该车提供纯电与增程两种动力形式，全系标配 800V 高压平台、±12° 后轮转向和华为乾崑智驾系统， 预售价 32.98 万元起 。 华为官网显示，享界 V8 采用七座布局设计，分 Ultra+、Ultra、Max+ 和 Max 四个版本。除 Max+ 外，享界 V8 其余版本均可选 800V 增程或 800V 纯电动力。 享界 V8 Ultra+ 预售价：增程版 40.98 万元起 | 纯电版 44.98 万元起 四驱 + 双腔空簧 + 双阀连续可变阻尼减振器 四激光雷达 | L3 级自动驾驶架构设计 | 二排旋转零重力座椅 享界 V8 Ultra 预售价：增程版 36.98 万元起 | 纯电版 40.98 万元起 21.4 英寸华为云晰柔光吸顶屏 四激光雷达 | L3 级自动驾驶架构设计 享界 V8 Max+ 预售价：增程版 35.98…</p><a href="https://www.ithome.com/1/023/726.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>国行 Siri AI 新线索：苹果 iOS 27.3 首个开发者预览版新增专属功能 Flag</h3><p>IT之家 11 月 7 日消息，消息源 @itspdfu 今天（11 月 7 日）在 X 平台发布推文， 报道称苹果公司正努力在中国大陆引入 Siri AI，在 iOS 27.3 首个开发者预览版 Beta 系统中 已添加相关的功能标志。 消息源称在 iOS 27.3 系统中，苹果公司为 IntelligenceFlow 新增了一个名为 LinwoodChinaMainland 的功能标志（feature flag），目前处于禁用状态，而名为 siriAIInChinaMainland 的内部逻辑会读取这个标志。 IT之家查询公开资料，IntelligenceFlow 是 Siri AI 和 Apple Intelligence 背后的内部框架，可以把它理解成 AI 的调度层：协调对话、模型和工具，让 Siri 不只是回答，还能安排执行任务。 该条推文指出在这套 Siri AI 内部基础设施组件中，出现了一个与中国大陆启用 Siri AI 资格有关功能标志， 但这个标志是中国市场机型获得 Siri AI 使用资格的必要条件，但不是充分条件。…</p><a href="https://www.ithome.com/1/023/696.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌给安卓版 Chrome 浏览器设置页“上色”，焕新引入 iOS 版彩色风格图标</h3><p>IT之家 11 月 7 日消息，科技媒体 Android Authority 昨日（11 月 6 日）发布博文，报道称谷歌酝酿升级安卓版 Chrome 浏览器的设置页面，为各个设置条目加入彩色图标，并调整部分选项的分类。 谷歌正在安卓版 Chrome Canary 中测试设置页面改版，新版最直观的变化， 是设置主页面采用了与 iOS 版 Chrome 相近的彩色图标设计。 iOS 版此前已采用这类图标，安卓版此次调整让两个平台的视觉风格进一步靠拢。IT之家附上相关图片如下： 左侧为当前安卓版 Chrome 设置，右侧为新版 选项方面，新版移除了“基本”和“高级”两个分组标题，设置项之间仍通过留白保持视觉区隔。此外，“地址栏”和“主页”选项并未被删除，而是据报道被整合至“外观”分类下。 此次更新属于谷歌持续推进的设置页面重组。希望尝鲜的用户，可在 Chrome Canary 地址栏输入 chrome://flags，搜索并启用“Settings IA Reorganization”，随后按提示重启浏览器。不过，Canary 属于实验版本，体验可能不如稳定版完善。</p><a href="https://www.ithome.com/1/023/688.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>微软画图应用曝出远程代码执行漏洞</h3><p>微软画图应用曝出了一个越界读取导致的远程代码执行漏洞，受影响版本从 11.0.0.0 到 11.2605.91.0 之前。画图应用被预装在每一台 Windows PC 上，最近一段时间微软为画图应用引入了越来越多的新功能，其中包括 AI 生成功能，它同时也给画图引入了新 bug。微软用户目前可能需要通过 Microsoft Store 官方应用商店下载修正后的版本，Windows Update 尚未推送新版本。</p><a href="https://www.solidot.org/story?sid=85813" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Google 和 OpenAI 的模型对特定口音有偏见</h3><p>研究人员调查了先进多模态模型如何评估面试、会议报告和英语口语能力测试中的语音，测试的模型包括了 Google 的 Gemini 2.5 Pro 和 Gemini 2.5 Flash，以及 OpenAI 的 GPT-Audio 1.5，开放权重模型 Qwen 3 Omni。这些模型对五种不同口音——美国、英国、中国、印度和尼日利亚——的英语语音进行了评分。AI 模型普遍将中国和尼日利亚口音的评分最低，印度口音居中，美国和英国口音的评分最高。即使内容完全相同，系统仍然认为美国和英国口音的表达方式和内容都更胜一筹。研究团队发现，明显的等级划分也体现在模型的解释中。研究人员说，模型反复声称中国和尼日利亚口音的英语使用者含糊不清或难以理解，但实际上它们非常擅长转录带有口音的语音，它们理解说话者，但它们只是基于口音，对说话者存在一种隐性的等级观念。</p><a href="https://www.solidot.org/story?sid=85804" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>9 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>DeepSeek带火稀疏计算，国产芯片公司加速突围：这家公司又融近10亿</h3><a href="https://www.qbitai.com/2026/11/508155.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>李佳琦卖出万份Token，天猫的AI生意才刚开场</h3><p>Token正在成为AI时代的“流量包”。 （雷峰网雷峰网雷峰网） 11月2日晚，李佳琦直播间上架AI千问办公的Token算力，开播半小时，售出10万份千问办公个人会员月卡，累计约2万亿Token。 这次千问办公CEO陈宇森也来到直播间现场，雷峰网此前了解到，这位阿里最年轻的事业部CEO，业内普遍评价他能力很强，具备出色的产品sense、表达能力和商业认知都超出大部分阿里的资深老员工，“登味”极少。 说起来，阿里在就9月份就已有动作，同期天猫设立“AI空间站”，就有三家厂商入驻：千问、智谱、Minimax，充值规格分为月卡、季卡和年卡三档；阿里旗下的三档AI应用分别也给出了20%—40%的优惠；更早些，智谱直接在天猫开通官方旗舰店。 从模型厂商到电商平台，再到直播间，Token正在被包装成一种可以直接购买的商品。 但对电商平台来说，把Token摆上货架只是第一步。至于做成一门生意，是另一件事。（作者持续关注字节百度等大厂，欢迎添加微信Who123start畅聊） 01 电商平台为什么盯上Token？…</p><a href="https://www.leiphone.com/category/industrynews/h454rlPtg41JIuFd.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>上交大张伟楠教授：AI如何走出屏幕，真正改变物理世界？ | CNCC 2026</h3><p>物理智能的核心挑战：让 AI 在充满不确定性、行动后果难以撤销的真实世界中，形成感知、预测、行动与持续学习的完整闭环。 作者丨张 驰 编辑丨马晓宁 大语言模型已经得到了长足的发展，但 AI 的许多能力仍然发生在屏幕之内：理解文字、生成内容、编写代码，以及调用数字工具。把这些能力带入工厂、实验室和城市设施，意味着智能系统必须进一步面对物体、空间、力与时间，在持续变化的环境中作出判断，并承担行动的实际后果。 AI 如何从处理数字信息走向可靠地参与物理过程，正是 “ 物 理智能 ” 要回答的问题。 这一步跨越的难度，很难仅用模型参数或推理能力来衡量。机器人拿起一只杯子，既要识别位置和形状，也要判断接触、摩擦与受力；实验设备执行一次操作，既要理解任务，还要满足精度、时延和安全约束。 网页操作失误可以刷新，物理世界中的碰撞、损坏却未必能够撤销。感知是否及时、动作是否可控、失败后能否恢复，都会直接影响系统能否真正投入使用。 在今年 CNCC 首日面向博士生、青年学者的 Tutorial 专题论坛环节中， 上海交通大学计算机学院教授、上海人工智能实验室物理智能中心负责人张伟楠…</p><a href="https://www.leiphone.com/category/academic/TRS6Uqs5TY2MaUU4.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家丨腾讯20年老兵创业 AI 体感主机，融资超六千万</h3><p>创始人刘丹曾任光子工作室群副总经理、《斗战神》制作人。 作者丨 陈玘凡 编辑丨 吴优 雷峰网·鲸犀独家获悉，AI 体感成长主机公司创想悦动已完成种子轮融资，投资方为创维战投、创维数字，总金额约六千万元。 创想悦动目前已经开启 新一轮融资 ，意在进行更多后续内容开发、东南亚海外市场拓展、线下渠道铺设及下一代产品预研。 创想悦动创始人刘丹曾任光子工作室群副总经理、天行工作室总经理，于 2003 年加入腾讯互娱，参与见证腾讯游戏从起步到壮大的全过程，主导并参与了《QQ堂》、《QQ宠物》《斗战神》等项目。核心团队均来自 腾讯、字节、阿里 等头部互联网公司。 刘丹告诉雷峰网·鲸犀，“创想悦动当前以及未来在做的事情与索尼、任天堂一样”，既搭建主机硬件平台，也构建应用内容生态。 由于体感内容对于算力、存储的高要求，传统的电视机如果集成对应模块，会导致成本和售价的大幅上涨。而创想悦动选择将体感内容做成主机，通过摄像头结合端侧 AI 实现对用户骨骼、动作、表情识别，将体感运动、体感娱乐、体感学习塞进家庭客厅，和电视配成“互动大屏家庭新生态”。 Youdoo Box…</p><a href="https://www.leiphone.com/category/weiwu/8xihmnpkWWIHsn9G.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>菜鸟发布与AI及具身智能产业合作计划</h3><p>11月5日，菜鸟在香港智慧港举行AI及具身智能产业合作发布会，宣布向产业伙伴开放全球仓网，打造全球最大的AI及具身智能物流实景训练集群，支持技术训练、实景验证与产业落地；同时推出“科技出海三日达”服务，升级面向AI算力与机器人企业的出海基建，提供从样机测试、规模化交付到海外运营的全链路供应链服务，助力中国硬科技更高效地走向全球。 会上，菜鸟与多家AI及具身智能领域头部企业达成首批合作。近百家产业链企业代表到场，共同探讨物理AI产业化与全球化发展新机遇。 菜鸟国际总裁熊伟表示，“AI已成为新一代核心生产力引擎。过去十年菜鸟搭建起一张开放、高效、可持续的智慧物流网络。当前AI及具身智能技术加速从实验室走向真实产业，菜鸟希望充分发挥自身全球网络优势，与AI和具身智能企业伙伴一起共建生态、加速创造产业价值。” 随着AI持续突破，智能正从数字世界延伸至实体产业，物理AI成为新一轮产业变革的重要方向。熊伟指出，具身智能加速进入现实世界后，未来10年相关技术有望逐步成熟，效率提升可能达到10至50倍。而真实、多元、规模化的业务场景，将成为推动技术迭代和产业落地的关键基础。…</p><a href="https://www.leiphone.com/category/industrynews/DUZcuKBxESiGrXWu.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>荣耀 700 系列手机上线官网：Pro / 标准 / S 三杯、全系背屏设计</h3><p>IT之家 11 月 7 日消息，荣耀手机官方今日宣布， 荣耀 700 系列上新，已在官网开启预约 。 荣耀官网显示，荣耀 700 系列手机此次有“三杯”， 分别是荣耀 700 Pro、荣耀 700、荣耀 700S ，全系采用背屏设计。 据IT之家此前报道，博主 @数码闲聊站 爆料， 荣耀 700 系列手机采用同档唯一双 8 芯片 ，拥有更强性能 + 更大电池 + 潜望镜 + 旗舰影像 + 自拍背屏。另外，博主 @WHYLAB 透露， 背屏为 1.72 英寸 。 荣耀全球首席营销官关海涛于 11 月 3 日发文，正式官宣了数字 700 系列手机。他表示，系列新机方向很明确：继承旗舰级影像能力、探索 AI 时代年轻人的新鲜玩法，并守住荣耀一直以来的优势长板。</p><a href="https://www.ithome.com/1/023/754.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>AMD Zen 6 处理器跑分曝光：10 核样片多核超前代 12 核约 21.5%</h3><p>IT之家 11 月 7 日消息，科技媒体 Wccftech 今天（11 月 7 日）发布博文，报道称 Geekbench 数据库出现多组 AMD 下一代 Medusa 系列 APU 跑分，涵盖 10 核、8 核和 6 核版本。相关产品预计面向 2027 年主流笔记本市场，目前曝光的均为工程样片。 配置方面，10 核版本采用 4 个 Zen 6 核心与 6 个 Zen 6C 核心，测试平台搭配 64GB DDR5-5200 内存；8 核和 6 核版本则分别采用“2+6”与“1+5”的核心组合。 性能方面，报道列出的 Geekbench 7 数据显示， 10 核样片单核得分 3,100、多核 18,313，相比 12 核锐龙 AI 9 HX 370 分别领先约 32% 和 21.5%。 IT之家附上相关图片如下： 8 核样片多核得分 15,075，与后者基本持平。6 核版本单核 2,651、多核 10,670，相比锐龙 AI 5 340 分别提升约 25% 和 17%。 核显方面，10 核样片搭载的“GFX1170”核显据称采用 RDNA 4m 架构，配备 4 组计算单元，OpenCL 得分 22,249，比同为 4…</p><a href="https://www.ithome.com/1/023/718.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>OpenAI CFO 弗莱尔：今年美国中期选举不会影响公司的 IPO 计划</h3><p>IT之家 11 月 7 日消息，OpenAI CFO 莎拉 · 弗莱尔认为，尽管 2026 年美国中期选举改变了国会的政治格局，但公司的 IPO 计划并未受到影响。 当地时间 6 日，弗莱尔接受 CNBC 直播采访时说：“你看，我们拿着管理者的薪水，就是要 应对各种可能出现的情况 。我不认为有什么事情对我们产生了重大影响。” 此次，弗莱尔重申了 OpenAI 计划争取明年上市 的目标。与此同时，外界也在关注 OpenAI 的主要竞争对手 Anthropic 是否会继续推进 IPO。 据IT之家了解，美国民主党在此次中期选举中取得数十年罕见的大胜，不仅夺回国会控制权，还将在新的一年以明显的席位优势掌控国会。州长方面，民主党候选人凭借 限制新建数据中心开发 的竞选承诺，赢得了原本由共和党掌握的得克萨斯州、佐治亚州和俄亥俄州州长职位。 弗莱尔披露，OpenAI 不会停止投资大型数据中心。公司试图将这些设施 重新定义为“算力园区” ，而数据中心的建设对 OpenAI 和整个 AI 行业的未来都至关重要。“对于中期选举，我需要继续考虑的是，如何通过 持续投资来满足客户需求…</p><a href="https://www.ithome.com/1/023/690.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>任天堂最大 ROM 芯片供应商准备退出</h3><p>任天堂 Switch 游戏机实体游戏卡带使用的 ROM 芯片供应也受到了 AI 热的影响。任天堂最大 ROM 芯片供应商旺宏电子在其第三季度财报中宣布它准备终止 ROM 芯片生产，脱离游戏行业。旺宏电子表示，ROM 芯片的产量在过去一年中缩减了 39%，目前仅占其业务总量的 5%。ROM 芯片正逐渐被利润更高、需求更旺盛的其它存储芯片所取代。这意味着任天堂未来只能依靠其它 ROM 芯片供应商如罗姆（Rohm）和蓝碧半导体（Lapis Semiconductor），意味着游戏卡带生产成本可能会进一步上升。任天堂已经承诺未来会继续提供实体游戏卡带，不会效仿索尼只提供游戏的数字版本。</p><a href="https://www.solidot.org/story?sid=85801" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>8 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>百图生科与11家伙伴战略合作，AI生物计算覆盖医药研发及农业育种</h3><p>活动焦点： · 百图生科主办、港投公司支持的第三届峰会2026年11月6日开幕，汇聚约300名科研、产业及投资界代表，探讨人工智能与生命科学的融合发展 · 百图生科InnoHub分别与大学、科企及投资机构合作，以AI生物计算聚焦乳癌及中医药研究、农业育种、研发与产业配套，包括与香港大学推进「乳腺癌虚拟细胞大模型」项目，以及与香港浸会大学筹建「AI中医药联合实验室」；合作网络延伸至日本、新加坡及「一带一路」沿线市场 · 全日设多场院士演讲及圆桌论坛，涵盖世界模型、可穿戴生物传感与具身智能，以及香港生物计算发展、生物医药AI研发、投资及企业拓展国际市场等议题 2026年11月6日，生命科学基础大模型企业百图生科（BioMap）主办、香港投资管理有限公司（港投公司）支持的第三届「国际生物计算创新峰会2026」在香港会议展览中心隆重举行。本届峰会主题为「智解生机」（Decoding Future…</p><a href="https://www.leiphone.com/category/industrynews/X7HwwQTEXJhiVVzK.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家丨腾讯20年老兵创业 AI 体感主机，融资超六千万</h3><p>创始人刘丹曾任光子工作室群副总经理、《斗战神》制作人。 作者丨 陈玘凡 编辑丨 吴优 雷峰网·鲸犀独家获悉，AI 体感成长主机公司创想悦动已完成种子轮融资，投资方为创维战投、创维数字，总金额约六千万元。 创想悦动目前已经开启 新一轮融资 ，意在进行更多后续内容开发、东南亚海外市场拓展、线下渠道铺设及下一代产品预研。 创想悦动创始人刘丹曾任光子工作室群副总经理、天行工作室总经理，于 2003 年加入腾讯互娱，参与见证腾讯游戏从起步到壮大的全过程，主导并参与了《QQ堂》、《QQ宠物》《斗战神》等项目。核心团队均来自 腾讯、字节、阿里 等头部互联网公司。 刘丹告诉雷峰网·鲸犀，“创想悦动当前以及未来在做的事情与索尼、任天堂一样”，既搭建主机硬件平台，也构建应用内容生态。 由于体感内容对于算力、存储的高要求，传统的电视机如果集成对应模块，会导致成本和售价的大幅上涨。而创想悦动选择将体感内容做成主机，通过摄像头结合端侧 AI 实现对用户骨骼、动作、表情识别，将体感运动、体感娱乐、体感学习塞进家庭客厅，和电视配成“互动大屏家庭新生态”。 Youdoo Box…</p><a href="https://www.leiphone.com/category/weiwu/8xihmnpkWWIHsn9G.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家解读丨前飞书 CMO 创业，为何用「水晶球」赌一个AI入口？</h3><p>这是梅花创投吴世春10分钟敲定的一笔投资。 作者丨陈玘凡 编辑丨吴优 雷峰网・鲸犀独家获悉，前字节飞书 CMO 孙峰创办的 A I 情绪 科技品牌 Ora-Orb ， 已完成累计数千万元融资。由梅花创投领投，知名产业资本跟投。向阳资本担任长期独家财务顾问。 新一轮融资同步启动，目标投后估值 2 亿元人民币。 孙峰对雷峰网·鲸犀分享：去年与梅花创投的吴世春见面，不到 10 分钟，吴世春就敲定了对这家新公司的融资。 Ora-Orb 创始人孙峰拥有 20 年互联网市场与出海经验，曾任字节飞书 CMO、京东市场总监、金山软件市场总监、蓝湖 CMO、迅雷副总裁，在蓝湖任职期间，他用 9 个月就把产品推至行业第一。 公司主打的硬件产品 Ora-Orb，是一款桌面级 AI 情绪陪伴终端，包括水晶球硬件 Orb 和 IP 形象 Ora，主攻北美 Z 世代女性市场，定价 365 美元，计划 2027 年 1 月亮相 CES 展会后，再登陆 Kickstarter 众筹。 今天做情绪陪伴的 AI 硬件其实不少，能够打出声量的却凤毛麟角。Ora-Orb 怎么在情绪陪伴的“坚壁”上凿出一条“裂缝”？孙峰的心里，已经有了有不少思考。 01…</p><a href="https://www.leiphone.com/category/weiwu/MiJKpPLqwFGB14X7.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>菜鸟发布与AI及具身智能产业合作计划</h3><p>11月5日，菜鸟在香港智慧港举行AI及具身智能产业合作发布会，宣布向产业伙伴开放全球仓网，打造全球最大的AI及具身智能物流实景训练集群，支持技术训练、实景验证与产业落地；同时推出“科技出海三日达”服务，升级面向AI算力与机器人企业的出海基建，提供从样机测试、规模化交付到海外运营的全链路供应链服务，助力中国硬科技更高效地走向全球。 会上，菜鸟与多家AI及具身智能领域头部企业达成首批合作。近百家产业链企业代表到场，共同探讨物理AI产业化与全球化发展新机遇。 菜鸟国际总裁熊伟表示，“AI已成为新一代核心生产力引擎。过去十年菜鸟搭建起一张开放、高效、可持续的智慧物流网络。当前AI及具身智能技术加速从实验室走向真实产业，菜鸟希望充分发挥自身全球网络优势，与AI和具身智能企业伙伴一起共建生态、加速创造产业价值。” 随着AI持续突破，智能正从数字世界延伸至实体产业，物理AI成为新一轮产业变革的重要方向。熊伟指出，具身智能加速进入现实世界后，未来10年相关技术有望逐步成熟，效率提升可能达到10至50倍。而真实、多元、规模化的业务场景，将成为推动技术迭代和产业落地的关键基础。…</p><a href="https://www.leiphone.com/category/industrynews/DUZcuKBxESiGrXWu.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>李彦宏百度世界2026演讲海报曝光，或分享智能组织进化新思考</h3><p>11月4日，百度官方发布了一则百度世界2026大会预热海报，提前透露了百度创始人李彦宏将于11月12日在大会开幕式上发表主题演讲的相关线索。 海报中的三个问题引人关注：“什么是AI时代的新厂房？”“组织进化三原则是哪些？”“智能组织将迎来的三大机会是什么？” 结合本届大会“下一幕，智能组织”的主题，李彦宏的主题演讲或围绕“智能组织进化”展开。 预测一：或分享智能组织进化趋势，并为企业AI转型提出建议 2016年百度世界大会上，李彦宏曾提出“互联网的下一幕，是人工智能”。十年后，百度世界再次以“下一幕”为题，将焦点转向“智能组织”。 近一年来，李彦宏持续关注AI如何推动企业组织层变革。在2025年百度世界大会上，他提出内化AI能力，让AI成为企业发展和个人成长的原生推动力。今年5月的Create大会上，他进一步提出AI时代的“进化论”，探讨由人与智能体组成混合编队的超级组织形态，并就企业自我进化提出建议。 从“内化AI能力”到“组织自我进化”，相关思考逐步从个人提效延伸至组织变革。海报中的“新厂房”、“组织进化三原则”等线索，预示着李彦宏或将进一步阐释智能组织的进化路径，并就企业如何推进组织进化提供新思路。…</p><a href="https://www.leiphone.com/category/industrynews/49uolfG855V4Zc9M.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>“超视距安全预警”可识别结冰等危险路况并提示，吉利发布首个车道级气象环境监测大模型</h3><p>IT之家 11 月 7 日消息，11 月 5 日，吉利汽车集团与中国气象局地球系统数值预报中心正式签署战略合作框架协议。 双方联合推出行业首个“智象-星睿交通气象大模型”，该模型聚焦结冰、团雾等极端气象场景， 可实现车道级气象环境实时监测与提示 ，为进一步提升复杂天气条件下的行车安全与自动驾驶系统可靠运行提供支撑。 其中针对 能见度骤然下降、暗冰在特定桥面或背阴路段形成、暴雨在局地路段造成积水 等这些“看得见天气、看不清路段”的盲区，目前“智象-星睿交通气象大模型”已初步输出车道级能见度、暗冰和暴雨风险提示产品 ——“超视距安全预警”功能， 可基于多车互联智能识别到结冰等危险路况，并主动提示 。 IT之家获悉，该模型计划 率先在领克 900L 上量产落地 ，未来逐步应用于吉利、银河、领克、极氪等多品牌车型。 此外，明年一季度，吉利汽车集团还将联合中国气象局地球系统数值预报中心发布行业首个“通用气象模型”。 未来，双方还将共同推进《智能网联汽车气象环境数据采集与处理规范》国家标准建议书落地，力争在车载气象观测领域形成适配国内产业实际的技术路径与标准方案。</p><a href="https://www.ithome.com/1/023/749.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为余承东：享界 V8 全国试驾正式开启，发布会临近敬请期待</h3><p>IT之家 11 月 7 日消息，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东今日宣布， 享界 V8 全国试驾正式开启 ，欢迎带上家人一起体验，期待听到大家的真实反馈。 发布会临近，敬请期待 ！ 据IT之家了解，享界 V8 是鸿蒙智行旗下 享界品牌首款 MPV ，该车提供纯电与增程两种动力形式，全系标配 800V 高压平台、±12° 后轮转向和华为乾崑智驾系统， 预售价 32.98 万元起 。 华为官网显示，享界 V8 采用七座布局设计，分 Ultra+、Ultra、Max+ 和 Max 四个版本。除 Max+ 外，享界 V8 其余版本均可选 800V 增程或 800V 纯电动力。 享界 V8 Ultra+ 预售价：增程版 40.98 万元起 | 纯电版 44.98 万元起 四驱 + 双腔空簧 + 双阀连续可变阻尼减振器 四激光雷达 | L3 级自动驾驶架构设计 | 二排旋转零重力座椅 享界 V8 Ultra 预售价：增程版 36.98 万元起 | 纯电版 40.98 万元起 21.4 英寸华为云晰柔光吸顶屏 四激光雷达 | L3 级自动驾驶架构设计 享界 V8 Max+ 预售价：增程版 35.98…</p><a href="https://www.ithome.com/1/023/726.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>OpenAI CFO 弗莱尔：今年美国中期选举不会影响公司的 IPO 计划</h3><p>IT之家 11 月 7 日消息，OpenAI CFO 莎拉 · 弗莱尔认为，尽管 2026 年美国中期选举改变了国会的政治格局，但公司的 IPO 计划并未受到影响。 当地时间 6 日，弗莱尔接受 CNBC 直播采访时说：“你看，我们拿着管理者的薪水，就是要 应对各种可能出现的情况 。我不认为有什么事情对我们产生了重大影响。” 此次，弗莱尔重申了 OpenAI 计划争取明年上市 的目标。与此同时，外界也在关注 OpenAI 的主要竞争对手 Anthropic 是否会继续推进 IPO。 据IT之家了解，美国民主党在此次中期选举中取得数十年罕见的大胜，不仅夺回国会控制权，还将在新的一年以明显的席位优势掌控国会。州长方面，民主党候选人凭借 限制新建数据中心开发 的竞选承诺，赢得了原本由共和党掌握的得克萨斯州、佐治亚州和俄亥俄州州长职位。 弗莱尔披露，OpenAI 不会停止投资大型数据中心。公司试图将这些设施 重新定义为“算力园区” ，而数据中心的建设对 OpenAI 和整个 AI 行业的未来都至关重要。“对于中期选举，我需要继续考虑的是，如何通过 持续投资来满足客户需求…</p><a href="https://www.ithome.com/1/023/690.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>7 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>OpenAI 「重置大神」换人了？Tibo 去救火，Andrew 上位</h3><p>Tibo 不发糖了？因为Open AI 的内部安全烂透了 作者丨 高允毅 编辑丨岑 峰 OpenAI 的“赛博义父”好像换人了？最先发现不对劲的是敏锐的网友。 11 月 4 日， Codex 团队的产品负责人 Andrew Ambrosino 发帖称，关于 OpenAI 产品的任何意见都可以反馈给他。 Tibo 在下面跟了一句：“快点改进模型”，Andrew 回：“马上照办”。 在另一个互动里，双方的关键词都在不断 cue “按钮”。 这些对话看起来很像某种交接仪式，但实际上可能是 OpenAI 内部分工的细化：Tibo 不再亲自下场做客服回应用户的额度问题了，而是把协调产品体验的活交给了更懂技术的 Andrew。 而 Tibo 自身有更重要的事要管。据路透社曝出， Tibo 被调去治理 OpenAI 内部安全问题。 其实真的交接起来，也很容易，就是传递一个按钮的事儿。众所周知，Codex 的重置功能，真的来自一个按钮。 曾有两名博主去拜访 OpenAI 时，亲眼确认那个按钮就在 Tibo 桌子上，被一个银色翻盖盒子包裹。按钮连接着OpenAI内部系统，按下去，全球所有付费用户的 Codex…</p><a href="https://www.leiphone.com/category/yanxishe/u5N6lCUT0bEfanp1.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>上交大张伟楠教授：AI如何走出屏幕，真正改变物理世界？ | CNCC 2026</h3><p>物理智能的核心挑战：让 AI 在充满不确定性、行动后果难以撤销的真实世界中，形成感知、预测、行动与持续学习的完整闭环。 作者丨张 驰 编辑丨马晓宁 大语言模型已经得到了长足的发展，但 AI 的许多能力仍然发生在屏幕之内：理解文字、生成内容、编写代码，以及调用数字工具。把这些能力带入工厂、实验室和城市设施，意味着智能系统必须进一步面对物体、空间、力与时间，在持续变化的环境中作出判断，并承担行动的实际后果。 AI 如何从处理数字信息走向可靠地参与物理过程，正是 “ 物 理智能 ” 要回答的问题。 这一步跨越的难度，很难仅用模型参数或推理能力来衡量。机器人拿起一只杯子，既要识别位置和形状，也要判断接触、摩擦与受力；实验设备执行一次操作，既要理解任务，还要满足精度、时延和安全约束。 网页操作失误可以刷新，物理世界中的碰撞、损坏却未必能够撤销。感知是否及时、动作是否可控、失败后能否恢复，都会直接影响系统能否真正投入使用。 在今年 CNCC 首日面向博士生、青年学者的 Tutorial 专题论坛环节中， 上海交通大学计算机学院教授、上海人工智能实验室物理智能中心负责人张伟楠…</p><a href="https://www.leiphone.com/category/academic/TRS6Uqs5TY2MaUU4.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>“超视距安全预警”可识别结冰等危险路况并提示，吉利发布首个车道级气象环境监测大模型</h3><p>IT之家 11 月 7 日消息，11 月 5 日，吉利汽车集团与中国气象局地球系统数值预报中心正式签署战略合作框架协议。 双方联合推出行业首个“智象-星睿交通气象大模型”，该模型聚焦结冰、团雾等极端气象场景， 可实现车道级气象环境实时监测与提示 ，为进一步提升复杂天气条件下的行车安全与自动驾驶系统可靠运行提供支撑。 其中针对 能见度骤然下降、暗冰在特定桥面或背阴路段形成、暴雨在局地路段造成积水 等这些“看得见天气、看不清路段”的盲区，目前“智象-星睿交通气象大模型”已初步输出车道级能见度、暗冰和暴雨风险提示产品 ——“超视距安全预警”功能， 可基于多车互联智能识别到结冰等危险路况，并主动提示 。 IT之家获悉，该模型计划 率先在领克 900L 上量产落地 ，未来逐步应用于吉利、银河、领克、极氪等多品牌车型。 此外，明年一季度，吉利汽车集团还将联合中国气象局地球系统数值预报中心发布行业首个“通用气象模型”。 未来，双方还将共同推进《智能网联汽车气象环境数据采集与处理规范》国家标准建议书落地，力争在车载气象观测领域形成适配国内产业实际的技术路径与标准方案。</p><a href="https://www.ithome.com/1/023/749.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>员工用 AI 辅助办公被开除，法院判决公司赔偿 4.6 万</h3><p>IT之家 11 月 7 日消息，据央视财经今日报道，吴女士在一家保险公司担任法务，2024 年 7 月，为优化工作流程、提升 PPT 制作及数据分析效率，她将自行整理加工后的公司稽核问题数据表，上传至公司部门领导和直属领导多次推荐的 第三方 AI 平台用于辅助办公 。不料一个月后她竟被公司以“严重违反信息安全等相关规定”为由解除了劳动合同。 吴女士向北京市朝阳区劳动人事争议仲裁委员会申请仲裁，法院经审理认为，吴女士无泄露公司秘密的主观故意，不足以认定其严重违反工作纪律应当解除劳动关系。 最终，法院作出判决：撤销保险公司向吴女士作出的《解除劳动合同告知书》，继续履行劳动合同；支付吴女士工资损失、年终奖差额等各种款项共计 四万六千余元 。保险公司不服一审判决提起上诉，二审法院驳回上诉，维持了原判，目前判决已生效。 IT之家查询获悉，在案证据显示，保险公司虽制定了保密制度、信息安全管理规定，与员工签署了保密协议，但所有内部规章制度均未明确禁止员工使用第三方 AI 工具辅助办公，也未针对 AI 办公场景出台专项合规规则或操作规范，更未开展任何 AI 工具使用专项培训。…</p><a href="https://www.ithome.com/1/023/695.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>NASA 通过 AI 生成图像宣布 X-70 试验机</h3><p>NASA 宣布了新试验机 X-70 Fractal，它展示了一幅生成图像——即并非实图，而是 AI 生成的。NASA 称，X-70 是载人飞行器，设计巡航速度为 0.75 马赫，最大飞行高度约 13700 米，航程 2778 公里。X-70 起飞重量为 4536 公斤，设计可容纳 900 公斤的机内外试验载荷。NASA 局长 Jared Isaacman 表示，这架试验机有望在两年内首飞。关于其具体设计细节和研发时间表目前知之甚少。NASA 公布的生成图像显示 X-70 与超音速侦察机 SR-71 非常相似。</p><a href="https://www.solidot.org/story?sid=85818" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>微软画图应用曝出远程代码执行漏洞</h3><p>微软画图应用曝出了一个越界读取导致的远程代码执行漏洞，受影响版本从 11.0.0.0 到 11.2605.91.0 之前。画图应用被预装在每一台 Windows PC 上，最近一段时间微软为画图应用引入了越来越多的新功能，其中包括 AI 生成功能，它同时也给画图引入了新 bug。微软用户目前可能需要通过 Microsoft Store 官方应用商店下载修正后的版本，Windows Update 尚未推送新版本。</p><a href="https://www.solidot.org/story?sid=85813" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>印度金融机构遭黑客利用 AI 工具发动的网络攻击</h3><p>印度计算机应急响应小组（CERT-In）星期三发布安全通报，被称为“狡猾猎鹰”（Crafty Falcon）的黑客组织，已入侵非银行贷款机构、金融科技公司及加密货币交易所。攻击者利用公开可用的 AI 工具，实现高速自动化入侵。印度计算机应急响应小组形容这项威胁“仍在发生，且持续活跃”。该机构点名四款用于入侵的工具，分别是 ARTEX、PentAGI、Cairn 和 CyberStrikeAI。ARTEX 此前曾被用于攻击韩国银行。印度计算机应急响应小组没有说明这些攻击事件由谁发动，也未透露该组织的运作地点。该机构也没有称这些攻击由国家支持或主导，且其点名的攻击工具均可在网络上免费获取。</p><a href="https://www.solidot.org/story?sid=85809" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>6 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>百图生科与11家伙伴战略合作，AI生物计算覆盖医药研发及农业育种</h3><p>活动焦点： · 百图生科主办、港投公司支持的第三届峰会2026年11月6日开幕，汇聚约300名科研、产业及投资界代表，探讨人工智能与生命科学的融合发展 · 百图生科InnoHub分别与大学、科企及投资机构合作，以AI生物计算聚焦乳癌及中医药研究、农业育种、研发与产业配套，包括与香港大学推进「乳腺癌虚拟细胞大模型」项目，以及与香港浸会大学筹建「AI中医药联合实验室」；合作网络延伸至日本、新加坡及「一带一路」沿线市场 · 全日设多场院士演讲及圆桌论坛，涵盖世界模型、可穿戴生物传感与具身智能，以及香港生物计算发展、生物医药AI研发、投资及企业拓展国际市场等议题 2026年11月6日，生命科学基础大模型企业百图生科（BioMap）主办、香港投资管理有限公司（港投公司）支持的第三届「国际生物计算创新峰会2026」在香港会议展览中心隆重举行。本届峰会主题为「智解生机」（Decoding Future…</p><a href="https://www.leiphone.com/category/industrynews/X7HwwQTEXJhiVVzK.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>上交大张伟楠教授：AI如何走出屏幕，真正改变物理世界？ | CNCC 2026</h3><p>物理智能的核心挑战：让 AI 在充满不确定性、行动后果难以撤销的真实世界中，形成感知、预测、行动与持续学习的完整闭环。 作者丨张 驰 编辑丨马晓宁 大语言模型已经得到了长足的发展，但 AI 的许多能力仍然发生在屏幕之内：理解文字、生成内容、编写代码，以及调用数字工具。把这些能力带入工厂、实验室和城市设施，意味着智能系统必须进一步面对物体、空间、力与时间，在持续变化的环境中作出判断，并承担行动的实际后果。 AI 如何从处理数字信息走向可靠地参与物理过程，正是 “ 物 理智能 ” 要回答的问题。 这一步跨越的难度，很难仅用模型参数或推理能力来衡量。机器人拿起一只杯子，既要识别位置和形状，也要判断接触、摩擦与受力；实验设备执行一次操作，既要理解任务，还要满足精度、时延和安全约束。 网页操作失误可以刷新，物理世界中的碰撞、损坏却未必能够撤销。感知是否及时、动作是否可控、失败后能否恢复，都会直接影响系统能否真正投入使用。 在今年 CNCC 首日面向博士生、青年学者的 Tutorial 专题论坛环节中， 上海交通大学计算机学院教授、上海人工智能实验室物理智能中心负责人张伟楠…</p><a href="https://www.leiphone.com/category/academic/TRS6Uqs5TY2MaUU4.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>菜鸟发布与AI及具身智能产业合作计划</h3><p>11月5日，菜鸟在香港智慧港举行AI及具身智能产业合作发布会，宣布向产业伙伴开放全球仓网，打造全球最大的AI及具身智能物流实景训练集群，支持技术训练、实景验证与产业落地；同时推出“科技出海三日达”服务，升级面向AI算力与机器人企业的出海基建，提供从样机测试、规模化交付到海外运营的全链路供应链服务，助力中国硬科技更高效地走向全球。 会上，菜鸟与多家AI及具身智能领域头部企业达成首批合作。近百家产业链企业代表到场，共同探讨物理AI产业化与全球化发展新机遇。 菜鸟国际总裁熊伟表示，“AI已成为新一代核心生产力引擎。过去十年菜鸟搭建起一张开放、高效、可持续的智慧物流网络。当前AI及具身智能技术加速从实验室走向真实产业，菜鸟希望充分发挥自身全球网络优势，与AI和具身智能企业伙伴一起共建生态、加速创造产业价值。” 随着AI持续突破，智能正从数字世界延伸至实体产业，物理AI成为新一轮产业变革的重要方向。熊伟指出，具身智能加速进入现实世界后，未来10年相关技术有望逐步成熟，效率提升可能达到10至50倍。而真实、多元、规模化的业务场景，将成为推动技术迭代和产业落地的关键基础。…</p><a href="https://www.leiphone.com/category/industrynews/DUZcuKBxESiGrXWu.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>“超视距安全预警”可识别结冰等危险路况并提示，吉利发布首个车道级气象环境监测大模型</h3><p>IT之家 11 月 7 日消息，11 月 5 日，吉利汽车集团与中国气象局地球系统数值预报中心正式签署战略合作框架协议。 双方联合推出行业首个“智象-星睿交通气象大模型”，该模型聚焦结冰、团雾等极端气象场景， 可实现车道级气象环境实时监测与提示 ，为进一步提升复杂天气条件下的行车安全与自动驾驶系统可靠运行提供支撑。 其中针对 能见度骤然下降、暗冰在特定桥面或背阴路段形成、暴雨在局地路段造成积水 等这些“看得见天气、看不清路段”的盲区，目前“智象-星睿交通气象大模型”已初步输出车道级能见度、暗冰和暴雨风险提示产品 ——“超视距安全预警”功能， 可基于多车互联智能识别到结冰等危险路况，并主动提示 。 IT之家获悉，该模型计划 率先在领克 900L 上量产落地 ，未来逐步应用于吉利、银河、领克、极氪等多品牌车型。 此外，明年一季度，吉利汽车集团还将联合中国气象局地球系统数值预报中心发布行业首个“通用气象模型”。 未来，双方还将共同推进《智能网联汽车气象环境数据采集与处理规范》国家标准建议书落地，力争在车载气象观测领域形成适配国内产业实际的技术路径与标准方案。</p><a href="https://www.ithome.com/1/023/749.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>奔驰承认 L3 自动驾驶推进得“太超前”：当下专心搞 L2、未来直接上 L4</h3><p>IT之家 11 月 7 日消息，作为最早一批在美国推出 L3 级自动驾驶的车企，奔驰近期的动作却略显反常 —— 登陆当地市场的最新款 S 级没有配备这项技术。 随着奔驰将重心转向更先进的驾驶辅助系统，其自动驾驶技术路线也发生了变化。奔驰 CTO 约尔格 · 布尔策近日在媒体圆桌会议上接受外媒 Road &amp; Track 采访时谈到，早年率先推出 L3 级自动驾驶技术，让奔驰明白了一个道理： 抢先推出新技术，不代表就能满足消费者的实际需求 。 布尔策解释称，奔驰当初推出 L3 级自动驾驶系统时，技术的实用性还十分有限。因此，奔驰决定优先发展功能更全面的 L2 级辅助驾驶系统，未来则计划绕过 L3 级， 直接进军 L4 级自动驾驶领域 。 2023 年，奔驰凭借 Drive Pilot 成为首家在美国获得 L3 级自动驾驶批准的车企。该系统最初应用于 S 级和 EQS，驾驶员可在满足特定条件时不必持续注视道路。 Drive Pilot 的一大局限是 车速不能超过 64km/h…</p><a href="https://www.ithome.com/1/023/737.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为余承东：享界 V8 全国试驾正式开启，发布会临近敬请期待</h3><p>IT之家 11 月 7 日消息，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东今日宣布， 享界 V8 全国试驾正式开启 ，欢迎带上家人一起体验，期待听到大家的真实反馈。 发布会临近，敬请期待 ！ 据IT之家了解，享界 V8 是鸿蒙智行旗下 享界品牌首款 MPV ，该车提供纯电与增程两种动力形式，全系标配 800V 高压平台、±12° 后轮转向和华为乾崑智驾系统， 预售价 32.98 万元起 。 华为官网显示，享界 V8 采用七座布局设计，分 Ultra+、Ultra、Max+ 和 Max 四个版本。除 Max+ 外，享界 V8 其余版本均可选 800V 增程或 800V 纯电动力。 享界 V8 Ultra+ 预售价：增程版 40.98 万元起 | 纯电版 44.98 万元起 四驱 + 双腔空簧 + 双阀连续可变阻尼减振器 四激光雷达 | L3 级自动驾驶架构设计 | 二排旋转零重力座椅 享界 V8 Ultra 预售价：增程版 36.98 万元起 | 纯电版 40.98 万元起 21.4 英寸华为云晰柔光吸顶屏 四激光雷达 | L3 级自动驾驶架构设计 享界 V8 Max+ 预售价：增程版 35.98…</p><a href="https://www.ithome.com/1/023/726.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>2 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>A\三大内部模型曝光！领先Opus5.5三个月，RSI缩短80%实验时间</h3><a href="https://www.qbitai.com/2026/11/508184.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>一边赛博修仙，一边卖家电！AI短剧开始冲双11业绩了？</h3><a href="https://www.qbitai.com/2026/11/508118.html" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 07 Nov 2026 05:01:17 +0000</div><h3>抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？</h3><a href="https://www.qbitai.com/2026/11/508264.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 07 Nov 2026 03:43:55 +0000</div><h3>AGENTS.MD，危险危险危险！！！</h3><a href="https://www.qbitai.com/2026/11/508244.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 06 Nov 2026 15:21:56 +0000</div><h3>A\三大内部模型曝光！领先Opus5.5三个月，RSI缩短80%实验时间</h3><a href="https://www.qbitai.com/2026/11/508184.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 06 Nov 2026 09:25:59 +0000</div><h3>为什么每个 Personal Agent 背后，都必须配备一台“云电脑”？</h3><a href="https://www.qbitai.com/2026/11/508174.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 06 Nov 2026 09:21:51 +0000</div><h3>阶跃终端 STEPX Neo 智能体手机亮相进博会高通展台，软硬模一体打造智能体新体验</h3><a href="https://www.qbitai.com/2026/11/508170.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 06 Nov 2026 09:19:00 +0000</div><h3>阿里巴巴发布《2026 AI向善行动报告》 AI数据中心可持续发展成年度亮点</h3><a href="https://www.qbitai.com/2026/11/508165.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 06 Nov 2026 07:00:29 +0000</div><h3>DeepSeek带火稀疏计算，国产芯片公司加速突围：这家公司又融近10亿</h3><a href="https://www.qbitai.com/2026/11/508155.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 06 Nov 2026 06:54:17 +0000</div><h3>一边赛博修仙，一边卖家电！AI短剧开始冲双11业绩了？</h3><a href="https://www.qbitai.com/2026/11/508118.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 07 Nov 2026 10:40:00 +0800</div><h3>百图生科与11家伙伴战略合作，AI生物计算覆盖医药研发及农业育种</h3><p>活动焦点： · 百图生科主办、港投公司支持的第三届峰会2026年11月6日开幕，汇聚约300名科研、产业及投资界代表，探讨人工智能与生命科学的融合发展 · 百图生科InnoHub分别与大学、科企及投资机构合作，以AI生物计算聚焦乳癌及中医药研究、农业育种、研发与产业配套，包括与香港大学推进「乳腺癌虚拟细胞大模型」项目，以及与香港浸会大学筹建「AI中医药联合实验室」；合作网络延伸至日本、新加坡及「一带一路」沿线市场 · 全日设多场院士演讲及圆桌论坛，涵盖世界模型、可穿戴生物传感与具身智能，以及香港生物计算发展、生物医药AI研发、投资及企业拓展国际市场等议题 2026年11月6日，生命科学基础大模型企业百图生科（BioMap）主办、香港投资管理有限公司（港投公司）支持的第三届「国际生物计算创新峰会2026」在香港会议展览中心隆重举行。本届峰会主题为「智解生机」（Decoding Future…</p><a href="https://www.leiphone.com/category/industrynews/X7HwwQTEXJhiVVzK.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 06 Nov 2026 17:11:00 +0800</div><h3>OpenAI 「重置大神」换人了？Tibo 去救火，Andrew 上位</h3><p>Tibo 不发糖了？因为Open AI 的内部安全烂透了 作者丨 高允毅 编辑丨岑 峰 OpenAI 的“赛博义父”好像换人了？最先发现不对劲的是敏锐的网友。 11 月 4 日， Codex 团队的产品负责人 Andrew Ambrosino 发帖称，关于 OpenAI 产品的任何意见都可以反馈给他。 Tibo 在下面跟了一句：“快点改进模型”，Andrew 回：“马上照办”。 在另一个互动里，双方的关键词都在不断 cue “按钮”。 这些对话看起来很像某种交接仪式，但实际上可能是 OpenAI 内部分工的细化：Tibo 不再亲自下场做客服回应用户的额度问题了，而是把协调产品体验的活交给了更懂技术的 Andrew。 而 Tibo 自身有更重要的事要管。据路透社曝出， Tibo 被调去治理 OpenAI 内部安全问题。 其实真的交接起来，也很容易，就是传递一个按钮的事儿。众所周知，Codex 的重置功能，真的来自一个按钮。 曾有两名博主去拜访 OpenAI 时，亲眼确认那个按钮就在 Tibo 桌子上，被一个银色翻盖盒子包裹。按钮连接着OpenAI内部系统，按下去，全球所有付费用户的 Codex…</p><a href="https://www.leiphone.com/category/yanxishe/u5N6lCUT0bEfanp1.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 06 Nov 2026 15:57:00 +0800</div><h3>李佳琦卖出万份Token，天猫的AI生意才刚开场</h3><p>Token正在成为AI时代的“流量包”。 （雷峰网雷峰网雷峰网） 11月2日晚，李佳琦直播间上架AI千问办公的Token算力，开播半小时，售出10万份千问办公个人会员月卡，累计约2万亿Token。 这次千问办公CEO陈宇森也来到直播间现场，雷峰网此前了解到，这位阿里最年轻的事业部CEO，业内普遍评价他能力很强，具备出色的产品sense、表达能力和商业认知都超出大部分阿里的资深老员工，“登味”极少。 说起来，阿里在就9月份就已有动作，同期天猫设立“AI空间站”，就有三家厂商入驻：千问、智谱、Minimax，充值规格分为月卡、季卡和年卡三档；阿里旗下的三档AI应用分别也给出了20%—40%的优惠；更早些，智谱直接在天猫开通官方旗舰店。 从模型厂商到电商平台，再到直播间，Token正在被包装成一种可以直接购买的商品。 但对电商平台来说，把Token摆上货架只是第一步。至于做成一门生意，是另一件事。（作者持续关注字节百度等大厂，欢迎添加微信Who123start畅聊） 01 电商平台为什么盯上Token？…</p><a href="https://www.leiphone.com/category/industrynews/h454rlPtg41JIuFd.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 06 Nov 2026 15:25:00 +0800</div><h3>上交大张伟楠教授：AI如何走出屏幕，真正改变物理世界？ | CNCC 2026</h3><p>物理智能的核心挑战：让 AI 在充满不确定性、行动后果难以撤销的真实世界中，形成感知、预测、行动与持续学习的完整闭环。 作者丨张 驰 编辑丨马晓宁 大语言模型已经得到了长足的发展，但 AI 的许多能力仍然发生在屏幕之内：理解文字、生成内容、编写代码，以及调用数字工具。把这些能力带入工厂、实验室和城市设施，意味着智能系统必须进一步面对物体、空间、力与时间，在持续变化的环境中作出判断，并承担行动的实际后果。 AI 如何从处理数字信息走向可靠地参与物理过程，正是 “ 物 理智能 ” 要回答的问题。 这一步跨越的难度，很难仅用模型参数或推理能力来衡量。机器人拿起一只杯子，既要识别位置和形状，也要判断接触、摩擦与受力；实验设备执行一次操作，既要理解任务，还要满足精度、时延和安全约束。 网页操作失误可以刷新，物理世界中的碰撞、损坏却未必能够撤销。感知是否及时、动作是否可控、失败后能否恢复，都会直接影响系统能否真正投入使用。 在今年 CNCC 首日面向博士生、青年学者的 Tutorial 专题论坛环节中， 上海交通大学计算机学院教授、上海人工智能实验室物理智能中心负责人张伟楠…</p><a href="https://www.leiphone.com/category/academic/TRS6Uqs5TY2MaUU4.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 06 Nov 2026 11:10:00 +0800</div><h3>独家丨腾讯20年老兵创业 AI 体感主机，融资超六千万</h3><p>创始人刘丹曾任光子工作室群副总经理、《斗战神》制作人。 作者丨 陈玘凡 编辑丨 吴优 雷峰网·鲸犀独家获悉，AI 体感成长主机公司创想悦动已完成种子轮融资，投资方为创维战投、创维数字，总金额约六千万元。 创想悦动目前已经开启 新一轮融资 ，意在进行更多后续内容开发、东南亚海外市场拓展、线下渠道铺设及下一代产品预研。 创想悦动创始人刘丹曾任光子工作室群副总经理、天行工作室总经理，于 2003 年加入腾讯互娱，参与见证腾讯游戏从起步到壮大的全过程，主导并参与了《QQ堂》、《QQ宠物》《斗战神》等项目。核心团队均来自 腾讯、字节、阿里 等头部互联网公司。 刘丹告诉雷峰网·鲸犀，“创想悦动当前以及未来在做的事情与索尼、任天堂一样”，既搭建主机硬件平台，也构建应用内容生态。 由于体感内容对于算力、存储的高要求，传统的电视机如果集成对应模块，会导致成本和售价的大幅上涨。而创想悦动选择将体感内容做成主机，通过摄像头结合端侧 AI 实现对用户骨骼、动作、表情识别，将体感运动、体感娱乐、体感学习塞进家庭客厅，和电视配成“互动大屏家庭新生态”。 Youdoo Box…</p><a href="https://www.leiphone.com/category/weiwu/8xihmnpkWWIHsn9G.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 06 Nov 2026 10:18:00 +0800</div><h3>独家解读丨前飞书 CMO 创业，为何用「水晶球」赌一个AI入口？</h3><p>这是梅花创投吴世春10分钟敲定的一笔投资。 作者丨陈玘凡 编辑丨吴优 雷峰网・鲸犀独家获悉，前字节飞书 CMO 孙峰创办的 A I 情绪 科技品牌 Ora-Orb ， 已完成累计数千万元融资。由梅花创投领投，知名产业资本跟投。向阳资本担任长期独家财务顾问。 新一轮融资同步启动，目标投后估值 2 亿元人民币。 孙峰对雷峰网·鲸犀分享：去年与梅花创投的吴世春见面，不到 10 分钟，吴世春就敲定了对这家新公司的融资。 Ora-Orb 创始人孙峰拥有 20 年互联网市场与出海经验，曾任字节飞书 CMO、京东市场总监、金山软件市场总监、蓝湖 CMO、迅雷副总裁，在蓝湖任职期间，他用 9 个月就把产品推至行业第一。 公司主打的硬件产品 Ora-Orb，是一款桌面级 AI 情绪陪伴终端，包括水晶球硬件 Orb 和 IP 形象 Ora，主攻北美 Z 世代女性市场，定价 365 美元，计划 2027 年 1 月亮相 CES 展会后，再登陆 Kickstarter 众筹。 今天做情绪陪伴的 AI 硬件其实不少，能够打出声量的却凤毛麟角。Ora-Orb 怎么在情绪陪伴的“坚壁”上凿出一条“裂缝”？孙峰的心里，已经有了有不少思考。 01…</p><a href="https://www.leiphone.com/category/weiwu/MiJKpPLqwFGB14X7.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 06 Nov 2026 09:57:00 +0800</div><h3>菜鸟发布与AI及具身智能产业合作计划</h3><p>11月5日，菜鸟在香港智慧港举行AI及具身智能产业合作发布会，宣布向产业伙伴开放全球仓网，打造全球最大的AI及具身智能物流实景训练集群，支持技术训练、实景验证与产业落地；同时推出“科技出海三日达”服务，升级面向AI算力与机器人企业的出海基建，提供从样机测试、规模化交付到海外运营的全链路供应链服务，助力中国硬科技更高效地走向全球。 会上，菜鸟与多家AI及具身智能领域头部企业达成首批合作。近百家产业链企业代表到场，共同探讨物理AI产业化与全球化发展新机遇。 菜鸟国际总裁熊伟表示，“AI已成为新一代核心生产力引擎。过去十年菜鸟搭建起一张开放、高效、可持续的智慧物流网络。当前AI及具身智能技术加速从实验室走向真实产业，菜鸟希望充分发挥自身全球网络优势，与AI和具身智能企业伙伴一起共建生态、加速创造产业价值。” 随着AI持续突破，智能正从数字世界延伸至实体产业，物理AI成为新一轮产业变革的重要方向。熊伟指出，具身智能加速进入现实世界后，未来10年相关技术有望逐步成熟，效率提升可能达到10至50倍。而真实、多元、规模化的业务场景，将成为推动技术迭代和产业落地的关键基础。…</p><a href="https://www.leiphone.com/category/industrynews/DUZcuKBxESiGrXWu.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 05 Nov 2026 19:26:00 +0800</div><h3>李彦宏百度世界2026演讲海报曝光，或分享智能组织进化新思考</h3><p>11月4日，百度官方发布了一则百度世界2026大会预热海报，提前透露了百度创始人李彦宏将于11月12日在大会开幕式上发表主题演讲的相关线索。 海报中的三个问题引人关注：“什么是AI时代的新厂房？”“组织进化三原则是哪些？”“智能组织将迎来的三大机会是什么？” 结合本届大会“下一幕，智能组织”的主题，李彦宏的主题演讲或围绕“智能组织进化”展开。 预测一：或分享智能组织进化趋势，并为企业AI转型提出建议 2016年百度世界大会上，李彦宏曾提出“互联网的下一幕，是人工智能”。十年后，百度世界再次以“下一幕”为题，将焦点转向“智能组织”。 近一年来，李彦宏持续关注AI如何推动企业组织层变革。在2025年百度世界大会上，他提出内化AI能力，让AI成为企业发展和个人成长的原生推动力。今年5月的Create大会上，他进一步提出AI时代的“进化论”，探讨由人与智能体组成混合编队的超级组织形态，并就企业自我进化提出建议。 从“内化AI能力”到“组织自我进化”，相关思考逐步从个人提效延伸至组织变革。海报中的“新厂房”、“组织进化三原则”等线索，预示着李彦宏或将进一步阐释智能组织的进化路径，并就企业如何推进组织进化提供新思路。…</p><a href="https://www.leiphone.com/category/industrynews/49uolfG855V4Zc9M.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><h3>[解析失败] https://36kr.com/feed</h3><p>not well-formed (invalid token): line 10, column 168</p></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 07 Nov 2026 08:34:52 GMT</div><h3>华为更多机型鸿蒙 HarmonyOS 7 系统转公测，含 nova 12 / 13 系列、畅享 70X 等</h3><p>IT之家 11 月 7 日消息，华为官网最新信息显示，鸿蒙 HarmonyOS 7 系统更多机型从花粉 Beta 转为公测， 覆盖 nova 12 / 13 系列、畅享 70X、MatePad Pro 13.2 英寸 2023 系列等 。 IT之家附华为鸿蒙 HarmonyOS 7 最新适配机型清单如下： 正式版 HUAWEI Mate 80 系列 HUAWEI Mate 70 系列 HUAWEI Mate 60 系列 HUAWEI Mate X7 系列 HUAWEI Mate X6 系列 HUAWEI Mate X5 系列 HUAWEI Mate XTs 非凡大师 HUAWEI Mate XT 非凡大师 HUAWEI Pura 90 系列 HUAWEI Pura 80 系列 HUAWEI Pura 70 系列 HUAWEI Pura X Max 系列 HUAWEI Pura X 系列 HUAWEI Pocket 2 系列 HUAWEI nova 16 系列 HUAWEI nova 15 系列 HUAWEI nova 14 系列 华为畅享 90 系列 HUAWEI MatePad Edge HUAWEI MatePad…</p><a href="https://www.ithome.com/1/023/755.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 07 Nov 2026 08:23:41 GMT</div><h3>荣耀 700 系列手机上线官网：Pro / 标准 / S 三杯、全系背屏设计</h3><p>IT之家 11 月 7 日消息，荣耀手机官方今日宣布， 荣耀 700 系列上新，已在官网开启预约 。 荣耀官网显示，荣耀 700 系列手机此次有“三杯”， 分别是荣耀 700 Pro、荣耀 700、荣耀 700S ，全系采用背屏设计。 据IT之家此前报道，博主 @数码闲聊站 爆料， 荣耀 700 系列手机采用同档唯一双 8 芯片 ，拥有更强性能 + 更大电池 + 潜望镜 + 旗舰影像 + 自拍背屏。另外，博主 @WHYLAB 透露， 背屏为 1.72 英寸 。 荣耀全球首席营销官关海涛于 11 月 3 日发文，正式官宣了数字 700 系列手机。他表示，系列新机方向很明确：继承旗舰级影像能力、探索 AI 时代年轻人的新鲜玩法，并守住荣耀一直以来的优势长板。</p><a href="https://www.ithome.com/1/023/754.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 07 Nov 2026 08:10:11 GMT</div><h3>Anthropic 神秘模型“立功”，AI 帮助攻克量子计算领域重大难题</h3><p>IT之家 11 月 7 日消息，据《商业内幕》今天（7 日）上午报道，AI 帮助攻克了量子计算领域一项长期悬而未决的重大难题。 物理研究机构 Physical Superintelligence（PSI）宣布，借助 Anthropic 一款尚未发布的 AI 模型， 量子计算领域的阿伦森－安拜尼斯猜想 成功得到证明。 这项猜想自 2008 年提出以来一直未获证明，研究的是量子计算机 在何种条件下能够获得远超传统计算机的运算速度 。 PSI 自行开发了一套 采用 Anthropic 模型的研究系统 ，仅用三天就完成了证明。据其介绍，此次行动意味着“量子计算领域最根本的问题之一”得到解决。 AI 辅助数学研究取得突破的案例还在增加。今年 9 月，OpenAI 宣布解决了有 90 年历史、“数学前沿最深奥的问题之一”的纳维－斯托克斯方程难题。 证明阿伦森－安拜尼斯猜想的研究系统由 PSI 技术人员戴维 · 图尔图雷安开发，系统使用了 Anthropic 尚未发布的 AI 模型。不过，PSI 具体使用了何种模型暂时不得而知。…</p><a href="https://www.ithome.com/1/023/752.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 07 Nov 2026 08:02:15 GMT</div><h3>“超视距安全预警”可识别结冰等危险路况并提示，吉利发布首个车道级气象环境监测大模型</h3><p>IT之家 11 月 7 日消息，11 月 5 日，吉利汽车集团与中国气象局地球系统数值预报中心正式签署战略合作框架协议。 双方联合推出行业首个“智象-星睿交通气象大模型”，该模型聚焦结冰、团雾等极端气象场景， 可实现车道级气象环境实时监测与提示 ，为进一步提升复杂天气条件下的行车安全与自动驾驶系统可靠运行提供支撑。 其中针对 能见度骤然下降、暗冰在特定桥面或背阴路段形成、暴雨在局地路段造成积水 等这些“看得见天气、看不清路段”的盲区，目前“智象-星睿交通气象大模型”已初步输出车道级能见度、暗冰和暴雨风险提示产品 ——“超视距安全预警”功能， 可基于多车互联智能识别到结冰等危险路况，并主动提示 。 IT之家获悉，该模型计划 率先在领克 900L 上量产落地 ，未来逐步应用于吉利、银河、领克、极氪等多品牌车型。 此外，明年一季度，吉利汽车集团还将联合中国气象局地球系统数值预报中心发布行业首个“通用气象模型”。 未来，双方还将共同推进《智能网联汽车气象环境数据采集与处理规范》国家标准建议书落地，力争在车载气象观测领域形成适配国内产业实际的技术路径与标准方案。</p><a href="https://www.ithome.com/1/023/749.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 07 Nov 2026 07:40:53 GMT</div><h3>Meta 推出基于 Muse Wonder 训练的现有模型专用版本，主动记忆与专注能力下放</h3><p>IT之家 11 月 7 日消息，Meta 在上月发布了 Muse Wonder 系列模型。当地时间 11 月 6 日，Meta 宣布推出 基于 Muse Wonder 训练的现有模型专用版本 ，并全面推送给 Muse 与 Meta AI 用户。 在发布 Muse Wonder 时，Meta 首次推出了主动记忆（Active Memory）与主动专注（Active Focus）两项核心特性。如今这两项能力全面下放至 Muse 与 Meta AI 中的专用模型群。 官方表示，主动记忆让 Muse 和 Meta AI 能够精准记住关键信息，并在先前对话内容与当前场景相关时及时调取，从而更轻松地基于历史对话延展推进。 Muse 中升级后的模型，在遗忘达成目标所需关键信息的问题上降低了 2.4 倍。 IT之家获悉，主动专注能力则确保 Muse 即使遭遇突发挑战，也能坚定不移地推进目标。在 Muse 中，当日常任务出现意外状况时，新模型的任务完成率提升了 67%。 延伸阅读 Muse Wonder 是 Meta 于 2026 年 10 月 12 日（美东时间）正式发布的新一代人工智能模型系列，包含主打快速前沿性能的 Muse…</p><a href="https://www.ithome.com/1/023/744.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 07 Nov 2026 07:39:11 GMT</div><h3>奔驰承认 L3 自动驾驶推进得“太超前”：当下专心搞 L2、未来直接上 L4</h3><p>IT之家 11 月 7 日消息，作为最早一批在美国推出 L3 级自动驾驶的车企，奔驰近期的动作却略显反常 —— 登陆当地市场的最新款 S 级没有配备这项技术。 随着奔驰将重心转向更先进的驾驶辅助系统，其自动驾驶技术路线也发生了变化。奔驰 CTO 约尔格 · 布尔策近日在媒体圆桌会议上接受外媒 Road &amp; Track 采访时谈到，早年率先推出 L3 级自动驾驶技术，让奔驰明白了一个道理： 抢先推出新技术，不代表就能满足消费者的实际需求 。 布尔策解释称，奔驰当初推出 L3 级自动驾驶系统时，技术的实用性还十分有限。因此，奔驰决定优先发展功能更全面的 L2 级辅助驾驶系统，未来则计划绕过 L3 级， 直接进军 L4 级自动驾驶领域 。 2023 年，奔驰凭借 Drive Pilot 成为首家在美国获得 L3 级自动驾驶批准的车企。该系统最初应用于 S 级和 EQS，驾驶员可在满足特定条件时不必持续注视道路。 Drive Pilot 的一大局限是 车速不能超过 64km/h…</p><a href="https://www.ithome.com/1/023/737.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 07 Nov 2026 07:34:45 GMT</div><h3>华为余承东：享界 V8 全国试驾正式开启，发布会临近敬请期待</h3><p>IT之家 11 月 7 日消息，华为常务董事、产品投资评审委员会主任、终端 BG 董事长余承东今日宣布， 享界 V8 全国试驾正式开启 ，欢迎带上家人一起体验，期待听到大家的真实反馈。 发布会临近，敬请期待 ！ 据IT之家了解，享界 V8 是鸿蒙智行旗下 享界品牌首款 MPV ，该车提供纯电与增程两种动力形式，全系标配 800V 高压平台、±12° 后轮转向和华为乾崑智驾系统， 预售价 32.98 万元起 。 华为官网显示，享界 V8 采用七座布局设计，分 Ultra+、Ultra、Max+ 和 Max 四个版本。除 Max+ 外，享界 V8 其余版本均可选 800V 增程或 800V 纯电动力。 享界 V8 Ultra+ 预售价：增程版 40.98 万元起 | 纯电版 44.98 万元起 四驱 + 双腔空簧 + 双阀连续可变阻尼减振器 四激光雷达 | L3 级自动驾驶架构设计 | 二排旋转零重力座椅 享界 V8 Ultra 预售价：增程版 36.98 万元起 | 纯电版 40.98 万元起 21.4 英寸华为云晰柔光吸顶屏 四激光雷达 | L3 级自动驾驶架构设计 享界 V8 Max+ 预售价：增程版 35.98…</p><a href="https://www.ithome.com/1/023/726.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 07 Nov 2026 07:30:42 GMT</div><h3>AMD Zen 6 处理器跑分曝光：10 核样片多核超前代 12 核约 21.5%</h3><p>IT之家 11 月 7 日消息，科技媒体 Wccftech 今天（11 月 7 日）发布博文，报道称 Geekbench 数据库出现多组 AMD 下一代 Medusa 系列 APU 跑分，涵盖 10 核、8 核和 6 核版本。相关产品预计面向 2027 年主流笔记本市场，目前曝光的均为工程样片。 配置方面，10 核版本采用 4 个 Zen 6 核心与 6 个 Zen 6C 核心，测试平台搭配 64GB DDR5-5200 内存；8 核和 6 核版本则分别采用“2+6”与“1+5”的核心组合。 性能方面，报道列出的 Geekbench 7 数据显示， 10 核样片单核得分 3,100、多核 18,313，相比 12 核锐龙 AI 9 HX 370 分别领先约 32% 和 21.5%。 IT之家附上相关图片如下： 8 核样片多核得分 15,075，与后者基本持平。6 核版本单核 2,651、多核 10,670，相比锐龙 AI 5 340 分别提升约 25% 和 17%。 核显方面，10 核样片搭载的“GFX1170”核显据称采用 RDNA 4m 架构，配备 4 组计算单元，OpenCL 得分 22,249，比同为 4…</p><a href="https://www.ithome.com/1/023/718.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 07 Nov 2026 07:14:22 GMT</div><h3>国行 Siri AI 新线索：苹果 iOS 27.3 首个开发者预览版新增专属功能 Flag</h3><p>IT之家 11 月 7 日消息，消息源 @itspdfu 今天（11 月 7 日）在 X 平台发布推文， 报道称苹果公司正努力在中国大陆引入 Siri AI，在 iOS 27.3 首个开发者预览版 Beta 系统中 已添加相关的功能标志。 消息源称在 iOS 27.3 系统中，苹果公司为 IntelligenceFlow 新增了一个名为 LinwoodChinaMainland 的功能标志（feature flag），目前处于禁用状态，而名为 siriAIInChinaMainland 的内部逻辑会读取这个标志。 IT之家查询公开资料，IntelligenceFlow 是 Siri AI 和 Apple Intelligence 背后的内部框架，可以把它理解成 AI 的调度层：协调对话、模型和工具，让 Siri 不只是回答，还能安排执行任务。 该条推文指出在这套 Siri AI 内部基础设施组件中，出现了一个与中国大陆启用 Siri AI 资格有关功能标志， 但这个标志是中国市场机型获得 Siri AI 使用资格的必要条件，但不是充分条件。…</p><a href="https://www.ithome.com/1/023/696.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 07 Nov 2026 07:13:08 GMT</div><h3>员工用 AI 辅助办公被开除，法院判决公司赔偿 4.6 万</h3><p>IT之家 11 月 7 日消息，据央视财经今日报道，吴女士在一家保险公司担任法务，2024 年 7 月，为优化工作流程、提升 PPT 制作及数据分析效率，她将自行整理加工后的公司稽核问题数据表，上传至公司部门领导和直属领导多次推荐的 第三方 AI 平台用于辅助办公 。不料一个月后她竟被公司以“严重违反信息安全等相关规定”为由解除了劳动合同。 吴女士向北京市朝阳区劳动人事争议仲裁委员会申请仲裁，法院经审理认为，吴女士无泄露公司秘密的主观故意，不足以认定其严重违反工作纪律应当解除劳动关系。 最终，法院作出判决：撤销保险公司向吴女士作出的《解除劳动合同告知书》，继续履行劳动合同；支付吴女士工资损失、年终奖差额等各种款项共计 四万六千余元 。保险公司不服一审判决提起上诉，二审法院驳回上诉，维持了原判，目前判决已生效。 IT之家查询获悉，在案证据显示，保险公司虽制定了保密制度、信息安全管理规定，与员工签署了保密协议，但所有内部规章制度均未明确禁止员工使用第三方 AI 工具辅助办公，也未针对 AI 办公场景出台专项合规规则或操作规范，更未开展任何 AI 工具使用专项培训。…</p><a href="https://www.ithome.com/1/023/695.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 07 Nov 2026 07:04:47 GMT</div><h3>OpenAI CFO 弗莱尔：今年美国中期选举不会影响公司的 IPO 计划</h3><p>IT之家 11 月 7 日消息，OpenAI CFO 莎拉 · 弗莱尔认为，尽管 2026 年美国中期选举改变了国会的政治格局，但公司的 IPO 计划并未受到影响。 当地时间 6 日，弗莱尔接受 CNBC 直播采访时说：“你看，我们拿着管理者的薪水，就是要 应对各种可能出现的情况 。我不认为有什么事情对我们产生了重大影响。” 此次，弗莱尔重申了 OpenAI 计划争取明年上市 的目标。与此同时，外界也在关注 OpenAI 的主要竞争对手 Anthropic 是否会继续推进 IPO。 据IT之家了解，美国民主党在此次中期选举中取得数十年罕见的大胜，不仅夺回国会控制权，还将在新的一年以明显的席位优势掌控国会。州长方面，民主党候选人凭借 限制新建数据中心开发 的竞选承诺，赢得了原本由共和党掌握的得克萨斯州、佐治亚州和俄亥俄州州长职位。 弗莱尔披露，OpenAI 不会停止投资大型数据中心。公司试图将这些设施 重新定义为“算力园区” ，而数据中心的建设对 OpenAI 和整个 AI 行业的未来都至关重要。“对于中期选举，我需要继续考虑的是，如何通过 持续投资来满足客户需求…</p><a href="https://www.ithome.com/1/023/690.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 07 Nov 2026 06:52:57 GMT</div><h3>谷歌给安卓版 Chrome 浏览器设置页“上色”，焕新引入 iOS 版彩色风格图标</h3><p>IT之家 11 月 7 日消息，科技媒体 Android Authority 昨日（11 月 6 日）发布博文，报道称谷歌酝酿升级安卓版 Chrome 浏览器的设置页面，为各个设置条目加入彩色图标，并调整部分选项的分类。 谷歌正在安卓版 Chrome Canary 中测试设置页面改版，新版最直观的变化， 是设置主页面采用了与 iOS 版 Chrome 相近的彩色图标设计。 iOS 版此前已采用这类图标，安卓版此次调整让两个平台的视觉风格进一步靠拢。IT之家附上相关图片如下： 左侧为当前安卓版 Chrome 设置，右侧为新版 选项方面，新版移除了“基本”和“高级”两个分组标题，设置项之间仍通过留白保持视觉区隔。此外，“地址栏”和“主页”选项并未被删除，而是据报道被整合至“外观”分类下。 此次更新属于谷歌持续推进的设置页面重组。希望尝鲜的用户，可在 Chrome Canary 地址栏输入 chrome://flags，搜索并启用“Settings IA Reorganization”，随后按提示重启浏览器。不过，Canary 属于实验版本，体验可能不如稳定版完善。</p><a href="https://www.ithome.com/1/023/688.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Fri, 06 Nov 2026 18:00:11 +0800</div><h3>NASA 通过 AI 生成图像宣布 X-70 试验机</h3><p>NASA 宣布了新试验机 X-70 Fractal，它展示了一幅生成图像——即并非实图，而是 AI 生成的。NASA 称，X-70 是载人飞行器，设计巡航速度为 0.75 马赫，最大飞行高度约 13700 米，航程 2778 公里。X-70 起飞重量为 4536 公斤，设计可容纳 900 公斤的机内外试验载荷。NASA 局长 Jared Isaacman 表示，这架试验机有望在两年内首飞。关于其具体设计细节和研发时间表目前知之甚少。NASA 公布的生成图像显示 X-70 与超音速侦察机 SR-71 非常相似。</p><a href="https://www.solidot.org/story?sid=85818" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 06 Nov 2026 13:45:44 +0800</div><h3>微软画图应用曝出远程代码执行漏洞</h3><p>微软画图应用曝出了一个越界读取导致的远程代码执行漏洞，受影响版本从 11.0.0.0 到 11.2605.91.0 之前。画图应用被预装在每一台 Windows PC 上，最近一段时间微软为画图应用引入了越来越多的新功能，其中包括 AI 生成功能，它同时也给画图引入了新 bug。微软用户目前可能需要通过 Microsoft Store 官方应用商店下载修正后的版本，Windows Update 尚未推送新版本。</p><a href="https://www.solidot.org/story?sid=85813" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 06 Nov 2026 00:53:00 +0800</div><h3>印度金融机构遭黑客利用 AI 工具发动的网络攻击</h3><p>印度计算机应急响应小组（CERT-In）星期三发布安全通报，被称为“狡猾猎鹰”（Crafty Falcon）的黑客组织，已入侵非银行贷款机构、金融科技公司及加密货币交易所。攻击者利用公开可用的 AI 工具，实现高速自动化入侵。印度计算机应急响应小组形容这项威胁“仍在发生，且持续活跃”。该机构点名四款用于入侵的工具，分别是 ARTEX、PentAGI、Cairn 和 CyberStrikeAI。ARTEX 此前曾被用于攻击韩国银行。印度计算机应急响应小组没有说明这些攻击事件由谁发动，也未透露该组织的运作地点。该机构也没有称这些攻击由国家支持或主导，且其点名的攻击工具均可在网络上免费获取。</p><a href="https://www.solidot.org/story?sid=85809" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 05 Nov 2026 17:00:58 +0800</div><h3>Google 和 OpenAI 的模型对特定口音有偏见</h3><p>研究人员调查了先进多模态模型如何评估面试、会议报告和英语口语能力测试中的语音，测试的模型包括了 Google 的 Gemini 2.5 Pro 和 Gemini 2.5 Flash，以及 OpenAI 的 GPT-Audio 1.5，开放权重模型 Qwen 3 Omni。这些模型对五种不同口音——美国、英国、中国、印度和尼日利亚——的英语语音进行了评分。AI 模型普遍将中国和尼日利亚口音的评分最低，印度口音居中，美国和英国口音的评分最高。即使内容完全相同，系统仍然认为美国和英国口音的表达方式和内容都更胜一筹。研究团队发现，明显的等级划分也体现在模型的解释中。研究人员说，模型反复声称中国和尼日利亚口音的英语使用者含糊不清或难以理解，但实际上它们非常擅长转录带有口音的语音，它们理解说话者，但它们只是基于口音，对说话者存在一种隐性的等级观念。</p><a href="https://www.solidot.org/story?sid=85804" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 05 Nov 2026 14:53:08 +0800</div><h3>任天堂最大 ROM 芯片供应商准备退出</h3><p>任天堂 Switch 游戏机实体游戏卡带使用的 ROM 芯片供应也受到了 AI 热的影响。任天堂最大 ROM 芯片供应商旺宏电子在其第三季度财报中宣布它准备终止 ROM 芯片生产，脱离游戏行业。旺宏电子表示，ROM 芯片的产量在过去一年中缩减了 39%，目前仅占其业务总量的 5%。ROM 芯片正逐渐被利润更高、需求更旺盛的其它存储芯片所取代。这意味着任天堂未来只能依靠其它 ROM 芯片供应商如罗姆（Rohm）和蓝碧半导体（Lapis Semiconductor），意味着游戏卡带生产成本可能会进一步上升。任天堂已经承诺未来会继续提供实体游戏卡带，不会效仿索尼只提供游戏的数字版本。</p><a href="https://www.solidot.org/story?sid=85801" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      <section class="section-card" id="errors"><div class="section-head"><h2>抓取异常</h2><span>不影响当期页面生成</span></div><ul class="error-list"><li class="error-item"><strong>36氪</strong><span>[解析失败] https://36kr.com/feed</span><em>not well-formed (invalid token): line 10, column 168</em></li></ul></section>
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>
