@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-11-09</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a><a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a><a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      <a class="toc-link" href="#errors">抓取异常</a>
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-11-09</span>
+          <span>18:06（北京时间）</span>
+          <span>IT之家、Solidot、量子位、雷锋网</span>
+        </div>
+        <p class="hero-copy">11月9日，AI行业动态集中在智能体从个人工具向团队协作的演进，以及大模型开源与多模态能力的持续升级。千问办公2.0推出支持多人与Agent协作的Team Agent，腾讯混元Hy4以开源模型搭配WorkBuddy强化多模态Agent交付，字节跳动发布Seedream 5.5提升多轮图像编辑与透明素材生成能力。产业侧，晶泰科技与皮尔法伯集团达成AI药物发现合作，浦东创投持续关注早期硬科技项目。算力与芯片领域出现分化信号：软银因美国数据中心反对声浪考虑转向其他国家，马斯克半导体工厂Terafab规划曝光。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>35</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>4</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>1</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>15</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>10</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>9</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>7</strong></div><p>基础设施的效率叙事持续升温</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>5</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>Solidot、量子位</small></article><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>4</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>IT之家、雷锋网</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>4</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>Solidot、雷锋网</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>智能体从个人走向团队协作</h3><p>千问办公2.0发布，推出行业首个支持多人与Agent协作的Team Agent功能，同时上线人机共创、资料空间、自动任务和三端互联等能力，使Agent从服务个人扩展至服务团队和组织。腾讯的Agent布局也不止于WorkBuddy，显示大厂正围绕办公场景构建更完整的智能体生态。</p></article><article class="insight-card"><h3>开源模型与多模态能力升级</h3><p>腾讯混元Hy4被评价为跻身最强开源模型，搭配WorkBuddy在多模态Agent交付上表现突出。字节跳动Seedream 5.5重点升级多轮编辑稳定性、原生RGBA透明素材生成，支持同一作品多达100轮持续创作。基元律动发布Agent原生模型NeoHorse-1.5-Flash Preview，Agent模型RSI进入第二轮迭代。</p></article><article class="insight-card"><h3>AI制药与产业投资持续落地</h3><p>皮尔法伯集团与晶泰科技达成AI驱动药物发现合作，将在肿瘤领域联合开展多个研发项目，并有望拓展至皮肤病、罕见病等领域。浦东创投围绕AI创业者构建投资与生态朋友圈，强调投早、投小、投硬科技，关注产品成形前的早期融资需求。</p></article><article class="insight-card"><h3>算力基础设施面临区域与政策变量</h3><p>软银公司因美国AI数据中心需求可能放缓和当地反对声浪高涨，考虑转向其他国家寻找增长机会。马斯克半导体工厂Terafab规划曝光，计划2028年第三季度量产，存储芯片产能对标三星，并已向日本设备制造商订购。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>千问办公2.0的Team Agent功能将智能体协作从个人效率工具推向组织级工作流，可能推动办公软件竞争转向多人与Agent协同能力。</li><li>腾讯混元Hy4以开源模型搭配WorkBuddy，若实测交付力成立，将加剧开源大模型在多模态Agent场景的竞争。</li><li>字节跳动Seedream 5.5支持100轮多轮编辑和原生透明背景输出，降低了图像创作中连续修改的画质衰减问题，对设计创作流程有直接影响。</li><li>晶泰科技与皮尔法伯集团的合作表明AI药物发现仍在向肿瘤等核心治疗领域渗透，并具备向更多适应症拓展的潜力。</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>千问办公Team Agent的多人与Agent协作功能在实际团队场景中的采用情况</li><li>腾讯混元Hy4开源后的社区反馈与WorkBuddy多模态Agent交付能力验证</li><li>字节跳动Seedream 5.5的多轮编辑稳定性与透明素材生成在创作工具中的落地</li><li>基元律动NeoHorse-1.5-Flash Preview的Agent模型RSI第二轮迭代进展</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>15 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满</h3><a href="https://www.qbitai.com/2026/11/507843.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了</h3><a href="https://www.qbitai.com/2026/11/508694.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>基元律动发布NeoHorse-1.5-Flash Preview，Agent模型RSI进入第二轮迭代</h3><p>11月5日，基元律动（TokenRhythm）发布Agent原生模型NeoHorse-1.5-Flash Preview。</p><a href="https://www.qbitai.com/2026/11/508603.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了</h3><p>11月9日，千问办公发布2.0版本，这是其上线三个月以来最大的一次升级。该版本推出了行业首个支持多人与Agent协作的功能“协作”，同时上线“人机共创”、“资料空间”、“自动任务”和“三端互联”等核心能力，让Agent从服务个人走向服务团队和组织。目前，所有功能已在千问办公客户端全量上线。 千问办公在同日发布的官方博客《千问办公2.0：主动与协同，迈向Team Agent时代》中指出，主流办公Agent的产品形态仍以服务个人为主，团队的协作方式并未发生变化，下一代Agent需要进入团队协作的现场。 千问办公推出的“协作”功能率先把Agent带进工作群，用户可以组建一个团队和数字员工共同工作的协作空间。真实的工作通常发生在办公软件的群里，一个复杂项目的信息可能会分散在多个群聊和会议纪要中，成员只能手动搬运、汇总信息。现在，数字员工在协作空间内能实时关联多个钉钉群聊、文档、AI表格和AI听记等信息源，支持多个会话并行，以及任务管理与指派。成员在协作空间内指派任务，数字员工就能结合空间的上下文，梳理进展、总结共识、创建并跟进待办。…</p><a href="https://www.leiphone.com/category/industrynews/D80ceE4xuglkLvIu.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>第八届世界浙商大会举行AI专题活动支付宝分享AI办事实践</h3><p>11月6日，第八届世界浙商大会在杭州开幕。大会由浙江省委、省政府主办，省委统战部、省工商联、浙商总会承办，开幕式展示了近两年浙江民营企业主导或参与的科技创新成果，并发布创新实践案例。 其中，由省委统战部、省工商联报送的《数字赋能送政策，精准直达惠民企》案例成功入选，成为大会发布的省级单位创新实践案例之一。该案例依托省工商联牵头建设的“浙里政策惠企精准直达大模型”平台，运用人工智能技术构建惠企政策“归集—解读—推送—评价”业务闭环，推动实现从“企业找政策”向“政策找企业”转变。支付宝作为平台政策精准触达的关键通道，通过“浙里政策惠企”小程序为企业提供个性化政策推荐服务。企业可在支付宝内直接接收与自身行业、规模、发展阶段相匹配的政策推送，实现从“政策找企业”到“企业享政策”的闭环落地。 11月7日，“浙商创新创业AI进化论——企业数智变革实践与向新破局”专题活动在浙江省人民大会堂国际会议厅举行，由浙江大学、浙江数字经济百人会主办。活动设主旨演讲、成果发布和圆桌对话，中国工程院外籍院士李尔平等受邀演讲。以“AI变革浪潮下企业发展新航向”为主题的圆桌对话，邀请制造、创投、网络安全、算力和平台服务等领域代表探讨AI在企业中的应用。…</p><a href="https://www.leiphone.com/category/industrynews/41xBwd2JagAdaaxT.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>基元律动发布NeoHorse-1.5-Flash Preview，Agent模型RSI进入第二轮迭代</h3><p>11月5日，基元律动（TokenRhythm）发布Agent原生模型NeoHorse-1.5-Flash Preview。该模型基于Qwen3.8-Flash进行训练，总参数180B、激活参数6B，重点提升Agent任务执行与软件工程能力，目前开放限量内测。 据公司公布的对照评测，相较基座模型，新模型在Agents’ Last Exam上的整体得分提高9.23分，在Natural Language to Repository评测上的整体得分提高5.92分。其中，物理科学任务提升超过20分，开发工具与测试、Web开发、安全认证与加密等方向也有改善。 本次发布延续了NeoHorse系列对递归自我改进（RSI）的探索，基元律动将其称为这一机制的“第二圈”。9月发布NeoHorse-1后，公司将上一代模型重新放回模型池，在实际任务中收集执行反馈，再将这些经验用于后续训练，模型训练尺度也从首轮4B、9B扩展至Flash档位。…</p><a href="https://www.leiphone.com/category/industrynews/tLk5dflVBL8euzAW.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>当 AI 在加速狂奔，什么反而应该“慢”下来？</h3><p>加速时代的悖论： 当“你的 AI”开始对“我的 AI”说话 2026 年，人工智能正在经历一次深刻的角色跨越：从过去几年的“对话交互”，全面走向“自主交付”。 过去，AI 停留在屏幕侧边栏的对话框里，你问它答，提供的是参考建议；而今天，智能体（Agent）开始走出对话框，真正嵌入日常工作流。作为国内用户规模最大的 AI 办公提效智能体，腾讯 WorkBuddy 在经历 100 余次版本迭代后，已累计承接超过 90 亿次任务请求，带动 Token 消耗增长 50 倍以上；据第三方 AI 产品榜 8 月桌面端数据，国内 AI 办公智能体桌面端总月活已达 3316 万，其中 WorkBuddy 位列总榜第一，月活规模占该赛道三分之一以上。 在企业的业务一线，蒙牛通过内部 AI 创新大赛跑出 45 个“数字员工”，将单牧场诊疗时效从 1.5 天缩短到 2 小时；上海家化在 9 大部门规模化落地 WorkBuddy，将每月 4.5–6 人天的 6000 万行物流账单对账压缩到 20 分钟以内。 单点工作流的提效，已经是不争的事实。但当我们在 AI 的加速度里一路狂奔时，一种微妙的职场异化也在悄然发生： 在不少率先普及 AI…</p><a href="https://www.leiphone.com/category/industrynews/zGBfQTDDCpSCfYIK.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>腾讯的 Agent 布局，不止 WorkBuddy</h3><p>大家对腾讯Agent的认识，还不够完整。 作者丨 胡敏 编辑丨刘伟 今年上半年，但凡聊腾讯 AI，那必然会聊到 Workbuddy，这个产品在前三季度彻彻底底出圈了。它在某种程度上，也 改变了 市场对于腾讯 AI 的 看法 。 但如果只看到WorkBuddy，那么大家对于腾讯 Agent 的认识，可能还是不完整的。 腾讯集团高级执行副总裁、云与智慧产业事业群CEO汤道生在 刚过去的腾讯全球数字生态 大会上提到，企业落地Agent最大的难题，不是模型不够强，而是“断点太多”：AI能写方案、做分析，却接不上业务系统，也拿不到企业数据。Agent真正落地的关键，是把人、工具、系统和数据连接起来，让AI进入真实的工作流程。 围绕这些“断点”，腾讯提出打造“全场景、高效能、更放心”的Agent生产力系统 ，并且在 腾讯全球数字生态大会的AI产品发布台上，这一思路被进一步展开：两天里，4 0+ 场发布围绕应用、数据、 安全和工程四个板块， 呈现出包括WorkBuddy在内的更完整的Agent布局。 应用是最容易被看到的一层。在这次大会上，雷峰网看到，腾讯发布了跨应用协同体系Buddy One，一边用WorkBuddy连接腾讯文档 、…</p><a href="https://www.leiphone.com/category/industrynews/oxR5pn9S7tI1IfF5.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>终端侧AI：从单点应用走向智能体体验</h3><p>发言人：高通公司AI产品技术中国区负责人 万卫星 2026年11月7日，上海 终端侧AI发展到了什么阶段？ 终端侧AI经过过去3至4年的发展，正在迎来一个比较重要的变化节点。 从应用来看，终端侧AI并不是从大模型开始的。影像其实是AI较早在终端落地的领域之一。近年来手机拍照效果不断提升，背后就有终端侧AI技术的推动。如今，终端侧AI已经进一步拓展到简单问答、聊天、图像生成与处理，以及文本处理、语音转录、实时翻译等多模态应用，其中不少功能在端侧落地的条件已经比较成熟。 不过，目前很多端侧AI应用仍然偏向单点功能。例如自动语音识别（ASR）、文本摘要、图片处理、简单聊天机器人等，大多解决的是一个具体任务。如果未来希望终端能够进一步完成意图理解、任务编排、实时操作目标App等系统级、规划类任务，就需要更强的端侧模型能力。 这意味着，终端侧AI正在逐渐从解决一个个具体任务，向更加复杂的智能体体验演进。 为什么需要终端侧AI？端侧和云端是什么关系？ 高通并不强调端侧的唯一性，而是强调端云协同或者“计算连续体”，其中一个重要思路是“端侧优先”（on-device first）。…</p><a href="https://www.leiphone.com/category/chips/aOKsujJpdDvRKj5S.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>三星 One UI 9.5 有望将 Bixby 打造成 AI 智能体，真正“代你办事”</h3><p>IT之家 11 月 9 日消息，外媒 Sammobile 今天（9 日）晚间公布了有关 One UI 9.5 的最新发现：三星准备对 Bixby 进行大幅升级，让语音助手进一步变成能够 代用户办事的个人 AI 智能体 。 该媒体在体验尚未发布的新版 Bixby 后发现，三星语音助手可以在后台处理 订酒店、预约等日常事务 。例如，在要求 Bixby 每天早上提供美元兑印度卢比的汇率 后，Bixby 便自动创建了一项每日任务，并将其列在应用的 Actions 栏目中。 ▲ 该媒体的测试截图，下同 用户只需向 Bixby 提出定期执行某项任务的要求，Bixby 便会理解指令并设置相应操作，等待用户确认。用户批准后，就能通过应用左侧边栏进入 Actions 栏目，查看创建的任务。 在该栏目中，用户可以 删除、暂停或置顶任务 ，还能通过活动日志查看任务每天的执行情况，或直接跳转至最初下达指令的聊天记录。 IT之家从该报道中获悉，三星正对这项功能进行内部测试，有望在明年初随 Galaxy S27 系列推出。现有 Galaxy 手机能否通过更新获得这项功能，尚不确定。</p><a href="https://www.ithome.com/1/024/386.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>Shizuku AI 公布全双工模型 Shizuku-Duplex，为 AI 伴侣开发奠基</h3><p>IT之家 11 月 9 日消息，日本人工智能实验室 Shizuku（雫）AI 当地时间昨日公布了其开发的 Shizuku-Duplex，宣称其是继 GPT-Live 后 第二个支持日语智能对话的全双工模型 ，无需完整询问即启动思考流程。 在日语方面，Shizuku-Duplex 拥有 6 个参测模型中最高的对话自然性， 响应质量仅次于 OpenAI 的 GPT-Live 。 Shizuku-Duplex 可分为处理对话的前台交互模型和可异步处理复杂请求的后台模型，辅以每 5min 一次的上下文压缩。其 以 80ms 为一交互“帧” ，支持音频、文本（模型独白）、动作 3 种输出方式。 基于 Shizuku-Duplex 的技术，Shizuku AI 正在开发始终倾听、响应用户感受、坦诚表达自身感受的伴侣式 AI 雫。 参考 https://shizuku.ai/en/blog/1/</p><a href="https://www.ithome.com/1/024/377.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>科技大佬分享育儿经：奥尔特曼靠 ChatGPT，纳德拉会看孩子电脑使用情况</h3><p>IT之家 11 月 9 日消息，科技企业高管正在打造影响未来几代人生活的产品、平台和企业。那么，创造未来科技的人，会如何养育自己的孩子，让他们适应这些技术塑造的世界？ 当地时间 8 日，《商业内幕》汇总了多位科技领袖以往的采访，整理出他们在育儿方面的一些有趣经验，以及帮助孩子在当今社会取得成功的建议。 即使是身家亿万的科技巨头，也躲不开普通父母面临的难题：该不该限制孩子使用电子产品的时间？家务又该怎么分配？ 来看看科技界的知名人物都是怎么教育孩子的。 萨姆 · 奥尔特曼 OpenAI CEO 萨姆 · 奥尔特曼谈到，ChatGPT 帮了自己不少育儿方面的忙 。他坦言，自己“无法想象”如果没有 ChatGPT，该怎么摸索出照顾新生儿的方法。他甚至会向 ChatGPT 询问，为什么孩子到了某个年龄还不会爬行。 奥尔特曼认为，自己的孩子 永远不会比 AI 更聪明，但会更有能力 。他在美国参议院强调，不希望孩子把 AI 聊天机器人当成最好的朋友。 说到婴儿床，奥尔特曼明确推荐 Cradlewise。这款婴儿床售价近 2,000 美元 （IT之家注：现汇率约合 13,360 元人民币）…</p><a href="https://www.ithome.com/1/024/374.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称三星 Galaxy AI 将收费：每月 4.99 美元，免费功能也设使用上限</h3><p>IT之家 11 月 9 日消息，自三星首次推出 Galaxy AI 以来，相关功能一直免费提供，但三星始终留有一个附加条件：未来可能会对这些功能收费。如今，这一情况或许即将成为现实。 据悉，三星正准备测试一项名为 Galaxy AI Premium 的订阅服务，月费为 4.99 美元 （IT之家注：现汇率约合 33.3 元人民币） 。订阅后，用户将获得更多 AI 功能使用额度，部分人工智能功能也将被纳入付费范围。 据 SammyGuru 报道称，三星正在为 Galaxy AI Premium 筹备一项早期体验计划。参与用户将获得更多 Galaxy AI 功能使用额度，同时还能查看各项 AI 功能的使用情况。目前，用户需要主动选择加入该测试计划，测试期间支付的任何费用都将获得退款。 三星仍将保留免费的 Galaxy AI 标准套餐，其中包括浏览助手（Browsing Assist）、Now Brief、创意工作室（Creative Studio）、智能截图（Smart Capture）、三星键盘（Samsung Keyboard）、照片助手（Photo Assist）以及个人智能体（Personal Agent）等功能。…</p><a href="https://www.ithome.com/1/024/371.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>阿里千问办公 2.0 发布：支持多人与 Agent 协作，可把 Agent 带进工作群</h3><p>IT之家 11 月 9 日消息，据钉钉官方消息，今天千问办公 2.0 正式发布，这是一个面向个人与组织协作的 Team Agent。2.0 版本在协作、自动任务和人机共创等核心场景下进行了能力升级，该版本推出了首个支持多人与 Agent 协作的功能“协作”，同时上线“人机共创”“资料空间”“自动任务”和“三端互联”等核心能力，让 Agent 从服务个人走向服务团队和组织。目前，所有功能已在千问办公客户端全量上线。 IT之家注意到，千问办公推出的“协作”功能率先把 Agent 带进工作群，用户可以组建一个团队和数字员工共同工作的协作空间。真实的工作通常发生在办公软件的群里，一个复杂项目的信息可能会分散在多个群聊和会议纪要中，成员只能手动搬运、汇总信息。现在，数字员工在协作空间内能实时关联多个钉钉群聊、文档、AI 表格和 AI 听记等信息源，支持多个会话并行，以及任务管理与指派。成员在协作空间内指派任务，数字员工就能结合空间的上下文，梳理进展、总结共识、创建并跟进待办。 千问办公上线的“自动任务”功能，让 Agent 从被动响应升级为主动帮用户干活。基于“自动任务”功能，用户可以订阅事件、配置规则，条件满足时 Agent…</p><a href="https://www.ithome.com/1/024/350.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>苹果将工程师的每日 AI 预算限制在 200 美元</h3><p>世界市值最高的公司也开始对 AI 预算设限。苹果据报道将部分工程师的每日 AI 预算从 300 美元削减至 200 美元。苹果市值最近再次超过英伟达跃居第一。苹果此举并非是因为缺乏现金支持内部研发，而是因为在企业级规模下生成式 AI 存在着无法回避的经济规律。如果对先进模型的使用不加限制，成本曲线将呈指数级增长，这足以摧毁任何企业的利润空间，即便苹果也不例外。</p><a href="https://www.solidot.org/story?sid=85833" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>10 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>皮尔法伯集团与晶泰科技达成AI驱动药物发现合作，将在肿瘤领域联合开展多个研发项目</h3><p>雷峰网消息，2026年11月6日，皮尔法伯集团与晶泰科技（2228.HK）宣布达成一项合作协议。双方将在肿瘤领域联合开展多个研发项目，共同发现新型临床候选药物，并有望拓展至皮肤病、罕见病等领域。 根据协议，晶泰科技将依托其一体化的“AI+机器人”核心能力，针对未披露的靶点从头设计并交付新型小分子治疗药物。皮尔法伯集团将发挥其在疾病生物学、药物发现、转化研究和临床开发领域的经验，筛选、推进最有前景的化合物，并负责后续的临床与商业开发。 此次合作体现了双方在探索具有挑战性、且长期以来被认为难以成药的靶点领域的共同意愿。这一领域不仅存在巨大的未满足医疗需求，也蕴含着创新药物研发的重要机遇。 对皮尔法伯集团而言，与晶泰科技的这份协议是其研发路线图的一次战略性补充，将进一步增强其药物发现能力；对晶泰科技而言，则意味着其 “AI+机器人”技术在药物从头设计上又向前推进了一步。双方携手，旨在加快高质量临床候选药物的发现，加速包括肿瘤及其他潜在治疗领域的多个研发项目。 晶泰科技小分子药物发现事业部负责人Raymond…</p><a href="https://www.leiphone.com/category/shengwuyiyao/HMCKdmWiZA0bT07Q.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>从一笔投资到一个生态：浦东创投把AI创业者带进了“朋友圈”</h3><p>9 月22 日，张 江人工智能创新小镇的一间路演厅里，二十余支极早期创业团队依次登台。这里没有太多成熟企业的标准答案：不少公司成立尚不足一年，有的还没有完整产品，更谈不上稳定营收。但在这场结营仪式上，团队们迎来了一个重要节点——他们全部与浦东创投完成签约，入营阶段获得的种子支持得到确认，其中超过半数项目获得追加投资，金额最高可达150万元。同一天，第三期AI训练营面向全球开启招募。 一场结营仪式，呈现出浦东创投正在推进的一条新路径：让一笔投资成为入口，再把课程、资本、产业场景和创业伙伴连接起来。对年轻团队来说，创业不必从零开始单打独斗；走进训练营，也意味着走进一个可以持续寻找资源、碰撞想法、拓展合作的“朋友圈”。 入营即投：耐心资本托住“最初一公里”…</p><a href="https://www.leiphone.com/category/industrynews/sGptXfOtHwkxuGrm.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>投早、投小、投硬科技：浦东是AI创业者绕不开的科技梦想启航热土</h3><p>对一支刚刚组建的 AI 创业团队来说，最难的时刻，往往不是产品上线之后，而是产品还没成形之前：技术路线有了，核心成员到位了，甚至已经看见了一个值得投入的市场，却拿不出成熟产品和营收数据。此时，第一笔融资从哪里来？谁愿意在最早期相信一群创业者？这张支票，常常决定一个技术梦想能不能真正启程。 今年3月17日，浦东创投AI训练营首期正式开营，24名创始人走进张江人工智能创新小镇。根据公开报道，入营团队即与浦东创投完成签约，获得保底30万元股权投资；经过营中观察和结营评估，优质项目还可追加投资，最高至150万元，投资机制强调不设对赌回购条款。把资金支持放到产品和收入尚未成形的阶段，浦东正在用一套具体机制回答创业者最迫切的问题：当梦想还只是一颗种子，是否有人愿意先浇下第一桶水？ 为何是“投早、投小、投硬科技” AI产业热度不断升高，但赛道热闹，并不意味着极早期团队就能轻松拿到融资。对科学家创业、青年创业者和硬科技团队而言，技术从实验室走向市场，需要时间、资金，也需要一套能够容纳不确定性的支持机制。浦东的选择，是把投资端口向前移，在创业最需要托举的“最初一公里”落子。…</p><a href="https://www.leiphone.com/category/industrynews/XXfvZnVJPOL1N6yx.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>第八届世界浙商大会举行AI专题活动支付宝分享AI办事实践</h3><p>11月6日，第八届世界浙商大会在杭州开幕。大会由浙江省委、省政府主办，省委统战部、省工商联、浙商总会承办，开幕式展示了近两年浙江民营企业主导或参与的科技创新成果，并发布创新实践案例。 其中，由省委统战部、省工商联报送的《数字赋能送政策，精准直达惠民企》案例成功入选，成为大会发布的省级单位创新实践案例之一。该案例依托省工商联牵头建设的“浙里政策惠企精准直达大模型”平台，运用人工智能技术构建惠企政策“归集—解读—推送—评价”业务闭环，推动实现从“企业找政策”向“政策找企业”转变。支付宝作为平台政策精准触达的关键通道，通过“浙里政策惠企”小程序为企业提供个性化政策推荐服务。企业可在支付宝内直接接收与自身行业、规模、发展阶段相匹配的政策推送，实现从“政策找企业”到“企业享政策”的闭环落地。 11月7日，“浙商创新创业AI进化论——企业数智变革实践与向新破局”专题活动在浙江省人民大会堂国际会议厅举行，由浙江大学、浙江数字经济百人会主办。活动设主旨演讲、成果发布和圆桌对话，中国工程院外籍院士李尔平等受邀演讲。以“AI变革浪潮下企业发展新航向”为主题的圆桌对话，邀请制造、创投、网络安全、算力和平台服务等领域代表探讨AI在企业中的应用。…</p><a href="https://www.leiphone.com/category/industrynews/41xBwd2JagAdaaxT.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>“X-Day”西丽湖路演社亚太数智创新专场成功举办 共探AI硬件出海新机遇</h3><p>2026年11月5日下午，“X-Day”西丽湖路演社亚太数智创新专场在深圳大学城国际会议中心成功举办。活动以“拥抱数智、链接全球”为主题，聚焦AI硬件跨境产业优势与亚太区域创新合作，共吸引头部投资机构、优质创业团队、行业专家及高校师生200余人参加。 活动现场，工商银行深圳市分行普惠金融事业部总经理兼科技金融中心总经理李玉霜，万兴科技副总裁、战略投资总经理吴佳兵，洪泰基金合伙人王远博，金沙江联合资本合伙人邱恺，云沐资本早期投资负责人李津瑶，浩方集团副总裁、浩方创投副总裁李颖，帝煌资本合伙人周爽，力合天使董事总经理黄金皇，海愿资本投资副总监朱玉武等重磅行业嘉宾齐聚现场，分享前沿洞察与路演点评。 本次圆桌对话由云沐资本早期投资负责人李津瑶主持，特邀金沙江联合资本合伙人邱恺、洪泰基金合伙人王远博以及万兴科技副总裁、战略投资总经理吴佳兵等知名投资机构代表一同围绕“数智时代，科创企业全球化新征程”这一主题深度探讨。…</p><a href="https://www.leiphone.com/category/weiwu/ZpO4WNiF4Go9XTtQ.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>腾讯的 Agent 布局，不止 WorkBuddy</h3><p>大家对腾讯Agent的认识，还不够完整。 作者丨 胡敏 编辑丨刘伟 今年上半年，但凡聊腾讯 AI，那必然会聊到 Workbuddy，这个产品在前三季度彻彻底底出圈了。它在某种程度上，也 改变了 市场对于腾讯 AI 的 看法 。 但如果只看到WorkBuddy，那么大家对于腾讯 Agent 的认识，可能还是不完整的。 腾讯集团高级执行副总裁、云与智慧产业事业群CEO汤道生在 刚过去的腾讯全球数字生态 大会上提到，企业落地Agent最大的难题，不是模型不够强，而是“断点太多”：AI能写方案、做分析，却接不上业务系统，也拿不到企业数据。Agent真正落地的关键，是把人、工具、系统和数据连接起来，让AI进入真实的工作流程。 围绕这些“断点”，腾讯提出打造“全场景、高效能、更放心”的Agent生产力系统 ，并且在 腾讯全球数字生态大会的AI产品发布台上，这一思路被进一步展开：两天里，4 0+ 场发布围绕应用、数据、 安全和工程四个板块， 呈现出包括WorkBuddy在内的更完整的Agent布局。 应用是最容易被看到的一层。在这次大会上，雷峰网看到，腾讯发布了跨应用协同体系Buddy One，一边用WorkBuddy连接腾讯文档 、…</p><a href="https://www.leiphone.com/category/industrynews/oxR5pn9S7tI1IfF5.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>美国 AI 数据中心反对声浪高涨，软银考虑转向其他国家寻找增长机会</h3><p>IT之家 11 月 9 日消息，据彭博社今天（9 日）下午报道，面对美国 AI 数据中心需求可能放缓的局面，软银集团旗下的电信运营商软银公司 CEO 宫川润一开始考虑 转向其他国家寻找增长机会 。 软银公司原本计划 在美国开展新型 AI 云计算业务 ，但民主党上周在中期选举中大获全胜，加上当地反对数据中心建设的声音日益高涨，公司不得 不重新评估美国市场的前景 。 宫川润一在东京举行的业绩说明会上告诉投资者：“美国发生的重大变化恐怕对 我们不太有利 。不过，全球 AI 数据中心需求依然旺盛，如果美国形势恶化过于严重，我们可能会 先在其他国家开展业务 。” 作为日本第三大移动通信运营商，软银公司也是孙正义旗下软银集团最重要的现金来源之一。宫川润一掌舵以来，软银公司积极拓展数据中心和 AI 服务业务，以把握日本企业日益增长的需求。 截至 9 月的六个月内，软银公司的云计算和 AI 业务收入增长 37%，推动公司上调全年营业利润预期。 按照软银公司的规划，其美国数据中心建设规模 最高可达 10GW 。与此同时，公司还在日本推进大型电芯量产设施建设，以满足日本因 AI 算力需求增长而不断增加的电力需求。日本本身资源匮乏。 投资者对…</p><a href="https://www.ithome.com/1/024/393.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称 Sakana AI 最早 2027 秋 IPO，有望开日本人工智能实验室先河</h3><p>IT之家 11 月 9 日消息，《日经亚洲》当地时间今日报道称， 日本人工智能实验室 Sakana AI 最早将于 2027 年秋季进行 IPO 。该企业近日已委任高盛担任其 IPO 顾问。 Sakana AI 有望成为首家 IPO 的日本 GenAI 开发企业，这次首次公开上市也有望成为日本历史上最大的初创企业 IPO 之一。Sakana AI 计划将募集资金用于模型开发、人才招聘、销售营销。 Sakana AI 于 2023 年创立，聚焦主权人工智能场景，推出了一系列路由模型。该企业于 2025 年 11 月 以 4000 亿日元的估值进行了 B 轮融资 。 报道表示， Sakana 正在开发 Sawara 系列自研模型 ，计划在 2027 年春季先发布较小规模版本，后续则提供更大参数的型号。</p><a href="https://www.ithome.com/1/024/383.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>“星云星座计划”发布，覆盖从国产算力芯片到卫星应用的全产业链条</h3><p>IT之家 11 月 9 日消息，据央视新闻报道，在今天（9 日）举办的 2026 太空云产业生态大会上，“星云星座计划”等我国太空云产业化成果发布，标志着我国“太空云”生态建设迈出了从技术验证走向产业化布局的关键一步。 IT之家从报道中获悉，“太空云”是指在轨协同的天基云服务系统，它改变 传统卫星“单星观测、数据回传地面处理”模式 ，让天基资源可以 按需调用、即连即用 。 本次发布的“星云星座计划”是中国科学院空天信息创新研究院与国内科创企业联合研发的全栈国产化太空算力网，是太空云生态产业化落地的重点项目。 该计划覆盖 从国产算力芯片到卫星应用的全产业链条 。未来，项目将依托 国内计算芯片、服务器整机、卫星制造、卫星应用 等研发单位，构建从“核心器部件研制”到“星座组网与应用”的全栈国产化自主技术体系。分布形成“天地协同”的统一算力网，为自然资源、防灾应急、低空经济等场景提供覆盖全球的太空算力服务。 据专家介绍，该计划未来会 使太空和地面的算力实现无缝融合、统一调度 ，太空不再仅仅是数据的转运站，而是与地面地位同等、能力互补的一级算力节点。用户可以像使用地面的云计算一样，随时随地、按需获取太空算力服务。 据了解，目前，…</p><a href="https://www.ithome.com/1/024/354.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>抗议者闯入微软在欧洲的一处数据中心工地</h3><p>逾百名活动人士闯入了阿姆斯特丹的一处微软 AI 数据中心施工现场，他们爬上起重机，悬挂气球并跳起舞，部分人则举着 Screw your datacenter 的标语。此次行动是针对 AI 基础设施迅速扩张所开展的一系列抗议活动之一。抗议者 Sam van der Beek 表示：“这些数据中心正摧毁我们的世界。它们消耗了海量资源，导致地球变得不再适宜居住。这就是我们今天来到这里的原因。”Stop Dirty Data Centers 联盟宣布，其成员于周五和周六在 16 个国家采取抗议行动。微软在阿姆斯特丹的项目 Pure Data Centers 计划投资逾 10 亿美元。Stop Dirty Data Centers 联盟表示，他们并非反对进步，也并非要求关闭现有的数据中心，而是主张在各国政府制定出更明确的规则之前，应暂停此类大型工程。</p><a href="https://www.solidot.org/story?sid=85823" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>9 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满</h3><a href="https://www.qbitai.com/2026/11/507843.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>当 AI 在加速狂奔，什么反而应该“慢”下来？</h3><p>加速时代的悖论： 当“你的 AI”开始对“我的 AI”说话 2026 年，人工智能正在经历一次深刻的角色跨越：从过去几年的“对话交互”，全面走向“自主交付”。 过去，AI 停留在屏幕侧边栏的对话框里，你问它答，提供的是参考建议；而今天，智能体（Agent）开始走出对话框，真正嵌入日常工作流。作为国内用户规模最大的 AI 办公提效智能体，腾讯 WorkBuddy 在经历 100 余次版本迭代后，已累计承接超过 90 亿次任务请求，带动 Token 消耗增长 50 倍以上；据第三方 AI 产品榜 8 月桌面端数据，国内 AI 办公智能体桌面端总月活已达 3316 万，其中 WorkBuddy 位列总榜第一，月活规模占该赛道三分之一以上。 在企业的业务一线，蒙牛通过内部 AI 创新大赛跑出 45 个“数字员工”，将单牧场诊疗时效从 1.5 天缩短到 2 小时；上海家化在 9 大部门规模化落地 WorkBuddy，将每月 4.5–6 人天的 6000 万行物流账单对账压缩到 20 分钟以内。 单点工作流的提效，已经是不争的事实。但当我们在 AI 的加速度里一路狂奔时，一种微妙的职场异化也在悄然发生： 在不少率先普及 AI…</p><a href="https://www.leiphone.com/category/industrynews/zGBfQTDDCpSCfYIK.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>腾讯的 Agent 布局，不止 WorkBuddy</h3><p>大家对腾讯Agent的认识，还不够完整。 作者丨 胡敏 编辑丨刘伟 今年上半年，但凡聊腾讯 AI，那必然会聊到 Workbuddy，这个产品在前三季度彻彻底底出圈了。它在某种程度上，也 改变了 市场对于腾讯 AI 的 看法 。 但如果只看到WorkBuddy，那么大家对于腾讯 Agent 的认识，可能还是不完整的。 腾讯集团高级执行副总裁、云与智慧产业事业群CEO汤道生在 刚过去的腾讯全球数字生态 大会上提到，企业落地Agent最大的难题，不是模型不够强，而是“断点太多”：AI能写方案、做分析，却接不上业务系统，也拿不到企业数据。Agent真正落地的关键，是把人、工具、系统和数据连接起来，让AI进入真实的工作流程。 围绕这些“断点”，腾讯提出打造“全场景、高效能、更放心”的Agent生产力系统 ，并且在 腾讯全球数字生态大会的AI产品发布台上，这一思路被进一步展开：两天里，4 0+ 场发布围绕应用、数据、 安全和工程四个板块， 呈现出包括WorkBuddy在内的更完整的Agent布局。 应用是最容易被看到的一层。在这次大会上，雷峰网看到，腾讯发布了跨应用协同体系Buddy One，一边用WorkBuddy连接腾讯文档 、…</p><a href="https://www.leiphone.com/category/industrynews/oxR5pn9S7tI1IfF5.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>一张图能改 100 遍、直出透明背景，字节跳动发布新一代图像创作模型 Seedream 5.5</h3><p>IT之家 11 月 9 日消息，字节跳动 Seed 团队今日发布了新一代图像创作模型 Seedream 5.5 ，重点带来三项核心能力升级： 更稳定的多轮编辑： 实现非编辑区域的像素级保持，消除色彩偏移，降低连续修改中的细节丢失与画质衰减，支持围绕同一作品展开多达 100 轮的持续创作。 原生 RGBA 透明素材生成： 直接输出带 Alpha 通道的透明或半透明图像，精细处理轮廓边缘与透明区域，省去后期抠图修边，让生成元素可以作为独立素材进入后续设计流程。 质感更自然，文字更清晰： 进一步改善光照、材质与皮肤纹理表现，减少过度油亮、过曝，更贴近真实拍摄的成像质感。同时显著提升文字渲染能力，对复杂字形与密集小字的还原更加准确。 在图像的多轮编辑方面，Seedream 5.5 的指令遵循能力更强，对非编辑区域实现了像素级的保持。在实测中，模型以每一轮的结果作为下一轮输入， 连续完成上百轮修改后，指定编辑区域之外的主体特征、构图比例、光影风格仍然一致 。 ▲ 100 轮修改之后，非编辑区域实现像素级保持 为评估模型在生产级创作场景中的表现，该团队围绕电商、营销、影视、游戏、办公与服装设计六类场景开展专项测试。评测依托…</p><a href="https://www.ithome.com/1/024/379.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌英国数据中心遭近 5.5 万人联名反对，包括摩托骑手和昆虫保护者</h3><p>IT之家 11 月 9 日消息，据《连线》（WIRED）报道，上周三下午，杰米 · 罗宾斯（Jamie Robins）来到谷歌位于英国伦敦国王十字区的总部。他手中拿着一封信，里面附有一份由近 5.5 万人签署的请愿书，要求谷歌放弃在伦敦以东约 24 公里的瑟罗克（Thurrock）建设大型数据中心的计划。 罗宾斯是野生动物保护组织 Buglife 的工作人员。该组织目前与多个背景各异的团体组成了一个不太寻常的联盟，共同反对谷歌的数据中心项目。 Buglife 和当地野生动物保护团体担心， 项目建设将破坏濒危植物、稀有大黄蜂以及其他无脊椎动物的栖息地 。非营利组织 Foxglove 则认为， 数据中心将产生过多污染 。当地的瑟罗克哈默斯摩托车俱乐部（Thurrock Hammers）希望重新获得这块场地， 恢复摩托车赛事 。 上周三，这些团体的成员与罗宾斯一同来到谷歌总部外抗议，手举标语牌，要求谷歌另寻数据中心建设地点。 IT之家注意到，在英国各地，谷歌等企业正准备建设大规模数据中心，以满足人工智能模型及其他数字服务不断增长的算力需求。英国政府也积极鼓励这类项目落地，希望从规模达数千亿美元的 AI…</p><a href="https://www.ithome.com/1/024/357.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>阿里千问办公 2.0 发布：支持多人与 Agent 协作，可把 Agent 带进工作群</h3><p>IT之家 11 月 9 日消息，据钉钉官方消息，今天千问办公 2.0 正式发布，这是一个面向个人与组织协作的 Team Agent。2.0 版本在协作、自动任务和人机共创等核心场景下进行了能力升级，该版本推出了首个支持多人与 Agent 协作的功能“协作”，同时上线“人机共创”“资料空间”“自动任务”和“三端互联”等核心能力，让 Agent 从服务个人走向服务团队和组织。目前，所有功能已在千问办公客户端全量上线。 IT之家注意到，千问办公推出的“协作”功能率先把 Agent 带进工作群，用户可以组建一个团队和数字员工共同工作的协作空间。真实的工作通常发生在办公软件的群里，一个复杂项目的信息可能会分散在多个群聊和会议纪要中，成员只能手动搬运、汇总信息。现在，数字员工在协作空间内能实时关联多个钉钉群聊、文档、AI 表格和 AI 听记等信息源，支持多个会话并行，以及任务管理与指派。成员在协作空间内指派任务，数字员工就能结合空间的上下文，梳理进展、总结共识、创建并跟进待办。 千问办公上线的“自动任务”功能，让 Agent 从被动响应升级为主动帮用户干活。基于“自动任务”功能，用户可以订阅事件、配置规则，条件满足时 Agent…</p><a href="https://www.ithome.com/1/024/350.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>苹果将工程师的每日 AI 预算限制在 200 美元</h3><p>世界市值最高的公司也开始对 AI 预算设限。苹果据报道将部分工程师的每日 AI 预算从 300 美元削减至 200 美元。苹果市值最近再次超过英伟达跃居第一。苹果此举并非是因为缺乏现金支持内部研发，而是因为在企业级规模下生成式 AI 存在着无法回避的经济规律。如果对先进模型的使用不加限制，成本曲线将呈指数级增长，这足以摧毁任何企业的利润空间，即便苹果也不例外。</p><a href="https://www.solidot.org/story?sid=85833" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>微软移除了 PC 到 PC 的迁移功能</h3><p>Windows 11 曾提供了一种 PC-to-PC 迁移工具，允许用户通过 Wi-Fi 或以太网在两台 PC 之间直接传输文件和设置。然而该工具如今已经移除。微软更新后的支持文档推荐用户使用 Windows Backup 工具。该工具不再依赖两台 PC 之间的直接连接，而是基于云存储服务 OneDrive。Windows Backup 需要用户登录个人微软账户，将支持的文件夹 Desktop、Documents、Pictures、Videos 和 Music 备份到 OneDrive。免费版 OneDrive 账户仅提供 5GB 存储空间。如果用户积累了多年的照片和文档，存储空间很快会超出免费额度。Windows Backup 还会记录已安装的应用、Wi-Fi 网络、密码及部分系统设置，有助于加快新设备上的配置过程。需要注意的是，应用仍需重新安装，而受支持的文件则会从云端恢复。</p><a href="https://www.solidot.org/story?sid=85827" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>抗议者闯入微软在欧洲的一处数据中心工地</h3><p>逾百名活动人士闯入了阿姆斯特丹的一处微软 AI 数据中心施工现场，他们爬上起重机，悬挂气球并跳起舞，部分人则举着 Screw your datacenter 的标语。此次行动是针对 AI 基础设施迅速扩张所开展的一系列抗议活动之一。抗议者 Sam van der Beek 表示：“这些数据中心正摧毁我们的世界。它们消耗了海量资源，导致地球变得不再适宜居住。这就是我们今天来到这里的原因。”Stop Dirty Data Centers 联盟宣布，其成员于周五和周六在 16 个国家采取抗议行动。微软在阿姆斯特丹的项目 Pure Data Centers 计划投资逾 10 亿美元。Stop Dirty Data Centers 联盟表示，他们并非反对进步，也并非要求关闭现有的数据中心，而是主张在各国政府制定出更明确的规则之前，应暂停此类大型工程。</p><a href="https://www.solidot.org/story?sid=85823" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>7 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>黄仁勋承认出轨发全员信道歉！英伟达启动紧急调查</h3><a href="https://www.qbitai.com/2026/11/508498.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>第八届世界浙商大会举行AI专题活动支付宝分享AI办事实践</h3><p>11月6日，第八届世界浙商大会在杭州开幕。大会由浙江省委、省政府主办，省委统战部、省工商联、浙商总会承办，开幕式展示了近两年浙江民营企业主导或参与的科技创新成果，并发布创新实践案例。 其中，由省委统战部、省工商联报送的《数字赋能送政策，精准直达惠民企》案例成功入选，成为大会发布的省级单位创新实践案例之一。该案例依托省工商联牵头建设的“浙里政策惠企精准直达大模型”平台，运用人工智能技术构建惠企政策“归集—解读—推送—评价”业务闭环，推动实现从“企业找政策”向“政策找企业”转变。支付宝作为平台政策精准触达的关键通道，通过“浙里政策惠企”小程序为企业提供个性化政策推荐服务。企业可在支付宝内直接接收与自身行业、规模、发展阶段相匹配的政策推送，实现从“政策找企业”到“企业享政策”的闭环落地。 11月7日，“浙商创新创业AI进化论——企业数智变革实践与向新破局”专题活动在浙江省人民大会堂国际会议厅举行，由浙江大学、浙江数字经济百人会主办。活动设主旨演讲、成果发布和圆桌对话，中国工程院外籍院士李尔平等受邀演讲。以“AI变革浪潮下企业发展新航向”为主题的圆桌对话，邀请制造、创投、网络安全、算力和平台服务等领域代表探讨AI在企业中的应用。…</p><a href="https://www.leiphone.com/category/industrynews/41xBwd2JagAdaaxT.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>美国 AI 数据中心反对声浪高涨，软银考虑转向其他国家寻找增长机会</h3><p>IT之家 11 月 9 日消息，据彭博社今天（9 日）下午报道，面对美国 AI 数据中心需求可能放缓的局面，软银集团旗下的电信运营商软银公司 CEO 宫川润一开始考虑 转向其他国家寻找增长机会 。 软银公司原本计划 在美国开展新型 AI 云计算业务 ，但民主党上周在中期选举中大获全胜，加上当地反对数据中心建设的声音日益高涨，公司不得 不重新评估美国市场的前景 。 宫川润一在东京举行的业绩说明会上告诉投资者：“美国发生的重大变化恐怕对 我们不太有利 。不过，全球 AI 数据中心需求依然旺盛，如果美国形势恶化过于严重，我们可能会 先在其他国家开展业务 。” 作为日本第三大移动通信运营商，软银公司也是孙正义旗下软银集团最重要的现金来源之一。宫川润一掌舵以来，软银公司积极拓展数据中心和 AI 服务业务，以把握日本企业日益增长的需求。 截至 9 月的六个月内，软银公司的云计算和 AI 业务收入增长 37%，推动公司上调全年营业利润预期。 按照软银公司的规划，其美国数据中心建设规模 最高可达 10GW 。与此同时，公司还在日本推进大型电芯量产设施建设，以满足日本因 AI 算力需求增长而不断增加的电力需求。日本本身资源匮乏。 投资者对…</p><a href="https://www.ithome.com/1/024/393.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>马斯克半导体工厂 Terafab 规划曝光，存储芯片产能直接对标三星</h3><p>IT之家 11 月 9 日消息，据日经新闻今日报道，埃隆 · 马斯克的半导体工厂项目 Terrafab 已开始推进。他提出了向日本设备制造商订购的计划，并敦促工厂开始运营。 根据马斯克此前公布的规划，SpaceX 与特斯拉合资成立的芯片制造企业 Terafab 计划在 2028 年第三季度实现量产 。 最新报道提到，Terafab 已向半导体设备供应商透露， 计划于 2032 年实现月产 100 万片晶圆的产能目标，其中 70 万片用于存储芯片、30 万片用于逻辑芯片 。 需要注意的是，三星目前 DRAM 月产能约为 65 万至 70 万片晶圆，马斯克给 Terafab 定的存储芯片目标直接对标了三星目前的规模。 对于一家尚处起步阶段的新进入者而言，能否在约六年内复制三星现有规模，将是对整个行业格局的重大考验。 综合IT之家此前报道，马斯克曾透露，Terafab 的内部目标是，明年 5 月或 6 月前后，在位于奥斯汀的 Terafab 研发基地产出首款采用静态随机存取存储器（SRAM）电路的测试芯片，并实现正常工作。 芯片厂商一般会先制造静态随机存取存储器电路，以此打磨生产工艺。 此外， 特斯拉和 SpaceX…</p><a href="https://www.ithome.com/1/024/388.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌英国数据中心遭近 5.5 万人联名反对，包括摩托骑手和昆虫保护者</h3><p>IT之家 11 月 9 日消息，据《连线》（WIRED）报道，上周三下午，杰米 · 罗宾斯（Jamie Robins）来到谷歌位于英国伦敦国王十字区的总部。他手中拿着一封信，里面附有一份由近 5.5 万人签署的请愿书，要求谷歌放弃在伦敦以东约 24 公里的瑟罗克（Thurrock）建设大型数据中心的计划。 罗宾斯是野生动物保护组织 Buglife 的工作人员。该组织目前与多个背景各异的团体组成了一个不太寻常的联盟，共同反对谷歌的数据中心项目。 Buglife 和当地野生动物保护团体担心， 项目建设将破坏濒危植物、稀有大黄蜂以及其他无脊椎动物的栖息地 。非营利组织 Foxglove 则认为， 数据中心将产生过多污染 。当地的瑟罗克哈默斯摩托车俱乐部（Thurrock Hammers）希望重新获得这块场地， 恢复摩托车赛事 。 上周三，这些团体的成员与罗宾斯一同来到谷歌总部外抗议，手举标语牌，要求谷歌另寻数据中心建设地点。 IT之家注意到，在英国各地，谷歌等企业正准备建设大规模数据中心，以满足人工智能模型及其他数字服务不断增长的算力需求。英国政府也积极鼓励这类项目落地，希望从规模达数千亿美元的 AI…</p><a href="https://www.ithome.com/1/024/357.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>“星云星座计划”发布，覆盖从国产算力芯片到卫星应用的全产业链条</h3><p>IT之家 11 月 9 日消息，据央视新闻报道，在今天（9 日）举办的 2026 太空云产业生态大会上，“星云星座计划”等我国太空云产业化成果发布，标志着我国“太空云”生态建设迈出了从技术验证走向产业化布局的关键一步。 IT之家从报道中获悉，“太空云”是指在轨协同的天基云服务系统，它改变 传统卫星“单星观测、数据回传地面处理”模式 ，让天基资源可以 按需调用、即连即用 。 本次发布的“星云星座计划”是中国科学院空天信息创新研究院与国内科创企业联合研发的全栈国产化太空算力网，是太空云生态产业化落地的重点项目。 该计划覆盖 从国产算力芯片到卫星应用的全产业链条 。未来，项目将依托 国内计算芯片、服务器整机、卫星制造、卫星应用 等研发单位，构建从“核心器部件研制”到“星座组网与应用”的全栈国产化自主技术体系。分布形成“天地协同”的统一算力网，为自然资源、防灾应急、低空经济等场景提供覆盖全球的太空算力服务。 据专家介绍，该计划未来会 使太空和地面的算力实现无缝融合、统一调度 ，太空不再仅仅是数据的转运站，而是与地面地位同等、能力互补的一级算力节点。用户可以像使用地面的云计算一样，随时随地、按需获取太空算力服务。 据了解，目前，…</p><a href="https://www.ithome.com/1/024/354.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>苹果将工程师的每日 AI 预算限制在 200 美元</h3><p>世界市值最高的公司也开始对 AI 预算设限。苹果据报道将部分工程师的每日 AI 预算从 300 美元削减至 200 美元。苹果市值最近再次超过英伟达跃居第一。苹果此举并非是因为缺乏现金支持内部研发，而是因为在企业级规模下生成式 AI 存在着无法回避的经济规律。如果对先进模型的使用不加限制，成本曲线将呈指数级增长，这足以摧毁任何企业的利润空间，即便苹果也不例外。</p><a href="https://www.solidot.org/story?sid=85833" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>5 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>“AI毁了我的计算机学位”</h3><a href="https://www.qbitai.com/2026/11/508706.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>AI接管一家8万Star开源公司，写代码、派任务、查Bug全包了</h3><a href="https://www.qbitai.com/2026/11/508607.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>当AI在加速狂奔，什么反而应该“慢”下来？</h3><a href="https://www.qbitai.com/2026/11/508586.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>寻找最会讲故事的AI创作者，虎鲸文娱鲸锐AI创作大赛走进清华大学</h3><p>11月6日，清华大学举行“新技术激发文化新活力，用AI讲好中国故事”鲸锐AI创作大赛大咖对谈活动</p><a href="https://www.qbitai.com/2026/11/508566.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>广电总局整治 AI 低俗微短剧</h3><p>广电总局周五晚上公布了一则通知，整治 AI 低俗短剧：“针对 AI 微短剧质量良莠不齐、AI 技术助长低俗不良内容反弹等问题，部署开展新一轮微短剧低俗化同质化专项治理工作，治理为期两个月，自 11 月 1 日起至 12 月底。新一轮专项治理聚焦两个方面的突出问题，内容创作方面，深化治理儿童类不良、软色情擦边、极端对立、拜金主义、严重违背家庭伦理道德等低俗不良内容；治理未按要求备案审核的特殊题材内容；治理“盗脸”“偷声”问题，规范 AI 微短剧创作。传播推广方面，治理片名、宣推素材、弹幕评论、引流片段中的低俗内容；治理同一剧集通过更换片名或主角姓名等方式，改头换面、反复播出；治理首页首屏首推和重点榜单推荐同质化问题，提升算法推荐内容的多样性。”</p><a href="https://www.solidot.org/story?sid=85821" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>4 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>皮尔法伯集团与晶泰科技达成AI驱动药物发现合作，将在肿瘤领域联合开展多个研发项目</h3><p>雷峰网消息，2026年11月6日，皮尔法伯集团与晶泰科技（2228.HK）宣布达成一项合作协议。双方将在肿瘤领域联合开展多个研发项目，共同发现新型临床候选药物，并有望拓展至皮肤病、罕见病等领域。 根据协议，晶泰科技将依托其一体化的“AI+机器人”核心能力，针对未披露的靶点从头设计并交付新型小分子治疗药物。皮尔法伯集团将发挥其在疾病生物学、药物发现、转化研究和临床开发领域的经验，筛选、推进最有前景的化合物，并负责后续的临床与商业开发。 此次合作体现了双方在探索具有挑战性、且长期以来被认为难以成药的靶点领域的共同意愿。这一领域不仅存在巨大的未满足医疗需求，也蕴含着创新药物研发的重要机遇。 对皮尔法伯集团而言，与晶泰科技的这份协议是其研发路线图的一次战略性补充，将进一步增强其药物发现能力；对晶泰科技而言，则意味着其 “AI+机器人”技术在药物从头设计上又向前推进了一步。双方携手，旨在加快高质量临床候选药物的发现，加速包括肿瘤及其他潜在治疗领域的多个研发项目。 晶泰科技小分子药物发现事业部负责人Raymond…</p><a href="https://www.leiphone.com/category/shengwuyiyao/HMCKdmWiZA0bT07Q.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>终端侧AI：从单点应用走向智能体体验</h3><p>发言人：高通公司AI产品技术中国区负责人 万卫星 2026年11月7日，上海 终端侧AI发展到了什么阶段？ 终端侧AI经过过去3至4年的发展，正在迎来一个比较重要的变化节点。 从应用来看，终端侧AI并不是从大模型开始的。影像其实是AI较早在终端落地的领域之一。近年来手机拍照效果不断提升，背后就有终端侧AI技术的推动。如今，终端侧AI已经进一步拓展到简单问答、聊天、图像生成与处理，以及文本处理、语音转录、实时翻译等多模态应用，其中不少功能在端侧落地的条件已经比较成熟。 不过，目前很多端侧AI应用仍然偏向单点功能。例如自动语音识别（ASR）、文本摘要、图片处理、简单聊天机器人等，大多解决的是一个具体任务。如果未来希望终端能够进一步完成意图理解、任务编排、实时操作目标App等系统级、规划类任务，就需要更强的端侧模型能力。 这意味着，终端侧AI正在逐渐从解决一个个具体任务，向更加复杂的智能体体验演进。 为什么需要终端侧AI？端侧和云端是什么关系？ 高通并不强调端侧的唯一性，而是强调端云协同或者“计算连续体”，其中一个重要思路是“端侧优先”（on-device first）。…</p><a href="https://www.leiphone.com/category/chips/aOKsujJpdDvRKj5S.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>科技大佬分享育儿经：奥尔特曼靠 ChatGPT，纳德拉会看孩子电脑使用情况</h3><p>IT之家 11 月 9 日消息，科技企业高管正在打造影响未来几代人生活的产品、平台和企业。那么，创造未来科技的人，会如何养育自己的孩子，让他们适应这些技术塑造的世界？ 当地时间 8 日，《商业内幕》汇总了多位科技领袖以往的采访，整理出他们在育儿方面的一些有趣经验，以及帮助孩子在当今社会取得成功的建议。 即使是身家亿万的科技巨头，也躲不开普通父母面临的难题：该不该限制孩子使用电子产品的时间？家务又该怎么分配？ 来看看科技界的知名人物都是怎么教育孩子的。 萨姆 · 奥尔特曼 OpenAI CEO 萨姆 · 奥尔特曼谈到，ChatGPT 帮了自己不少育儿方面的忙 。他坦言，自己“无法想象”如果没有 ChatGPT，该怎么摸索出照顾新生儿的方法。他甚至会向 ChatGPT 询问，为什么孩子到了某个年龄还不会爬行。 奥尔特曼认为，自己的孩子 永远不会比 AI 更聪明，但会更有能力 。他在美国参议院强调，不希望孩子把 AI 聊天机器人当成最好的朋友。 说到婴儿床，奥尔特曼明确推荐 Cradlewise。这款婴儿床售价近 2,000 美元 （IT之家注：现汇率约合 13,360 元人民币）…</p><a href="https://www.ithome.com/1/024/374.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>石头 P30 标准版水箱版扫拖机器人上架：25000Pa 吸力、免洗加集尘设计，2999 元</h3><p>IT之家 11 月 9 日消息，石头现已在京东上架 P30 标准版水箱版扫拖机器人，该产品主打免洗加集尘设计， 定价为 2999 元 。 京东 石头 P30 标准版水箱版扫地机器人 2999 元 直达链接 该设备采用纯白配色，单机高度为 96.6mm，顶部设有激光导航模块，采用了动态结构光避障技术来防止运行过程中的误撞，基站机身边角设计圆润，内部集成了水箱及集尘模块。 该设备提供 25000Pa 的最大吸力，配备“0 缠清扫系统”，号称毛发吸入率达 100%，缠绕率保持在 0%。设备支持 30 挡水量调节与 15mm 智能升降功能，可智能拆装拖布实现纯扫模式的干湿分离，其沿边拖地覆盖率达 100%。基站支持 75°C 热水洗布、45°C 热风烘干以及上下水连接功能。系统的全链路除菌率达 99.9%，自动集尘设计支持 65 天免维护，在满电状态下的适用面积可达 140m² 以上。 京东 11.11 无门槛红包 面额至高 26888 元，每天抽 3 次： 点此抽红包 。 淘宝 11.11 无门槛红包 面额至高 26888 元，每天抽 1 次： 点此抽红包 。</p><a href="https://www.ithome.com/1/024/372.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>4 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>第八届世界浙商大会举行AI专题活动支付宝分享AI办事实践</h3><p>11月6日，第八届世界浙商大会在杭州开幕。大会由浙江省委、省政府主办，省委统战部、省工商联、浙商总会承办，开幕式展示了近两年浙江民营企业主导或参与的科技创新成果，并发布创新实践案例。 其中，由省委统战部、省工商联报送的《数字赋能送政策，精准直达惠民企》案例成功入选，成为大会发布的省级单位创新实践案例之一。该案例依托省工商联牵头建设的“浙里政策惠企精准直达大模型”平台，运用人工智能技术构建惠企政策“归集—解读—推送—评价”业务闭环，推动实现从“企业找政策”向“政策找企业”转变。支付宝作为平台政策精准触达的关键通道，通过“浙里政策惠企”小程序为企业提供个性化政策推荐服务。企业可在支付宝内直接接收与自身行业、规模、发展阶段相匹配的政策推送，实现从“政策找企业”到“企业享政策”的闭环落地。 11月7日，“浙商创新创业AI进化论——企业数智变革实践与向新破局”专题活动在浙江省人民大会堂国际会议厅举行，由浙江大学、浙江数字经济百人会主办。活动设主旨演讲、成果发布和圆桌对话，中国工程院外籍院士李尔平等受邀演讲。以“AI变革浪潮下企业发展新航向”为主题的圆桌对话，邀请制造、创投、网络安全、算力和平台服务等领域代表探讨AI在企业中的应用。…</p><a href="https://www.leiphone.com/category/industrynews/41xBwd2JagAdaaxT.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>基元律动发布NeoHorse-1.5-Flash Preview，Agent模型RSI进入第二轮迭代</h3><p>11月5日，基元律动（TokenRhythm）发布Agent原生模型NeoHorse-1.5-Flash Preview。该模型基于Qwen3.8-Flash进行训练，总参数180B、激活参数6B，重点提升Agent任务执行与软件工程能力，目前开放限量内测。 据公司公布的对照评测，相较基座模型，新模型在Agents’ Last Exam上的整体得分提高9.23分，在Natural Language to Repository评测上的整体得分提高5.92分。其中，物理科学任务提升超过20分，开发工具与测试、Web开发、安全认证与加密等方向也有改善。 本次发布延续了NeoHorse系列对递归自我改进（RSI）的探索，基元律动将其称为这一机制的“第二圈”。9月发布NeoHorse-1后，公司将上一代模型重新放回模型池，在实际任务中收集执行反馈，再将这些经验用于后续训练，模型训练尺度也从首轮4B、9B扩展至Flash档位。…</p><a href="https://www.leiphone.com/category/industrynews/tLk5dflVBL8euzAW.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>腾讯的 Agent 布局，不止 WorkBuddy</h3><p>大家对腾讯Agent的认识，还不够完整。 作者丨 胡敏 编辑丨刘伟 今年上半年，但凡聊腾讯 AI，那必然会聊到 Workbuddy，这个产品在前三季度彻彻底底出圈了。它在某种程度上，也 改变了 市场对于腾讯 AI 的 看法 。 但如果只看到WorkBuddy，那么大家对于腾讯 Agent 的认识，可能还是不完整的。 腾讯集团高级执行副总裁、云与智慧产业事业群CEO汤道生在 刚过去的腾讯全球数字生态 大会上提到，企业落地Agent最大的难题，不是模型不够强，而是“断点太多”：AI能写方案、做分析，却接不上业务系统，也拿不到企业数据。Agent真正落地的关键，是把人、工具、系统和数据连接起来，让AI进入真实的工作流程。 围绕这些“断点”，腾讯提出打造“全场景、高效能、更放心”的Agent生产力系统 ，并且在 腾讯全球数字生态大会的AI产品发布台上，这一思路被进一步展开：两天里，4 0+ 场发布围绕应用、数据、 安全和工程四个板块， 呈现出包括WorkBuddy在内的更完整的Agent布局。 应用是最容易被看到的一层。在这次大会上，雷峰网看到，腾讯发布了跨应用协同体系Buddy One，一边用WorkBuddy连接腾讯文档 、…</p><a href="https://www.leiphone.com/category/industrynews/oxR5pn9S7tI1IfF5.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>NASA 通过 AI 生成图像宣布 X-70 试验机</h3><p>NASA 宣布了新试验机 X-70 Fractal，它展示了一幅生成图像——即并非实图，而是 AI 生成的。NASA 称，X-70 是载人飞行器，设计巡航速度为 0.75 马赫，最大飞行高度约 13700 米，航程 2778 公里。X-70 起飞重量为 4536 公斤，设计可容纳 900 公斤的机内外试验载荷。NASA 局长 Jared Isaacman 表示，这架试验机有望在两年内首飞。关于其具体设计细节和研发时间表目前知之甚少。NASA 公布的生成图像显示 X-70 与超音速侦察机 SR-71 非常相似。</p><a href="https://www.solidot.org/story?sid=85818" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 08:57:20 +0000</div><h3>“AI毁了我的计算机学位”</h3><a href="https://www.qbitai.com/2026/11/508706.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 08:44:00 +0000</div><h3>腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满</h3><a href="https://www.qbitai.com/2026/11/507843.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 08:34:03 +0000</div><h3>千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了</h3><a href="https://www.qbitai.com/2026/11/508694.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 05:47:58 +0000</div><h3>AI接管一家8万Star开源公司，写代码、派任务、查Bug全包了</h3><a href="https://www.qbitai.com/2026/11/508607.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 05:09:23 +0000</div><h3>基元律动发布NeoHorse-1.5-Flash Preview，Agent模型RSI进入第二轮迭代</h3><p>11月5日，基元律动（TokenRhythm）发布Agent原生模型NeoHorse-1.5-Flash Preview。</p><a href="https://www.qbitai.com/2026/11/508603.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 03:47:12 +0000</div><h3>当AI在加速狂奔，什么反而应该“慢”下来？</h3><a href="https://www.qbitai.com/2026/11/508586.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 02:19:08 +0000</div><h3>寻找最会讲故事的AI创作者，虎鲸文娱鲸锐AI创作大赛走进清华大学</h3><p>11月6日，清华大学举行“新技术激发文化新活力，用AI讲好中国故事”鲸锐AI创作大赛大咖对谈活动</p><a href="https://www.qbitai.com/2026/11/508566.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 00:40:50 +0000</div><h3>黄仁勋承认出轨发全员信道歉！英伟达启动紧急调查</h3><a href="https://www.qbitai.com/2026/11/508498.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 15:46:00 +0800</div><h3>千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了</h3><p>11月9日，千问办公发布2.0版本，这是其上线三个月以来最大的一次升级。该版本推出了行业首个支持多人与Agent协作的功能“协作”，同时上线“人机共创”、“资料空间”、“自动任务”和“三端互联”等核心能力，让Agent从服务个人走向服务团队和组织。目前，所有功能已在千问办公客户端全量上线。 千问办公在同日发布的官方博客《千问办公2.0：主动与协同，迈向Team Agent时代》中指出，主流办公Agent的产品形态仍以服务个人为主，团队的协作方式并未发生变化，下一代Agent需要进入团队协作的现场。 千问办公推出的“协作”功能率先把Agent带进工作群，用户可以组建一个团队和数字员工共同工作的协作空间。真实的工作通常发生在办公软件的群里，一个复杂项目的信息可能会分散在多个群聊和会议纪要中，成员只能手动搬运、汇总信息。现在，数字员工在协作空间内能实时关联多个钉钉群聊、文档、AI表格和AI听记等信息源，支持多个会话并行，以及任务管理与指派。成员在协作空间内指派任务，数字员工就能结合空间的上下文，梳理进展、总结共识、创建并跟进待办。…</p><a href="https://www.leiphone.com/category/industrynews/D80ceE4xuglkLvIu.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 15:28:00 +0800</div><h3>皮尔法伯集团与晶泰科技达成AI驱动药物发现合作，将在肿瘤领域联合开展多个研发项目</h3><p>雷峰网消息，2026年11月6日，皮尔法伯集团与晶泰科技（2228.HK）宣布达成一项合作协议。双方将在肿瘤领域联合开展多个研发项目，共同发现新型临床候选药物，并有望拓展至皮肤病、罕见病等领域。 根据协议，晶泰科技将依托其一体化的“AI+机器人”核心能力，针对未披露的靶点从头设计并交付新型小分子治疗药物。皮尔法伯集团将发挥其在疾病生物学、药物发现、转化研究和临床开发领域的经验，筛选、推进最有前景的化合物，并负责后续的临床与商业开发。 此次合作体现了双方在探索具有挑战性、且长期以来被认为难以成药的靶点领域的共同意愿。这一领域不仅存在巨大的未满足医疗需求，也蕴含着创新药物研发的重要机遇。 对皮尔法伯集团而言，与晶泰科技的这份协议是其研发路线图的一次战略性补充，将进一步增强其药物发现能力；对晶泰科技而言，则意味着其 “AI+机器人”技术在药物从头设计上又向前推进了一步。双方携手，旨在加快高质量临床候选药物的发现，加速包括肿瘤及其他潜在治疗领域的多个研发项目。 晶泰科技小分子药物发现事业部负责人Raymond…</p><a href="https://www.leiphone.com/category/shengwuyiyao/HMCKdmWiZA0bT07Q.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 15:17:00 +0800</div><h3>从一笔投资到一个生态：浦东创投把AI创业者带进了“朋友圈”</h3><p>9 月22 日，张 江人工智能创新小镇的一间路演厅里，二十余支极早期创业团队依次登台。这里没有太多成熟企业的标准答案：不少公司成立尚不足一年，有的还没有完整产品，更谈不上稳定营收。但在这场结营仪式上，团队们迎来了一个重要节点——他们全部与浦东创投完成签约，入营阶段获得的种子支持得到确认，其中超过半数项目获得追加投资，金额最高可达150万元。同一天，第三期AI训练营面向全球开启招募。 一场结营仪式，呈现出浦东创投正在推进的一条新路径：让一笔投资成为入口，再把课程、资本、产业场景和创业伙伴连接起来。对年轻团队来说，创业不必从零开始单打独斗；走进训练营，也意味着走进一个可以持续寻找资源、碰撞想法、拓展合作的“朋友圈”。 入营即投：耐心资本托住“最初一公里”…</p><a href="https://www.leiphone.com/category/industrynews/sGptXfOtHwkxuGrm.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 15:05:00 +0800</div><h3>投早、投小、投硬科技：浦东是AI创业者绕不开的科技梦想启航热土</h3><p>对一支刚刚组建的 AI 创业团队来说，最难的时刻，往往不是产品上线之后，而是产品还没成形之前：技术路线有了，核心成员到位了，甚至已经看见了一个值得投入的市场，却拿不出成熟产品和营收数据。此时，第一笔融资从哪里来？谁愿意在最早期相信一群创业者？这张支票，常常决定一个技术梦想能不能真正启程。 今年3月17日，浦东创投AI训练营首期正式开营，24名创始人走进张江人工智能创新小镇。根据公开报道，入营团队即与浦东创投完成签约，获得保底30万元股权投资；经过营中观察和结营评估，优质项目还可追加投资，最高至150万元，投资机制强调不设对赌回购条款。把资金支持放到产品和收入尚未成形的阶段，浦东正在用一套具体机制回答创业者最迫切的问题：当梦想还只是一颗种子，是否有人愿意先浇下第一桶水？ 为何是“投早、投小、投硬科技” AI产业热度不断升高，但赛道热闹，并不意味着极早期团队就能轻松拿到融资。对科学家创业、青年创业者和硬科技团队而言，技术从实验室走向市场，需要时间、资金，也需要一套能够容纳不确定性的支持机制。浦东的选择，是把投资端口向前移，在创业最需要托举的“最初一公里”落子。…</p><a href="https://www.leiphone.com/category/industrynews/XXfvZnVJPOL1N6yx.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 11:43:00 +0800</div><h3>第八届世界浙商大会举行AI专题活动支付宝分享AI办事实践</h3><p>11月6日，第八届世界浙商大会在杭州开幕。大会由浙江省委、省政府主办，省委统战部、省工商联、浙商总会承办，开幕式展示了近两年浙江民营企业主导或参与的科技创新成果，并发布创新实践案例。 其中，由省委统战部、省工商联报送的《数字赋能送政策，精准直达惠民企》案例成功入选，成为大会发布的省级单位创新实践案例之一。该案例依托省工商联牵头建设的“浙里政策惠企精准直达大模型”平台，运用人工智能技术构建惠企政策“归集—解读—推送—评价”业务闭环，推动实现从“企业找政策”向“政策找企业”转变。支付宝作为平台政策精准触达的关键通道，通过“浙里政策惠企”小程序为企业提供个性化政策推荐服务。企业可在支付宝内直接接收与自身行业、规模、发展阶段相匹配的政策推送，实现从“政策找企业”到“企业享政策”的闭环落地。 11月7日，“浙商创新创业AI进化论——企业数智变革实践与向新破局”专题活动在浙江省人民大会堂国际会议厅举行，由浙江大学、浙江数字经济百人会主办。活动设主旨演讲、成果发布和圆桌对话，中国工程院外籍院士李尔平等受邀演讲。以“AI变革浪潮下企业发展新航向”为主题的圆桌对话，邀请制造、创投、网络安全、算力和平台服务等领域代表探讨AI在企业中的应用。…</p><a href="https://www.leiphone.com/category/industrynews/41xBwd2JagAdaaxT.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 10:25:00 +0800</div><h3>基元律动发布NeoHorse-1.5-Flash Preview，Agent模型RSI进入第二轮迭代</h3><p>11月5日，基元律动（TokenRhythm）发布Agent原生模型NeoHorse-1.5-Flash Preview。该模型基于Qwen3.8-Flash进行训练，总参数180B、激活参数6B，重点提升Agent任务执行与软件工程能力，目前开放限量内测。 据公司公布的对照评测，相较基座模型，新模型在Agents’ Last Exam上的整体得分提高9.23分，在Natural Language to Repository评测上的整体得分提高5.92分。其中，物理科学任务提升超过20分，开发工具与测试、Web开发、安全认证与加密等方向也有改善。 本次发布延续了NeoHorse系列对递归自我改进（RSI）的探索，基元律动将其称为这一机制的“第二圈”。9月发布NeoHorse-1后，公司将上一代模型重新放回模型池，在实际任务中收集执行反馈，再将这些经验用于后续训练，模型训练尺度也从首轮4B、9B扩展至Flash档位。…</p><a href="https://www.leiphone.com/category/industrynews/tLk5dflVBL8euzAW.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 10:23:00 +0800</div><h3>当 AI 在加速狂奔，什么反而应该“慢”下来？</h3><p>加速时代的悖论： 当“你的 AI”开始对“我的 AI”说话 2026 年，人工智能正在经历一次深刻的角色跨越：从过去几年的“对话交互”，全面走向“自主交付”。 过去，AI 停留在屏幕侧边栏的对话框里，你问它答，提供的是参考建议；而今天，智能体（Agent）开始走出对话框，真正嵌入日常工作流。作为国内用户规模最大的 AI 办公提效智能体，腾讯 WorkBuddy 在经历 100 余次版本迭代后，已累计承接超过 90 亿次任务请求，带动 Token 消耗增长 50 倍以上；据第三方 AI 产品榜 8 月桌面端数据，国内 AI 办公智能体桌面端总月活已达 3316 万，其中 WorkBuddy 位列总榜第一，月活规模占该赛道三分之一以上。 在企业的业务一线，蒙牛通过内部 AI 创新大赛跑出 45 个“数字员工”，将单牧场诊疗时效从 1.5 天缩短到 2 小时；上海家化在 9 大部门规模化落地 WorkBuddy，将每月 4.5–6 人天的 6000 万行物流账单对账压缩到 20 分钟以内。 单点工作流的提效，已经是不争的事实。但当我们在 AI 的加速度里一路狂奔时，一种微妙的职场异化也在悄然发生： 在不少率先普及 AI…</p><a href="https://www.leiphone.com/category/industrynews/zGBfQTDDCpSCfYIK.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 09:50:00 +0800</div><h3>“X-Day”西丽湖路演社亚太数智创新专场成功举办 共探AI硬件出海新机遇</h3><p>2026年11月5日下午，“X-Day”西丽湖路演社亚太数智创新专场在深圳大学城国际会议中心成功举办。活动以“拥抱数智、链接全球”为主题，聚焦AI硬件跨境产业优势与亚太区域创新合作，共吸引头部投资机构、优质创业团队、行业专家及高校师生200余人参加。 活动现场，工商银行深圳市分行普惠金融事业部总经理兼科技金融中心总经理李玉霜，万兴科技副总裁、战略投资总经理吴佳兵，洪泰基金合伙人王远博，金沙江联合资本合伙人邱恺，云沐资本早期投资负责人李津瑶，浩方集团副总裁、浩方创投副总裁李颖，帝煌资本合伙人周爽，力合天使董事总经理黄金皇，海愿资本投资副总监朱玉武等重磅行业嘉宾齐聚现场，分享前沿洞察与路演点评。 本次圆桌对话由云沐资本早期投资负责人李津瑶主持，特邀金沙江联合资本合伙人邱恺、洪泰基金合伙人王远博以及万兴科技副总裁、战略投资总经理吴佳兵等知名投资机构代表一同围绕“数智时代，科创企业全球化新征程”这一主题深度探讨。…</p><a href="https://www.leiphone.com/category/weiwu/ZpO4WNiF4Go9XTtQ.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 08 Nov 2026 21:11:00 +0800</div><h3>腾讯的 Agent 布局，不止 WorkBuddy</h3><p>大家对腾讯Agent的认识，还不够完整。 作者丨 胡敏 编辑丨刘伟 今年上半年，但凡聊腾讯 AI，那必然会聊到 Workbuddy，这个产品在前三季度彻彻底底出圈了。它在某种程度上，也 改变了 市场对于腾讯 AI 的 看法 。 但如果只看到WorkBuddy，那么大家对于腾讯 Agent 的认识，可能还是不完整的。 腾讯集团高级执行副总裁、云与智慧产业事业群CEO汤道生在 刚过去的腾讯全球数字生态 大会上提到，企业落地Agent最大的难题，不是模型不够强，而是“断点太多”：AI能写方案、做分析，却接不上业务系统，也拿不到企业数据。Agent真正落地的关键，是把人、工具、系统和数据连接起来，让AI进入真实的工作流程。 围绕这些“断点”，腾讯提出打造“全场景、高效能、更放心”的Agent生产力系统 ，并且在 腾讯全球数字生态大会的AI产品发布台上，这一思路被进一步展开：两天里，4 0+ 场发布围绕应用、数据、 安全和工程四个板块， 呈现出包括WorkBuddy在内的更完整的Agent布局。 应用是最容易被看到的一层。在这次大会上，雷峰网看到，腾讯发布了跨应用协同体系Buddy One，一边用WorkBuddy连接腾讯文档 、…</p><a href="https://www.leiphone.com/category/industrynews/oxR5pn9S7tI1IfF5.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 08 Nov 2026 15:54:00 +0800</div><h3>终端侧AI：从单点应用走向智能体体验</h3><p>发言人：高通公司AI产品技术中国区负责人 万卫星 2026年11月7日，上海 终端侧AI发展到了什么阶段？ 终端侧AI经过过去3至4年的发展，正在迎来一个比较重要的变化节点。 从应用来看，终端侧AI并不是从大模型开始的。影像其实是AI较早在终端落地的领域之一。近年来手机拍照效果不断提升，背后就有终端侧AI技术的推动。如今，终端侧AI已经进一步拓展到简单问答、聊天、图像生成与处理，以及文本处理、语音转录、实时翻译等多模态应用，其中不少功能在端侧落地的条件已经比较成熟。 不过，目前很多端侧AI应用仍然偏向单点功能。例如自动语音识别（ASR）、文本摘要、图片处理、简单聊天机器人等，大多解决的是一个具体任务。如果未来希望终端能够进一步完成意图理解、任务编排、实时操作目标App等系统级、规划类任务，就需要更强的端侧模型能力。 这意味着，终端侧AI正在逐渐从解决一个个具体任务，向更加复杂的智能体体验演进。 为什么需要终端侧AI？端侧和云端是什么关系？ 高通并不强调端侧的唯一性，而是强调端云协同或者“计算连续体”，其中一个重要思路是“端侧优先”（on-device first）。…</p><a href="https://www.leiphone.com/category/chips/aOKsujJpdDvRKj5S.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><h3>[解析失败] https://36kr.com/feed</h3><p>not well-formed (invalid token): line 10, column 168</p></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 10:04:20 GMT</div><h3>美国 AI 数据中心反对声浪高涨，软银考虑转向其他国家寻找增长机会</h3><p>IT之家 11 月 9 日消息，据彭博社今天（9 日）下午报道，面对美国 AI 数据中心需求可能放缓的局面，软银集团旗下的电信运营商软银公司 CEO 宫川润一开始考虑 转向其他国家寻找增长机会 。 软银公司原本计划 在美国开展新型 AI 云计算业务 ，但民主党上周在中期选举中大获全胜，加上当地反对数据中心建设的声音日益高涨，公司不得 不重新评估美国市场的前景 。 宫川润一在东京举行的业绩说明会上告诉投资者：“美国发生的重大变化恐怕对 我们不太有利 。不过，全球 AI 数据中心需求依然旺盛，如果美国形势恶化过于严重，我们可能会 先在其他国家开展业务 。” 作为日本第三大移动通信运营商，软银公司也是孙正义旗下软银集团最重要的现金来源之一。宫川润一掌舵以来，软银公司积极拓展数据中心和 AI 服务业务，以把握日本企业日益增长的需求。 截至 9 月的六个月内，软银公司的云计算和 AI 业务收入增长 37%，推动公司上调全年营业利润预期。 按照软银公司的规划，其美国数据中心建设规模 最高可达 10GW 。与此同时，公司还在日本推进大型电芯量产设施建设，以满足日本因 AI 算力需求增长而不断增加的电力需求。日本本身资源匮乏。 投资者对…</p><a href="https://www.ithome.com/1/024/393.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 10:02:11 GMT</div><h3>马斯克半导体工厂 Terafab 规划曝光，存储芯片产能直接对标三星</h3><p>IT之家 11 月 9 日消息，据日经新闻今日报道，埃隆 · 马斯克的半导体工厂项目 Terrafab 已开始推进。他提出了向日本设备制造商订购的计划，并敦促工厂开始运营。 根据马斯克此前公布的规划，SpaceX 与特斯拉合资成立的芯片制造企业 Terafab 计划在 2028 年第三季度实现量产 。 最新报道提到，Terafab 已向半导体设备供应商透露， 计划于 2032 年实现月产 100 万片晶圆的产能目标，其中 70 万片用于存储芯片、30 万片用于逻辑芯片 。 需要注意的是，三星目前 DRAM 月产能约为 65 万至 70 万片晶圆，马斯克给 Terafab 定的存储芯片目标直接对标了三星目前的规模。 对于一家尚处起步阶段的新进入者而言，能否在约六年内复制三星现有规模，将是对整个行业格局的重大考验。 综合IT之家此前报道，马斯克曾透露，Terafab 的内部目标是，明年 5 月或 6 月前后，在位于奥斯汀的 Terafab 研发基地产出首款采用静态随机存取存储器（SRAM）电路的测试芯片，并实现正常工作。 芯片厂商一般会先制造静态随机存取存储器电路，以此打磨生产工艺。 此外， 特斯拉和 SpaceX…</p><a href="https://www.ithome.com/1/024/388.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 09:54:51 GMT</div><h3>三星 One UI 9.5 有望将 Bixby 打造成 AI 智能体，真正“代你办事”</h3><p>IT之家 11 月 9 日消息，外媒 Sammobile 今天（9 日）晚间公布了有关 One UI 9.5 的最新发现：三星准备对 Bixby 进行大幅升级，让语音助手进一步变成能够 代用户办事的个人 AI 智能体 。 该媒体在体验尚未发布的新版 Bixby 后发现，三星语音助手可以在后台处理 订酒店、预约等日常事务 。例如，在要求 Bixby 每天早上提供美元兑印度卢比的汇率 后，Bixby 便自动创建了一项每日任务，并将其列在应用的 Actions 栏目中。 ▲ 该媒体的测试截图，下同 用户只需向 Bixby 提出定期执行某项任务的要求，Bixby 便会理解指令并设置相应操作，等待用户确认。用户批准后，就能通过应用左侧边栏进入 Actions 栏目，查看创建的任务。 在该栏目中，用户可以 删除、暂停或置顶任务 ，还能通过活动日志查看任务每天的执行情况，或直接跳转至最初下达指令的聊天记录。 IT之家从该报道中获悉，三星正对这项功能进行内部测试，有望在明年初随 Galaxy S27 系列推出。现有 Galaxy 手机能否通过更新获得这项功能，尚不确定。</p><a href="https://www.ithome.com/1/024/386.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 09:46:03 GMT</div><h3>消息称 Sakana AI 最早 2027 秋 IPO，有望开日本人工智能实验室先河</h3><p>IT之家 11 月 9 日消息，《日经亚洲》当地时间今日报道称， 日本人工智能实验室 Sakana AI 最早将于 2027 年秋季进行 IPO 。该企业近日已委任高盛担任其 IPO 顾问。 Sakana AI 有望成为首家 IPO 的日本 GenAI 开发企业，这次首次公开上市也有望成为日本历史上最大的初创企业 IPO 之一。Sakana AI 计划将募集资金用于模型开发、人才招聘、销售营销。 Sakana AI 于 2023 年创立，聚焦主权人工智能场景，推出了一系列路由模型。该企业于 2025 年 11 月 以 4000 亿日元的估值进行了 B 轮融资 。 报道表示， Sakana 正在开发 Sawara 系列自研模型 ，计划在 2027 年春季先发布较小规模版本，后续则提供更大参数的型号。</p><a href="https://www.ithome.com/1/024/383.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 09:35:33 GMT</div><h3>一张图能改 100 遍、直出透明背景，字节跳动发布新一代图像创作模型 Seedream 5.5</h3><p>IT之家 11 月 9 日消息，字节跳动 Seed 团队今日发布了新一代图像创作模型 Seedream 5.5 ，重点带来三项核心能力升级： 更稳定的多轮编辑： 实现非编辑区域的像素级保持，消除色彩偏移，降低连续修改中的细节丢失与画质衰减，支持围绕同一作品展开多达 100 轮的持续创作。 原生 RGBA 透明素材生成： 直接输出带 Alpha 通道的透明或半透明图像，精细处理轮廓边缘与透明区域，省去后期抠图修边，让生成元素可以作为独立素材进入后续设计流程。 质感更自然，文字更清晰： 进一步改善光照、材质与皮肤纹理表现，减少过度油亮、过曝，更贴近真实拍摄的成像质感。同时显著提升文字渲染能力，对复杂字形与密集小字的还原更加准确。 在图像的多轮编辑方面，Seedream 5.5 的指令遵循能力更强，对非编辑区域实现了像素级的保持。在实测中，模型以每一轮的结果作为下一轮输入， 连续完成上百轮修改后，指定编辑区域之外的主体特征、构图比例、光影风格仍然一致 。 ▲ 100 轮修改之后，非编辑区域实现像素级保持 为评估模型在生产级创作场景中的表现，该团队围绕电商、营销、影视、游戏、办公与服装设计六类场景开展专项测试。评测依托…</p><a href="https://www.ithome.com/1/024/379.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 09:27:32 GMT</div><h3>Shizuku AI 公布全双工模型 Shizuku-Duplex，为 AI 伴侣开发奠基</h3><p>IT之家 11 月 9 日消息，日本人工智能实验室 Shizuku（雫）AI 当地时间昨日公布了其开发的 Shizuku-Duplex，宣称其是继 GPT-Live 后 第二个支持日语智能对话的全双工模型 ，无需完整询问即启动思考流程。 在日语方面，Shizuku-Duplex 拥有 6 个参测模型中最高的对话自然性， 响应质量仅次于 OpenAI 的 GPT-Live 。 Shizuku-Duplex 可分为处理对话的前台交互模型和可异步处理复杂请求的后台模型，辅以每 5min 一次的上下文压缩。其 以 80ms 为一交互“帧” ，支持音频、文本（模型独白）、动作 3 种输出方式。 基于 Shizuku-Duplex 的技术，Shizuku AI 正在开发始终倾听、响应用户感受、坦诚表达自身感受的伴侣式 AI 雫。 参考 https://shizuku.ai/en/blog/1/</p><a href="https://www.ithome.com/1/024/377.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 09:16:06 GMT</div><h3>科技大佬分享育儿经：奥尔特曼靠 ChatGPT，纳德拉会看孩子电脑使用情况</h3><p>IT之家 11 月 9 日消息，科技企业高管正在打造影响未来几代人生活的产品、平台和企业。那么，创造未来科技的人，会如何养育自己的孩子，让他们适应这些技术塑造的世界？ 当地时间 8 日，《商业内幕》汇总了多位科技领袖以往的采访，整理出他们在育儿方面的一些有趣经验，以及帮助孩子在当今社会取得成功的建议。 即使是身家亿万的科技巨头，也躲不开普通父母面临的难题：该不该限制孩子使用电子产品的时间？家务又该怎么分配？ 来看看科技界的知名人物都是怎么教育孩子的。 萨姆 · 奥尔特曼 OpenAI CEO 萨姆 · 奥尔特曼谈到，ChatGPT 帮了自己不少育儿方面的忙 。他坦言，自己“无法想象”如果没有 ChatGPT，该怎么摸索出照顾新生儿的方法。他甚至会向 ChatGPT 询问，为什么孩子到了某个年龄还不会爬行。 奥尔特曼认为，自己的孩子 永远不会比 AI 更聪明，但会更有能力 。他在美国参议院强调，不希望孩子把 AI 聊天机器人当成最好的朋友。 说到婴儿床，奥尔特曼明确推荐 Cradlewise。这款婴儿床售价近 2,000 美元 （IT之家注：现汇率约合 13,360 元人民币）…</p><a href="https://www.ithome.com/1/024/374.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 09:13:26 GMT</div><h3>石头 P30 标准版水箱版扫拖机器人上架：25000Pa 吸力、免洗加集尘设计，2999 元</h3><p>IT之家 11 月 9 日消息，石头现已在京东上架 P30 标准版水箱版扫拖机器人，该产品主打免洗加集尘设计， 定价为 2999 元 。 京东 石头 P30 标准版水箱版扫地机器人 2999 元 直达链接 该设备采用纯白配色，单机高度为 96.6mm，顶部设有激光导航模块，采用了动态结构光避障技术来防止运行过程中的误撞，基站机身边角设计圆润，内部集成了水箱及集尘模块。 该设备提供 25000Pa 的最大吸力，配备“0 缠清扫系统”，号称毛发吸入率达 100%，缠绕率保持在 0%。设备支持 30 挡水量调节与 15mm 智能升降功能，可智能拆装拖布实现纯扫模式的干湿分离，其沿边拖地覆盖率达 100%。基站支持 75°C 热水洗布、45°C 热风烘干以及上下水连接功能。系统的全链路除菌率达 99.9%，自动集尘设计支持 65 天免维护，在满电状态下的适用面积可达 140m² 以上。 京东 11.11 无门槛红包 面额至高 26888 元，每天抽 3 次： 点此抽红包 。 淘宝 11.11 无门槛红包 面额至高 26888 元，每天抽 1 次： 点此抽红包 。</p><a href="https://www.ithome.com/1/024/372.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 09:06:16 GMT</div><h3>消息称三星 Galaxy AI 将收费：每月 4.99 美元，免费功能也设使用上限</h3><p>IT之家 11 月 9 日消息，自三星首次推出 Galaxy AI 以来，相关功能一直免费提供，但三星始终留有一个附加条件：未来可能会对这些功能收费。如今，这一情况或许即将成为现实。 据悉，三星正准备测试一项名为 Galaxy AI Premium 的订阅服务，月费为 4.99 美元 （IT之家注：现汇率约合 33.3 元人民币） 。订阅后，用户将获得更多 AI 功能使用额度，部分人工智能功能也将被纳入付费范围。 据 SammyGuru 报道称，三星正在为 Galaxy AI Premium 筹备一项早期体验计划。参与用户将获得更多 Galaxy AI 功能使用额度，同时还能查看各项 AI 功能的使用情况。目前，用户需要主动选择加入该测试计划，测试期间支付的任何费用都将获得退款。 三星仍将保留免费的 Galaxy AI 标准套餐，其中包括浏览助手（Browsing Assist）、Now Brief、创意工作室（Creative Studio）、智能截图（Smart Capture）、三星键盘（Samsung Keyboard）、照片助手（Photo Assist）以及个人智能体（Personal Agent）等功能。…</p><a href="https://www.ithome.com/1/024/371.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 08:35:45 GMT</div><h3>谷歌英国数据中心遭近 5.5 万人联名反对，包括摩托骑手和昆虫保护者</h3><p>IT之家 11 月 9 日消息，据《连线》（WIRED）报道，上周三下午，杰米 · 罗宾斯（Jamie Robins）来到谷歌位于英国伦敦国王十字区的总部。他手中拿着一封信，里面附有一份由近 5.5 万人签署的请愿书，要求谷歌放弃在伦敦以东约 24 公里的瑟罗克（Thurrock）建设大型数据中心的计划。 罗宾斯是野生动物保护组织 Buglife 的工作人员。该组织目前与多个背景各异的团体组成了一个不太寻常的联盟，共同反对谷歌的数据中心项目。 Buglife 和当地野生动物保护团体担心， 项目建设将破坏濒危植物、稀有大黄蜂以及其他无脊椎动物的栖息地 。非营利组织 Foxglove 则认为， 数据中心将产生过多污染 。当地的瑟罗克哈默斯摩托车俱乐部（Thurrock Hammers）希望重新获得这块场地， 恢复摩托车赛事 。 上周三，这些团体的成员与罗宾斯一同来到谷歌总部外抗议，手举标语牌，要求谷歌另寻数据中心建设地点。 IT之家注意到，在英国各地，谷歌等企业正准备建设大规模数据中心，以满足人工智能模型及其他数字服务不断增长的算力需求。英国政府也积极鼓励这类项目落地，希望从规模达数千亿美元的 AI…</p><a href="https://www.ithome.com/1/024/357.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 08:25:12 GMT</div><h3>“星云星座计划”发布，覆盖从国产算力芯片到卫星应用的全产业链条</h3><p>IT之家 11 月 9 日消息，据央视新闻报道，在今天（9 日）举办的 2026 太空云产业生态大会上，“星云星座计划”等我国太空云产业化成果发布，标志着我国“太空云”生态建设迈出了从技术验证走向产业化布局的关键一步。 IT之家从报道中获悉，“太空云”是指在轨协同的天基云服务系统，它改变 传统卫星“单星观测、数据回传地面处理”模式 ，让天基资源可以 按需调用、即连即用 。 本次发布的“星云星座计划”是中国科学院空天信息创新研究院与国内科创企业联合研发的全栈国产化太空算力网，是太空云生态产业化落地的重点项目。 该计划覆盖 从国产算力芯片到卫星应用的全产业链条 。未来，项目将依托 国内计算芯片、服务器整机、卫星制造、卫星应用 等研发单位，构建从“核心器部件研制”到“星座组网与应用”的全栈国产化自主技术体系。分布形成“天地协同”的统一算力网，为自然资源、防灾应急、低空经济等场景提供覆盖全球的太空算力服务。 据专家介绍，该计划未来会 使太空和地面的算力实现无缝融合、统一调度 ，太空不再仅仅是数据的转运站，而是与地面地位同等、能力互补的一级算力节点。用户可以像使用地面的云计算一样，随时随地、按需获取太空算力服务。 据了解，目前，…</p><a href="https://www.ithome.com/1/024/354.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 08:15:13 GMT</div><h3>阿里千问办公 2.0 发布：支持多人与 Agent 协作，可把 Agent 带进工作群</h3><p>IT之家 11 月 9 日消息，据钉钉官方消息，今天千问办公 2.0 正式发布，这是一个面向个人与组织协作的 Team Agent。2.0 版本在协作、自动任务和人机共创等核心场景下进行了能力升级，该版本推出了首个支持多人与 Agent 协作的功能“协作”，同时上线“人机共创”“资料空间”“自动任务”和“三端互联”等核心能力，让 Agent 从服务个人走向服务团队和组织。目前，所有功能已在千问办公客户端全量上线。 IT之家注意到，千问办公推出的“协作”功能率先把 Agent 带进工作群，用户可以组建一个团队和数字员工共同工作的协作空间。真实的工作通常发生在办公软件的群里，一个复杂项目的信息可能会分散在多个群聊和会议纪要中，成员只能手动搬运、汇总信息。现在，数字员工在协作空间内能实时关联多个钉钉群聊、文档、AI 表格和 AI 听记等信息源，支持多个会话并行，以及任务管理与指派。成员在协作空间内指派任务，数字员工就能结合空间的上下文，梳理进展、总结共识、创建并跟进待办。 千问办公上线的“自动任务”功能，让 Agent 从被动响应升级为主动帮用户干活。基于“自动任务”功能，用户可以订阅事件、配置规则，条件满足时 Agent…</p><a href="https://www.ithome.com/1/024/350.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Mon, 09 Nov 2026 14:40:12 +0800</div><h3>苹果将工程师的每日 AI 预算限制在 200 美元</h3><p>世界市值最高的公司也开始对 AI 预算设限。苹果据报道将部分工程师的每日 AI 预算从 300 美元削减至 200 美元。苹果市值最近再次超过英伟达跃居第一。苹果此举并非是因为缺乏现金支持内部研发，而是因为在企业级规模下生成式 AI 存在着无法回避的经济规律。如果对先进模型的使用不加限制，成本曲线将呈指数级增长，这足以摧毁任何企业的利润空间，即便苹果也不例外。</p><a href="https://www.solidot.org/story?sid=85833" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sun, 08 Nov 2026 22:34:13 +0800</div><h3>微软移除了 PC 到 PC 的迁移功能</h3><p>Windows 11 曾提供了一种 PC-to-PC 迁移工具，允许用户通过 Wi-Fi 或以太网在两台 PC 之间直接传输文件和设置。然而该工具如今已经移除。微软更新后的支持文档推荐用户使用 Windows Backup 工具。该工具不再依赖两台 PC 之间的直接连接，而是基于云存储服务 OneDrive。Windows Backup 需要用户登录个人微软账户，将支持的文件夹 Desktop、Documents、Pictures、Videos 和 Music 备份到 OneDrive。免费版 OneDrive 账户仅提供 5GB 存储空间。如果用户积累了多年的照片和文档，存储空间很快会超出免费额度。Windows Backup 还会记录已安装的应用、Wi-Fi 网络、密码及部分系统设置，有助于加快新设备上的配置过程。需要注意的是，应用仍需重新安装，而受支持的文件则会从云端恢复。</p><a href="https://www.solidot.org/story?sid=85827" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 07 Nov 2026 19:46:00 +0800</div><h3>抗议者闯入微软在欧洲的一处数据中心工地</h3><p>逾百名活动人士闯入了阿姆斯特丹的一处微软 AI 数据中心施工现场，他们爬上起重机，悬挂气球并跳起舞，部分人则举着 Screw your datacenter 的标语。此次行动是针对 AI 基础设施迅速扩张所开展的一系列抗议活动之一。抗议者 Sam van der Beek 表示：“这些数据中心正摧毁我们的世界。它们消耗了海量资源，导致地球变得不再适宜居住。这就是我们今天来到这里的原因。”Stop Dirty Data Centers 联盟宣布，其成员于周五和周六在 16 个国家采取抗议行动。微软在阿姆斯特丹的项目 Pure Data Centers 计划投资逾 10 亿美元。Stop Dirty Data Centers 联盟表示，他们并非反对进步，也并非要求关闭现有的数据中心，而是主张在各国政府制定出更明确的规则之前，应暂停此类大型工程。</p><a href="https://www.solidot.org/story?sid=85823" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 07 Nov 2026 19:19:42 +0800</div><h3>广电总局整治 AI 低俗微短剧</h3><p>广电总局周五晚上公布了一则通知，整治 AI 低俗短剧：“针对 AI 微短剧质量良莠不齐、AI 技术助长低俗不良内容反弹等问题，部署开展新一轮微短剧低俗化同质化专项治理工作，治理为期两个月，自 11 月 1 日起至 12 月底。新一轮专项治理聚焦两个方面的突出问题，内容创作方面，深化治理儿童类不良、软色情擦边、极端对立、拜金主义、严重违背家庭伦理道德等低俗不良内容；治理未按要求备案审核的特殊题材内容；治理“盗脸”“偷声”问题，规范 AI 微短剧创作。传播推广方面，治理片名、宣推素材、弹幕评论、引流片段中的低俗内容；治理同一剧集通过更换片名或主角姓名等方式，改头换面、反复播出；治理首页首屏首推和重点榜单推荐同质化问题，提升算法推荐内容的多样性。”</p><a href="https://www.solidot.org/story?sid=85821" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 06 Nov 2026 18:00:11 +0800</div><h3>NASA 通过 AI 生成图像宣布 X-70 试验机</h3><p>NASA 宣布了新试验机 X-70 Fractal，它展示了一幅生成图像——即并非实图，而是 AI 生成的。NASA 称，X-70 是载人飞行器，设计巡航速度为 0.75 马赫，最大飞行高度约 13700 米，航程 2778 公里。X-70 起飞重量为 4536 公斤，设计可容纳 900 公斤的机内外试验载荷。NASA 局长 Jared Isaacman 表示，这架试验机有望在两年内首飞。关于其具体设计细节和研发时间表目前知之甚少。NASA 公布的生成图像显示 X-70 与超音速侦察机 SR-71 非常相似。</p><a href="https://www.solidot.org/story?sid=85818" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      <section class="section-card" id="errors"><div class="section-head"><h2>抓取异常</h2><span>不影响当期页面生成</span></div><ul class="error-list"><li class="error-item"><strong>36氪</strong><span>[解析失败] https://36kr.com/feed</span><em>not well-formed (invalid token): line 10, column 168</em></li></ul></section>
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>
