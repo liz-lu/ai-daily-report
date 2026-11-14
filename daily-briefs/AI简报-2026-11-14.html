@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-11-14</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a><a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      <a class="toc-link" href="#errors">抓取异常</a>
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-11-14</span>
+          <span>17:15（北京时间）</span>
+          <span>IT之家、Solidot、量子位、雷锋网</span>
+        </div>
+        <p class="hero-copy">11月14日，AI产业动态集中在模型流通、行业落地与算力生态三条主线。百度词元所发布首日新增超100家供应商与超1000家客户，模型Token交易模式开始获得市场初步响应；中金公司与蚂蚁集团、京博控股与千问办公分别签署战略合作，金融与化工场景的AI原生改造继续推进。技术侧，开源模型与智能体操作系统、端到端自动驾驶及世界模型均有新进展，半导体材料与三维视觉等底层方向亦获融资与关注。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>31</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>4</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>1</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>11</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>10</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>9</strong></div><p>基础设施的效率叙事持续升温</p><small>IT之家、Solidot、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>9</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>7</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>4</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>IT之家、量子位</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>4</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>IT之家、雷锋网</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>模型流通与智能体基础设施</h3><p>百度词元所以“大模型的交易所”定位上线，首日供应商与客户接入量快速增长，反映模型Token分发与交易需求正在形成。openJiuwen发布RSI原生AgentOS，强调Agent的自由变身与持续迭代，智能体运行环境的基础设施化趋势延续。</p></article><article class="insight-card"><h3>AI+行业合作密集落地</h3><p>中金公司与蚂蚁集团围绕金融大模型、AI赋能财富管理及客户全生命周期服务展开合作；京博控股与千问办公明确以AI Native组织为目标，覆盖科研、生产运营、经营分析与流程重构等场景。行业合作从单点试点向组织级改造延伸。</p></article><article class="insight-card"><h3>端到端与具身智能技术推进</h3><p>英伟达发布端到端自动驾驶模型Alpamayo 2 Edge，采用因果推理结合扩散动作，称闭环表现提升48.9%。国内方面，机器人学会隔墙协作研究将成功率从0提升至100%，西湖大学团队以40亿参数模型在6个评测中取得第一并押注概念世界模型，高校力量持续进入世界模型竞争。</p></article><article class="insight-card"><h3>算力与半导体底层动态</h3><p>英伟达出现33年来首次换帅，黄仁勋辞职，相关报道提及市值大幅蒸发，具体影响有待进一步确认。港大孵化的半导体材料公司钻耐科思完成数千万元融资，其晶圆级薄膜剥离技术发表于《Nature》，底层材料环节仍受资本关注。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>词元所首日数据表明模型Token交易模式具备初步需求，但供应商与客户规模仍处早期，后续需观察实际交易量与留存。</li><li>金融与化工两大行业同日宣布AI合作，显示大模型落地正从工具采购转向组织流程重构，交付周期与效果评估将成为关键。</li><li>英伟达换帅消息若属实，将对算力供应链与市场预期产生较大影响，目前信息有限，需以官方披露为准。</li><li>端到端自动驾驶与世界模型研究进展密集，但多数处于评测与实验阶段，距离规模化商用仍有距离。</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>百度词元所后续供应商入驻质量与客户实际调用情况</li><li>英伟达换帅事件的官方确认及对算力市场的影响</li><li>中金与蚂蚁、京博与千问办公合作的阶段性落地成果</li><li>openJiuwen AgentOS的开发者采用与生态建设</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>11 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>高难盲测超越GPT-6-Astra与Opus-5！无界前沿开源Fx-Bio-1031，把RSI带进生命科学</h3><a href="https://www.qbitai.com/2026/11/509663.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>openJiuwen发布RSI原生AgentOS，让Agent自由变身，持续迭代！</h3><a href="https://www.qbitai.com/2026/11/509653.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>百度词元所发布首日：供应商暴增超100家，客户新增超1000家</h3><p>11月14日，从百度获悉，百度词元所发布首日，新增申请入驻的供应商已超过100家，新增超过1000家客户接入。 词元所在11月12日举行的百度世界2026上正式发布，百度创始人李彦宏将其称为“大模型的交易所”。据介绍，词元所一端汇聚模型和模型提供商，另一端服务企业和个人，让用户便捷地找到、购买和使用可信的模型Token。 词元所主打验真与征信两大能力：模型入平台前需通过模型指纹比对、模型能力测试、性能指标与可用性测试等准入核验，上线后接受定期抽检拨测与全链路实时监测，相关结果沉淀为供应商的信用评级。 李彦宏提到，今年前9个月几乎每天都有不止一款新模型发布，调用需求同步爆发，而市面上的词元中转站不对模型效果、服务稳定性、响应速度负责，连模型真实性也无从考证，词元所要解决的是这一环节的信任问题。 试运行期间，词元所入驻供应资源已经超过100个，日均调用次数突破5000万次。目前平台已上架40余款模型，覆盖DeepSeek、Kimi、智谱GLM、MiniMax等主流模型及视频模型，也包括百度自研文心系列；入驻方既有模型原厂，也有第三方推理服务商。 工信部信息通信经济专家委员会委员盘和林表示，…</p><a href="https://www.leiphone.com/category/industrynews/cqPXhF38rM4VcVa7.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>中金公司与蚂蚁集团达成战略合作 共探AI赋能财富管理</h3><p>11月13日，中国国际金融股份有限公司（简称“中金公司”）与蚂蚁科技集团股份有限公司（简称“蚂蚁集团”）签署战略合作协议。 双方将结合中金公司在专业投研、金融服务等方面的积累，以及蚂蚁集团在人工智能、行业生态、客户运营等方面的优势，围绕金融大模型技术创新、AI赋能财富管理、客户全生命周期服务等领域开展合作，共同探索“AI+金融”创新路径。 中金公司党委副书记、副董事长、总裁王曙光（右二），蚂蚁集团首席执行官、蚂蚁数科董事长韩歆毅（左二）出席并见证签约仪式。中金公司党委委员、中金财富党委书记、总裁王建力（右一），蚂蚁集团资深副总裁、蚂蚁数科CEO赵闻飙（左一）代表双方签署协议。 随着大模型和智能体技术发展，AI正逐步深入投研、客户服务和财富管理等金融环节。根据协议，双方将重点围绕三个方向开展合作。 一是探索AI赋能财富管理人机协同工作新模式。 双方计划探索打造服务与营销协同的智能体集群，将AI应用于客户需求洞察、资产配置、投资研究等环节，辅助财富管理顾问提升服务效率和专业能力，为客户提供更及时、个性化的服务，推动财富管理从“被动响应”向“主动服务”转变。 二是探索全域客户价值全周期经营体系建设。…</p><a href="https://www.leiphone.com/category/industrynews/U7WtbV9kyb90UuZ0.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>英伟达博客发声：她不一样，她懂显卡 ( bushi )，她懂端到端！</h3><p>她叫Alpamayo 2 Edge，因果推理结合扩散动作，端到端输出闭环表现提升 48.9%。 作者丨 郑佳美 编辑丨岑 峰 点开前，你以为老黄家的惊天大瓜又有了什么后续； 点开后才发现：这个“她”连人都不是。 她叫 Alpamayo 2 Edge。 英伟达11月10日刚发布出来的一款端到端自动驾驶模型。VLM 骨干约 2.45B、动作专家约 0.2B，跑在车规级芯片 DRIVE AGX Thor 上。 但“懂端到端”这四个字，还真不是标题党蹭流量。在各路AI疯狂“嘴替”、大模型疯狂自言自语的时代，英伟达力挺的 这姑娘（划掉） 这模型，是真·人间清醒。 Alpamayo 2 Edge希望让汽车里的 AI 不仅能看懂道路，还能理解复杂交通关系、分析潜在风险，并根据场景自主生成驾驶动作。简单来说，就是让 AI 从会看、会理解，进一步走向会开车。 当然，让 AI 在服务器里推理和让它在高速行驶的汽车里推理，完全是两回事。车载算力有限，响应时间也有严格要求，模型既要具备复杂场景下的推理能力，又不能把大量计算资源消耗在冗长的思考过程中。 Alpamayo 2 Edge…</p><a href="https://www.leiphone.com/category/ai/1jG5k34DSlHSSJE9.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>京博控股集团与千问办公达成战略合作，共创化工行业AI Native标杆</h3><p>近日，京博控股集团与千问办公达成战略合作，明确全集团将基于千问办公打造AI Native组织。后续双方将围绕科研创新、生产运营优化、经营分析、流程组织重构等核心场景展开合作，共同探索化工行业的智能化升级路径。京博控股集团执行董事、首席轮值总裁栾波，集团轮值总裁兼海外总裁汪君华和千问办公CEO陈宇森等共同出席了本次战略合作签约仪式。 图示 京博控股集团和千问办公战略合作签约现场 京博控股集团是中国500强企业，向全球50余个国家和地区提供高性能新材料、高端化学品、高端装备智造、数智化解决方案与安环能碳配套服务系统。依托千问办公，京博将在化工、新材料等核心生产场景，探索用Agent重塑流程架构，实现增收提效；另一方面，京博将借助千问办公沉淀管理经验，提升公司整体运营效率。 栾波表示，基于千问办公的能力，期待双方能够在研发、生产、组织管理上优化创新，共同打造化工行业AI Native标杆企业。 据悉，千问办公是阿里巴巴旗下企业级通用Agent产品，是AI办公赛道增长最快的产品之一，目前行业头部企业均已接入千问办公。</p><a href="https://www.leiphone.com/category/industrynews/TVkq6K4xkcX9zKSN.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌推送 Android Auto 18.2 测试版，代码显示官方正持续开发浅色模式菜单界面</h3><p>IT之家 11 月 14 日消息，外媒 9to5Google 在拆解谷歌 Android Auto 18.2 测试版时发现，谷歌仍在继续开发 Android Auto 的浅色模式菜单界面。 具体来看，官方在本次更新中悄悄调整了超过 100 项界面资源文件，主要涉及按钮等用户界面元素。 res/drawable/ic_mr_button_connected_14_dark.xml res/drawable/ic_mr_button_connected_15_dark.xml 外媒表示，谷歌最近的每次更新都在不断完善浅色模式功能，至于相应功能确切上线时间，目前还不得而知。 值得一提的是，过去几个月谷歌已经为 Android Auto 带来了不少更具实际价值的功能，其中较新的变化是 Gemini Intelligence 的加入 。虽然目前该功能仅面向 Pixel 手机用户开放，但仍然值得关注。 Gemini Intelligence 能够将不同服务和信息整合起来，让 AI 助手更好地协助用户处理日常事务。此前长期被讨论的 AI 助手个性化体验如今正逐渐成为现实，借助 Personal…</p><a href="https://www.ithome.com/1/027/158.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>游戏《红色沙漠》开发商将 AI 应用范围扩展至整个开发管线，强调核心创作仍由人工主导</h3><p>IT之家 11 月 14 日消息，据 TechPowerUp 报道，《红色沙漠》于 2026 年 3 月发售后，曾因正式版游戏中包含 AI 生成的资产而遭到玩家抵制。尽管 Pearl Abyss 随后移除了这些资产，并辩称它们只是审核时意外遗漏的占位符，但该工作室似乎并未因此却步，仍打算在未来的游戏中继续使用生成式 AI。 这一点在其近期发布的财报中得到了证实 —— Pearl Abyss 在报告中表示，公司正将 AI 的应用范围扩展至整个开发管线： 此外，我们正在整合 AI 技术以提升开发生产力与整体品质。目前，AI 已被应用于开发的多个阶段 —— 包括重复性任务自动化、内容创作辅助以及测试优化 —— 并且我们正将其应用范围扩展至整个开发管线 。 IT之家注意到，报告指出，公司将 AI 视为提升生产力与研发速度的助推器，而非取代人力或人类创造力的手段： 我们并不将 AI 视为人类开发者的替代品，而是将其作为提升开发效率与品质的工具 。我们将持续扩大 AI 的应用，以更快的速度向市场推出更高品质的游戏。 在财报的靠前部分，Pearl Abyss 还详细披露了 AI…</p><a href="https://www.ithome.com/1/027/154.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌 Gemini 个人智能功能接入 Google Wallet 钱包应用：可为用户消费习惯提供个性化分析建议</h3><p>IT之家 11 月 14 日消息，谷歌宣布 Gemini 的 Personal Intelligence（个人智能）功能已正式支持 Google Wallet 钱包，用户在完成授权后，Gemini 便能根据谷歌 Gemini 个人智能功能接入 Google Wallet：可为用户消费习惯提供个性化分析建议。 谷歌表示，用户只需在 Gemini 对话中输入 @Google Wallet，即可询问个人财务状况、消费情况以及预算规划等问题。用户还可通过 Plaid 将信用卡和银行账户关联至 Google Wallet，以获取更加全面的财务信息。 在具体功能方面，例如 Gemini 可以分析用户上一季度的消费记录，并直接在对话中生成图表，展示现金流、资产配置和预算情况。如果用户希望在未来 3 个月内存下 1000 美元，Gemini 也可以据此协助制定储蓄计划。 谷歌强调，Gemini 只能读取用户授权账户中的信息，无法转账、管理资金或进行投资操作。Google Wallet 的接入完全采用自愿授权机制，用户需要在 Personal Intelligence 设置中的“已连接的应用”选项下手动开启，也可以随时取消连接。</p><a href="https://www.ithome.com/1/027/141.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>微软云服务全球宕机</h3><p>微软云服务全球宕机，受影响服务包括了 Outlook、Teams 和 OneDrive 等办公工具以及 AI 工具 Copilot。微软通过其社交媒体账号表示正全力解决该问题。根据 Downdetector 的报告，截至周四 18:00 GMT，全球报告的 Outlook 故障数量接近 14 万。目前无迹象表明此次大范围宕机是由网络攻击引起的。微软表示，受影响的用户可能无法查看部分文件，或无法在日历应用中查看详细信息。Copilot 也可能无法正常运行。即时通讯和在线会议功能基本保持正常。微软称此次事故是由部分服务器意外不可用导致的，这给其余系统造成了沉重负担。与微软有合作的 AI 巨头 Anthropic 和 OpenAI 也报告了故障。</p><a href="https://www.solidot.org/story?sid=85875" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>《Big Walk》开发商利用 AI 修 Bug 引起争议</h3><p>热门独游《Big Walk》开发商 House House 承认在生成式 AI 帮助下修 bug，结果在独立游戏节（Independent Games Festival，IGF）上引发了激烈争议。IGF 评委团的多名成员周一发表联合声明，强烈反对使用生成式 AI 的游戏，并督促官方制定强有力的反 AI 政策。《Big Walk》是一款非常受欢迎的合作冒险游戏，使用了 Unity 引擎开发，开发商发现游戏存在一个拖慢游戏速度的 bug，联络 Unity 工程师后被告知无法解决，于是询问了生成式 AI 工具，大模型提供了一种修复思路，House House 在此基础上写出了用于最终产品的 10 行代码。这种利用 AI 工具加速开发和辅助修 bug 的做法在行业已经非常普遍。但 House House 的做法引发了争议，游戏在 Steam 平台还遭遇了差评轰炸。游戏开发者 Brendan Keogh 认为这种对生成式 AI 零容忍的立场其效果可能会适得其反，可能会促使其它游戏开发商不披露使用 AI 的信息，而未来要避开完全不使用 AI 工具的游戏几乎是不可能的。</p><a href="https://www.solidot.org/story?sid=85869" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>10 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家丨港大孵化的半导体材料公司，融资数千万</h3><p>一个发表于《Nature》的技术，能在三步剥出晶圆级薄膜，公司获耀途独家投资。 作者丨陈玘凡 编辑 丨吴优 雷峰网 ·鲸犀独家获悉， 半导体材料公司钻耐科思科技（DiamNEX）已完成 数千万元 新一轮融资，由耀途资本独家投资。 钻耐科思（DiamNEX）成立于2025年，由 香港大学孵化 ，专注于金刚石半导体和量子技术的研发、生产与商业化应用。创始人褚智勤是港大电机与计算机工程系副教授、副系主任，在金刚石方向论文超80篇、专利17项；科学顾问来自港大、港科大、南方科技大学，具备学术产业化落地能力 。 金刚石被誉为“ 终极半导体材料” ，具有超宽禁带、高击穿场强、高热导率等优势特性，是帮助突破当前AI算力散热天花板、赋能量子科技与第四代超宽禁带半导体的关键材料。 传统半导体散热大多通过铜基风冷的方式进行，但伴随token消耗量剧增和对AI算力需求的不断提升，传统半导体材料散热愈发捉襟见肘。英伟达公开数据显示，下一代Rubin GPU功耗将突破2300W，风冷与铜基散热将逼近物理极限。…</p><a href="https://www.leiphone.com/category/weiwu/DewyIGiyxQl09nUM.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>中金公司与蚂蚁集团达成战略合作 共探AI赋能财富管理</h3><p>11月13日，中国国际金融股份有限公司（简称“中金公司”）与蚂蚁科技集团股份有限公司（简称“蚂蚁集团”）签署战略合作协议。 双方将结合中金公司在专业投研、金融服务等方面的积累，以及蚂蚁集团在人工智能、行业生态、客户运营等方面的优势，围绕金融大模型技术创新、AI赋能财富管理、客户全生命周期服务等领域开展合作，共同探索“AI+金融”创新路径。 中金公司党委副书记、副董事长、总裁王曙光（右二），蚂蚁集团首席执行官、蚂蚁数科董事长韩歆毅（左二）出席并见证签约仪式。中金公司党委委员、中金财富党委书记、总裁王建力（右一），蚂蚁集团资深副总裁、蚂蚁数科CEO赵闻飙（左一）代表双方签署协议。 随着大模型和智能体技术发展，AI正逐步深入投研、客户服务和财富管理等金融环节。根据协议，双方将重点围绕三个方向开展合作。 一是探索AI赋能财富管理人机协同工作新模式。 双方计划探索打造服务与营销协同的智能体集群，将AI应用于客户需求洞察、资产配置、投资研究等环节，辅助财富管理顾问提升服务效率和专业能力，为客户提供更及时、个性化的服务，推动财富管理从“被动响应”向“主动服务”转变。 二是探索全域客户价值全周期经营体系建设。…</p><a href="https://www.leiphone.com/category/industrynews/U7WtbV9kyb90UuZ0.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>京博控股集团与千问办公达成战略合作，共创化工行业AI Native标杆</h3><p>近日，京博控股集团与千问办公达成战略合作，明确全集团将基于千问办公打造AI Native组织。后续双方将围绕科研创新、生产运营优化、经营分析、流程组织重构等核心场景展开合作，共同探索化工行业的智能化升级路径。京博控股集团执行董事、首席轮值总裁栾波，集团轮值总裁兼海外总裁汪君华和千问办公CEO陈宇森等共同出席了本次战略合作签约仪式。 图示 京博控股集团和千问办公战略合作签约现场 京博控股集团是中国500强企业，向全球50余个国家和地区提供高性能新材料、高端化学品、高端装备智造、数智化解决方案与安环能碳配套服务系统。依托千问办公，京博将在化工、新材料等核心生产场景，探索用Agent重塑流程架构，实现增收提效；另一方面，京博将借助千问办公沉淀管理经验，提升公司整体运营效率。 栾波表示，基于千问办公的能力，期待双方能够在研发、生产、组织管理上优化创新，共同打造化工行业AI Native标杆企业。 据悉，千问办公是阿里巴巴旗下企业级通用Agent产品，是AI办公赛道增长最快的产品之一，目前行业头部企业均已接入千问办公。</p><a href="https://www.leiphone.com/category/industrynews/TVkq6K4xkcX9zKSN.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>谷歌的遗憾，被高德弥补了</h3><p>谷歌曾在I/O 开发者大会上展示了一段令外界惊叹的演示：用户可以从高空“飞入”3D地图，沉浸式感受城市街景。 不过，这项被称为“沉浸式视图”的功能，至今仍未在谷歌地图中规模化落地。反倒是在今年，国内的高德后来居上，用更前沿的技术，将飞行视角从街道延伸至了店铺，并且真正实现了规模化应用。 2026 年 1 月 7 日，高德正式发布全球首个“飞行街景”，并面向所有商家免费开放。 高德飞行街景首次实现高拟真、连续动态的实景还原。它让用户可提前沉浸式俯瞰店内外实景，并在出发前即可以第一视角“飞越”城市街区，从高空俯瞰街道全貌，精准识别店铺门头，甚至穿门入室，获得接近实地探访的视觉感知。 这背后，是科技公司之间一场关于技术、生态与执行力的深层较量。它揭示了AI 行业的一个关键趋势：在AI 驱动空间智能的时代，技术的前瞻性不再等同于市场的领先性，规模化的落地能力与更加完善的生态支撑，正在成为决定胜负的核心变量。 换句话说，再顶尖的技术模型也必须与深厚的场景土壤、完整的商业链路相结合，才能从美好的愿景，真正走向亿万用户的日常生活。 01 落地为王，AI时代的竞争新焦点 2025 年 8 月，高德全面 AI…</p><a href="https://www.leiphone.com/category/industrynews/VKIfDDIJRVZxJZR7.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>新西兰最大零售商 The Warehouse 爆发员工抗议：如厕时间都用 AI 管</h3><p>IT之家 11 月 14 日消息，当地时间 13 日，据英国《独立报》报道，新西兰最大零售商 The Warehouse 集团的员工指控，公司 利用 AI 监控如厕时间 ，导致部分员工不得不在配送中心的通道里大小便。 本周，The Warehouse 集团位于奥克兰和基督城的配送中心有 300 多名员工举行抗议，担心 AI 监控侵犯隐私 ，以及新技术的应用可能引发大规模裁员。 员工认为，公司对机器人的重视程度 甚至超过了员工 ，也对自己的工作前景表达了担忧。IT之家从报道中获悉，一名在配送中心工作了 23 年的员工质问道：“我看着像机器人吗？当然不是。我们之所以来抗议，就是因为这些工作 应该由人来做 ，而不是让机器人来做。” Workers First 工会组织者海莉 · 考特尼强调，员工并不反对引进新技术提高效率，只是希望公司能够 保障他们今后的工作 。 她透露，公司引进了一台用于拣货的“大型机器人”，部分人工库存盘点人员的工作也被配备 AI 技术的无人机取代。“AI 甚至开始监控员工上厕所花了多长时间。” 她还称，一些员工为了不上厕所而强忍便意，最终 发生失禁事故…</p><a href="https://www.ithome.com/1/027/150.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>小特朗普支持的公司称未来 5~10 年大多数战争将由机器人来打</h3><p>IT之家 11 月 14 日消息，由埃里克 · 特朗普（Eric Trump）投资支持机器人公司 Foundation 的联合创始人迈克 · 勒布朗（Mike LeBlanc）表示， 未来 5~10 年内，全球大部分主要战斗将由机器完成。 在接受福克斯新闻数字版（Fox News Digital）采访时，勒布朗表示：“我预计未来五到十年，人形机器人、地面车辆和无人机将承担大部分主要作战任务，人类只负责特种部队、特种作战以及一些小规模的精准行动。” IT之家援引博文介绍，Foundation 公司已经于今年 2 月交付 2 台 Phantom MK-1 机器人，下一代 MK 2 已接近交付。MK 1 载重约 40 公斤，主要协助士兵装填弹药、搬运物资及完成其他体力工作。 勒布朗将其定位为人形机器人战场应用的“概念验证”勒布朗称，MK 2 身高约 1.83 米、重约 84 公斤，能够抱起成年人，除承担重体力劳动外，还可用于架设重机枪等任务。</p><a href="https://www.ithome.com/1/027/144.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌 Gemini 个人智能功能接入 Google Wallet 钱包应用：可为用户消费习惯提供个性化分析建议</h3><p>IT之家 11 月 14 日消息，谷歌宣布 Gemini 的 Personal Intelligence（个人智能）功能已正式支持 Google Wallet 钱包，用户在完成授权后，Gemini 便能根据谷歌 Gemini 个人智能功能接入 Google Wallet：可为用户消费习惯提供个性化分析建议。 谷歌表示，用户只需在 Gemini 对话中输入 @Google Wallet，即可询问个人财务状况、消费情况以及预算规划等问题。用户还可通过 Plaid 将信用卡和银行账户关联至 Google Wallet，以获取更加全面的财务信息。 在具体功能方面，例如 Gemini 可以分析用户上一季度的消费记录，并直接在对话中生成图表，展示现金流、资产配置和预算情况。如果用户希望在未来 3 个月内存下 1000 美元，Gemini 也可以据此协助制定储蓄计划。 谷歌强调，Gemini 只能读取用户授权账户中的信息，无法转账、管理资金或进行投资操作。Google Wallet 的接入完全采用自愿授权机制，用户需要在 Personal Intelligence 设置中的“已连接的应用”选项下手动开启，也可以随时取消连接。</p><a href="https://www.ithome.com/1/027/141.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>微软云服务全球宕机</h3><p>微软云服务全球宕机，受影响服务包括了 Outlook、Teams 和 OneDrive 等办公工具以及 AI 工具 Copilot。微软通过其社交媒体账号表示正全力解决该问题。根据 Downdetector 的报告，截至周四 18:00 GMT，全球报告的 Outlook 故障数量接近 14 万。目前无迹象表明此次大范围宕机是由网络攻击引起的。微软表示，受影响的用户可能无法查看部分文件，或无法在日历应用中查看详细信息。Copilot 也可能无法正常运行。即时通讯和在线会议功能基本保持正常。微软称此次事故是由部分服务器意外不可用导致的，这给其余系统造成了沉重负担。与微软有合作的 AI 巨头 Anthropic 和 OpenAI 也报告了故障。</p><a href="https://www.solidot.org/story?sid=85875" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>《Big Walk》开发商利用 AI 修 Bug 引起争议</h3><p>热门独游《Big Walk》开发商 House House 承认在生成式 AI 帮助下修 bug，结果在独立游戏节（Independent Games Festival，IGF）上引发了激烈争议。IGF 评委团的多名成员周一发表联合声明，强烈反对使用生成式 AI 的游戏，并督促官方制定强有力的反 AI 政策。《Big Walk》是一款非常受欢迎的合作冒险游戏，使用了 Unity 引擎开发，开发商发现游戏存在一个拖慢游戏速度的 bug，联络 Unity 工程师后被告知无法解决，于是询问了生成式 AI 工具，大模型提供了一种修复思路，House House 在此基础上写出了用于最终产品的 10 行代码。这种利用 AI 工具加速开发和辅助修 bug 的做法在行业已经非常普遍。但 House House 的做法引发了争议，游戏在 Steam 平台还遭遇了差评轰炸。游戏开发者 Brendan Keogh 认为这种对生成式 AI 零容忍的立场其效果可能会适得其反，可能会促使其它游戏开发商不披露使用 AI 的信息，而未来要避开完全不使用 AI 工具的游戏几乎是不可能的。</p><a href="https://www.solidot.org/story?sid=85869" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>腾讯计划将半数员工部署到 AI 原生业务</h3><p>腾讯创始人马化腾称，他愿意将半数员工投入到 AI 原生业务，并敦促公司逾 10 万名员工拥抱这项定义时代的技术。 马化腾本周在年度演讲中告诉员工，行业已进入“大航海时代”，他将腾讯的核心业务比作陆军，将新的 AI 业务比作海军。马化腾称，50% 的人要像陆军一样，守土有责，通过提效去做好现有的核心业务；另外 50% 的人像海军一样，拥抱浪潮，探索 AI Native、拓展新的发展空间。近期有传言称腾讯计划裁员50%，对此知情人士称，公司资源适应 AI 时代的重新调度，可能是所谓“裁员 50%”的谣言出处，该说法完全不属实。</p><a href="https://www.solidot.org/story?sid=85865" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>9 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>黄仁勋辞职，英伟达33年首换帅，市值蒸发超3万亿</h3><a href="https://www.qbitai.com/2026/11/509995.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>百度词元所发布首日：供应商暴增超100家，客户新增超1000家</h3><p>11月14日，从百度获悉，百度词元所发布首日，新增申请入驻的供应商已超过100家，新增超过1000家客户接入。 词元所在11月12日举行的百度世界2026上正式发布，百度创始人李彦宏将其称为“大模型的交易所”。据介绍，词元所一端汇聚模型和模型提供商，另一端服务企业和个人，让用户便捷地找到、购买和使用可信的模型Token。 词元所主打验真与征信两大能力：模型入平台前需通过模型指纹比对、模型能力测试、性能指标与可用性测试等准入核验，上线后接受定期抽检拨测与全链路实时监测，相关结果沉淀为供应商的信用评级。 李彦宏提到，今年前9个月几乎每天都有不止一款新模型发布，调用需求同步爆发，而市面上的词元中转站不对模型效果、服务稳定性、响应速度负责，连模型真实性也无从考证，词元所要解决的是这一环节的信任问题。 试运行期间，词元所入驻供应资源已经超过100个，日均调用次数突破5000万次。目前平台已上架40余款模型，覆盖DeepSeek、Kimi、智谱GLM、MiniMax等主流模型及视频模型，也包括百度自研文心系列；入驻方既有模型原厂，也有第三方推理服务商。 工信部信息通信经济专家委员会委员盘和林表示，…</p><a href="https://www.leiphone.com/category/industrynews/cqPXhF38rM4VcVa7.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家丨港大孵化的半导体材料公司，融资数千万</h3><p>一个发表于《Nature》的技术，能在三步剥出晶圆级薄膜，公司获耀途独家投资。 作者丨陈玘凡 编辑 丨吴优 雷峰网 ·鲸犀独家获悉， 半导体材料公司钻耐科思科技（DiamNEX）已完成 数千万元 新一轮融资，由耀途资本独家投资。 钻耐科思（DiamNEX）成立于2025年，由 香港大学孵化 ，专注于金刚石半导体和量子技术的研发、生产与商业化应用。创始人褚智勤是港大电机与计算机工程系副教授、副系主任，在金刚石方向论文超80篇、专利17项；科学顾问来自港大、港科大、南方科技大学，具备学术产业化落地能力 。 金刚石被誉为“ 终极半导体材料” ，具有超宽禁带、高击穿场强、高热导率等优势特性，是帮助突破当前AI算力散热天花板、赋能量子科技与第四代超宽禁带半导体的关键材料。 传统半导体散热大多通过铜基风冷的方式进行，但伴随token消耗量剧增和对AI算力需求的不断提升，传统半导体材料散热愈发捉襟见肘。英伟达公开数据显示，下一代Rubin GPU功耗将突破2300W，风冷与铜基散热将逼近物理极限。…</p><a href="https://www.leiphone.com/category/weiwu/DewyIGiyxQl09nUM.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>英伟达博客发声：她不一样，她懂显卡 ( bushi )，她懂端到端！</h3><p>她叫Alpamayo 2 Edge，因果推理结合扩散动作，端到端输出闭环表现提升 48.9%。 作者丨 郑佳美 编辑丨岑 峰 点开前，你以为老黄家的惊天大瓜又有了什么后续； 点开后才发现：这个“她”连人都不是。 她叫 Alpamayo 2 Edge。 英伟达11月10日刚发布出来的一款端到端自动驾驶模型。VLM 骨干约 2.45B、动作专家约 0.2B，跑在车规级芯片 DRIVE AGX Thor 上。 但“懂端到端”这四个字，还真不是标题党蹭流量。在各路AI疯狂“嘴替”、大模型疯狂自言自语的时代，英伟达力挺的 这姑娘（划掉） 这模型，是真·人间清醒。 Alpamayo 2 Edge希望让汽车里的 AI 不仅能看懂道路，还能理解复杂交通关系、分析潜在风险，并根据场景自主生成驾驶动作。简单来说，就是让 AI 从会看、会理解，进一步走向会开车。 当然，让 AI 在服务器里推理和让它在高速行驶的汽车里推理，完全是两回事。车载算力有限，响应时间也有严格要求，模型既要具备复杂场景下的推理能力，又不能把大量计算资源消耗在冗长的思考过程中。 Alpamayo 2 Edge…</p><a href="https://www.leiphone.com/category/ai/1jG5k34DSlHSSJE9.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>40 亿参数模型拿下 6 个评测第一，西湖大学团队押注「概念世界模型」</h3><p>西湖世界模型研究中心成立，施一公亲自揭牌。 作者丨 张岂萍 编辑丨 幸丽娟 世界模型赛道已经不缺创业公司。 海外李飞飞、Yann LeCun 等学术大佬亲自下场，国内极佳视界、逆矩阵、流形空间等创业公司高密度入场。 但最近几个月，入场的力量开始发生变化，下场的不再只是公司，高校和地方政府也开始组织力量，参与这场技术竞争。 今年 7 月，北京大学与逆矩阵科技成立世界模型联合实验室。10 月，由极佳视界牵头的通用世界模型北京市重点实验室揭牌。一个是高校与创业公司联合研发，一个是北京市支持建设的重点科研平台。 如今，西湖大学再落一子，成立世界模型研究中心。西湖大学校长、中国科学院院士施一公亲自揭牌。 与研究中心同时亮相的，还有首版基础模型 Awomo-0.5。这款仅有 40 亿参数的模型，在6项国际公开评测的不同榜单中同时登顶，涉及物理推理、机器人操作和泛化等任务。 更值得关注的是，西湖大学 团队 已经开展了三年世界模型研究，建有自主智能实验室 AutoLab。 有实验室，还有阶段性技术成果， 为什么还要成立一个校级研究中心？先看它想把世界模型做到什么程度。 01 40亿参数“概念世界模型”， 瞄准通用物理智能 西湖大学 团队…</p><a href="https://www.leiphone.com/category/academic/nhzldlwI6rJVyXIl.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>中大梁小丹团队，GeoThinker 两项研究成果，破除空间推理「几何信息用不好、计算开销大」难题</h3><p>不再实时调用外部三维几何编码器，视觉语言模型空间推理提速约 3.6 倍。 作者丨 张岂萍 编辑丨 幸丽娟 给视觉语言模型多塞一份三维几何信息，它就一定看得更准？ 还真不一定。 判断物体的位置、距离和空间关系，是视觉语言模型实现空间推理需要具备的能力。现在一种常见做法，是接入 VGGT 这类三维几何编码器，从多视角图像中提取深度、点云等空间线索，辅助模型判断。 但外部几何信息并不是越多越好。 无关的几何特征可能干扰模型判断，每次调用外部三维模型，也会增加推理时间。 围绕这一问题，中山大学梁晓丹团队连续开展了 GeoThinker 系列研究。 第一项工作 GeoThinker 针对无关几何特征干扰判断的问题，让模型根据问题主动挑选有用的几何线索，更好地利用外部三维几何信息。该工作已被 ICML 2026 收录。 不过，这项工作仍需依赖 VGGT 实时提取几何特征，增加了推理阶段的计算开销。…</p><a href="https://www.leiphone.com/category/academic/FpJFXrs9xGOOewKA.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>HMD 2320 Flip 4G 功能机曝光：紫光展锐 T127 芯片，1.77 英寸外屏</h3><p>IT之家 11 月 14 日消息，消息源 smashx_60 发文，曝光了 HMD 2320 Flip 4G 翻盖功能机规格信息，该机外观预计和 HMD 2360 Flip 大致相同。 该机配备 1.77 英寸外屏和 2.4 英寸 LCD 内屏，内置 0.3Mp 摄像头。使用紫光展锐 T127 芯片，匹配 64MB RAM 和 128GB 存储空间，搭载 1450mAh 电池（支持 2.75W 充电）。</p><a href="https://www.ithome.com/1/027/151.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>清华大学发布单细胞蛋白组基础模型 ProtCell，利用摩尔线程 S5000 智算卡成功完成“虚拟细胞”预训练复现</h3><p>IT之家 11 月 14 日消息，据摩尔线程公众号，近日，清华大学自动化系江瑞课题组发布了面向单细胞蛋白组的基础模型 ProtCell，完成了论文《ProtCell:a foundation model for single-cell proteomics》。该模型汇集约 3.8 亿个细胞、98 个公开数据集用于预训练与评估，能够精准映射细胞状态、推断未测蛋白表达，为药物研发与前沿“虚拟细胞”构建提供了关键底座支撑。 论文同时披露， 团队在摩尔线程旗舰级 AI 训推一体智算卡 MTT S5000 上成功完成了 ProtCell 的全流程预训练复现，主要定量评测指标与国际主流 GPU 平台的差异仅约 0.2% ，验证了摩尔线程全功能 GPU（Universal GPU）与 MUSA 全栈软件生态对前沿生命科学基础模型的承载力。 公开信息显示，“虚拟细胞”旨在用 AI 在计算机中构建细胞的运行模型，描述细胞当前状态，并精准预测细胞在受到药物、基因编辑等干预后的动态变化，已成为全球 AI4S 竞争的核心战略高地。…</p><a href="https://www.ithome.com/1/027/148.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>英伟达员工请愿让黄仁勋复职</h3><p>英伟达创始人黄仁勋辞职后公司内部员工发起请愿让他复职。一名员工在内部意见系统上写道：我们都是人、都会犯错，黄仁勋办了那么多好事，理应得到第二次机会。黄仁勋担任英伟达 CEO 长达 33 年，领导公司成为世界市值最高的公司之一，很多员工都认为他对公司的贡献巨大，不应因此遭到抹杀。英伟达员工还通过 LinkedIn 公开表达对他的支持，且无人公开支持罢免他。</p><a href="https://www.solidot.org/story?sid=85878" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>9 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>百度词元所发布首日：供应商暴增超100家，客户新增超1000家</h3><p>11月14日，从百度获悉，百度词元所发布首日，新增申请入驻的供应商已超过100家，新增超过1000家客户接入。 词元所在11月12日举行的百度世界2026上正式发布，百度创始人李彦宏将其称为“大模型的交易所”。据介绍，词元所一端汇聚模型和模型提供商，另一端服务企业和个人，让用户便捷地找到、购买和使用可信的模型Token。 词元所主打验真与征信两大能力：模型入平台前需通过模型指纹比对、模型能力测试、性能指标与可用性测试等准入核验，上线后接受定期抽检拨测与全链路实时监测，相关结果沉淀为供应商的信用评级。 李彦宏提到，今年前9个月几乎每天都有不止一款新模型发布，调用需求同步爆发，而市面上的词元中转站不对模型效果、服务稳定性、响应速度负责，连模型真实性也无从考证，词元所要解决的是这一环节的信任问题。 试运行期间，词元所入驻供应资源已经超过100个，日均调用次数突破5000万次。目前平台已上架40余款模型，覆盖DeepSeek、Kimi、智谱GLM、MiniMax等主流模型及视频模型，也包括百度自研文心系列；入驻方既有模型原厂，也有第三方推理服务商。 工信部信息通信经济专家委员会委员盘和林表示，…</p><a href="https://www.leiphone.com/category/industrynews/cqPXhF38rM4VcVa7.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>中金公司与蚂蚁集团达成战略合作 共探AI赋能财富管理</h3><p>11月13日，中国国际金融股份有限公司（简称“中金公司”）与蚂蚁科技集团股份有限公司（简称“蚂蚁集团”）签署战略合作协议。 双方将结合中金公司在专业投研、金融服务等方面的积累，以及蚂蚁集团在人工智能、行业生态、客户运营等方面的优势，围绕金融大模型技术创新、AI赋能财富管理、客户全生命周期服务等领域开展合作，共同探索“AI+金融”创新路径。 中金公司党委副书记、副董事长、总裁王曙光（右二），蚂蚁集团首席执行官、蚂蚁数科董事长韩歆毅（左二）出席并见证签约仪式。中金公司党委委员、中金财富党委书记、总裁王建力（右一），蚂蚁集团资深副总裁、蚂蚁数科CEO赵闻飙（左一）代表双方签署协议。 随着大模型和智能体技术发展，AI正逐步深入投研、客户服务和财富管理等金融环节。根据协议，双方将重点围绕三个方向开展合作。 一是探索AI赋能财富管理人机协同工作新模式。 双方计划探索打造服务与营销协同的智能体集群，将AI应用于客户需求洞察、资产配置、投资研究等环节，辅助财富管理顾问提升服务效率和专业能力，为客户提供更及时、个性化的服务，推动财富管理从“被动响应”向“主动服务”转变。 二是探索全域客户价值全周期经营体系建设。…</p><a href="https://www.leiphone.com/category/industrynews/U7WtbV9kyb90UuZ0.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>京博控股集团与千问办公达成战略合作，共创化工行业AI Native标杆</h3><p>近日，京博控股集团与千问办公达成战略合作，明确全集团将基于千问办公打造AI Native组织。后续双方将围绕科研创新、生产运营优化、经营分析、流程组织重构等核心场景展开合作，共同探索化工行业的智能化升级路径。京博控股集团执行董事、首席轮值总裁栾波，集团轮值总裁兼海外总裁汪君华和千问办公CEO陈宇森等共同出席了本次战略合作签约仪式。 图示 京博控股集团和千问办公战略合作签约现场 京博控股集团是中国500强企业，向全球50余个国家和地区提供高性能新材料、高端化学品、高端装备智造、数智化解决方案与安环能碳配套服务系统。依托千问办公，京博将在化工、新材料等核心生产场景，探索用Agent重塑流程架构，实现增收提效；另一方面，京博将借助千问办公沉淀管理经验，提升公司整体运营效率。 栾波表示，基于千问办公的能力，期待双方能够在研发、生产、组织管理上优化创新，共同打造化工行业AI Native标杆企业。 据悉，千问办公是阿里巴巴旗下企业级通用Agent产品，是AI办公赛道增长最快的产品之一，目前行业头部企业均已接入千问办公。</p><a href="https://www.leiphone.com/category/industrynews/TVkq6K4xkcX9zKSN.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>谷歌的遗憾，被高德弥补了</h3><p>谷歌曾在I/O 开发者大会上展示了一段令外界惊叹的演示：用户可以从高空“飞入”3D地图，沉浸式感受城市街景。 不过，这项被称为“沉浸式视图”的功能，至今仍未在谷歌地图中规模化落地。反倒是在今年，国内的高德后来居上，用更前沿的技术，将飞行视角从街道延伸至了店铺，并且真正实现了规模化应用。 2026 年 1 月 7 日，高德正式发布全球首个“飞行街景”，并面向所有商家免费开放。 高德飞行街景首次实现高拟真、连续动态的实景还原。它让用户可提前沉浸式俯瞰店内外实景，并在出发前即可以第一视角“飞越”城市街区，从高空俯瞰街道全貌，精准识别店铺门头，甚至穿门入室，获得接近实地探访的视觉感知。 这背后，是科技公司之间一场关于技术、生态与执行力的深层较量。它揭示了AI 行业的一个关键趋势：在AI 驱动空间智能的时代，技术的前瞻性不再等同于市场的领先性，规模化的落地能力与更加完善的生态支撑，正在成为决定胜负的核心变量。 换句话说，再顶尖的技术模型也必须与深厚的场景土壤、完整的商业链路相结合，才能从美好的愿景，真正走向亿万用户的日常生活。 01 落地为王，AI时代的竞争新焦点 2025 年 8 月，高德全面 AI…</p><a href="https://www.leiphone.com/category/industrynews/VKIfDDIJRVZxJZR7.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌推送 Android Auto 18.2 测试版，代码显示官方正持续开发浅色模式菜单界面</h3><p>IT之家 11 月 14 日消息，外媒 9to5Google 在拆解谷歌 Android Auto 18.2 测试版时发现，谷歌仍在继续开发 Android Auto 的浅色模式菜单界面。 具体来看，官方在本次更新中悄悄调整了超过 100 项界面资源文件，主要涉及按钮等用户界面元素。 res/drawable/ic_mr_button_connected_14_dark.xml res/drawable/ic_mr_button_connected_15_dark.xml 外媒表示，谷歌最近的每次更新都在不断完善浅色模式功能，至于相应功能确切上线时间，目前还不得而知。 值得一提的是，过去几个月谷歌已经为 Android Auto 带来了不少更具实际价值的功能，其中较新的变化是 Gemini Intelligence 的加入 。虽然目前该功能仅面向 Pixel 手机用户开放，但仍然值得关注。 Gemini Intelligence 能够将不同服务和信息整合起来，让 AI 助手更好地协助用户处理日常事务。此前长期被讨论的 AI 助手个性化体验如今正逐渐成为现实，借助 Personal…</p><a href="https://www.ithome.com/1/027/158.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软确认消费者产品服务已恢复，企业服务仍在监控</h3><p>IT之家 11 月 14 日消息，微软今天（14 日）通报称，截至协调世界时 13 日 16 时 10 分（IT之家注：北京时间 11 月 14 日 0 时 10 分），面向 个人用户的产品和服务已全面恢复 ，Microsoft 365 企业服务也出现了持续恢复的迹象。 对于企业服务故障，微软仍在监测此次事件期间积压的邮件，尚未确认问题完全解决。 微软在服务状态页面的更新中指出：“考虑到此次事件造成的严重影响， 我们将延长监测时间 ，确保不需要采取进一步的补救措施。” 相关阅读： 《 堪比蓝屏“灭霸”事件：微软 2026 最严重宕机重创全球金融业，交易员被迫改用传真 》 《 Outlook 等服务故障期间征集 AI 技巧，微软推文变成网友吐槽现场 》 《 微软就全球服务中断致歉：底层问题已解决，与网络攻击无关 》</p><a href="https://www.ithome.com/1/027/156.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>谷歌 Gemini 个人智能功能接入 Google Wallet 钱包应用：可为用户消费习惯提供个性化分析建议</h3><p>IT之家 11 月 14 日消息，谷歌宣布 Gemini 的 Personal Intelligence（个人智能）功能已正式支持 Google Wallet 钱包，用户在完成授权后，Gemini 便能根据谷歌 Gemini 个人智能功能接入 Google Wallet：可为用户消费习惯提供个性化分析建议。 谷歌表示，用户只需在 Gemini 对话中输入 @Google Wallet，即可询问个人财务状况、消费情况以及预算规划等问题。用户还可通过 Plaid 将信用卡和银行账户关联至 Google Wallet，以获取更加全面的财务信息。 在具体功能方面，例如 Gemini 可以分析用户上一季度的消费记录，并直接在对话中生成图表，展示现金流、资产配置和预算情况。如果用户希望在未来 3 个月内存下 1000 美元，Gemini 也可以据此协助制定储蓄计划。 谷歌强调，Gemini 只能读取用户授权账户中的信息，无法转账、管理资金或进行投资操作。Google Wallet 的接入完全采用自愿授权机制，用户需要在 Personal Intelligence 设置中的“已连接的应用”选项下手动开启，也可以随时取消连接。</p><a href="https://www.ithome.com/1/027/141.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>微软云服务全球宕机</h3><p>微软云服务全球宕机，受影响服务包括了 Outlook、Teams 和 OneDrive 等办公工具以及 AI 工具 Copilot。微软通过其社交媒体账号表示正全力解决该问题。根据 Downdetector 的报告，截至周四 18:00 GMT，全球报告的 Outlook 故障数量接近 14 万。目前无迹象表明此次大范围宕机是由网络攻击引起的。微软表示，受影响的用户可能无法查看部分文件，或无法在日历应用中查看详细信息。Copilot 也可能无法正常运行。即时通讯和在线会议功能基本保持正常。微软称此次事故是由部分服务器意外不可用导致的，这给其余系统造成了沉重负担。与微软有合作的 AI 巨头 Anthropic 和 OpenAI 也报告了故障。</p><a href="https://www.solidot.org/story?sid=85875" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>腾讯计划将半数员工部署到 AI 原生业务</h3><p>腾讯创始人马化腾称，他愿意将半数员工投入到 AI 原生业务，并敦促公司逾 10 万名员工拥抱这项定义时代的技术。 马化腾本周在年度演讲中告诉员工，行业已进入“大航海时代”，他将腾讯的核心业务比作陆军，将新的 AI 业务比作海军。马化腾称，50% 的人要像陆军一样，守土有责，通过提效去做好现有的核心业务；另外 50% 的人像海军一样，拥抱浪潮，探索 AI Native、拓展新的发展空间。近期有传言称腾讯计划裁员50%，对此知情人士称，公司资源适应 AI 时代的重新调度，可能是所谓“裁员 50%”的谣言出处，该说法完全不属实。</p><a href="https://www.solidot.org/story?sid=85865" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>7 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>中国机器人学会隔墙“递眼色”！成功率从0飙到100%，组队干活不烧心</h3><a href="https://www.qbitai.com/2026/11/509614.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>浙大彭思达：从元宇宙到具身智能，一个三维视觉研究者的八年 | 世界模型50人</h3><p>八年研究，两个落地系统，超六万GitHub Stars。 作者丨 李秋悦 编辑丨 吴 彤 一支女团跳舞，镜头不必再听导演安排，观众甚至能看到拍摄时不存在的机位。 传统MV拍摄，摄影机架在哪里，观众看到的就是哪个角度。现在用多台摄像机同时记录舞者动作，再重建出一个三维动态场景，镜头可以任意调换位置；从队形正面绕到侧面，穿过舞者之间，甚至换一个从未真正架设过的机位，重新观看刚才的表演。 今年10月，韩国SM娱乐创始人李秀满在新女团A2O LITE的出道活动上，展示了这项名为4D Gaussian Splatting（4DGS）的技术。 SM娱乐旗下女团A2O LITE 《NEON》运用4DV.ai的4DGS新技术 彭思达对这项技术很熟悉。六年前，彭思达师从浙大教授周晓巍读博，在浙大CAD&amp;CG国家重点实验室的三维视觉研究团队ZJU3DV下研究的就是动态三维人体重建。很快他做的Neural Body入选CVPR 2021最佳论文候选，4K4D把动态场景的渲染推进到4K实时水平，FreeTimeGS把渲染质量推进到可落地的程度。实验室积累的技术后来被一家名为4DV.ai的创业公司采用，出现了在影视飓风的视频里。…</p><a href="https://www.leiphone.com/category/ai/lpK3LQWqmpZP8jcG.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>英伟达博客发声：她不一样，她懂显卡 ( bushi )，她懂端到端！</h3><p>她叫Alpamayo 2 Edge，因果推理结合扩散动作，端到端输出闭环表现提升 48.9%。 作者丨 郑佳美 编辑丨岑 峰 点开前，你以为老黄家的惊天大瓜又有了什么后续； 点开后才发现：这个“她”连人都不是。 她叫 Alpamayo 2 Edge。 英伟达11月10日刚发布出来的一款端到端自动驾驶模型。VLM 骨干约 2.45B、动作专家约 0.2B，跑在车规级芯片 DRIVE AGX Thor 上。 但“懂端到端”这四个字，还真不是标题党蹭流量。在各路AI疯狂“嘴替”、大模型疯狂自言自语的时代，英伟达力挺的 这姑娘（划掉） 这模型，是真·人间清醒。 Alpamayo 2 Edge希望让汽车里的 AI 不仅能看懂道路，还能理解复杂交通关系、分析潜在风险，并根据场景自主生成驾驶动作。简单来说，就是让 AI 从会看、会理解，进一步走向会开车。 当然，让 AI 在服务器里推理和让它在高速行驶的汽车里推理，完全是两回事。车载算力有限，响应时间也有严格要求，模型既要具备复杂场景下的推理能力，又不能把大量计算资源消耗在冗长的思考过程中。 Alpamayo 2 Edge…</p><a href="https://www.leiphone.com/category/ai/1jG5k34DSlHSSJE9.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>40 亿参数模型拿下 6 个评测第一，西湖大学团队押注「概念世界模型」</h3><p>西湖世界模型研究中心成立，施一公亲自揭牌。 作者丨 张岂萍 编辑丨 幸丽娟 世界模型赛道已经不缺创业公司。 海外李飞飞、Yann LeCun 等学术大佬亲自下场，国内极佳视界、逆矩阵、流形空间等创业公司高密度入场。 但最近几个月，入场的力量开始发生变化，下场的不再只是公司，高校和地方政府也开始组织力量，参与这场技术竞争。 今年 7 月，北京大学与逆矩阵科技成立世界模型联合实验室。10 月，由极佳视界牵头的通用世界模型北京市重点实验室揭牌。一个是高校与创业公司联合研发，一个是北京市支持建设的重点科研平台。 如今，西湖大学再落一子，成立世界模型研究中心。西湖大学校长、中国科学院院士施一公亲自揭牌。 与研究中心同时亮相的，还有首版基础模型 Awomo-0.5。这款仅有 40 亿参数的模型，在6项国际公开评测的不同榜单中同时登顶，涉及物理推理、机器人操作和泛化等任务。 更值得关注的是，西湖大学 团队 已经开展了三年世界模型研究，建有自主智能实验室 AutoLab。 有实验室，还有阶段性技术成果， 为什么还要成立一个校级研究中心？先看它想把世界模型做到什么程度。 01 40亿参数“概念世界模型”， 瞄准通用物理智能 西湖大学 团队…</p><a href="https://www.leiphone.com/category/academic/nhzldlwI6rJVyXIl.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>299 美元月费约为 1% 车价：马斯克回应 Cybercab 自动驾驶订阅费太高，应在 115 美元左右</h3><p>IT之家 11 月 14 日消息，全球首富埃隆 · 马斯克（Elon Musk）今天（11 月 14 日）在 X 平台发布推文，回应科技博主 @MKBHD 关于“Cybercab 每月 299 美元 （IT之家注：现汇率约合 1,999 元人民币） 的订阅费用过高”情况， 认为合理价格应该在 115 美元 （现汇率约合 768.8 元人民币） 左右。 IT之家今天报道，特斯拉开始向部分个人用户开放 Cybercab 购买渠道，起售价为 29,990 美元 （现汇率约合 20 万元人民币） ，首批车辆预计于 12 月交付。按照现有购买安排，符合资格的用户需支付 1,000 美元 （现汇率约合 6,685 元人民币） 订购定金，且定金不可退还。 而本次最值得争议的点，在于车主需要加购 Autonomy Subscription 订阅， 该服务月费为 299 美元 （现汇率约合 1,999 元人民币） （约为售价的 1%） ，特斯拉官方针对新购车用户仅免费 1 个月。按这一标准计算，仅该项订阅每年就需支付 3,588 美元 （现汇率约合 23,986 元人民币） （约为售价的 12%）。 对于订阅价格，马斯克在 X…</p><a href="https://www.ithome.com/1/027/159.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>新西兰最大零售商 The Warehouse 爆发员工抗议：如厕时间都用 AI 管</h3><p>IT之家 11 月 14 日消息，当地时间 13 日，据英国《独立报》报道，新西兰最大零售商 The Warehouse 集团的员工指控，公司 利用 AI 监控如厕时间 ，导致部分员工不得不在配送中心的通道里大小便。 本周，The Warehouse 集团位于奥克兰和基督城的配送中心有 300 多名员工举行抗议，担心 AI 监控侵犯隐私 ，以及新技术的应用可能引发大规模裁员。 员工认为，公司对机器人的重视程度 甚至超过了员工 ，也对自己的工作前景表达了担忧。IT之家从报道中获悉，一名在配送中心工作了 23 年的员工质问道：“我看着像机器人吗？当然不是。我们之所以来抗议，就是因为这些工作 应该由人来做 ，而不是让机器人来做。” Workers First 工会组织者海莉 · 考特尼强调，员工并不反对引进新技术提高效率，只是希望公司能够 保障他们今后的工作 。 她透露，公司引进了一台用于拣货的“大型机器人”，部分人工库存盘点人员的工作也被配备 AI 技术的无人机取代。“AI 甚至开始监控员工上厕所花了多长时间。” 她还称，一些员工为了不上厕所而强忍便意，最终 发生失禁事故…</p><a href="https://www.ithome.com/1/027/150.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>小特朗普支持的公司称未来 5~10 年大多数战争将由机器人来打</h3><p>IT之家 11 月 14 日消息，由埃里克 · 特朗普（Eric Trump）投资支持机器人公司 Foundation 的联合创始人迈克 · 勒布朗（Mike LeBlanc）表示， 未来 5~10 年内，全球大部分主要战斗将由机器完成。 在接受福克斯新闻数字版（Fox News Digital）采访时，勒布朗表示：“我预计未来五到十年，人形机器人、地面车辆和无人机将承担大部分主要作战任务，人类只负责特种部队、特种作战以及一些小规模的精准行动。” IT之家援引博文介绍，Foundation 公司已经于今年 2 月交付 2 台 Phantom MK-1 机器人，下一代 MK 2 已接近交付。MK 1 载重约 40 公斤，主要协助士兵装填弹药、搬运物资及完成其他体力工作。 勒布朗将其定位为人形机器人战场应用的“概念验证”勒布朗称，MK 2 身高约 1.83 米、重约 84 公斤，能够抱起成年人，除承担重体力劳动外，还可用于架设重机枪等任务。</p><a href="https://www.ithome.com/1/027/144.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>4 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>MEET2027含金量再加码：AI4S/量子计算/AI Infra…第二批嘉宾强势来袭！</h3><a href="https://www.qbitai.com/2026/11/509827.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>中国AI突破复杂肺癌诊疗！中美医疗圈集体坐不住了</h3><a href="https://www.qbitai.com/2026/11/509796.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>上海优化道路停车收费，用户可通过 App / 小程序查看机动车每日临时停车免费次数</h3><p>IT之家 11 月 14 日消息，上海市发展改革委等部门于 11 月 11 日发布《关于优化我市道路停车收费政策的通知》，将于 2026 年 11 月 18 日起施行。 具体来看，11 月 18 日起， 机动车在道路停车场单次停放不超过 15 分钟，工作日每天可免费停放两次，周末及法定假日最多三次 。车辆停放超过 15 分钟后，从入场停放起始时间计费。车主可通过“上海停车”App 及相关小程序，查询当天免费次数的使用情况。按次计费的临时道路停车场执行相应收费规则。 根据上海交通部门相关数据，每天两次以内的 15 分钟道路临时停车，可以满足约 90% 的普通车辆短时停放的需求。</p><a href="https://www.ithome.com/1/027/155.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>《巫师 3》新 DLC 杰洛特波兰语配音演员中风后声音沙哑，CDPR 利用 AI 技术还原其早期声线</h3><p>IT之家 11 月 14 日消息，CD Projekt Red 确认，《巫师 3：狂猎》新剧情扩展包《Songs of the Past》杰洛特的波兰语配音将采用 Respeecher 的 AI 语音转换技术进行处理。 IT之家获悉，自 2007 年首部《巫师》游戏推出以来，演员 Jacek Rozenek 一直担任杰洛特的波兰语配音演员，但在 2019 年其中风后声音变得低沉、沙哑。对此， CDPR 没有选择更换配音演员，而是让 Rozenek 亲自继续录制所有新台词，再通过 AI 技术将声音调整至接近早期作品中的效果 。 CDPR 本地化制作人 Mikołaj Szwed 透露，大约一年前，工作室曾邀请 Rozenek 前往录音室，了解他目前的声音状况。后续在语音克隆公司 Respeecher 的帮助下，Rozenek 按照正常方式亲自录制所有新台词，随后由 Respeecher 利用其早期《巫师 3》配音建立的声音模型，对录音进行转换，使其尽可能接近原版声音。 Respeecher 合成语音艺术家 Dmytro Vasylets 则透露，这项工作的最大难点在于还原 Rozenek…</p><a href="https://www.ithome.com/1/027/147.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>4 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>英伟达博客发声：她不一样，她懂显卡 ( bushi )，她懂端到端！</h3><p>她叫Alpamayo 2 Edge，因果推理结合扩散动作，端到端输出闭环表现提升 48.9%。 作者丨 郑佳美 编辑丨岑 峰 点开前，你以为老黄家的惊天大瓜又有了什么后续； 点开后才发现：这个“她”连人都不是。 她叫 Alpamayo 2 Edge。 英伟达11月10日刚发布出来的一款端到端自动驾驶模型。VLM 骨干约 2.45B、动作专家约 0.2B，跑在车规级芯片 DRIVE AGX Thor 上。 但“懂端到端”这四个字，还真不是标题党蹭流量。在各路AI疯狂“嘴替”、大模型疯狂自言自语的时代，英伟达力挺的 这姑娘（划掉） 这模型，是真·人间清醒。 Alpamayo 2 Edge希望让汽车里的 AI 不仅能看懂道路，还能理解复杂交通关系、分析潜在风险，并根据场景自主生成驾驶动作。简单来说，就是让 AI 从会看、会理解，进一步走向会开车。 当然，让 AI 在服务器里推理和让它在高速行驶的汽车里推理，完全是两回事。车载算力有限，响应时间也有严格要求，模型既要具备复杂场景下的推理能力，又不能把大量计算资源消耗在冗长的思考过程中。 Alpamayo 2 Edge…</p><a href="https://www.leiphone.com/category/ai/1jG5k34DSlHSSJE9.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>珠宝品牌周生生遭黑客攻击：官网打不开、小程序用不了</h3><p>IT之家 11 月 14 日消息，珠宝品牌周生生于 11 月 12 日发布公告称，集团近日发现其系统遭受未经授权存取，并于 11 月 9 日首次识别有关事件，客户及员工的资料可能存在被提取的情况。 该集团表示，已着手采取措施遏止所有未经授权存取行为、加强本集团系统的安全性，并委聘网络安全专家展开调查及就适当措施提供建议。初步调查显示， 受该事件影响的系统，包括集团的会员系统及官方电子商贸渠道，部分客户及员工资料（包括个人资料）曾被未经授权存取，并可能已被提取 。 截至IT之家发稿，目前周生生品牌官网仍无法正常打开。页面相关通知显示：“集团近日发现系统遭受未经授权存取，并已随即采取措施，遏止所有恶意存取行为及加强系统安全性。为保障客户资料安全，本网站现正暂停服务。” 同时，周生生官方商城小程序亦无法正常使用，显示会员系统更新维护中，暂无法提供会员服务。 公开信息显示，周生生由周芳谱 1934 年在广州创办，品牌名源自《易经》“周而复始，生生不息”。1973 年，周生生成为香港首家上市的珠宝企业，产品涵盖钻石、黄金、铂金等珠宝首饰。 今年以来，该集团经营业绩明显提升。上半年，公司实现收入 128.78 亿港元…</p><a href="https://www.ithome.com/1/027/176.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>游戏《红色沙漠》开发商将 AI 应用范围扩展至整个开发管线，强调核心创作仍由人工主导</h3><p>IT之家 11 月 14 日消息，据 TechPowerUp 报道，《红色沙漠》于 2026 年 3 月发售后，曾因正式版游戏中包含 AI 生成的资产而遭到玩家抵制。尽管 Pearl Abyss 随后移除了这些资产，并辩称它们只是审核时意外遗漏的占位符，但该工作室似乎并未因此却步，仍打算在未来的游戏中继续使用生成式 AI。 这一点在其近期发布的财报中得到了证实 —— Pearl Abyss 在报告中表示，公司正将 AI 的应用范围扩展至整个开发管线： 此外，我们正在整合 AI 技术以提升开发生产力与整体品质。目前，AI 已被应用于开发的多个阶段 —— 包括重复性任务自动化、内容创作辅助以及测试优化 —— 并且我们正将其应用范围扩展至整个开发管线 。 IT之家注意到，报告指出，公司将 AI 视为提升生产力与研发速度的助推器，而非取代人力或人类创造力的手段： 我们并不将 AI 视为人类开发者的替代品，而是将其作为提升开发效率与品质的工具 。我们将持续扩大 AI 的应用，以更快的速度向市场推出更高品质的游戏。 在财报的靠前部分，Pearl Abyss 还详细披露了 AI…</p><a href="https://www.ithome.com/1/027/154.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>新西兰最大零售商 The Warehouse 爆发员工抗议：如厕时间都用 AI 管</h3><p>IT之家 11 月 14 日消息，当地时间 13 日，据英国《独立报》报道，新西兰最大零售商 The Warehouse 集团的员工指控，公司 利用 AI 监控如厕时间 ，导致部分员工不得不在配送中心的通道里大小便。 本周，The Warehouse 集团位于奥克兰和基督城的配送中心有 300 多名员工举行抗议，担心 AI 监控侵犯隐私 ，以及新技术的应用可能引发大规模裁员。 员工认为，公司对机器人的重视程度 甚至超过了员工 ，也对自己的工作前景表达了担忧。IT之家从报道中获悉，一名在配送中心工作了 23 年的员工质问道：“我看着像机器人吗？当然不是。我们之所以来抗议，就是因为这些工作 应该由人来做 ，而不是让机器人来做。” Workers First 工会组织者海莉 · 考特尼强调，员工并不反对引进新技术提高效率，只是希望公司能够 保障他们今后的工作 。 她透露，公司引进了一台用于拣货的“大型机器人”，部分人工库存盘点人员的工作也被配备 AI 技术的无人机取代。“AI 甚至开始监控员工上厕所花了多长时间。” 她还称，一些员工为了不上厕所而强忍便意，最终 发生失禁事故…</p><a href="https://www.ithome.com/1/027/150.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Fri, 13 Nov 2026 09:02:39 +0000</div><h3>黄仁勋辞职，英伟达33年首换帅，市值蒸发超3万亿</h3><a href="https://www.qbitai.com/2026/11/509995.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 13 Nov 2026 07:51:08 +0000</div><h3>MEET2027含金量再加码：AI4S/量子计算/AI Infra…第二批嘉宾强势来袭！</h3><a href="https://www.qbitai.com/2026/11/509827.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 13 Nov 2026 07:43:03 +0000</div><h3>中国AI突破复杂肺癌诊疗！中美医疗圈集体坐不住了</h3><a href="https://www.qbitai.com/2026/11/509796.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 13 Nov 2026 07:06:32 +0000</div><h3>高难盲测超越GPT-6-Astra与Opus-5！无界前沿开源Fx-Bio-1031，把RSI带进生命科学</h3><a href="https://www.qbitai.com/2026/11/509663.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 13 Nov 2026 06:54:44 +0000</div><h3>openJiuwen发布RSI原生AgentOS，让Agent自由变身，持续迭代！</h3><a href="https://www.qbitai.com/2026/11/509653.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 13 Nov 2026 06:29:23 +0000</div><h3>中国机器人学会隔墙“递眼色”！成功率从0飙到100%，组队干活不烧心</h3><a href="https://www.qbitai.com/2026/11/509614.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 14 Nov 2026 13:45:00 +0800</div><h3>百度词元所发布首日：供应商暴增超100家，客户新增超1000家</h3><p>11月14日，从百度获悉，百度词元所发布首日，新增申请入驻的供应商已超过100家，新增超过1000家客户接入。 词元所在11月12日举行的百度世界2026上正式发布，百度创始人李彦宏将其称为“大模型的交易所”。据介绍，词元所一端汇聚模型和模型提供商，另一端服务企业和个人，让用户便捷地找到、购买和使用可信的模型Token。 词元所主打验真与征信两大能力：模型入平台前需通过模型指纹比对、模型能力测试、性能指标与可用性测试等准入核验，上线后接受定期抽检拨测与全链路实时监测，相关结果沉淀为供应商的信用评级。 李彦宏提到，今年前9个月几乎每天都有不止一款新模型发布，调用需求同步爆发，而市面上的词元中转站不对模型效果、服务稳定性、响应速度负责，连模型真实性也无从考证，词元所要解决的是这一环节的信任问题。 试运行期间，词元所入驻供应资源已经超过100个，日均调用次数突破5000万次。目前平台已上架40余款模型，覆盖DeepSeek、Kimi、智谱GLM、MiniMax等主流模型及视频模型，也包括百度自研文心系列；入驻方既有模型原厂，也有第三方推理服务商。 工信部信息通信经济专家委员会委员盘和林表示，…</p><a href="https://www.leiphone.com/category/industrynews/cqPXhF38rM4VcVa7.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 14 Nov 2026 00:50:00 +0800</div><h3>浙大彭思达：从元宇宙到具身智能，一个三维视觉研究者的八年 | 世界模型50人</h3><p>八年研究，两个落地系统，超六万GitHub Stars。 作者丨 李秋悦 编辑丨 吴 彤 一支女团跳舞，镜头不必再听导演安排，观众甚至能看到拍摄时不存在的机位。 传统MV拍摄，摄影机架在哪里，观众看到的就是哪个角度。现在用多台摄像机同时记录舞者动作，再重建出一个三维动态场景，镜头可以任意调换位置；从队形正面绕到侧面，穿过舞者之间，甚至换一个从未真正架设过的机位，重新观看刚才的表演。 今年10月，韩国SM娱乐创始人李秀满在新女团A2O LITE的出道活动上，展示了这项名为4D Gaussian Splatting（4DGS）的技术。 SM娱乐旗下女团A2O LITE 《NEON》运用4DV.ai的4DGS新技术 彭思达对这项技术很熟悉。六年前，彭思达师从浙大教授周晓巍读博，在浙大CAD&amp;CG国家重点实验室的三维视觉研究团队ZJU3DV下研究的就是动态三维人体重建。很快他做的Neural Body入选CVPR 2021最佳论文候选，4K4D把动态场景的渲染推进到4K实时水平，FreeTimeGS把渲染质量推进到可落地的程度。实验室积累的技术后来被一家名为4DV.ai的创业公司采用，出现了在影视飓风的视频里。…</p><a href="https://www.leiphone.com/category/ai/lpK3LQWqmpZP8jcG.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 13 Nov 2026 17:22:00 +0800</div><h3>独家丨港大孵化的半导体材料公司，融资数千万</h3><p>一个发表于《Nature》的技术，能在三步剥出晶圆级薄膜，公司获耀途独家投资。 作者丨陈玘凡 编辑 丨吴优 雷峰网 ·鲸犀独家获悉， 半导体材料公司钻耐科思科技（DiamNEX）已完成 数千万元 新一轮融资，由耀途资本独家投资。 钻耐科思（DiamNEX）成立于2025年，由 香港大学孵化 ，专注于金刚石半导体和量子技术的研发、生产与商业化应用。创始人褚智勤是港大电机与计算机工程系副教授、副系主任，在金刚石方向论文超80篇、专利17项；科学顾问来自港大、港科大、南方科技大学，具备学术产业化落地能力 。 金刚石被誉为“ 终极半导体材料” ，具有超宽禁带、高击穿场强、高热导率等优势特性，是帮助突破当前AI算力散热天花板、赋能量子科技与第四代超宽禁带半导体的关键材料。 传统半导体散热大多通过铜基风冷的方式进行，但伴随token消耗量剧增和对AI算力需求的不断提升，传统半导体材料散热愈发捉襟见肘。英伟达公开数据显示，下一代Rubin GPU功耗将突破2300W，风冷与铜基散热将逼近物理极限。…</p><a href="https://www.leiphone.com/category/weiwu/DewyIGiyxQl09nUM.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 13 Nov 2026 17:05:00 +0800</div><h3>中金公司与蚂蚁集团达成战略合作 共探AI赋能财富管理</h3><p>11月13日，中国国际金融股份有限公司（简称“中金公司”）与蚂蚁科技集团股份有限公司（简称“蚂蚁集团”）签署战略合作协议。 双方将结合中金公司在专业投研、金融服务等方面的积累，以及蚂蚁集团在人工智能、行业生态、客户运营等方面的优势，围绕金融大模型技术创新、AI赋能财富管理、客户全生命周期服务等领域开展合作，共同探索“AI+金融”创新路径。 中金公司党委副书记、副董事长、总裁王曙光（右二），蚂蚁集团首席执行官、蚂蚁数科董事长韩歆毅（左二）出席并见证签约仪式。中金公司党委委员、中金财富党委书记、总裁王建力（右一），蚂蚁集团资深副总裁、蚂蚁数科CEO赵闻飙（左一）代表双方签署协议。 随着大模型和智能体技术发展，AI正逐步深入投研、客户服务和财富管理等金融环节。根据协议，双方将重点围绕三个方向开展合作。 一是探索AI赋能财富管理人机协同工作新模式。 双方计划探索打造服务与营销协同的智能体集群，将AI应用于客户需求洞察、资产配置、投资研究等环节，辅助财富管理顾问提升服务效率和专业能力，为客户提供更及时、个性化的服务，推动财富管理从“被动响应”向“主动服务”转变。 二是探索全域客户价值全周期经营体系建设。…</p><a href="https://www.leiphone.com/category/industrynews/U7WtbV9kyb90UuZ0.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 13 Nov 2026 15:49:00 +0800</div><h3>英伟达博客发声：她不一样，她懂显卡 ( bushi )，她懂端到端！</h3><p>她叫Alpamayo 2 Edge，因果推理结合扩散动作，端到端输出闭环表现提升 48.9%。 作者丨 郑佳美 编辑丨岑 峰 点开前，你以为老黄家的惊天大瓜又有了什么后续； 点开后才发现：这个“她”连人都不是。 她叫 Alpamayo 2 Edge。 英伟达11月10日刚发布出来的一款端到端自动驾驶模型。VLM 骨干约 2.45B、动作专家约 0.2B，跑在车规级芯片 DRIVE AGX Thor 上。 但“懂端到端”这四个字，还真不是标题党蹭流量。在各路AI疯狂“嘴替”、大模型疯狂自言自语的时代，英伟达力挺的 这姑娘（划掉） 这模型，是真·人间清醒。 Alpamayo 2 Edge希望让汽车里的 AI 不仅能看懂道路，还能理解复杂交通关系、分析潜在风险，并根据场景自主生成驾驶动作。简单来说，就是让 AI 从会看、会理解，进一步走向会开车。 当然，让 AI 在服务器里推理和让它在高速行驶的汽车里推理，完全是两回事。车载算力有限，响应时间也有严格要求，模型既要具备复杂场景下的推理能力，又不能把大量计算资源消耗在冗长的思考过程中。 Alpamayo 2 Edge…</p><a href="https://www.leiphone.com/category/ai/1jG5k34DSlHSSJE9.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 13 Nov 2026 15:43:00 +0800</div><h3>40 亿参数模型拿下 6 个评测第一，西湖大学团队押注「概念世界模型」</h3><p>西湖世界模型研究中心成立，施一公亲自揭牌。 作者丨 张岂萍 编辑丨 幸丽娟 世界模型赛道已经不缺创业公司。 海外李飞飞、Yann LeCun 等学术大佬亲自下场，国内极佳视界、逆矩阵、流形空间等创业公司高密度入场。 但最近几个月，入场的力量开始发生变化，下场的不再只是公司，高校和地方政府也开始组织力量，参与这场技术竞争。 今年 7 月，北京大学与逆矩阵科技成立世界模型联合实验室。10 月，由极佳视界牵头的通用世界模型北京市重点实验室揭牌。一个是高校与创业公司联合研发，一个是北京市支持建设的重点科研平台。 如今，西湖大学再落一子，成立世界模型研究中心。西湖大学校长、中国科学院院士施一公亲自揭牌。 与研究中心同时亮相的，还有首版基础模型 Awomo-0.5。这款仅有 40 亿参数的模型，在6项国际公开评测的不同榜单中同时登顶，涉及物理推理、机器人操作和泛化等任务。 更值得关注的是，西湖大学 团队 已经开展了三年世界模型研究，建有自主智能实验室 AutoLab。 有实验室，还有阶段性技术成果， 为什么还要成立一个校级研究中心？先看它想把世界模型做到什么程度。 01 40亿参数“概念世界模型”， 瞄准通用物理智能 西湖大学 团队…</p><a href="https://www.leiphone.com/category/academic/nhzldlwI6rJVyXIl.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 13 Nov 2026 15:40:00 +0800</div><h3>中大梁小丹团队，GeoThinker 两项研究成果，破除空间推理「几何信息用不好、计算开销大」难题</h3><p>不再实时调用外部三维几何编码器，视觉语言模型空间推理提速约 3.6 倍。 作者丨 张岂萍 编辑丨 幸丽娟 给视觉语言模型多塞一份三维几何信息，它就一定看得更准？ 还真不一定。 判断物体的位置、距离和空间关系，是视觉语言模型实现空间推理需要具备的能力。现在一种常见做法，是接入 VGGT 这类三维几何编码器，从多视角图像中提取深度、点云等空间线索，辅助模型判断。 但外部几何信息并不是越多越好。 无关的几何特征可能干扰模型判断，每次调用外部三维模型，也会增加推理时间。 围绕这一问题，中山大学梁晓丹团队连续开展了 GeoThinker 系列研究。 第一项工作 GeoThinker 针对无关几何特征干扰判断的问题，让模型根据问题主动挑选有用的几何线索，更好地利用外部三维几何信息。该工作已被 ICML 2026 收录。 不过，这项工作仍需依赖 VGGT 实时提取几何特征，增加了推理阶段的计算开销。…</p><a href="https://www.leiphone.com/category/academic/FpJFXrs9xGOOewKA.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 13 Nov 2026 15:27:00 +0800</div><h3>京博控股集团与千问办公达成战略合作，共创化工行业AI Native标杆</h3><p>近日，京博控股集团与千问办公达成战略合作，明确全集团将基于千问办公打造AI Native组织。后续双方将围绕科研创新、生产运营优化、经营分析、流程组织重构等核心场景展开合作，共同探索化工行业的智能化升级路径。京博控股集团执行董事、首席轮值总裁栾波，集团轮值总裁兼海外总裁汪君华和千问办公CEO陈宇森等共同出席了本次战略合作签约仪式。 图示 京博控股集团和千问办公战略合作签约现场 京博控股集团是中国500强企业，向全球50余个国家和地区提供高性能新材料、高端化学品、高端装备智造、数智化解决方案与安环能碳配套服务系统。依托千问办公，京博将在化工、新材料等核心生产场景，探索用Agent重塑流程架构，实现增收提效；另一方面，京博将借助千问办公沉淀管理经验，提升公司整体运营效率。 栾波表示，基于千问办公的能力，期待双方能够在研发、生产、组织管理上优化创新，共同打造化工行业AI Native标杆企业。 据悉，千问办公是阿里巴巴旗下企业级通用Agent产品，是AI办公赛道增长最快的产品之一，目前行业头部企业均已接入千问办公。</p><a href="https://www.leiphone.com/category/industrynews/TVkq6K4xkcX9zKSN.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 13 Nov 2026 15:15:00 +0800</div><h3>谷歌的遗憾，被高德弥补了</h3><p>谷歌曾在I/O 开发者大会上展示了一段令外界惊叹的演示：用户可以从高空“飞入”3D地图，沉浸式感受城市街景。 不过，这项被称为“沉浸式视图”的功能，至今仍未在谷歌地图中规模化落地。反倒是在今年，国内的高德后来居上，用更前沿的技术，将飞行视角从街道延伸至了店铺，并且真正实现了规模化应用。 2026 年 1 月 7 日，高德正式发布全球首个“飞行街景”，并面向所有商家免费开放。 高德飞行街景首次实现高拟真、连续动态的实景还原。它让用户可提前沉浸式俯瞰店内外实景，并在出发前即可以第一视角“飞越”城市街区，从高空俯瞰街道全貌，精准识别店铺门头，甚至穿门入室，获得接近实地探访的视觉感知。 这背后，是科技公司之间一场关于技术、生态与执行力的深层较量。它揭示了AI 行业的一个关键趋势：在AI 驱动空间智能的时代，技术的前瞻性不再等同于市场的领先性，规模化的落地能力与更加完善的生态支撑，正在成为决定胜负的核心变量。 换句话说，再顶尖的技术模型也必须与深厚的场景土壤、完整的商业链路相结合，才能从美好的愿景，真正走向亿万用户的日常生活。 01 落地为王，AI时代的竞争新焦点 2025 年 8 月，高德全面 AI…</p><a href="https://www.leiphone.com/category/industrynews/VKIfDDIJRVZxJZR7.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><h3>[解析失败] https://36kr.com/feed</h3><p>not well-formed (invalid token): line 10, column 168</p></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Sat, 14 Nov 2026 08:46:02 GMT</div><h3>珠宝品牌周生生遭黑客攻击：官网打不开、小程序用不了</h3><p>IT之家 11 月 14 日消息，珠宝品牌周生生于 11 月 12 日发布公告称，集团近日发现其系统遭受未经授权存取，并于 11 月 9 日首次识别有关事件，客户及员工的资料可能存在被提取的情况。 该集团表示，已着手采取措施遏止所有未经授权存取行为、加强本集团系统的安全性，并委聘网络安全专家展开调查及就适当措施提供建议。初步调查显示， 受该事件影响的系统，包括集团的会员系统及官方电子商贸渠道，部分客户及员工资料（包括个人资料）曾被未经授权存取，并可能已被提取 。 截至IT之家发稿，目前周生生品牌官网仍无法正常打开。页面相关通知显示：“集团近日发现系统遭受未经授权存取，并已随即采取措施，遏止所有恶意存取行为及加强系统安全性。为保障客户资料安全，本网站现正暂停服务。” 同时，周生生官方商城小程序亦无法正常使用，显示会员系统更新维护中，暂无法提供会员服务。 公开信息显示，周生生由周芳谱 1934 年在广州创办，品牌名源自《易经》“周而复始，生生不息”。1973 年，周生生成为香港首家上市的珠宝企业，产品涵盖钻石、黄金、铂金等珠宝首饰。 今年以来，该集团经营业绩明显提升。上半年，公司实现收入 128.78 亿港元…</p><a href="https://www.ithome.com/1/027/176.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 14 Nov 2026 07:46:58 GMT</div><h3>299 美元月费约为 1% 车价：马斯克回应 Cybercab 自动驾驶订阅费太高，应在 115 美元左右</h3><p>IT之家 11 月 14 日消息，全球首富埃隆 · 马斯克（Elon Musk）今天（11 月 14 日）在 X 平台发布推文，回应科技博主 @MKBHD 关于“Cybercab 每月 299 美元 （IT之家注：现汇率约合 1,999 元人民币） 的订阅费用过高”情况， 认为合理价格应该在 115 美元 （现汇率约合 768.8 元人民币） 左右。 IT之家今天报道，特斯拉开始向部分个人用户开放 Cybercab 购买渠道，起售价为 29,990 美元 （现汇率约合 20 万元人民币） ，首批车辆预计于 12 月交付。按照现有购买安排，符合资格的用户需支付 1,000 美元 （现汇率约合 6,685 元人民币） 订购定金，且定金不可退还。 而本次最值得争议的点，在于车主需要加购 Autonomy Subscription 订阅， 该服务月费为 299 美元 （现汇率约合 1,999 元人民币） （约为售价的 1%） ，特斯拉官方针对新购车用户仅免费 1 个月。按这一标准计算，仅该项订阅每年就需支付 3,588 美元 （现汇率约合 23,986 元人民币） （约为售价的 12%）。 对于订阅价格，马斯克在 X…</p><a href="https://www.ithome.com/1/027/159.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 14 Nov 2026 07:44:43 GMT</div><h3>谷歌推送 Android Auto 18.2 测试版，代码显示官方正持续开发浅色模式菜单界面</h3><p>IT之家 11 月 14 日消息，外媒 9to5Google 在拆解谷歌 Android Auto 18.2 测试版时发现，谷歌仍在继续开发 Android Auto 的浅色模式菜单界面。 具体来看，官方在本次更新中悄悄调整了超过 100 项界面资源文件，主要涉及按钮等用户界面元素。 res/drawable/ic_mr_button_connected_14_dark.xml res/drawable/ic_mr_button_connected_15_dark.xml 外媒表示，谷歌最近的每次更新都在不断完善浅色模式功能，至于相应功能确切上线时间，目前还不得而知。 值得一提的是，过去几个月谷歌已经为 Android Auto 带来了不少更具实际价值的功能，其中较新的变化是 Gemini Intelligence 的加入 。虽然目前该功能仅面向 Pixel 手机用户开放，但仍然值得关注。 Gemini Intelligence 能够将不同服务和信息整合起来，让 AI 助手更好地协助用户处理日常事务。此前长期被讨论的 AI 助手个性化体验如今正逐渐成为现实，借助 Personal…</p><a href="https://www.ithome.com/1/027/158.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 14 Nov 2026 07:38:30 GMT</div><h3>微软确认消费者产品服务已恢复，企业服务仍在监控</h3><p>IT之家 11 月 14 日消息，微软今天（14 日）通报称，截至协调世界时 13 日 16 时 10 分（IT之家注：北京时间 11 月 14 日 0 时 10 分），面向 个人用户的产品和服务已全面恢复 ，Microsoft 365 企业服务也出现了持续恢复的迹象。 对于企业服务故障，微软仍在监测此次事件期间积压的邮件，尚未确认问题完全解决。 微软在服务状态页面的更新中指出：“考虑到此次事件造成的严重影响， 我们将延长监测时间 ，确保不需要采取进一步的补救措施。” 相关阅读： 《 堪比蓝屏“灭霸”事件：微软 2026 最严重宕机重创全球金融业，交易员被迫改用传真 》 《 Outlook 等服务故障期间征集 AI 技巧，微软推文变成网友吐槽现场 》 《 微软就全球服务中断致歉：底层问题已解决，与网络攻击无关 》</p><a href="https://www.ithome.com/1/027/156.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 14 Nov 2026 07:34:48 GMT</div><h3>上海优化道路停车收费，用户可通过 App / 小程序查看机动车每日临时停车免费次数</h3><p>IT之家 11 月 14 日消息，上海市发展改革委等部门于 11 月 11 日发布《关于优化我市道路停车收费政策的通知》，将于 2026 年 11 月 18 日起施行。 具体来看，11 月 18 日起， 机动车在道路停车场单次停放不超过 15 分钟，工作日每天可免费停放两次，周末及法定假日最多三次 。车辆停放超过 15 分钟后，从入场停放起始时间计费。车主可通过“上海停车”App 及相关小程序，查询当天免费次数的使用情况。按次计费的临时道路停车场执行相应收费规则。 根据上海交通部门相关数据，每天两次以内的 15 分钟道路临时停车，可以满足约 90% 的普通车辆短时停放的需求。</p><a href="https://www.ithome.com/1/027/155.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 14 Nov 2026 07:29:49 GMT</div><h3>游戏《红色沙漠》开发商将 AI 应用范围扩展至整个开发管线，强调核心创作仍由人工主导</h3><p>IT之家 11 月 14 日消息，据 TechPowerUp 报道，《红色沙漠》于 2026 年 3 月发售后，曾因正式版游戏中包含 AI 生成的资产而遭到玩家抵制。尽管 Pearl Abyss 随后移除了这些资产，并辩称它们只是审核时意外遗漏的占位符，但该工作室似乎并未因此却步，仍打算在未来的游戏中继续使用生成式 AI。 这一点在其近期发布的财报中得到了证实 —— Pearl Abyss 在报告中表示，公司正将 AI 的应用范围扩展至整个开发管线： 此外，我们正在整合 AI 技术以提升开发生产力与整体品质。目前，AI 已被应用于开发的多个阶段 —— 包括重复性任务自动化、内容创作辅助以及测试优化 —— 并且我们正将其应用范围扩展至整个开发管线 。 IT之家注意到，报告指出，公司将 AI 视为提升生产力与研发速度的助推器，而非取代人力或人类创造力的手段： 我们并不将 AI 视为人类开发者的替代品，而是将其作为提升开发效率与品质的工具 。我们将持续扩大 AI 的应用，以更快的速度向市场推出更高品质的游戏。 在财报的靠前部分，Pearl Abyss 还详细披露了 AI…</p><a href="https://www.ithome.com/1/027/154.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 14 Nov 2026 07:23:19 GMT</div><h3>HMD 2320 Flip 4G 功能机曝光：紫光展锐 T127 芯片，1.77 英寸外屏</h3><p>IT之家 11 月 14 日消息，消息源 smashx_60 发文，曝光了 HMD 2320 Flip 4G 翻盖功能机规格信息，该机外观预计和 HMD 2360 Flip 大致相同。 该机配备 1.77 英寸外屏和 2.4 英寸 LCD 内屏，内置 0.3Mp 摄像头。使用紫光展锐 T127 芯片，匹配 64MB RAM 和 128GB 存储空间，搭载 1450mAh 电池（支持 2.75W 充电）。</p><a href="https://www.ithome.com/1/027/151.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 14 Nov 2026 07:16:26 GMT</div><h3>新西兰最大零售商 The Warehouse 爆发员工抗议：如厕时间都用 AI 管</h3><p>IT之家 11 月 14 日消息，当地时间 13 日，据英国《独立报》报道，新西兰最大零售商 The Warehouse 集团的员工指控，公司 利用 AI 监控如厕时间 ，导致部分员工不得不在配送中心的通道里大小便。 本周，The Warehouse 集团位于奥克兰和基督城的配送中心有 300 多名员工举行抗议，担心 AI 监控侵犯隐私 ，以及新技术的应用可能引发大规模裁员。 员工认为，公司对机器人的重视程度 甚至超过了员工 ，也对自己的工作前景表达了担忧。IT之家从报道中获悉，一名在配送中心工作了 23 年的员工质问道：“我看着像机器人吗？当然不是。我们之所以来抗议，就是因为这些工作 应该由人来做 ，而不是让机器人来做。” Workers First 工会组织者海莉 · 考特尼强调，员工并不反对引进新技术提高效率，只是希望公司能够 保障他们今后的工作 。 她透露，公司引进了一台用于拣货的“大型机器人”，部分人工库存盘点人员的工作也被配备 AI 技术的无人机取代。“AI 甚至开始监控员工上厕所花了多长时间。” 她还称，一些员工为了不上厕所而强忍便意，最终 发生失禁事故…</p><a href="https://www.ithome.com/1/027/150.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 14 Nov 2026 07:09:10 GMT</div><h3>清华大学发布单细胞蛋白组基础模型 ProtCell，利用摩尔线程 S5000 智算卡成功完成“虚拟细胞”预训练复现</h3><p>IT之家 11 月 14 日消息，据摩尔线程公众号，近日，清华大学自动化系江瑞课题组发布了面向单细胞蛋白组的基础模型 ProtCell，完成了论文《ProtCell:a foundation model for single-cell proteomics》。该模型汇集约 3.8 亿个细胞、98 个公开数据集用于预训练与评估，能够精准映射细胞状态、推断未测蛋白表达，为药物研发与前沿“虚拟细胞”构建提供了关键底座支撑。 论文同时披露， 团队在摩尔线程旗舰级 AI 训推一体智算卡 MTT S5000 上成功完成了 ProtCell 的全流程预训练复现，主要定量评测指标与国际主流 GPU 平台的差异仅约 0.2% ，验证了摩尔线程全功能 GPU（Universal GPU）与 MUSA 全栈软件生态对前沿生命科学基础模型的承载力。 公开信息显示，“虚拟细胞”旨在用 AI 在计算机中构建细胞的运行模型，描述细胞当前状态，并精准预测细胞在受到药物、基因编辑等干预后的动态变化，已成为全球 AI4S 竞争的核心战略高地。…</p><a href="https://www.ithome.com/1/027/148.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 14 Nov 2026 07:05:48 GMT</div><h3>《巫师 3》新 DLC 杰洛特波兰语配音演员中风后声音沙哑，CDPR 利用 AI 技术还原其早期声线</h3><p>IT之家 11 月 14 日消息，CD Projekt Red 确认，《巫师 3：狂猎》新剧情扩展包《Songs of the Past》杰洛特的波兰语配音将采用 Respeecher 的 AI 语音转换技术进行处理。 IT之家获悉，自 2007 年首部《巫师》游戏推出以来，演员 Jacek Rozenek 一直担任杰洛特的波兰语配音演员，但在 2019 年其中风后声音变得低沉、沙哑。对此， CDPR 没有选择更换配音演员，而是让 Rozenek 亲自继续录制所有新台词，再通过 AI 技术将声音调整至接近早期作品中的效果 。 CDPR 本地化制作人 Mikołaj Szwed 透露，大约一年前，工作室曾邀请 Rozenek 前往录音室，了解他目前的声音状况。后续在语音克隆公司 Respeecher 的帮助下，Rozenek 按照正常方式亲自录制所有新台词，随后由 Respeecher 利用其早期《巫师 3》配音建立的声音模型，对录音进行转换，使其尽可能接近原版声音。 Respeecher 合成语音艺术家 Dmytro Vasylets 则透露，这项工作的最大难点在于还原 Rozenek…</p><a href="https://www.ithome.com/1/027/147.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 14 Nov 2026 07:02:25 GMT</div><h3>小特朗普支持的公司称未来 5~10 年大多数战争将由机器人来打</h3><p>IT之家 11 月 14 日消息，由埃里克 · 特朗普（Eric Trump）投资支持机器人公司 Foundation 的联合创始人迈克 · 勒布朗（Mike LeBlanc）表示， 未来 5~10 年内，全球大部分主要战斗将由机器完成。 在接受福克斯新闻数字版（Fox News Digital）采访时，勒布朗表示：“我预计未来五到十年，人形机器人、地面车辆和无人机将承担大部分主要作战任务，人类只负责特种部队、特种作战以及一些小规模的精准行动。” IT之家援引博文介绍，Foundation 公司已经于今年 2 月交付 2 台 Phantom MK-1 机器人，下一代 MK 2 已接近交付。MK 1 载重约 40 公斤，主要协助士兵装填弹药、搬运物资及完成其他体力工作。 勒布朗将其定位为人形机器人战场应用的“概念验证”勒布朗称，MK 2 身高约 1.83 米、重约 84 公斤，能够抱起成年人，除承担重体力劳动外，还可用于架设重机枪等任务。</p><a href="https://www.ithome.com/1/027/144.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Sat, 14 Nov 2026 06:57:17 GMT</div><h3>谷歌 Gemini 个人智能功能接入 Google Wallet 钱包应用：可为用户消费习惯提供个性化分析建议</h3><p>IT之家 11 月 14 日消息，谷歌宣布 Gemini 的 Personal Intelligence（个人智能）功能已正式支持 Google Wallet 钱包，用户在完成授权后，Gemini 便能根据谷歌 Gemini 个人智能功能接入 Google Wallet：可为用户消费习惯提供个性化分析建议。 谷歌表示，用户只需在 Gemini 对话中输入 @Google Wallet，即可询问个人财务状况、消费情况以及预算规划等问题。用户还可通过 Plaid 将信用卡和银行账户关联至 Google Wallet，以获取更加全面的财务信息。 在具体功能方面，例如 Gemini 可以分析用户上一季度的消费记录，并直接在对话中生成图表，展示现金流、资产配置和预算情况。如果用户希望在未来 3 个月内存下 1000 美元，Gemini 也可以据此协助制定储蓄计划。 谷歌强调，Gemini 只能读取用户授权账户中的信息，无法转账、管理资金或进行投资操作。Google Wallet 的接入完全采用自愿授权机制，用户需要在 Personal Intelligence 设置中的“已连接的应用”选项下手动开启，也可以随时取消连接。</p><a href="https://www.ithome.com/1/027/141.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Fri, 13 Nov 2026 16:33:58 +0800</div><h3>英伟达员工请愿让黄仁勋复职</h3><p>英伟达创始人黄仁勋辞职后公司内部员工发起请愿让他复职。一名员工在内部意见系统上写道：我们都是人、都会犯错，黄仁勋办了那么多好事，理应得到第二次机会。黄仁勋担任英伟达 CEO 长达 33 年，领导公司成为世界市值最高的公司之一，很多员工都认为他对公司的贡献巨大，不应因此遭到抹杀。英伟达员工还通过 LinkedIn 公开表达对他的支持，且无人公开支持罢免他。</p><a href="https://www.solidot.org/story?sid=85878" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Fri, 13 Nov 2026 13:30:36 +0800</div><h3>微软云服务全球宕机</h3><p>微软云服务全球宕机，受影响服务包括了 Outlook、Teams 和 OneDrive 等办公工具以及 AI 工具 Copilot。微软通过其社交媒体账号表示正全力解决该问题。根据 Downdetector 的报告，截至周四 18:00 GMT，全球报告的 Outlook 故障数量接近 14 万。目前无迹象表明此次大范围宕机是由网络攻击引起的。微软表示，受影响的用户可能无法查看部分文件，或无法在日历应用中查看详细信息。Copilot 也可能无法正常运行。即时通讯和在线会议功能基本保持正常。微软称此次事故是由部分服务器意外不可用导致的，这给其余系统造成了沉重负担。与微软有合作的 AI 巨头 Anthropic 和 OpenAI 也报告了故障。</p><a href="https://www.solidot.org/story?sid=85875" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 12 Nov 2026 21:27:09 +0800</div><h3>《Big Walk》开发商利用 AI 修 Bug 引起争议</h3><p>热门独游《Big Walk》开发商 House House 承认在生成式 AI 帮助下修 bug，结果在独立游戏节（Independent Games Festival，IGF）上引发了激烈争议。IGF 评委团的多名成员周一发表联合声明，强烈反对使用生成式 AI 的游戏，并督促官方制定强有力的反 AI 政策。《Big Walk》是一款非常受欢迎的合作冒险游戏，使用了 Unity 引擎开发，开发商发现游戏存在一个拖慢游戏速度的 bug，联络 Unity 工程师后被告知无法解决，于是询问了生成式 AI 工具，大模型提供了一种修复思路，House House 在此基础上写出了用于最终产品的 10 行代码。这种利用 AI 工具加速开发和辅助修 bug 的做法在行业已经非常普遍。但 House House 的做法引发了争议，游戏在 Steam 平台还遭遇了差评轰炸。游戏开发者 Brendan Keogh 认为这种对生成式 AI 零容忍的立场其效果可能会适得其反，可能会促使其它游戏开发商不披露使用 AI 的信息，而未来要避开完全不使用 AI 工具的游戏几乎是不可能的。</p><a href="https://www.solidot.org/story?sid=85869" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 12 Nov 2026 14:49:27 +0800</div><h3>腾讯计划将半数员工部署到 AI 原生业务</h3><p>腾讯创始人马化腾称，他愿意将半数员工投入到 AI 原生业务，并敦促公司逾 10 万名员工拥抱这项定义时代的技术。 马化腾本周在年度演讲中告诉员工，行业已进入“大航海时代”，他将腾讯的核心业务比作陆军，将新的 AI 业务比作海军。马化腾称，50% 的人要像陆军一样，守土有责，通过提效去做好现有的核心业务；另外 50% 的人像海军一样，拥抱浪潮，探索 AI Native、拓展新的发展空间。近期有传言称腾讯计划裁员50%，对此知情人士称，公司资源适应 AI 时代的重新调度，可能是所谓“裁员 50%”的谣言出处，该说法完全不属实。</p><a href="https://www.solidot.org/story?sid=85865" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      <section class="section-card" id="errors"><div class="section-head"><h2>抓取异常</h2><span>不影响当期页面生成</span></div><ul class="error-list"><li class="error-item"><strong>36氪</strong><span>[解析失败] https://36kr.com/feed</span><em>not well-formed (invalid token): line 10, column 168</em></li></ul></section>
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>
