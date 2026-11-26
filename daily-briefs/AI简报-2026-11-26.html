@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中文 AI 资讯简报 · 2026-11-26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4f1;
+      --bg-soft: #eeece7;
+      --paper: #fffdfa;
+      --paper-2: #f8f5ef;
+      --text: #28312d;
+      --muted: #6f7771;
+      --line: rgba(56, 68, 62, 0.10);
+      --accent: #7a9b86;
+      --accent-2: #c7b293;
+      --shadow: 0 16px 45px rgba(60, 72, 66, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --font: "DM Sans", "Noto Sans SC", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background:
+        radial-gradient(circle at top left, rgba(122, 155, 134, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(199, 178, 147, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: #6d8878; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app-shell {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 40px;
+    }
+    .toc {
+      position: sticky;
+      top: 18px;
+      height: calc(100vh - 36px);
+      overflow: auto;
+      background: rgba(255, 253, 250, 0.76);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px 14px 20px;
+      box-shadow: var(--shadow);
+    }
+    .toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.06em;
+    }
+    .toc p {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toc-link {
+      display: block;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      color: #49524d;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+    .toc-link:hover {
+      text-decoration: none;
+      background: rgba(122, 155, 134, 0.08);
+      border-color: rgba(122, 155, 134, 0.16);
+    }
+    .main {
+      min-width: 0;
+    }
+    .hero {
+      background: linear-gradient(145deg, rgba(255, 253, 250, 0.96), rgba(248, 245, 239, 0.96));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 155, 134, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 10em;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero-copy {
+      max-width: 820px;
+      margin-top: 20px;
+      font-size: 1.02rem;
+      color: #39423d;
+    }
+    .hero-copy--muted {
+      color: var(--muted);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .section-card {
+      margin-top: 22px;
+      background: rgba(255, 253, 250, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section-note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .theme-grid,
+    .insight-grid,
+    .stories-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .theme-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .insight-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .theme-pill,
+    .insight-card,
+    .story-card,
+    .source-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .theme-pill {
+      border-top: 3px solid var(--accent);
+    }
+    .theme-pill__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .theme-pill p,
+    .insight-card p,
+    .story-card p,
+    .source-item p {
+      margin: 0;
+      color: #44504a;
+      font-size: 0.95rem;
+    }
+    .theme-pill small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .insight-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .insight-side {
+      display: grid;
+      gap: 14px;
+    }
+    .insight-side ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #425049;
+    }
+    .insight-side li + li {
+      margin-top: 8px;
+    }
+    .story-card__source,
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .story-card h3,
+    .source-item h3,
+    .insight-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .story-card a,
+    .source-item a {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .source-list {
+      display: grid;
+      gap: 12px;
+    }
+    .error-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .error-item {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(182, 123, 114, 0.18);
+    }
+    .error-item strong {
+      color: #8f5a53;
+    }
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+      padding: 18px 0 8px;
+    }
+    @media (max-width: 1100px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+      .toc {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .section-card {
+        padding: 18px;
+      }
+      .hero-stats,
+      .theme-grid,
+      .insight-grid,
+      .stories-grid,
+      .insight-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="toc">
+      <h1>AI Brief</h1>
+      <p>每日聚合 + 主题整理 + 模型导语</p>
+      <a class="toc-link" href="#hero">封面摘要</a>
+      <a class="toc-link" href="#overview">主题地图</a>
+      <a class="toc-link" href="#insights">模型总结</a>
+      <a class="toc-link" href="#具身-机器人-智驾">具身 / 机器人 / 智驾</a><a class="toc-link" href="#大模型-应用-智能体">大模型 / 应用 / 智能体</a><a class="toc-link" href="#云-大厂-生态">云 / 大厂 / 生态</a><a class="toc-link" href="#芯片-算力-推理">芯片 / 算力 / 推理</a><a class="toc-link" href="#产业-投融资-活动">产业 / 投融资 / 活动</a><a class="toc-link" href="#数据-安全-合规-社会议题">数据 / 安全 / 合规 / 社会议题</a><a class="toc-link" href="#其他-ai-科技动态">其他 AI 科技动态</a>
+      <a class="toc-link" href="#timeline">分源时间线</a>
+      <a class="toc-link" href="#errors">抓取异常</a>
+    </aside>
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="eyebrow">Chinese AI Daily Brief</div>
+        <h2>中文 AI 资讯简报</h2>
+        <div class="hero-meta">
+          <span>2026-11-26</span>
+          <span>19:19（北京时间）</span>
+          <span>IT之家、Solidot、量子位、雷锋网</span>
+        </div>
+        <p class="hero-copy">11月26日，AI 新闻集中在物理 AI 与具身智能的产业化推进：机器人研发底座、算力供给与智驾商业化成为同日多条线索。大模型侧，国产模型在 AI4S 与密码学任务上展示能力边界；华为披露乾崑智驾累计辅助驾驶里程突破 183 亿公里，并预告自研 HBM 等技术展示。整体看，行业正从单点模型能力转向研发流程、算力市场与付费模式的系统化竞争。</p>
+        <div class="hero-stats">
+          <div class="stat-card"><strong>35</strong><span>有效条目</span></div>
+          <div class="stat-card"><strong>4</strong><span>来源栏目</span></div>
+          <div class="stat-card"><strong>7</strong><span>主题分组</span></div>
+          <div class="stat-card"><strong>1</strong><span>抓取异常</span></div>
+        </div>
+      </section>
+
+      <section class="section-card" id="overview">
+        <div class="section-head"><h2>本期概览与主题地图</h2><span>帮助先看懂今天在发生什么</span></div>
+        <p class="section-note">页面优先把信息压成可扫读的卡片，再保留完整时间线与原始链接，避免文本连在一起造成阅读疲劳。</p>
+        <div class="theme-grid"><article class="theme-pill" style="--accent:#8aa4b1;"><div class="theme-pill__top"><span>具身 / 机器人 / 智驾</span><strong>12</strong></div><p>物理世界里的 AI 仍在拼落地速度</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#7a9b86;"><div class="theme-pill__top"><span>大模型 / 应用 / 智能体</span><strong>11</strong></div><p>模型与应用正快速向真实工作流收敛</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#8f9bb8;"><div class="theme-pill__top"><span>云 / 大厂 / 生态</span><strong>10</strong></div><p>平台与生态的整合能力决定扩散半径</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#9f8a68;"><div class="theme-pill__top"><span>芯片 / 算力 / 推理</span><strong>10</strong></div><p>基础设施的效率叙事持续升温</p><small>IT之家、雷锋网</small></article><article class="theme-pill" style="--accent:#bea06d;"><div class="theme-pill__top"><span>产业 / 投融资 / 活动</span><strong>9</strong></div><p>资本、合作与大会正在放大行业方向感</p><small>IT之家、量子位、雷锋网</small></article><article class="theme-pill" style="--accent:#b67b72;"><div class="theme-pill__top"><span>数据 / 安全 / 合规 / 社会议题</span><strong>9</strong></div><p>效率之外，治理与边界问题变得更紧迫</p><small>IT之家、Solidot、雷锋网</small></article><article class="theme-pill" style="--accent:#97a19a;"><div class="theme-pill__top"><span>其他 AI 科技动态</span><strong>5</strong></div><p>零散动态中仍有值得继续跟踪的信号</p><small>量子位</small></article></div>
+      </section>
+
+      <section class="section-card" id="insights">
+        <div class="section-head"><h2>模型总结</h2><span>作为导读，不替代原始新闻</span></div>
+        <div class="insight-columns">
+          <div>
+            <div class="insight-grid"><article class="insight-card"><h3>物理 AI 与机器人研发底座</h3><p>人形机器人加速走出实验室，但数据采集、物理仿真、模型训练与真机验证分散在不同厂商，如何组织分散能力成为产业化新难题。九章云极发布物理 AI 工厂与生态开放计划，权龙创立 Envision AI 聚焦空间与物理原生基模，均指向统一研发底座与通用空间物理能力。</p></article><article class="insight-card"><h3>智驾商业化与规模数据</h3><p>小鹏图灵 AI 智驾拟于明年二季度开启全球收费订阅，蔚来任少卿发布世界模型 3.0，称智驾训练提效 5 倍并用于座舱强化学习。华为乾崑智驾累计辅助驾驶里程突破 183 亿公里，官方称辅助驾驶状态下平均安全行驶里程为中国人驾平均值的 6 倍。</p></article><article class="insight-card"><h3>大模型能力边界与 AI4S</h3><p>MiniMax 内部模型 MIM 展示攻破多个 NIST 密码候选方案和顶会前沿成果，国产模型进入 AI4S 深水区。同日 Anthropic 数学家联合 Claude 在黎曼猜想上取得关键突破的报道，显示大模型在复杂数学与科研任务中的参与度提升。</p></article><article class="insight-card"><h3>算力市场与生态指标</h3><p>中国算力采购信心指数启动，九章云极作为核心共建单位参与指数体系搭建，试图为算力市场提供先行指标。华为将展示自研 HBM、逻辑堆叠等技术，芯片与算力供给仍是生态竞争的基础变量。</p></article></div>
+          </div>
+          <div class="insight-side">
+            <article class="insight-card">
+              <h3>影响观察</h3>
+              <ul><li>机器人量产的关键约束正从本体能力转向研发流程复用与跨厂商协作，物理 AI 工厂、仿真与训练底座可能成为新的基础设施层。</li><li>智驾从功能竞争进入付费订阅与规模数据验证阶段，训练效率与安全里程数据将直接影响商业化叙事。</li><li>国产模型在密码学、数学等硬核任务上的表现，正在改变 AI4S 的参与主体结构，但需区分演示成果与可复现的科研突破。</li><li>算力采购信心指数若形成持续发布机制，可能为算力市场提供可追踪的景气度参考，但当前仍处启动阶段。</li></ul>
+            </article>
+            <article class="insight-card">
+              <h3>持续关注</h3>
+              <ul><li>小鹏图灵 AI 智驾全球收费订阅的落地节奏与定价策略</li><li>蔚来世界模型 3.0 在智驾与座舱中的实际训练提效验证</li><li>华为乾崑生态大会披露的智驾与自研 HBM、逻辑堆叠技术细节</li><li>九章云极物理 AI 工厂的生态开放计划与算力采购信心指数后续数据</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="具身-机器人-智驾"><div class="section-head"><h2>具身 / 机器人 / 智驾</h2><span>12 条</span></div><p class="section-note">物理世界里的 AI 仍在拼落地速度</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>90 秒自动换装补能，具微科技“潘多拉”支撑机器人无人化值守</h3><a href="https://www.qbitai.com/2026/11/512972.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>任少卿带着世界模型3.0来了！蔚来智驾训练提效5倍，座舱也用上强化学习</h3><a href="https://www.qbitai.com/2026/11/512897.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>机器人量产背后，物理AI开始算新账：研发底座何必各自建？</h3><p>2026年，人形机器人加速走出实验室。 但是让机器人在真实世界产生价值，依然复杂而成本高昂。 从数据采集、物理仿真到模型训练、真机验证，机器人每掌握一项新技能，背后都可能是一整套研发流程的反复运转。 更复杂的是，这些能力分散在不同的专业厂商手中。产业分工越来越细，如何将分散的技术能力组织起来，反而成了一道新的难题。 当机器人开始规模化交付，产业需要解决的不只是如何造出更多机器人，还有如何让更多企业以更低的成本训练机器人。 这也让物理AI产业出现了一个新的机会：谁有能力将分散的研发资源组织成可复用的基础设施，谁就有机会成为产业链上的重要组织者。 九章云极正尝试从算力供应商向物理AI开发平台延伸，通过物理AI工厂、生态联盟和标准化接口，参与这场产业分工的重构。 01 机器人越造越多，研发底座开始走向共建 《2026年人形机器人产业发展报告》显示，今年上半年，中国人形机器人出货量已超过4万台。 机器人走出实验室后，需要掌握更多技能，适应不同的工作环境。每进入一个新的应用场景，机器人企业都可能需要开发新的技能，研发任务也随之增加。 这背后是一条需要不断重复的研发链。…</p><a href="https://www.leiphone.com/category/chips/HQvbSEUnkDy0Tos9.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>一月只开工两三天！奥迪中国回应长春工厂产能利用率跌破10%；Anthropic创始人兄妹上市次日套现37亿；小鹏智驾拟开启全球付费订阅</h3><p>要闻提示 1.Anthropic创始人兄妹上市次日套现37亿元 2.一月只开工两三天，被称“幽灵工厂”！奥迪中国回应长春工厂产能利用率跌破10% 3.打脸自己？小鹏图灵AI智驾将于明年二季度开启全球收费订阅 4.希音披露美国FTC调查最新进展：将向美国财政部支付1亿美元 5.B站陈睿回应短剧冲击：我们没受影响 6.华为将展示自研HBM、逻辑堆叠等技术 7.特朗普称美国政府入股英伟达犹未为晚，自称早就想过但一直没说 8.韩国SK集团董事长崔泰源前妻拒绝“9440亿韩元和解建议” 今日头条 Anthropic创始人兄妹上市次日套现37亿元 11 月 25 日消息，据报道，根据监管文件，人工智能巨头Anthropic的首席执行官兼联合创始人达里奥·阿莫代伊（Dario Amodei）在该公司上市次日出售了价值2.804亿美元的股票。与此同时，他的妹妹兼公司联合创始人丹妮拉·阿莫代伊（Daniela Amodei）也披露了同等规模的股票出售。二人合计套现5.6亿美元（约合人民币37亿元）。…</p><a href="https://www.leiphone.com/category/zaobao/TaYBp58OxQSPMi10.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>算力唤醒真实世界：九章云极发布物理AI工厂与生态开放计划</h3><p>11月25日，以“算力唤醒真实世界”为主题的2026物理AI行业峰会暨九章云极智算生态大会在深圳举行。会议由九章云极DataCanvas主办，深圳市龙华区工业和信息化局支持，清华大学互联网产业研究院为学术指导单位。来自标准机构、高校与科研院所、投资机构，以及机器人本体、世界模型、仿真软件、智算云等领域的上百位嘉宾代表出席。中国电子技术标准化研究院副院长范科峰，深圳市龙华区委常委、常务副区长张智，九章云极DataCanvas董事长方磊分别致辞。 会议聚焦的核心命题是：当机器人、世界模型与仿真软件相继通过技术验证，物理AI如何跨越从实验室到产线的产业化鸿沟。答案集中在两个方向：以工程化能力将算力组织为生产体系的物理AI工厂，以及将产业链专业能力联结为整体协作的物理AI生态。 范科峰指出，物理AI正在加速连接数字世界与物理世界，跨域协同对标准供给提出了迫切要求，数据接口、通信协议、安全边界等标准化问题将愈发突出，坚持标准先行，才能为物理AI的规模化落地提供关键支撑。 中国电子技术标准化研究院副院长范科峰致辞…</p><a href="https://www.leiphone.com/category/chips/Qz3QPf26nVIVA0ga.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>九章云极携手多方战略合作，物理AI工厂生态协作走进真实场景</h3><p>11月25日，在2026物理AI行业峰会暨九章云极智算生态大会上，北京九章云极科技股份有限公司（九章云极DataCanvas，下称“九章云极”）与深圳市龙华区工业和信息化局、北京清程智汇有限公司、深圳市怡亚通供应链股份有限公司签署物理AI工厂项目战略合作协议；另外两场签约中，九章云极分别与佳都科技集团股份有限公司、北京数字政通科技股份有限公司签署AI算力产业协同战略合作协议。 物理AI正处在一个关键节点：机器人、世界模型与仿真软件相继通过技术验证，但跨过从实验室到产线的鸿沟，需要的不仅是算法突破，更是工程化的系统能力。模型在仿真环境里跑得再好，到了真实产线上也可能因为环境噪声、传感器误差和动力学差异而失效。 问题在于，验证必须在真实场景中完成。但真实场景分散在政府、制造企业、科研机构和服务商手中，单一厂商无法同时握有场景、研究能力和算力底座，产业链的协作机制尚未建立。大会现场的系列签约，让物理AI的验证环境有了多方共建的载体。 共建龙华物理AI工厂项目，搭起“场景—研究—基础设施”协作链…</p><a href="https://www.leiphone.com/category/chips/JWelmQaWCBCTOJi3.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>九章云极开放两大接口，携手伙伴共建物理AI产业生态</h3><p>11月25日，在2026物理AI行业峰会暨九章云极智算生态大会上，九章云极DataCanvas宣布面向物理AI开放Physical AI Infra API和Physical AI Dev API两大接口，并联合二十余家产业伙伴成立极光物理AI产业生态联盟，推动技术连接与产业协作。 两大接口分别面向物理AI的智算基础设施和专业开发工具。Physical AI Infra API面向基础设施层，提供异构算力资源的标准化接入、管理与调度能力；Physical AI Dev API则连接仿真、数据生成、模型训练与验证等专业工具和底层算力，降低研发环节的适配与协同成本。 与接口开放同步推进的，是产业协作网络的建立。极光物理AI产业生态联盟由九章云极发起，在深圳龙华区成立，学术指导单位为北京大学软件工程国家工程研究中心，理事单位包括亿欧、中国质检院人工智能检测中心等，首批成员企业来自机器人本体、世界模型、仿真平台、科研机构及智算云服务等领域，覆盖从技术研究、工具开发到产业应用的多个环节。…</p><a href="https://www.leiphone.com/category/chips/omZ0PFr6zVtmUnap.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>多模型协同落地，浙江人形 NAVIAI 提升长序列任务作业稳定性</h3><p>具身智能要真正走进现实世界，一个足够聪明的“大脑”还不够。 与以信息处理为主的数字世界不同，物理世界充满动态变化与不确定性。机器人不仅要理解任务，还要应对物体状态、接触条件和环境的变化，将认知判断转化为可靠的物理操作。模型具备强大的认知能力，并不意味着机器人就能胜任真实作业；面对多环节、长流程任务，单一模型或孤立技能难以独立应对，需要多种模型与技能协同配合，才能实现可靠的任务交付。 面向物理环境中的动态变化、多环节任务与复杂交互，浙江人形机器人创新中心有限公司（以下简称“浙江人形”）对原有 SPIRE 体系进行迭代升级，推出 SPIRE 2.0全链路任务对齐具身智能体系。 新体系以 NaviDataset 积累真实作业数据，通过 NaviRepresentation 开展任务导向的环境描述，帮助机器人理解作业环境；再由 NaviPolicy 打通动作控制，构建灵活自主的闭环作业能力，并通过 NaviAssistant 协调不同模型，最终将能力沉淀为可复用、可组合的 NaviSkillLib 技能库，贯通从数据积累、任务理解到模型协同与实际应用的完整链路。 数据筑基，让机器人学得更有效…</p><a href="https://www.leiphone.com/category/industrynews/KnGzlsg6xlU9Nnpk.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为乾崑智驾累计辅助驾驶里程突破 180 亿公里</h3><p>IT之家 11 月 26 日现场消息，华为乾崑生态大会将于今晚举行。IT之家已前往大会现场，稍后将带来华为乾崑技术最新情报。 值得一提的是，在活动现场，华为竖起了一块大屏，实时展示了华为乾崑智驾累计辅助驾驶里程数 —— 目前已突破 183 亿公里 。 华为官方表示，在辅助驾驶状态下，平均安全行驶里程是中国人驾平均值（推算）的 6 倍。 IT之家注意到，华为官网显示，华为乾崑智驾累计辅助驾驶里程已突破 183 亿 3979 万公里、搭载乾崑智驾车辆累计行驶总里程突破 508 亿 6757 万公里、乾崑智驾累计主动避免可能的碰撞超 718 万 0102 次（数据实时刷新中）。</p><a href="https://www.ithome.com/1/033/024.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>蔚来李斌谈小鹏智驾即将付费：买小鹏就趁早，非常高兴看到小鹏走付费订阅的商业模式</h3><p>IT之家 11 月 26 日消息，在 11 月 25 日的「Origin 原点」2026 小鹏科技日活动中， 小鹏集团董事长、CEO 何小鹏宣布 ， 小鹏图灵 AI 智驾将于 2027 年第二季度面向全球新购车用户提供订阅服务 ，服务开启前下订用户，智驾权益终身不变。 据新浪科技今日报道，蔚来创始人、董事长、CEO 李斌对此发表了评价。对于小鹏即将开启的智驾付费模式，李斌直言：“ 买小鹏就趁早 ”。 李斌也透露：“现在我们的（智能辅助驾驶）付费订阅率我还是比较满意的，主要是来自二手车的用户，因为新车主目前都还在免费期。 我认为 AD（智能辅助驾驶）的订阅是非常有必要的商业方式 ，AD 不停地需要维护、需要迭代，越往后要花的钱越多的。” 李斌强调：“如果没有一个可持续的商业模式去支持这件事情，我认为这些承诺是假的，因为到最后要花好多钱，而且越往后，你的分支越多，对用户的责任是巨大的。” 他还表示：“我认为反映智能驾驶的技术好不好使，就看两件事，一是用户愿不愿意付费（订阅率），另外一个是事故率。以后都不用搞评比了，用户愿不愿意付钱是真的。 非常高兴看到越来越多的公司，包括小鹏选择走订阅的商业模式 。”…</p><a href="https://www.ithome.com/1/032/949.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>沃尔沃把人形机器人送进工厂：先学干活，明年年中正式上岗</h3><p>IT之家 11 月 26 日消息，沃尔沃汽车希望用人形机器人取代部分工厂工人，这些机器人能够做那些重复性高、体力消耗大的活儿，而且它们不会抱怨腰疼。 为了实现这个目标，这家车企已经把首批 Aeon 机器人运进了位于比利时根特的工厂，目前由工作人员带着它们学习各种任务。沃尔沃表示，目标是让机器人为员工分担重复性和“在人体工学上具有挑战的工作”。 固定式机械臂在汽车工厂里已经用了几十年，但如今一些品牌开始投入大量时间和资金，研发由人工智能驱动、能处理零件位置并不总是完全固定的任务的机器人。业内所称的“取放”类工作，正逐步交给机器人。特斯拉、通用汽车、福特和 Rivian 都在慢慢把复杂的机器人部署到自家工厂。 沃尔沃也不例外。这家瑞典车企透露，运抵根特工厂的首批人形机器人目前只是在进行训练，从 2027 年中期起，它们将逐渐开始在真实工况下干活。 眼下，沃尔沃汽车正用模仿学习的方式，教机器人如何把特定零件高精度地拿起并放进两个固定工位。整个学习过程中，团队会逐步提高难度：增加零件数量、让机器人在生产区域里移动，以及与工厂的自动化系统交互。 沃尔沃汽车首席制造官马格努斯 · 尼尔松（Magnus Nilsson）说：“Aeon…</p><a href="https://www.ithome.com/1/032/939.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称三星电子成立半导体工厂机器人团队，2028 年启动内部部署</h3><p>IT之家 11 月 26 日消息，韩媒 ETNEWS 当地时间今日报道称，三星电子半导体板块 —— DS（设备解决方案）部，已在其全球制造与基础设施总部下设立“机器人团队”，推进机器人技术在半导体工厂中的实际应用。 业内人士透露，目前半导体工厂的前端自动化程度已达 90%、后端也已达到 80%，但 仍需要人来负责零件耗材更换、设备维护等部分工序 。 三星电子计划以内部团队为核心，与外部供应商合作，进一步减少真人的使用， 提高生产效率、增强安全性 。 报道指出，三星电子计划年内遴选合作伙伴，明年进行技术评估， 2028 年开始实际部署 。 相关阅读： 《 消息称三星组建新团队研发芯片工厂机器人，推进半导体工厂自动化转型 》 《 三星电子公布工业 AI 路线图：数字孪生 + 专用机器人，到 2030 年全球制造基地将实现自主化生产 》 参考 https://www.etnews.com/20261126000296</p><a href="https://www.ithome.com/1/032/931.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="大模型-应用-智能体"><div class="section-head"><h2>大模型 / 应用 / 智能体</h2><span>11 条</span></div><p class="section-note">模型与应用正快速向真实工作流收敛</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>国产模型扎进 AI4S 深水区，几毫秒破译尘封18年密码学悬案</h3><p>作者丨 高允毅 编辑丨岑 峰 11月20日， AI for Science 迎来了一个载入史册的日子：Anthropic 数学家联合 Claude 拿下黎曼猜想的关键突破，同一天，以复杂的数学计算著称的密码学领域，也被AI撼动。 据 MiniMax 官方展示， 其最新内部模型 MIM， 接连攻破了多个 NIST 密码 候选方案和顶会最新发表的前沿成果 。 在 TII McEliece 中直接恢复了 94 个私钥，其中 55 个为全球首次攻克。在最受关注的 破译 效率上，速度直接提升了 43400 倍。 MiniMax 的密码分析成果不仅引发了 Anthropic 团队成员的转发与关注，更被哥伦比亚大学终身教授、国际顶尖量子密码学专家 Henry Yuen 作为前沿案例引用，写入了最新学术演讲中。 图注：哥伦比亚大学教授 Henry Yuen 在最新学术演讲，将 MiniMax 的 AI 密码学分析成果作为前沿案例引用，视频直达：https://www.youtube.com/watch?v=tpTp2WVhgJU&amp;t=558s 密码分析被业内视为检验 AI…</p><a href="https://www.leiphone.com/category/yanxishe/T2xmmiMAC6WbuuCM.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家 | 华人 CV 先驱权龙二次创业，成立空间与物理 AI 公司「Envision AI」</h3><p>融合语言、 逻辑、几 何、物理规律，要做统一和通用的空间物理原生基模。 作者丨 幸丽娟 编辑丨岑 峰 AI科技评论独家获悉， 香港科技大学计算机科学与工程系教授、前苹果空间智能首席科学家权龙二次创业，成立公司“Envision AI”（格秩科技），进军空间与物理 AI 赛道。 公司的目标，是打造一个通用的空间物理原生基模：基于大语言模型，从视觉出发，把文本、图像、空间与物理信息统一进同一套体系，推动物理 AI “ChatGPT 时刻”的加速到来。 权龙的分量，在计算机视觉圈不需要解释。他 1995 年提出六点算法，是 三维视觉领域最重要的奠基性算法之一 ；1988 年发表 ICCV 华人计算机视觉第一篇论文；先后担任 ICCV 2011、CVPR 2022 两届大会主席，是极少数在计算机视觉三大顶会中担任过两个大会主席的华人学者；IEEE Fellow，谷歌学术引用量超过 2.3 万次。 作为视觉几何世界级奠基者，他是能与 Yann LeCun、李飞飞、沈向洋等海内外知名AI 大佬坐一桌的人物。 学术上将三维视觉做到天花板，产业方面，他与学生方天、姚遥等人的 首次创业成果…</p><a href="https://www.leiphone.com/category/academic/S12DTjaFWmIPkwCk.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>一月只开工两三天！奥迪中国回应长春工厂产能利用率跌破10%；Anthropic创始人兄妹上市次日套现37亿；小鹏智驾拟开启全球付费订阅</h3><p>要闻提示 1.Anthropic创始人兄妹上市次日套现37亿元 2.一月只开工两三天，被称“幽灵工厂”！奥迪中国回应长春工厂产能利用率跌破10% 3.打脸自己？小鹏图灵AI智驾将于明年二季度开启全球收费订阅 4.希音披露美国FTC调查最新进展：将向美国财政部支付1亿美元 5.B站陈睿回应短剧冲击：我们没受影响 6.华为将展示自研HBM、逻辑堆叠等技术 7.特朗普称美国政府入股英伟达犹未为晚，自称早就想过但一直没说 8.韩国SK集团董事长崔泰源前妻拒绝“9440亿韩元和解建议” 今日头条 Anthropic创始人兄妹上市次日套现37亿元 11 月 25 日消息，据报道，根据监管文件，人工智能巨头Anthropic的首席执行官兼联合创始人达里奥·阿莫代伊（Dario Amodei）在该公司上市次日出售了价值2.804亿美元的股票。与此同时，他的妹妹兼公司联合创始人丹妮拉·阿莫代伊（Daniela Amodei）也披露了同等规模的股票出售。二人合计套现5.6亿美元（约合人民币37亿元）。…</p><a href="https://www.leiphone.com/category/zaobao/TaYBp58OxQSPMi10.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>多模型协同落地，浙江人形 NAVIAI 提升长序列任务作业稳定性</h3><p>具身智能要真正走进现实世界，一个足够聪明的“大脑”还不够。 与以信息处理为主的数字世界不同，物理世界充满动态变化与不确定性。机器人不仅要理解任务，还要应对物体状态、接触条件和环境的变化，将认知判断转化为可靠的物理操作。模型具备强大的认知能力，并不意味着机器人就能胜任真实作业；面对多环节、长流程任务，单一模型或孤立技能难以独立应对，需要多种模型与技能协同配合，才能实现可靠的任务交付。 面向物理环境中的动态变化、多环节任务与复杂交互，浙江人形机器人创新中心有限公司（以下简称“浙江人形”）对原有 SPIRE 体系进行迭代升级，推出 SPIRE 2.0全链路任务对齐具身智能体系。 新体系以 NaviDataset 积累真实作业数据，通过 NaviRepresentation 开展任务导向的环境描述，帮助机器人理解作业环境；再由 NaviPolicy 打通动作控制，构建灵活自主的闭环作业能力，并通过 NaviAssistant 协调不同模型，最终将能力沉淀为可复用、可组合的 NaviSkillLib 技能库，贯通从数据积累、任务理解到模型协同与实际应用的完整链路。 数据筑基，让机器人学得更有效…</p><a href="https://www.leiphone.com/category/industrynews/KnGzlsg6xlU9Nnpk.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>元材新界发布 FrontierMat：330 道真实研发难题难住 GPT-6 Astra，自研跨尺度材料大模型登顶</h3><p>今年 10 月，在美国得克萨斯州的 SpaceX 测试基地，马斯克让一辆特斯拉 Roadster“飞”了起来。支撑这次腾空的高压气体，其核心储能部件，正是塞满车身空间的碳纤维缠绕的复合材料压力容器。 从飞行汽车、大飞机到聚变装置，极端工况下先进装备的上限，归根结底受制于材料研发的边界。而材料研发有一个绕不开的特点： 答案从来不在同一个尺度上 。 一只复合材料容器能承受多大的压力，要从原子尺度的界面键合与缺陷，看到微米尺度的纤维构型、晶粒与孔隙，再到米级构件的整体响应，前后跨越近十个数量级。业内把这条链路称为“成分—结构—工艺—性能”的构效关系。真实的材料研发，本质上就是在这条链路上做跨尺度推理。 但今天用来衡量大模型“懂不懂材料”的基准，考的还是教科书和考试题。没有来自真实研发的考卷，就无从判断模型能不能做真实的材料研究，更谈不上训练出这样的模型。 近日，元材新界（MATARIA）联合清华大学、北京大学、中国科学技术大学、上海交通大学、哈尔滨工业大学、西北工业大学、武汉理工大学、南洋理工大学等高校团队，以及多家头部产业公司，发布了 FrontierMat…</p><a href="https://www.leiphone.com/category/industrynews/GMIW0ZLuJPyQHSR4.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>OpenAI 再度抛出重要数学成果：宣称证明矩阵乘法指数为 9/4</h3><p>IT之家 11 月 26 日消息，OpenAI 本月 24 日再度抛出一项重要数学成果， 宣称其已证明矩阵乘法指数 ω 恰好为 9/4 。该企业已在今年 10 月证得 ω≤9/4，此次则证得 ω≥9/4，从而得到 ω=9/4。 矩阵乘法指数 ω 描述的是：当 n 足够大时，两个 n×n 矩阵相乘最优算法所需算术运算次数随 n 增长的渐进幂指数；更严格地说，ω 是所有可达复杂度指数的下确界。 矩阵乘法 应用广泛 ，在机器学习、图像处理等领域都可以找到其身影。ω 不仅刻画矩阵乘法理论算法在渐进意义下的最优指数，也 与其它一系列重要复杂度问题相关 。 若 OpenAI 的证明无误，则： 对任意 X＞9/4，存在一种矩阵乘法算法及常数 C X ＞0，使得对所有充分大的 n ，其算术运算次数不超过 C x · n x ； 对任意 Y＜9/4，不存在一种矩阵乘法算法及常数 C Y ＞0，使得对所有充分大的 n，其算术运算次数不超过 C Y · n Y 。 需要注意的是，ω 是一个渐进量，对应着矩阵规模趋于无穷大时的结果。实际应用中还受到常数因子、内存访问、并行计算、硬件结构等因素影响。 参考…</p><a href="https://www.ithome.com/1/033/050.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>让 Hy4 flash 吐字提速 4.2 倍，腾讯混元开源新一代草稿模型 DFly2</h3><p>IT之家 11 月 26 日消息，腾讯混元团队今日开源新一代草稿模型 DFly2。 官方表示，DFly2 不替换 Hy4 flash，作用更像是挂在旁边的加速组件， 可以在保持模型权重不变、输出不变的前提下，让模型吐字速度成倍提升 。 DFly2 专为 DSA 类稀疏注意力大模型和长上下文场景设计，适配 Hy4 flash 的权重及完整训练代码同步开源。 据介绍，DFly2 实现了： 同等训练条件下表现更优 ：Hy4 flash 在 19 个公开评测集上，DFly2 的接收长度与加速比整体优于 DFlash 与 DSpark，长文与 Agentic 优势更明显，平均加速比较 DSpark 分别高约 12% 与 30%， 单项最高提速 4.2× 。 对比开源方案同样占优 ：与主流开源模型自带的 DSpark 相比，Hy4 flash 的 DFly2 在 Agentic 与真实任务（WorkBuddy）上接收长度领先 10.4% 。 官方表示，DFly2 最大的亮点是极致复用目标模型：每个 draft 层直接共享目标模型对应稀疏注意力层的 KV cache（KV Share）和 indexer 选出的至多 2,048…</p><a href="https://www.ithome.com/1/032/929.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>图库平台充斥着生成式 AI 图像</h3><p>根据发表在《The Quarterly Journal of Economics》期刊上的一项研究，今天的大型图库平台充斥着生成式 AI 图像。研究针对了一个在 2022 年 12 月允许创作者销售 GenAI 生成图像的大型图库。该图库要求 GenAI 图像必须标记，允许特定市场禁止 GenAI。研究人员分析了这一政策产生的影响。结果发现：图像产量增长了 136%，活跃创作者数量增加了 47%；但传统非 GenAI 图像的产量下降了 15%，非 GenAI 活跃创作者数量减少了 29%。总销售额增长了82%，但非 GenAI 作品的销售额下降了 28%，销售率下滑了 3 个百分点。</p><a href="https://www.solidot.org/story?sid=85999" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>EA Sports FC 利用 AI 数字重现已故解说员 John Motson 的声音</h3><p>EA 透露其足球游戏《EA Sports FC 27》利用 AI 数字重现了已故解说员 John Motson 的声音。Motson 于 2023 年去世，他曾长期担任 BBC Sport 首席解说员，也曾为 EA 足球游戏解说。在其遗孀和儿子的许可下，EA 利用其过去的录音资料与生成式 AI 技术合成了他的声音。该内容将于 11 月 26 日上线《EA Sports FC 27》。EA 向 Motson 的家人支付了费用以获得使用其形象及重现其声音的权利，但未透露具体财务条款。</p><a href="https://www.solidot.org/story?sid=85993" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Claude 和 ChatGPT 在蛋白质结构预测和设计上挑战 AlphaFold</h3><p>AI 生物科技公司 Phylo 研究员 Xinming Tu 本月初使用 OpenAI、Anthropic 和 Google 的大模型测试了它们预测鲜为人知细菌蛋白质序列的能力。他让分析程序运行了整晚，第二天对结果非常吃惊。Anthropic 最新版本的Claude 表现不仅优于其它大模型，而且超过了针对蛋白质序列训练过的专门工具。他与哈佛医学院的 Leo Chen 分享的这一发现在计算生物学界引发了热议。本周二 OpenAI 宣布其最新大模型成功设计出新蛋白质，在实验室合成和测试时部分新蛋白质的行为和预期一样。该研究引发了 生物 AI 未来的讨论，部分科学家预测 Claude 和 ChatGPT 之类的通用模型在蛋白质结构预测和设计等任务上可能会超越 AlphaFold 等专用工具。也有研究人员对此提出质疑，认为大模型展现出的部分能力可能只是训练数据的机械重复。</p><a href="https://www.solidot.org/story?sid=85992" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>日本政府开发智能体打击盗版动漫</h3><p>日本文化厅正在测试一款 AI 智能体去自动识别和标记可能包含非法或盗版内容的动漫网站。测试结果显示其准确率极高。2025 财年针对国内的一项调查显示，AI 标记的 1168 条可疑 X 推文有 84% 是非法内容；AI 检测的 1564 个动画网站中 89% 含有盗版动画；1935 个漫画网站中盗版漫画比例高达 94%。2026 财年日本政府将监测范围扩大至海外。日本政府计划最早于 2027 年 3 月汇总并公布最新调查结果。</p><a href="https://www.solidot.org/story?sid=85988" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="云-大厂-生态"><div class="section-head"><h2>云 / 大厂 / 生态</h2><span>10 条</span></div><p class="section-note">平台与生态的整合能力决定扩散半径</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家 | 华人 CV 先驱权龙二次创业，成立空间与物理 AI 公司「Envision AI」</h3><p>融合语言、 逻辑、几 何、物理规律，要做统一和通用的空间物理原生基模。 作者丨 幸丽娟 编辑丨岑 峰 AI科技评论独家获悉， 香港科技大学计算机科学与工程系教授、前苹果空间智能首席科学家权龙二次创业，成立公司“Envision AI”（格秩科技），进军空间与物理 AI 赛道。 公司的目标，是打造一个通用的空间物理原生基模：基于大语言模型，从视觉出发，把文本、图像、空间与物理信息统一进同一套体系，推动物理 AI “ChatGPT 时刻”的加速到来。 权龙的分量，在计算机视觉圈不需要解释。他 1995 年提出六点算法，是 三维视觉领域最重要的奠基性算法之一 ；1988 年发表 ICCV 华人计算机视觉第一篇论文；先后担任 ICCV 2011、CVPR 2022 两届大会主席，是极少数在计算机视觉三大顶会中担任过两个大会主席的华人学者；IEEE Fellow，谷歌学术引用量超过 2.3 万次。 作为视觉几何世界级奠基者，他是能与 Yann LeCun、李飞飞、沈向洋等海内外知名AI 大佬坐一桌的人物。 学术上将三维视觉做到天花板，产业方面，他与学生方天、姚遥等人的 首次创业成果…</p><a href="https://www.leiphone.com/category/academic/S12DTjaFWmIPkwCk.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>一月只开工两三天！奥迪中国回应长春工厂产能利用率跌破10%；Anthropic创始人兄妹上市次日套现37亿；小鹏智驾拟开启全球付费订阅</h3><p>要闻提示 1.Anthropic创始人兄妹上市次日套现37亿元 2.一月只开工两三天，被称“幽灵工厂”！奥迪中国回应长春工厂产能利用率跌破10% 3.打脸自己？小鹏图灵AI智驾将于明年二季度开启全球收费订阅 4.希音披露美国FTC调查最新进展：将向美国财政部支付1亿美元 5.B站陈睿回应短剧冲击：我们没受影响 6.华为将展示自研HBM、逻辑堆叠等技术 7.特朗普称美国政府入股英伟达犹未为晚，自称早就想过但一直没说 8.韩国SK集团董事长崔泰源前妻拒绝“9440亿韩元和解建议” 今日头条 Anthropic创始人兄妹上市次日套现37亿元 11 月 25 日消息，据报道，根据监管文件，人工智能巨头Anthropic的首席执行官兼联合创始人达里奥·阿莫代伊（Dario Amodei）在该公司上市次日出售了价值2.804亿美元的股票。与此同时，他的妹妹兼公司联合创始人丹妮拉·阿莫代伊（Daniela Amodei）也披露了同等规模的股票出售。二人合计套现5.6亿美元（约合人民币37亿元）。…</p><a href="https://www.leiphone.com/category/zaobao/TaYBp58OxQSPMi10.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为乾崑智驾累计辅助驾驶里程突破 180 亿公里</h3><p>IT之家 11 月 26 日现场消息，华为乾崑生态大会将于今晚举行。IT之家已前往大会现场，稍后将带来华为乾崑技术最新情报。 值得一提的是，在活动现场，华为竖起了一块大屏，实时展示了华为乾崑智驾累计辅助驾驶里程数 —— 目前已突破 183 亿公里 。 华为官方表示，在辅助驾驶状态下，平均安全行驶里程是中国人驾平均值（推算）的 6 倍。 IT之家注意到，华为官网显示，华为乾崑智驾累计辅助驾驶里程已突破 183 亿 3979 万公里、搭载乾崑智驾车辆累计行驶总里程突破 508 亿 6757 万公里、乾崑智驾累计主动避免可能的碰撞超 718 万 0102 次（数据实时刷新中）。</p><a href="https://www.ithome.com/1/033/024.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为鸿蒙星河互联“碰哪传哪”揭秘：行业首创屏幕智感交互，三大技术协同工作</h3><p>IT之家 11 月 26 日消息，去年 6 月，在 HDC 2025 主题演讲中，华为终端 BG 首席执行官何刚宣布 HarmonyOS 6 将推出全新“碰一碰”功能 —— 通过屏幕智感技术，华为手机用户只需轻贴电脑屏幕即可实现文件秒传，且支持碰哪里就传在哪里的效果。 在昨日下午的 HarmonyOS 创新技术沟通会上，华为 Fellow、HarmonyOS 首席架构师李世军揭秘了鸿蒙星河互联“碰哪传哪”功能背后的技术原理。 据介绍，华为鸿蒙电脑为实现设备融合感知， 通过微电容测量、IMU、近距感知三大技术联合检测 ，行业首创屏幕智感交互，并带来了一碰传、键鼠共享、跨设备剪贴板、接续等功能。 IT之家注意到，华为还通过自研 HML 协议，构建了全场景资源调度中枢，实现了多对多对等通信（无需中转）、低时延（速率＞90MB/s）、动态节能（功耗＜10mA）等特性。</p><a href="https://www.ithome.com/1/032/996.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>微软新专利公布：将天线阵列集成到手机屏幕玻璃内部，或为 Surface Phone 铺路</h3><p>IT之家 11 月 26 日消息，美国专利商标局于 11 月 12 日披露了微软一项手机屏幕专利 US 2026/0360990 A1，微软在该专利中提出“将天线阵列直接集成到屏幕玻璃内部”， 有望在不增加机身厚度的情况下，为手机容纳下尺寸更大的天线阵列，以改善信号情况 。 众所周知，智能手机内部空间十分有限，厂商通常需要通过缩小天线尺寸、让不同无线通信功能共用天线，或者直接取消毫米波（mmWave）、超宽带（UWB）等功能来控制内部空间占用。微软此次提出的方案则尝试利用屏幕玻璃本身，为天线提供额外的安装位置。 根据专利描述，该方案首先在屏幕玻璃背面加工出一处局部减薄区域，再将天线层安装在玻璃背面，使其至少部分嵌入减薄区域。由于玻璃正面仍保持平整，用户正常使用时不会看到明显凹陷，也不会感受到表面存在高度差。 专利给出的一个示例中，天线所在区域的玻璃厚度为 0.4 毫米，其余区域则为 1.2 毫米，部分权利要求还将减薄区域的厚度限定在 0.5 毫米以下。此外，厂商还可以通过黑色遮光层等装饰材料遮挡内部结构，避免天线区域从屏幕正面显现。…</p><a href="https://www.ithome.com/1/032/985.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>版本推送时还有新功能：华为 WATCH GT 6 系列手表获“高血糖风险评估”下放</h3><p>IT之家 11 月 26 日消息，本月早些时候，华为官方宣布， HUAWEI WATCH GT 6 系列手表推出鸿蒙 HarmonyOS 7.0.0.108 SP8 版本升级 ，开始分批推送给 6.1.0.117 SP6 / 6.1.0.118 SP10 / 7.0.0.107 SP7 / 7.0.0.107 SP10 / 7.0.0.107 SP13 版本上的用户。 在官方当时发布的更新日志中，新版本主要带来了手表支持微信来电接听和挂断、增强录音机同步能力，以及支持耳机与手表配对同步功能。 IT之家注意到，目前新版本已开启陆续推送，最新的更新日志显示，该款手表还下放了“高血糖风险评估”功能。完整更新日志如下： 新增 1.配对 HarmonyOS 7.0.0.115 及以上版本的手机，手表支持微信来电接听和挂断（请将华为运动健康应用更新至 17.0.10.165 及以上版本，运动健康服务更新至 17.0.10.300 及以上版本）。 2. 华为创新研究应用新增血糖健康研究项目，可在手表侧直接启动高血糖风险评估 。 3.增强录音机同步能力，支持录音文件同步至安卓、iOS 手机的华为运动健康应用，可在华为运动健康应用 &gt;…</p><a href="https://www.ithome.com/1/032/979.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>1GB 文件近场约 5 秒传完：华为鸿蒙星河互联支持高吞吐 &amp; 高能效技术，并发峰值 250MB/s</h3><p>IT之家 11 月 26 日消息，在昨日下午的 HarmonyOS 创新技术沟通会上，华为 Fellow、HarmonyOS 首席架构师李世军分享了鸿蒙在互联方面的探索。 据介绍，过去分布式主要聚焦鸿蒙 HarmonyOS 设备，而现在进一步升级为鸿蒙星河互联，不仅可以连 HarmonyOS 设备，而且可以连接更多的 OpenHarmony 生态设备， 同时开放了跨 OS 的互通能力 。 李世军称，鸿蒙星河互联主要聚焦分享、设备协同和生态开放三个方面。而在分享方面，鸿蒙星河互联支持近场和远程两种分享模式。 其中，近场分享支持“临时组网，即用即拆；传输迅速，减少等待；步骤简洁，符合直觉”特性。同时，近场通信还采用了高吞吐 &amp; 高能效技术， 并发峰值达 250MB/s 。这意味着 1GB 文件约 5 秒时间就可以传完。 分布式软总线 + WiFi：快速唤醒芯片 New IP 协议 + BitMap 编码：通途协议 2.4GHz + 5GHz：多径双路并发 蓝牙 + WiFi：实时负载均衡 李世军还在现场提到，基于上述技术，华为相较友商 A 多并发场景传输更快， 传输速率在实验室环境是 4 倍、日常环境是 2.7 倍…</p><a href="https://www.ithome.com/1/032/945.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>黑客借微软应用商店分发恶意应用，微软被指以未违反条款为由拒绝下架</h3><p>IT之家 11 月 26 日消息，据 Neowin 报道，网络攻击者最常用的社会工程学手段之一，就是仿冒正规网站或服务。 网络安全公司 eSentire 近期发现一个恶意软件投放活动，黑客哄骗用户下载自认为是微软截图工具的程序。然而用户从虚假下载站拿到的安装包，实际会引导安装一款名叫安装助手（Setup Assistant）的应用，而这款应用就上架在真实的微软应用商店内。 IT之家注意到，从该应用商店页面截图以及 eSentire 的分析来看，攻击者并没有在页面包装上花太多心思。整体观感非常像速成产物，界面风格就像是直接给了大语言模型一句提示词，一键生成出来的应用或网页。应用描述同样粗制滥造，毫无巧思。 值得注意的是，这个安装助手本身并不是本次事件里危害最高的恶意程序。它更相当于一个后门，会在 Windows 系统里创建计划任务，进而投放 Vinci 远程访问木马。这款基于 PowerShell 的远程木马可以让攻击者远程执行命令、运行可执行文件，还能收集受感染电脑的硬件信息。 整件事最棘手的地方在于，黑客是把这个安装助手上架到了真正的微软应用商店，而不是仿冒的假商店。 eSentire…</p><a href="https://www.ithome.com/1/032/932.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>让 Hy4 flash 吐字提速 4.2 倍，腾讯混元开源新一代草稿模型 DFly2</h3><p>IT之家 11 月 26 日消息，腾讯混元团队今日开源新一代草稿模型 DFly2。 官方表示，DFly2 不替换 Hy4 flash，作用更像是挂在旁边的加速组件， 可以在保持模型权重不变、输出不变的前提下，让模型吐字速度成倍提升 。 DFly2 专为 DSA 类稀疏注意力大模型和长上下文场景设计，适配 Hy4 flash 的权重及完整训练代码同步开源。 据介绍，DFly2 实现了： 同等训练条件下表现更优 ：Hy4 flash 在 19 个公开评测集上，DFly2 的接收长度与加速比整体优于 DFlash 与 DSpark，长文与 Agentic 优势更明显，平均加速比较 DSpark 分别高约 12% 与 30%， 单项最高提速 4.2× 。 对比开源方案同样占优 ：与主流开源模型自带的 DSpark 相比，Hy4 flash 的 DFly2 在 Agentic 与真实任务（WorkBuddy）上接收长度领先 10.4% 。 官方表示，DFly2 最大的亮点是极致复用目标模型：每个 draft 层直接共享目标模型对应稀疏注意力层的 KV cache（KV Share）和 indexer 选出的至多 2,048…</p><a href="https://www.ithome.com/1/032/929.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>Claude 和 ChatGPT 在蛋白质结构预测和设计上挑战 AlphaFold</h3><p>AI 生物科技公司 Phylo 研究员 Xinming Tu 本月初使用 OpenAI、Anthropic 和 Google 的大模型测试了它们预测鲜为人知细菌蛋白质序列的能力。他让分析程序运行了整晚，第二天对结果非常吃惊。Anthropic 最新版本的Claude 表现不仅优于其它大模型，而且超过了针对蛋白质序列训练过的专门工具。他与哈佛医学院的 Leo Chen 分享的这一发现在计算生物学界引发了热议。本周二 OpenAI 宣布其最新大模型成功设计出新蛋白质，在实验室合成和测试时部分新蛋白质的行为和预期一样。该研究引发了 生物 AI 未来的讨论，部分科学家预测 Claude 和 ChatGPT 之类的通用模型在蛋白质结构预测和设计等任务上可能会超越 AlphaFold 等专用工具。也有研究人员对此提出质疑，认为大模型展现出的部分能力可能只是训练数据的机械重复。</p><a href="https://www.solidot.org/story?sid=85992" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="芯片-算力-推理"><div class="section-head"><h2>芯片 / 算力 / 推理</h2><span>10 条</span></div><p class="section-note">基础设施的效率叙事持续升温</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>机器人量产背后，物理AI开始算新账：研发底座何必各自建？</h3><p>2026年，人形机器人加速走出实验室。 但是让机器人在真实世界产生价值，依然复杂而成本高昂。 从数据采集、物理仿真到模型训练、真机验证，机器人每掌握一项新技能，背后都可能是一整套研发流程的反复运转。 更复杂的是，这些能力分散在不同的专业厂商手中。产业分工越来越细，如何将分散的技术能力组织起来，反而成了一道新的难题。 当机器人开始规模化交付，产业需要解决的不只是如何造出更多机器人，还有如何让更多企业以更低的成本训练机器人。 这也让物理AI产业出现了一个新的机会：谁有能力将分散的研发资源组织成可复用的基础设施，谁就有机会成为产业链上的重要组织者。 九章云极正尝试从算力供应商向物理AI开发平台延伸，通过物理AI工厂、生态联盟和标准化接口，参与这场产业分工的重构。 01 机器人越造越多，研发底座开始走向共建 《2026年人形机器人产业发展报告》显示，今年上半年，中国人形机器人出货量已超过4万台。 机器人走出实验室后，需要掌握更多技能，适应不同的工作环境。每进入一个新的应用场景，机器人企业都可能需要开发新的技能，研发任务也随之增加。 这背后是一条需要不断重复的研发链。…</p><a href="https://www.leiphone.com/category/chips/HQvbSEUnkDy0Tos9.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>一月只开工两三天！奥迪中国回应长春工厂产能利用率跌破10%；Anthropic创始人兄妹上市次日套现37亿；小鹏智驾拟开启全球付费订阅</h3><p>要闻提示 1.Anthropic创始人兄妹上市次日套现37亿元 2.一月只开工两三天，被称“幽灵工厂”！奥迪中国回应长春工厂产能利用率跌破10% 3.打脸自己？小鹏图灵AI智驾将于明年二季度开启全球收费订阅 4.希音披露美国FTC调查最新进展：将向美国财政部支付1亿美元 5.B站陈睿回应短剧冲击：我们没受影响 6.华为将展示自研HBM、逻辑堆叠等技术 7.特朗普称美国政府入股英伟达犹未为晚，自称早就想过但一直没说 8.韩国SK集团董事长崔泰源前妻拒绝“9440亿韩元和解建议” 今日头条 Anthropic创始人兄妹上市次日套现37亿元 11 月 25 日消息，据报道，根据监管文件，人工智能巨头Anthropic的首席执行官兼联合创始人达里奥·阿莫代伊（Dario Amodei）在该公司上市次日出售了价值2.804亿美元的股票。与此同时，他的妹妹兼公司联合创始人丹妮拉·阿莫代伊（Daniela Amodei）也披露了同等规模的股票出售。二人合计套现5.6亿美元（约合人民币37亿元）。…</p><a href="https://www.leiphone.com/category/zaobao/TaYBp58OxQSPMi10.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>算力唤醒真实世界：九章云极发布物理AI工厂与生态开放计划</h3><p>11月25日，以“算力唤醒真实世界”为主题的2026物理AI行业峰会暨九章云极智算生态大会在深圳举行。会议由九章云极DataCanvas主办，深圳市龙华区工业和信息化局支持，清华大学互联网产业研究院为学术指导单位。来自标准机构、高校与科研院所、投资机构，以及机器人本体、世界模型、仿真软件、智算云等领域的上百位嘉宾代表出席。中国电子技术标准化研究院副院长范科峰，深圳市龙华区委常委、常务副区长张智，九章云极DataCanvas董事长方磊分别致辞。 会议聚焦的核心命题是：当机器人、世界模型与仿真软件相继通过技术验证，物理AI如何跨越从实验室到产线的产业化鸿沟。答案集中在两个方向：以工程化能力将算力组织为生产体系的物理AI工厂，以及将产业链专业能力联结为整体协作的物理AI生态。 范科峰指出，物理AI正在加速连接数字世界与物理世界，跨域协同对标准供给提出了迫切要求，数据接口、通信协议、安全边界等标准化问题将愈发突出，坚持标准先行，才能为物理AI的规模化落地提供关键支撑。 中国电子技术标准化研究院副院长范科峰致辞…</p><a href="https://www.leiphone.com/category/chips/Qz3QPf26nVIVA0ga.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>中国算力采购信心指数启动 九章云极核心共建算力市场先行指标</h3><p>11月25日，在2026物理AI行业峰会暨九章云极智算生态大会上，中国经济信息社新华指数研究院副院长周宇涵宣布“中国算力采购信心指数”正式启动。北京九章云极科技股份有限公司（下称“九章云极”）作为核心共建单位，参与指数体系搭建。 当前，中国算力产业正处于高速增长与结构性调整并行的阶段。我国智能算力规模高速增长，但训练与推理、东西部布局、层级供需三重错配依然存在，算力租赁价格波动加剧。对于算力需求方，采购决策往往依赖于分散的市场信息，难以形成对行业整体景气程度的系统认知；对于算力供给方，产能规划与定价策略同样缺少来自真实交易一线的反馈信号。市场需要一个能够回答“下个季度需求是扩张还是收缩”的先行指标。算力采购信心指数正是针对这一信息缺口而生：它以景气调查捕捉市场预期，与记录真实成交价格的全球算力价格指数互为补充——一个着眼预期，一个着眼交易，共同拼出算力市场的完整图景。此前，九章云极作为核心共建单位参与了全球算力价格指数的编制建设，这套方法论经验也延续到了采购信心指数的共建之中。…</p><a href="https://www.leiphone.com/category/chips/G3lWNUyVJphxOTU2.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>九章云极携手多方战略合作，物理AI工厂生态协作走进真实场景</h3><p>11月25日，在2026物理AI行业峰会暨九章云极智算生态大会上，北京九章云极科技股份有限公司（九章云极DataCanvas，下称“九章云极”）与深圳市龙华区工业和信息化局、北京清程智汇有限公司、深圳市怡亚通供应链股份有限公司签署物理AI工厂项目战略合作协议；另外两场签约中，九章云极分别与佳都科技集团股份有限公司、北京数字政通科技股份有限公司签署AI算力产业协同战略合作协议。 物理AI正处在一个关键节点：机器人、世界模型与仿真软件相继通过技术验证，但跨过从实验室到产线的鸿沟，需要的不仅是算法突破，更是工程化的系统能力。模型在仿真环境里跑得再好，到了真实产线上也可能因为环境噪声、传感器误差和动力学差异而失效。 问题在于，验证必须在真实场景中完成。但真实场景分散在政府、制造企业、科研机构和服务商手中，单一厂商无法同时握有场景、研究能力和算力底座，产业链的协作机制尚未建立。大会现场的系列签约，让物理AI的验证环境有了多方共建的载体。 共建龙华物理AI工厂项目，搭起“场景—研究—基础设施”协作链…</p><a href="https://www.leiphone.com/category/chips/JWelmQaWCBCTOJi3.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>九章云极开放两大接口，携手伙伴共建物理AI产业生态</h3><p>11月25日，在2026物理AI行业峰会暨九章云极智算生态大会上，九章云极DataCanvas宣布面向物理AI开放Physical AI Infra API和Physical AI Dev API两大接口，并联合二十余家产业伙伴成立极光物理AI产业生态联盟，推动技术连接与产业协作。 两大接口分别面向物理AI的智算基础设施和专业开发工具。Physical AI Infra API面向基础设施层，提供异构算力资源的标准化接入、管理与调度能力；Physical AI Dev API则连接仿真、数据生成、模型训练与验证等专业工具和底层算力，降低研发环节的适配与协同成本。 与接口开放同步推进的，是产业协作网络的建立。极光物理AI产业生态联盟由九章云极发起，在深圳龙华区成立，学术指导单位为北京大学软件工程国家工程研究中心，理事单位包括亿欧、中国质检院人工智能检测中心等，首批成员企业来自机器人本体、世界模型、仿真平台、科研机构及智算云服务等领域，覆盖从技术研究、工具开发到产业应用的多个环节。…</p><a href="https://www.leiphone.com/category/chips/omZ0PFr6zVtmUnap.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>元材新界发布 FrontierMat：330 道真实研发难题难住 GPT-6 Astra，自研跨尺度材料大模型登顶</h3><p>今年 10 月，在美国得克萨斯州的 SpaceX 测试基地，马斯克让一辆特斯拉 Roadster“飞”了起来。支撑这次腾空的高压气体，其核心储能部件，正是塞满车身空间的碳纤维缠绕的复合材料压力容器。 从飞行汽车、大飞机到聚变装置，极端工况下先进装备的上限，归根结底受制于材料研发的边界。而材料研发有一个绕不开的特点： 答案从来不在同一个尺度上 。 一只复合材料容器能承受多大的压力，要从原子尺度的界面键合与缺陷，看到微米尺度的纤维构型、晶粒与孔隙，再到米级构件的整体响应，前后跨越近十个数量级。业内把这条链路称为“成分—结构—工艺—性能”的构效关系。真实的材料研发，本质上就是在这条链路上做跨尺度推理。 但今天用来衡量大模型“懂不懂材料”的基准，考的还是教科书和考试题。没有来自真实研发的考卷，就无从判断模型能不能做真实的材料研究，更谈不上训练出这样的模型。 近日，元材新界（MATARIA）联合清华大学、北京大学、中国科学技术大学、上海交通大学、哈尔滨工业大学、西北工业大学、武汉理工大学、南洋理工大学等高校团队，以及多家头部产业公司，发布了 FrontierMat…</p><a href="https://www.leiphone.com/category/industrynews/GMIW0ZLuJPyQHSR4.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>1GB 文件近场约 5 秒传完：华为鸿蒙星河互联支持高吞吐 &amp; 高能效技术，并发峰值 250MB/s</h3><p>IT之家 11 月 26 日消息，在昨日下午的 HarmonyOS 创新技术沟通会上，华为 Fellow、HarmonyOS 首席架构师李世军分享了鸿蒙在互联方面的探索。 据介绍，过去分布式主要聚焦鸿蒙 HarmonyOS 设备，而现在进一步升级为鸿蒙星河互联，不仅可以连 HarmonyOS 设备，而且可以连接更多的 OpenHarmony 生态设备， 同时开放了跨 OS 的互通能力 。 李世军称，鸿蒙星河互联主要聚焦分享、设备协同和生态开放三个方面。而在分享方面，鸿蒙星河互联支持近场和远程两种分享模式。 其中，近场分享支持“临时组网，即用即拆；传输迅速，减少等待；步骤简洁，符合直觉”特性。同时，近场通信还采用了高吞吐 &amp; 高能效技术， 并发峰值达 250MB/s 。这意味着 1GB 文件约 5 秒时间就可以传完。 分布式软总线 + WiFi：快速唤醒芯片 New IP 协议 + BitMap 编码：通途协议 2.4GHz + 5GHz：多径双路并发 蓝牙 + WiFi：实时负载均衡 李世军还在现场提到，基于上述技术，华为相较友商 A 多并发场景传输更快， 传输速率在实验室环境是 4 倍、日常环境是 2.7 倍…</p><a href="https://www.ithome.com/1/032/945.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称三星电子成立半导体工厂机器人团队，2028 年启动内部部署</h3><p>IT之家 11 月 26 日消息，韩媒 ETNEWS 当地时间今日报道称，三星电子半导体板块 —— DS（设备解决方案）部，已在其全球制造与基础设施总部下设立“机器人团队”，推进机器人技术在半导体工厂中的实际应用。 业内人士透露，目前半导体工厂的前端自动化程度已达 90%、后端也已达到 80%，但 仍需要人来负责零件耗材更换、设备维护等部分工序 。 三星电子计划以内部团队为核心，与外部供应商合作，进一步减少真人的使用， 提高生产效率、增强安全性 。 报道指出，三星电子计划年内遴选合作伙伴，明年进行技术评估， 2028 年开始实际部署 。 相关阅读： 《 消息称三星组建新团队研发芯片工厂机器人，推进半导体工厂自动化转型 》 《 三星电子公布工业 AI 路线图：数字孪生 + 专用机器人，到 2030 年全球制造基地将实现自主化生产 》 参考 https://www.etnews.com/20261126000296</p><a href="https://www.ithome.com/1/032/931.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>广东：按需有序开展词元（Token）经济，积极推动词元出海</h3><p>IT之家 11 月 26 日消息，广东省政务服务和数据管理局、广东省发展和改革委员会今日印发《广东省算力发展“十五五”规划》，其中提到，带动现代服务向智向新发展。 IT之家注意到，该《规划》还提到依托算力供给能力迭代升级，全力打造一流人工智能企业，推动服务业从“数字赋能”的互联网服务向“智能驱动”的新型服务方式演进。 按需有序开展词元（Token）经济 ， 积极推动词元出海 。加快培育智能原生新模式新业态，推动生产性服务业向专业化和价值链高端延伸，推进生活性服务业高品质多样化便利化发展，促进服务业扩能提质。 此外，该规划还提出健全词元经济制度，推动词元交易规则和流程标准化，完善交易信息披露、动态监测、风险预警机制。用好数据跨境制度规则，支持横琴、前海、南沙、河套四大平台释放跨境数据制度红利，探索“来数加工”与词元跨境结算。</p><a href="https://www.ithome.com/1/032/927.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="产业-投融资-活动"><div class="section-head"><h2>产业 / 投融资 / 活动</h2><span>9 条</span></div><p class="section-note">资本、合作与大会正在放大行业方向感</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>报名最后2天｜AI浪潮之中，来认识创造未来的人</h3><p>12月6日，WAIC将携手第六届“海聚英才”全球创新创业峰会，把这场关于“人”的讨论带回现场。</p><a href="https://www.qbitai.com/2026/11/512942.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>独家 | 华人 CV 先驱权龙二次创业，成立空间与物理 AI 公司「Envision AI」</h3><p>融合语言、 逻辑、几 何、物理规律，要做统一和通用的空间物理原生基模。 作者丨 幸丽娟 编辑丨岑 峰 AI科技评论独家获悉， 香港科技大学计算机科学与工程系教授、前苹果空间智能首席科学家权龙二次创业，成立公司“Envision AI”（格秩科技），进军空间与物理 AI 赛道。 公司的目标，是打造一个通用的空间物理原生基模：基于大语言模型，从视觉出发，把文本、图像、空间与物理信息统一进同一套体系，推动物理 AI “ChatGPT 时刻”的加速到来。 权龙的分量，在计算机视觉圈不需要解释。他 1995 年提出六点算法，是 三维视觉领域最重要的奠基性算法之一 ；1988 年发表 ICCV 华人计算机视觉第一篇论文；先后担任 ICCV 2011、CVPR 2022 两届大会主席，是极少数在计算机视觉三大顶会中担任过两个大会主席的华人学者；IEEE Fellow，谷歌学术引用量超过 2.3 万次。 作为视觉几何世界级奠基者，他是能与 Yann LeCun、李飞飞、沈向洋等海内外知名AI 大佬坐一桌的人物。 学术上将三维视觉做到天花板，产业方面，他与学生方天、姚遥等人的 首次创业成果…</p><a href="https://www.leiphone.com/category/academic/S12DTjaFWmIPkwCk.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>算力唤醒真实世界：九章云极发布物理AI工厂与生态开放计划</h3><p>11月25日，以“算力唤醒真实世界”为主题的2026物理AI行业峰会暨九章云极智算生态大会在深圳举行。会议由九章云极DataCanvas主办，深圳市龙华区工业和信息化局支持，清华大学互联网产业研究院为学术指导单位。来自标准机构、高校与科研院所、投资机构，以及机器人本体、世界模型、仿真软件、智算云等领域的上百位嘉宾代表出席。中国电子技术标准化研究院副院长范科峰，深圳市龙华区委常委、常务副区长张智，九章云极DataCanvas董事长方磊分别致辞。 会议聚焦的核心命题是：当机器人、世界模型与仿真软件相继通过技术验证，物理AI如何跨越从实验室到产线的产业化鸿沟。答案集中在两个方向：以工程化能力将算力组织为生产体系的物理AI工厂，以及将产业链专业能力联结为整体协作的物理AI生态。 范科峰指出，物理AI正在加速连接数字世界与物理世界，跨域协同对标准供给提出了迫切要求，数据接口、通信协议、安全边界等标准化问题将愈发突出，坚持标准先行，才能为物理AI的规模化落地提供关键支撑。 中国电子技术标准化研究院副院长范科峰致辞…</p><a href="https://www.leiphone.com/category/chips/Qz3QPf26nVIVA0ga.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>中国算力采购信心指数启动 九章云极核心共建算力市场先行指标</h3><p>11月25日，在2026物理AI行业峰会暨九章云极智算生态大会上，中国经济信息社新华指数研究院副院长周宇涵宣布“中国算力采购信心指数”正式启动。北京九章云极科技股份有限公司（下称“九章云极”）作为核心共建单位，参与指数体系搭建。 当前，中国算力产业正处于高速增长与结构性调整并行的阶段。我国智能算力规模高速增长，但训练与推理、东西部布局、层级供需三重错配依然存在，算力租赁价格波动加剧。对于算力需求方，采购决策往往依赖于分散的市场信息，难以形成对行业整体景气程度的系统认知；对于算力供给方，产能规划与定价策略同样缺少来自真实交易一线的反馈信号。市场需要一个能够回答“下个季度需求是扩张还是收缩”的先行指标。算力采购信心指数正是针对这一信息缺口而生：它以景气调查捕捉市场预期，与记录真实成交价格的全球算力价格指数互为补充——一个着眼预期，一个着眼交易，共同拼出算力市场的完整图景。此前，九章云极作为核心共建单位参与了全球算力价格指数的编制建设，这套方法论经验也延续到了采购信心指数的共建之中。…</p><a href="https://www.leiphone.com/category/chips/G3lWNUyVJphxOTU2.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>九章云极携手多方战略合作，物理AI工厂生态协作走进真实场景</h3><p>11月25日，在2026物理AI行业峰会暨九章云极智算生态大会上，北京九章云极科技股份有限公司（九章云极DataCanvas，下称“九章云极”）与深圳市龙华区工业和信息化局、北京清程智汇有限公司、深圳市怡亚通供应链股份有限公司签署物理AI工厂项目战略合作协议；另外两场签约中，九章云极分别与佳都科技集团股份有限公司、北京数字政通科技股份有限公司签署AI算力产业协同战略合作协议。 物理AI正处在一个关键节点：机器人、世界模型与仿真软件相继通过技术验证，但跨过从实验室到产线的鸿沟，需要的不仅是算法突破，更是工程化的系统能力。模型在仿真环境里跑得再好，到了真实产线上也可能因为环境噪声、传感器误差和动力学差异而失效。 问题在于，验证必须在真实场景中完成。但真实场景分散在政府、制造企业、科研机构和服务商手中，单一厂商无法同时握有场景、研究能力和算力底座，产业链的协作机制尚未建立。大会现场的系列签约，让物理AI的验证环境有了多方共建的载体。 共建龙华物理AI工厂项目，搭起“场景—研究—基础设施”协作链…</p><a href="https://www.leiphone.com/category/chips/JWelmQaWCBCTOJi3.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>九章云极开放两大接口，携手伙伴共建物理AI产业生态</h3><p>11月25日，在2026物理AI行业峰会暨九章云极智算生态大会上，九章云极DataCanvas宣布面向物理AI开放Physical AI Infra API和Physical AI Dev API两大接口，并联合二十余家产业伙伴成立极光物理AI产业生态联盟，推动技术连接与产业协作。 两大接口分别面向物理AI的智算基础设施和专业开发工具。Physical AI Infra API面向基础设施层，提供异构算力资源的标准化接入、管理与调度能力；Physical AI Dev API则连接仿真、数据生成、模型训练与验证等专业工具和底层算力，降低研发环节的适配与协同成本。 与接口开放同步推进的，是产业协作网络的建立。极光物理AI产业生态联盟由九章云极发起，在深圳龙华区成立，学术指导单位为北京大学软件工程国家工程研究中心，理事单位包括亿欧、中国质检院人工智能检测中心等，首批成员企业来自机器人本体、世界模型、仿真平台、科研机构及智算云服务等领域，覆盖从技术研究、工具开发到产业应用的多个环节。…</p><a href="https://www.leiphone.com/category/chips/omZ0PFr6zVtmUnap.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>多模型协同落地，浙江人形 NAVIAI 提升长序列任务作业稳定性</h3><p>具身智能要真正走进现实世界，一个足够聪明的“大脑”还不够。 与以信息处理为主的数字世界不同，物理世界充满动态变化与不确定性。机器人不仅要理解任务，还要应对物体状态、接触条件和环境的变化，将认知判断转化为可靠的物理操作。模型具备强大的认知能力，并不意味着机器人就能胜任真实作业；面对多环节、长流程任务，单一模型或孤立技能难以独立应对，需要多种模型与技能协同配合，才能实现可靠的任务交付。 面向物理环境中的动态变化、多环节任务与复杂交互，浙江人形机器人创新中心有限公司（以下简称“浙江人形”）对原有 SPIRE 体系进行迭代升级，推出 SPIRE 2.0全链路任务对齐具身智能体系。 新体系以 NaviDataset 积累真实作业数据，通过 NaviRepresentation 开展任务导向的环境描述，帮助机器人理解作业环境；再由 NaviPolicy 打通动作控制，构建灵活自主的闭环作业能力，并通过 NaviAssistant 协调不同模型，最终将能力沉淀为可复用、可组合的 NaviSkillLib 技能库，贯通从数据积累、任务理解到模型协同与实际应用的完整链路。 数据筑基，让机器人学得更有效…</p><a href="https://www.leiphone.com/category/industrynews/KnGzlsg6xlU9Nnpk.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为乾崑智驾累计辅助驾驶里程突破 180 亿公里</h3><p>IT之家 11 月 26 日现场消息，华为乾崑生态大会将于今晚举行。IT之家已前往大会现场，稍后将带来华为乾崑技术最新情报。 值得一提的是，在活动现场，华为竖起了一块大屏，实时展示了华为乾崑智驾累计辅助驾驶里程数 —— 目前已突破 183 亿公里 。 华为官方表示，在辅助驾驶状态下，平均安全行驶里程是中国人驾平均值（推算）的 6 倍。 IT之家注意到，华为官网显示，华为乾崑智驾累计辅助驾驶里程已突破 183 亿 3979 万公里、搭载乾崑智驾车辆累计行驶总里程突破 508 亿 6757 万公里、乾崑智驾累计主动避免可能的碰撞超 718 万 0102 次（数据实时刷新中）。</p><a href="https://www.ithome.com/1/033/024.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称三星电子成立半导体工厂机器人团队，2028 年启动内部部署</h3><p>IT之家 11 月 26 日消息，韩媒 ETNEWS 当地时间今日报道称，三星电子半导体板块 —— DS（设备解决方案）部，已在其全球制造与基础设施总部下设立“机器人团队”，推进机器人技术在半导体工厂中的实际应用。 业内人士透露，目前半导体工厂的前端自动化程度已达 90%、后端也已达到 80%，但 仍需要人来负责零件耗材更换、设备维护等部分工序 。 三星电子计划以内部团队为核心，与外部供应商合作，进一步减少真人的使用， 提高生产效率、增强安全性 。 报道指出，三星电子计划年内遴选合作伙伴，明年进行技术评估， 2028 年开始实际部署 。 相关阅读： 《 消息称三星组建新团队研发芯片工厂机器人，推进半导体工厂自动化转型 》 《 三星电子公布工业 AI 路线图：数字孪生 + 专用机器人，到 2030 年全球制造基地将实现自主化生产 》 参考 https://www.etnews.com/20261126000296</p><a href="https://www.ithome.com/1/032/931.htm" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="数据-安全-合规-社会议题"><div class="section-head"><h2>数据 / 安全 / 合规 / 社会议题</h2><span>9 条</span></div><p class="section-note">效率之外，治理与边界问题变得更紧迫</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">雷锋网</div><h3>一月只开工两三天！奥迪中国回应长春工厂产能利用率跌破10%；Anthropic创始人兄妹上市次日套现37亿；小鹏智驾拟开启全球付费订阅</h3><p>要闻提示 1.Anthropic创始人兄妹上市次日套现37亿元 2.一月只开工两三天，被称“幽灵工厂”！奥迪中国回应长春工厂产能利用率跌破10% 3.打脸自己？小鹏图灵AI智驾将于明年二季度开启全球收费订阅 4.希音披露美国FTC调查最新进展：将向美国财政部支付1亿美元 5.B站陈睿回应短剧冲击：我们没受影响 6.华为将展示自研HBM、逻辑堆叠等技术 7.特朗普称美国政府入股英伟达犹未为晚，自称早就想过但一直没说 8.韩国SK集团董事长崔泰源前妻拒绝“9440亿韩元和解建议” 今日头条 Anthropic创始人兄妹上市次日套现37亿元 11 月 25 日消息，据报道，根据监管文件，人工智能巨头Anthropic的首席执行官兼联合创始人达里奥·阿莫代伊（Dario Amodei）在该公司上市次日出售了价值2.804亿美元的股票。与此同时，他的妹妹兼公司联合创始人丹妮拉·阿莫代伊（Daniela Amodei）也披露了同等规模的股票出售。二人合计套现5.6亿美元（约合人民币37亿元）。…</p><a href="https://www.leiphone.com/category/zaobao/TaYBp58OxQSPMi10.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">雷锋网</div><h3>算力唤醒真实世界：九章云极发布物理AI工厂与生态开放计划</h3><p>11月25日，以“算力唤醒真实世界”为主题的2026物理AI行业峰会暨九章云极智算生态大会在深圳举行。会议由九章云极DataCanvas主办，深圳市龙华区工业和信息化局支持，清华大学互联网产业研究院为学术指导单位。来自标准机构、高校与科研院所、投资机构，以及机器人本体、世界模型、仿真软件、智算云等领域的上百位嘉宾代表出席。中国电子技术标准化研究院副院长范科峰，深圳市龙华区委常委、常务副区长张智，九章云极DataCanvas董事长方磊分别致辞。 会议聚焦的核心命题是：当机器人、世界模型与仿真软件相继通过技术验证，物理AI如何跨越从实验室到产线的产业化鸿沟。答案集中在两个方向：以工程化能力将算力组织为生产体系的物理AI工厂，以及将产业链专业能力联结为整体协作的物理AI生态。 范科峰指出，物理AI正在加速连接数字世界与物理世界，跨域协同对标准供给提出了迫切要求，数据接口、通信协议、安全边界等标准化问题将愈发突出，坚持标准先行，才能为物理AI的规模化落地提供关键支撑。 中国电子技术标准化研究院副院长范科峰致辞…</p><a href="https://www.leiphone.com/category/chips/Qz3QPf26nVIVA0ga.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>华为乾崑智驾累计辅助驾驶里程突破 180 亿公里</h3><p>IT之家 11 月 26 日现场消息，华为乾崑生态大会将于今晚举行。IT之家已前往大会现场，稍后将带来华为乾崑技术最新情报。 值得一提的是，在活动现场，华为竖起了一块大屏，实时展示了华为乾崑智驾累计辅助驾驶里程数 —— 目前已突破 183 亿公里 。 华为官方表示，在辅助驾驶状态下，平均安全行驶里程是中国人驾平均值（推算）的 6 倍。 IT之家注意到，华为官网显示，华为乾崑智驾累计辅助驾驶里程已突破 183 亿 3979 万公里、搭载乾崑智驾车辆累计行驶总里程突破 508 亿 6757 万公里、乾崑智驾累计主动避免可能的碰撞超 718 万 0102 次（数据实时刷新中）。</p><a href="https://www.ithome.com/1/033/024.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>版本推送时还有新功能：华为 WATCH GT 6 系列手表获“高血糖风险评估”下放</h3><p>IT之家 11 月 26 日消息，本月早些时候，华为官方宣布， HUAWEI WATCH GT 6 系列手表推出鸿蒙 HarmonyOS 7.0.0.108 SP8 版本升级 ，开始分批推送给 6.1.0.117 SP6 / 6.1.0.118 SP10 / 7.0.0.107 SP7 / 7.0.0.107 SP10 / 7.0.0.107 SP13 版本上的用户。 在官方当时发布的更新日志中，新版本主要带来了手表支持微信来电接听和挂断、增强录音机同步能力，以及支持耳机与手表配对同步功能。 IT之家注意到，目前新版本已开启陆续推送，最新的更新日志显示，该款手表还下放了“高血糖风险评估”功能。完整更新日志如下： 新增 1.配对 HarmonyOS 7.0.0.115 及以上版本的手机，手表支持微信来电接听和挂断（请将华为运动健康应用更新至 17.0.10.165 及以上版本，运动健康服务更新至 17.0.10.300 及以上版本）。 2. 华为创新研究应用新增血糖健康研究项目，可在手表侧直接启动高血糖风险评估 。 3.增强录音机同步能力，支持录音文件同步至安卓、iOS 手机的华为运动健康应用，可在华为运动健康应用 &gt;…</p><a href="https://www.ithome.com/1/032/979.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>黑客借微软应用商店分发恶意应用，微软被指以未违反条款为由拒绝下架</h3><p>IT之家 11 月 26 日消息，据 Neowin 报道，网络攻击者最常用的社会工程学手段之一，就是仿冒正规网站或服务。 网络安全公司 eSentire 近期发现一个恶意软件投放活动，黑客哄骗用户下载自认为是微软截图工具的程序。然而用户从虚假下载站拿到的安装包，实际会引导安装一款名叫安装助手（Setup Assistant）的应用，而这款应用就上架在真实的微软应用商店内。 IT之家注意到，从该应用商店页面截图以及 eSentire 的分析来看，攻击者并没有在页面包装上花太多心思。整体观感非常像速成产物，界面风格就像是直接给了大语言模型一句提示词，一键生成出来的应用或网页。应用描述同样粗制滥造，毫无巧思。 值得注意的是，这个安装助手本身并不是本次事件里危害最高的恶意程序。它更相当于一个后门，会在 Windows 系统里创建计划任务，进而投放 Vinci 远程访问木马。这款基于 PowerShell 的远程木马可以让攻击者远程执行命令、运行可执行文件，还能收集受感染电脑的硬件信息。 整件事最棘手的地方在于，黑客是把这个安装助手上架到了真正的微软应用商店，而不是仿冒的假商店。 eSentire…</p><a href="https://www.ithome.com/1/032/932.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>消息称三星电子成立半导体工厂机器人团队，2028 年启动内部部署</h3><p>IT之家 11 月 26 日消息，韩媒 ETNEWS 当地时间今日报道称，三星电子半导体板块 —— DS（设备解决方案）部，已在其全球制造与基础设施总部下设立“机器人团队”，推进机器人技术在半导体工厂中的实际应用。 业内人士透露，目前半导体工厂的前端自动化程度已达 90%、后端也已达到 80%，但 仍需要人来负责零件耗材更换、设备维护等部分工序 。 三星电子计划以内部团队为核心，与外部供应商合作，进一步减少真人的使用， 提高生产效率、增强安全性 。 报道指出，三星电子计划年内遴选合作伙伴，明年进行技术评估， 2028 年开始实际部署 。 相关阅读： 《 消息称三星组建新团队研发芯片工厂机器人，推进半导体工厂自动化转型 》 《 三星电子公布工业 AI 路线图：数字孪生 + 专用机器人，到 2030 年全球制造基地将实现自主化生产 》 参考 https://www.etnews.com/20261126000296</p><a href="https://www.ithome.com/1/032/931.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">IT之家</div><h3>广东：按需有序开展词元（Token）经济，积极推动词元出海</h3><p>IT之家 11 月 26 日消息，广东省政务服务和数据管理局、广东省发展和改革委员会今日印发《广东省算力发展“十五五”规划》，其中提到，带动现代服务向智向新发展。 IT之家注意到，该《规划》还提到依托算力供给能力迭代升级，全力打造一流人工智能企业，推动服务业从“数字赋能”的互联网服务向“智能驱动”的新型服务方式演进。 按需有序开展词元（Token）经济 ， 积极推动词元出海 。加快培育智能原生新模式新业态，推动生产性服务业向专业化和价值链高端延伸，推进生活性服务业高品质多样化便利化发展，促进服务业扩能提质。 此外，该规划还提出健全词元经济制度，推动词元交易规则和流程标准化，完善交易信息披露、动态监测、风险预警机制。用好数据跨境制度规则，支持横琴、前海、南沙、河套四大平台释放跨境数据制度红利，探索“来数加工”与词元跨境结算。</p><a href="https://www.ithome.com/1/032/927.htm" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>图库平台充斥着生成式 AI 图像</h3><p>根据发表在《The Quarterly Journal of Economics》期刊上的一项研究，今天的大型图库平台充斥着生成式 AI 图像。研究针对了一个在 2022 年 12 月允许创作者销售 GenAI 生成图像的大型图库。该图库要求 GenAI 图像必须标记，允许特定市场禁止 GenAI。研究人员分析了这一政策产生的影响。结果发现：图像产量增长了 136%，活跃创作者数量增加了 47%；但传统非 GenAI 图像的产量下降了 15%，非 GenAI 活跃创作者数量减少了 29%。总销售额增长了82%，但非 GenAI 作品的销售额下降了 28%，销售率下滑了 3 个百分点。</p><a href="https://www.solidot.org/story?sid=85999" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">Solidot</div><h3>纽约时报警告摄影师不要升级到内置 AI 功能的 Photoshop</h3><p>《纽约时报》要求自由摄影师不要升级到内置 AI 功能的最新版本 Adob​​e Photoshop，理由是 AI 可能会以用户难以察觉的方式改变照片。《时报》摄影部门负责人 Meaghan Looram 和 Josh Haner 在邮件里指出，结果就是根据照片的元数据照片可能会被标记为 AI 生成。Adobe 过去几年在 Photoshop 等应用中集成了越来越多的 AI 功能，11 月释出的最新版本提供了 AI Assisted Editor 视图，允许用户通过单一工具栏访问 Photoshop 中所有的 AI 功能。对于《纽约时报》等媒体而言，照片编辑被严格控制在最低限度，带有 AI 元数据的照片会损害读者对媒体的信任。《时报》去年曾指出他们主要对照片的色彩进行微调，以确保准确还原图像内容。它现在要求摄影师避免在工作中使用 Adob​​e Photoshop 2027（28.0.0 及后续版本）。</p><a href="https://www.solidot.org/story?sid=85994" target="_blank" rel="noreferrer">查看原文</a></article></div></section><section class="section-card" id="其他-ai-科技动态"><div class="section-head"><h2>其他 AI 科技动态</h2><span>5 条</span></div><p class="section-note">零散动态中仍有值得继续跟踪的信号</p><div class="stories-grid"><article class="story-card"><div class="story-card__source">量子位</div><h3>顶尖商用级AI视频每秒只要5毛！中国开源新势力拿下全球第一</h3><a href="https://www.qbitai.com/2026/11/512916.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>沈向洋刚讲了好多AI非共识啊</h3><a href="https://www.qbitai.com/2026/11/512840.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>AI影视高地正在北影海淀一带崛起，「一人制片厂」基建搭好了</h3><a href="https://www.qbitai.com/2026/11/512828.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>我以为这是摄影作品，你告诉我这是最新的国产AI？！</h3><a href="https://www.qbitai.com/2026/11/512748.html" target="_blank" rel="noreferrer">查看原文</a></article><article class="story-card"><div class="story-card__source">量子位</div><h3>丢个故事就行！直出15分钟AI短片，家里二舅也能上手</h3><a href="https://www.qbitai.com/2026/11/512727.html" target="_blank" rel="noreferrer">查看原文</a></article></div></section>
+
+      <section class="section-card" id="timeline">
+        <div class="section-head"><h2>分源原文索引</h2><span>保留完整时间线，便于回查</span></div>
+        <p class="section-note">这里按媒体来源展开，方便从编辑部视角或来源可靠性视角回看当天信息流。</p>
+        <section class="section-card section-card--source" id="source-量子位"><div class="section-head"><h2>量子位</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 10:07:55 +0000</div><h3>90 秒自动换装补能，具微科技“潘多拉”支撑机器人无人化值守</h3><a href="https://www.qbitai.com/2026/11/512972.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 07:36:04 +0000</div><h3>报名最后2天｜AI浪潮之中，来认识创造未来的人</h3><p>12月6日，WAIC将携手第六届“海聚英才”全球创新创业峰会，把这场关于“人”的讨论带回现场。</p><a href="https://www.qbitai.com/2026/11/512942.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 06:41:23 +0000</div><h3>顶尖商用级AI视频每秒只要5毛！中国开源新势力拿下全球第一</h3><a href="https://www.qbitai.com/2026/11/512916.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 03:23:35 +0000</div><h3>任少卿带着世界模型3.0来了！蔚来智驾训练提效5倍，座舱也用上强化学习</h3><a href="https://www.qbitai.com/2026/11/512897.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 03:13:16 +0000</div><h3>沈向洋刚讲了好多AI非共识啊</h3><a href="https://www.qbitai.com/2026/11/512840.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 02:53:14 +0000</div><h3>AI影视高地正在北影海淀一带崛起，「一人制片厂」基建搭好了</h3><a href="https://www.qbitai.com/2026/11/512828.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 25 Nov 2026 16:34:09 +0000</div><h3>我以为这是摄影作品，你告诉我这是最新的国产AI？！</h3><a href="https://www.qbitai.com/2026/11/512748.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 25 Nov 2026 14:51:06 +0000</div><h3>丢个故事就行！直出15分钟AI短片，家里二舅也能上手</h3><a href="https://www.qbitai.com/2026/11/512727.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-雷锋网"><div class="section-head"><h2>雷锋网</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 10:23:00 +0800</div><h3>国产模型扎进 AI4S 深水区，几毫秒破译尘封18年密码学悬案</h3><p>作者丨 高允毅 编辑丨岑 峰 11月20日， AI for Science 迎来了一个载入史册的日子：Anthropic 数学家联合 Claude 拿下黎曼猜想的关键突破，同一天，以复杂的数学计算著称的密码学领域，也被AI撼动。 据 MiniMax 官方展示， 其最新内部模型 MIM， 接连攻破了多个 NIST 密码 候选方案和顶会最新发表的前沿成果 。 在 TII McEliece 中直接恢复了 94 个私钥，其中 55 个为全球首次攻克。在最受关注的 破译 效率上，速度直接提升了 43400 倍。 MiniMax 的密码分析成果不仅引发了 Anthropic 团队成员的转发与关注，更被哥伦比亚大学终身教授、国际顶尖量子密码学专家 Henry Yuen 作为前沿案例引用，写入了最新学术演讲中。 图注：哥伦比亚大学教授 Henry Yuen 在最新学术演讲，将 MiniMax 的 AI 密码学分析成果作为前沿案例引用，视频直达：https://www.youtube.com/watch?v=tpTp2WVhgJU&amp;t=558s 密码分析被业内视为检验 AI…</p><a href="https://www.leiphone.com/category/yanxishe/T2xmmiMAC6WbuuCM.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 10:09:00 +0800</div><h3>独家 | 华人 CV 先驱权龙二次创业，成立空间与物理 AI 公司「Envision AI」</h3><p>融合语言、 逻辑、几 何、物理规律，要做统一和通用的空间物理原生基模。 作者丨 幸丽娟 编辑丨岑 峰 AI科技评论独家获悉， 香港科技大学计算机科学与工程系教授、前苹果空间智能首席科学家权龙二次创业，成立公司“Envision AI”（格秩科技），进军空间与物理 AI 赛道。 公司的目标，是打造一个通用的空间物理原生基模：基于大语言模型，从视觉出发，把文本、图像、空间与物理信息统一进同一套体系，推动物理 AI “ChatGPT 时刻”的加速到来。 权龙的分量，在计算机视觉圈不需要解释。他 1995 年提出六点算法，是 三维视觉领域最重要的奠基性算法之一 ；1988 年发表 ICCV 华人计算机视觉第一篇论文；先后担任 ICCV 2011、CVPR 2022 两届大会主席，是极少数在计算机视觉三大顶会中担任过两个大会主席的华人学者；IEEE Fellow，谷歌学术引用量超过 2.3 万次。 作为视觉几何世界级奠基者，他是能与 Yann LeCun、李飞飞、沈向洋等海内外知名AI 大佬坐一桌的人物。 学术上将三维视觉做到天花板，产业方面，他与学生方天、姚遥等人的 首次创业成果…</p><a href="https://www.leiphone.com/category/academic/S12DTjaFWmIPkwCk.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 09:35:00 +0800</div><h3>机器人量产背后，物理AI开始算新账：研发底座何必各自建？</h3><p>2026年，人形机器人加速走出实验室。 但是让机器人在真实世界产生价值，依然复杂而成本高昂。 从数据采集、物理仿真到模型训练、真机验证，机器人每掌握一项新技能，背后都可能是一整套研发流程的反复运转。 更复杂的是，这些能力分散在不同的专业厂商手中。产业分工越来越细，如何将分散的技术能力组织起来，反而成了一道新的难题。 当机器人开始规模化交付，产业需要解决的不只是如何造出更多机器人，还有如何让更多企业以更低的成本训练机器人。 这也让物理AI产业出现了一个新的机会：谁有能力将分散的研发资源组织成可复用的基础设施，谁就有机会成为产业链上的重要组织者。 九章云极正尝试从算力供应商向物理AI开发平台延伸，通过物理AI工厂、生态联盟和标准化接口，参与这场产业分工的重构。 01 机器人越造越多，研发底座开始走向共建 《2026年人形机器人产业发展报告》显示，今年上半年，中国人形机器人出货量已超过4万台。 机器人走出实验室后，需要掌握更多技能，适应不同的工作环境。每进入一个新的应用场景，机器人企业都可能需要开发新的技能，研发任务也随之增加。 这背后是一条需要不断重复的研发链。…</p><a href="https://www.leiphone.com/category/chips/HQvbSEUnkDy0Tos9.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 09:30:00 +0800</div><h3>一月只开工两三天！奥迪中国回应长春工厂产能利用率跌破10%；Anthropic创始人兄妹上市次日套现37亿；小鹏智驾拟开启全球付费订阅</h3><p>要闻提示 1.Anthropic创始人兄妹上市次日套现37亿元 2.一月只开工两三天，被称“幽灵工厂”！奥迪中国回应长春工厂产能利用率跌破10% 3.打脸自己？小鹏图灵AI智驾将于明年二季度开启全球收费订阅 4.希音披露美国FTC调查最新进展：将向美国财政部支付1亿美元 5.B站陈睿回应短剧冲击：我们没受影响 6.华为将展示自研HBM、逻辑堆叠等技术 7.特朗普称美国政府入股英伟达犹未为晚，自称早就想过但一直没说 8.韩国SK集团董事长崔泰源前妻拒绝“9440亿韩元和解建议” 今日头条 Anthropic创始人兄妹上市次日套现37亿元 11 月 25 日消息，据报道，根据监管文件，人工智能巨头Anthropic的首席执行官兼联合创始人达里奥·阿莫代伊（Dario Amodei）在该公司上市次日出售了价值2.804亿美元的股票。与此同时，他的妹妹兼公司联合创始人丹妮拉·阿莫代伊（Daniela Amodei）也披露了同等规模的股票出售。二人合计套现5.6亿美元（约合人民币37亿元）。…</p><a href="https://www.leiphone.com/category/zaobao/TaYBp58OxQSPMi10.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 25 Nov 2026 22:15:00 +0800</div><h3>算力唤醒真实世界：九章云极发布物理AI工厂与生态开放计划</h3><p>11月25日，以“算力唤醒真实世界”为主题的2026物理AI行业峰会暨九章云极智算生态大会在深圳举行。会议由九章云极DataCanvas主办，深圳市龙华区工业和信息化局支持，清华大学互联网产业研究院为学术指导单位。来自标准机构、高校与科研院所、投资机构，以及机器人本体、世界模型、仿真软件、智算云等领域的上百位嘉宾代表出席。中国电子技术标准化研究院副院长范科峰，深圳市龙华区委常委、常务副区长张智，九章云极DataCanvas董事长方磊分别致辞。 会议聚焦的核心命题是：当机器人、世界模型与仿真软件相继通过技术验证，物理AI如何跨越从实验室到产线的产业化鸿沟。答案集中在两个方向：以工程化能力将算力组织为生产体系的物理AI工厂，以及将产业链专业能力联结为整体协作的物理AI生态。 范科峰指出，物理AI正在加速连接数字世界与物理世界，跨域协同对标准供给提出了迫切要求，数据接口、通信协议、安全边界等标准化问题将愈发突出，坚持标准先行，才能为物理AI的规模化落地提供关键支撑。 中国电子技术标准化研究院副院长范科峰致辞…</p><a href="https://www.leiphone.com/category/chips/Qz3QPf26nVIVA0ga.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 25 Nov 2026 22:01:00 +0800</div><h3>中国算力采购信心指数启动 九章云极核心共建算力市场先行指标</h3><p>11月25日，在2026物理AI行业峰会暨九章云极智算生态大会上，中国经济信息社新华指数研究院副院长周宇涵宣布“中国算力采购信心指数”正式启动。北京九章云极科技股份有限公司（下称“九章云极”）作为核心共建单位，参与指数体系搭建。 当前，中国算力产业正处于高速增长与结构性调整并行的阶段。我国智能算力规模高速增长，但训练与推理、东西部布局、层级供需三重错配依然存在，算力租赁价格波动加剧。对于算力需求方，采购决策往往依赖于分散的市场信息，难以形成对行业整体景气程度的系统认知；对于算力供给方，产能规划与定价策略同样缺少来自真实交易一线的反馈信号。市场需要一个能够回答“下个季度需求是扩张还是收缩”的先行指标。算力采购信心指数正是针对这一信息缺口而生：它以景气调查捕捉市场预期，与记录真实成交价格的全球算力价格指数互为补充——一个着眼预期，一个着眼交易，共同拼出算力市场的完整图景。此前，九章云极作为核心共建单位参与了全球算力价格指数的编制建设，这套方法论经验也延续到了采购信心指数的共建之中。…</p><a href="https://www.leiphone.com/category/chips/G3lWNUyVJphxOTU2.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 25 Nov 2026 21:59:00 +0800</div><h3>九章云极携手多方战略合作，物理AI工厂生态协作走进真实场景</h3><p>11月25日，在2026物理AI行业峰会暨九章云极智算生态大会上，北京九章云极科技股份有限公司（九章云极DataCanvas，下称“九章云极”）与深圳市龙华区工业和信息化局、北京清程智汇有限公司、深圳市怡亚通供应链股份有限公司签署物理AI工厂项目战略合作协议；另外两场签约中，九章云极分别与佳都科技集团股份有限公司、北京数字政通科技股份有限公司签署AI算力产业协同战略合作协议。 物理AI正处在一个关键节点：机器人、世界模型与仿真软件相继通过技术验证，但跨过从实验室到产线的鸿沟，需要的不仅是算法突破，更是工程化的系统能力。模型在仿真环境里跑得再好，到了真实产线上也可能因为环境噪声、传感器误差和动力学差异而失效。 问题在于，验证必须在真实场景中完成。但真实场景分散在政府、制造企业、科研机构和服务商手中，单一厂商无法同时握有场景、研究能力和算力底座，产业链的协作机制尚未建立。大会现场的系列签约，让物理AI的验证环境有了多方共建的载体。 共建龙华物理AI工厂项目，搭起“场景—研究—基础设施”协作链…</p><a href="https://www.leiphone.com/category/chips/JWelmQaWCBCTOJi3.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 25 Nov 2026 21:56:00 +0800</div><h3>九章云极开放两大接口，携手伙伴共建物理AI产业生态</h3><p>11月25日，在2026物理AI行业峰会暨九章云极智算生态大会上，九章云极DataCanvas宣布面向物理AI开放Physical AI Infra API和Physical AI Dev API两大接口，并联合二十余家产业伙伴成立极光物理AI产业生态联盟，推动技术连接与产业协作。 两大接口分别面向物理AI的智算基础设施和专业开发工具。Physical AI Infra API面向基础设施层，提供异构算力资源的标准化接入、管理与调度能力；Physical AI Dev API则连接仿真、数据生成、模型训练与验证等专业工具和底层算力，降低研发环节的适配与协同成本。 与接口开放同步推进的，是产业协作网络的建立。极光物理AI产业生态联盟由九章云极发起，在深圳龙华区成立，学术指导单位为北京大学软件工程国家工程研究中心，理事单位包括亿欧、中国质检院人工智能检测中心等，首批成员企业来自机器人本体、世界模型、仿真平台、科研机构及智算云服务等领域，覆盖从技术研究、工具开发到产业应用的多个环节。…</p><a href="https://www.leiphone.com/category/chips/omZ0PFr6zVtmUnap.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 25 Nov 2026 21:51:00 +0800</div><h3>多模型协同落地，浙江人形 NAVIAI 提升长序列任务作业稳定性</h3><p>具身智能要真正走进现实世界，一个足够聪明的“大脑”还不够。 与以信息处理为主的数字世界不同，物理世界充满动态变化与不确定性。机器人不仅要理解任务，还要应对物体状态、接触条件和环境的变化，将认知判断转化为可靠的物理操作。模型具备强大的认知能力，并不意味着机器人就能胜任真实作业；面对多环节、长流程任务，单一模型或孤立技能难以独立应对，需要多种模型与技能协同配合，才能实现可靠的任务交付。 面向物理环境中的动态变化、多环节任务与复杂交互，浙江人形机器人创新中心有限公司（以下简称“浙江人形”）对原有 SPIRE 体系进行迭代升级，推出 SPIRE 2.0全链路任务对齐具身智能体系。 新体系以 NaviDataset 积累真实作业数据，通过 NaviRepresentation 开展任务导向的环境描述，帮助机器人理解作业环境；再由 NaviPolicy 打通动作控制，构建灵活自主的闭环作业能力，并通过 NaviAssistant 协调不同模型，最终将能力沉淀为可复用、可组合的 NaviSkillLib 技能库，贯通从数据积累、任务理解到模型协同与实际应用的完整链路。 数据筑基，让机器人学得更有效…</p><a href="https://www.leiphone.com/category/industrynews/KnGzlsg6xlU9Nnpk.html" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 25 Nov 2026 19:04:00 +0800</div><h3>元材新界发布 FrontierMat：330 道真实研发难题难住 GPT-6 Astra，自研跨尺度材料大模型登顶</h3><p>今年 10 月，在美国得克萨斯州的 SpaceX 测试基地，马斯克让一辆特斯拉 Roadster“飞”了起来。支撑这次腾空的高压气体，其核心储能部件，正是塞满车身空间的碳纤维缠绕的复合材料压力容器。 从飞行汽车、大飞机到聚变装置，极端工况下先进装备的上限，归根结底受制于材料研发的边界。而材料研发有一个绕不开的特点： 答案从来不在同一个尺度上 。 一只复合材料容器能承受多大的压力，要从原子尺度的界面键合与缺陷，看到微米尺度的纤维构型、晶粒与孔隙，再到米级构件的整体响应，前后跨越近十个数量级。业内把这条链路称为“成分—结构—工艺—性能”的构效关系。真实的材料研发，本质上就是在这条链路上做跨尺度推理。 但今天用来衡量大模型“懂不懂材料”的基准，考的还是教科书和考试题。没有来自真实研发的考卷，就无从判断模型能不能做真实的材料研究，更谈不上训练出这样的模型。 近日，元材新界（MATARIA）联合清华大学、北京大学、中国科学技术大学、上海交通大学、哈尔滨工业大学、西北工业大学、武汉理工大学、南洋理工大学等高校团队，以及多家头部产业公司，发布了 FrontierMat…</p><a href="https://www.leiphone.com/category/industrynews/GMIW0ZLuJPyQHSR4.html" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-36氪"><div class="section-head"><h2>36氪</h2></div><div class="source-list"><article class="source-item"><h3>[解析失败] https://36kr.com/feed</h3><p>not well-formed (invalid token): line 10, column 168</p></article></div></section><section class="section-card section-card--source" id="source-it之家"><div class="section-head"><h2>IT之家</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 10:52:40 GMT</div><h3>OpenAI 再度抛出重要数学成果：宣称证明矩阵乘法指数为 9/4</h3><p>IT之家 11 月 26 日消息，OpenAI 本月 24 日再度抛出一项重要数学成果， 宣称其已证明矩阵乘法指数 ω 恰好为 9/4 。该企业已在今年 10 月证得 ω≤9/4，此次则证得 ω≥9/4，从而得到 ω=9/4。 矩阵乘法指数 ω 描述的是：当 n 足够大时，两个 n×n 矩阵相乘最优算法所需算术运算次数随 n 增长的渐进幂指数；更严格地说，ω 是所有可达复杂度指数的下确界。 矩阵乘法 应用广泛 ，在机器学习、图像处理等领域都可以找到其身影。ω 不仅刻画矩阵乘法理论算法在渐进意义下的最优指数，也 与其它一系列重要复杂度问题相关 。 若 OpenAI 的证明无误，则： 对任意 X＞9/4，存在一种矩阵乘法算法及常数 C X ＞0，使得对所有充分大的 n ，其算术运算次数不超过 C x · n x ； 对任意 Y＜9/4，不存在一种矩阵乘法算法及常数 C Y ＞0，使得对所有充分大的 n，其算术运算次数不超过 C Y · n Y 。 需要注意的是，ω 是一个渐进量，对应着矩阵规模趋于无穷大时的结果。实际应用中还受到常数因子、内存访问、并行计算、硬件结构等因素影响。 参考…</p><a href="https://www.ithome.com/1/033/050.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 10:14:51 GMT</div><h3>华为乾崑智驾累计辅助驾驶里程突破 180 亿公里</h3><p>IT之家 11 月 26 日现场消息，华为乾崑生态大会将于今晚举行。IT之家已前往大会现场，稍后将带来华为乾崑技术最新情报。 值得一提的是，在活动现场，华为竖起了一块大屏，实时展示了华为乾崑智驾累计辅助驾驶里程数 —— 目前已突破 183 亿公里 。 华为官方表示，在辅助驾驶状态下，平均安全行驶里程是中国人驾平均值（推算）的 6 倍。 IT之家注意到，华为官网显示，华为乾崑智驾累计辅助驾驶里程已突破 183 亿 3979 万公里、搭载乾崑智驾车辆累计行驶总里程突破 508 亿 6757 万公里、乾崑智驾累计主动避免可能的碰撞超 718 万 0102 次（数据实时刷新中）。</p><a href="https://www.ithome.com/1/033/024.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 10:08:30 GMT</div><h3>华为鸿蒙星河互联“碰哪传哪”揭秘：行业首创屏幕智感交互，三大技术协同工作</h3><p>IT之家 11 月 26 日消息，去年 6 月，在 HDC 2025 主题演讲中，华为终端 BG 首席执行官何刚宣布 HarmonyOS 6 将推出全新“碰一碰”功能 —— 通过屏幕智感技术，华为手机用户只需轻贴电脑屏幕即可实现文件秒传，且支持碰哪里就传在哪里的效果。 在昨日下午的 HarmonyOS 创新技术沟通会上，华为 Fellow、HarmonyOS 首席架构师李世军揭秘了鸿蒙星河互联“碰哪传哪”功能背后的技术原理。 据介绍，华为鸿蒙电脑为实现设备融合感知， 通过微电容测量、IMU、近距感知三大技术联合检测 ，行业首创屏幕智感交互，并带来了一碰传、键鼠共享、跨设备剪贴板、接续等功能。 IT之家注意到，华为还通过自研 HML 协议，构建了全场景资源调度中枢，实现了多对多对等通信（无需中转）、低时延（速率＞90MB/s）、动态节能（功耗＜10mA）等特性。</p><a href="https://www.ithome.com/1/032/996.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 09:56:36 GMT</div><h3>微软新专利公布：将天线阵列集成到手机屏幕玻璃内部，或为 Surface Phone 铺路</h3><p>IT之家 11 月 26 日消息，美国专利商标局于 11 月 12 日披露了微软一项手机屏幕专利 US 2026/0360990 A1，微软在该专利中提出“将天线阵列直接集成到屏幕玻璃内部”， 有望在不增加机身厚度的情况下，为手机容纳下尺寸更大的天线阵列，以改善信号情况 。 众所周知，智能手机内部空间十分有限，厂商通常需要通过缩小天线尺寸、让不同无线通信功能共用天线，或者直接取消毫米波（mmWave）、超宽带（UWB）等功能来控制内部空间占用。微软此次提出的方案则尝试利用屏幕玻璃本身，为天线提供额外的安装位置。 根据专利描述，该方案首先在屏幕玻璃背面加工出一处局部减薄区域，再将天线层安装在玻璃背面，使其至少部分嵌入减薄区域。由于玻璃正面仍保持平整，用户正常使用时不会看到明显凹陷，也不会感受到表面存在高度差。 专利给出的一个示例中，天线所在区域的玻璃厚度为 0.4 毫米，其余区域则为 1.2 毫米，部分权利要求还将减薄区域的厚度限定在 0.5 毫米以下。此外，厂商还可以通过黑色遮光层等装饰材料遮挡内部结构，避免天线区域从屏幕正面显现。…</p><a href="https://www.ithome.com/1/032/985.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 09:42:01 GMT</div><h3>版本推送时还有新功能：华为 WATCH GT 6 系列手表获“高血糖风险评估”下放</h3><p>IT之家 11 月 26 日消息，本月早些时候，华为官方宣布， HUAWEI WATCH GT 6 系列手表推出鸿蒙 HarmonyOS 7.0.0.108 SP8 版本升级 ，开始分批推送给 6.1.0.117 SP6 / 6.1.0.118 SP10 / 7.0.0.107 SP7 / 7.0.0.107 SP10 / 7.0.0.107 SP13 版本上的用户。 在官方当时发布的更新日志中，新版本主要带来了手表支持微信来电接听和挂断、增强录音机同步能力，以及支持耳机与手表配对同步功能。 IT之家注意到，目前新版本已开启陆续推送，最新的更新日志显示，该款手表还下放了“高血糖风险评估”功能。完整更新日志如下： 新增 1.配对 HarmonyOS 7.0.0.115 及以上版本的手机，手表支持微信来电接听和挂断（请将华为运动健康应用更新至 17.0.10.165 及以上版本，运动健康服务更新至 17.0.10.300 及以上版本）。 2. 华为创新研究应用新增血糖健康研究项目，可在手表侧直接启动高血糖风险评估 。 3.增强录音机同步能力，支持录音文件同步至安卓、iOS 手机的华为运动健康应用，可在华为运动健康应用 &gt;…</p><a href="https://www.ithome.com/1/032/979.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 09:05:52 GMT</div><h3>蔚来李斌谈小鹏智驾即将付费：买小鹏就趁早，非常高兴看到小鹏走付费订阅的商业模式</h3><p>IT之家 11 月 26 日消息，在 11 月 25 日的「Origin 原点」2026 小鹏科技日活动中， 小鹏集团董事长、CEO 何小鹏宣布 ， 小鹏图灵 AI 智驾将于 2027 年第二季度面向全球新购车用户提供订阅服务 ，服务开启前下订用户，智驾权益终身不变。 据新浪科技今日报道，蔚来创始人、董事长、CEO 李斌对此发表了评价。对于小鹏即将开启的智驾付费模式，李斌直言：“ 买小鹏就趁早 ”。 李斌也透露：“现在我们的（智能辅助驾驶）付费订阅率我还是比较满意的，主要是来自二手车的用户，因为新车主目前都还在免费期。 我认为 AD（智能辅助驾驶）的订阅是非常有必要的商业方式 ，AD 不停地需要维护、需要迭代，越往后要花的钱越多的。” 李斌强调：“如果没有一个可持续的商业模式去支持这件事情，我认为这些承诺是假的，因为到最后要花好多钱，而且越往后，你的分支越多，对用户的责任是巨大的。” 他还表示：“我认为反映智能驾驶的技术好不好使，就看两件事，一是用户愿不愿意付费（订阅率），另外一个是事故率。以后都不用搞评比了，用户愿不愿意付钱是真的。 非常高兴看到越来越多的公司，包括小鹏选择走订阅的商业模式 。”…</p><a href="https://www.ithome.com/1/032/949.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 08:59:43 GMT</div><h3>1GB 文件近场约 5 秒传完：华为鸿蒙星河互联支持高吞吐 &amp; 高能效技术，并发峰值 250MB/s</h3><p>IT之家 11 月 26 日消息，在昨日下午的 HarmonyOS 创新技术沟通会上，华为 Fellow、HarmonyOS 首席架构师李世军分享了鸿蒙在互联方面的探索。 据介绍，过去分布式主要聚焦鸿蒙 HarmonyOS 设备，而现在进一步升级为鸿蒙星河互联，不仅可以连 HarmonyOS 设备，而且可以连接更多的 OpenHarmony 生态设备， 同时开放了跨 OS 的互通能力 。 李世军称，鸿蒙星河互联主要聚焦分享、设备协同和生态开放三个方面。而在分享方面，鸿蒙星河互联支持近场和远程两种分享模式。 其中，近场分享支持“临时组网，即用即拆；传输迅速，减少等待；步骤简洁，符合直觉”特性。同时，近场通信还采用了高吞吐 &amp; 高能效技术， 并发峰值达 250MB/s 。这意味着 1GB 文件约 5 秒时间就可以传完。 分布式软总线 + WiFi：快速唤醒芯片 New IP 协议 + BitMap 编码：通途协议 2.4GHz + 5GHz：多径双路并发 蓝牙 + WiFi：实时负载均衡 李世军还在现场提到，基于上述技术，华为相较友商 A 多并发场景传输更快， 传输速率在实验室环境是 4 倍、日常环境是 2.7 倍…</p><a href="https://www.ithome.com/1/032/945.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 08:52:18 GMT</div><h3>沃尔沃把人形机器人送进工厂：先学干活，明年年中正式上岗</h3><p>IT之家 11 月 26 日消息，沃尔沃汽车希望用人形机器人取代部分工厂工人，这些机器人能够做那些重复性高、体力消耗大的活儿，而且它们不会抱怨腰疼。 为了实现这个目标，这家车企已经把首批 Aeon 机器人运进了位于比利时根特的工厂，目前由工作人员带着它们学习各种任务。沃尔沃表示，目标是让机器人为员工分担重复性和“在人体工学上具有挑战的工作”。 固定式机械臂在汽车工厂里已经用了几十年，但如今一些品牌开始投入大量时间和资金，研发由人工智能驱动、能处理零件位置并不总是完全固定的任务的机器人。业内所称的“取放”类工作，正逐步交给机器人。特斯拉、通用汽车、福特和 Rivian 都在慢慢把复杂的机器人部署到自家工厂。 沃尔沃也不例外。这家瑞典车企透露，运抵根特工厂的首批人形机器人目前只是在进行训练，从 2027 年中期起，它们将逐渐开始在真实工况下干活。 眼下，沃尔沃汽车正用模仿学习的方式，教机器人如何把特定零件高精度地拿起并放进两个固定工位。整个学习过程中，团队会逐步提高难度：增加零件数量、让机器人在生产区域里移动，以及与工厂的自动化系统交互。 沃尔沃汽车首席制造官马格努斯 · 尼尔松（Magnus Nilsson）说：“Aeon…</p><a href="https://www.ithome.com/1/032/939.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 08:34:22 GMT</div><h3>黑客借微软应用商店分发恶意应用，微软被指以未违反条款为由拒绝下架</h3><p>IT之家 11 月 26 日消息，据 Neowin 报道，网络攻击者最常用的社会工程学手段之一，就是仿冒正规网站或服务。 网络安全公司 eSentire 近期发现一个恶意软件投放活动，黑客哄骗用户下载自认为是微软截图工具的程序。然而用户从虚假下载站拿到的安装包，实际会引导安装一款名叫安装助手（Setup Assistant）的应用，而这款应用就上架在真实的微软应用商店内。 IT之家注意到，从该应用商店页面截图以及 eSentire 的分析来看，攻击者并没有在页面包装上花太多心思。整体观感非常像速成产物，界面风格就像是直接给了大语言模型一句提示词，一键生成出来的应用或网页。应用描述同样粗制滥造，毫无巧思。 值得注意的是，这个安装助手本身并不是本次事件里危害最高的恶意程序。它更相当于一个后门，会在 Windows 系统里创建计划任务，进而投放 Vinci 远程访问木马。这款基于 PowerShell 的远程木马可以让攻击者远程执行命令、运行可执行文件，还能收集受感染电脑的硬件信息。 整件事最棘手的地方在于，黑客是把这个安装助手上架到了真正的微软应用商店，而不是仿冒的假商店。 eSentire…</p><a href="https://www.ithome.com/1/032/932.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 08:32:20 GMT</div><h3>消息称三星电子成立半导体工厂机器人团队，2028 年启动内部部署</h3><p>IT之家 11 月 26 日消息，韩媒 ETNEWS 当地时间今日报道称，三星电子半导体板块 —— DS（设备解决方案）部，已在其全球制造与基础设施总部下设立“机器人团队”，推进机器人技术在半导体工厂中的实际应用。 业内人士透露，目前半导体工厂的前端自动化程度已达 90%、后端也已达到 80%，但 仍需要人来负责零件耗材更换、设备维护等部分工序 。 三星电子计划以内部团队为核心，与外部供应商合作，进一步减少真人的使用， 提高生产效率、增强安全性 。 报道指出，三星电子计划年内遴选合作伙伴，明年进行技术评估， 2028 年开始实际部署 。 相关阅读： 《 消息称三星组建新团队研发芯片工厂机器人，推进半导体工厂自动化转型 》 《 三星电子公布工业 AI 路线图：数字孪生 + 专用机器人，到 2030 年全球制造基地将实现自主化生产 》 参考 https://www.etnews.com/20261126000296</p><a href="https://www.ithome.com/1/032/931.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 08:26:38 GMT</div><h3>让 Hy4 flash 吐字提速 4.2 倍，腾讯混元开源新一代草稿模型 DFly2</h3><p>IT之家 11 月 26 日消息，腾讯混元团队今日开源新一代草稿模型 DFly2。 官方表示，DFly2 不替换 Hy4 flash，作用更像是挂在旁边的加速组件， 可以在保持模型权重不变、输出不变的前提下，让模型吐字速度成倍提升 。 DFly2 专为 DSA 类稀疏注意力大模型和长上下文场景设计，适配 Hy4 flash 的权重及完整训练代码同步开源。 据介绍，DFly2 实现了： 同等训练条件下表现更优 ：Hy4 flash 在 19 个公开评测集上，DFly2 的接收长度与加速比整体优于 DFlash 与 DSpark，长文与 Agentic 优势更明显，平均加速比较 DSpark 分别高约 12% 与 30%， 单项最高提速 4.2× 。 对比开源方案同样占优 ：与主流开源模型自带的 DSpark 相比，Hy4 flash 的 DFly2 在 Agentic 与真实任务（WorkBuddy）上接收长度领先 10.4% 。 官方表示，DFly2 最大的亮点是极致复用目标模型：每个 draft 层直接共享目标模型对应稀疏注意力层的 KV cache（KV Share）和 indexer 选出的至多 2,048…</p><a href="https://www.ithome.com/1/032/929.htm" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 08:22:28 GMT</div><h3>广东：按需有序开展词元（Token）经济，积极推动词元出海</h3><p>IT之家 11 月 26 日消息，广东省政务服务和数据管理局、广东省发展和改革委员会今日印发《广东省算力发展“十五五”规划》，其中提到，带动现代服务向智向新发展。 IT之家注意到，该《规划》还提到依托算力供给能力迭代升级，全力打造一流人工智能企业，推动服务业从“数字赋能”的互联网服务向“智能驱动”的新型服务方式演进。 按需有序开展词元（Token）经济 ， 积极推动词元出海 。加快培育智能原生新模式新业态，推动生产性服务业向专业化和价值链高端延伸，推进生活性服务业高品质多样化便利化发展，促进服务业扩能提质。 此外，该规划还提出健全词元经济制度，推动词元交易规则和流程标准化，完善交易信息披露、动态监测、风险预警机制。用好数据跨境制度规则，支持横琴、前海、南沙、河套四大平台释放跨境数据制度红利，探索“来数加工”与词元跨境结算。</p><a href="https://www.ithome.com/1/032/927.htm" target="_blank" rel="noreferrer">原文链接</a></article></div></section><section class="section-card section-card--source" id="source-solidot"><div class="section-head"><h2>Solidot</h2></div><div class="source-list"><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 16:50:12 +0800</div><h3>图库平台充斥着生成式 AI 图像</h3><p>根据发表在《The Quarterly Journal of Economics》期刊上的一项研究，今天的大型图库平台充斥着生成式 AI 图像。研究针对了一个在 2022 年 12 月允许创作者销售 GenAI 生成图像的大型图库。该图库要求 GenAI 图像必须标记，允许特定市场禁止 GenAI。研究人员分析了这一政策产生的影响。结果发现：图像产量增长了 136%，活跃创作者数量增加了 47%；但传统非 GenAI 图像的产量下降了 15%，非 GenAI 活跃创作者数量减少了 29%。总销售额增长了82%，但非 GenAI 作品的销售额下降了 28%，销售率下滑了 3 个百分点。</p><a href="https://www.solidot.org/story?sid=85999" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Thu, 26 Nov 2026 14:32:38 +0800</div><h3>纽约时报警告摄影师不要升级到内置 AI 功能的 Photoshop</h3><p>《纽约时报》要求自由摄影师不要升级到内置 AI 功能的最新版本 Adob​​e Photoshop，理由是 AI 可能会以用户难以察觉的方式改变照片。《时报》摄影部门负责人 Meaghan Looram 和 Josh Haner 在邮件里指出，结果就是根据照片的元数据照片可能会被标记为 AI 生成。Adobe 过去几年在 Photoshop 等应用中集成了越来越多的 AI 功能，11 月释出的最新版本提供了 AI Assisted Editor 视图，允许用户通过单一工具栏访问 Photoshop 中所有的 AI 功能。对于《纽约时报》等媒体而言，照片编辑被严格控制在最低限度，带有 AI 元数据的照片会损害读者对媒体的信任。《时报》去年曾指出他们主要对照片的色彩进行微调，以确保准确还原图像内容。它现在要求摄影师避免在工作中使用 Adob​​e Photoshop 2027（28.0.0 及后续版本）。</p><a href="https://www.solidot.org/story?sid=85994" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 25 Nov 2026 23:54:33 +0800</div><h3>EA Sports FC 利用 AI 数字重现已故解说员 John Motson 的声音</h3><p>EA 透露其足球游戏《EA Sports FC 27》利用 AI 数字重现了已故解说员 John Motson 的声音。Motson 于 2023 年去世，他曾长期担任 BBC Sport 首席解说员，也曾为 EA 足球游戏解说。在其遗孀和儿子的许可下，EA 利用其过去的录音资料与生成式 AI 技术合成了他的声音。该内容将于 11 月 26 日上线《EA Sports FC 27》。EA 向 Motson 的家人支付了费用以获得使用其形象及重现其声音的权利，但未透露具体财务条款。</p><a href="https://www.solidot.org/story?sid=85993" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 25 Nov 2026 23:26:31 +0800</div><h3>Claude 和 ChatGPT 在蛋白质结构预测和设计上挑战 AlphaFold</h3><p>AI 生物科技公司 Phylo 研究员 Xinming Tu 本月初使用 OpenAI、Anthropic 和 Google 的大模型测试了它们预测鲜为人知细菌蛋白质序列的能力。他让分析程序运行了整晚，第二天对结果非常吃惊。Anthropic 最新版本的Claude 表现不仅优于其它大模型，而且超过了针对蛋白质序列训练过的专门工具。他与哈佛医学院的 Leo Chen 分享的这一发现在计算生物学界引发了热议。本周二 OpenAI 宣布其最新大模型成功设计出新蛋白质，在实验室合成和测试时部分新蛋白质的行为和预期一样。该研究引发了 生物 AI 未来的讨论，部分科学家预测 Claude 和 ChatGPT 之类的通用模型在蛋白质结构预测和设计等任务上可能会超越 AlphaFold 等专用工具。也有研究人员对此提出质疑，认为大模型展现出的部分能力可能只是训练数据的机械重复。</p><a href="https://www.solidot.org/story?sid=85992" target="_blank" rel="noreferrer">原文链接</a></article><article class="source-item"><div class="source-meta">Wed, 25 Nov 2026 17:49:29 +0800</div><h3>日本政府开发智能体打击盗版动漫</h3><p>日本文化厅正在测试一款 AI 智能体去自动识别和标记可能包含非法或盗版内容的动漫网站。测试结果显示其准确率极高。2025 财年针对国内的一项调查显示，AI 标记的 1168 条可疑 X 推文有 84% 是非法内容；AI 检测的 1564 个动画网站中 89% 含有盗版动画；1935 个漫画网站中盗版漫画比例高达 94%。2026 财年日本政府将监测范围扩大至海外。日本政府计划最早于 2027 年 3 月汇总并公布最新调查结果。</p><a href="https://www.solidot.org/story?sid=85988" target="_blank" rel="noreferrer">原文链接</a></article></div></section>
+      </section>
+
+      <section class="section-card" id="errors"><div class="section-head"><h2>抓取异常</h2><span>不影响当期页面生成</span></div><ul class="error-list"><li class="error-item"><strong>36氪</strong><span>[解析失败] https://36kr.com/feed</span><em>not well-formed (invalid token): line 10, column 168</em></li></ul></section>
+      <div class="footer-note">本页由本地脚本自动生成，可配合 launchd 每日运行；纯文本备份与归档页同目录可用。</div>
+    </main>
+  </div>
+</body>
+</html>
